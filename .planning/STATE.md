@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: discussing
-stopped_at: Created initial MVP roadmap and state files.
-last_updated: "2026-06-12T07:34:37.292Z"
-last_activity: 2026-06-12 -- Phase 3 complete, ready for Phase 4 discussion
+status: executing
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-06-12T08:25:58.249Z"
+last_activity: 2026-06-12 -- Phase 04 execution started
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 10
-  completed_plans: 10
-  percent: 60
+  total_plans: 13
+  completed_plans: 11
+  percent: 85
 ---
 
 # Project State
@@ -21,22 +21,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-12)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 4: Validation Hardening discussion
+**Current focus:** Phase 04 — validation-hardening
 
 ## Current Position
 
-Phase: 4 of 5 (validation hardening)
-Plan: Not started
-Status: Ready for discussion
-Last activity: 2026-06-12 -- Phase 3 complete, ready for Phase 4 discussion
+Phase: 04 (validation-hardening) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
+Last activity: 2026-06-12 -- Phase 04 execution started
 
-Progress: [██████░░░░] 60%
+Progress: [█████████░] 85%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 10
+- Total plans completed: 11
 - Average duration: -
 - Total execution time: 0.0 hours
 
@@ -54,6 +54,7 @@ Progress: [██████░░░░] 60%
 - Trend: Ready for next phase discussion.
 
 *Updated after each plan completion*
+| Phase 04-validation-hardening P01 | 5min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,8 @@ Recent decisions affecting current work:
 - [Phase 2]: Keep Xiaohei canonical files under `ian-xiaohei-illustrations/references/ips/xiaohei/` while root `references/*.md` remain legacy-compatible.
 - [Phase 3]: Land Littlebox as a full vertical IP slice with attribution in the same phase.
 - [Phase 4]: Keep validation lightweight and runnable without a full app framework.
+- [Phase 4]: Use a dependency-free Node validator with synchronous local file reads.
+- [Phase 4]: Export parser helpers from the validator script so parser behavior can be smoke-tested directly.
 
 ### Pending Todos
 
@@ -87,6 +90,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12 11:22 CST
-Stopped at: Created initial MVP roadmap and state files.
+Last session: 2026-06-12T08:25:58.246Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None
