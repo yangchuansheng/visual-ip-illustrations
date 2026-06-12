@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
 status: verifying
-stopped_at: Phase 8 context gathered
-last_updated: "2026-06-12T19:23:12.971Z"
+stopped_at: Completed 08-01-PLAN.md
+last_updated: "2026-06-12T19:59:24.113Z"
 last_activity: 2026-06-12
 progress:
   total_phases: 5
-  completed_phases: 2
-  total_plans: 6
-  completed_plans: 6
-  percent: 40
+  completed_phases: 3
+  total_plans: 7
+  completed_plans: 7
+  percent: 60
 ---
 
 # Project State
@@ -63,6 +63,7 @@ Progress: [███████░░░] 67%
 | Phase 06 P02 | 2min4s | 2 tasks | 4 files |
 | Phase 06 P03 | 4min | 3 tasks | 5 files |
 | Phase 07 P01 | 2min11s | 2 tasks | 4 files |
+| Phase 08 P01 | 34min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,9 @@ Recent decisions affecting current work:
 - [Phase 07]: Tom canonical foundation files stay route-local under ian-xiaohei-illustrations/references/ips/tom/. — Plan 07-01 creates only index.md, style-dna.md, and tom-ip.md inside the Tom pack.
 - [Phase 07]: Tom route status remains gated-authorized, with rights.md as the operational rights authority. — All three Tom foundation files repeat the route status and rights-status note.
 - [Phase 07]: Phase 7 Plan 01 defines solo Tom article-illustration identity and leaves controller, public docs, examples, metadata, and validator hardening to later phases. — The plan scope fences D-27 through D-29 were preserved.
+- [Phase 08]: Xiaohei remains the only omitted-IP default while Tom stays explicit with default=false.
+- [Phase 08]: Tom controller behavior consumes references/routing.md and the route-local Tom pack while public docs and validators stay scoped to later phases.
+- [Phase 08]: Tom delivery keeps gated-authorized and references/ips/tom/rights.md visible as route context.
 
 ### Pending Todos
 
@@ -105,6 +109,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T19:23:12.968Z
-Stopped at: Phase 8 context gathered
-Resume file: .planning/phases/08-skill-controller-integration/08-CONTEXT.md
+Last session: 2026-06-12T19:59:12.520Z
+Stopped at: Completed 08-01-PLAN.md
+Resume file: None

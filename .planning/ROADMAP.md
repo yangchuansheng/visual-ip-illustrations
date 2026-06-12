@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 6: Tom Rights and Route Contract** - Maintainers get Tom rights boundaries, route status, aliases, route metadata, and public-sample gates before broad release. (completed 2026-06-12)
 - [x] **Phase 7: Tom Canonical Pack** - Maintainers get an isolated Tom reference pack for identity, planning, prompts, composition, QA, edits, and rights notes. (completed 2026-06-12)
-- [ ] **Phase 8: Skill Controller Integration** - Users can explicitly select Tom or request separate Xiaohei, Littlebox, and Tom variants while Xiaohei remains the only default route.
+- [x] **Phase 8: Skill Controller Integration** - Users can explicitly select Tom or request separate Xiaohei, Littlebox, and Tom variants while Xiaohei remains the only default route. (completed 2026-06-12)
 - [ ] **Phase 9: Docs, Examples, and Release Surface** - Users and maintainers get Tom-aware README guidance, copyable prompts, metadata, and release checks with consistent route status wording.
 - [ ] **Phase 10: Validation Hardening** - Maintainers can run local validation and tests that cover Tom route behavior, protected-IP boundaries, docs markers, paths, and leakage gates.
 
@@ -79,11 +79,11 @@ Plans:
   3. User can request Xiaohei, Littlebox, and Tom for the same core idea and receive separate variant groups.
   4. Tom outputs use `assets/<article-slug>-tom/`, and docs include the escaped token `assets/&lt;article-slug&gt;-tom/`.
 
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 
-- [ ] 08-01-PLAN.md — Integrate Tom into the skill controller route, planning, generation, QA, output, and delivery paths.
+- [x] 08-01-PLAN.md — Integrate Tom into the skill controller route, planning, generation, QA, output, and delivery paths.
 
 ### Phase 9: Docs, Examples, and Release Surface
 
@@ -124,6 +124,6 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 |-------|----------------|--------|-----------|
 | 6. Tom Rights and Route Contract | 3/3 | Complete    | 2026-06-12 |
 | 7. Tom Canonical Pack | 3/3 | Complete    | 2026-06-12 |
-| 8. Skill Controller Integration | 0/1 | Not started | - |
+| 8. Skill Controller Integration | 1/1 | Complete   | 2026-06-12 |
 | 9. Docs, Examples, and Release Surface | 0/TBD | Not started | - |
 | 10. Validation Hardening | 0/TBD | Not started | - |

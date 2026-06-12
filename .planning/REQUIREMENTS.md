@@ -14,10 +14,10 @@
 
 ### Routing
 
-- [ ] **TOMR-01**: User can explicitly request Tom through clear aliases such as `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫`.
-- [ ] **TOMR-02**: User who omits visual IP still gets Xiaohei as the only default route.
-- [ ] **TOMR-03**: User can request Xiaohei, Littlebox, and Tom for the same core idea and receive separate variant groups.
-- [ ] **TOMR-04**: Tom outputs use `assets/<article-slug>-tom/` and docs include the escaped token `assets/&lt;article-slug&gt;-tom/`.
+- [x] **TOMR-01**: User can explicitly request Tom through clear aliases such as `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫`.
+- [x] **TOMR-02**: User who omits visual IP still gets Xiaohei as the only default route.
+- [x] **TOMR-03**: User can request Xiaohei, Littlebox, and Tom for the same core idea and receive separate variant groups.
+- [x] **TOMR-04**: Tom outputs use `assets/<article-slug>-tom/` and docs include the escaped token `assets/&lt;article-slug&gt;-tom/`.
 - [x] **TOMR-05**: Maintainer can inspect Tom route metadata, aliases, default flag, output suffix, required references, attribution context, and route status in `references/routing.md`.
 
 ### Tom IP Pack
@@ -90,10 +90,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RGT-02 | Phase 6 | Complete |
 | RGT-03 | Phase 6 | Complete |
 | RGT-04 | Phase 6 | Complete |
-| TOMR-01 | Phase 8 | Pending |
-| TOMR-02 | Phase 8 | Pending |
-| TOMR-03 | Phase 8 | Pending |
-| TOMR-04 | Phase 8 | Pending |
+| TOMR-01 | Phase 8 | Complete |
+| TOMR-02 | Phase 8 | Complete |
+| TOMR-03 | Phase 8 | Complete |
+| TOMR-04 | Phase 8 | Complete |
 | TOMR-05 | Phase 6 | Complete |
 | TOMP-01 | Phase 7 | Complete |
 | TOMP-02 | Phase 7 | Complete |
