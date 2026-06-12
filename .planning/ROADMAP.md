@@ -18,7 +18,7 @@ v1.1 adds an authorized Tom route as the third selectable visual IP while preser
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 6: Tom Rights and Route Contract** - Maintainers get Tom rights boundaries, route status, aliases, route metadata, and public-sample gates before broad release. (completed 2026-06-12)
-- [ ] **Phase 7: Tom Canonical Pack** - Maintainers get an isolated Tom reference pack for identity, planning, prompts, composition, QA, edits, and rights notes.
+- [x] **Phase 7: Tom Canonical Pack** - Maintainers get an isolated Tom reference pack for identity, planning, prompts, composition, QA, edits, and rights notes. (completed 2026-06-12)
 - [ ] **Phase 8: Skill Controller Integration** - Users can explicitly select Tom or request separate Xiaohei, Littlebox, and Tom variants while Xiaohei remains the only default route.
 - [ ] **Phase 9: Docs, Examples, and Release Surface** - Users and maintainers get Tom-aware README guidance, copyable prompts, metadata, and release checks with consistent route status wording.
 - [ ] **Phase 10: Validation Hardening** - Maintainers can run local validation and tests that cover Tom route behavior, protected-IP boundaries, docs markers, paths, and leakage gates.
@@ -59,13 +59,13 @@ Plans:
   4. Tom QA rejects generic cats, passive Tom placement, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, excessive text, and route leakage.
   5. Tom edit prompts support stronger Tom participation, off-model identity repair, title removal, text reduction, and preservation of unaffected content.
 
-**Plans:** 1/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 
 - [x] 07-01-PLAN.md — Create Tom pack index, style DNA, and identity/status foundations.
-- [ ] 07-02-PLAN.md — Create Tom composition patterns plus planning, generation, and edit prompt templates.
-- [ ] 07-03-PLAN.md — Create Tom QA checklist and refine cross-file Tom pack coherence.
+- [x] 07-02-PLAN.md — Create Tom composition patterns plus planning, generation, and edit prompt templates.
+- [x] 07-03-PLAN.md — Create Tom QA checklist and refine cross-file Tom pack coherence.
 
 ### Phase 8: Skill Controller Integration
 
@@ -119,7 +119,7 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 6. Tom Rights and Route Contract | 3/3 | Complete    | 2026-06-12 |
-| 7. Tom Canonical Pack | 1/3 | In Progress|  |
+| 7. Tom Canonical Pack | 3/3 | Complete    | 2026-06-12 |
 | 8. Skill Controller Integration | 0/TBD | Not started | - |
 | 9. Docs, Examples, and Release Surface | 0/TBD | Not started | - |
 | 10. Validation Hardening | 0/TBD | Not started | - |

@@ -23,10 +23,10 @@
 ### Tom IP Pack
 
 - [x] **TOMP-01**: Maintainer can find Tom canonical references under `ian-xiaohei-illustrations/references/ips/tom/`.
-- [ ] **TOMP-02**: User receives Tom planning fields for placement, core idea, structure type, Tom state, Tom action, supporting objects, visible labels, output path, and rights-status note.
-- [ ] **TOMP-03**: Tom prompt template produces one 16:9 article illustration where Tom performs the cognitive action.
-- [ ] **TOMP-04**: Tom QA rejects generic cats, passive Tom placement, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, excessive text, and route leakage.
-- [ ] **TOMP-05**: Tom edit prompts support stronger Tom participation, off-model identity repair, title removal, text reduction, and preservation of unaffected content.
+- [x] **TOMP-02**: User receives Tom planning fields for placement, core idea, structure type, Tom state, Tom action, supporting objects, visible labels, output path, and rights-status note.
+- [x] **TOMP-03**: Tom prompt template produces one 16:9 article illustration where Tom performs the cognitive action.
+- [x] **TOMP-04**: Tom QA rejects generic cats, passive Tom placement, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, excessive text, and route leakage.
+- [x] **TOMP-05**: Tom edit prompts support stronger Tom participation, off-model identity repair, title removal, text reduction, and preservation of unaffected content.
 
 ### Documentation
 
@@ -96,10 +96,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TOMR-04 | Phase 8 | Pending |
 | TOMR-05 | Phase 6 | Complete |
 | TOMP-01 | Phase 7 | Complete |
-| TOMP-02 | Phase 7 | Pending |
-| TOMP-03 | Phase 7 | Pending |
-| TOMP-04 | Phase 7 | Pending |
-| TOMP-05 | Phase 7 | Pending |
+| TOMP-02 | Phase 7 | Complete |
+| TOMP-03 | Phase 7 | Complete |
+| TOMP-04 | Phase 7 | Complete |
+| TOMP-05 | Phase 7 | Complete |
 | TDOC-01 | Phase 9 | Pending |
 | TDOC-02 | Phase 9 | Pending |
 | TDOC-03 | Phase 9 | Pending |
