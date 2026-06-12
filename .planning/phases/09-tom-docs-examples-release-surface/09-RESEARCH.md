@@ -498,14 +498,14 @@ rg -n "only implicit default route" RELEASE_CHECKLIST.md
 |---|-------|---------|---------------|
 | A1 | Final Chinese wording may be adjusted by the planner if it preserves route status, aliases, output paths, rights boundary, default behavior, mixed-route separation, and release-gate requirements. [ASSUMED] | Exact Public Docs Wording Changes Needed | Planner could choose wording that passes markers but reads awkwardly; review should inspect user-facing prose quality. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Who is the named Tom release reviewer?** [VERIFIED: `rights.md` says reviewer is pending]
+1. **Who is the named Tom release reviewer?** RESOLVED: Keep release checklist reviewer/date/status fields explicit and pending until the maintainer fills them. [VERIFIED: `rights.md` says reviewer is pending]
    - What we know: `rights.md` requires reviewer, review date, approval status, authorization scope, allowed use, restricted use, distribution channels, and public-sample decision. [VERIFIED: `rights.md`]
    - What's unclear: the human reviewer identity and approval date are still pending. [VERIFIED: `rights.md`]
    - Recommendation: keep checklist fields explicit and pending until maintainer fills them. [VERIFIED: Phase 9 context]
 
-2. **Should Tom public rendered examples be approved in this phase?** [VERIFIED: Phase 9 deferred ideas]
+2. **Should Tom public rendered examples be approved in this phase?** RESOLVED: Keep Phase 9 text examples copyable and keep rendered Tom samples behind explicit release checklist approval. [VERIFIED: Phase 9 deferred ideas]
    - What we know: public rendered Tom examples remain gated by explicit release checklist approval. [VERIFIED: `rights.md`, Phase 9 context]
    - What's unclear: actual approval decision. [VERIFIED: current checklist PENDING]
    - Recommendation: keep Phase 9 text examples copyable and avoid rendered sample claims. [VERIFIED: TDOC-05]
