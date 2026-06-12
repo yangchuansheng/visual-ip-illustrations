@@ -18,6 +18,17 @@ Littlebox source material was adapted from `5km Littlebox Illustrations` by `oko
 
 When redistributing or adapting Littlebox-derived documentation, credit `okooo5km` or the `5km Littlebox Illustrations` source project in derived documentation.
 
+## Tom Source Attribution and Permission Boundary
+
+Tom source context records Tom from Tom and Jerry for the `tom` route.
+
+- Source context: Tom and Jerry / Tom
+- Route status: `gated-authorized`
+- Rights record: `ian-xiaohei-illustrations/references/ips/tom/rights.md`
+- Attribution context: source identity for route metadata, documentation, and release review
+
+Attribution records Tom source identity. Permission is authorization-scope specific and is governed by the Tom rights record, release checklist approval, and public-sample gate.
+
 Author links:
 
 - GitHub: <https://github.com/helloianneo>
