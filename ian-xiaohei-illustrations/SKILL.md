@@ -226,11 +226,18 @@ Littlebox 路由的当前活动路径为：
 assets/<article-slug>-littlebox/
 ```
 
+Tom 路由的当前活动路径为：
+
+```text
+assets/<article-slug>-tom/
+```
+
 保存路径来自 `references/routing.md` 的 `output_suffix`：
 
 - Xiaohei `output_suffix: illustrations` -> `assets/<article-slug>-illustrations/`
 - Littlebox `output_suffix: littlebox` -> `assets/<article-slug>-littlebox/`
-- Validation markers: Xiaohei `assets/&lt;article-slug&gt;-illustrations/`; Littlebox `assets/&lt;article-slug&gt;-littlebox/`
+- Tom `output_suffix: tom` -> `assets/<article-slug>-tom/`
+- Validation markers: Xiaohei `assets/&lt;article-slug&gt;-illustrations/`; Littlebox `assets/&lt;article-slug&gt;-littlebox/`; Tom `assets/&lt;article-slug&gt;-tom/`
 
 按顺序命名：
 
@@ -239,7 +246,7 @@ assets/<article-slug>-littlebox/
 02-topic-name.png
 ```
 
-文件名使用 ordered English slug。混合 IP 请求分别写入 Xiaohei 和 Littlebox 输出目录，每个 variant group 保留自己的文件序号和用途说明。
+文件名使用 ordered English slug。混合 IP 请求按 separate route groups 分别写入输出目录：Xiaohei 写入 `assets/<article-slug>-illustrations/`，Littlebox 写入 `assets/<article-slug>-littlebox/`，Tom 写入 `assets/<article-slug>-tom/`；每个 variant group 保留自己的文件序号和用途说明。
 
 保留原始生成文件，不要覆盖已有资产，除非用户明确要求替换。
 
@@ -257,5 +264,8 @@ assets/<article-slug>-littlebox/
 
 - Xiaohei block：shared core idea、图片用途、保存路径 `assets/<article-slug>-illustrations/`、稳定性备注
 - Littlebox block：shared core idea、图片用途、保存路径 `assets/<article-slug>-littlebox/`、assigned background、稳定性备注
+- Tom block：selected IP `Tom`、shared core idea、image purposes、save path `assets/<article-slug>-tom/`、route status `gated-authorized`、rights note `references/ips/tom/rights.md`、stability notes
+
+交付前做 route-leakage delivery guard：Tom block 保留 `gated-authorized` 和 `references/ips/tom/rights.md`；Xiaohei 和 Littlebox blocks 保留各自 route-local wording、QA 和输出目录。
 
 不要长篇解释风格理论；让图自己说话。
