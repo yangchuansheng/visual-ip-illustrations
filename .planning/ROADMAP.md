@@ -21,7 +21,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 7: Tom Canonical Pack** - Maintainers get an isolated Tom reference pack for identity, planning, prompts, composition, QA, edits, and rights notes. (completed 2026-06-12)
 - [x] **Phase 8: Skill Controller Integration** - Users can explicitly select Tom or request separate Xiaohei, Littlebox, and Tom variants while Xiaohei remains the only default route. (completed 2026-06-12)
 - [x] **Phase 9: Docs, Examples, and Release Surface** - Users and maintainers get Tom-aware README guidance, copyable prompts, metadata, and release checks with consistent route status wording. (completed 2026-06-12)
-- [ ] **Phase 10: Validation Hardening** - Maintainers can run local validation and tests that cover Tom route behavior, protected-IP boundaries, docs markers, paths, and leakage gates.
+- [x] **Phase 10: Validation Hardening** - Maintainers can run local validation and tests that cover Tom route behavior, protected-IP boundaries, docs markers, paths, and leakage gates. (completed 2026-06-12)
 
 ## Phase Details
 
@@ -120,13 +120,13 @@ Plans:
   4. Validator checks Tom leakage boundaries so Xiaohei and Littlebox packs stay free of Tom identity rules and Warner rights text.
   5. Validator checks public example asset directories for Tom-rendered assets unless the release checklist has explicit public-sample approval, and Node tests cover three-route parser behavior, stable check ordering, Tom failure messages, and full pass output.
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 
 - [x] 10-01-PLAN.md — Harden validator implementation for Tom route, pack, docs, leakage, and public asset gates.
 - [x] 10-02-PLAN.md — Harden Node test coverage for Phase 10 check ordering, fixtures, failure messages, and full-pass output.
-- [ ] 10-03-PLAN.md — Record final validation evidence and close Phase 10 planning state.
+- [x] 10-03-PLAN.md — Record final validation evidence and close Phase 10 planning state.
 
 ## Progress
 
@@ -139,4 +139,4 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 | 7. Tom Canonical Pack | 3/3 | Complete    | 2026-06-12 |
 | 8. Skill Controller Integration | 1/1 | Complete   | 2026-06-12 |
 | 9. Docs, Examples, and Release Surface | 4/4 | Complete    | 2026-06-12 |
-| 10. Validation Hardening | 2/3 | In Progress|  |
+| 10. Validation Hardening | 3/3 | Complete   | 2026-06-12 |
