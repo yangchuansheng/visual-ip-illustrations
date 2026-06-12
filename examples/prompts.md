@@ -22,11 +22,31 @@ Xiaohei 的可用别名包括：小黑、Xiaohei、Ian、ian-xiaohei。
 <粘贴文章>
 ```
 
+## 路由烟测：显式选择 Littlebox
+
+```text
+Use $ian-xiaohei-illustrations 使用 Littlebox 路由为下面这篇文章做 3 张 shot list，先不要生图。
+Littlebox 的可用别名包括：小盒、Littlebox、纸盒、paper-box、carton。
+每张图写清楚：放在哪段后、core idea、Littlebox state: closed、visual metaphor、assigned background、suggested objects、short visible labels。
+保存路径使用 `assets/<article-slug>-littlebox/`；文档校验 token 是 `assets/&lt;article-slug&gt;-littlebox/`。
+
+<粘贴文章>
+```
+
 ## 路由说明：多 IP 请求
 
-Phase 1 只记录多 IP 路由意图：同一个观点可以按 IP 分组形成 variant，小黑组使用当前可执行规则，Littlebox 组由 Phase 3 交付执行规则、提示词、QA 和完整输出行为。当前复制使用的 prompt 应选择默认视觉 IP 或显式 Xiaohei 路由。
+同一个观点可以按 IP 分组形成 variant group。Xiaohei 组使用 `assets/<article-slug>-illustrations/`，Littlebox 组使用 `assets/<article-slug>-littlebox/`，两组分别加载自己的参考、提示词、QA 和输出路径。
 
-维护者参考：Xiaohei canonical pack 位于 `ian-xiaohei-illustrations/references/ips/xiaohei/`，路由元数据位于 `ian-xiaohei-illustrations/references/routing.md`。用户复制下方 prompts 时继续使用默认 Xiaohei 或显式 Xiaohei 路由。
+维护者参考：Xiaohei canonical pack 位于 `ian-xiaohei-illustrations/references/ips/xiaohei/`，Littlebox canonical pack 位于 `ian-xiaohei-illustrations/references/ips/littlebox/`，路由元数据位于 `ian-xiaohei-illustrations/references/routing.md`。
+
+```text
+Use $ian-xiaohei-illustrations 先不要生图。
+请用同一个 core idea 分别输出 Xiaohei 和 Littlebox 两个 variant group。
+Xiaohei variant group 使用 `assets/<article-slug>-illustrations/`。
+Littlebox variant group 使用 `assets/<article-slug>-littlebox/`，并写清楚 Littlebox state: closed、visual metaphor、assigned background、short visible labels。
+
+<粘贴文章或单个观点>
+```
 
 ## 只做配图规划
 
