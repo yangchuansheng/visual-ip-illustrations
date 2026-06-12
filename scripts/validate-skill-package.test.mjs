@@ -7,6 +7,42 @@ import assert from "node:assert/strict";
 
 const repoRoot = path.resolve(import.meta.dirname, "..");
 const scriptPath = path.join(repoRoot, "scripts", "validate-skill-package.mjs");
+const requiredCheckIds = [
+  "PKG-SHAPE-001",
+  "SKILL-FM-001",
+  "SKILL-ROUTE-001",
+  "SKILL-REFS-001",
+  "SKILL-OUTPUT-001",
+  "SKILL-GEN-001",
+  "AGENT-SHAPE-001",
+  "ROUTE-TABLE-001",
+  "ROUTE-XH-001",
+  "ROUTE-LB-001",
+  "ROUTE-DEFAULT-001",
+  "ROUTE-REFS-001",
+  "ROUTE-PATHS-001",
+  "ROUTE-MIXED-001",
+  "REFS-XH-001",
+  "REFS-LB-001",
+  "LEGACY-XH-001",
+  "LEGACY-XH-002",
+  "PROMPT-XH-001",
+  "PROMPT-LB-001",
+  "PROMPT-LB-002",
+  "IP-XH-001",
+  "IP-LB-001",
+  "DOC-LINKS-001",
+  "DOC-PATHS-001",
+  "DOC-ROUTES-001",
+  "NOTICE-IAN-001",
+  "NOTICE-LB-001",
+  "SMOKE-DEFAULT-001",
+  "SMOKE-XH-001",
+  "SMOKE-LB-001",
+  "SMOKE-MIXED-001",
+  "BOUNDARY-IMG-001",
+  "BOUNDARY-P5-001",
+];
 
 function runValidator(extraEnv = {}) {
   return spawnSync(process.execPath, [scriptPath], {
@@ -66,24 +102,7 @@ test("validator reports Task 2 contract checks in stable order", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
-  const expectedIds = [
-    "PROMPT-XH-001",
-    "PROMPT-LB-001",
-    "PROMPT-LB-002",
-    "IP-XH-001",
-    "IP-LB-001",
-    "DOC-LINKS-001",
-    "DOC-PATHS-001",
-    "DOC-ROUTES-001",
-    "NOTICE-IAN-001",
-    "NOTICE-LB-001",
-    "SMOKE-DEFAULT-001",
-    "SMOKE-XH-001",
-    "SMOKE-LB-001",
-    "SMOKE-MIXED-001",
-    "BOUNDARY-IMG-001",
-    "BOUNDARY-P5-001",
-  ];
+  const expectedIds = requiredCheckIds.slice(requiredCheckIds.indexOf("PROMPT-XH-001"));
 
   let lastIndex = result.stdout.indexOf("[PASS] LEGACY-XH-002 ");
   assert.ok(lastIndex >= 0, "Task 2 checks should follow Task 1 checks");
@@ -178,6 +197,20 @@ test("validator failure messages include actionable Task 2 check IDs and paths",
   assert.match(result.stdout, /\[FAIL\] NOTICE-LB-001 /);
   assert.match(result.stdout, /NOTICE\.md/);
   assert.match(result.stdout, /observed missing marker/);
+});
+
+test("validator emits the full Phase 4 matrix with zero failures", () => {
+  const result = runValidator();
+
+  assert.equal(result.status, 0);
+  const resultLines = result.stdout.split("\n").filter((line) => /^\[(PASS|FAIL|SKIP)\]/.test(line));
+  assert.equal(resultLines.length, requiredCheckIds.length);
+  assert.equal(resultLines.every((line) => line.startsWith("[PASS]")), true);
+  assert.deepEqual(
+    resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
+    requiredCheckIds,
+  );
+  assert.match(result.stdout, /Summary: total=34 passed=34 failed=0 skipped=0/);
 });
 
 test("parser helpers expose current package contract primitives", async () => {
