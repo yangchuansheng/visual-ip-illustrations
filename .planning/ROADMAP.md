@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Routing Foundation** - Users and maintainers get deterministic IP selection, Xiaohei defaulting, shared workflow boundaries, and route metadata. (completed 2026-06-12)
 - [x] **Phase 2: Xiaohei Canonicalization** - Maintainers get a canonical Xiaohei IP pack while existing Xiaohei usage and paths keep working. (completed 2026-06-12)
 - [x] **Phase 3: Littlebox Vertical Slice** - Users can request Littlebox and receive the correct identity, prompt, QA, output path, and attribution behavior. (completed 2026-06-12)
-- [ ] **Phase 4: Validation Hardening** - Maintainers can run one local command that catches package, routing, prompt, path, docs, and attribution drift.
+- [x] **Phase 4: Validation Hardening** - Maintainers can run one local command that catches package, routing, prompt, path, docs, and attribution drift. (completed 2026-06-12)
 - [ ] **Phase 5: Documentation, Examples, and Release Packaging** - Users and maintainers get public docs, copyable examples, metadata, and release checks that match the two-IP package.
 
 ## Phase Details
@@ -119,7 +119,7 @@ Plans:
   3. Validation exits nonzero when a required reference path, output path rule, alias group, prompt placeholder, or attribution marker is missing.
   4. Maintainer can use manual smoke prompts to verify default Xiaohei, explicit Xiaohei, explicit Littlebox, and mixed-IP variant behavior.
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 Plans:
 **Wave 1**
 
@@ -131,7 +131,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 04-03-PLAN.md — Prove positive and negative validation behavior and close Phase 4.
+- [x] 04-03-PLAN.md — Prove positive and negative validation behavior and close Phase 4.
 
 **UI hint:** no
 
@@ -161,5 +161,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Routing Foundation | 2/2 | Complete    | 2026-06-12 |
 | 2. Xiaohei Canonicalization | 3/3 | Complete    | 2026-06-12 |
 | 3. Littlebox Vertical Slice | 5/5 | Complete    | 2026-06-12 |
-| 4. Validation Hardening | 2/3 | In Progress|  |
+| 4. Validation Hardening | 3/3 | Complete   | 2026-06-12 |
 | 5. Documentation, Examples, and Release Packaging | 0/TBD | Not started | - |
