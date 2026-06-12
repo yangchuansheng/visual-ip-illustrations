@@ -1,10 +1,11 @@
 ---
 gsd_state_version: 1.0
 milestone: v1.1
-milestone_name: Authorized Tom IP Integration
+milestone_name: milestone
 status: planning
-last_updated: "2026-06-13T00:33:22+08:00"
-last_activity: 2026-06-13
+stopped_at: Phase 6 context gathered
+last_updated: "2026-06-12T17:06:26.871Z"
+last_activity: 2026-06-13 — v1.1 roadmap created from current requirements and research.
 progress:
   total_phases: 5
   completed_phases: 0
@@ -87,6 +88,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13
-Stopped at: v1.1 roadmap initialized
-Resume file: None
+Last session: 2026-06-12T17:06:26.868Z
+Stopped at: Phase 6 context gathered
+Resume file: .planning/phases/06-tom-rights-and-route-contract/06-CONTEXT.md
