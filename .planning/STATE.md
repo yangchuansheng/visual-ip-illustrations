@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
 status: executing
-stopped_at: Completed 06-01-PLAN.md
-last_updated: "2026-06-12T17:39:07.076Z"
-last_activity: 2026-06-12 -- Phase 06 Plan 01 completed
+stopped_at: Completed 06-02-PLAN.md
+last_updated: "2026-06-12T17:46:44.798Z"
+last_activity: 2026-06-12 -- Phase 06 Plan 02 completed
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
-  percent: 33
+  completed_plans: 2
+  percent: 67
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 06 (tom-rights-and-route-contract) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
-Last activity: 2026-06-12 -- Phase 06 Plan 01 completed
+Last activity: 2026-06-12 -- Phase 06 Plan 02 completed
 
-Progress: [███░░░░░░░] 33%
+Progress: [███████░░░] 67%
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Progress: [███░░░░░░░] 33%
 
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
+| Phase 06 P02 | 2min4s | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -73,6 +74,8 @@ Recent decisions affecting current work:
 - [Phase 06]: Tom route status remains `gated-authorized` until maintainer release review changes it. — Plan 06-01 created the Tom rights record and route/NOTICE contract.
 - [Phase 06]: Tom attribution records source identity while permission remains authorization-scope specific through `rights.md` and release approval. — NOTICE.md now names the Tom source context and points permission to the rights record, release checklist, and public-sample gate.
 - [Phase 06]: Xiaohei remains the only default route; Tom is explicit with `default=false`. — The route table verification confirmed Xiaohei is the only `default=true` route and Tom is `default=false` with `gated-authorized` status.
+- [Phase 06]: Tom public docs expose route status and rights path without adding rendered Tom sample assets. — Plan 06-02 added README, examples, and release checklist coverage.
+- [Phase 06]: Public rendered Tom samples remain gated by PENDING release approval. — Plan 06-02 added the public-sample marker for examples/images/ and skill-local examples.
 
 ### Pending Todos
 
@@ -92,6 +95,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T17:38:42.638Z
-Stopped at: Completed 06-01-PLAN.md
+Last session: 2026-06-12T17:46:44.790Z
+Stopped at: Completed 06-02-PLAN.md
 Resume file: None

@@ -38,12 +38,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Maintainer can block public rendered Tom example assets until the release checklist records explicit public-sample approval.
   5. Maintainer can inspect Tom route metadata, aliases, default flag, output suffix, required references, attribution context, and route status in `references/routing.md`.
 
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 
 - [x] 06-01-PLAN.md — Create Tom rights record, route row, and NOTICE permission boundary.
-- [ ] 06-02-PLAN.md — Add public route-status wording, Tom path tokens, and release checklist sample gate.
+- [x] 06-02-PLAN.md — Add public route-status wording, Tom path tokens, and release checklist sample gate.
 - [ ] 06-03-PLAN.md — Repair validator baseline and add minimal Phase 6 Tom contract checks.
 
 ### Phase 7: Tom Canonical Pack
@@ -112,7 +112,7 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 6. Tom Rights and Route Contract | 1/3 | In Progress|  |
+| 6. Tom Rights and Route Contract | 2/3 | In Progress|  |
 | 7. Tom Canonical Pack | 0/TBD | Not started | - |
 | 8. Skill Controller Integration | 0/TBD | Not started | - |
 | 9. Docs, Examples, and Release Surface | 0/TBD | Not started | - |

@@ -9,8 +9,8 @@
 
 - [x] **RGT-01**: Maintainer can read Tom source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner in Tom-specific documentation.
 - [x] **RGT-02**: Maintainer can distinguish Tom attribution from Tom permission in `NOTICE.md`.
-- [ ] **RGT-03**: Maintainer can keep Tom route gated or active through explicit route-status wording shared by routing docs, README, examples, and release checklist.
-- [ ] **RGT-04**: Maintainer can block public rendered Tom example assets until release checklist records explicit public-sample approval.
+- [x] **RGT-03**: Maintainer can keep Tom route gated or active through explicit route-status wording shared by routing docs, README, examples, and release checklist.
+- [x] **RGT-04**: Maintainer can block public rendered Tom example assets until release checklist records explicit public-sample approval.
 
 ### Routing
 
@@ -88,8 +88,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | RGT-01 | Phase 6 | Complete |
 | RGT-02 | Phase 6 | Complete |
-| RGT-03 | Phase 6 | Pending |
-| RGT-04 | Phase 6 | Pending |
+| RGT-03 | Phase 6 | Complete |
+| RGT-04 | Phase 6 | Complete |
 | TOMR-01 | Phase 8 | Pending |
 | TOMR-02 | Phase 8 | Pending |
 | TOMR-03 | Phase 8 | Pending |
