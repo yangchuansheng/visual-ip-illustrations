@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Routing Foundation** - Users and maintainers get deterministic IP selection, Xiaohei defaulting, shared workflow boundaries, and route metadata. (completed 2026-06-12)
 - [x] **Phase 2: Xiaohei Canonicalization** - Maintainers get a canonical Xiaohei IP pack while existing Xiaohei usage and paths keep working. (completed 2026-06-12)
-- [ ] **Phase 3: Littlebox Vertical Slice** - Users can request Littlebox and receive the correct identity, prompt, QA, output path, and attribution behavior.
+- [ ] **Phase 3: Littlebox Vertical Slice** - Users can request Littlebox and receive the correct identity, prompt, QA, output path, and attribution behavior. (execution complete, ready for verification)
 - [ ] **Phase 4: Validation Hardening** - Maintainers can run one local command that catches package, routing, prompt, path, docs, and attribution drift.
 - [ ] **Phase 5: Documentation, Examples, and Release Packaging** - Users and maintainers get public docs, copyable examples, metadata, and release checks that match the two-IP package.
 
@@ -82,27 +82,27 @@ Plans:
   4. Littlebox prompt and QA enforce closed paper-box identity, front-left three-quarter view, front-panel dot eyes, tiny legs, side-seam arm limits, amber jagged seam tape, near-white body, rough marker linework, accent colors, background balancing, and active character placement.
   5. Maintainer can verify Littlebox source attribution in `NOTICE.md`, including author, source repository, MIT context, and inspected commit.
 
-**Plans:** 5 plans
+**Plans:** 5/5 plans complete
 Plans:
 **Wave 1**
 
-- [ ] 03-01-PLAN.md — Create the canonical Littlebox IP pack under `references/ips/littlebox/`.
+- [x] 03-01-PLAN.md — Create the canonical Littlebox IP pack under `references/ips/littlebox/`.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 03-02-PLAN.md — Activate the Littlebox route in `references/routing.md` while preserving Xiaohei as default.
+- [x] 03-02-PLAN.md — Activate the Littlebox route in `references/routing.md` while preserving Xiaohei as default.
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 03-03-PLAN.md — Wire `SKILL.md` selected-route runtime behavior for Littlebox and mixed-IP variants.
+- [x] 03-03-PLAN.md — Wire `SKILL.md` selected-route runtime behavior for Littlebox and mixed-IP variants.
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
-- [ ] 03-04-PLAN.md — Update Littlebox attribution and minimal active-route public docs.
+- [x] 03-04-PLAN.md — Update Littlebox attribution and minimal active-route public docs.
 
 **Wave 5** *(blocked on Wave 4 completion)*
 
-- [ ] 03-05-PLAN.md — Run and record package verification for the Littlebox vertical slice.
+- [x] 03-05-PLAN.md — Run and record package verification for the Littlebox vertical slice.
 **UI hint:** no
 
 ### Phase 4: Validation Hardening
@@ -146,6 +146,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Routing Foundation | 2/2 | Complete    | 2026-06-12 |
 | 2. Xiaohei Canonicalization | 3/3 | Complete    | 2026-06-12 |
-| 3. Littlebox Vertical Slice | 0/5 | Planned     | - |
+| 3. Littlebox Vertical Slice | 5/5 | Ready for verification | - |
 | 4. Validation Hardening | 0/TBD | Not started | - |
 | 5. Documentation, Examples, and Release Packaging | 0/TBD | Not started | - |
