@@ -98,7 +98,14 @@ Plans:
   4. `RELEASE_CHECKLIST.md` includes Tom authorization review, route status review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final rights review.
   5. Public docs avoid broad Tom availability claims when Tom route status is gated.
 
-**Plans**: TBD
+**Plans:** 4 plans
+
+Plans:
+
+- [ ] 09-01-PLAN.md — Update README public Tom route docs, stale wording, output path, and rights boundary.
+- [ ] 09-02-PLAN.md — Add copyable Tom planning, generation, smoke, and three-IP mixed prompts.
+- [ ] 09-03-PLAN.md — Update agent metadata for Xiaohei, Littlebox, and explicit gated Tom.
+- [ ] 09-04-PLAN.md — Expand release checklist Tom authorization, leakage, sample, validator, and final rights gates.
 
 ### Phase 10: Validation Hardening
 
