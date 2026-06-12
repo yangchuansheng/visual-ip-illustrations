@@ -17,7 +17,7 @@ v1.1 adds an authorized Tom route as the third selectable visual IP while preser
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 6: Tom Rights and Route Contract** - Maintainers get Tom rights boundaries, route status, aliases, route metadata, and public-sample gates before broad release.
+- [x] **Phase 6: Tom Rights and Route Contract** - Maintainers get Tom rights boundaries, route status, aliases, route metadata, and public-sample gates before broad release. (completed 2026-06-12)
 - [ ] **Phase 7: Tom Canonical Pack** - Maintainers get an isolated Tom reference pack for identity, planning, prompts, composition, QA, edits, and rights notes.
 - [ ] **Phase 8: Skill Controller Integration** - Users can explicitly select Tom or request separate Xiaohei, Littlebox, and Tom variants while Xiaohei remains the only default route.
 - [ ] **Phase 9: Docs, Examples, and Release Surface** - Users and maintainers get Tom-aware README guidance, copyable prompts, metadata, and release checks with consistent route status wording.
@@ -38,13 +38,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Maintainer can block public rendered Tom example assets until the release checklist records explicit public-sample approval.
   5. Maintainer can inspect Tom route metadata, aliases, default flag, output suffix, required references, attribution context, and route status in `references/routing.md`.
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 
 - [x] 06-01-PLAN.md — Create Tom rights record, route row, and NOTICE permission boundary.
 - [x] 06-02-PLAN.md — Add public route-status wording, Tom path tokens, and release checklist sample gate.
-- [ ] 06-03-PLAN.md — Repair validator baseline and add minimal Phase 6 Tom contract checks.
+- [x] 06-03-PLAN.md — Repair validator baseline and add minimal Phase 6 Tom contract checks.
 
 ### Phase 7: Tom Canonical Pack
 
@@ -112,7 +112,7 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 6. Tom Rights and Route Contract | 2/3 | In Progress|  |
+| 6. Tom Rights and Route Contract | 3/3 | Complete   | 2026-06-12 |
 | 7. Tom Canonical Pack | 0/TBD | Not started | - |
 | 8. Skill Controller Integration | 0/TBD | Not started | - |
 | 9. Docs, Examples, and Release Surface | 0/TBD | Not started | - |

@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
-status: executing
-stopped_at: Completed 06-02-PLAN.md
-last_updated: "2026-06-12T17:46:44.798Z"
+status: verifying
+stopped_at: Completed 06-03-PLAN.md
+last_updated: "2026-06-12T17:55:09.963Z"
 last_activity: 2026-06-12 -- Phase 06 Plan 02 completed
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
-  percent: 67
+  completed_plans: 3
+  percent: 20
 ---
 
 # Project State
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 
 Phase: 06 (tom-rights-and-route-contract) — EXECUTING
 Plan: 3 of 3
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-06-12 -- Phase 06 Plan 02 completed
 
 Progress: [███████░░░] 67%
@@ -59,6 +59,7 @@ Progress: [███████░░░] 67%
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
 | Phase 06 P02 | 2min4s | 2 tasks | 4 files |
+| Phase 06 P03 | 4min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [Phase 06]: Xiaohei remains the only default route; Tom is explicit with `default=false`. — The route table verification confirmed Xiaohei is the only `default=true` route and Tom is `default=false` with `gated-authorized` status.
 - [Phase 06]: Tom public docs expose route status and rights path without adding rendered Tom sample assets. — Plan 06-02 added README, examples, and release checklist coverage.
 - [Phase 06]: Public rendered Tom samples remain gated by PENDING release approval. — Plan 06-02 added the public-sample marker for examples/images/ and skill-local examples.
+- [Phase 06]: Phase 6 Tom validation checks future Tom pack reference markers while requiring only `rights.md` to exist. — Plan 06-03 added bounded Tom route reference validation.
+- [Phase 06]: Public rendered Tom samples remain blocked while the release checklist records `PENDING / reviewer / date`. — Plan 06-03 added `BOUNDARY-TOM-IMG-001`.
+- [Phase 06]: The validator matrix now has 40 checks covering the Phase 6 Tom contract. — Plan 06-03 updated the validator and Node tests.
 
 ### Pending Todos
 
@@ -95,6 +99,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T17:46:44.790Z
-Stopped at: Completed 06-02-PLAN.md
+Last session: 2026-06-12T17:54:56.448Z
+Stopped at: Completed 06-03-PLAN.md
 Resume file: None
