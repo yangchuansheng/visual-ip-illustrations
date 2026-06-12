@@ -44,7 +44,7 @@
 - [x] **TVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Tom output path tokens, and Tom smoke prompts.
 - [x] **TVAL-05**: Validator checks Tom leakage boundaries so Xiaohei and Littlebox packs stay free of Tom identity rules and Warner rights text.
 - [x] **TVAL-06**: Validator checks public example asset directories for Tom-rendered assets unless release checklist has explicit public-sample approval.
-- [ ] **TVAL-07**: Node validator tests cover three-route parser behavior, stable check ordering, Tom failure messages, and full pass output.
+- [x] **TVAL-07**: Node validator tests cover three-route parser behavior, stable check ordering, Tom failure messages, and full pass output.
 
 ## v2 Requirements
 
@@ -111,7 +111,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TVAL-04 | Phase 10 | Complete |
 | TVAL-05 | Phase 10 | Complete |
 | TVAL-06 | Phase 10 | Complete |
-| TVAL-07 | Phase 10 | Pending |
+| TVAL-07 | Phase 10 | Complete |
 | PIP-01 | v2 | Future |
 | PIP-02 | v2 | Future |
 | PIP-03 | v2 | Future |
