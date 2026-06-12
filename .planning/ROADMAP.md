@@ -52,7 +52,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Xiaohei prompt and QA preserve the 16:9 white-background hand-drawn visual contract, solid-black character identity, labels, whitespace, and one-idea-per-image behavior.
   5. Legacy Xiaohei reference paths remain available and the anti-repeat guidance keeps prior examples as calibration material.
 
-**Plans:** TBD
+**Plans:** 3 plans
+Plans:
+- [ ] 02-01-PLAN.md — Create canonical Xiaohei IP pack files with exact parity to current Xiaohei references.
+- [ ] 02-02-PLAN.md — Preserve legacy root reference entry points and point routing metadata to canonical Xiaohei files.
+- [ ] 02-03-PLAN.md — Wire canonical-first skill/docs pointers while preserving current Xiaohei prompts and output path.
 **UI hint:** no
 
 ### Phase 3: Littlebox Vertical Slice
