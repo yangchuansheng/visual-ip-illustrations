@@ -98,12 +98,12 @@ Plans:
   4. `RELEASE_CHECKLIST.md` includes Tom authorization review, route status review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final rights review.
   5. Public docs avoid broad Tom availability claims when Tom route status is gated.
 
-**Plans:** 1/4 plans executed
+**Plans:** 2/4 plans executed
 
 Plans:
 
 - [x] 09-01-PLAN.md — Update README public Tom route docs, stale wording, output path, and rights boundary.
-- [ ] 09-02-PLAN.md — Add copyable Tom planning, generation, smoke, and three-IP mixed prompts.
+- [x] 09-02-PLAN.md — Add copyable Tom planning, generation, smoke, and three-IP mixed prompts.
 - [ ] 09-03-PLAN.md — Update agent metadata for Xiaohei, Littlebox, and explicit gated Tom.
 - [ ] 09-04-PLAN.md — Expand release checklist Tom authorization, leakage, sample, validator, and final rights gates.
 
@@ -132,5 +132,5 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 | 6. Tom Rights and Route Contract | 3/3 | Complete    | 2026-06-12 |
 | 7. Tom Canonical Pack | 3/3 | Complete    | 2026-06-12 |
 | 8. Skill Controller Integration | 1/1 | Complete   | 2026-06-12 |
-| 9. Docs, Examples, and Release Surface | 1/4 | In Progress|  |
+| 9. Docs, Examples, and Release Surface | 2/4 | In Progress|  |
 | 10. Validation Hardening | 0/TBD | Not started | - |

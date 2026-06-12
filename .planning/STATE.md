@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
-status: executing
-stopped_at: Completed 09-01-PLAN.md
-last_updated: "2026-06-12T20:48:15.588Z"
+status: completed
+stopped_at: Completed 09-02-PLAN.md
+last_updated: "2026-06-12T20:57:38.560Z"
 last_activity: 2026-06-12
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 12
-  completed_plans: 8
-  percent: 67
+  completed_plans: 9
+  percent: 60
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 9
-Plan: 02 next
-Status: 09-01 complete — continuing Phase 9
+Plan: 03 next
+Status: 09-02 complete — continuing Phase 9
 Last activity: 2026-06-12
 
-Progress: [███████░░░] 67%
+Progress: [████████░░] 75%
 
 ## Performance Metrics
 
@@ -65,6 +65,7 @@ Progress: [███████░░░] 67%
 | Phase 07 P01 | 2min11s | 2 tasks | 4 files |
 | Phase 08 P01 | 34min | 3 tasks | 2 files |
 | Phase 09 P01 | 24min | 2 tasks | 2 files |
+| Phase 09 P02 | 4min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,9 @@ Recent decisions affecting current work:
 - [Phase 08]: Tom delivery keeps gated-authorized and references/ips/tom/rights.md visible as route context.
 - [Phase 09]: README documents Xiaohei as implicit default, Littlebox as explicit active, and Tom as explicit gated protected-character route. — Plan 09-01 aligns README with Phase 8 verified controller behavior.
 - [Phase 09]: Tom public docs stay tied to gated-authorized, rights.md, output suffix tom, and RELEASE_CHECKLIST public-sample gate. — Plan 09-01 closes TDOC-05 while avoiding broad Tom availability and rendered sample claims.
+- [Phase 09]: Tom-only prompts stay separate from mixed-IP prompts so solo Tom requests are inspectable.
+- [Phase 09]: Mixed-IP prompts require separate Xiaohei, Littlebox, and Tom variant groups with route-local references and route-specific output paths.
+- [Phase 09]: Public rendered Tom sample wording stays tied to RELEASE_CHECKLIST.md public-sample gate.
 
 ### Pending Todos
 
@@ -112,6 +116,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T20:48:15.585Z
-Stopped at: Completed 09-01-PLAN.md
+Last session: 2026-06-12T20:57:07.074Z
+Stopped at: Completed 09-02-PLAN.md
 Resume file: None
