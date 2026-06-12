@@ -2,6 +2,33 @@
 
 下面这些 prompt 可以直接复制到 Codex 里使用。
 
+## 路由烟测：省略视觉 IP
+
+```text
+Use $ian-xiaohei-illustrations 先不要生图。
+请用默认视觉 IP 为下面这篇文章做 4 张 shot list。
+每张图写清楚：放在哪段后、主题、核心意思、结构类型、所选视觉 IP 在图里做什么、建议中文标注词。
+
+<粘贴文章>
+```
+
+## 路由烟测：显式选择 Xiaohei
+
+```text
+Use $ian-xiaohei-illustrations 使用 Xiaohei 路由为下面这篇文章生成 3 张正文配图。
+Xiaohei 的可用别名包括：小黑、Xiaohei、Ian、ian-xiaohei。
+保存路径使用 `assets/<article-slug>-illustrations/`；文档校验 token 是 `assets/&lt;article-slug&gt;-illustrations/`。
+
+<粘贴文章>
+```
+
+## 路由说明：多 IP 请求
+
+```text
+Use $ian-xiaohei-illustrations 请按 IP 分组规划同一个观点的两组 variant：小黑组和 Littlebox 组。
+当前阶段只执行 Xiaohei-compatible planning；Littlebox 执行规则、提示词、QA 和完整输出行为由 Phase 3 交付。
+```
+
 ## 只做配图规划
 
 ```text
