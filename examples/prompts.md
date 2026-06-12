@@ -1,22 +1,57 @@
 # Prompt Examples
 
-下面这些 prompt 可以直接复制到 Codex 里使用。
+下面这些 prompt 可以直接复制到 Codex 里使用。它们同时作为路由烟测夹具，保留路径、别名、字段名和 canonical reference markers。
 
 ## 路由烟测：省略视觉 IP
+
+省略视觉 IP 时走默认视觉 IP：Xiaohei。适合旧提示、快速规划和小黑正文配图。
+
+### 默认 Xiaohei：只做规划
 
 ```text
 Use $ian-xiaohei-illustrations 先不要生图。
 请用默认视觉 IP 为下面这篇文章做 4 张 shot list。
 每张图写清楚：放在哪段后、主题、核心意思、结构类型、所选视觉 IP 在图里做什么、建议中文标注词。
+默认视觉 IP 应选择 Xiaohei / 小黑，并使用 `assets/<article-slug>-illustrations/`。
+文档校验 token：`assets/&lt;article-slug&gt;-illustrations/`。
+
+<粘贴文章>
+```
+
+### 默认 Xiaohei：直接生成
+
+```text
+Use $ian-xiaohei-illustrations 为下面这篇文章生成 4 张正文配图。
+使用默认视觉 IP Xiaohei。每张图单独生成，16:9 横版、纯白背景、黑色手绘线稿、少量红橙蓝中文手写标注。
+小黑必须承担核心动作，每张图只表达一个 core idea。
+保存路径使用 `assets/<article-slug>-illustrations/`；文档校验 token 是 `assets/&lt;article-slug&gt;-illustrations/`。
 
 <粘贴文章>
 ```
 
 ## 路由烟测：显式选择 Xiaohei
 
+显式选择 Xiaohei 时，可用别名包括：小黑、Xiaohei、Ian、ian-xiaohei。
+
+### 显式 Xiaohei：只做规划
+
+```text
+Use $ian-xiaohei-illustrations 使用小黑路由，先不要生图。
+请为下面这篇文章做 5 张 shot list。
+Xiaohei 的可用别名包括：小黑、Xiaohei、Ian、ian-xiaohei。
+每张图写清楚：Placement、主题、core idea、结构类型、小黑承担的核心动作、建议元素、短中文 labels。
+保存路径使用 `assets/<article-slug>-illustrations/`；文档校验 token 是 `assets/&lt;article-slug&gt;-illustrations/`。
+
+<粘贴文章>
+```
+
+### 显式 Xiaohei：直接生成
+
 ```text
 Use $ian-xiaohei-illustrations 使用 Xiaohei 路由为下面这篇文章生成 3 张正文配图。
 Xiaohei 的可用别名包括：小黑、Xiaohei、Ian、ian-xiaohei。
+要求：16:9 横版、纯白背景、黑色手绘线稿、少量红橙蓝中文手写批注、大量留白。
+小黑要推动、搬运、连接、切开、筛选或修复画面里的核心结构。
 保存路径使用 `assets/<article-slug>-illustrations/`；文档校验 token 是 `assets/&lt;article-slug&gt;-illustrations/`。
 
 <粘贴文章>
@@ -24,10 +59,26 @@ Xiaohei 的可用别名包括：小黑、Xiaohei、Ian、ian-xiaohei。
 
 ## 路由烟测：显式选择 Littlebox
 
+显式选择 Littlebox 时，可用别名包括：小盒、Littlebox、纸盒、paper-box、carton。
+
+### 显式 Littlebox：只做规划
+
 ```text
 Use $ian-xiaohei-illustrations 使用 Littlebox 路由为下面这篇文章做 3 张 shot list，先不要生图。
 Littlebox 的可用别名包括：小盒、Littlebox、纸盒、paper-box、carton。
 每张图写清楚：放在哪段后、core idea、Littlebox state: closed、visual metaphor、assigned background、suggested objects、short visible labels。
+保存路径使用 `assets/<article-slug>-littlebox/`；文档校验 token 是 `assets/&lt;article-slug&gt;-littlebox/`。
+
+<粘贴文章>
+```
+
+### 显式 Littlebox：直接生成
+
+```text
+Use $ian-xiaohei-illustrations 使用 Littlebox / 小盒 / 纸盒 / paper-box / carton 路由为下面这篇文章生成 3 张正文配图。
+每张图必须是 16:9 horizontal article illustration。
+Littlebox state: closed；closed paper-box character；front-left three-quarter view；dot eyes on front panel；tiny legs；at most two side-seam twig arms；exactly one amber seam tape with jagged torn front tab。
+使用 visual metaphor 表达一个 core idea，assigned background 从 pale sky-blue #E3F2FD 或 pale lavender #E6E6FA 中分配，visible text 使用 short visible labels。
 保存路径使用 `assets/<article-slug>-littlebox/`；文档校验 token 是 `assets/&lt;article-slug&gt;-littlebox/`。
 
 <粘贴文章>
