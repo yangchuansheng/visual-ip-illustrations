@@ -112,7 +112,7 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 6. Tom Rights and Route Contract | 3/3 | Complete   | 2026-06-12 |
+| 6. Tom Rights and Route Contract | 3/3 | Complete    | 2026-06-12 |
 | 7. Tom Canonical Pack | 0/TBD | Not started | - |
 | 8. Skill Controller Integration | 0/TBD | Not started | - |
 | 9. Docs, Examples, and Release Surface | 0/TBD | Not started | - |
