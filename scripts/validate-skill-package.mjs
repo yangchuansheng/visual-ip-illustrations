@@ -217,6 +217,89 @@ export function outputPathTokens() {
   };
 }
 
+export function parsePublicTomSampleApproval(releaseChecklistText) {
+  const approvalLine = releaseChecklistText
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) =>
+      line.includes(
+        "Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/:",
+      ),
+    );
+
+  if (!approvalLine) {
+    return {
+      found: false,
+      checked: false,
+      status: "",
+      reviewer: "",
+      reviewDate: "",
+      approvalStatus: "",
+      allowedDirectories: [],
+      releaseChannels: "",
+      reviewerPresent: false,
+      datePresent: false,
+      approvalStatusPresent: false,
+      allowedDirectoriesPresent: false,
+      releaseChannelsPresent: false,
+      complete: false,
+    };
+  }
+
+  const checked = /^\-\s+\[[xX]\]/.test(approvalLine);
+  const [, approvalRecord = ""] = approvalLine.split(/:\s*/, 2);
+  const fields = approvalRecord.split("/").map((field) => field.trim());
+  const [
+    status = "",
+    reviewer = "",
+    reviewDate = "",
+    approvalStatus = "",
+    allowedDirectoriesText = "",
+    releaseChannels = "",
+  ] = fields;
+  const allowedDirectories = allowedDirectoriesText
+    .split(/,|;|\band\b/)
+    .map((directory) => directory.trim())
+    .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
+    .filter(Boolean);
+  const requiredDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
+  const datePresent = Boolean(reviewDate) && !/^date$/i.test(reviewDate);
+  const approvalStatusPresent =
+    Boolean(approvalStatus) &&
+    !/^approval status$/i.test(approvalStatus) &&
+    /(approved|complete|granted)/i.test(approvalStatus);
+  const allowedDirectoriesPresent = requiredDirectories.every((directory) => allowedDirectories.includes(directory));
+  const releaseChannelsPresent = Boolean(releaseChannels) && !/^release channels\.?$/i.test(releaseChannels);
+  const complete =
+    checked &&
+    /(approved|complete|granted)/i.test(status) &&
+    !/pending/i.test(status) &&
+    reviewerPresent &&
+    datePresent &&
+    approvalStatusPresent &&
+    !/pending/i.test(approvalStatus) &&
+    allowedDirectoriesPresent &&
+    releaseChannelsPresent;
+
+  return {
+    found: true,
+    checked,
+    status,
+    reviewer,
+    reviewDate,
+    approvalStatus,
+    allowedDirectories,
+    releaseChannels,
+    reviewerPresent,
+    datePresent,
+    approvalStatusPresent,
+    allowedDirectoriesPresent,
+    releaseChannelsPresent,
+    complete,
+  };
+}
+
 function assertMarkers(text, relativePath, markers) {
   const missing = markers.filter((marker) => !text.includes(marker));
   if (missing.length > 0) {
@@ -229,6 +312,15 @@ function assertIncludes(text, relativePath, markers, relation) {
   if (missing.length > 0) {
     throw new Error(
       `${relativePath} expected ${relation}; observed missing marker(s): ${missing.join(", ")}`,
+    );
+  }
+}
+
+function assertNoMarkers(text, relativePath, markers, relation) {
+  const present = markers.filter((marker) => text.includes(marker));
+  if (present.length > 0) {
+    throw new Error(
+      `${relativePath} expected ${relation}; observed forbidden marker(s): ${present.join(", ")}`,
     );
   }
 }
@@ -281,6 +373,8 @@ function requiredPackageFiles() {
     ...xiaoheiOperationalRefs(),
     path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
     ...littleboxOperationalRefs(),
+    path.join(REFERENCES_DIR, "ips", "tom", "index.md"),
+    ...tomOperationalRefs(),
     ...legacyXiaoheiRefs().map((item) => item.root),
     "README.md",
     "examples/prompts.md",
@@ -307,6 +401,17 @@ function littleboxOperationalRefs() {
     "references/ips/littlebox/language-and-labels.md",
     "references/ips/littlebox/prompt-template.md",
     "references/ips/littlebox/qa-checklist.md",
+  ].map((item) => path.join(PACKAGE_DIR, item));
+}
+
+function tomOperationalRefs() {
+  return [
+    "references/ips/tom/rights.md",
+    "references/ips/tom/style-dna.md",
+    "references/ips/tom/tom-ip.md",
+    "references/ips/tom/composition-patterns.md",
+    "references/ips/tom/prompt-template.md",
+    "references/ips/tom/qa-checklist.md",
   ].map((item) => path.join(PACKAGE_DIR, item));
 }
 
@@ -481,6 +586,16 @@ const checks = [
       );
     }
   }),
+  defineCheck("AGENT-TOM-001", "openai.yaml exposes Tom gated route metadata markers", () => {
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "Xiaohei / Littlebox / Tom Article Illustrations",
+      "默认使用 Xiaohei",
+      "Tom 是 explicit gated-authorized protected-character route",
+      "default Xiaohei",
+      "explicit Tom protected-character route（gated-authorized）",
+      "allow_implicit_invocation: true",
+    ], "Xiaohei default behavior, Littlebox selection, explicit gated Tom, and implicit invocation markers");
+  }),
   defineCheck("ROUTE-TABLE-001", "routing.md exposes the required route metadata columns and rows", () => {
     const text = requireFile(ROUTING_FILE);
     const columns = markdownTableHeader(text, "IP Routes");
@@ -646,6 +761,38 @@ const checks = [
       ...littleboxOperationalRefs(),
     ], path.join(REFERENCES_DIR, "ips", "littlebox"), "Littlebox canonical pack files");
   }),
+  defineCheck("REFS-TOM-001", "Tom canonical operational references and index exist", () => {
+    const tomFiles = [
+      path.join(REFERENCES_DIR, "ips", "tom", "index.md"),
+      ...tomOperationalRefs(),
+    ];
+    assertReadableFiles(tomFiles, path.join(REFERENCES_DIR, "ips", "tom"), "Tom canonical pack files");
+    for (const relativePath of tomFiles) {
+      const text = requireFile(relativePath);
+      assertIncludes(text, relativePath, ["gated-authorized"], "Tom route status marker");
+      if (relativePath.endsWith("rights.md")) {
+        assertIncludes(text, relativePath, [
+          "Authorization Scope",
+          "Distribution Boundary",
+          "Sample Policy",
+          "Review Owner",
+        ], "Tom rights record sections");
+      } else {
+        assertIncludes(text, relativePath, ["rights.md"], "Tom rights authority marker");
+      }
+    }
+    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "tom", "index.md")), path.join(REFERENCES_DIR, "ips", "tom", "index.md"), [
+      "assets/<article-slug>-tom/",
+      "source-frame recreation",
+      "show logos",
+      "title cards",
+      "default Jerry usage",
+      "broad cast expansion",
+      "generic-cat drift",
+      "excessive text",
+      "route leakage",
+    ], "Tom pack navigation, output path, and shared protected-route failure categories");
+  }),
   defineCheck("LEGACY-XH-001", "root Xiaohei compatibility files expose the current contract heading", () => {
     for (const item of legacyXiaoheiRefs()) {
       const body = bodyAfterHeading(requireFile(item.root), "Current Xiaohei Contract");
@@ -707,6 +854,32 @@ const checks = [
       "replace the visible handwritten labels with these exact short labels: [labels]",
     ], "English prompt variables, closed identity, view, arms, tape, and label repair markers");
   }),
+  defineCheck("PROMPT-TOM-001", "Tom prompt template preserves planning, generation, edit, and rights markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "prompt-template.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Tom planning fields gate",
+      "Placement: [where this image appears in the article]",
+      "Core idea: [one sentence]",
+      "Structure type: [Workflow / System Local View / Before/After / Character State / Concept Metaphor / Method Layers / Map Route / Mini Comic]",
+      "Tom state: [focused / guarding / chasing / sorting / repairing / catching / bracing / stamping / decisive]",
+      "Tom action: [the physical cognitive action Tom performs]",
+      "Supporting objects: [1-2 objects such as evidence slips, traps, levers, doors, paths, tools, piles, bridges, stamps, broken machines, gates, tags, ropes, springs, nets, or warning marks]",
+      "Visible labels: [\"short label 1\", \"short label 2\", \"short label 3\" copied exactly in the user's language]",
+      "Output path: assets/<article-slug>-tom/",
+      "Rights-status note: Tom is a `gated-authorized` protected-character route; check `rights.md` for authorization scope and distribution boundary.",
+      "Tom one-image generation gate",
+      "Route status note: Tom is a `gated-authorized` protected-character route.",
+      "Recurring IP: Tom from Tom and Jerry as a simplified article-illustration character.",
+      "Tom must perform the central cognitive action",
+      "Save reminder for downstream delivery: save accepted output under `assets/<article-slug>-tom/`",
+      "Tom edit participation repair gate",
+      "Tom off-model identity repair gate",
+      "Tom title removal edit gate",
+      "Tom text reduction edit gate",
+      "Tom unaffected-content preservation gate",
+      "Protected-route block: source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, generic-cat drift, excessive text, and route leakage all fail the route.",
+    ], "Tom planning fields, prompt placeholders, output path, rights note, edit gates, and protected-route block");
+  }),
   defineCheck("IP-XH-001", "Xiaohei canonical pack preserves objective IP markers", () => {
     const text = combinedText([
       path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
@@ -741,6 +914,66 @@ const checks = [
       "assets/<article-slug>-littlebox/",
       "wrong tape placement",
     ], "Littlebox closed identity, backgrounds, language, view, tape, arms, output, and QA failure markers");
+  }),
+  defineCheck("IP-TOM-001", "Tom canonical pack preserves protected-character identity and action gates", () => {
+    const text = combinedText([
+      path.join(REFERENCES_DIR, "ips", "tom", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "tom", "rights.md"),
+      path.join(REFERENCES_DIR, "ips", "tom", "style-dna.md"),
+      path.join(REFERENCES_DIR, "ips", "tom", "tom-ip.md"),
+      path.join(REFERENCES_DIR, "ips", "tom", "composition-patterns.md"),
+    ]);
+    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "tom"), [
+      "gated-authorized",
+      "Tom from Tom and Jerry",
+      "Warner Bros.",
+      "authorization scope",
+      "distribution boundary",
+      "public-sample policy",
+      "grey or blue-grey cat body",
+      "white muzzle",
+      "white belly areas",
+      "expressive ears",
+      "long tail",
+      "visible paws",
+      "Tom-like head shape and body silhouette",
+      "Tom performs the core conceptual action",
+      "Tom cognitive-action participation gate",
+      "Tom composition original-metaphor gate",
+      "Tom active-composition gate",
+      "Tom support-object pool",
+      "Tom route leakage composition gate",
+      "assets/<article-slug>-tom/",
+    ], "Tom rights authority, identity cues, cognitive action gates, composition gates, and output path");
+  }),
+  defineCheck("QA-TOM-001", "Tom QA checklist preserves protected-route pass, fail, repair, and delivery markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "qa-checklist.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Tom QA protected-route gate.",
+      "Tom QA rights-status note gate.",
+      "Tom identity recognizability is clear",
+      "Tom performs the active cognitive action.",
+      "The scene is an original article metaphor created for the current article.",
+      "The composition stays sparse, route-local, and solo Tom.",
+      "Rights-status note is present in planning, generation, edit, and delivery context.",
+      "Delivery path uses `assets/<article-slug>-tom/`.",
+      "generic cats",
+      "passive Tom placement",
+      "source-frame recreation",
+      "show logos",
+      "title cards",
+      "default Jerry usage",
+      "broad cast expansion",
+      "excessive text",
+      "route leakage",
+      "off-model Tom identity",
+      "Tom QA generic-cat failure",
+      "Tom QA passive-placement failure",
+      "Tom QA source-frame recreation failure",
+      "Tom QA route-leakage failure",
+      "Tom QA unaffected-content preservation gate",
+      "Accepted Tom images keep Tom as the action subject",
+    ], "Tom QA pass criteria, protected-route failures, repair gates, rights marker, and delivery judgment");
   }),
   defineCheck("RIGHTS-TOM-001", "Tom rights record preserves required Phase 6 rights markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "rights.md");
@@ -871,6 +1104,23 @@ const checks = [
       "assets/<article-slug>-littlebox/",
     ], "text-only explicit Littlebox route smoke prompt");
   }),
+  defineCheck("SMOKE-TOM-001", "examples prompts cover explicit Tom route smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## 路由烟测：显式选择 Tom",
+      "Tom、Tom Cat、Tom and Jerry、汤姆、汤姆猫",
+      "Tom 是 explicit protected-character route",
+      "route status 是 `gated-authorized`",
+      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
+      "使用 route-local reference directory：`ian-xiaohei-illustrations/references/ips/tom/`",
+      "assets/<article-slug>-tom/",
+      "assets/&lt;article-slug&gt;-tom/",
+      "Rights-status note",
+      "Tom aliases 包括：Tom、Tom Cat、Tom and Jerry、汤姆、汤姆猫",
+      "公共 rendered Tom samples 发布状态以 RELEASE_CHECKLIST.md 的 public-sample gate 为准",
+      "Text-only maintainer route audit",
+      "Public rendered Tom samples 由 RELEASE_CHECKLIST.md 的 public-sample gate 控制",
+    ], "text-only explicit Tom route smoke, planning, generation, path, rights, and public-sample gate prompts");
+  }),
   defineCheck("SMOKE-MIXED-001", "examples prompts cover mixed-IP variant smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
       "## 路由说明：多 IP 请求",
@@ -901,13 +1151,41 @@ const checks = [
       );
     }
   }),
+  defineCheck("BOUNDARY-TOM-LEAK-001", "Xiaohei and Littlebox references keep Tom protected-route markers isolated", () => {
+    const leakMarkers = [
+      "Tom Cat",
+      "Tom and Jerry",
+      "汤姆猫",
+      "Warner Bros",
+      "protected-character route",
+      "default Jerry usage",
+      "broad cast expansion",
+      "source-frame recreation",
+      "gated-authorized",
+      "references/ips/tom",
+      "assets/<article-slug>-tom/",
+    ];
+    const scannedPaths = [
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
+      ...xiaoheiOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
+      ...littleboxOperationalRefs(),
+      ...legacyXiaoheiRefs().map((item) => item.root),
+    ];
+    for (const relativePath of scannedPaths) {
+      assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no Tom protected-route text leakage");
+    }
+  }),
   defineCheck("BOUNDARY-TOM-IMG-001", "example asset directories keep Tom rendered assets behind release approval", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
-    const pendingPublicSamples = releaseChecklist.includes("PENDING / reviewer / date");
+    const approval = parsePublicTomSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected Public rendered Tom samples approval record; observed missing line");
+    }
     const matches = imageAssetPaths().filter((relativePath) => /tom|tom-cat|tom-and-jerry|汤姆|汤姆猫/i.test(relativePath));
-    if (pendingPublicSamples && matches.length > 0) {
+    if (!approval.complete && matches.length > 0) {
       throw new Error(
-        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Tom assets while approval is PENDING; observed ${matches.join(", ")}`,
+        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Tom assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}`,
       );
     }
   }),
