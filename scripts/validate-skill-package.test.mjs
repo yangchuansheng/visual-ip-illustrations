@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
@@ -62,6 +62,38 @@ test("validator reports Task 1 contract checks in stable order", () => {
   }
 });
 
+test("validator reports Task 2 contract checks in stable order", () => {
+  const result = runValidator();
+
+  assert.equal(result.status, 0);
+  const expectedIds = [
+    "PROMPT-XH-001",
+    "PROMPT-LB-001",
+    "PROMPT-LB-002",
+    "IP-XH-001",
+    "IP-LB-001",
+    "DOC-LINKS-001",
+    "DOC-PATHS-001",
+    "DOC-ROUTES-001",
+    "NOTICE-IAN-001",
+    "NOTICE-LB-001",
+    "SMOKE-DEFAULT-001",
+    "SMOKE-XH-001",
+    "SMOKE-LB-001",
+    "SMOKE-MIXED-001",
+    "BOUNDARY-IMG-001",
+    "BOUNDARY-P5-001",
+  ];
+
+  let lastIndex = result.stdout.indexOf("[PASS] LEGACY-XH-002 ");
+  assert.ok(lastIndex >= 0, "Task 2 checks should follow Task 1 checks");
+  for (const id of expectedIds) {
+    const index = result.stdout.indexOf(`[PASS] ${id} `);
+    assert.ok(index > lastIndex, `${id} should appear after the previous Task 2 check`);
+    lastIndex = index;
+  }
+});
+
 test("validator collects failures and exits nonzero after Task 1 checks run", () => {
   const fixtureRoot = path.join(tmpdir(), `xiaohei-validator-${process.pid}-${Date.now()}`);
   mkdirSync(path.join(fixtureRoot, "ian-xiaohei-illustrations", "agents"), { recursive: true });
@@ -104,6 +136,48 @@ test("validator collects failures and exits nonzero after Task 1 checks run", ()
   assert.match(result.stdout, /\[FAIL\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
   assert.match(result.stdout, /Summary: total=\d+ passed=\d+ failed=\d+ skipped=0/);
+});
+
+test("validator failure messages include actionable Task 2 check IDs and paths", () => {
+  const fixtureRoot = path.join(tmpdir(), `xiaohei-validator-task2-${process.pid}-${Date.now()}`);
+  cpSync(repoRoot, fixtureRoot, {
+    recursive: true,
+    filter(source) {
+      const relative = path.relative(repoRoot, source);
+      return relative !== ".git" && !relative.startsWith(`.git${path.sep}`);
+    },
+  });
+
+  const promptTemplatePath = path.join(
+    fixtureRoot,
+    "ian-xiaohei-illustrations",
+    "references",
+    "ips",
+    "littlebox",
+    "prompt-template.md",
+  );
+  writeFileSync(
+    promptTemplatePath,
+    readFileSync(promptTemplatePath, "utf8").replaceAll("Littlebox state: closed", "Littlebox state: sealed"),
+    "utf8",
+  );
+
+  const noticePath = path.join(fixtureRoot, "NOTICE.md");
+  writeFileSync(noticePath, readFileSync(noticePath, "utf8").replace("37cd93e", "missing"), "utf8");
+
+  const result = spawnSync(process.execPath, [path.join(fixtureRoot, "scripts", "validate-skill-package.mjs")], {
+    cwd: fixtureRoot,
+    encoding: "utf8",
+  });
+
+  rmSync(fixtureRoot, { recursive: true, force: true });
+
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /\[FAIL\] PROMPT-LB-001 /);
+  assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/littlebox\/prompt-template\.md/);
+  assert.match(result.stdout, /\[FAIL\] NOTICE-LB-001 /);
+  assert.match(result.stdout, /NOTICE\.md/);
+  assert.match(result.stdout, /observed missing marker/);
 });
 
 test("parser helpers expose current package contract primitives", async () => {

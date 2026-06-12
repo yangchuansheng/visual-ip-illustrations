@@ -318,6 +318,38 @@ function legacyXiaoheiRefs() {
   }));
 }
 
+function localMarkdownLinks(relativePaths) {
+  const links = [];
+  for (const relativePath of relativePaths) {
+    for (const link of parseMarkdownLinks(requireFile(relativePath))) {
+      if (!link.external) {
+        links.push({ source: relativePath, ...link });
+      }
+    }
+  }
+  return links;
+}
+
+function docsTexts() {
+  return {
+    readme: requireFile("README.md"),
+    examples: requireFile("examples/prompts.md"),
+  };
+}
+
+function combinedText(relativePaths) {
+  return relativePaths.map((relativePath) => requireFile(relativePath)).join("\n");
+}
+
+function imageAssetPaths() {
+  return [
+    ...sortedDirectoryEntries("examples/images").filter((entry) => entry.type === "file").map((entry) => entry.path),
+    ...sortedDirectoryEntries(path.join(PACKAGE_DIR, "assets", "examples"))
+      .filter((entry) => entry.type === "file")
+      .map((entry) => entry.path),
+  ].sort((a, b) => a.localeCompare(b, "en"));
+}
+
 function assertExistingFiles(relativePaths, checkPath, relation) {
   const missing = relativePaths.filter((relativePath) => !fileExists(relativePath));
   if (missing.length > 0) {
@@ -565,6 +597,204 @@ const checks = [
         throw new Error(`${item.root} expected body parity with ${item.canonical}; observed content mismatch`);
       }
     }
+  }),
+  defineCheck("PROMPT-XH-001", "Xiaohei prompt templates preserve required placeholders", () => {
+    for (const relativePath of [
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "prompt-template.md"),
+    ]) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "{正文配图主题}",
+        "{结构类型：Workflow / 系统局部 / 前后对比 / 角色状态 / 概念隐喻 / 方法分层 / 地图路线 / 小漫画分镜}",
+        "{这张图要表达的核心意思}",
+        "{具体画面：小黑在哪里、正在做什么、主要物件是什么、信息如何流动}",
+        "{标注词1}",
+        "{要删除的文字}",
+      ], "Xiaohei prompt placeholders and edit placeholder");
+    }
+  }),
+  defineCheck("PROMPT-LB-001", "Littlebox prompt template preserves planning fields", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "littlebox", "prompt-template.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Placement: [where it appears]",
+      "Core idea: [one sentence]",
+      "Littlebox state: closed",
+      "Visual metaphor: [physical box action]",
+      "Background: [pale sky blue #E3F2FD / pale lavender #E6E6FA]",
+      "Elements: [3-5 objects]",
+      "Labels: [short visible labels in the user's language]",
+    ], "Littlebox planning output fields");
+  }),
+  defineCheck("PROMPT-LB-002", "Littlebox generation template preserves identity and label variables", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "littlebox", "prompt-template.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Image-generation prompts stay English",
+      "Scene: [core idea in one sentence]",
+      "[pale sky-blue background #E3F2FD / pale lavender background #E6E6FA]",
+      "front-left three-quarter view",
+      "Littlebox state: closed",
+      "side-seam twig arms",
+      "amber seam tape #F59E0B",
+      "jagged torn cut",
+      "Visual metaphor: [physical box action]",
+      "Composition: [composition family]",
+      "Visible handwritten labels, copied exactly in the user's language: [quoted labels]",
+      "replace the visible handwritten labels with these exact short labels: [labels]",
+    ], "English prompt variables, closed identity, view, arms, tape, and label repair markers");
+  }),
+  defineCheck("IP-XH-001", "Xiaohei canonical pack preserves objective IP markers", () => {
+    const text = combinedText([
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
+      ...xiaoheiOperationalRefs(),
+    ]);
+    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "xiaohei"), [
+      "16:9",
+      "纯白背景",
+      "小黑承担核心动作",
+      "assets/<article-slug>-illustrations/",
+      "反复刻规则",
+      "只用于风格校准",
+      "小黑像吉祥物、表情包或可爱卡通",
+    ], "16:9, white background, active Xiaohei, output path, anti-repeat, and QA markers");
+  }),
+  defineCheck("IP-LB-001", "Littlebox canonical pack preserves objective IP markers", () => {
+    const text = combinedText([
+      path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
+      ...littleboxOperationalRefs(),
+    ]);
+    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "littlebox"), [
+      "Littlebox state: closed",
+      "#E3F2FD",
+      "#E6E6FA",
+      "prompts stay English",
+      "user's language",
+      "closed-only",
+      "front-left three-quarter",
+      "amber seam tape",
+      "jagged",
+      "side-seam twig arms",
+      "assets/<article-slug>-littlebox/",
+      "wrong tape placement",
+    ], "Littlebox closed identity, backgrounds, language, view, tape, arms, output, and QA failure markers");
+  }),
+  defineCheck("DOC-LINKS-001", "README and examples local Markdown links point to existing files", () => {
+    const links = localMarkdownLinks(["README.md", "examples/prompts.md"]);
+    if (links.length === 0) {
+      throw new Error("README.md and examples/prompts.md expected local Markdown links; observed none");
+    }
+    for (const link of links) {
+      const target = link.target.split("#")[0];
+      if (!target) continue;
+      const resolved = path.normalize(path.join(path.dirname(link.source), target));
+      if (resolved.startsWith("..") || path.isAbsolute(resolved)) {
+        throw new Error(`${link.source} expected local link ${link.target} to stay inside repo; observed escape`);
+      }
+      if (!fileExists(resolved)) {
+        throw new Error(`${link.source} expected local link ${link.target} to exist; observed missing ${resolved}`);
+      }
+    }
+  }),
+  defineCheck("DOC-PATHS-001", "README and examples expose raw and escaped output path tokens", () => {
+    const tokens = outputPathTokens();
+    for (const [relativePath, text] of Object.entries(docsTexts())) {
+      const pathName = relativePath === "readme" ? "README.md" : "examples/prompts.md";
+      assertIncludes(text, pathName, [...tokens.raw, ...tokens.escaped], "raw and HTML-escaped Xiaohei and Littlebox output path tokens");
+    }
+  }),
+  defineCheck("DOC-ROUTES-001", "public docs expose route metadata and canonical pack paths", () => {
+    const text = combinedText(["README.md", "examples/prompts.md"]);
+    assertIncludes(text, "README.md + examples/prompts.md", [
+      "ian-xiaohei-illustrations/references/routing.md",
+      "ian-xiaohei-illustrations/references/ips/xiaohei/",
+      "ian-xiaohei-illustrations/references/ips/littlebox/",
+      "Xiaohei",
+      "Littlebox",
+    ], "public route docs, canonical pack paths, and route names");
+  }),
+  defineCheck("NOTICE-IAN-001", "NOTICE keeps Ian Xiaohei attribution markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Ian Xiaohei Illustrations",
+      "created by Ian",
+      "小黑",
+      "Ian's visual language",
+      "provide attribution to Ian",
+      "https://github.com/helloianneo",
+    ], "Ian source and redistribution attribution markers");
+  }),
+  defineCheck("NOTICE-LB-001", "NOTICE keeps Littlebox attribution markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "5km Littlebox Illustrations",
+      "okooo5km",
+      "https://github.com/okooo5km/5km-littlebox-illustrations",
+      "MIT",
+      "37cd93ee516da0324577b7bbc8ca3146e5c8d8d7",
+      "37cd93e",
+      "Copyright (c) 2026 okooo5km",
+      "derived documentation",
+    ], "Littlebox source project, author, URL, MIT context, commits, copyright, and derived-credit guidance");
+  }),
+  defineCheck("SMOKE-DEFAULT-001", "examples prompts cover omitted-IP default Xiaohei smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## 路由烟测：省略视觉 IP",
+      "默认视觉 IP",
+      "shot list",
+      "所选视觉 IP",
+    ], "text-only omitted-IP default route smoke prompt");
+  }),
+  defineCheck("SMOKE-XH-001", "examples prompts cover explicit Xiaohei smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## 路由烟测：显式选择 Xiaohei",
+      "小黑",
+      "Xiaohei",
+      "Ian",
+      "ian-xiaohei",
+      "assets/<article-slug>-illustrations/",
+    ], "text-only explicit Xiaohei route smoke prompt");
+  }),
+  defineCheck("SMOKE-LB-001", "examples prompts cover explicit Littlebox smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## 路由烟测：显式选择 Littlebox",
+      "小盒",
+      "Littlebox",
+      "纸盒",
+      "paper-box",
+      "carton",
+      "Littlebox state: closed",
+      "visual metaphor",
+      "assigned background",
+      "assets/<article-slug>-littlebox/",
+    ], "text-only explicit Littlebox route smoke prompt");
+  }),
+  defineCheck("SMOKE-MIXED-001", "examples prompts cover mixed-IP variant smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## 路由说明：多 IP 请求",
+      "core idea",
+      "Xiaohei variant group",
+      "Littlebox variant group",
+      "assets/<article-slug>-illustrations/",
+      "assets/<article-slug>-littlebox/",
+    ], "text-only mixed-IP variant group smoke prompt");
+  }),
+  defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
+    const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
+    if (matches.length > 0) {
+      throw new Error(
+        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Littlebox import; observed ${matches.join(", ")}`,
+      );
+    }
+  }),
+  defineCheck("BOUNDARY-P5-001", "Phase 4 validator preserves Phase 5 documentation and release boundary", () => {
+    assertIncludes(combinedText([
+      ".planning/phases/04-validation-hardening/04-CONTEXT.md",
+      ".planning/phases/04-validation-hardening/04-RESEARCH.md",
+    ]), ".planning/phases/04-validation-hardening", [
+      "Phase 5 owns broad README refresh",
+      "agents/openai.yaml",
+      "release checklist",
+      "D-28",
+      "D-29",
+      "D-30",
+    ], "Phase 5 boundary for broad docs, metadata wording, release checklist, and excluded release artifacts");
   }),
 ];
 
