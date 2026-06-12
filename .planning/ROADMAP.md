@@ -14,7 +14,7 @@ This MVP turns the existing Xiaohei-only Codex Skill into a reliable two-IP arti
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Routing Foundation** - Users and maintainers get deterministic IP selection, Xiaohei defaulting, shared workflow boundaries, and route metadata. (completed 2026-06-12)
-- [ ] **Phase 2: Xiaohei Canonicalization** - Maintainers get a canonical Xiaohei IP pack while existing Xiaohei usage and paths keep working. (execution complete, ready for verification)
+- [x] **Phase 2: Xiaohei Canonicalization** - Maintainers get a canonical Xiaohei IP pack while existing Xiaohei usage and paths keep working. (completed 2026-06-12)
 - [ ] **Phase 3: Littlebox Vertical Slice** - Users can request Littlebox and receive the correct identity, prompt, QA, output path, and attribution behavior.
 - [ ] **Phase 4: Validation Hardening** - Maintainers can run one local command that catches package, routing, prompt, path, docs, and attribution drift.
 - [ ] **Phase 5: Documentation, Examples, and Release Packaging** - Users and maintainers get public docs, copyable examples, metadata, and release checks that match the two-IP package.
@@ -125,7 +125,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Routing Foundation | 2/2 | Complete    | 2026-06-12 |
-| 2. Xiaohei Canonicalization | 3/3 | Ready for verification | - |
+| 2. Xiaohei Canonicalization | 3/3 | Complete    | 2026-06-12 |
 | 3. Littlebox Vertical Slice | 0/TBD | Not started | - |
 | 4. Validation Hardening | 0/TBD | Not started | - |
 | 5. Documentation, Examples, and Release Packaging | 0/TBD | Not started | - |
