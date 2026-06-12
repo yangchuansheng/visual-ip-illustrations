@@ -15,6 +15,7 @@ const requiredCheckIds = [
   "SKILL-OUTPUT-001",
   "SKILL-GEN-001",
   "AGENT-SHAPE-001",
+  "AGENT-TOM-001",
   "ROUTE-TABLE-001",
   "ROUTE-XH-001",
   "ROUTE-LB-001",
@@ -25,13 +26,17 @@ const requiredCheckIds = [
   "ROUTE-MIXED-001",
   "REFS-XH-001",
   "REFS-LB-001",
+  "REFS-TOM-001",
   "LEGACY-XH-001",
   "LEGACY-XH-002",
   "PROMPT-XH-001",
   "PROMPT-LB-001",
   "PROMPT-LB-002",
+  "PROMPT-TOM-001",
   "IP-XH-001",
   "IP-LB-001",
+  "IP-TOM-001",
+  "QA-TOM-001",
   "RIGHTS-TOM-001",
   "DOC-LINKS-001",
   "DOC-PATHS-001",
@@ -43,9 +48,11 @@ const requiredCheckIds = [
   "SMOKE-DEFAULT-001",
   "SMOKE-XH-001",
   "SMOKE-LB-001",
+  "SMOKE-TOM-001",
   "SMOKE-MIXED-001",
   "RELEASE-TOM-001",
   "BOUNDARY-IMG-001",
+  "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-TOM-IMG-001",
   "BOUNDARY-P5-001",
 ];
@@ -58,6 +65,39 @@ function runValidator(extraEnv = {}) {
   });
 }
 
+function fixturePath(name) {
+  return path.join(
+    tmpdir(),
+    `xiaohei-validator-${name}-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+  );
+}
+
+function copyFixture(name) {
+  const fixtureRoot = fixturePath(name);
+  cpSync(repoRoot, fixtureRoot, {
+    recursive: true,
+    filter(source) {
+      const relative = path.relative(repoRoot, source);
+      return relative !== ".git" && !relative.startsWith(`.git${path.sep}`);
+    },
+  });
+  return fixtureRoot;
+}
+
+function runFixtureValidator(fixtureRoot) {
+  return spawnSync(process.execPath, [path.join(fixtureRoot, "scripts", "validate-skill-package.mjs")], {
+    cwd: fixtureRoot,
+    encoding: "utf8",
+  });
+}
+
+function replaceInFixture(fixtureRoot, relativePath, searchValue, replaceValue) {
+  const absolutePath = path.join(fixtureRoot, relativePath);
+  const original = readFileSync(absolutePath, "utf8");
+  assert.ok(original.includes(searchValue), `${relativePath} should contain fixture marker ${searchValue}`);
+  writeFileSync(absolutePath, original.replace(searchValue, replaceValue), "utf8");
+}
+
 test("validator command prints deterministic harness smoke logs", () => {
   const result = runValidator();
 
@@ -66,6 +106,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] SKILL-FM-001 /);
   assert.match(result.stdout, /\[PASS\] SKILL-ROUTE-001 /);
   assert.match(result.stdout, /\[PASS\] AGENT-SHAPE-001 /);
+  assert.match(result.stdout, /\[PASS\] AGENT-TOM-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /Summary: total=\d+ passed=\d+ failed=0 skipped=0/);
   assert.equal(result.stderr, "");
@@ -83,6 +124,7 @@ test("validator reports Task 1 contract checks in stable order", () => {
     "SKILL-OUTPUT-001",
     "SKILL-GEN-001",
     "AGENT-SHAPE-001",
+    "AGENT-TOM-001",
     "ROUTE-TABLE-001",
     "ROUTE-XH-001",
     "ROUTE-LB-001",
@@ -93,6 +135,7 @@ test("validator reports Task 1 contract checks in stable order", () => {
     "ROUTE-MIXED-001",
     "REFS-XH-001",
     "REFS-LB-001",
+    "REFS-TOM-001",
     "LEGACY-XH-001",
     "LEGACY-XH-002",
   ];
@@ -243,7 +286,7 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
   assert.match(result.stdout, /observed missing marker/);
 });
 
-test("validator emits the full Phase 6 matrix with zero failures", () => {
+test("validator emits the full Phase 10 matrix with zero failures", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -254,7 +297,7 @@ test("validator emits the full Phase 6 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=40 passed=40 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=47 passed=47 failed=0 skipped=0/);
 });
 
 test("parser helpers expose current package contract primitives", async () => {
@@ -262,6 +305,7 @@ test("parser helpers expose current package contract primitives", async () => {
   const skillText = readFileSync(path.join(repoRoot, "ian-xiaohei-illustrations", "SKILL.md"), "utf8");
   const routingText = readFileSync(path.join(repoRoot, "ian-xiaohei-illustrations", "references", "routing.md"), "utf8");
   const readmeText = readFileSync(path.join(repoRoot, "README.md"), "utf8");
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
 
   const frontmatter = validators.parseFrontmatter(skillText);
   assert.equal(frontmatter.data.name, "ian-xiaohei-illustrations");
@@ -271,7 +315,25 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.equal(routes.length, 3);
   assert.deepEqual(routes.map((route) => route.id), ["xiaohei", "littlebox", "tom"]);
   assert.equal(routes[0].output_suffix, "illustrations");
+  assert.equal(routes[0].default, "true");
+  assert.equal(routes[1].output_suffix, "littlebox");
+  assert.equal(routes[1].default, "false");
+  assert.equal(routes[2].aliases, "Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫");
   assert.equal(routes[2].output_suffix, "tom");
+  assert.equal(routes[2].default, "false");
+  assert.deepEqual(
+    validators.splitRouteCell(routes[2].required_references),
+    [
+      "references/ips/tom/index.md",
+      "references/ips/tom/rights.md",
+      "references/ips/tom/style-dna.md",
+      "references/ips/tom/tom-ip.md",
+      "references/ips/tom/composition-patterns.md",
+      "references/ips/tom/prompt-template.md",
+      "references/ips/tom/qa-checklist.md",
+    ],
+  );
+  assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
 
   const links = validators.parseMarkdownLinks(readmeText);
   assert.ok(links.some((link) => link.target === "examples/prompts.md"));
@@ -281,4 +343,194 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-tom/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-littlebox/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-tom/"));
+
+  const pendingApproval = validators.parsePublicTomSampleApproval(releaseChecklistText);
+  assert.equal(pendingApproval.found, true);
+  assert.equal(pendingApproval.checked, false);
+  assert.equal(pendingApproval.complete, false);
+  assert.equal(pendingApproval.reviewerPresent, false);
+  assert.equal(pendingApproval.allowedDirectoriesPresent, false);
+
+  const approvedText = releaseChecklistText.replace(
+    "- [ ] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.",
+    "- [x] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / 2026-06-13 / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.",
+  );
+  const approved = validators.parsePublicTomSampleApproval(approvedText);
+  assert.equal(approved.complete, true);
+  assert.deepEqual(approved.allowedDirectories, ["examples/images", "ian-xiaohei-illustrations/assets/examples"]);
+});
+
+test("validator fixture rejects Tom route metadata drift", () => {
+  const fixtureRoot = copyFixture("tom-route");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      "`Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`",
+      "`Tom`, `Tom and Jerry`, `汤姆`, `汤姆猫`",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-TOM-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Tom Cat/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture requires Tom canonical pack files", () => {
+  const fixtureRoot = copyFixture("tom-pack");
+  const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "qa-checklist.md");
+  try {
+    writeFileSync(path.join(fixtureRoot, relativePath), "", "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REFS-TOM-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/tom/);
+    assert.match(
+      result.stdout,
+      /observed empty file\(s\): ian-xiaohei-illustrations\/references\/ips\/tom\/qa-checklist\.md/,
+    );
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Tom prompt marker drift", () => {
+  const fixtureRoot = copyFixture("tom-prompt");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "prompt-template.md"),
+      "Rights-status note: Tom is a `gated-authorized` protected-character route; check `rights.md` for authorization scope and distribution boundary.",
+      "Rights boundary note: Tom is a gated authorized protected-character route.",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] PROMPT-TOM-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/tom\/prompt-template\.md/);
+    assert.match(
+      result.stdout,
+      /observed missing marker\(s\): Rights-status note: Tom is a `gated-authorized` protected-character route/,
+    );
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Tom identity and QA marker drift", () => {
+  const fixtureRoot = copyFixture("tom-qa");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "qa-checklist.md"),
+      "off-model Tom identity",
+      "off-model identity",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] QA-TOM-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/tom\/qa-checklist\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): off-model Tom identity/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Tom docs and agent metadata drift", () => {
+  const fixtureRoot = copyFixture("tom-docs-agent");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+      "explicit Tom protected-character route（gated-authorized）",
+      "explicit protected-character route",
+    );
+    replaceInFixture(
+      fixtureRoot,
+      "examples/prompts.md",
+      "## 路由烟测：显式选择 Tom",
+      "## Route smoke: explicit protected character",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] AGENT-TOM-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/agents\/openai\.yaml/);
+    assert.match(result.stdout, /observed missing marker\(s\): explicit Tom protected-character route/);
+    assert.match(result.stdout, /\[FAIL\] SMOKE-TOM-001 /);
+    assert.match(result.stdout, /examples\/prompts\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): ## 路由烟测：显式选择 Tom/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Tom leakage in non-Tom packs", () => {
+  const fixtureRoot = copyFixture("tom-leak");
+  const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md");
+  try {
+    writeFileSync(
+      path.join(fixtureRoot, relativePath),
+      `${readFileSync(path.join(fixtureRoot, relativePath), "utf8")}\n\nLeaked route marker: Tom Cat\n`,
+      "utf8",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] BOUNDARY-TOM-LEAK-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/xiaohei\/xiaohei-ip\.md/);
+    assert.match(result.stdout, /observed forbidden marker\(s\): Tom Cat/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture enforces public Tom asset approval parsing", async () => {
+  const validators = await import(`${scriptPath}?approval=${Date.now()}`);
+  const fixtureRoot = copyFixture("tom-public-asset");
+  try {
+    writeFileSync(path.join(fixtureRoot, "examples", "images", "99-tom-test.png"), "fixture", "utf8");
+
+    const pendingResult = runFixtureValidator(fixtureRoot);
+
+    assert.equal(pendingResult.status, 1);
+    assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-TOM-IMG-001 /);
+    assert.match(pendingResult.stdout, /examples\/images and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images\/99-tom-test\.png/);
+    assert.match(pendingResult.stdout, /approval status=PENDING/);
+    assert.match(pendingResult.stdout, /reviewer=missing/);
+    assert.match(pendingResult.stdout, /allowed directories=missing/);
+
+    const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
+    const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
+      "- [ ] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.",
+      "- [x] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / 2026-06-13 / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.",
+    );
+    writeFileSync(releaseChecklistPath, approvedText, "utf8");
+
+    const approval = validators.parsePublicTomSampleApproval(approvedText);
+    assert.equal(approval.complete, true);
+    assert.equal(approval.reviewerPresent, true);
+    assert.equal(approval.datePresent, true);
+    assert.equal(approval.allowedDirectoriesPresent, true);
+
+    const approvedResult = runFixtureValidator(fixtureRoot);
+    assert.equal(approvedResult.status, 0);
+    assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
+    assert.match(approvedResult.stdout, /Summary: total=47 passed=47 failed=0 skipped=0/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
 });

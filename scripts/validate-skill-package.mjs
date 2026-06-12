@@ -248,7 +248,7 @@ export function parsePublicTomSampleApproval(releaseChecklistText) {
 
   const checked = /^\-\s+\[[xX]\]/.test(approvalLine);
   const [, approvalRecord = ""] = approvalLine.split(/:\s*/, 2);
-  const fields = approvalRecord.split("/").map((field) => field.trim());
+  const fields = approvalRecord.split(/\s+\/\s+/).map((field) => field.trim());
   const [
     status = "",
     reviewer = "",
