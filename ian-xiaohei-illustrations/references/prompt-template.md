@@ -9,7 +9,6 @@ Canonical Xiaohei prompt templates live at `references/ips/xiaohei/prompt-templa
 - Treat the canonical file as the editable source of truth for generation prompts, edit prompts, template variables, and constraints.
 
 ## Current Xiaohei Contract
-
 # 生图提示词模板
 
 每张图单独生成。根据正文内容替换变量，不要把多张图拼在一起。

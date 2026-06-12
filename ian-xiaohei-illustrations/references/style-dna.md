@@ -9,7 +9,6 @@ Canonical Xiaohei style rules live at `references/ips/xiaohei/style-dna.md`.
 - Treat the canonical file as the editable source of truth for visual language, color, text, whitespace, and veto rules.
 
 ## Current Xiaohei Contract
-
 # 风格 DNA
 
 ## 一句话

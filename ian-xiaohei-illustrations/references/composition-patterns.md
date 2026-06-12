@@ -9,7 +9,6 @@ Canonical Xiaohei composition rules live at `references/ips/xiaohei/composition-
 - Treat the canonical file as the editable source of truth for structure types, metaphor generation, and anti-repeat rules.
 
 ## Current Xiaohei Contract
-
 # 构图模式与原创规则
 
 ## 基础结构类型

@@ -9,7 +9,6 @@ Canonical Xiaohei quality rules live at `references/ips/xiaohei/qa-checklist.md`
 - Treat the canonical file as the editable source of truth for pass checks, failure signals, iteration methods, and delivery judgment.
 
 ## Current Xiaohei Contract
-
 # QA Checklist
 
 ## 必过项

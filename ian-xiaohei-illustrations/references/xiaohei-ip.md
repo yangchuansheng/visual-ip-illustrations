@@ -9,7 +9,6 @@ Canonical Xiaohei character rules live at `references/ips/xiaohei/xiaohei-ip.md`
 - Treat the canonical file as the editable source of truth for character identity, behavior, action library, and veto rules.
 
 ## Current Xiaohei Contract
-
 # 小黑 IP
 
 ## 角色定义
