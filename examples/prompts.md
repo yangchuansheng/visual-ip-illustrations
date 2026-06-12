@@ -84,27 +84,102 @@ Littlebox state: closed；closed paper-box character；front-left three-quarter 
 <粘贴文章>
 ```
 
+## 路由烟测：显式选择 Tom
+
+显式选择 Tom 时，可用别名包括：Tom、Tom Cat、Tom and Jerry、汤姆、汤姆猫。Tom 是 explicit protected-character route，当前 route status 是 `gated-authorized`，rights record 位于 `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
+
+### 显式 Tom：只做规划
+
+```text
+Use $ian-xiaohei-illustrations 使用 Tom / Tom Cat / Tom and Jerry / 汤姆 / 汤姆猫 路由，先不要生图。
+请为下面这篇文章做 3 张 Tom route shot list。
+每张图写清楚：
+- Placement
+- Core idea
+- Structure type
+- Tom state
+- Tom action
+- Supporting objects
+- Visible labels
+- Output path
+- Rights-status note
+使用 route-local reference directory：`ian-xiaohei-illustrations/references/ips/tom/`。
+route status 必须保留 `gated-authorized`。
+rights record 必须保留 `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
+输出路径使用 `assets/<article-slug>-tom/`；文档校验 token 是 `assets/&lt;article-slug&gt;-tom/`。
+Rights-status note 写清楚：Tom is a `gated-authorized` protected-character route; check `ian-xiaohei-illustrations/references/ips/tom/rights.md` for authorization scope and distribution boundary.
+
+<粘贴文章>
+```
+
+### 显式 Tom：直接生成
+
+```text
+Use $ian-xiaohei-illustrations 使用 Tom 路由为下面这篇文章生成 2 张正文配图。
+Tom aliases 包括：Tom、Tom Cat、Tom and Jerry、汤姆、汤姆猫。
+每张图单独生成，使用 `ian-xiaohei-illustrations/references/ips/tom/` route-local references。
+Tom 必须承担 core idea 的 cognitive action，使用原创新的 article metaphor。
+保留 route status `gated-authorized` 和 rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
+输出路径使用 `assets/<article-slug>-tom/`；文档校验 token 是 `assets/&lt;article-slug&gt;-tom/`。
+公共 rendered Tom samples 发布状态以 RELEASE_CHECKLIST.md 的 public-sample gate 为准。
+
+<粘贴文章>
+```
+
+### 显式 Tom：route smoke check
+
+```text
+Use $ian-xiaohei-illustrations 先不要生图。
+Text-only maintainer route audit. 使用 Tom / Tom Cat / Tom and Jerry / 汤姆 / 汤姆猫 路由，为这个观点输出 1 张 route-status smoke shot list：
+观点：把追赶中的判断拆成可执行下一步。
+预期：selected IP 是 Tom。
+预期：route status 是 `gated-authorized`。
+预期：rights record 是 `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
+预期：route-local reference directory 是 `ian-xiaohei-illustrations/references/ips/tom/`。
+预期：输出路径是 `assets/<article-slug>-tom/`。
+预期：文档校验 token 是 `assets/&lt;article-slug&gt;-tom/`。
+预期：planning fields 包含 Placement、Core idea、Structure type、Tom state、Tom action、Supporting objects、Visible labels、Output path、Rights-status note。
+预期：Public rendered Tom samples 由 RELEASE_CHECKLIST.md 的 public-sample gate 控制。
+```
+
 ## 路由说明：多 IP 请求
 
-同一个观点可以按 IP 分组形成 variant group。Xiaohei 组使用 `assets/<article-slug>-illustrations/`，Littlebox 组使用 `assets/<article-slug>-littlebox/`，两组分别加载自己的参考、提示词、QA 和输出路径。
+同一个观点可以按 IP 分组形成 variant group。Xiaohei 组使用 `assets/<article-slug>-illustrations/`，Littlebox 组使用 `assets/<article-slug>-littlebox/`，Tom 组使用 `assets/<article-slug>-tom/`，三组分别加载自己的参考、提示词、QA 和输出路径。
 
-维护者参考：Xiaohei canonical pack 位于 `ian-xiaohei-illustrations/references/ips/xiaohei/`，Littlebox canonical pack 位于 `ian-xiaohei-illustrations/references/ips/littlebox/`，路由元数据位于 `ian-xiaohei-illustrations/references/routing.md`。
+维护者参考：Xiaohei canonical pack 位于 `ian-xiaohei-illustrations/references/ips/xiaohei/`，Littlebox canonical pack 位于 `ian-xiaohei-illustrations/references/ips/littlebox/`，Tom canonical pack 位于 `ian-xiaohei-illustrations/references/ips/tom/`，Tom rights record 位于 `ian-xiaohei-illustrations/references/ips/tom/rights.md`，路由元数据位于 `ian-xiaohei-illustrations/references/routing.md`。
 
 ### 混合 IP：只做 variant planning
 
 ```text
 Use $ian-xiaohei-illustrations 先不要生图。
-请用同一个 core idea 分别输出 Xiaohei 和 Littlebox 两个 variant group。
-Xiaohei variant group 使用 `assets/<article-slug>-illustrations/`。
-Littlebox variant group 使用 `assets/<article-slug>-littlebox/`，并写清楚 Littlebox state: closed、visual metaphor、assigned background、short visible labels。
+请用同一个 core idea 分别输出 Xiaohei、Littlebox、Tom 三个 separate variant group。
+每个 group 使用自己的 route-local references、planning fields、QA gates 和输出目录。
+
+Xiaohei variant group：
+- 使用 `ian-xiaohei-illustrations/references/ips/xiaohei/`
+- 写清楚 Xiaohei action、建议元素、短中文 labels
+- 输出到 `assets/<article-slug>-illustrations/`
+
+Littlebox variant group：
+- 使用 `ian-xiaohei-illustrations/references/ips/littlebox/`
+- 写清楚 Littlebox state: closed、visual metaphor、assigned background、short visible labels
+- 输出到 `assets/<article-slug>-littlebox/`
+
+Tom variant group：
+- 使用 `ian-xiaohei-illustrations/references/ips/tom/`
+- route status 保留 `gated-authorized`
+- rights record 保留 `ian-xiaohei-illustrations/references/ips/tom/rights.md`
+- 写清楚 Tom state、Tom action、Supporting objects、Visible labels、Output path、Rights-status note
+- 输出到 `assets/<article-slug>-tom/`
+- Public rendered Tom samples 由 RELEASE_CHECKLIST.md 的 public-sample gate 控制
 
 <粘贴文章或单个观点>
 ```
 
-### 混合 IP：同一观点生成两组
+### 混合 IP：同一观点生成三组
 
 ```text
-Use $ian-xiaohei-illustrations 为下面这个 core idea 同时生成 Xiaohei variant group 和 Littlebox variant group。
+Use $ian-xiaohei-illustrations 为下面这个 core idea 同时生成 Xiaohei variant group、Littlebox variant group 和 Tom variant group。
 
 core idea：信任是一块证据一块证据铺出来的路。
 
@@ -122,6 +197,19 @@ Littlebox variant group：
 - assigned background 在 #E3F2FD 和 #E6E6FA 之间分配
 - 使用 short visible labels
 - 输出到 `assets/<article-slug>-littlebox/`
+
+Tom variant group：
+- 生成 2 张
+- 使用 `ian-xiaohei-illustrations/references/ips/tom/`
+- Tom aliases 包括：Tom、Tom Cat、Tom and Jerry、汤姆、汤姆猫
+- route status 保留 `gated-authorized`
+- rights record 保留 `ian-xiaohei-illustrations/references/ips/tom/rights.md`
+- Tom 必须承担同一个 core idea 的 cognitive action
+- 使用 Supporting objects 表达证据、路、桥、印章或 warning marks
+- Visible labels 保持短、少、使用用户语言
+- 输出到 `assets/<article-slug>-tom/`
+- 文档校验 token 是 `assets/&lt;article-slug&gt;-tom/`
+- Public rendered Tom samples 由 RELEASE_CHECKLIST.md 的 public-sample gate 控制
 ```
 
 ## 维护者验证烟测
@@ -162,17 +250,20 @@ Use $ian-xiaohei-illustrations 先不要生图。
 Text-only maintainer route audit. 使用 Tom / Tom Cat / Tom and Jerry / 汤姆 / 汤姆猫 路由，为这个观点输出 1 张 route-status shot list：
 观点：把追赶中的判断拆成可执行下一步。
 预期：selected IP 是 Tom，route status 是 `gated-authorized`，rights record 是 `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
+预期：加载 `ian-xiaohei-illustrations/references/ips/tom/` route-local references。
 预期：输出路径合同是 `assets/<article-slug>-tom/`；文档校验 token 是 `assets/&lt;article-slug&gt;-tom/`。
-用途：route audit guidance only；Phase 8 owns runtime selection behavior，Phase 9 owns broad public examples。
+用途：text-only route audit；Phase 8 runtime selection behavior 已验证，Phase 9 examples 保留 public-sample gate。
 ```
 
 ### 烟测：混合 IP variant groups
 
 ```text
 Use $ian-xiaohei-illustrations 先不要生图。
-请用一个 core idea 同时输出 Xiaohei variant group 和 Littlebox variant group：
+请用一个 core idea 同时输出 Xiaohei variant group、Littlebox variant group 和 Tom variant group：
 观点：好流程会把下一步动作直接递到人手里。
-预期：Xiaohei variant group 输出到 `assets/<article-slug>-illustrations/`；Littlebox variant group 输出到 `assets/<article-slug>-littlebox/`。
+预期：Xiaohei variant group 使用 `ian-xiaohei-illustrations/references/ips/xiaohei/`，输出到 `assets/<article-slug>-illustrations/`。
+预期：Littlebox variant group 使用 `ian-xiaohei-illustrations/references/ips/littlebox/`，输出到 `assets/<article-slug>-littlebox/`。
+预期：Tom variant group 使用 `ian-xiaohei-illustrations/references/ips/tom/`，输出到 `assets/<article-slug>-tom/`，保留 route status `gated-authorized` 和 rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
 ```
 
 ## 只做配图规划
