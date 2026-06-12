@@ -219,6 +219,120 @@ function assertMarkers(text, relativePath, markers) {
   }
 }
 
+function assertIncludes(text, relativePath, markers, relation) {
+  const missing = markers.filter((marker) => !text.includes(marker));
+  if (missing.length > 0) {
+    throw new Error(
+      `${relativePath} expected ${relation}; observed missing marker(s): ${missing.join(", ")}`,
+    );
+  }
+}
+
+function assertArrayIncludes(actual, expected, relativePath, relation) {
+  const missing = expected.filter((item) => !actual.includes(item));
+  if (missing.length > 0) {
+    throw new Error(
+      `${relativePath} expected ${relation}; observed missing item(s): ${missing.join(", ")}`,
+    );
+  }
+}
+
+function normalizeBody(text) {
+  return text.trim().replace(/\r\n/g, "\n");
+}
+
+function routeRows() {
+  return parseMarkdownTable(requireFile(ROUTING_FILE), "IP Routes");
+}
+
+function routeById(id) {
+  const row = routeRows().find((route) => route.id === id);
+  if (!row) {
+    throw new Error(`${ROUTING_FILE} expected route row id=${id}; observed row is missing`);
+  }
+  return row;
+}
+
+function routeReferencePaths(row) {
+  return splitRouteCell(row.required_references ?? "");
+}
+
+function markdownTableHeader(text, headingText) {
+  const body = bodyAfterHeading(text, headingText);
+  const line = body
+    .split("\n")
+    .map((item) => item.trim())
+    .find((item) => item.startsWith("|") && item.endsWith("|"));
+  if (!line) return [];
+  return splitMarkdownTableLine(line).map(stripWrappingTicks);
+}
+
+function requiredPackageFiles() {
+  return [
+    SKILL_FILE,
+    OPENAI_AGENT_FILE,
+    ROUTING_FILE,
+    path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
+    ...xiaoheiOperationalRefs(),
+    path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
+    ...littleboxOperationalRefs(),
+    ...legacyXiaoheiRefs().map((item) => item.root),
+    "README.md",
+    "examples/prompts.md",
+    "NOTICE.md",
+    "LICENSE",
+  ];
+}
+
+function xiaoheiOperationalRefs() {
+  return [
+    "references/ips/xiaohei/style-dna.md",
+    "references/ips/xiaohei/xiaohei-ip.md",
+    "references/ips/xiaohei/composition-patterns.md",
+    "references/ips/xiaohei/prompt-template.md",
+    "references/ips/xiaohei/qa-checklist.md",
+  ].map((item) => path.join(PACKAGE_DIR, item));
+}
+
+function littleboxOperationalRefs() {
+  return [
+    "references/ips/littlebox/style-dna.md",
+    "references/ips/littlebox/littlebox-ip.md",
+    "references/ips/littlebox/composition-patterns.md",
+    "references/ips/littlebox/language-and-labels.md",
+    "references/ips/littlebox/prompt-template.md",
+    "references/ips/littlebox/qa-checklist.md",
+  ].map((item) => path.join(PACKAGE_DIR, item));
+}
+
+function legacyXiaoheiRefs() {
+  return [
+    ["style-dna.md", "style-dna.md"],
+    ["xiaohei-ip.md", "xiaohei-ip.md"],
+    ["composition-patterns.md", "composition-patterns.md"],
+    ["prompt-template.md", "prompt-template.md"],
+    ["qa-checklist.md", "qa-checklist.md"],
+  ].map(([root, canonical]) => ({
+    root: path.join(REFERENCES_DIR, root),
+    canonical: path.join(REFERENCES_DIR, "ips", "xiaohei", canonical),
+  }));
+}
+
+function assertExistingFiles(relativePaths, checkPath, relation) {
+  const missing = relativePaths.filter((relativePath) => !fileExists(relativePath));
+  if (missing.length > 0) {
+    throw new Error(`${checkPath} expected ${relation}; observed missing file(s): ${missing.join(", ")}`);
+  }
+}
+
+function assertReadableFiles(relativePaths, checkPath, relation) {
+  assertExistingFiles(relativePaths, checkPath, relation);
+  const empty = relativePaths.filter((relativePath) => readUtf8(relativePath).trim().length === 0);
+  if (empty.length > 0) {
+    throw new Error(`${checkPath} expected ${relation}; observed empty file(s): ${empty.join(", ")}`);
+  }
+}
+
 class Results {
   constructor() {
     this.items = [];
@@ -256,95 +370,200 @@ function defineCheck(id, message, run) {
 }
 
 const checks = [
-  defineCheck("PKG-SMOKE", "required package entry files are readable", () => {
-    const requiredFiles = [SKILL_FILE, OPENAI_AGENT_FILE, ROUTING_FILE];
-    const missing = requiredFiles.filter((relativePath) => !fileExists(relativePath));
-    if (missing.length > 0) {
-      throw new Error(`missing required file(s): ${missing.join(", ")}`);
-    }
-    for (const relativePath of requiredFiles) {
-      const text = readUtf8(relativePath);
-      if (text.length === 0) {
-        throw new Error(`${relativePath} is empty`);
-      }
-    }
+  defineCheck("PKG-SHAPE-001", "required skill package files exist and are readable", () => {
+    assertReadableFiles(requiredPackageFiles(), PACKAGE_DIR, "complete installable package shape");
   }),
-  defineCheck("PKG-BOUNDARY", "route reference path helper stays inside package boundary", () => {
-    const resolved = safeReferencePath("references/routing.md");
-    if (!displayPath(resolved).endsWith(ROUTING_FILE)) {
-      throw new Error(`resolved unexpected path ${displayPath(resolved)}`);
-    }
-  }),
-  defineCheck("PKG-LISTING", "reference directory listing is stable and sorted", () => {
-    const entries = sortedDirectoryEntries(REFERENCES_DIR);
-    const paths = entries.map((entry) => entry.path);
-    const sorted = [...paths].sort((a, b) => a.localeCompare(b, "en"));
-    if (JSON.stringify(paths) !== JSON.stringify(sorted)) {
-      throw new Error(`${REFERENCES_DIR} listing is not sorted`);
-    }
-  }),
-  defineCheck("PARSE-SKILL", "SKILL.md frontmatter exposes name and description", () => {
+  defineCheck("SKILL-FM-001", "SKILL.md frontmatter exposes required skill metadata", () => {
     const frontmatter = parseFrontmatter(requireFile(SKILL_FILE));
     if (frontmatter.data.name !== "ian-xiaohei-illustrations") {
-      throw new Error(`${SKILL_FILE} frontmatter name must be ian-xiaohei-illustrations`);
+      throw new Error(
+        `${SKILL_FILE} expected frontmatter name=ian-xiaohei-illustrations; observed ${frontmatter.data.name ?? "missing"}`,
+      );
     }
     if (!frontmatter.data.description) {
-      throw new Error(`${SKILL_FILE} frontmatter description is missing`);
+      throw new Error(`${SKILL_FILE} expected non-empty frontmatter description; observed missing value`);
     }
   }),
-  defineCheck("PARSE-YAML", "openai.yaml exposes expected nested metadata keys", () => {
+  defineCheck("SKILL-ROUTE-001", "SKILL.md routes requests through routing.md and selected IP behavior", () => {
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
+      "references/routing.md",
+      "用户省略视觉 IP 时，默认选择小黑路由",
+      "Littlebox",
+      "variant group",
+      "shared core idea",
+      "required_references",
+    ], "route-first default, Littlebox, mixed-IP, and required reference markers");
+  }),
+  defineCheck("SKILL-REFS-001", "SKILL.md lists canonical required references for both routes", () => {
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
+      "references/ips/xiaohei/style-dna.md",
+      "references/ips/xiaohei/xiaohei-ip.md",
+      "references/ips/xiaohei/composition-patterns.md",
+      "references/ips/xiaohei/prompt-template.md",
+      "references/ips/xiaohei/qa-checklist.md",
+      "references/ips/littlebox/style-dna.md",
+      "references/ips/littlebox/littlebox-ip.md",
+      "references/ips/littlebox/composition-patterns.md",
+      "references/ips/littlebox/language-and-labels.md",
+      "references/ips/littlebox/prompt-template.md",
+      "references/ips/littlebox/qa-checklist.md",
+    ], "canonical Xiaohei and Littlebox reference loading paths");
+  }),
+  defineCheck("SKILL-OUTPUT-001", "SKILL.md maps route output suffixes to output directories", () => {
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
+      "output_suffix: illustrations",
+      "output_suffix: littlebox",
+      "assets/<article-slug>-illustrations/",
+      "assets/<article-slug>-littlebox/",
+      "assets/&lt;article-slug&gt;-illustrations/",
+      "assets/&lt;article-slug&gt;-littlebox/",
+    ], "raw and escaped output path tokens plus suffix mapping");
+  }),
+  defineCheck("SKILL-GEN-001", "SKILL.md preserves host image generation runtime boundary", () => {
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
+      "image_gen",
+      "每张单独生成",
+      "不要把多张图拼在一张里",
+      "保留原始生成文件",
+    ], "host image_gen, one-image-per-call, and asset preservation markers");
+  }),
+  defineCheck("AGENT-SHAPE-001", "openai.yaml exposes expected nested metadata keys", () => {
     const yaml = parseSimpleYamlShape(requireFile(OPENAI_AGENT_FILE));
     if (!yaml.interface?.display_name) {
-      throw new Error(`${OPENAI_AGENT_FILE} missing interface.display_name`);
+      throw new Error(`${OPENAI_AGENT_FILE} expected interface.display_name; observed missing value`);
     }
     if (!yaml.interface?.short_description) {
-      throw new Error(`${OPENAI_AGENT_FILE} missing interface.short_description`);
+      throw new Error(`${OPENAI_AGENT_FILE} expected interface.short_description; observed missing value`);
     }
     if (!yaml.interface?.default_prompt) {
-      throw new Error(`${OPENAI_AGENT_FILE} missing interface.default_prompt`);
+      throw new Error(`${OPENAI_AGENT_FILE} expected interface.default_prompt; observed missing value`);
     }
     if (yaml.policy?.allow_implicit_invocation !== true) {
-      throw new Error(`${OPENAI_AGENT_FILE} missing policy.allow_implicit_invocation: true`);
+      throw new Error(
+        `${OPENAI_AGENT_FILE} expected policy.allow_implicit_invocation=true; observed ${yaml.policy?.allow_implicit_invocation ?? "missing"}`,
+      );
     }
   }),
-  defineCheck("PARSE-ROUTING", "routing.md IP Routes table exposes current route rows", () => {
-    const rows = parseMarkdownTable(requireFile(ROUTING_FILE), "IP Routes");
-    const ids = rows.map((row) => row.id);
-    if (!ids.includes("xiaohei") || !ids.includes("littlebox")) {
-      throw new Error(`${ROUTING_FILE} must include xiaohei and littlebox route rows`);
+  defineCheck("ROUTE-TABLE-001", "routing.md exposes the required route metadata columns and rows", () => {
+    const text = requireFile(ROUTING_FILE);
+    const columns = markdownTableHeader(text, "IP Routes");
+    assertArrayIncludes(columns, [
+      "id",
+      "display_name",
+      "aliases",
+      "default",
+      "output_suffix",
+      "required_references",
+      "attribution_context",
+      "status",
+    ], ROUTING_FILE, "IP Routes table columns");
+    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox"], ROUTING_FILE, "route ids");
+  }),
+  defineCheck("ROUTE-XH-001", "routing.md preserves the Xiaohei active route contract", () => {
+    const row = routeById("xiaohei");
+    assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
+      "Xiaohei",
+      "小黑",
+      "Ian",
+      "ian-xiaohei",
+      "illustrations",
+      "Ian Xiaohei existing package",
+      "active",
+    ], "Xiaohei display name, aliases, suffix, attribution, and status");
+  }),
+  defineCheck("ROUTE-LB-001", "routing.md preserves the Littlebox active route contract", () => {
+    const row = routeById("littlebox");
+    assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
+      "Littlebox",
+      "小盒",
+      "纸盒",
+      "paper-box",
+      "carton",
+      "littlebox",
+      "5km Littlebox Illustrations",
+      "okooo5km",
+      "37cd93e",
+      "active",
+    ], "Littlebox display name, aliases, suffix, attribution, and status");
+  }),
+  defineCheck("ROUTE-DEFAULT-001", "routing.md keeps Xiaohei as the only default active route", () => {
+    const rows = routeRows();
+    const defaults = rows.filter((row) => row.default === "true").map((row) => row.id);
+    if (defaults.length !== 1 || defaults[0] !== "xiaohei") {
+      throw new Error(`${ROUTING_FILE} expected only xiaohei default=true; observed ${defaults.join(", ") || "none"}`);
     }
-    for (const row of rows) {
-      for (const reference of splitRouteCell(row.required_references ?? "")) {
-        safeReferencePath(reference);
+    const littlebox = routeById("littlebox");
+    if (littlebox.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected littlebox default=false; observed ${littlebox.default || "missing"}`);
+    }
+  }),
+  defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
+    for (const row of routeRows()) {
+      const references = routeReferencePaths(row);
+      const expectedCount = row.id === "littlebox" ? 6 : 5;
+      if (references.length !== expectedCount) {
+        throw new Error(
+          `${ROUTING_FILE} expected ${row.id} required_references count=${expectedCount}; observed ${references.length}`,
+        );
+      }
+      for (const reference of references) {
+        const resolved = safeReferencePath(reference);
+        const relative = displayPath(resolved);
+        if (!fileExists(relative)) {
+          throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
+        }
       }
     }
   }),
-  defineCheck("PARSE-README-LINKS", "README local Markdown links can be parsed", () => {
-    const links = parseMarkdownLinks(requireFile(README_FILE)).filter((link) => !link.external);
-    if (!links.some((link) => link.target === "examples/prompts.md")) {
-      throw new Error(`${README_FILE} missing local link to examples/prompts.md`);
+  defineCheck("ROUTE-PATHS-001", "routing.md output suffixes match public output directories", () => {
+    const xiaohei = routeById("xiaohei");
+    const littlebox = routeById("littlebox");
+    if (xiaohei.output_suffix !== "illustrations") {
+      throw new Error(`${ROUTING_FILE} expected xiaohei output_suffix=illustrations; observed ${xiaohei.output_suffix}`);
     }
-    if (!links.some((link) => link.target === "examples/images/01-two-breakpoints.png")) {
-      throw new Error(`${README_FILE} missing local image link for first example`);
+    if (littlebox.output_suffix !== "littlebox") {
+      throw new Error(`${ROUTING_FILE} expected littlebox output_suffix=littlebox; observed ${littlebox.output_suffix}`);
+    }
+    assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
+      "assets/<article-slug>-illustrations/",
+      "assets/<article-slug>-littlebox/",
+    ], "output suffix to output directory mapping");
+  }),
+  defineCheck("ROUTE-MIXED-001", "routing.md preserves mixed-IP separate route group wording", () => {
+    assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
+      "separate route groups",
+      "每个 route group 只加载自己的 `required_references`",
+      "`xiaohei` 写入 `assets/<article-slug>-illustrations/`",
+      "`littlebox` 写入 `assets/<article-slug>-littlebox/`",
+    ], "mixed-IP isolated reference and output-directory wording");
+  }),
+  defineCheck("REFS-XH-001", "Xiaohei canonical operational references and index exist", () => {
+    assertReadableFiles([
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
+      ...xiaoheiOperationalRefs(),
+    ], path.join(REFERENCES_DIR, "ips", "xiaohei"), "Xiaohei canonical pack files");
+  }),
+  defineCheck("REFS-LB-001", "Littlebox canonical operational references and index exist", () => {
+    assertReadableFiles([
+      path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
+      ...littleboxOperationalRefs(),
+    ], path.join(REFERENCES_DIR, "ips", "littlebox"), "Littlebox canonical pack files");
+  }),
+  defineCheck("LEGACY-XH-001", "root Xiaohei compatibility files expose the current contract heading", () => {
+    for (const item of legacyXiaoheiRefs()) {
+      const body = bodyAfterHeading(requireFile(item.root), "Current Xiaohei Contract");
+      if (!body) {
+        throw new Error(`${item.root} expected ## Current Xiaohei Contract body; observed missing body`);
+      }
     }
   }),
-  defineCheck("PARSE-XIAOHEI-BODY", "legacy Xiaohei body marker is extractable", () => {
-    const body = bodyAfterHeading(
-      requireFile(path.join(REFERENCES_DIR, "style-dna.md")),
-      "Current Xiaohei Contract",
-    );
-    if (!body.includes("纯白")) {
-      throw new Error(`${REFERENCES_DIR}/style-dna.md body after Current Xiaohei Contract is missing pure-white marker`);
-    }
-  }),
-  defineCheck("PARSE-OUTPUT-TOKENS", "raw and escaped output path tokens are defined", () => {
-    const tokens = outputPathTokens();
-    assertMarkers(requireFile(SKILL_FILE), SKILL_FILE, tokens.raw);
-    assertMarkers(requireFile(SKILL_FILE), SKILL_FILE, tokens.escaped);
-  }),
-  defineCheck("PKG-PUBLIC-DOCS", "public documentation files are readable", () => {
-    for (const relativePath of PUBLIC_DOCS) {
-      requireFile(relativePath);
+  defineCheck("LEGACY-XH-002", "root Xiaohei compatibility bodies match canonical pack files", () => {
+    for (const item of legacyXiaoheiRefs()) {
+      const rootBody = normalizeBody(bodyAfterHeading(requireFile(item.root), "Current Xiaohei Contract"));
+      const canonicalBody = normalizeBody(requireFile(item.canonical));
+      if (rootBody !== canonicalBody) {
+        throw new Error(`${item.root} expected body parity with ${item.canonical}; observed content mismatch`);
+      }
     }
   }),
 ];

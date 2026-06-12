@@ -20,16 +20,49 @@ test("validator command prints deterministic harness smoke logs", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
-  assert.match(result.stdout, /^\[PASS\] PKG-SMOKE /m);
-  assert.match(result.stdout, /\[PASS\] PARSE-SKILL /);
-  assert.match(result.stdout, /\[PASS\] PARSE-YAML /);
-  assert.match(result.stdout, /\[PASS\] PARSE-ROUTING /);
-  assert.match(result.stdout, /\[PASS\] PARSE-README-LINKS /);
+  assert.match(result.stdout, /^\[PASS\] PKG-SHAPE-001 /m);
+  assert.match(result.stdout, /\[PASS\] SKILL-FM-001 /);
+  assert.match(result.stdout, /\[PASS\] SKILL-ROUTE-001 /);
+  assert.match(result.stdout, /\[PASS\] AGENT-SHAPE-001 /);
+  assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /Summary: total=\d+ passed=\d+ failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
-test("validator collects failures and exits nonzero after all checks run", () => {
+test("validator reports Task 1 contract checks in stable order", () => {
+  const result = runValidator();
+
+  assert.equal(result.status, 0);
+  const expectedIds = [
+    "PKG-SHAPE-001",
+    "SKILL-FM-001",
+    "SKILL-ROUTE-001",
+    "SKILL-REFS-001",
+    "SKILL-OUTPUT-001",
+    "SKILL-GEN-001",
+    "AGENT-SHAPE-001",
+    "ROUTE-TABLE-001",
+    "ROUTE-XH-001",
+    "ROUTE-LB-001",
+    "ROUTE-DEFAULT-001",
+    "ROUTE-REFS-001",
+    "ROUTE-PATHS-001",
+    "ROUTE-MIXED-001",
+    "REFS-XH-001",
+    "REFS-LB-001",
+    "LEGACY-XH-001",
+    "LEGACY-XH-002",
+  ];
+
+  let lastIndex = -1;
+  for (const id of expectedIds) {
+    const index = result.stdout.indexOf(`[PASS] ${id} `);
+    assert.ok(index > lastIndex, `${id} should appear after the previous Task 1 check`);
+    lastIndex = index;
+  }
+});
+
+test("validator collects failures and exits nonzero after Task 1 checks run", () => {
   const fixtureRoot = path.join(tmpdir(), `xiaohei-validator-${process.pid}-${Date.now()}`);
   mkdirSync(path.join(fixtureRoot, "ian-xiaohei-illustrations", "agents"), { recursive: true });
   mkdirSync(path.join(fixtureRoot, "ian-xiaohei-illustrations", "references"), { recursive: true });
@@ -65,10 +98,11 @@ test("validator collects failures and exits nonzero after all checks run", () =>
   rmSync(fixtureRoot, { recursive: true, force: true });
 
   assert.equal(result.status, 1);
-  assert.match(result.stdout, /\[FAIL\] PKG-SMOKE /);
-  assert.match(result.stdout, /\[FAIL\] PARSE-SKILL /);
-  assert.match(result.stdout, /\[FAIL\] PARSE-YAML /);
-  assert.match(result.stdout, /\[FAIL\] PARSE-ROUTING /);
+  assert.match(result.stdout, /\[FAIL\] PKG-SHAPE-001 /);
+  assert.match(result.stdout, /\[FAIL\] SKILL-FM-001 /);
+  assert.match(result.stdout, /\[FAIL\] AGENT-SHAPE-001 /);
+  assert.match(result.stdout, /\[FAIL\] ROUTE-TABLE-001 /);
+  assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
   assert.match(result.stdout, /Summary: total=\d+ passed=\d+ failed=\d+ skipped=0/);
 });
 
