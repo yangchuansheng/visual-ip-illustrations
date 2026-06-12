@@ -194,6 +194,62 @@ rg -n 'fail 0' /tmp/phase10-tests.out
 git diff --check
 ```
 
+## Execution Evidence
+
+**Recorded:** 2026-06-12T22:34:02Z
+**Plan:** 10-03
+**Scope:** Planning evidence only; public docs and release files remained stable.
+
+### Final Validator Command
+
+```bash
+node scripts/validate-skill-package.mjs
+```
+
+Observed result:
+
+```text
+Summary: total=47 passed=47 failed=0 skipped=0
+```
+
+The 47 local validator checks include package shape, skill routing, agent metadata, route metadata, route-local references, Tom canonical pack markers, prompt markers, QA markers, rights markers, public docs, NOTICE, release checklist, smoke prompts, leakage boundaries, public rendered Tom asset gates, and historical Phase 4 boundary preservation.
+
+### Final Node Test Command
+
+```bash
+node --test scripts/validate-skill-package.test.mjs
+```
+
+Observed result:
+
+```text
+tests 15
+pass 15
+fail 0
+```
+
+The 15 Node tests cover deterministic harness output, Task 1 and Task 2 check ordering, failure aggregation, actionable Littlebox and Tom diagnostics, the full 47-check matrix, parser helper behavior, Tom route metadata drift, Tom canonical pack file failure, Tom prompt marker drift, Tom QA marker drift, public docs and agent metadata drift, Tom leakage in non-Tom packs, and public Tom asset approval parsing.
+
+### Whitespace Check
+
+```bash
+git diff --check
+```
+
+Observed result: passed with no whitespace errors.
+
+## TVAL Coverage Confirmation
+
+| Requirement | Covered By | Final Evidence |
+|-------------|------------|----------------|
+| TVAL-01 | Validator command | `Summary: total=47 passed=47 failed=0 skipped=0` |
+| TVAL-02 | `ROUTE-TOM-001`, `ROUTE-DEFAULT-001`, `ROUTE-REFS-001`, `ROUTE-PATHS-001`; Tom route metadata fixture test | Tom route row, aliases, `default=false`, `output_suffix=tom`, required references, `gated-authorized`, and attribution context are checked and tested. |
+| TVAL-03 | `REFS-TOM-001`, `PROMPT-TOM-001`, `IP-TOM-001`, `QA-TOM-001`, `RIGHTS-TOM-001`; Tom pack, prompt, and QA fixture tests | Tom pack files, prompt placeholders, QA markers, protected-route markers, rights markers, and output path reminders are checked and tested. |
+| TVAL-04 | `AGENT-TOM-001`, `DOC-PATHS-001`, `DOC-TOM-001`, `NOTICE-TOM-001`, `SMOKE-TOM-001`, `RELEASE-TOM-001`; docs and metadata fixture test | README, examples, agent metadata, NOTICE, release checklist, raw/escaped Tom path tokens, and Tom smoke prompts are checked and tested. |
+| TVAL-05 | `BOUNDARY-TOM-LEAK-001`; leakage fixture test | Xiaohei, Littlebox, and legacy Xiaohei references are scanned for Tom identity and Warner-rights leakage. |
+| TVAL-06 | `BOUNDARY-TOM-IMG-001`; public Tom asset approval fixture test | Public example asset directories are scanned for Tom-rendered assets and tied to explicit release checklist approval parsing. |
+| TVAL-07 | Node test suite | `tests 15`, `pass 15`, `fail 0`; tests cover parser behavior, stable check ordering, Tom failure diagnostics, fixture mutations, approval parsing, and full pass output. |
+
 ## Success Criteria
 
 - Validator exits 0 with 47 passes and zero failures.
