@@ -161,5 +161,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Routing Foundation | 2/2 | Complete    | 2026-06-12 |
 | 2. Xiaohei Canonicalization | 3/3 | Complete    | 2026-06-12 |
 | 3. Littlebox Vertical Slice | 5/5 | Complete    | 2026-06-12 |
-| 4. Validation Hardening | 3/3 | Complete   | 2026-06-12 |
+| 4. Validation Hardening | 3/3 | Complete    | 2026-06-12 |
 | 5. Documentation, Examples, and Release Packaging | 0/TBD | Not started | - |
