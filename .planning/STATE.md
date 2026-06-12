@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
 status: completed
-stopped_at: Completed 09-02-PLAN.md
-last_updated: "2026-06-12T20:58:16.812Z"
+stopped_at: Completed 09-03-PLAN.md
+last_updated: "2026-06-12T21:04:00.999Z"
 last_activity: 2026-06-12
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 12
-  completed_plans: 9
-  percent: 60
+  completed_plans: 10
+  percent: 83
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 9
-Plan: 03 next
-Status: 09-02 complete — continuing Phase 9
+Plan: 04 next
+Status: 09-03 complete — continuing Phase 9
 Last activity: 2026-06-12
 
-Progress: [████████░░] 75%
+Progress: [████████░░] 83%
 
 ## Performance Metrics
 
@@ -66,6 +66,7 @@ Progress: [████████░░] 75%
 | Phase 08 P01 | 34min | 3 tasks | 2 files |
 | Phase 09 P01 | 24min | 2 tasks | 2 files |
 | Phase 09 P02 | 4min | 2 tasks | 2 files |
+| Phase 09 P03 | 3min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -97,6 +98,8 @@ Recent decisions affecting current work:
 - [Phase 09]: Tom-only prompts stay separate from mixed-IP prompts so solo Tom requests are inspectable.
 - [Phase 09]: Mixed-IP prompts require separate Xiaohei, Littlebox, and Tom variant groups with route-local references and route-specific output paths.
 - [Phase 09]: Public rendered Tom sample wording stays tied to RELEASE_CHECKLIST.md public-sample gate.
+- [Phase 09]: Agent metadata names Xiaohei, Littlebox, and Tom while preserving Xiaohei as omitted-IP default. — Plan 09-03 updates openai.yaml discovery copy.
+- [Phase 09]: Tom metadata remains explicit, gated-authorized, and protected-character while allow_implicit_invocation stays true at skill level. — Plan 09-03 preserves policy semantics while updating display wording.
 
 ### Pending Todos
 
@@ -116,6 +119,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T20:57:07.074Z
-Stopped at: Completed 09-02-PLAN.md
+Last session: 2026-06-12T21:04:00.753Z
+Stopped at: Completed 09-03-PLAN.md
 Resume file: None
