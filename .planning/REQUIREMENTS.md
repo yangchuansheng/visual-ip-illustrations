@@ -130,4 +130,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-06-13*
-*Last updated: 2026-06-13 after v1.1 roadmap creation*
+*Last updated: 2026-06-13 after Phase 10 UAT and v1.1 transition*
