@@ -1,80 +1,69 @@
-# Requirements: Multi-IP Article Illustration Skills
+# Requirements: Authorized Tom IP Integration
 
-**Defined:** 2026-06-12
+**Defined:** 2026-06-13
 **Core Value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## v1 Requirements
+## v1.1 Requirements
+
+### Rights
+
+- [ ] **RGT-01**: Maintainer can read Tom source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner in Tom-specific documentation.
+- [ ] **RGT-02**: Maintainer can distinguish Tom attribution from Tom permission in `NOTICE.md`.
+- [ ] **RGT-03**: Maintainer can keep Tom route gated or active through explicit route-status wording shared by routing docs, README, examples, and release checklist.
+- [ ] **RGT-04**: Maintainer can block public rendered Tom example assets until release checklist records explicit public-sample approval.
 
 ### Routing
 
-- [x] **ROUT-01**: User can omit the visual IP and receive the existing Xiaohei behavior by default.
-- [x] **ROUT-02**: User can explicitly request Xiaohei using aliases such as `小黑`, `Xiaohei`, `Ian`, or `ian-xiaohei`.
-- [x] **ROUT-03**: User can explicitly request Littlebox using aliases such as `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton`.
-- [x] **ROUT-04**: User gets separate variant groups when a request asks for both Xiaohei and Littlebox outputs.
-- [x] **ROUT-05**: User-facing routing docs explain the default IP, explicit aliases, mixed-IP behavior, and output paths.
+- [ ] **TOMR-01**: User can explicitly request Tom through clear aliases such as `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫`.
+- [ ] **TOMR-02**: User who omits visual IP still gets Xiaohei as the only default route.
+- [ ] **TOMR-03**: User can request Xiaohei, Littlebox, and Tom for the same core idea and receive separate variant groups.
+- [ ] **TOMR-04**: Tom outputs use `assets/<article-slug>-tom/` and docs include the escaped token `assets/&lt;article-slug&gt;-tom/`.
+- [ ] **TOMR-05**: Maintainer can inspect Tom route metadata, aliases, default flag, output suffix, required references, attribution context, and route status in `references/routing.md`.
 
-### IP Packs
+### Tom IP Pack
 
-- [x] **IPCK-01**: Maintainer can find Xiaohei's visual language, IP contract, composition rules, prompt template, and quality gate under a canonical Xiaohei IP pack.
-- [x] **IPCK-02**: Maintainer can find Littlebox's visual language, IP contract, composition rules, language/label rules, prompt template, and quality gate under a canonical Littlebox IP pack.
-- [x] **IPCK-03**: The shared workflow contains article understanding, cognitive-anchor selection, generation loop, QA handoff, asset preservation, and delivery reporting without IP-specific style rules.
-- [x] **IPCK-04**: Legacy Xiaohei reference paths remain available during the migration.
-- [x] **IPCK-05**: Each IP declares aliases, output suffix, required references, and attribution context in a readable manifest or routing section.
-
-### Xiaohei
-
-- [x] **XIAO-01**: Existing Xiaohei prompts from README and `examples/prompts.md` remain valid.
-- [x] **XIAO-02**: Xiaohei output keeps the existing path convention `assets/<article-slug>-illustrations/`.
-- [x] **XIAO-03**: Xiaohei prompt and QA preserve 16:9 horizontal format, pure white background, black hand-drawn line art, sparse red/orange/blue Chinese labels, large whitespace, and one core idea per image.
-- [x] **XIAO-04**: Xiaohei IP rules preserve a solid-black character with white dot eyes, tiny thin legs, deadpan expression, and active conceptual participation.
-- [x] **XIAO-05**: Xiaohei anti-repeat rules keep examples as calibration material and prohibit default reuse of old motifs.
-
-### Littlebox
-
-- [x] **LBOX-01**: Littlebox source material from `okooo5km/5km-littlebox-illustrations` is adapted into this installable package with clear attribution.
-- [x] **LBOX-02**: Littlebox output uses `assets/<article-slug>-littlebox/`.
-- [x] **LBOX-03**: Littlebox planning output includes closed state, visual metaphor, assigned pale sky-blue or pale lavender background, supporting objects, and short visible labels.
-- [x] **LBOX-04**: Littlebox prompt and QA enforce closed-only paper-box identity, front-left three-quarter view, front-panel dot eyes, tiny legs, at most two side-seam twig arms, one amber jagged seam tape, white or near-white body, chunky rough black marker linework, and sparse amber/coral accents.
-- [x] **LBOX-05**: Littlebox image sets balance pale sky-blue `#E3F2FD` and pale lavender `#E6E6FA` backgrounds when multiple images are planned.
-- [x] **LBOX-06**: Littlebox visible labels follow the user's language while generation prompts stay English for model consistency.
-- [x] **LBOX-07**: Littlebox QA rejects open lids, raised flaps, cutaways, visible interiors, extra arms, wrong tape placement, beige cardboard fills, clean vector linework, and passive character placement.
-
-### Validation
-
-- [x] **VALD-01**: Maintainer can run one local validation command for the installable skill package.
-- [x] **VALD-02**: Validation checks `SKILL.md` frontmatter, agent metadata presence, routing aliases, required references, legacy Xiaohei paths, prompt-template placeholders, output suffixes, README/example links, and NOTICE attribution.
-- [x] **VALD-03**: Validation exits nonzero when a required reference path, output path rule, IP alias group, prompt placeholder, or attribution marker is missing.
-- [x] **VALD-04**: Validation can run without a full application framework or external service.
-- [x] **VALD-05**: Manual smoke prompts cover default Xiaohei, explicit Xiaohei, explicit Littlebox, and mixed-IP variant behavior.
+- [ ] **TOMP-01**: Maintainer can find Tom canonical references under `ian-xiaohei-illustrations/references/ips/tom/`.
+- [ ] **TOMP-02**: User receives Tom planning fields for placement, core idea, structure type, Tom state, Tom action, supporting objects, visible labels, output path, and rights-status note.
+- [ ] **TOMP-03**: Tom prompt template produces one 16:9 article illustration where Tom performs the cognitive action.
+- [ ] **TOMP-04**: Tom QA rejects generic cats, passive Tom placement, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, excessive text, and route leakage.
+- [ ] **TOMP-05**: Tom edit prompts support stronger Tom participation, off-model identity repair, title removal, text reduction, and preservation of unaffected content.
 
 ### Documentation
 
-- [x] **DOCS-01**: README explains that the skill supports multiple visual IPs and that Xiaohei remains the default.
-- [x] **DOCS-02**: README includes concise examples for Xiaohei planning, Xiaohei generation, Littlebox planning, Littlebox generation, and same-idea IP contrast.
-- [x] **DOCS-03**: `examples/prompts.md` includes copyable prompts for both IPs and mixed-IP variants.
-- [x] **DOCS-04**: `NOTICE.md` credits Littlebox source material, author `okooo5km`, source repository URL, MIT license context, and inspected commit `37cd93e`.
-- [x] **DOCS-05**: `agents/openai.yaml` metadata reflects selectable IP support while preserving the Xiaohei default.
-- [x] **DOCS-06**: Release checklist tells maintainers to run validation, smoke-test both IPs, review attribution, and check installable package boundaries.
+- [ ] **TDOC-01**: README explains Tom as an explicit protected-character route with its status, aliases, output path, and rights boundary.
+- [ ] **TDOC-02**: `examples/prompts.md` includes copyable Tom planning, Tom generation, Tom smoke, and three-IP mixed variant prompts.
+- [ ] **TDOC-03**: `agents/openai.yaml` names Xiaohei, Littlebox, and Tom while preserving Xiaohei as the implicit default.
+- [ ] **TDOC-04**: `RELEASE_CHECKLIST.md` includes Tom authorization review, route status review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final rights review.
+- [ ] **TDOC-05**: Public docs avoid broad Tom availability claims when Tom route status is gated.
+
+### Validation
+
+- [ ] **TVAL-01**: Maintainer can run the local validator successfully after v1.1 roadmap initialization clears prior phase working directories.
+- [ ] **TVAL-02**: Validator checks Tom route row, aliases, default false, output suffix, required references, route status, and attribution context.
+- [ ] **TVAL-03**: Validator checks Tom canonical pack files, prompt placeholders, QA markers, and rights-boundary markers.
+- [ ] **TVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Tom output path tokens, and Tom smoke prompts.
+- [ ] **TVAL-05**: Validator checks Tom leakage boundaries so Xiaohei and Littlebox packs stay free of Tom identity rules and Warner rights text.
+- [ ] **TVAL-06**: Validator checks public example asset directories for Tom-rendered assets unless release checklist has explicit public-sample approval.
+- [ ] **TVAL-07**: Node validator tests cover three-route parser behavior, stable check ordering, Tom failure messages, and full pass output.
 
 ## v2 Requirements
 
-### Extensibility
+### Broader Protected IP Support
 
-- **EXT-01**: Maintainer can add a third visual IP by creating a new IP pack and manifest.
-- **EXT-02**: User can import a custom visual IP with a documented schema.
-- **EXT-03**: User can ask the skill to recommend the best IP for an article tone.
-- **EXT-04**: User can generate mixed-IP article sets with planned alternation rules.
+- **PIP-01**: Maintainer can add another protected visual IP by reusing the Tom rights-boundary pattern.
+- **PIP-02**: Maintainer can track authorization records through a machine-readable protected-IP manifest.
+- **PIP-03**: User can request approved multi-character franchise variants when authorization explicitly covers those characters.
 
 ### Assets
 
-- **AST-01**: Maintainer can manage a machine-readable asset manifest with title, path, hash, composition family, and anti-repeat notes.
-- **AST-02**: User can generate a contact sheet or visual comparison board.
+- **AST-01**: Maintainer can manage a machine-readable asset manifest with title, path, hash, composition family, IP route, rights status, and anti-repeat notes.
+- **AST-02**: User can generate a contact sheet or visual comparison board across approved IP routes.
 - **AST-03**: Maintainer can run automated visual regression checks against calibration outputs.
 
 ### Distribution
 
 - **DIST-01**: Maintainer can package the installable skill directory through a release script.
-- **DIST-02**: User can install multiple IP variants through a CLI-level selector.
+- **DIST-02**: User can install selected IP variants through a CLI-level selector.
 - **DIST-03**: Documentation supports a full English localization pass.
 
 ## Out of Scope
@@ -83,12 +72,13 @@ Explicitly excluded. Documented to prevent scope creep.
 
 | Feature | Reason |
 |---------|--------|
-| Hybrid Xiaohei-Littlebox character | It breaks both IP contracts and makes QA ambiguous. |
-| Hosted web app or visual picker | The product is a Codex Skill package. |
-| PPT, SVG, HTML, Canvas, Keynote, or PDF export | Both source skills define PNG article illustrations as the deliverable. |
-| Arbitrary user-defined IP import in v1 | The first milestone needs a reliable two-IP foundation. |
-| Full Littlebox rendered image import in v1 | The priority is integrating the skill rules, prompt contract, QA, docs, and attribution. |
-| Automated image-quality judgment in v1 | Visual taste remains manual; v1 makes objective identity markers executable where possible. |
+| Making Tom the default route | Xiaohei remains the compatibility baseline and protected-character generation should require explicit selection. |
+| Adding Jerry, Spike, logos, title cards, or broader franchise scenes | v1.1 targets Tom only and keeps broader cast support for a separately authorized milestone. |
+| Shipping public rendered Tom example images without approval | Public generated assets require explicit public-sample approval in the release checklist. |
+| Building a generic third-party IP marketplace | v1.1 focuses on one authorized Tom route. |
+| Hybrid Xiaohei-Littlebox-Tom characters | Blended identities break route isolation, QA, and attribution boundaries. |
+| Hosted web app, UI, API, database, or build runtime | The product remains a lightweight Codex Skill package. |
+| Automated visual likeness judgment | v1.1 validates objective text/package markers; visual taste and likeness review remain manual. |
 
 ## Traceability
 
@@ -96,46 +86,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ROUT-01 | Phase 1 | Complete |
-| ROUT-02 | Phase 1 | Complete |
-| ROUT-03 | Phase 3 | Implemented; ready for verifier. Evidence: `03-02-SUMMARY.md`, `03-03-SUMMARY.md`, `03-04-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/routing.md`, `ian-xiaohei-illustrations/SKILL.md`, `README.md`, and `examples/prompts.md` |
-| ROUT-04 | Phase 3 | Implemented; ready for verifier. Evidence: `03-03-SUMMARY.md`, `03-04-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/SKILL.md`, `ian-xiaohei-illustrations/references/routing.md`, `README.md`, and `examples/prompts.md` |
-| ROUT-05 | Phase 1 | Complete |
-| IPCK-01 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-02-SUMMARY.md`, `02-03-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/` |
-| IPCK-02 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-02-SUMMARY.md`, `03-03-SUMMARY.md`, `03-05-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/littlebox/` |
-| IPCK-03 | Phase 1 | Complete |
-| IPCK-04 | Phase 2 | Implemented in `02-02-SUMMARY.md` and root compatibility files under `ian-xiaohei-illustrations/references/` |
-| IPCK-05 | Phase 1 | Complete |
-| XIAO-01 | Phase 2 | Implemented in `02-03-SUMMARY.md`, `README.md`, and `examples/prompts.md` |
-| XIAO-02 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-03-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/index.md` |
-| XIAO-03 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-03-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/xiaohei/style-dna.md`, `ian-xiaohei-illustrations/references/ips/xiaohei/prompt-template.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/qa-checklist.md` |
-| XIAO-04 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-03-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/xiaohei-ip.md` |
-| XIAO-05 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-03-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/composition-patterns.md` |
-| LBOX-01 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-02-SUMMARY.md`, `03-04-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/index.md`, `ian-xiaohei-illustrations/references/routing.md`, and `NOTICE.md` |
-| LBOX-02 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-02-SUMMARY.md`, `03-03-SUMMARY.md`, `03-04-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/index.md`, `ian-xiaohei-illustrations/references/routing.md`, `ian-xiaohei-illustrations/SKILL.md`, `README.md`, and `examples/prompts.md` |
-| LBOX-03 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-03-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/prompt-template.md`, `ian-xiaohei-illustrations/references/ips/littlebox/language-and-labels.md`, and `ian-xiaohei-illustrations/SKILL.md` |
-| LBOX-04 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-03-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/style-dna.md`, `ian-xiaohei-illustrations/references/ips/littlebox/littlebox-ip.md`, `ian-xiaohei-illustrations/references/ips/littlebox/prompt-template.md`, and `ian-xiaohei-illustrations/references/ips/littlebox/qa-checklist.md` |
-| LBOX-05 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-03-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/style-dna.md`, `ian-xiaohei-illustrations/references/ips/littlebox/prompt-template.md`, and `ian-xiaohei-illustrations/SKILL.md` |
-| LBOX-06 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-03-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/language-and-labels.md`, `ian-xiaohei-illustrations/references/ips/littlebox/prompt-template.md`, and `ian-xiaohei-illustrations/SKILL.md` |
-| LBOX-07 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-03-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/qa-checklist.md`, `ian-xiaohei-illustrations/references/ips/littlebox/littlebox-ip.md`, and `ian-xiaohei-illustrations/references/ips/littlebox/style-dna.md` |
-| VALD-01 | Phase 4 | Complete |
-| VALD-02 | Phase 4 | Complete |
-| VALD-03 | Phase 4 | Complete |
-| VALD-04 | Phase 4 | Complete |
-| VALD-05 | Phase 4 | Complete |
-| DOCS-01 | Phase 5 | Complete in `05-01-SUMMARY.md`; README now documents selectable IP support and Xiaohei default behavior. |
-| DOCS-02 | Phase 5 | Complete in `05-01-SUMMARY.md`; README now includes concise Xiaohei planning, Xiaohei generation, Littlebox planning, Littlebox generation, and same-idea IP contrast examples. |
-| DOCS-03 | Phase 5 | Complete |
-| DOCS-04 | Phase 3 | Implemented; ready for verifier. Evidence: `03-04-SUMMARY.md`, `03-05-SUMMARY.md`, and `NOTICE.md` |
-| DOCS-05 | Phase 5 | Complete in `05-03-SUMMARY.md`; `agents/openai.yaml` metadata now names Xiaohei and Littlebox, describes selectable IP support, preserves Xiaohei as default, invokes `$ian-xiaohei-illustrations`, and keeps implicit invocation enabled. |
-| DOCS-06 | Phase 5 | Complete in `05-01-SUMMARY.md`; `RELEASE_CHECKLIST.md` covers validation, tests, smoke prompts, attribution, installable package boundary, and scope fences. |
 
 **Coverage:**
 
-- v1 requirements: 33 total
-- Mapped to phases: 33
-- Unmapped: 0
+- v1.1 requirements: 26 total
+- Mapped to phases: 0
+- Unmapped: 26
 
 ---
-*Requirements defined: 2026-06-12*
-*Last updated: 2026-06-12 after initial definition*
+*Requirements defined: 2026-06-13*
+*Last updated: 2026-06-13 after v1.1 requirements definition*
