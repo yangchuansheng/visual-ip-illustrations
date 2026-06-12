@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
 status: completed
-stopped_at: Completed 09-03-PLAN.md
-last_updated: "2026-06-12T21:04:00.999Z"
+stopped_at: Completed 09-04-PLAN.md
+last_updated: "2026-06-12T21:18:40.114Z"
 last_activity: 2026-06-12
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 12
-  completed_plans: 10
-  percent: 83
+  completed_plans: 11
+  percent: 92
 ---
 
 # Project State
@@ -21,22 +21,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 09 — tom-docs-examples-release-surface
+**Current focus:** Phase 10 — validation-hardening
 
 ## Current Position
 
-Phase: 9
-Plan: 04 next
-Status: 09-03 complete — continuing Phase 9
+Phase: 10
+Plan: TBD next
+Status: Phase 9 complete — ready for Phase 10
 Last activity: 2026-06-12
 
-Progress: [████████░░] 83%
+Progress: [█████████░] 92%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 23
+- Total plans completed: 24
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -55,8 +55,8 @@ Progress: [████████░░] 83%
 
 **Recent Trend:**
 
-- Last 5 plans: Phase 4 Plan 04-03 completed validation closeout; Phase 5 Plan 01 completed README and release checklist; Phase 5 Plan 02 expanded prompt examples and smoke fixtures; Phase 5 Plan 03 updated metadata and recorded closeout proof.
-- Trend: Phase 5 documentation packaging is complete; v1.1 is ready for Phase 6 planning.
+- Last 5 plans: Phase 8 Plan 08-01 integrated Tom routing; Phase 9 Plan 09-01 updated README docs; Phase 9 Plan 09-02 added prompt examples; Phase 9 Plan 09-03 updated metadata; Phase 9 Plan 09-04 added release gates.
+- Trend: Phase 9 documentation and release surfaces are complete; v1.1 is ready for Phase 10 validation hardening.
 
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
@@ -67,6 +67,7 @@ Progress: [████████░░] 83%
 | Phase 09 P01 | 24min | 2 tasks | 2 files |
 | Phase 09 P02 | 4min | 2 tasks | 2 files |
 | Phase 09 P03 | 3min | 2 tasks | 2 files |
+| Phase 09 P04 | 4min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -100,6 +101,9 @@ Recent decisions affecting current work:
 - [Phase 09]: Public rendered Tom sample wording stays tied to RELEASE_CHECKLIST.md public-sample gate.
 - [Phase 09]: Agent metadata names Xiaohei, Littlebox, and Tom while preserving Xiaohei as omitted-IP default. — Plan 09-03 updates openai.yaml discovery copy.
 - [Phase 09]: Tom metadata remains explicit, gated-authorized, and protected-character while allow_implicit_invocation stays true at skill level. — Plan 09-03 preserves policy semantics while updating display wording.
+- [Phase 09]: Tom remains gated-authorized and default=false while Xiaohei remains the only implicit default route. — Plan 09-04 release gates require route status and default-route review.
+- [Phase 09]: Public rendered Tom samples and generated Tom samples require reviewer/date/status/channel records before release. — Plan 09-04 added public asset and generated sample policy gates.
+- [Phase 09]: Release checklist keeps Tom release decisions tied to ian-xiaohei-illustrations/references/ips/tom/rights.md. — Plan 09-04 added final Tom maintainer release gates.
 
 ### Pending Todos
 
@@ -107,7 +111,7 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-- Final Tom authorization scope, public generated-sample policy, and release wording need maintainer review during Phase 6.
+- Final Tom authorization scope, public generated-sample policy, and release wording remain maintainer release gates for Phase 10 validation and release review.
 
 ## Deferred Items
 
@@ -119,6 +123,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T21:04:00.753Z
-Stopped at: Completed 09-03-PLAN.md
+Last session: 2026-06-12T21:18:39.886Z
+Stopped at: Completed 09-04-PLAN.md
 Resume file: None

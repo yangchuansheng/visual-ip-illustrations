@@ -20,7 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6: Tom Rights and Route Contract** - Maintainers get Tom rights boundaries, route status, aliases, route metadata, and public-sample gates before broad release. (completed 2026-06-12)
 - [x] **Phase 7: Tom Canonical Pack** - Maintainers get an isolated Tom reference pack for identity, planning, prompts, composition, QA, edits, and rights notes. (completed 2026-06-12)
 - [x] **Phase 8: Skill Controller Integration** - Users can explicitly select Tom or request separate Xiaohei, Littlebox, and Tom variants while Xiaohei remains the only default route. (completed 2026-06-12)
-- [ ] **Phase 9: Docs, Examples, and Release Surface** - Users and maintainers get Tom-aware README guidance, copyable prompts, metadata, and release checks with consistent route status wording.
+- [x] **Phase 9: Docs, Examples, and Release Surface** - Users and maintainers get Tom-aware README guidance, copyable prompts, metadata, and release checks with consistent route status wording. (completed 2026-06-12)
 - [ ] **Phase 10: Validation Hardening** - Maintainers can run local validation and tests that cover Tom route behavior, protected-IP boundaries, docs markers, paths, and leakage gates.
 
 ## Phase Details
@@ -98,14 +98,14 @@ Plans:
   4. `RELEASE_CHECKLIST.md` includes Tom authorization review, route status review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final rights review.
   5. Public docs avoid broad Tom availability claims when Tom route status is gated.
 
-**Plans:** 3/4 plans executed
+**Plans:** 4/4 plans complete
 
 Plans:
 
 - [x] 09-01-PLAN.md — Update README public Tom route docs, stale wording, output path, and rights boundary.
 - [x] 09-02-PLAN.md — Add copyable Tom planning, generation, smoke, and three-IP mixed prompts.
 - [x] 09-03-PLAN.md — Update agent metadata for Xiaohei, Littlebox, and explicit gated Tom.
-- [ ] 09-04-PLAN.md — Expand release checklist Tom authorization, leakage, sample, validator, and final rights gates.
+- [x] 09-04-PLAN.md — Expand release checklist Tom authorization, leakage, sample, validator, and final rights gates.
 
 ### Phase 10: Validation Hardening
 
@@ -132,5 +132,5 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 | 6. Tom Rights and Route Contract | 3/3 | Complete    | 2026-06-12 |
 | 7. Tom Canonical Pack | 3/3 | Complete    | 2026-06-12 |
 | 8. Skill Controller Integration | 1/1 | Complete   | 2026-06-12 |
-| 9. Docs, Examples, and Release Surface | 3/4 | In Progress|  |
+| 9. Docs, Examples, and Release Surface | 4/4 | Complete   | 2026-06-12 |
 | 10. Validation Hardening | 0/TBD | Not started | - |

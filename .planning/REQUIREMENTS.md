@@ -33,7 +33,7 @@
 - [x] **TDOC-01**: README explains Tom as an explicit protected-character route with its status, aliases, output path, and rights boundary.
 - [x] **TDOC-02**: `examples/prompts.md` includes copyable Tom planning, Tom generation, Tom smoke, and three-IP mixed variant prompts.
 - [x] **TDOC-03**: `agents/openai.yaml` names Xiaohei, Littlebox, and Tom while preserving Xiaohei as the implicit default.
-- [ ] **TDOC-04**: `RELEASE_CHECKLIST.md` includes Tom authorization review, route status review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final rights review.
+- [x] **TDOC-04**: `RELEASE_CHECKLIST.md` includes Tom authorization review, route status review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final rights review.
 - [x] **TDOC-05**: Public docs avoid broad Tom availability claims when Tom route status is gated.
 
 ### Validation
@@ -103,7 +103,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TDOC-01 | Phase 9 | Complete |
 | TDOC-02 | Phase 9 | Complete |
 | TDOC-03 | Phase 9 | Complete |
-| TDOC-04 | Phase 9 | Pending |
+| TDOC-04 | Phase 9 | Complete |
 | TDOC-05 | Phase 9 | Complete |
 | TVAL-01 | Phase 10 | Pending |
 | TVAL-02 | Phase 10 | Pending |
