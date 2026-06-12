@@ -1,185 +1,196 @@
 # Project Research Summary
 
 **Project:** Multi-IP Article Illustration Skills
-**Domain:** Codex Skill package for article illustration visual-IP routing
-**Researched:** 2026-06-12
-**Confidence:** HIGH
+**Milestone:** v1.1 Authorized Tom IP Integration
+**Domain:** Codex Skill package for route-isolated article illustration IPs
+**Researched:** 2026-06-13
+**Confidence:** MEDIUM-HIGH
 
-## Executive Summary
+## 1. Executive Summary
 
-This project is a documentation-first Codex Skill package that turns article ideas into visual-IP-specific body illustrations. Expert implementation should keep the repository lightweight: Markdown references, `SKILL.md` routing, `agents/openai.yaml` metadata, static calibration assets, and one small validation script. The product goal is a reliable two-IP system where Xiaohei remains the default and Littlebox becomes a first-class selectable IP with its own prompt, QA, output path, examples, and attribution.
+This milestone adds Tom from *Tom and Jerry* as a third selectable visual IP to an existing documentation-first Codex Skill package. The established product shape should remain intact: Markdown reference packs, `SKILL.md` routing, `agents/openai.yaml` metadata, static examples, host-provided `image_gen`, and a dependency-free Node validator. Xiaohei remains the only default route, Littlebox remains an explicit route, and Tom becomes an explicit protected-character route.
 
-The recommended approach is a shared workflow plus isolated IP packs. `SKILL.md` should select an IP from explicit aliases or default to Xiaohei, load shared article-understanding workflow rules, then load only the selected IP's visual language, character contract, composition guidance, prompt template, and quality gate. Keep current Xiaohei paths available through compatibility files while introducing `references/ips/xiaohei/` and `references/ips/littlebox/`.
+The recommended implementation is a vertical Tom route slice. Add `references/ips/tom/` as an isolated canonical pack, register `tom` in `references/routing.md`, update runtime routing and public docs, then extend the validator and release checklist. Tom-specific character identity, physical-comedy action language, prompt templates, QA checks, visible-label policy, and rights boundaries belong inside the Tom pack; shared workflow files should only select routes, load required references, and report outputs.
 
-The largest risks are cross-IP rule leakage, Xiaohei regression, Littlebox identity drift, attribution gaps, and package-boundary drift. Mitigate them by front-loading an IP registry or manifest, copy-only install validation, smoke prompts for both IPs, deterministic checks for reference links/placeholders/output suffixes, and a release gate that includes `NOTICE.md` updates for Littlebox-derived material.
+The core risk is rights ambiguity. Tom is a protected commercial character, so attribution alone is insufficient as a release control. The roadmap should front-load rights-boundary documentation, route status markers, public asset policy, and release gates before presenting Tom as a normal bundled route. The current validator may fail during early v1.1 work because previous phase working directories were cleared; treat that as a validation adaptation requirement for this milestone.
 
-## Key Findings
+## 2. Stack Additions
 
-### Recommended Stack
+Keep the stack unchanged. This remains a lightweight Codex Skill package with no application runtime, bundler, database, server, or package manager requirement.
 
-Keep the package as a Codex Skill with no app runtime, bundler, database, or package manager. The implementation should extend the current Markdown/YAML/static-asset shape and add a standard-library validation script for package integrity.
+Required additions:
 
-**Core technologies:**
-- Codex Skills: runtime and installable package format — preserves the current `ian-xiaohei-illustrations/` invocation model.
-- Markdown references: style, IP, composition, prompt, QA, routing, and workflow modules — matches both Xiaohei and Littlebox source patterns.
-- YAML or structured manifest: IP aliases, default IP, output suffixes, required references, and hard-rule smoke checks — gives routing and validation one shared source.
-- Python 3 standard library: `scripts/validate_skill_package.py` — provides repeatable checks without introducing project setup overhead.
-- Static assets: scoped calibration examples under `assets/examples/<ip>/` — supports visual consistency while keeping generated article outputs separate.
+- `ian-xiaohei-illustrations/references/ips/tom/` canonical pack for Tom-specific identity, style, prompt, composition, QA, and rights boundary.
+- `references/routing.md` row for `tom` with explicit aliases, `default: false`, `output_suffix: tom`, required references, attribution context, rights status, and route status.
+- `SKILL.md` updates for Tom route selection, progressive reference loading, planning fields, generation dispatch, QA dispatch, mixed-IP grouping, output paths, and delivery reports.
+- `agents/openai.yaml` copy that names selectable Xiaohei, Littlebox, and authorized Tom support while preserving Xiaohei as the implicit default.
+- `README.md`, `examples/prompts.md`, `NOTICE.md`, and `RELEASE_CHECKLIST.md` updates for Tom usage, route status, output path, source notes, authorization boundary, and release gates.
+- `scripts/validate-skill-package.mjs` and `scripts/validate-skill-package.test.mjs` extensions for Tom route, file presence, docs markers, path tokens, smoke prompts, protected-IP markers, leakage checks, and public asset policy.
 
-Critical version requirements are minimal. Use host Codex Skills and `image_gen`; use `python3` for validation. Add PyYAML only if the manifest format requires it, with a practical preference for standard-library parsing.
+Critical version requirements are minimal: use the existing Node runtime with built-in modules, existing Codex Skill loading behavior, host `image_gen`, and repository-local Markdown/YAML/static assets.
 
-### Expected Features
+## 3. Feature Table Stakes
 
-V1 should deliver a reliable two-IP skill, not a generalized visual-IP platform. Users should be able to ask for Xiaohei, ask for Littlebox, or omit the IP and receive deterministic Xiaohei behavior.
+The Tom route must feel first-class to users and auditable to maintainers.
 
-**Must have (table stakes):**
-- Explicit IP selection by aliases such as `小黑`, `Xiaohei`, `Littlebox`, `小盒`, and `纸盒`.
-- Backward-compatible default where existing Xiaohei prompts route to Xiaohei.
-- Isolated IP references for visual language, character identity, composition, prompt template, and QA.
-- IP-specific shot-list fields and prompt templates.
-- Littlebox hard identity gate: closed paper box, front-left three-quarter view, front-panel dot eyes, tiny legs, at most two side-seam twig arms, one amber jagged seam tape, pale sky-blue or lavender background, rough marker linework.
-- Xiaohei preservation gate: 16:9, pure white background, solid black Xiaohei, white dot eyes, thin legs, sparse red/orange/blue Chinese labels, large whitespace, active conceptual action.
-- Output path routing: Xiaohei to `assets/<article-slug>-illustrations/`, Littlebox to `assets/<article-slug>-littlebox/`.
-- Documentation examples, attribution updates, and lightweight repository validation.
+- Explicit Tom route selection through `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫`, with `selected IP: Tom` behavior.
+- Xiaohei default preservation when the user omits a visual IP.
+- Route-isolated Tom references under `references/ips/tom/`.
+- Tom shot-list fields for article placement, core idea, structure type, Tom state, Tom action, objects, sparse labels, output path, and rights-status note.
+- Tom generation prompt template for one 16:9 article body illustration where Tom performs the cognitive action.
+- Tom QA checklist for identity, active participation, article readability, visible text, output path, rights markers, and source-scene avoidance.
+- Route-specific output path `assets/<article-slug>-tom/`, plus escaped documentation token `assets/&lt;article-slug&gt;-tom/`.
+- Mixed-IP grouping across Xiaohei, Littlebox, and Tom with separate references, prompts, QA, and output directories.
+- Edit prompts for stronger Tom participation, off-model identity repair, title removal, text reduction, and preservation of unaffected content.
+- NOTICE attribution and authorization-boundary section that records source work, rights holder, allowed-use assumption, redistribution boundary, and review requirement.
+- Release checklist gates for Tom route smoke tests, rights review, prompt leakage scan, public generated-asset review, and final release signoff.
 
-**Should have (differentiators):**
-- Side-by-side IP contrast examples for the same article idea.
-- Littlebox background balancing across multi-image sets.
-- Multilingual visible-label handling for Littlebox while preserving Chinese-first Xiaohei behavior.
-- Shared cognitive-anchor workflow with per-IP execution rules.
-- Curated Littlebox example bank across several domains.
+Defer broader cast support, generic third-party IP import, hybrid Xiaohei/Littlebox/Tom characters, public generated Tom galleries, and any hosted UI or build runtime.
 
-**Defer (v2+):**
-- Arbitrary user-defined IP import.
-- Hybrid Xiaohei-Littlebox characters.
-- Hosted web UI or visual picker.
-- Batch contact-sheet generation, PPT/SVG/HTML/PDF export, visual regression automation, asset metadata index, CLI installer, and cross-IP recommendation engine.
+## 4. Architecture Integration Points
 
-### Architecture Approach
+Tom should integrate as a full vertical route:
 
-Use a thin shared entrypoint and isolated IP packs. The entrypoint handles trigger scope, IP selection, task routing, save-path contracts, and delivery reporting. Shared files should contain article digestion, cognitive-anchor selection, shot-list shape, generation loop, common QA, and no-overwrite behavior. IP packs should own all visual identity, prompt, language, composition, QA, examples, and attribution details.
+```text
+SKILL.md
+  -> references/routing.md
+    -> references/ips/xiaohei/*
+    -> references/ips/littlebox/*
+    -> references/ips/tom/*
+  -> image_gen runtime
+  -> assets/<article-slug>-<route-suffix>/
+```
 
-**Major components:**
-1. `SKILL.md` entrypoint — selects IP, loads shared workflow, loads selected IP references, enforces delivery contract.
-2. `references/routing.md` or registry — declares aliases, defaulting, mixed-IP behavior, output suffixes, and reference paths.
-3. `references/workflow.md` and shared prompt/QA files — define article-understanding and generation lifecycle common to all IPs.
-4. `references/ips/xiaohei/` — canonical Xiaohei visual language, IP contract, composition, prompt template, quality gate, examples, and manifest.
-5. `references/ips/littlebox/` — Littlebox visual language, IP contract, composition, language/labels, prompt template, quality gate, examples, and manifest.
-6. Compatibility reference files — keep existing `references/style-dna.md`, `xiaohei-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md` resolving during migration.
-7. `scripts/validate_skill_package.py` — validates package shape, manifests, references, prompt placeholders, output suffixes, docs links, attribution, and copy-only install shape.
+Primary changes:
 
-### Critical Pitfalls
+1. `references/ips/tom/index.md` - Tom pack navigation, file responsibilities, output path, and rights-boundary pointer.
+2. `references/ips/tom/style-dna.md` - Tom article-illustration visual language, linework, color, motion, background, density, and vetoes.
+3. `references/ips/tom/tom-ip.md` - character identity, recognizable traits, allowed actions, article-role behavior, and failure modes.
+4. `references/ips/tom/composition-patterns.md` - Tom-appropriate cognitive-action metaphors and anti-repeat rules.
+5. `references/ips/tom/language-and-labels.md` - prompt language and visible-label policy if Tom needs rules beyond the shared route contract.
+6. `references/ips/tom/prompt-template.md` - shot-list fields, single-image generation template, and edit/regeneration prompts.
+7. `references/ips/tom/qa-checklist.md` - pass/fail checks for identity, action, text, background, density, route isolation, and rights safety.
+8. `references/ips/tom/rights-boundary.md` - protected-character authorization record, allowed use, restricted use, distribution boundary, sample policy, and reviewer.
 
-1. **Routing treats Littlebox as a Xiaohei variant** — introduce an IP registry and load only selected IP references.
-2. **Littlebox identity breaks during prompt adaptation** — preserve closed-box anatomy, seam tape, arm limits, front-panel eyes, pale backgrounds, and marker linework in both prompt template and QA gate.
-3. **Xiaohei behavior regresses** — capture Xiaohei baseline smoke prompts before routing changes and rerun them at each release checkpoint.
-4. **Attribution becomes ambiguous** — update `NOTICE.md` in the same phase that Littlebox-derived files enter the package, including source URL, author `okooo5km`, MIT origin, and inspected commit `37cd93e`.
-5. **Package boundary depends on root-only files** — validate the copied installable `ian-xiaohei-illustrations/` directory by itself.
+`SKILL.md` should stay a controller. It should select the route, load Tom required references only for Tom tasks, keep Xiaohei and Littlebox references isolated, and report Tom outputs under `assets/<article-slug>-tom/`.
 
-## Implications for Roadmap
+## 5. Critical Pitfalls
 
-Based on research, suggested phase structure:
+1. **Treating Tom as a normal bundled IP** - add rights-boundary docs and route status before public Tom examples or generated assets land.
+2. **Confusing attribution with permission** - split `NOTICE.md` into source/attribution and authorization-boundary sections for Tom.
+3. **Shipping public Tom rendered examples too early** - keep v1.1 text-first until public generated derivative distribution is explicitly reviewed.
+4. **Prompt leakage into Xiaohei or Littlebox** - keep Tom identity, anatomy, Warner rights text, and physical-comedy constraints inside Tom-approved files and docs sections.
+5. **Two-IP validator assumptions** - update route IDs, output path tokens, required reference counts, smoke prompts, docs checks, and parser tests for three routes.
+6. **Accidental Tom defaulting** - enforce exactly one default route, `xiaohei`, and keep Tom aliases explicit.
+7. **Weak Tom identity QA** - require Tom as the active article-illustration operator and block generic cats, direct source-frame recreation, show logos, title cards, and unauthorized extra characters.
+8. **Jerry or broader franchise scope creep** - keep the route named `tom`; treat Jerry and other characters as a future explicitly authorized milestone.
 
-### Phase 1: Routing Foundation
+## 6. Requirements Implications
 
-**Rationale:** Routing, compatibility, and validation shape determine every later change. Build the foundation before importing a second IP.
-**Delivers:** Shared workflow files, IP registry or manifests, selected-IP route rules, Xiaohei default route, package-boundary validation skeleton, Xiaohei baseline smoke prompts.
-**Addresses:** Explicit IP selection, backward-compatible default, router reads relevant references, output path routing.
-**Avoids:** Routing leaks, Xiaohei regression, package-boundary drift, output collisions, implicit wrong-IP selection.
+Requirements should be route-first and rights-aware:
 
-### Phase 2: Xiaohei Canonicalization
+- A normal generation has one selected IP. Mixed-IP requests create separate route groups.
+- Omitted IP resolves to Xiaohei and uses `assets/<article-slug>-illustrations/`.
+- Explicit Littlebox keeps the current `assets/<article-slug>-littlebox/` behavior.
+- Explicit Tom resolves only through clear Tom aliases and uses `assets/<article-slug>-tom/`.
+- Tom route acceptance requires both product behavior and protected-IP controls.
+- Tom public docs must carry the same route status as `routing.md`, `NOTICE.md`, and `RELEASE_CHECKLIST.md`.
+- Validator acceptance criteria should include route presence, default preservation, required Tom pack files, output path tokens, docs markers, NOTICE markers, smoke prompts, leakage checks, and public asset policy.
+- Existing validator failures caused by cleared previous phase working directories should be captured as v1.1 validator adaptation work, with fixture/path assumptions refreshed during validation hardening.
 
-**Rationale:** Xiaohei is the current production behavior and should become the first canonical IP pack.
-**Delivers:** `references/ips/xiaohei/` with canonical visual language, IP contract, composition, prompt template, quality gate, examples or manifest; legacy compatibility paths remain available.
-**Uses:** Markdown reference organization, manifest metadata, copy-friendly package structure.
-**Implements:** IP pack boundary and compatibility strategy.
-**Avoids:** Legacy path drift and broad-entrypoint bloat.
+## 7. Roadmap Recommendation
 
-### Phase 3: Littlebox Vertical Slice
+Suggested phase structure:
 
-**Rationale:** Littlebox should land as a complete vertical IP pack that proves route selection, prompt generation, QA, output path, and attribution together.
-**Delivers:** `references/ips/littlebox/` modules, Littlebox aliases, prompt template, quality gate, examples, output suffix, and `NOTICE.md` attribution.
-**Addresses:** Littlebox hard identity gate, IP-specific prompt templates, multilingual visible-label policy, Littlebox output path.
-**Avoids:** Littlebox identity drift, license ambiguity, prompt drift, and output collisions.
+### Phase 1: Tom Rights and Route Contract
 
-### Phase 4: Validation Hardening
+**Rationale:** Tom needs an auditable authorization boundary before it appears as a selectable protected-character route.
+**Delivers:** `NOTICE.md` Tom section, `rights-boundary.md` skeleton, `routing.md` Tom row, aliases, `default: false`, `output_suffix: tom`, route status, and raw/escaped path tokens.
+**Avoids:** attribution-as-permission, accidental defaulting, output ambiguity, and public docs overpromising.
 
-**Rationale:** Deterministic contracts should become executable before broad docs and examples expand the surface area.
-**Delivers:** `scripts/validate_skill_package.py`, strict checks for manifests, reference existence, legacy paths, prompt placeholders, output suffixes, README/example references, attribution text, and installable-copy validation.
-**Uses:** Python 3 standard library and structured manifest data.
-**Implements:** Maintainer quality gate and release confidence path.
-**Avoids:** Manual QA overload, docs drift, broken installed package, stale prompt placeholders.
+### Phase 2: Tom Canonical Pack
 
-### Phase 5: Documentation, Examples, and Release Packaging
+**Rationale:** Tom behavior should live in isolated references so protected-character rules cannot leak into Xiaohei or Littlebox.
+**Delivers:** Tom index, style DNA, character identity, composition patterns, language/labels if needed, prompt template, QA checklist, and rights-boundary details.
+**Avoids:** weak identity QA, generic cat drift, source-frame recreation, and broader franchise scope creep.
 
-**Rationale:** Public docs should describe flows already supported by routing and validation.
-**Delivers:** Updated `README.md`, `examples/prompts.md`, `agents/openai.yaml`, release checklist, IP contrast examples, smoke prompt fixtures, and package-ready validation result.
-**Addresses:** Documentation examples for both IPs, delivery report consistency, attribution visibility, release checklist.
-**Avoids:** Documentation claims outpacing implementation, example reuse drift, implicit selection confusion, stale release artifacts.
+### Phase 3: Skill Controller Integration
 
-### Phase Ordering Rationale
+**Rationale:** Runtime behavior should generalize from two IPs to selected route groups while preserving existing route behavior.
+**Delivers:** `SKILL.md` route selection, Tom reference loading, planning fields, generation/editing dispatch, QA dispatch, mixed-IP grouping, delivery reports, and Tom output path handling.
+**Avoids:** prompt leakage, blended mixed-IP prompts, Xiaohei regression, and Littlebox route regression.
 
-- Routing and manifests come first because every IP-specific reference, prompt, QA gate, and output path depends on selected-IP resolution.
-- Xiaohei canonicalization precedes Littlebox import because Xiaohei is the compatibility baseline and proves the new pack shape.
-- Littlebox lands as a vertical slice because partial import would create identity and attribution risk.
-- Validation hardening follows the first complete two-IP path so checks are grounded in real files and acceptance criteria.
-- Documentation and release packaging come last so public examples map to working smoke prompts.
+### Phase 4: Docs, Examples, and Release Surface
 
-### Research Flags
+**Rationale:** Public-facing docs should describe only behavior that has route and rights controls.
+**Delivers:** README Tom section, prompt examples, smoke prompts, mixed-IP examples, agent metadata, release checklist gates, and public generated-sample policy.
+**Avoids:** public docs overpromising, premature rendered Tom assets, and mismatched route status language.
 
-Phases likely needing deeper research during planning:
-- **Phase 3:** Littlebox import should re-check source files, license wording, and exact reference adaptation boundaries before copying content.
-- **Phase 4:** Validator design may need a short spike if YAML parsing stays dependency-free while preserving readable manifests.
-- **Phase 5:** Example and release checklist scope may need review once actual file moves reveal stale links or asset decisions.
+### Phase 5: Validation Hardening
 
-Phases with standard patterns where extra research can usually be skipped:
-- **Phase 1:** Routing foundation uses repository-local patterns already established by the current skill.
-- **Phase 2:** Xiaohei canonicalization is a mechanical package-structure migration with smoke checks.
-- **Phase 4:** Basic file/link/placeholder validation is standard scripting once manifest format is fixed.
+**Rationale:** The package needs deterministic local gates for three-route behavior and protected-IP boundaries.
+**Delivers:** extended Node validator, updated Node tests, Tom check IDs, route parser expectations, docs/path/NOTICE/smoke checks, non-Tom leakage scan, public asset scan, and adapted fixtures for the cleared v1.1 working-directory state.
+**Avoids:** partial integration passing validation, stale two-IP assumptions, and release checklist drift.
 
-## Confidence Assessment
+Research flags:
+
+- **Needs deeper planning:** Phase 1, because final authorization scope and release wording depend on maintainer-provided records.
+- **Needs deeper planning:** Phase 5, because current validator assumptions and cleared previous phase directories require adaptation.
+- **Standard patterns:** Phases 2 and 3 use established isolated IP-pack and controller-dispatch patterns.
+- **Standard patterns with review gate:** Phase 4 is straightforward documentation work once route status and rights boundary are fixed.
+
+## 8. Validation and Release Gates
+
+Required validation commands:
+
+```bash
+node scripts/validate-skill-package.mjs
+node --test scripts/validate-skill-package.test.mjs
+git diff --check
+```
+
+Tom-specific automated gates should include:
+
+- `TOM-ROUTE-001`: `routing.md` includes Tom aliases, `default: false`, `output_suffix: tom`, required references, attribution context, and non-ambiguous route status.
+- `TOM-REFS-001`: Tom canonical pack contains the required operational references plus `rights-boundary.md`.
+- `TOM-RIGHTS-001`: `NOTICE.md` and Tom rights boundary include source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner markers.
+- `TOM-DOCS-001`: README, prompt examples, `SKILL.md`, and agent metadata use consistent Tom status wording.
+- `TOM-PATHS-001`: raw and escaped Tom output tokens are present.
+- `TOM-LEAK-001`: non-Tom packs do not contain Tom identity markers or Warner rights text.
+- `TOM-SCOPE-001`: Tom prompts and QA exclude default Jerry, Spike, franchise logos, title cards, and episode-scene recreation.
+- `TOM-ASSETS-001`: public example directories contain no Tom-rendered assets until the release checklist has explicit approval.
+- `TOM-SMOKE-001`: smoke prompts cover omitted-IP Xiaohei default, explicit Xiaohei, explicit Littlebox, explicit Tom, and three-IP same-idea variants.
+- `TOM-RELEASE-001`: release checklist includes Tom authorization review, route status review, public docs wording, generated asset policy, prompt leakage scan, and final rights review.
+
+Release should require zero validator failures, passing Node tests, completed Tom rights review, public generated-asset decision, unchanged Xiaohei default behavior, unchanged Littlebox explicit behavior, and separate output directories for all selected routes.
+
+## 9. Source Notes
+
+Primary repository sources:
+
+- `.planning/research/STACK.md` - static stack recommendation, Tom pack shape, files to modify, validator changes, and roadmap implication.
+- `.planning/research/FEATURES.md` - Tom table stakes, differentiators, anti-features, user flows, maintainer duties, and rights-boundary fields.
+- `.planning/research/ARCHITECTURE.md` - vertical route architecture, data flow, integration points, build order, validation dependencies, and phase order.
+- `.planning/research/PITFALLS.md` - protected-IP risks, warning signs, prevention strategies, automated checks, and phase-specific warnings.
+
+Official Warner Bros. / Warner Bros. Discovery sources referenced by researchers:
+
+- Warner Bros. official Tom and Jerry brand page - used for public brand/source context.
+- Warner Bros. clip and still licensing information - used for written-request licensing process context.
+- Warner Bros. Discovery licensing submission form, updated 2024-01-19 - used for licensing request and consumer-product licensing context.
+- Warner Bros. Terms of Use and Warner Bros. Discovery company pages - used for general IP, trademark, and rights-holder context.
+
+Confidence:
 
 | Area | Confidence | Notes |
-|------|------------|-------|
-| Stack | HIGH | Existing Xiaohei package and Littlebox source both use static Codex Skill patterns; no runtime framework is justified. |
-| Features | HIGH | Requirements are repository-derived and map cleanly to user-visible skill behavior; release workflow scope remains MEDIUM until implementation choices settle. |
-| Architecture | HIGH | Shared workflow plus isolated IP packs directly addresses current structure and migration needs; future Codex metadata behavior is MEDIUM. |
-| Pitfalls | HIGH | Risks are grounded in local codebase concerns, current manual validation gaps, and Littlebox identity rules; future packaging behavior is MEDIUM. |
+|---|---|---|
+| Stack | HIGH | Existing package already uses Markdown/YAML/static assets and dependency-free Node validation. |
+| Features | MEDIUM-HIGH | User behavior is clear; final authorization scope depends on maintainer records. |
+| Architecture | HIGH | Existing Xiaohei/Littlebox route architecture supports a third isolated IP route. |
+| Pitfalls | MEDIUM-HIGH | Repository-local risks are high confidence; legal/release wording needs rights review. |
 
-**Overall confidence:** HIGH
-
-### Gaps to Address
-
-- Manifest format: choose YAML, Markdown manifest, or a standard-library-friendly structured format during Phase 1.
-- Copy/adaptation boundary: decide which Littlebox files are copied, adapted, summarized, or linked during Phase 3.
-- Compatibility stubs: decide whether legacy Xiaohei references remain full copies or short pointers after the new pack route is proven.
-- Example asset policy: define which calibration assets belong inside `assets/examples/<ip>/` and which examples stay as text-only prompts.
-- Visual QA: keep manual image judgment but make objective identity markers explicit in smoke prompts and quality gates.
-
-## Requirement Implications
-
-- The requirements should define one selected IP per normal generated image set, with mixed-IP requests handled as separate variant groups.
-- The default IP must be Xiaohei, and current `$ian-xiaohei-illustrations` usage must keep the existing output path and visual contract.
-- Littlebox acceptance criteria should include objective identity markers, output path suffix, label policy, and attribution gate.
-- Every public README example should correspond to a smoke prompt or validator fixture.
-- Release criteria should require validation from the copied installable package directory, Xiaohei smoke pass, Littlebox smoke pass, and completed NOTICE/license review.
-
-## Sources
-
-### Primary (HIGH confidence)
-
-- `.planning/PROJECT.md` — project scope, active requirements, source inspection context, constraints, and out-of-scope boundaries.
-- `.planning/research/STACK.md` — recommended static Codex Skill stack, manifest, validation script, and file impact.
-- `.planning/research/FEATURES.md` — table stakes, differentiators, anti-features, deferred features, and feature dependencies.
-- `.planning/research/ARCHITECTURE.md` — shared-entrypoint architecture, IP pack boundaries, data flow, migration strategy, and build order.
-- `.planning/research/PITFALLS.md` — critical risks, warning signs, prevention controls, and phase mapping.
-
-### Secondary (MEDIUM confidence)
-
-- `.planning/codebase/CONCERNS.md` — referenced by pitfalls for local fragility areas.
-- `.planning/codebase/TESTING.md` — referenced by pitfalls for current manual-only test posture.
-- `/tmp/5km-littlebox-illustrations/` source inspection — source repository details, identity rules, quality gate, MIT attribution, and inspected commit `37cd93e`.
+Overall confidence is MEDIUM-HIGH. The unresolved gap is the exact authorization scope for Tom, including public docs, generated samples, redistribution, commercial use, and broader cast boundaries.
 
 ---
-*Research completed: 2026-06-12*
+*Research completed: 2026-06-13*
 *Ready for roadmap: yes*
