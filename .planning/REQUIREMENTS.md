@@ -7,19 +7,19 @@
 
 ### Routing
 
-- [ ] **ROUT-01**: User can omit the visual IP and receive the existing Xiaohei behavior by default.
-- [ ] **ROUT-02**: User can explicitly request Xiaohei using aliases such as `小黑`, `Xiaohei`, `Ian`, or `ian-xiaohei`.
+- [x] **ROUT-01**: User can omit the visual IP and receive the existing Xiaohei behavior by default.
+- [x] **ROUT-02**: User can explicitly request Xiaohei using aliases such as `小黑`, `Xiaohei`, `Ian`, or `ian-xiaohei`.
 - [ ] **ROUT-03**: User can explicitly request Littlebox using aliases such as `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton`.
 - [ ] **ROUT-04**: User gets separate variant groups when a request asks for both Xiaohei and Littlebox outputs.
-- [ ] **ROUT-05**: User-facing routing docs explain the default IP, explicit aliases, mixed-IP behavior, and output paths.
+- [x] **ROUT-05**: User-facing routing docs explain the default IP, explicit aliases, mixed-IP behavior, and output paths.
 
 ### IP Packs
 
 - [ ] **IPCK-01**: Maintainer can find Xiaohei's visual language, IP contract, composition rules, prompt template, and quality gate under a canonical Xiaohei IP pack.
 - [ ] **IPCK-02**: Maintainer can find Littlebox's visual language, IP contract, composition rules, language/label rules, prompt template, and quality gate under a canonical Littlebox IP pack.
-- [ ] **IPCK-03**: The shared workflow contains article understanding, cognitive-anchor selection, generation loop, QA handoff, asset preservation, and delivery reporting without IP-specific style rules.
+- [x] **IPCK-03**: The shared workflow contains article understanding, cognitive-anchor selection, generation loop, QA handoff, asset preservation, and delivery reporting without IP-specific style rules.
 - [ ] **IPCK-04**: Legacy Xiaohei reference paths remain available during the migration.
-- [ ] **IPCK-05**: Each IP declares aliases, output suffix, required references, and attribution context in a readable manifest or routing section.
+- [x] **IPCK-05**: Each IP declares aliases, output suffix, required references, and attribution context in a readable manifest or routing section.
 
 ### Xiaohei
 
@@ -96,16 +96,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ROUT-01 | Phase 1 | Pending |
-| ROUT-02 | Phase 1 | Pending |
+| ROUT-01 | Phase 1 | Complete |
+| ROUT-02 | Phase 1 | Complete |
 | ROUT-03 | Phase 3 | Pending |
 | ROUT-04 | Phase 3 | Pending |
-| ROUT-05 | Phase 1 | Pending |
+| ROUT-05 | Phase 1 | Complete |
 | IPCK-01 | Phase 2 | Pending |
 | IPCK-02 | Phase 3 | Pending |
-| IPCK-03 | Phase 1 | Pending |
+| IPCK-03 | Phase 1 | Complete |
 | IPCK-04 | Phase 2 | Pending |
-| IPCK-05 | Phase 1 | Pending |
+| IPCK-05 | Phase 1 | Complete |
 | XIAO-01 | Phase 2 | Pending |
 | XIAO-02 | Phase 2 | Pending |
 | XIAO-03 | Phase 2 | Pending |
@@ -131,6 +131,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOCS-06 | Phase 5 | Pending |
 
 **Coverage:**
+
 - v1 requirements: 33 total
 - Mapped to phases: 33
 - Unmapped: 0
