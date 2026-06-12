@@ -54,9 +54,18 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 **Plans:** 3 plans
 Plans:
+**Wave 1**
+
 - [ ] 02-01-PLAN.md — Create canonical Xiaohei IP pack files with exact parity to current Xiaohei references.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 02-02-PLAN.md — Preserve legacy root reference entry points and point routing metadata to canonical Xiaohei files.
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
 - [ ] 02-03-PLAN.md — Wire canonical-first skill/docs pointers while preserving current Xiaohei prompts and output path.
+
 **UI hint:** no
 
 ### Phase 3: Littlebox Vertical Slice
