@@ -1,6 +1,6 @@
 # Release Checklist
 
-用于发布前确认两 IP skill 包、公开文档、归因和边界保持一致。
+用于发布前确认 multi-IP skill 包、公开文档、归因和边界保持一致。
 
 ## Automated Gates
 
@@ -38,6 +38,14 @@ Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 - [ ] Review `NOTICE.md` for Ian Xiaohei attribution.
 - [ ] Review `NOTICE.md` for Littlebox attribution: author `okooo5km`, source repository, MIT context, inspected commit `37cd93e`, and derived documentation notes.
 - [ ] Confirm public docs and release notes keep attribution language aligned with `NOTICE.md`.
+
+## Tom Rights and Public Sample Gate
+
+- [ ] Review `ian-xiaohei-illustrations/references/ips/tom/rights.md` for source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner.
+- [ ] Confirm Tom route status is `gated-authorized` across `ian-xiaohei-illustrations/references/routing.md`, `README.md`, `examples/prompts.md`, and this checklist.
+- [ ] Confirm Tom remains `default=false` and Xiaohei remains the only implicit default route.
+- [ ] Confirm public docs include Tom output path markers `assets/<article-slug>-tom/` and `assets/&lt;article-slug&gt;-tom/`.
+- [ ] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date
 
 ## Installable Package Boundary
 
