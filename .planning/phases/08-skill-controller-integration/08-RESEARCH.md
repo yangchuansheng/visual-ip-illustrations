@@ -406,16 +406,16 @@ Source: `ian-xiaohei-illustrations/references/routing.md`. [VERIFIED: routing.md
 |---|-------|---------|---------------|
 | A1 | None. | N/A | All recommendations are grounded in repository files and local command output. [VERIFIED: codebase grep] |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Should `SKILL.md` frontmatter description include Tom aliases?**
    - What we know: Phase 8 requires controller selection via Tom aliases, and `SKILL.md` frontmatter currently names Xiaohei defaults but not Tom. [VERIFIED: SKILL.md; VERIFIED: .planning/REQUIREMENTS.md]
-   - What's unclear: The locked context requires SKILL.md controller markers, but it does not explicitly require frontmatter trigger expansion. [VERIFIED: 08-CONTEXT.md]
-   - Recommendation: Add a short Tom phrase to frontmatter only if the planner wants implicit invocation coverage; always add route-selection bullets in the workflow body. [VERIFIED: codebase analysis]
+   - RESOLVED: Phase 8 should add a short Tom phrase to frontmatter only as controller discoverability wording, while route-selection body text remains the binding behavior. [VERIFIED: 08-CONTEXT.md; VERIFIED: codebase analysis]
+   - Recommendation: Add a short Tom phrase to frontmatter and always add route-selection bullets in the workflow body. [VERIFIED: codebase analysis]
 
 2. **Should Phase 8 touch validator marker checks?**
    - What we know: Phase 10 owns validator hardening and Node tests. [VERIFIED: ROADMAP.md]
-   - What's unclear: A strict blocker could appear if existing validator rejects the SKILL.md Tom edit. [VERIFIED: local validator baseline]
+   - RESOLVED: Phase 8 keeps validator files unchanged; validation hardening belongs to Phase 10. Existing validator, Node tests, diff checks, and targeted marker scans are enough for Phase 8. [VERIFIED: local validator baseline; VERIFIED: 08-CONTEXT.md]
    - Recommendation: Keep validator files unchanged and rely on existing validator, Node tests, diff check, and targeted `rg` checks after implementation. [VERIFIED: 08-CONTEXT.md]
 
 ## Environment Availability
