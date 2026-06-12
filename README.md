@@ -130,6 +130,12 @@ cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
 Use $ian-xiaohei-illustrations 为这篇中文文章设计并生成 5 张小黑怪诞正文配图。
 ```
 
+维护者本地校验：
+
+```bash
+node scripts/validate-skill-package.mjs
+```
+
 ---
 
 ## 视觉 IP 路由
