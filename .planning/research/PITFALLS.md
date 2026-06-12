@@ -1,233 +1,154 @@
-# Multi-IP Adaptation Pitfalls
-
-**Project:** Multi-IP Article Illustration Skills  
-**Dimension:** Pitfalls  
-**Researched:** 2026-06-12  
-**Confidence:** HIGH for repository-local risks and Littlebox identity rules; MEDIUM for future Codex packaging behavior.
-
-## Summary
-
-Adapting Littlebox into this repository can fail in three connected ways: IP identity drift, documentation/package drift, and weak validation. The repository is currently a Markdown-first Codex Skill package with manual QA, duplicated style guidance, implicit package boundaries, and no validation command. Adding a second IP multiplies those existing risks because Xiaohei and Littlebox have incompatible defaults for background, linework, character anatomy, output paths, examples, and QA gates.
-
-The highest-risk roadmap mistake is treating Littlebox as a style variant inside the Xiaohei flow. Littlebox has hard identity markers: closed-only paper box body, front-left three-quarter view, dot eyes on the front panel, tiny legs, at most two side-seam twig arms, exactly one narrow amber central-lid seam tape with jagged front tab, pale sky-blue or pale lavender background, thick rough marker linework, sparse coral/amber accents, and Littlebox acting as the conceptual operator. These constraints need their own routing, prompt template, QA checklist, examples, and failure handling.
-
-The second major risk is attribution and license dilution. Both repositories use MIT, but each carries author attribution and NOTICE language. This project must preserve Ian attribution for Xiaohei material and okooo5km attribution for Littlebox-derived material. Any roadmap phase that copies or adapts Littlebox files needs an explicit license/NOTICE checkpoint, source commit reference, and derived-material boundary.
-
-The roadmap should front-load structural safety: add an IP registry, package-shape validation, reference-link validation, prompt-placeholder validation, and cross-IP smoke prompts before broad documentation rewrites. Then add Littlebox as a vertical slice that proves route selection, reference loading, output paths, QA gates, and attribution. Polish and deduplication should follow after the two-IP path works.
-
-## Pitfalls
-
-### 1. Routing Treats Littlebox as a Xiaohei Variant
-
-**What goes wrong:** A single shared workflow injects Xiaohei defaults into Littlebox requests or Littlebox defaults into Xiaohei requests. The most likely leaks are white background, thin linework, Xiaohei-centered action language, output path `assets/<article-slug>-illustrations/`, and Xiaohei QA wording.
-
-**Why it happens:** The current skill has one installable package, one `SKILL.md`, one prompt template, one QA checklist, and repeated global instructions. Multi-IP routing adds a branch where the original files were written as universal instructions.
-
-**Impact:** Users request Littlebox and receive a black-character Xiaohei composition, or request Xiaohei and receive pale-background box language. Both outputs weaken the skill's core value: selectable visual IPs with stable identity.
-
-**Prevention strategy:** Create a small IP registry before importing Littlebox content. Each IP entry should declare canonical reference files, prompt template, QA gate, output directory suffix, default background, identity checklist, examples, and attribution source. `SKILL.md` should route to the selected IP and then load only that IP's canonical references.
-
-**Phase mapping:** Phase 1 foundation.
-
-### 2. Littlebox Identity Breaks During Prompt Adaptation
-
-**What goes wrong:** Generated images show an open box, raised flaps, visible interior, side-wall eyes, front-face arms, three arms, mascot hands, tan cardboard body, smooth vector strokes, multiple tape patches, or tape placed on a side wall or prop.
-
-**Why it happens:** Littlebox's constraints are more anatomical than Xiaohei's. A general "paper box character" prompt invites common image-model defaults: open cardboard boxes, delivery logos, cute mascots, beige cartons, and clean vector icon style.
-
-**Impact:** The result stops being Littlebox even when the article metaphor works. The IP becomes unstable across a multi-image set.
-
-**Prevention strategy:** Preserve Littlebox's exact identity rules as a canonical `littlebox-ip.md` reference and mirror the hard gates in a Littlebox QA file. Prompt templates should state the closed-only box state, centered amber seam tape with jagged front tab, side-seam twig arms, front-panel eyes, near-white body, and pale background in short imperative lines. Acceptance criteria should require at least five recognition markers for final article images.
-
-**Phase mapping:** Phase 2 Littlebox vertical slice and Phase 3 QA hardening.
-
-### 3. Xiaohei Behavior Regresses While Adding Multi-IP Support
-
-**What goes wrong:** Existing `$ian-xiaohei-illustrations` behavior changes: planning structure shifts, Xiaohei becomes optional, prompts start using pale backgrounds, examples move, or README usage examples point to new multi-IP language that the existing skill path cannot satisfy.
-
-**Why it happens:** The current Xiaohei flow is encoded in prose across `SKILL.md`, style DNA, IP rules, prompt template, QA checklist, README, and examples. A broad rewrite can blur stable behavior.
-
-**Impact:** The milestone succeeds for Littlebox while damaging the validated Xiaohei experience.
-
-**Prevention strategy:** Add a Xiaohei baseline smoke set before changing routing. Capture expected planning fields, default image count, output path, key visual constraints, and QA checklist coverage. Run the baseline after each routing or documentation phase.
-
-**Phase mapping:** Phase 1 foundation and every release checkpoint.
-
-### 4. Attribution and NOTICE Obligations Become Ambiguous
-
-**What goes wrong:** Littlebox-derived references enter this repository without preserving the MIT copyright line, NOTICE attribution, author link, source repository URL, or inspected commit reference. Public docs may imply Littlebox is authored by Ian.
-
-**Why it happens:** Both repositories are MIT and structurally similar, so file copying can feel mechanically safe while derived documentation boundaries remain unclear.
-
-**Impact:** Redistribution becomes legally and ethically weak. Future maintainers cannot tell which materials came from Ian, which came from okooo5km, and which were adapted.
-
-**Prevention strategy:** Add a license/NOTICE phase gate for any copied or adapted Littlebox file. Update root `NOTICE.md` with a Littlebox attribution section naming `5km Littlebox Illustrations`, okooo5km, source URL, and inspected commit `37cd93e` from 2026-06-12. Keep MIT license text intact where substantial Littlebox material is included. Mark adapted references with source attribution in file headers or a central attribution manifest.
-
-**Phase mapping:** Phase 2 Littlebox import and Phase 5 release packaging.
-
-### 5. Package Boundary Pulls in Root-Only Files
-
-**What goes wrong:** The installed Codex skill directory depends on root README, root examples, root assets, or personal/contact assets. A copied `ian-xiaohei-illustrations/` folder then lacks Littlebox references, examples, attribution, or validation metadata.
-
-**Why it happens:** The current repository has an implicit package boundary. Root docs, examples, and installable skill assets overlap. Multi-IP support adds more files and more cross-links.
-
-**Impact:** Local development works, installed skill behavior breaks, and users receive incomplete routing instructions.
-
-**Prevention strategy:** Define the installable package boundary as data. Add a package manifest listing required files under `ian-xiaohei-illustrations/`, per-IP reference groups, assets used at runtime, and forbidden root-only dependencies. Add a validation command that can run against a copy of only the installable directory.
-
-**Phase mapping:** Phase 1 foundation and Phase 5 release packaging.
-
-### 6. Prompt Templates Drift Across IPs
-
-**What goes wrong:** Prompt placeholders, label rules, edit instructions, and image-generation constraints diverge inconsistently. One IP gains a fix for title removal, label count, or active-character correction while the other keeps stale wording.
-
-**Why it happens:** The existing prompt template is prose-heavy and mixed-language. Adding Littlebox will likely create a second template with similar sections and different constraints.
-
-**Impact:** Some user flows pass for one IP and fail for the other. Regression review becomes manual and slow.
-
-**Prevention strategy:** Split prompt templates into shared task structure and IP-specific visual constraints. Validate required placeholders such as article concept, cognitive anchor, image count, label list, output path, and IP identity block. Keep edit prompts IP-aware: "make Xiaohei central" and "repair Littlebox identity" are separate corrections.
-
-**Phase mapping:** Phase 2 Littlebox vertical slice and Phase 3 validation.
-
-### 7. QA Gates Stay Manual and Subjective
-
-**What goes wrong:** Reviewers rely on vibe checks and miss objective failures: wrong Littlebox tape placement, wrong background, three arms, side-panel eyes, Xiaohei acting as decoration, broken output paths, or stale README links.
-
-**Why it happens:** The current repository has manual checklists and no automated test runner. Visual quality remains manual, but package integrity and rule coverage can be checked mechanically.
-
-**Impact:** Small prose edits silently break installed behavior or make the two IPs inconsistent.
-
-**Prevention strategy:** Add lightweight validation scripts for package shape, required references, docs links, prompt placeholders, per-IP output path suffixes, attribution text, and QA coverage. Keep visual judgment manual, but make every deterministic contract executable.
-
-**Phase mapping:** Phase 1 foundation, Phase 3 validation, and Phase 5 release.
-
-### 8. Multi-Image Sets Lose IP Consistency
-
-**What goes wrong:** A Littlebox image set mixes background colors without intent, changes line roughness, varies box proportions, moves tape location, changes arm style, or alternates between closed and open boxes. A Xiaohei set may mix thin-line sketch rules with Littlebox marker rules.
-
-**Why it happens:** Each image is generated separately. The current workflow already depends on manual per-image inspection; multi-IP adds more per-set consistency criteria.
-
-**Impact:** A series of article illustrations feels assembled from different skills, weakening the recognizable visual language.
-
-**Prevention strategy:** Add per-IP set-level QA. Littlebox set checks should include stable background palette use, consistent marker roughness, compact box proportions, closed lid, centered tape, and consistent label style. Xiaohei set checks should preserve pure white background, Xiaohei line language, and black-character central action.
-
-**Phase mapping:** Phase 3 validation and Phase 4 documentation/examples.
-
-### 9. Output Naming Collisions Increase
-
-**What goes wrong:** Xiaohei and Littlebox runs for the same article overwrite each other or create confusing mixed directories. The current Xiaohei path is `assets/<article-slug>-illustrations/`; Littlebox source uses `assets/<article-slug>-littlebox/`.
-
-**Why it happens:** The repository already has no collision protection. Multi-IP support encourages repeated runs for the same article across different visual identities.
-
-**Impact:** Accepted images can be overwritten, mixed, or attributed to the wrong IP.
-
-**Prevention strategy:** Put output path rules in the IP registry. Use deterministic IP suffixes such as `assets/<article-slug>-xiaohei/` and `assets/<article-slug>-littlebox/`, or preserve legacy Xiaohei path with explicit collision handling and a per-run timestamp subdirectory. Validate that generated file paths include the selected IP.
-
-**Phase mapping:** Phase 1 routing foundation and Phase 2 Littlebox slice.
-
-### 10. Examples Become Reuse Templates
-
-**What goes wrong:** Agents copy composition motifs from Xiaohei examples or Littlebox calibration images. The two IPs converge on familiar layouts, repeated props, and stale metaphors.
-
-**Why it happens:** The current repo already has duplicated image examples and natural-language anti-repeat rules. Littlebox will add more examples and more calibration material.
-
-**Impact:** Outputs look derivative and lose the "one cognitive action through a fresh visual metaphor" promise.
-
-**Prevention strategy:** Add an example manifest with IP, title, path, hash, composition category, calibration purpose, and anti-reuse note. Skill instructions should load examples for calibration tasks and use manifest anti-repeat notes during normal generation.
-
-**Phase mapping:** Phase 4 documentation/examples.
-
-### 11. Implicit Invocation Selects the Wrong IP
-
-**What goes wrong:** Broad implicit invocation triggers the skill for adjacent illustration requests, or the skill chooses a default IP when the user expected a specific one.
-
-**Why it happens:** Current metadata allows implicit invocation and describes a broad Chinese article-illustration use case. Multi-IP support adds selection logic that can be underspecified.
-
-**Impact:** Users receive the wrong visual identity, then need a corrective round.
-
-**Prevention strategy:** Define selection rules: explicit user IP wins; absent IP uses the repository default; ambiguous branded/character requests prompt a short clarification during planning; generated outputs state the selected IP and output directory. Metadata should name the multi-IP behavior and the supported IP names.
-
-**Phase mapping:** Phase 1 routing foundation and Phase 4 README updates.
-
-### 12. Documentation Claims Outpace Implemented Routing
-
-**What goes wrong:** README examples describe `$ian-xiaohei-illustrations --ip littlebox` or natural-language Littlebox selection before `SKILL.md`, references, validation, and output paths support it.
-
-**Why it happens:** Documentation-first repositories make it easy to update public usage copy before the installable package is complete.
-
-**Impact:** Users follow public examples and hit broken behavior.
-
-**Prevention strategy:** Tie every README usage example to a smoke prompt in `examples/prompts.md` and a validation check for referenced files. Publish docs in the same phase that passes installable-package validation.
-
-**Phase mapping:** Phase 4 documentation and Phase 5 release.
-
-## Warning Signs
-
-| Area | Warning Sign | Roadmap Response |
-|------|--------------|------------------|
-| Routing | `SKILL.md` contains global style rules that mention both Xiaohei and Littlebox in the same hard-constraint block | Split shared workflow from per-IP visual contracts before adding more examples |
-| Routing | A Littlebox prompt can be generated without reading `littlebox-ip.md` or its QA gate | Add IP registry checks for required references |
-| Xiaohei regression | Existing Xiaohei examples or prompt fixtures change while adding Littlebox | Run Xiaohei baseline smoke prompts before and after the phase |
-| Littlebox identity | Generated Littlebox has open flaps, visible interior, tan body, side eyes, three arms, or misplaced tape | Treat as QA failure and revise prompt/identity wording before continuing |
-| Attribution | Root `NOTICE.md` only names Ian after Littlebox-derived files land | Block release until Littlebox attribution is added |
-| License | Copied Littlebox materials lack source URL, copyright owner, or commit reference | Add source attribution headers or central manifest before merge |
-| Package boundary | Installed directory references `../README.md`, root examples, or root assets | Add package manifest and copy-only install smoke test |
-| Validation | Review checklist asks humans to inspect file existence, links, and placeholders manually | Move deterministic checks into a script |
-| Output artifacts | Xiaohei and Littlebox write to the same article slug directory | Put output suffixes in the IP registry and enforce them in prompts |
-| Examples | New examples lack anti-reuse notes | Require manifest metadata for every calibration image |
-| Docs | README includes multi-IP usage ahead of passing validation | Gate README update on runnable smoke prompts |
-| Set consistency | A Littlebox series changes background, tape geometry, stroke roughness, or box proportions image by image | Add set-level QA before release |
-
-## Prevention
-
-### Foundation Controls
-
-- Add `ip-registry` data that declares `xiaohei` and `littlebox` keys, display names, aliases, reference files, prompt template, QA gate, output path suffix, default background, and attribution source.
-- Keep shared workflow instructions compact: article intake, cognitive-anchor extraction, shot-list planning, separate image generation, QA loop, and save behavior.
-- Move visual identity constraints into per-IP reference modules.
-- Add validation for `SKILL.md` frontmatter, `agents/openai.yaml`, referenced files, prompt placeholders, README links, output path suffixes, and attribution text.
-- Run validation against the installable package directory alone.
-
-### Littlebox Import Controls
-
-- Preserve the Littlebox source identity rules in a canonical reference file.
-- Preserve Littlebox quality gates as a separate QA module.
-- Update `NOTICE.md` with Littlebox attribution before release.
-- Record source repository URL, inspected commit `37cd93e`, inspection date `2026-06-12`, author `okooo5km`, and MIT license origin.
-- Keep Littlebox examples or calibration assets in Littlebox-scoped directories and manifest entries.
-
-### Validation Controls
-
-- Create smoke prompts for these paths: Xiaohei planning, Xiaohei single-image prompt, Littlebox planning, Littlebox single-image prompt, ambiguous IP selection, and cross-IP same-article output paths.
-- Add deterministic assertions for selected IP name, selected reference files, expected output directory suffix, prompt identity block, label-count guidance, and QA checklist presence.
-- Keep visual acceptance manual with objective checklists for hard identity markers.
-- Add a release checklist that includes copy-only install smoke, license/NOTICE review, README link check, and examples manifest check.
-
-### Documentation Controls
-
-- Document IP selection in public README and installable `SKILL.md` using the same names and aliases from the registry.
-- Keep usage examples tied to supported flows: default Xiaohei, explicit Littlebox, planning-only, generation, and repair.
-- Add a short "attribution and visual IPs" section so users understand that Xiaohei and Littlebox are distinct authored visual languages.
-- Keep anti-feature language explicit: no hybrid Xiaohei-Littlebox character, no arbitrary user-defined IP import in this milestone, and no hosted UI scope.
-
-## Phase Mapping
-
-| Phase | Goal | Pitfalls Addressed | Required Gates |
-|-------|------|--------------------|----------------|
-| Phase 1: Routing Foundation | Build shared workflow plus IP registry while preserving existing Xiaohei behavior | Routing leak, Xiaohei regression, package boundary, output collisions, implicit wrong-IP selection | Xiaohei baseline smoke prompts pass; registry declares both IP slots; validation checks package shape and references |
-| Phase 2: Littlebox Vertical Slice | Add Littlebox references, prompt template, QA gate, output path, and attribution | Littlebox identity drift, license/NOTICE ambiguity, prompt drift, output collisions | Littlebox prompt includes closed-only state, side-seam arms, jagged seam tape, pale background; NOTICE includes okooo5km attribution; Littlebox smoke prompt passes |
-| Phase 3: Validation Hardening | Convert deterministic contracts into scripts and smoke fixtures | Manual QA overload, prompt placeholder drift, set inconsistency, package-copy failure | Validation command checks registry, links, references, placeholders, output suffixes, attribution, and copy-only install shape |
-| Phase 4: Documentation and Examples | Update README, examples, manifests, and user-facing selection instructions | Documentation outpaces implementation, examples become reuse templates, implicit selection confusion | README examples map to smoke prompts; example manifest includes IP, hash, purpose, and anti-reuse note; ambiguous IP behavior documented |
-| Phase 5: Release Packaging | Prepare publishable repository and installable skill package | NOTICE/license omissions, root-only dependency, stale docs, regression | Full validation passes from a copied installable directory; Xiaohei and Littlebox smoke prompts pass; license/NOTICE checklist complete |
-
-Roadmap ordering should keep validation and routing ahead of broad content migration. A stable two-IP foundation gives later phases a clear contract for adding more IPs without reworking every prompt, QA file, and documentation page again.
+# Domain Pitfalls: Authorized Tom IP Integration
+
+**Project:** Multi-IP Article Illustration Skills
+**Milestone:** v1.1 Authorized Tom IP Integration
+**Researched:** 2026-06-13
+**Confidence:** HIGH for repository-local routing and validation risks; MEDIUM for rights-boundary implementation details because final permission terms must come from the actual authorization record.
+
+## Scope
+
+This file covers mistakes likely when adding Tom from *Tom and Jerry* as the third selectable visual IP. It assumes Xiaohei and Littlebox already work and that `scripts/validate-skill-package.mjs` is the local integrity gate. The main risk is treating Tom like the previous IP additions when Tom is a recognizable commercial character with public distribution and authorization constraints.
+
+## Critical Pitfalls
+
+### 1. Treating "Authorized Tom" as a Normal Bundled IP
+
+**What goes wrong:** The repository presents Tom as a regular built-in IP without recording the authorization source, rights holder, allowed use, excluded use, territory, duration, sublicensing scope, model-generation scope, and public redistribution scope.
+**Warning signs:** README says "supports Tom"; `NOTICE.md` only names Warner Bros.; route status is `active` before authorization fields exist; release checklist has attribution review but no rights-boundary review.
+**Consequences:** Public docs can imply broad commercial permission. Downstream users may copy the skill package and generate/distribute Tom-derived images outside the allowed scope.
+**Prevention:** Add a Tom rights boundary section before public Tom examples land. Store a short maintainer-readable record with source URL or contract reference, rights holder, allowed-use assumption, restricted uses, distribution boundary, and review owner. Use `status: gated` or `status: authorized-internal` until that record is complete.
+**Likely phase placement:** Phase 1 rights and route foundation.
+**Automate:** Validator checks `NOTICE.md`, `RELEASE_CHECKLIST.md`, `routing.md`, and Tom pack index for markers: `Warner Bros. Entertainment Inc.`, `Tom and Jerry`, `authorization scope`, `allowed use`, `restricted use`, `distribution boundary`, `rights review required`.
+
+### 2. Confusing Attribution With Permission
+
+**What goes wrong:** The docs add trademark/copyright attribution and assume that attribution makes Tom usable. Attribution is documentation hygiene; permission scope is the operational boundary.
+**Warning signs:** `NOTICE.md` has only a credit line; README includes generation examples with Tom but no release boundary; smoke prompts ask for public Tom output before authorization assumptions are written.
+**Consequences:** The package appears legally safer than it is. Maintainers cannot distinguish "credit given" from "use permitted."
+**Prevention:** Split docs into `Attribution` and `Authorization Boundary`. Attribution names the source and rights holder. Authorization Boundary states what this package is allowed to do and what public release still requires.
+**Likely phase placement:** Phase 1 rights foundation and Phase 5 release docs.
+**Automate:** Validator fails when `NOTICE.md` contains Tom attribution markers without matching authorization-boundary markers.
+
+### 3. Shipping Public Tom Example Images Too Early
+
+**What goes wrong:** The repository commits generated Tom PNGs, README screenshots, or example-gallery assets before rights review confirms public redistribution of generated derivatives.
+**Warning signs:** Files under `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or root `assets/` contain `tom`, `jerry`, `cat`, `tom-and-jerry`, or visible Tom renderings; README displays Tom images; no checklist item distinguishes prompt/docs release from image-asset release.
+**Consequences:** A documentation-only milestone turns into a public derivative-image distribution. This is the highest-blast-radius release mistake.
+**Prevention:** Keep v1.1 Tom implementation text-first until approval covers generated image distribution. Use prompt examples and QA rules without committing rendered Tom assets. Add a release gate for public generated examples.
+**Likely phase placement:** Phase 4 docs/examples and Phase 5 release.
+**Automate:** Validator scans public asset directories for Tom-related filenames and blocks them until an explicit `allow_public_tom_examples` marker exists in the release checklist.
+
+### 4. Prompt Leakage Into Xiaohei or Littlebox
+
+**What goes wrong:** Tom-specific words, slapstick chase language, grey-blue cat anatomy, white gloves, expressive cartoon face rules, or Warner attribution text leak into the shared workflow or other IP prompt templates.
+**Warning signs:** `SKILL.md` hard-constraint blocks mention Tom alongside Xiaohei/Littlebox; Xiaohei prompts include "classic cartoon cat"; Littlebox prompts mention chase, mouse, paws, gloves, or squash-and-stretch; shared workflow contains Tom visual anatomy.
+**Consequences:** Existing IPs regress. Tom also becomes harder to contain because its protected identity appears outside the Tom route.
+**Prevention:** Keep Tom identity, prompt wording, QA failures, and rights text under `references/ips/tom/`. Shared workflow should only name route selection and isolated reference loading.
+**Likely phase placement:** Phase 2 Tom IP pack and Phase 3 validation.
+**Automate:** Validator checks that Tom identity markers appear only in `references/ips/tom/`, `routing.md`, `SKILL.md` routing sections, `NOTICE.md`, README Tom sections, examples prompts, and release checklist. It should fail when Tom markers appear in Xiaohei or Littlebox pack files.
+
+### 5. Route Drift From Two-IP Assumptions
+
+**What goes wrong:** The validator and route docs keep two-IP assumptions while README and `SKILL.md` advertise three IPs. Current validator checks route IDs, output tokens, required reference counts, smoke prompts, and docs markers with Xiaohei/Littlebox-specific expectations.
+**Warning signs:** `ROUTE-TABLE-001` still expects only `xiaohei` and `littlebox`; `ROUTE-REFS-001` infers expected reference counts with a Littlebox special case; `outputPathTokens()` returns two paths; mixed-IP smoke only names Xiaohei and Littlebox.
+**Consequences:** Tom can be added as prose while local validation still passes for a partial integration.
+**Prevention:** Refactor validator route assertions around data rows, then add Tom expectations. The route table should be the source for `id`, aliases, output suffix, required references, status, and attribution context.
+**Likely phase placement:** Phase 1 route foundation before Tom docs are broadened.
+**Automate:** Validator requires `tom` route row, aliases, output suffix, status, all required references, output path tokens, docs mentions, examples prompts, release checklist markers, and route-specific smoke prompts.
+
+### 6. Making Tom the Default by Accident
+
+**What goes wrong:** Broad "Tom" or "cat" aliases trigger Tom for generic cat illustrations, or default route logic changes when a third row is added.
+**Warning signs:** Route table has multiple `default: true` rows; aliases include generic terms such as `cat`, `cartoon cat`, `grey cat`, or `Jerry`; omitted-IP smoke no longer reports Xiaohei; `agents/openai.yaml` frontloads Tom in the short description.
+**Consequences:** A protected IP is invoked when the user did not clearly request it. This increases rights risk and breaks Xiaohei compatibility.
+**Prevention:** Keep Xiaohei as the only default. Tom aliases should be explicit: `Tom`, `Tom Cat`, `Tom and Jerry`, and the Chinese equivalent only when it clearly means the character. Ambiguous cat requests should route to Xiaohei or ask for clarification in planning mode.
+**Likely phase placement:** Phase 1 routing and Phase 5 metadata.
+**Automate:** Validator enforces exactly one default route (`xiaohei`) and rejects generic Tom aliases such as `cat`, `grey cat`, or `cartoon cat`.
+
+### 7. Weak Tom Identity QA
+
+**What goes wrong:** The Tom route produces a generic grey cat, a realistic cat, a superhero cat, a mouse-chasing scene without article meaning, or a direct frame-like recreation from the show.
+**Warning signs:** QA checks only say "looks like Tom"; prompt lacks article-illustration constraints; generated concepts default to Tom chasing Jerry; QA has no rule for avoiding scene recreation or source-frame imitation.
+**Consequences:** The route becomes both visually unstable and rights-sensitive. It can drift into unauthorized show-scene reproduction instead of article explanation.
+**Prevention:** Define Tom as an article-illustration operator, not a scene-replay asset. QA should require article anchor clarity, Tom as the cognitive actor, minimal visible text, stable Tom recognition markers, and avoidance of source-frame recreation.
+**Likely phase placement:** Phase 2 Tom IP pack and Phase 3 QA hardening.
+**Automate:** Validator checks Tom QA for markers: `article illustration`, `core idea`, `active conceptual role`, `avoid source-frame recreation`, `no Jerry unless explicitly authorized`, `no show logo`, `no title card`.
+
+### 8. Letting Jerry or Other Franchise Elements Sneak In
+
+**What goes wrong:** Prompts, examples, or QA assume Tom naturally comes with Jerry, Spike, the show logo, title cards, classic props, or episode-like scenes.
+**Warning signs:** Prompt template says "Tom chasing Jerry"; README examples request the duo; QA accepts mouse props by default; route alias includes `Jerry`; docs say `Tom and Jerry route` when the milestone scope is Tom.
+**Consequences:** Scope expands from one character route to a franchise route. Rights, QA, output naming, and prompt boundaries become broader than planned.
+**Prevention:** Name the route `tom`, not `tom-and-jerry`. Allow Jerry only through a separate explicitly authorized mixed-character milestone. Keep Tom's action library article-driven: sorting, holding, pointing, carrying, balancing, repairing, comparing, blocking, revealing.
+**Likely phase placement:** Phase 1 scope fence and Phase 2 prompt design.
+**Automate:** Validator flags `Jerry`, `Spike`, `Tom and Jerry logo`, and `duo` in Tom operational prompts unless they appear in a rights-boundary warning section.
+
+### 9. Output Path Ambiguity
+
+**What goes wrong:** Tom images save into Xiaohei's legacy `assets/<article-slug>-illustrations/` path or into a generic `assets/<article-slug>-tom-and-jerry/` franchise path.
+**Warning signs:** `routing.md` lacks a Tom `output_suffix`; `SKILL.md` delivery examples omit Tom path; README contains raw path but no escaped marker; examples prompts hard-code Xiaohei or Littlebox paths when requesting Tom.
+**Consequences:** Variant groups mix files, prior outputs can be overwritten, and generated assets become hard to audit by IP and rights scope.
+**Prevention:** Use a Tom-specific suffix such as `tom`; document `assets/<article-slug>-tom/`; include raw and escaped markers in README and examples.
+**Likely phase placement:** Phase 1 route foundation.
+**Automate:** Validator adds Tom raw and escaped output tokens: `assets/<article-slug>-tom/` and `assets/&lt;article-slug&gt;-tom/`.
+
+### 10. Mixed-IP Variant Groups Share References
+
+**What goes wrong:** A request for Xiaohei, Littlebox, and Tom variants loads all references at once or generates from a blended prompt.
+**Warning signs:** Mixed-IP workflow says "load all references"; Tom variant uses Littlebox background rules; Xiaohei variant references Tom's cartoon physics; delivery report lacks one block per IP.
+**Consequences:** Route isolation fails and protected Tom details leak into non-Tom outputs.
+**Prevention:** Mixed-IP generation must build one shared core idea, then route-specific variant groups. Each group loads only its own `required_references`, prompt template, QA checklist, output suffix, and rights notes.
+**Likely phase placement:** Phase 2 Tom route integration and Phase 3 validation.
+**Automate:** Smoke prompts cover a three-IP same-idea request and assert separate blocks for Xiaohei, Littlebox, and Tom with distinct output paths.
+
+### 11. Public Docs Overpromise Tom Availability
+
+**What goes wrong:** README, `examples/prompts.md`, or `agents/openai.yaml` presents Tom as freely available while the implementation is gated or authorization is scoped.
+**Warning signs:** README headline says "default Xiaohei, selectable Littlebox and Tom" without boundary language; examples ask users to generate final Tom PNGs; agent metadata invites implicit Tom use; release checklist still says "two IP."
+**Consequences:** Users rely on public docs and create outputs beyond the project boundary.
+**Prevention:** Use explicit status language: `Tom route is available only under the documented authorization boundary` or `Tom route is gated pending rights review`, depending on the actual record. Keep public examples planning-first until generated output rights are cleared.
+**Likely phase placement:** Phase 4 public docs and Phase 5 release.
+**Automate:** Validator checks README, examples, agent metadata, and release checklist for matching Tom status wording and rejects "three active IPs" claims when route status is gated.
+
+### 12. Missing Release Checklist Items for Protected IP
+
+**What goes wrong:** The release checklist keeps the v1.0 pattern: run validator, smoke-test routes, review attribution, check package boundary. It lacks protected-IP approval, public-image review, prompt leakage scan, and implicit invocation review.
+**Warning signs:** Checklist mentions Littlebox attribution but no Tom authorization; no asset scan; no "gated route" check; no `agents/openai.yaml` risk review.
+**Consequences:** A technically valid route can ship with unresolved rights and documentation risk.
+**Prevention:** Add a Tom release section with rights record, route status, public docs wording, asset policy, examples policy, image generation scope, mixed-IP behavior, and final reviewer signoff.
+**Likely phase placement:** Phase 5 release.
+**Automate:** Validator checks release checklist for Tom-specific required items.
+
+## Phase-Specific Warnings
+
+| Phase Topic | Likely Pitfall | Warning Signs | Prevention Strategy | Automated Checks |
+|-------------|----------------|---------------|---------------------|------------------|
+| Rights foundation | Attribution is treated as permission | `NOTICE.md` has credit only | Separate attribution from authorization boundary | Markers for rights holder, allowed use, restricted use, distribution boundary |
+| Route table | Two-IP assumptions survive | Validator only expects `xiaohei`, `littlebox` | Data-driven route checks plus explicit Tom row | Route row, aliases, default=false, status, references, suffix |
+| Tom IP pack | Generic cat prompt replaces Tom route | Prompt says "grey cat" without identity contract | Canonical `references/ips/tom/` pack | Required Tom files and prompt/QA identity markers |
+| Prompt isolation | Tom markers leak into other packs | Xiaohei/Littlebox files mention Tom anatomy | Keep Tom constraints under Tom pack | Forbidden-marker scan across non-Tom packs |
+| Mixed variants | Three IPs blend into one prompt | One loaded context contains all IP references | One variant group per IP | Three-IP smoke prompt with separate paths and reference sets |
+| Public docs | Docs advertise broad Tom support | README examples generate Tom PNGs before boundary review | Status wording tied to route status | Docs/status consistency checks |
+| Public assets | Rendered Tom examples ship early | Tom filenames or images under public examples | Text-first Tom docs until release clearance | Asset filename scan plus explicit allow marker |
+| Release | Protected-IP review is skipped | Checklist unchanged from two-IP release | Add Tom-specific release section | Checklist marker checks |
+
+## Recommended Automated Checks
+
+1. **TOM-ROUTE-001:** `routing.md` contains `tom`, explicit aliases, `default: false`, `output_suffix: tom`, required references under `references/ips/tom/`, attribution context, and a non-ambiguous status.
+2. **TOM-REFS-001:** Tom canonical pack contains `index.md`, `style-dna.md`, `tom-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`, and `rights-boundary.md`.
+3. **TOM-RIGHTS-001:** `NOTICE.md` and `references/ips/tom/rights-boundary.md` include rights holder, source, authorization scope, allowed use, restricted use, distribution boundary, and review owner markers.
+4. **TOM-DOCS-001:** README, `examples/prompts.md`, `SKILL.md`, and `agents/openai.yaml` describe Tom with the same route status and avoid broad availability claims when status is gated.
+5. **TOM-PATHS-001:** Raw and escaped Tom output tokens exist in README and examples: `assets/<article-slug>-tom/` and `assets/&lt;article-slug&gt;-tom/`.
+6. **TOM-LEAK-001:** Non-Tom IP packs do not contain Tom identity markers or Warner rights text.
+7. **TOM-SCOPE-001:** Tom prompt and QA do not include Jerry, Spike, franchise logos, title cards, or episode-scene recreation as default behavior.
+8. **TOM-ASSETS-001:** Public example directories contain no Tom-rendered assets unless release checklist contains an explicit public-example approval marker.
+9. **TOM-SMOKE-001:** Smoke prompts cover explicit Tom planning, explicit Tom generation path, omitted-IP Xiaohei default, and three-IP same-core-idea variant groups.
+10. **TOM-RELEASE-001:** `RELEASE_CHECKLIST.md` includes Tom authorization, public docs wording, generated asset policy, prompt leakage scan, route status review, and final rights review.
 
 ## Sources
 
-- `/Users/longnv/bin/repo/ian-xiaohei-illustrations/.planning/PROJECT.md` - project scope, active requirements, constraints, and Littlebox source inspection context.
-- `/Users/longnv/bin/repo/ian-xiaohei-illustrations/.planning/codebase/CONCERNS.md` - current fragility around manual validation, package boundaries, prompt drift, asset duplication, output collisions, and missing release workflow.
-- `/Users/longnv/bin/repo/ian-xiaohei-illustrations/.planning/codebase/TESTING.md` - current manual-only test posture and smoke-test gaps.
-- `/Users/longnv/bin/repo/ian-xiaohei-illustrations/LICENSE` and `NOTICE.md` - Ian Xiaohei MIT and attribution baseline.
-- `/tmp/5km-littlebox-illustrations/LICENSE` and `NOTICE.md` - Littlebox MIT and okooo5km attribution baseline.
-- `/tmp/5km-littlebox-illustrations/5km-littlebox-illustrations/references/littlebox-ip.md` - Littlebox canonical identity rules and failure modes.
-- `/tmp/5km-littlebox-illustrations/5km-littlebox-illustrations/references/quality-gate.md` - Littlebox pass criteria, failure signals, iteration moves, and delivery judgment.
+- Repository files read: `.planning/PROJECT.md`, `.planning/codebase/CONCERNS.md`, `.planning/REQUIREMENTS.md`, `README.md`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, `ian-xiaohei-illustrations/SKILL.md`, `ian-xiaohei-illustrations/references/routing.md`, `scripts/validate-skill-package.mjs`.
+- Warner Bros. official Tom and Jerry brand page: <https://www.warnerbros.com/brands/tom-and-jerry> (marks the brand page with `TM & © 2026 Warner Bros. Entertainment Inc. All rights reserved.`).
+- Warner Bros. official clip and still licensing page: <https://www.warnerbros.com/studio/services/clip-and-still-licensing> (states requests to use Warner Bros., Turner, and Hanna-Barbera clips/stills/posters must be submitted in writing, with license agreement requirements).
+- Warner Bros. Discovery licensing submission form, updated 2024-01-19: <https://static-wbd-cdn.wbd.com/s3_assets/wp-content/uploads/2024/04/LICENSING-SUBMISSION-FORM-2024-WBD.pdf> (lists written request details and consumer-product licensing contact path).
+- Warner Bros. Discovery company page: <https://www.wbd.com/> (identifies WBD as a media and entertainment company with Warner Bros., Cartoon Network, and related brands; footer states all trademarks are property of their respective owners).
