@@ -24,12 +24,13 @@ git diff --check
 
 Validator marker changes require `node scripts/validate-skill-package.mjs` and `node --test scripts/validate-skill-package.test.mjs` to pass in the same change set.
 
-## Both-IP Smoke Prompts
+## Route Smoke Prompts
 
 - [ ] Omitted-IP Xiaohei smoke: use `$ian-xiaohei-illustrations` with no visual IP name and confirm the selected route is Xiaohei.
 - [ ] Explicit Xiaohei smoke: request `小黑`, `Xiaohei`, `Ian`, or `ian-xiaohei` and confirm output path `assets/<article-slug>-illustrations/`.
 - [ ] Explicit Littlebox smoke: request `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton` and confirm `Littlebox state: closed`, assigned background, and output path `assets/<article-slug>-littlebox/`.
-- [ ] Mixed-IP smoke: request the same core idea as Xiaohei and Littlebox variant groups and confirm each group loads its own references and output path.
+- [ ] Explicit Tom smoke: request `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` and confirm route status `gated-authorized`, rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`, and output path `assets/<article-slug>-tom/`.
+- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, and Tom variant groups and confirm each group loads its own references and output path.
 
 Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 
@@ -41,11 +42,45 @@ Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 
 ## Tom Rights and Public Sample Gate
 
-- [ ] Review `ian-xiaohei-illustrations/references/ips/tom/rights.md` for source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner.
-- [ ] Confirm Tom route status is `gated-authorized` across `ian-xiaohei-illustrations/references/routing.md`, `README.md`, `examples/prompts.md`, and this checklist.
+This section is the Tom maintainer release gate for authorization, route status, prompt leakage, public assets, generated samples, validator commands, and final rights review.
+
+### Tom Authorization Review
+
+- [ ] Review `ian-xiaohei-illustrations/references/ips/tom/rights.md` for source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, review owner, reviewer, review date, approval status, allowed directories, and allowed distribution channels.
+- [ ] Record authorization review: PENDING / reviewer / date / approval status / authorization scope / release channels.
+- [ ] Complete this authorization review before any Tom route status, public asset policy, or generated sample policy change.
+
+### Tom Route Status Review
+
+- [ ] Confirm Tom route status is `gated-authorized` across `ian-xiaohei-illustrations/references/routing.md`, `ian-xiaohei-illustrations/SKILL.md`, `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, and this checklist.
 - [ ] Confirm Tom remains `default=false` and Xiaohei remains the only implicit default route.
+- [ ] Confirm Tom aliases stay explicit: `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫`.
 - [ ] Confirm public docs include Tom output path markers `assets/<article-slug>-tom/` and `assets/&lt;article-slug&gt;-tom/`.
-- [ ] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date
+- [ ] Route status changes require prior review of `ian-xiaohei-illustrations/references/ips/tom/rights.md` and a recorded maintainer decision.
+
+### Prompt Leakage Scan
+
+- [ ] Scan `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/SKILL.md`, and Tom route references for broad availability wording, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, generic-cat drift, excessive text, route leakage, and public sample claims without approval.
+- [ ] Confirm Tom prompt examples stay tied to `gated-authorized`, `ian-xiaohei-illustrations/references/ips/tom/rights.md`, and `assets/<article-slug>-tom/`.
+- [ ] Confirm text examples and smoke prompts preserve the public-sample gate when they mention rendered Tom samples.
+
+### Public Asset Policy
+
+- [ ] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.
+- [ ] Public rendered Tom samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- [ ] Public asset policy changes require prior review of `ian-xiaohei-illustrations/references/ips/tom/rights.md` and a recorded maintainer decision.
+
+### Generated Sample Policy
+
+- [ ] Generated Tom review samples stay inside the authorization scope recorded in `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
+- [ ] Record generated sample review before release: PENDING / reviewer / date / approval status / directories / release channels.
+- [ ] Confirm generated sample paths use `assets/<article-slug>-tom/` for workspace outputs and keep public publication tied to the public asset policy above.
+
+### Final Tom Rights Review
+
+- [ ] Final rights review confirms `ian-xiaohei-illustrations/references/ips/tom/rights.md` is the authority for route status, authorization scope, distribution boundary, sample policy, and review fields.
+- [ ] Final rights review confirms Tom remains `gated-authorized` until the release reviewer records a different approved status.
+- [ ] Final rights review confirms broad availability, public rendered sample publication, source-frame recreation, show logos, title cards, default Jerry usage, and broad cast expansion stay outside the current release gate unless separately approved.
 
 ## Installable Package Boundary
 
