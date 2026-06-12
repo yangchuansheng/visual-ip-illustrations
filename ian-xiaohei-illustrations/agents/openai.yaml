@@ -1,6 +1,6 @@
 interface:
-  display_name: "Xiaohei / Littlebox Article Illustrations"
-  short_description: "为中文文章生成可选 Xiaohei 或 Littlebox 视觉 IP 的正文配图资产，默认使用 Xiaohei。"
-  default_prompt: "Use $ian-xiaohei-illustrations to 为这篇中文文章设计并生成几张正文配图；未指定视觉 IP 时默认使用 Xiaohei，也可以显式选择 Littlebox。"
+  display_name: "Xiaohei / Littlebox / Tom Article Illustrations"
+  short_description: "为中文文章生成 Xiaohei、Littlebox 或 Tom 视觉 IP 正文配图资产；未指定视觉 IP 时默认使用 Xiaohei，Tom 是 explicit gated-authorized protected-character route。"
+  default_prompt: "Use $ian-xiaohei-illustrations to 为这篇中文文章设计并生成几张正文配图；未指定视觉 IP 时 default Xiaohei，也可以显式选择 Littlebox，或 explicit Tom protected-character route（gated-authorized）。"
 policy:
   allow_implicit_invocation: true
