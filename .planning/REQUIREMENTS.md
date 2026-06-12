@@ -38,12 +38,12 @@
 
 ### Validation
 
-- [ ] **TVAL-01**: Maintainer can run the local validator successfully after v1.1 roadmap initialization clears prior phase working directories.
-- [ ] **TVAL-02**: Validator checks Tom route row, aliases, default false, output suffix, required references, route status, and attribution context.
-- [ ] **TVAL-03**: Validator checks Tom canonical pack files, prompt placeholders, QA markers, and rights-boundary markers.
-- [ ] **TVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Tom output path tokens, and Tom smoke prompts.
-- [ ] **TVAL-05**: Validator checks Tom leakage boundaries so Xiaohei and Littlebox packs stay free of Tom identity rules and Warner rights text.
-- [ ] **TVAL-06**: Validator checks public example asset directories for Tom-rendered assets unless release checklist has explicit public-sample approval.
+- [x] **TVAL-01**: Maintainer can run the local validator successfully after v1.1 roadmap initialization clears prior phase working directories.
+- [x] **TVAL-02**: Validator checks Tom route row, aliases, default false, output suffix, required references, route status, and attribution context.
+- [x] **TVAL-03**: Validator checks Tom canonical pack files, prompt placeholders, QA markers, and rights-boundary markers.
+- [x] **TVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Tom output path tokens, and Tom smoke prompts.
+- [x] **TVAL-05**: Validator checks Tom leakage boundaries so Xiaohei and Littlebox packs stay free of Tom identity rules and Warner rights text.
+- [x] **TVAL-06**: Validator checks public example asset directories for Tom-rendered assets unless release checklist has explicit public-sample approval.
 - [ ] **TVAL-07**: Node validator tests cover three-route parser behavior, stable check ordering, Tom failure messages, and full pass output.
 
 ## v2 Requirements
@@ -105,12 +105,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TDOC-03 | Phase 9 | Complete |
 | TDOC-04 | Phase 9 | Complete |
 | TDOC-05 | Phase 9 | Complete |
-| TVAL-01 | Phase 10 | Pending |
-| TVAL-02 | Phase 10 | Pending |
-| TVAL-03 | Phase 10 | Pending |
-| TVAL-04 | Phase 10 | Pending |
-| TVAL-05 | Phase 10 | Pending |
-| TVAL-06 | Phase 10 | Pending |
+| TVAL-01 | Phase 10 | Complete |
+| TVAL-02 | Phase 10 | Complete |
+| TVAL-03 | Phase 10 | Complete |
+| TVAL-04 | Phase 10 | Complete |
+| TVAL-05 | Phase 10 | Complete |
+| TVAL-06 | Phase 10 | Complete |
 | TVAL-07 | Phase 10 | Pending |
 | PIP-01 | v2 | Future |
 | PIP-02 | v2 | Future |
