@@ -112,6 +112,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TVAL-05 | Phase 10 | Pending |
 | TVAL-06 | Phase 10 | Pending |
 | TVAL-07 | Phase 10 | Pending |
+| PIP-01 | v2 | Future |
+| PIP-02 | v2 | Future |
+| PIP-03 | v2 | Future |
+| AST-01 | v2 | Future |
+| AST-02 | v2 | Future |
+| AST-03 | v2 | Future |
+| DIST-01 | v2 | Future |
+| DIST-02 | v2 | Future |
+| DIST-03 | v2 | Future |
 
 **Coverage:**
 
