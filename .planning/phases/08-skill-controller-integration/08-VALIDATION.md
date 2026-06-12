@@ -33,8 +33,18 @@ Run after implementation:
 node scripts/validate-skill-package.mjs
 node --test scripts/validate-skill-package.test.mjs
 git diff --check
-rg -n "Tom|Tom Cat|Tom and Jerry|汤姆|汤姆猫" ian-xiaohei-illustrations/SKILL.md
-rg -n "references/ips/tom/index.md|references/ips/tom/rights.md|references/ips/tom/style-dna.md|references/ips/tom/tom-ip.md|references/ips/tom/composition-patterns.md|references/ips/tom/prompt-template.md|references/ips/tom/qa-checklist.md" ian-xiaohei-illustrations/SKILL.md
+rg -n '`Tom`' ian-xiaohei-illustrations/SKILL.md
+rg -n 'Tom Cat' ian-xiaohei-illustrations/SKILL.md
+rg -n 'Tom and Jerry' ian-xiaohei-illustrations/SKILL.md
+rg -n '`汤姆`' ian-xiaohei-illustrations/SKILL.md
+rg -n '`汤姆猫`' ian-xiaohei-illustrations/SKILL.md
+rg -n 'references/ips/tom/index.md' ian-xiaohei-illustrations/SKILL.md
+rg -n 'references/ips/tom/rights.md' ian-xiaohei-illustrations/SKILL.md
+rg -n 'references/ips/tom/style-dna.md' ian-xiaohei-illustrations/SKILL.md
+rg -n 'references/ips/tom/tom-ip.md' ian-xiaohei-illustrations/SKILL.md
+rg -n 'references/ips/tom/composition-patterns.md' ian-xiaohei-illustrations/SKILL.md
+rg -n 'references/ips/tom/prompt-template.md' ian-xiaohei-illustrations/SKILL.md
+rg -n 'references/ips/tom/qa-checklist.md' ian-xiaohei-illustrations/SKILL.md
 rg -n "gated-authorized" ian-xiaohei-illustrations/SKILL.md
 rg -n "references/ips/tom/rights.md" ian-xiaohei-illustrations/SKILL.md
 rg -n "assets/<article-slug>-tom/" ian-xiaohei-illustrations/SKILL.md
