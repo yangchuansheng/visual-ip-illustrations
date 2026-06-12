@@ -155,6 +155,17 @@ Use $ian-xiaohei-illustrations 先不要生图。
 预期：加载 `ian-xiaohei-illustrations/references/ips/littlebox/`，包含 Littlebox state: closed、visual metaphor、assigned background、short visible labels，输出路径是 `assets/<article-slug>-littlebox/`。
 ```
 
+### 烟测：Tom protected-character route status
+
+```text
+Use $ian-xiaohei-illustrations 先不要生图。
+Text-only maintainer route audit. 使用 Tom / Tom Cat / Tom and Jerry / 汤姆 / 汤姆猫 路由，为这个观点输出 1 张 route-status shot list：
+观点：把追赶中的判断拆成可执行下一步。
+预期：selected IP 是 Tom，route status 是 `gated-authorized`，rights record 是 `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
+预期：输出路径合同是 `assets/<article-slug>-tom/`；文档校验 token 是 `assets/&lt;article-slug&gt;-tom/`。
+用途：route audit guidance only；Phase 8 owns runtime selection behavior，Phase 9 owns broad public examples。
+```
+
 ### 烟测：混合 IP variant groups
 
 ```text
