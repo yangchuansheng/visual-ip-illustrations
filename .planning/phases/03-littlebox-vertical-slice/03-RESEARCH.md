@@ -540,17 +540,13 @@ Source: Phase 3 D-21 through D-24. [VERIFIED: Phase 3 CONTEXT.md]
 |---|-------|---------|---------------|
 | A1 | Future Phase 4 validator will likely be a lightweight script using grep/file checks rather than a full framework. [ASSUMED] | Standard Stack / Verification Strategy | Planner might overfit Phase 3 checks to a future script shape; keep Phase 3 command-based and dependency-light. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Should Phase 3 include a copyable Littlebox prompt in `examples/prompts.md`?**
-   - What we know: The context permits compact route smoke wording if needed for executable behavior; Phase 5 owns broad examples.
-   - What's unclear: Whether the planner wants a minimal smoke prompt now or a docs-only wording correction.
-   - Recommendation: Include one compact Littlebox smoke prompt and one mixed-IP prompt because ROUT-03/ROUT-04 are user-facing and grep-verifiable.
+   - RESOLVED: Include one compact Littlebox smoke prompt and one compact mixed-IP prompt because ROUT-03/ROUT-04 are user-facing and grep-verifiable.
 
 2. **Should `agents/openai.yaml` mention Littlebox in Phase 3?**
-   - What we know: Phase 5 owns agent metadata wording.
-   - What's unclear: Whether runtime discovery depends on metadata in this environment.
-   - Recommendation: Keep `agents/openai.yaml` for Phase 5 unless implementation discovers that implicit invocation cannot see Littlebox aliases through `SKILL.md` description.
+   - RESOLVED: Keep `agents/openai.yaml` for Phase 5; Phase 3 route discovery is handled through `SKILL.md` and `references/routing.md`.
 
 ## Environment Availability
 
