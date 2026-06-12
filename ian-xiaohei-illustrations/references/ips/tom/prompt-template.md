@@ -62,6 +62,8 @@ Visible handwritten labels, copied exactly in the user's language: [quoted label
 Save reminder for downstream delivery: save accepted output under `assets/<article-slug>-tom/` with an ordered English slug filename such as `01-topic-name.png`.
 
 Constraints: one image explains one core idea. Keep Tom as the central cognitive action subject. Use no logos, no title cards, no source-frame recreation, no default Jerry, no broad cast expansion, no dense explanatory text, no generic-cat drift, no broad public availability wording, no formal diagram, no top-left title, no clean digital font labels, no crowded nodes, and no copied prior composition.
+
+Protected-route block: source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, generic-cat drift, excessive text, and route leakage all fail the route.
 ```
 
 ## Editing Prompts
@@ -126,4 +128,6 @@ Edit only the named failure: [participation / identity / title / text density / 
 Route status note: Tom is a `gated-authorized` protected-character route. Use `rights.md` as the rights authority for authorization scope, distribution boundary, public-sample policy, reviewer fields, and status changes.
 
 Keep the scene an original article metaphor. Add no logos, title cards, source-frame recreation, default Jerry, broad cast expansion, generic-cat drift, or broad availability wording.
+
+Protected-route block: source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, generic-cat drift, excessive text, and route leakage all fail the route.
 ```

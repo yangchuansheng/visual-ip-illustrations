@@ -52,6 +52,8 @@ Regenerate or edit when the result contains:
 - default Jerry usage
 - broad cast expansion
 - generic-cat drift
+- excessive text
+- route leakage
 - dense explanatory text
 - broad availability wording
 - franchise-poster layout
@@ -66,3 +68,4 @@ Regenerate or edit when the result contains:
 - Tom cognitive-action participation gate: Tom performs the core cognitive action, so the image loses its meaning if Tom is removed.
 - Tom source-frame recreation gate: the scene is an original article metaphor and avoids copied show frames, title cards, logos, and recognizable episode staging.
 - Tom generic-cat drift gate: a vague grey cat, ordinary mascot cat, or route-neutral animal fails the Tom route.
+- Tom protected-route block: source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, generic-cat drift, excessive text, and route leakage all fail the route.

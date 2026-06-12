@@ -25,6 +25,19 @@ Tom protected-character route leakage gate.
 - `prompt-template.md`: planning fields, one-image prompt template, edit prompts, rights-status note, and output reminder.
 - `qa-checklist.md`: pass/fail gates, protected-character checks, iteration moves, and delivery judgment.
 
+## Protected Route Failure Categories
+
+Every operational Tom file uses these shared failure names so later validation can check the pack consistently:
+
+- source-frame recreation
+- show logos
+- title cards
+- default Jerry usage
+- broad cast expansion
+- generic-cat drift
+- excessive text
+- route leakage
+
 ## Scope Boundary
 
 This pack provides route-local operational references for Tom. SKILL.md controller behavior, public documentation expansion, agent metadata wording, validator hardening, release checklist expansion, and public rendered Tom examples are owned by later phases.

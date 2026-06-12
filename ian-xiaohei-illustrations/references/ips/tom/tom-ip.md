@@ -58,15 +58,17 @@ Tom cognitive-action participation gate: the visual metaphor depends on Tom's ac
 
 Regenerate or rewrite when the result contains:
 
-- generic cat
-- passive Tom
-- default Jerry
-- broader cast
-- logo or title card
-- source recreation
-- removable character
-- generic-cat drift
+- generic cats
+- passive Tom placement
 - source-frame recreation
+- show logos
+- title cards
+- default Jerry usage
+- broad cast expansion
+- generic-cat drift
+- excessive text
+- route leakage
+- removable character
 - broad availability wording
 - dense franchise scene
 - Tom standing beside the concept while props carry the meaning
@@ -77,3 +79,4 @@ Regenerate or rewrite when the result contains:
 - Tom cognitive-action participation gate: Tom performs the central cognitive action, and removing Tom breaks the metaphor.
 - Tom source-frame recreation gate: the scene avoids copied show frames, logos, title cards, and recognizable episode staging.
 - Tom generic-cat drift gate: an anonymous cat or route-neutral animal fails the Tom route.
+- Tom protected-route block: source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, generic-cat drift, excessive text, and route leakage all fail the route.

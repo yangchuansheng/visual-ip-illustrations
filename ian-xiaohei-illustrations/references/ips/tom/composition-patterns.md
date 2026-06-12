@@ -138,9 +138,13 @@ Apply these before generation and during prompt repair:
 - Title-card gate: remove title cards, poster titles, top-left diagram titles, and any frame that reads as opening credits.
 - Default-Jerry gate: keep this route solo Tom unless a later authorization explicitly permits broader cast usage.
 - Broad-cast expansion gate: keep side characters, franchise crowds, and Tom-and-Jerry ensemble scenes outside this route.
+- Generic-cat drift gate: keep Tom-specific silhouette, grey or blue-grey body, white muzzle, white belly areas, expressive ears, tail, and paws.
+- Excessive text gate: keep labels sparse and short; move explanation into the article text.
 - Route-leakage gate: preserve the `gated-authorized` protected-character route status and point rights-sensitive use to `rights.md`.
 
 Tom route leakage composition gate: a Tom composition fails when it implies broad public availability, blends Tom rules into Xiaohei or Littlebox routes, recreates source material, or drops the `gated-authorized` status from planning context.
+
+Tom protected-route block: source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, generic-cat drift, excessive text, and route leakage all fail the route.
 
 ## Anti-Repeat Rule
 
