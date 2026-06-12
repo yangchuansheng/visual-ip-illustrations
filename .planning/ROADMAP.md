@@ -14,7 +14,7 @@ This MVP turns the existing Xiaohei-only Codex Skill into a reliable two-IP arti
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Routing Foundation** - Users and maintainers get deterministic IP selection, Xiaohei defaulting, shared workflow boundaries, and route metadata. (completed 2026-06-12)
-- [ ] **Phase 2: Xiaohei Canonicalization** - Maintainers get a canonical Xiaohei IP pack while existing Xiaohei usage and paths keep working.
+- [ ] **Phase 2: Xiaohei Canonicalization** - Maintainers get a canonical Xiaohei IP pack while existing Xiaohei usage and paths keep working. (execution complete, ready for verification)
 - [ ] **Phase 3: Littlebox Vertical Slice** - Users can request Littlebox and receive the correct identity, prompt, QA, output path, and attribution behavior.
 - [ ] **Phase 4: Validation Hardening** - Maintainers can run one local command that catches package, routing, prompt, path, docs, and attribution drift.
 - [ ] **Phase 5: Documentation, Examples, and Release Packaging** - Users and maintainers get public docs, copyable examples, metadata, and release checks that match the two-IP package.
@@ -52,19 +52,19 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Xiaohei prompt and QA preserve the 16:9 white-background hand-drawn visual contract, solid-black character identity, labels, whitespace, and one-idea-per-image behavior.
   5. Legacy Xiaohei reference paths remain available and the anti-repeat guidance keeps prior examples as calibration material.
 
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 Plans:
 **Wave 1**
 
-- [ ] 02-01-PLAN.md — Create canonical Xiaohei IP pack files with exact parity to current Xiaohei references.
+- [x] 02-01-PLAN.md — Create canonical Xiaohei IP pack files with exact parity to current Xiaohei references.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 02-02-PLAN.md — Preserve legacy root reference entry points and point routing metadata to canonical Xiaohei files.
+- [x] 02-02-PLAN.md — Preserve legacy root reference entry points and point routing metadata to canonical Xiaohei files.
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 02-03-PLAN.md — Wire canonical-first skill/docs pointers while preserving current Xiaohei prompts and output path.
+- [x] 02-03-PLAN.md — Wire canonical-first skill/docs pointers while preserving current Xiaohei prompts and output path.
 
 **UI hint:** no
 
@@ -125,7 +125,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Routing Foundation | 2/2 | Complete    | 2026-06-12 |
-| 2. Xiaohei Canonicalization | 0/TBD | Not started | - |
+| 2. Xiaohei Canonicalization | 3/3 | Ready for verification | - |
 | 3. Littlebox Vertical Slice | 0/TBD | Not started | - |
 | 4. Validation Hardening | 0/TBD | Not started | - |
 | 5. Documentation, Examples, and Release Packaging | 0/TBD | Not started | - |

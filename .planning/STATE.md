@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
+status: verifying
 stopped_at: Created initial MVP roadmap and state files.
-last_updated: "2026-06-12T04:53:05.612Z"
-last_activity: 2026-06-12 -- Phase 2 planning complete
+last_updated: "2026-06-12T05:33:00Z"
+last_activity: 2026-06-12 -- Phase 2 execution complete, ready for verification
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
-  percent: 20
+  total_plans: 5
+  completed_plans: 5
+  percent: 40
 ---
 
 # Project State
@@ -21,22 +21,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-12)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 1: Routing Foundation
+**Current focus:** Phase 2: Xiaohei Canonicalization verification
 
 ## Current Position
 
 Phase: 2 of 5 (xiaohei canonicalization)
-Plan: Not started
-Status: Ready to execute
-Last activity: 2026-06-12 -- Phase 2 planning complete
+Plan: 3/3 executed
+Status: Ready for verification
+Last activity: 2026-06-12 -- Phase 2 execution complete, ready for verification
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 2
+- Total plans completed: 5
 - Average duration: -
 - Total execution time: 0.0 hours
 
@@ -45,6 +45,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 2 | - | - |
+| 2 | 3 | 34min 8s | 11min 23s |
 
 **Recent Trend:**
 
@@ -62,6 +63,7 @@ Recent decisions affecting current work:
 
 - [Phase 1]: Use routing and shared workflow contracts as the first delivery boundary.
 - [Phase 2]: Preserve Xiaohei as the compatibility baseline before adding Littlebox.
+- [Phase 2]: Keep Xiaohei canonical files under `ian-xiaohei-illustrations/references/ips/xiaohei/` while root `references/*.md` remain legacy-compatible.
 - [Phase 3]: Land Littlebox as a full vertical IP slice with attribution in the same phase.
 - [Phase 4]: Keep validation lightweight and runnable without a full app framework.
 

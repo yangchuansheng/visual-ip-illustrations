@@ -15,19 +15,19 @@
 
 ### IP Packs
 
-- [ ] **IPCK-01**: Maintainer can find Xiaohei's visual language, IP contract, composition rules, prompt template, and quality gate under a canonical Xiaohei IP pack.
+- [x] **IPCK-01**: Maintainer can find Xiaohei's visual language, IP contract, composition rules, prompt template, and quality gate under a canonical Xiaohei IP pack.
 - [ ] **IPCK-02**: Maintainer can find Littlebox's visual language, IP contract, composition rules, language/label rules, prompt template, and quality gate under a canonical Littlebox IP pack.
 - [x] **IPCK-03**: The shared workflow contains article understanding, cognitive-anchor selection, generation loop, QA handoff, asset preservation, and delivery reporting without IP-specific style rules.
-- [ ] **IPCK-04**: Legacy Xiaohei reference paths remain available during the migration.
+- [x] **IPCK-04**: Legacy Xiaohei reference paths remain available during the migration.
 - [x] **IPCK-05**: Each IP declares aliases, output suffix, required references, and attribution context in a readable manifest or routing section.
 
 ### Xiaohei
 
-- [ ] **XIAO-01**: Existing Xiaohei prompts from README and `examples/prompts.md` remain valid.
-- [ ] **XIAO-02**: Xiaohei output keeps the existing path convention `assets/<article-slug>-illustrations/`.
-- [ ] **XIAO-03**: Xiaohei prompt and QA preserve 16:9 horizontal format, pure white background, black hand-drawn line art, sparse red/orange/blue Chinese labels, large whitespace, and one core idea per image.
-- [ ] **XIAO-04**: Xiaohei IP rules preserve a solid-black character with white dot eyes, tiny thin legs, deadpan expression, and active conceptual participation.
-- [ ] **XIAO-05**: Xiaohei anti-repeat rules keep examples as calibration material and prohibit default reuse of old motifs.
+- [x] **XIAO-01**: Existing Xiaohei prompts from README and `examples/prompts.md` remain valid.
+- [x] **XIAO-02**: Xiaohei output keeps the existing path convention `assets/<article-slug>-illustrations/`.
+- [x] **XIAO-03**: Xiaohei prompt and QA preserve 16:9 horizontal format, pure white background, black hand-drawn line art, sparse red/orange/blue Chinese labels, large whitespace, and one core idea per image.
+- [x] **XIAO-04**: Xiaohei IP rules preserve a solid-black character with white dot eyes, tiny thin legs, deadpan expression, and active conceptual participation.
+- [x] **XIAO-05**: Xiaohei anti-repeat rules keep examples as calibration material and prohibit default reuse of old motifs.
 
 ### Littlebox
 
@@ -101,16 +101,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROUT-03 | Phase 3 | Pending |
 | ROUT-04 | Phase 3 | Pending |
 | ROUT-05 | Phase 1 | Complete |
-| IPCK-01 | Phase 2 | Pending |
+| IPCK-01 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-02-SUMMARY.md`, `02-03-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/` |
 | IPCK-02 | Phase 3 | Pending |
 | IPCK-03 | Phase 1 | Complete |
-| IPCK-04 | Phase 2 | Pending |
+| IPCK-04 | Phase 2 | Implemented in `02-02-SUMMARY.md` and root compatibility files under `ian-xiaohei-illustrations/references/` |
 | IPCK-05 | Phase 1 | Complete |
-| XIAO-01 | Phase 2 | Pending |
-| XIAO-02 | Phase 2 | Pending |
-| XIAO-03 | Phase 2 | Pending |
-| XIAO-04 | Phase 2 | Pending |
-| XIAO-05 | Phase 2 | Pending |
+| XIAO-01 | Phase 2 | Implemented in `02-03-SUMMARY.md`, `README.md`, and `examples/prompts.md` |
+| XIAO-02 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-03-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/index.md` |
+| XIAO-03 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-03-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/xiaohei/style-dna.md`, `ian-xiaohei-illustrations/references/ips/xiaohei/prompt-template.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/qa-checklist.md` |
+| XIAO-04 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-03-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/xiaohei-ip.md` |
+| XIAO-05 | Phase 2 | Implemented in `02-01-SUMMARY.md`, `02-03-SUMMARY.md`, and `ian-xiaohei-illustrations/references/ips/xiaohei/composition-patterns.md` |
 | LBOX-01 | Phase 3 | Pending |
 | LBOX-02 | Phase 3 | Pending |
 | LBOX-03 | Phase 3 | Pending |
