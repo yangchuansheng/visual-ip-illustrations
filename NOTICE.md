@@ -6,6 +6,18 @@ The bundled example images in `examples/images/` and `ian-xiaohei-illustrations/
 
 The recurring character "小黑" is part of Ian's visual language for Chinese article illustrations. When redistributing or adapting this repository, please keep the `Ian Xiaohei Illustrations` name or provide attribution to Ian in your derived documentation.
 
+## Littlebox Source Attribution
+
+Littlebox source material was adapted from `5km Littlebox Illustrations` by `okooo5km`.
+
+- Source repository: <https://github.com/okooo5km/5km-littlebox-illustrations>
+- License context: MIT
+- Inspected commit: `37cd93ee516da0324577b7bbc8ca3146e5c8d8d7`
+- Short commit: `37cd93e`
+- Source copyright: `Copyright (c) 2026 okooo5km`
+
+When redistributing or adapting Littlebox-derived documentation, credit `okooo5km` or the `5km Littlebox Illustrations` source project in derived documentation.
+
 Author links:
 
 - GitHub: <https://github.com/helloianneo>
