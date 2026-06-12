@@ -42,7 +42,7 @@ Documented the Phase 1 routing foundation in the public README and copyable prom
 
 | Hash | Message |
 |------|---------|
-| pending | docs(readme): document routing foundation |
+| 28aca21 | docs(readme): document routing foundation |
 
 ## Accomplishments
 
