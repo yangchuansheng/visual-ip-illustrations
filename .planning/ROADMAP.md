@@ -79,7 +79,11 @@ Plans:
   3. User can request Xiaohei, Littlebox, and Tom for the same core idea and receive separate variant groups.
   4. Tom outputs use `assets/<article-slug>-tom/`, and docs include the escaped token `assets/&lt;article-slug&gt;-tom/`.
 
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+
+- [ ] 08-01-PLAN.md — Integrate Tom into the skill controller route, planning, generation, QA, output, and delivery paths.
 
 ### Phase 9: Docs, Examples, and Release Surface
 
@@ -120,6 +124,6 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 |-------|----------------|--------|-----------|
 | 6. Tom Rights and Route Contract | 3/3 | Complete    | 2026-06-12 |
 | 7. Tom Canonical Pack | 3/3 | Complete    | 2026-06-12 |
-| 8. Skill Controller Integration | 0/TBD | Not started | - |
+| 8. Skill Controller Integration | 0/1 | Not started | - |
 | 9. Docs, Examples, and Release Surface | 0/TBD | Not started | - |
 | 10. Validation Hardening | 0/TBD | Not started | - |
