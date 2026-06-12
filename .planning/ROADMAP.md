@@ -148,11 +148,11 @@ Plans:
   3. `agents/openai.yaml` metadata reflects selectable IP support while preserving Xiaohei as the default behavior.
   4. Maintainer can follow a release checklist that requires validation, both-IP smoke tests, attribution review, and installable package boundary checks.
 
-**Plans:** 3 plans
+**Plans:** 1/3 plans complete
 Plans:
 **Wave 1**
 
-- [ ] 05-01-PLAN.md — Update README as the concise two-IP public entrypoint and add RELEASE_CHECKLIST.md.
+- [x] 05-01-PLAN.md — Update README as the concise two-IP public entrypoint and add RELEASE_CHECKLIST.md.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -175,4 +175,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Xiaohei Canonicalization | 3/3 | Complete    | 2026-06-12 |
 | 3. Littlebox Vertical Slice | 5/5 | Complete    | 2026-06-12 |
 | 4. Validation Hardening | 3/3 | Complete    | 2026-06-12 |
-| 5. Documentation, Examples, and Release Packaging | 0/3 | Not started | - |
+| 5. Documentation, Examples, and Release Packaging | 1/3 | In progress | - |
