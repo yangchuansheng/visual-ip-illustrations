@@ -251,6 +251,8 @@ node scripts/validate-skill-package.mjs
 
 验证范围包括 skill 包形状、路由表、Xiaohei 和 Littlebox canonical packs、legacy Xiaohei 路径、公开文档链接、输出路径标记、NOTICE 归因和 Phase 5 边界。
 
+发布前检查见 [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md)。
+
 ---
 
 ## 相关项目
