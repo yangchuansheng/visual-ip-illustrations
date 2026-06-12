@@ -24,10 +24,7 @@ Xiaohei 的可用别名包括：小黑、Xiaohei、Ian、ian-xiaohei。
 
 ## 路由说明：多 IP 请求
 
-```text
-Use $ian-xiaohei-illustrations 请按 IP 分组规划同一个观点的两组 variant：小黑组和 Littlebox 组。
-当前阶段只执行 Xiaohei-compatible planning；Littlebox 执行规则、提示词、QA 和完整输出行为由 Phase 3 交付。
-```
+Phase 1 只记录多 IP 路由意图：同一个观点可以按 IP 分组形成 variant，小黑组使用当前可执行规则，Littlebox 组由 Phase 3 交付执行规则、提示词、QA 和完整输出行为。当前复制使用的 prompt 应选择默认视觉 IP 或显式 Xiaohei 路由。
 
 ## 只做配图规划
 
