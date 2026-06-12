@@ -120,7 +120,13 @@ Plans:
   4. Validator checks Tom leakage boundaries so Xiaohei and Littlebox packs stay free of Tom identity rules and Warner rights text.
   5. Validator checks public example asset directories for Tom-rendered assets unless the release checklist has explicit public-sample approval, and Node tests cover three-route parser behavior, stable check ordering, Tom failure messages, and full pass output.
 
-**Plans**: TBD
+**Plans:** 3 plans
+
+Plans:
+
+- [ ] 10-01-PLAN.md — Harden validator implementation for Tom route, pack, docs, leakage, and public asset gates.
+- [ ] 10-02-PLAN.md — Harden Node test coverage for Phase 10 check ordering, fixtures, failure messages, and full-pass output.
+- [ ] 10-03-PLAN.md — Record final validation evidence and close Phase 10 planning state.
 
 ## Progress
 
@@ -133,4 +139,4 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 | 7. Tom Canonical Pack | 3/3 | Complete    | 2026-06-12 |
 | 8. Skill Controller Integration | 1/1 | Complete   | 2026-06-12 |
 | 9. Docs, Examples, and Release Surface | 4/4 | Complete    | 2026-06-12 |
-| 10. Validation Hardening | 0/TBD | Not started | - |
+| 10. Validation Hardening | 0/3 | Not started | - |
