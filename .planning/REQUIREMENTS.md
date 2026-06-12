@@ -42,10 +42,10 @@
 ### Validation
 
 - [x] **VALD-01**: Maintainer can run one local validation command for the installable skill package.
-- [ ] **VALD-02**: Validation checks `SKILL.md` frontmatter, agent metadata presence, routing aliases, required references, legacy Xiaohei paths, prompt-template placeholders, output suffixes, README/example links, and NOTICE attribution.
+- [x] **VALD-02**: Validation checks `SKILL.md` frontmatter, agent metadata presence, routing aliases, required references, legacy Xiaohei paths, prompt-template placeholders, output suffixes, README/example links, and NOTICE attribution.
 - [x] **VALD-03**: Validation exits nonzero when a required reference path, output path rule, IP alias group, prompt placeholder, or attribution marker is missing.
 - [x] **VALD-04**: Validation can run without a full application framework or external service.
-- [ ] **VALD-05**: Manual smoke prompts cover default Xiaohei, explicit Xiaohei, explicit Littlebox, and mixed-IP variant behavior.
+- [x] **VALD-05**: Manual smoke prompts cover default Xiaohei, explicit Xiaohei, explicit Littlebox, and mixed-IP variant behavior.
 
 ### Documentation
 
@@ -119,10 +119,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LBOX-06 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-03-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/language-and-labels.md`, `ian-xiaohei-illustrations/references/ips/littlebox/prompt-template.md`, and `ian-xiaohei-illustrations/SKILL.md` |
 | LBOX-07 | Phase 3 | Implemented; ready for verifier. Evidence: `03-01-SUMMARY.md`, `03-03-SUMMARY.md`, `03-05-SUMMARY.md`, `ian-xiaohei-illustrations/references/ips/littlebox/qa-checklist.md`, `ian-xiaohei-illustrations/references/ips/littlebox/littlebox-ip.md`, and `ian-xiaohei-illustrations/references/ips/littlebox/style-dna.md` |
 | VALD-01 | Phase 4 | Complete |
-| VALD-02 | Phase 4 | Pending |
+| VALD-02 | Phase 4 | Complete |
 | VALD-03 | Phase 4 | Complete |
 | VALD-04 | Phase 4 | Complete |
-| VALD-05 | Phase 4 | Pending |
+| VALD-05 | Phase 4 | Complete |
 | DOCS-01 | Phase 5 | Pending |
 | DOCS-02 | Phase 5 | Pending |
 | DOCS-03 | Phase 5 | Pending |

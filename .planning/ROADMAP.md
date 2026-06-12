@@ -119,7 +119,7 @@ Plans:
   3. Validation exits nonzero when a required reference path, output path rule, alias group, prompt placeholder, or attribution marker is missing.
   4. Maintainer can use manual smoke prompts to verify default Xiaohei, explicit Xiaohei, explicit Littlebox, and mixed-IP variant behavior.
 
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 Plans:
 **Wave 1**
 
@@ -127,7 +127,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 04-02-PLAN.md — Implement the full skill package contract check matrix.
+- [x] 04-02-PLAN.md — Implement the full skill package contract check matrix.
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -161,5 +161,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Routing Foundation | 2/2 | Complete    | 2026-06-12 |
 | 2. Xiaohei Canonicalization | 3/3 | Complete    | 2026-06-12 |
 | 3. Littlebox Vertical Slice | 5/5 | Complete    | 2026-06-12 |
-| 4. Validation Hardening | 1/3 | In Progress|  |
+| 4. Validation Hardening | 2/3 | In Progress|  |
 | 5. Documentation, Examples, and Release Packaging | 0/TBD | Not started | - |
