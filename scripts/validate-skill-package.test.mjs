@@ -52,7 +52,7 @@ test("validator collects failures and exits nonzero after all checks run", () =>
   );
   writeFileSync(
     path.join(fixtureRoot, "ian-xiaohei-illustrations", "references", "routing.md"),
-    "# Routes\n",
+    "",
     "utf8",
   );
   writeFileSync(path.join(fixtureRoot, "README.md"), "# Broken\n", "utf8");
