@@ -108,7 +108,7 @@ Plans:
 
 ### Phase 4: Validation Hardening
 
-**Goal:** Maintainers can validate the installable skill package with a lightweight local command before release or broad documentation edits.
+**Goal:** As a maintainer, I want to validate the installable skill package with a lightweight local command before release or broad documentation edits, so that package, routing, prompt, path, docs, and attribution drift is caught early.
 **Mode:** mvp
 **Depends on:** Phase 3
 **Requirements:** VALD-01, VALD-02, VALD-03, VALD-04, VALD-05

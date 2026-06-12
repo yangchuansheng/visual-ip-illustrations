@@ -1,8 +1,8 @@
 ---
 phase: 04-validation-hardening
-verified: 2026-06-12T08:55:53Z
-status: gaps_found
-score: 4/5 must-haves verified
+verified: 2026-06-12T09:01:31Z
+status: passed
+score: 5/5 must-haves verified
 automated_contract_score: 4/4 success criteria verified
 requirements_covered:
   - VALD-01
@@ -11,15 +11,7 @@ requirements_covered:
   - VALD-04
   - VALD-05
 overrides_applied: 0
-gaps:
-  - truth: "MVP-mode phase goal is in User Story format before a passed verification report is issued"
-    status: failed
-    reason: "ROADMAP.md marks Phase 4 as mode: mvp, but the phase goal is 'Maintainers can validate the installable skill package with a lightweight local command before release or broad documentation edits.' The required MVP verifier guard expects 'As a ..., I want to ..., so that ... .' format."
-    artifacts:
-      - path: ".planning/ROADMAP.md"
-        issue: "Phase 4 uses mode: mvp with a non-User-Story goal."
-    missing:
-      - "Run /gsd mvp-phase 4 or update the roadmap goal to a valid User Story before re-running a formal passed MVP verification."
+gaps: []
 deferred:
   - truth: "Broad README/examples refresh"
     addressed_in: "Phase 5"
@@ -34,16 +26,25 @@ deferred:
 
 # Phase 4: Validation Hardening Verification Report
 
-**Phase Goal:** Maintainers can validate the installable skill package with a lightweight local command before release or broad documentation edits.
-**Verified:** 2026-06-12T08:55:53Z
-**Status:** gaps_found
-**Re-verification:** No - initial verification
+**Phase Goal:** As a maintainer, I want to validate the installable skill package with a lightweight local command before release or broad documentation edits, so that package, routing, prompt, path, docs, and attribution drift is caught early.
+**Verified:** 2026-06-12T09:01:31Z
+**Status:** passed
+**Re-verification:** Yes - Phase 4 roadmap goal was aligned to MVP User Story format and local verification commands were rerun.
 
 ## Verdict
 
 The implemented validation hardening contract is verified: the local validator exists, uses Node built-ins, reports 34 deterministic checks, exits nonzero on representative drift, and covers VALD-01 through VALD-05.
 
-The formal MVP verification gate is blocking a `passed` status. Phase 4 is marked `mode: mvp`, while its goal is a maintainer capability statement instead of a User Story formatted as `As a ..., I want to ..., so that ... .`. Per the MVP verifier guard, this report cannot be marked passed until that roadmap discrepancy is corrected.
+The formal MVP verification gate now passes. Phase 4 is marked `mode: mvp`, and its roadmap goal follows the required User Story format: `As a ..., I want to ..., so that ... .`.
+
+## Re-verification Evidence
+
+| Check | Command | Result | Status |
+|-------|---------|--------|--------|
+| User Story goal guard | `node -e 'const story = process.argv[1]; console.log(/^As a .+, I want to .+, so that .+\.$/.test(story))' "$(node /Users/longnv/.codex/gsd-core/bin/gsd-tools.cjs query roadmap.get-phase 4 --pick goal)"` | Returned `true` using the canonical GSD User Story regex from `references/mvp-concepts.md`. The documented `query user-story.validate` handler is absent from the current local `gsd-tools.cjs` command registry. | PASS |
+| Validator contract | `node scripts/validate-skill-package.mjs` | Exit 0; `Summary: total=34 passed=34 failed=0 skipped=0` | PASS |
+| Validator tests | `node --test scripts/validate-skill-package.test.mjs` | Exit 0; 7 tests, 7 pass, 0 fail | PASS |
+| Whitespace hygiene | `git diff --check` | Exit 0 | PASS |
 
 ## User Flow Coverage
 
@@ -51,7 +52,7 @@ MVP-mode User Story validation was attempted because `phase.mvp-mode 4` returned
 
 | Step | Expected | Evidence | Status |
 |------|----------|----------|--------|
-| User Story format guard | Phase goal follows `As a ..., I want to ..., so that ... .` | `roadmap.get-phase 4 --pick goal` returned `Maintainers can validate the installable skill package with a lightweight local command before release or broad documentation edits.` | FAILED |
+| User Story format guard | Phase goal follows `As a ..., I want to ..., so that ... .` | `roadmap.get-phase 4 --pick goal` returned `As a maintainer, I want to validate the installable skill package with a lightweight local command before release or broad documentation edits, so that package, routing, prompt, path, docs, and attribution drift is caught early.`; the canonical regex guard returned `true`. | VERIFIED |
 | Outcome coverage | Maintainer can validate the package with one local command | `node scripts/validate-skill-package.mjs` exited 0 with `Summary: total=34 passed=34 failed=0 skipped=0` | VERIFIED |
 
 ## Goal Achievement
@@ -64,9 +65,9 @@ MVP-mode User Story validation was attempted because `phase.mvp-mode 4` returned
 | 2 | Validation reports package shape, metadata, routing aliases, references, legacy paths, prompt placeholders, output suffixes, docs links, and NOTICE attribution status. | VERIFIED | The validator defines 34 check IDs from `PKG-SHAPE-001` through `BOUNDARY-P5-001`; the positive run reported 34 PASS lines. |
 | 3 | Validation exits nonzero when required reference path, output path rule, alias group, prompt placeholder, or attribution marker drift occurs. | VERIFIED | `04-03-SUMMARY.md` records temporary-copy negative proof for `ROUTE-LB-001`, `ROUTE-REFS-001`, `ROUTE-PATHS-001`, `PROMPT-XH-001`, `NOTICE-LB-001`, `DOC-LINKS-001`, and `BOUNDARY-IMG-001`, each with exit `1`. |
 | 4 | Maintainer can use manual smoke prompts for default Xiaohei, explicit Xiaohei, explicit Littlebox, and mixed-IP variants. | VERIFIED | `examples/prompts.md` contains the four smoke sections; validator checks `SMOKE-DEFAULT-001`, `SMOKE-XH-001`, `SMOKE-LB-001`, and `SMOKE-MIXED-001` passed. |
-| 5 | MVP-mode phase goal is a valid User Story before a passed verification report is issued. | FAILED | Phase 4 mode is `mvp`; the goal is a maintainer capability sentence, so the MVP format guard fails. |
+| 5 | MVP-mode phase goal is a valid User Story before a passed verification report is issued. | VERIFIED | Phase 4 mode is `mvp`; the goal follows `As a ..., I want to ..., so that ... .`; the canonical regex guard returned `true`. |
 
-**Score:** 4/5 truths verified
+**Score:** 5/5 truths verified
 
 ### Deferred Items
 
@@ -114,7 +115,7 @@ Items not yet met but explicitly addressed in later milestone phases.
 | README documents the command | `rg -n "node scripts/validate-skill-package\\.mjs" README.md` | Line 136 found | PASS |
 | Negative proof is recorded | `rg -n "ROUTE-LB-001|ROUTE-REFS-001|ROUTE-PATHS-001|PROMPT-XH-001|NOTICE-LB-001|DOC-LINKS-001|BOUNDARY-IMG-001|Self-Check: PASSED|Summary: total=34 passed=34 failed=0 skipped=0" .planning/phases/04-validation-hardening/04-03-SUMMARY.md` | All required markers found | PASS |
 | Whitespace hygiene | `git diff --check` | Exit 0 | PASS |
-| MVP mode guard | `phase.mvp-mode 4` plus roadmap goal inspection | Mode true; goal is not User Story format | FAIL |
+| MVP mode guard | Canonical User Story regex on `roadmap.get-phase 4 --pick goal` | Returned `true` | PASS |
 
 ### Probe Execution
 
@@ -122,6 +123,8 @@ Items not yet met but explicitly addressed in later milestone phases.
 |-------|---------|--------|--------|
 | Phase validator | `node scripts/validate-skill-package.mjs` | Exit 0; 34/34 checks pass | PASS |
 | Validator tests | `node --test scripts/validate-skill-package.test.mjs` | Exit 0; 7/7 tests pass | PASS |
+| MVP User Story guard | `node -e 'const story = process.argv[1]; console.log(/^As a .+, I want to .+, so that .+\.$/.test(story))' "$(node /Users/longnv/.codex/gsd-core/bin/gsd-tools.cjs query roadmap.get-phase 4 --pick goal)"` | Returned `true` | PASS |
+| Whitespace hygiene | `git diff --check` | Exit 0 | PASS |
 
 ### Requirements Coverage
 
@@ -145,9 +148,9 @@ None for the local validator contract. Visual image quality and release-readines
 
 ### Gaps Summary
 
-The implementation satisfies Phase 4's validation contract and VALD-01 through VALD-05. The only blocker is workflow metadata: Phase 4 is marked MVP while its goal is not a valid User Story. The next action is to run `/gsd mvp-phase 4` or update Phase 4's roadmap goal to valid User Story format, then re-run verification.
+No open gaps. The implementation satisfies Phase 4's validation contract, VALD-01 through VALD-05, and the MVP-mode User Story guard.
 
 ---
 
-_Verified: 2026-06-12T08:55:53Z_
+_Verified: 2026-06-12T09:01:31Z_
 _Verifier: the agent (gsd-verifier)_
