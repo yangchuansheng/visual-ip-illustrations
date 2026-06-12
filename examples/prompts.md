@@ -26,6 +26,8 @@ Xiaohei 的可用别名包括：小黑、Xiaohei、Ian、ian-xiaohei。
 
 Phase 1 只记录多 IP 路由意图：同一个观点可以按 IP 分组形成 variant，小黑组使用当前可执行规则，Littlebox 组由 Phase 3 交付执行规则、提示词、QA 和完整输出行为。当前复制使用的 prompt 应选择默认视觉 IP 或显式 Xiaohei 路由。
 
+维护者参考：Xiaohei canonical pack 位于 `ian-xiaohei-illustrations/references/ips/xiaohei/`，路由元数据位于 `ian-xiaohei-illustrations/references/routing.md`。用户复制下方 prompts 时继续使用默认 Xiaohei 或显式 Xiaohei 路由。
+
 ## 只做配图规划
 
 ```text
