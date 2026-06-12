@@ -13,8 +13,18 @@
 
 | id | display_name | aliases | default | output_suffix | required_references | attribution_context | status |
 |----|--------------|---------|---------|---------------|---------------------|---------------------|--------|
-| `xiaohei` | Xiaohei | `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei` | `true` | `illustrations` | `references/style-dna.md`; `references/xiaohei-ip.md`; `references/composition-patterns.md`; `references/prompt-template.md`; `references/qa-checklist.md` | Ian Xiaohei existing package | `active` |
+| `xiaohei` | Xiaohei | `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei` | `true` | `illustrations` | `references/ips/xiaohei/style-dna.md`; `references/ips/xiaohei/xiaohei-ip.md`; `references/ips/xiaohei/composition-patterns.md`; `references/ips/xiaohei/prompt-template.md`; `references/ips/xiaohei/qa-checklist.md` | Ian Xiaohei existing package | `active` |
 | `littlebox` | Littlebox | Phase 3-owned | `false` | `littlebox` | Phase 3-owned | okooo5km/5km-littlebox-illustrations | `phase-3-owned` |
+
+## Legacy Path Availability
+
+The root Xiaohei reference paths remain available during migration and point to canonical pack files:
+
+- `references/style-dna.md` -> `references/ips/xiaohei/style-dna.md`
+- `references/xiaohei-ip.md` -> `references/ips/xiaohei/xiaohei-ip.md`
+- `references/composition-patterns.md` -> `references/ips/xiaohei/composition-patterns.md`
+- `references/prompt-template.md` -> `references/ips/xiaohei/prompt-template.md`
+- `references/qa-checklist.md` -> `references/ips/xiaohei/qa-checklist.md`
 
 ## 输出路径
 
