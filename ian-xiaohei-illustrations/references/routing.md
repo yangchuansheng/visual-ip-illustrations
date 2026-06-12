@@ -6,15 +6,16 @@
 
 - 用户省略视觉 IP 时，选择 `xiaohei`。
 - 用户使用 `小黑`、`Xiaohei`、`Ian`、`ian-xiaohei` 时，选择同一个 `xiaohei` 路由。
+- 用户使用 `小盒`、`Littlebox`、`纸盒`、`paper-box`、`carton` 时，选择同一个 `littlebox` 路由。
+- 同时请求 Xiaohei 和 Littlebox 时，建立 separate route groups，每个 route group 只加载自己的 `required_references`，并写入自己的输出目录。
 - 路由只保存选择、引用、输出后缀和归因上下文。风格、角色身份、提示词措辞和 QA 规则保存在所选 IP 的参考文件中。
-- `littlebox` 是 Phase 3 入口占位，Phase 3 负责别名、执行规则、提示词、QA、示例和完整输出规则。
 
 ## IP Routes
 
 | id | display_name | aliases | default | output_suffix | required_references | attribution_context | status |
 |----|--------------|---------|---------|---------------|---------------------|---------------------|--------|
 | `xiaohei` | Xiaohei | `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei` | `true` | `illustrations` | `references/ips/xiaohei/style-dna.md`; `references/ips/xiaohei/xiaohei-ip.md`; `references/ips/xiaohei/composition-patterns.md`; `references/ips/xiaohei/prompt-template.md`; `references/ips/xiaohei/qa-checklist.md` | Ian Xiaohei existing package | `active` |
-| `littlebox` | Littlebox | Phase 3-owned | `false` | `littlebox` | Phase 3-owned | okooo5km/5km-littlebox-illustrations | `phase-3-owned` |
+| `littlebox` | Littlebox | `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton` | `false` | `littlebox` | `references/ips/littlebox/style-dna.md`; `references/ips/littlebox/littlebox-ip.md`; `references/ips/littlebox/composition-patterns.md`; `references/ips/littlebox/language-and-labels.md`; `references/ips/littlebox/prompt-template.md`; `references/ips/littlebox/qa-checklist.md` | 5km Littlebox Illustrations by okooo5km; source https://github.com/okooo5km/5km-littlebox-illustrations; MIT; inspected commit 37cd93e | `active` |
 
 ## Legacy Path Availability
 
@@ -30,6 +31,9 @@ The root Xiaohei reference paths remain available during migration and point to 
 
 - `xiaohei` 输出目录保持为 `assets/<article-slug>-illustrations/`。
 - `xiaohei` 文件名继续使用有序英文 slug，例如 `01-topic-name.png`。
+- `littlebox` 输出目录为 `assets/<article-slug>-littlebox/`。
+- `littlebox` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
+- 混合 IP 请求按 IP 分成 separate route groups：`xiaohei` 写入 `assets/<article-slug>-illustrations/`，`littlebox` 写入 `assets/<article-slug>-littlebox/`。
 - 输出前检查目标目录已有资产，生成新文件名以保留历史结果。
 
 ## 交付报告字段
