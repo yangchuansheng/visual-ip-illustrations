@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Xiaohei Canonicalization** - Maintainers get a canonical Xiaohei IP pack while existing Xiaohei usage and paths keep working. (completed 2026-06-12)
 - [x] **Phase 3: Littlebox Vertical Slice** - Users can request Littlebox and receive the correct identity, prompt, QA, output path, and attribution behavior. (completed 2026-06-12)
 - [x] **Phase 4: Validation Hardening** - Maintainers can run one local command that catches package, routing, prompt, path, docs, and attribution drift. (completed 2026-06-12)
-- [ ] **Phase 5: Documentation, Examples, and Release Packaging** - Users and maintainers get public docs, copyable examples, metadata, and release checks that match the two-IP package.
+- [x] **Phase 5: Documentation, Examples, and Release Packaging** - Users and maintainers get public docs, copyable examples, metadata, and release checks that match the two-IP package. (completed 2026-06-12)
 
 ## Phase Details
 
@@ -148,7 +148,7 @@ Plans:
   3. `agents/openai.yaml` metadata reflects selectable IP support while preserving Xiaohei as the default behavior.
   4. Maintainer can follow a release checklist that requires validation, both-IP smoke tests, attribution review, and installable package boundary checks.
 
-**Plans:** 2/3 plans complete
+**Plans:** 3/3 plans complete
 Plans:
 **Wave 1**
 
@@ -160,7 +160,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 05-03-PLAN.md — Update agent metadata and record full Phase 5 validation closeout proof.
+- [x] 05-03-PLAN.md — Update agent metadata and record full Phase 5 validation closeout proof.
 
 **UI hint:** no
 
@@ -175,4 +175,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Xiaohei Canonicalization | 3/3 | Complete    | 2026-06-12 |
 | 3. Littlebox Vertical Slice | 5/5 | Complete    | 2026-06-12 |
 | 4. Validation Hardening | 3/3 | Complete    | 2026-06-12 |
-| 5. Documentation, Examples, and Release Packaging | 2/3 | In progress | - |
+| 5. Documentation, Examples, and Release Packaging | 3/3 | Complete    | 2026-06-12 |

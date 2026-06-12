@@ -53,7 +53,7 @@
 - [x] **DOCS-02**: README includes concise examples for Xiaohei planning, Xiaohei generation, Littlebox planning, Littlebox generation, and same-idea IP contrast.
 - [x] **DOCS-03**: `examples/prompts.md` includes copyable prompts for both IPs and mixed-IP variants.
 - [x] **DOCS-04**: `NOTICE.md` credits Littlebox source material, author `okooo5km`, source repository URL, MIT license context, and inspected commit `37cd93e`.
-- [ ] **DOCS-05**: `agents/openai.yaml` metadata reflects selectable IP support while preserving the Xiaohei default.
+- [x] **DOCS-05**: `agents/openai.yaml` metadata reflects selectable IP support while preserving the Xiaohei default.
 - [x] **DOCS-06**: Release checklist tells maintainers to run validation, smoke-test both IPs, review attribution, and check installable package boundaries.
 
 ## v2 Requirements
@@ -127,7 +127,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOCS-02 | Phase 5 | Complete in `05-01-SUMMARY.md`; README now includes concise Xiaohei planning, Xiaohei generation, Littlebox planning, Littlebox generation, and same-idea IP contrast examples. |
 | DOCS-03 | Phase 5 | Complete |
 | DOCS-04 | Phase 3 | Implemented; ready for verifier. Evidence: `03-04-SUMMARY.md`, `03-05-SUMMARY.md`, and `NOTICE.md` |
-| DOCS-05 | Phase 5 | Pending |
+| DOCS-05 | Phase 5 | Complete in `05-03-SUMMARY.md`; `agents/openai.yaml` metadata now names Xiaohei and Littlebox, describes selectable IP support, preserves Xiaohei as default, invokes `$ian-xiaohei-illustrations`, and keeps implicit invocation enabled. |
 | DOCS-06 | Phase 5 | Complete in `05-01-SUMMARY.md`; `RELEASE_CHECKLIST.md` covers validation, tests, smoke prompts, attribution, installable package boundary, and scope fences. |
 
 **Coverage:**

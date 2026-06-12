@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Phase 05 Plan 02 complete; ready for Phase 05 Plan 03.
-last_updated: "2026-06-12T09:57:12.135Z"
-last_activity: 2026-06-12 -- Phase 05 Plan 02 completed
+status: complete
+stopped_at: Completed 05-03-PLAN.md
+last_updated: "2026-06-12T10:02:52.000Z"
+last_activity: 2026-06-12 -- Phase 05 Plan 03 completed
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 16
-  completed_plans: 15
-  percent: 94
+  completed_plans: 16
+  percent: 100
 ---
 
 # Project State
@@ -25,18 +25,18 @@ See: .planning/PROJECT.md (updated 2026-06-12)
 
 ## Current Position
 
-Phase: 05 (documentation-examples-and-release-packaging) — EXECUTING
+Phase: 05 (documentation-examples-and-release-packaging) — COMPLETE
 Plan: 3 of 3
-Status: Ready for Phase 05 Plan 03
-Last activity: 2026-06-12 -- Phase 05 Plan 02 completed
+Status: Phase 05 complete
+Last activity: 2026-06-12 -- Phase 05 Plan 03 completed
 
-Progress: [█████████░] 94%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 15
+- Total plans completed: 16
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -48,12 +48,12 @@ Progress: [█████████░] 94%
 | 2 | 3 | 34min 8s | 11min 23s |
 | 3 | 5 | 26min | 5min 12s |
 | 4 | 3 | 19min | 6min 20s |
-| 5 | 2 | 7min | 3min 30s |
+| 5 | 3 | 10min | 3min 20s |
 
 **Recent Trend:**
 
-- Last 5 plans: Phase 4 plans 04-02 through 04-03 completed; Phase 5 Plan 01 completed README and release checklist; Phase 5 Plan 02 expanded prompt examples and smoke fixtures.
-- Trend: Phase 5 documentation packaging is in progress.
+- Last 5 plans: Phase 4 Plan 04-03 completed validation closeout; Phase 5 Plan 01 completed README and release checklist; Phase 5 Plan 02 expanded prompt examples and smoke fixtures; Phase 5 Plan 03 updated metadata and recorded closeout proof.
+- Trend: Phase 5 documentation packaging is complete.
 
 *Updated after each plan completion*
 | Phase 04-validation-hardening P01 | 5min | 2 tasks | 3 files |
@@ -61,6 +61,7 @@ Progress: [█████████░] 94%
 | Phase 04-validation-hardening P03 | 5min | 3 tasks | 2 files |
 | Phase 05-documentation-examples-and-release-packaging P01 | 4min | 2 tasks | 2 files |
 | Phase 05-documentation-examples-and-release-packaging P02 | 3min | 2 tasks | 1 files |
+| Phase 05-documentation-examples-and-release-packaging P03 | 3min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -83,14 +84,15 @@ Recent decisions affecting current work:
 - [Phase 5]: RELEASE_CHECKLIST.md is the maintainer release gate for validator commands, Node tests, smoke prompts, NOTICE attribution, installable package boundary, public docs markers, and Phase 5 scope fences.
 - [Phase 05]: Mixed-IP examples use one shared core idea with separate Xiaohei and Littlebox variant groups and output directories. — This matches the routing contract and prevents cross-IP prompt leakage.
 - [Phase 05]: examples/prompts.md now serves as both the public prompt catalog and the stable smoke fixture source for route validation. — Plan 05-02 expanded copyable prompts while preserving validator smoke markers.
+- [Phase 05]: Installed-agent metadata names Xiaohei and Littlebox, describes selectable visual IP support, preserves Xiaohei as default, and keeps `$ian-xiaohei-illustrations` as the default prompt invocation. — Plan 05-03 closed DOCS-05 and full Phase 5 validation proof.
 
 ### Pending Todos
 
-- Phase 05 Plan 03: Update agent metadata and record full Phase 5 validation closeout proof.
+- None.
 
 ### Blockers/Concerns
 
-- [Phase 5]: Metadata copy remains for Plan 03.
+- None.
 
 ## Deferred Items
 
@@ -102,6 +104,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T09:56:37.432Z
-Stopped at: Phase 05 Plan 02 complete; ready for Phase 05 Plan 03.
+Last session: 2026-06-12T10:02:52.000Z
+Stopped at: Completed 05-03-PLAN.md
 Resume file: None
