@@ -1,259 +1,151 @@
-# Stack Research: Multi-IP Article Illustration Skills
+# Stack Research: Authorized Tom IP Integration
 
-**Research type:** Project Research - Stack dimension  
-**Project:** Multi-IP Article Illustration Skills  
-**Researched:** 2026-06-12  
-**Scope:** Add selectable visual IP support and Littlebox integration to the existing Codex Skill repository while preserving the current Xiaohei workflow.
+**Research type:** Project Research - Stack dimension
+**Project:** Multi-IP Article Illustration Skills
+**Researched:** 2026-06-13
+**Scope:** Add Tom from Tom and Jerry as a third selectable visual IP while preserving the existing lightweight Codex Skill package, Xiaohei default route, Littlebox explicit route, and local Node validator.
 
-## Summary
+## Recommendation
 
-The practical stack should stay a Codex Skill package built from Markdown, YAML, static assets, and one lightweight validation script. The repository already works as a documentation-first skill with `SKILL.md`, `agents/openai.yaml`, modular references, and calibration images. Multi-IP support should extend that shape with explicit IP manifests and isolated per-IP reference folders, with `SKILL.md` acting as the router.
+Keep the stack unchanged: Markdown reference packs, YAML agent metadata, static assets, and dependency-free Node validation. Tom should be added as another canonical IP pack under `ian-xiaohei-illustrations/references/ips/tom/`, with routing metadata in `references/routing.md` and validation coverage in `scripts/validate-skill-package.mjs`.
 
-No web framework, app runtime, database, bundler, or package manager is needed. The runtime dependency remains Codex Skills plus the host `image_gen` capability. Validation should be a local script invoked by `python3 scripts/validate_skill_package.py`, focused on file presence, manifest schema, prompt placeholders, routing references, output path contracts, and known IP guardrails.
+The key stack addition is rights-boundary metadata and validation. Tom is a protected commercial character, so the route needs source, rights holder, allowed-use assumption, attribution wording, and public-release boundary markers in `NOTICE.md`, `README.md`, `RELEASE_CHECKLIST.md`, and the validator.
 
-Xiaohei compatibility should be preserved by making Xiaohei the default IP and keeping the existing public trigger behavior valid. The safer migration path is to introduce a structured `references/ips/` layout while leaving thin compatibility files at the current paths, so existing references like `references/style-dna.md` and `references/prompt-template.md` still resolve.
+## Stack Additions
 
-Recommended confidence: HIGH for staying Markdown/YAML/script-only, because both source skills use the same static skill-package pattern. MEDIUM for the exact manifest schema, because Codex Skill format does not enforce an official multi-IP schema, so this repository should own a small practical schema.
-
-## Recommendations
-
-### Stack
-
-| Layer | Recommendation | Why |
+| Layer | Addition | Rationale |
 |---|---|---|
-| Skill runtime | Keep Codex Skills with `ian-xiaohei-illustrations/SKILL.md` as the entrypoint | Existing package already loads this way and Littlebox uses the same pattern. |
-| Instructions | Markdown reference modules | Style, prompt, QA, composition, and IP rules are prose-heavy and suit progressive disclosure. |
-| Config | Add a small YAML manifest at `ian-xiaohei-illustrations/references/ip-manifest.yaml` | The router needs a machine-readable source of IP ids, aliases, default status, output suffixes, and required files. |
-| Validation | Add a Python standard-library script under `scripts/validate_skill_package.py` | Gives a repeatable quality gate without package dependencies or a runtime. |
-| Assets | Keep static PNG/JPG assets under existing asset folders and add IP-scoped examples only when needed | Calibration assets support visual consistency; generated deliverables remain workspace assets. |
-| Documentation | Update `README.md`, `examples/prompts.md`, `NOTICE.md`, and skill references | User-facing selection, install behavior, and attribution must match the new multi-IP behavior. |
+| IP references | Add `ian-xiaohei-illustrations/references/ips/tom/` canonical pack | Matches the existing Xiaohei and Littlebox isolation model. |
+| Routing | Add `tom` row to `ian-xiaohei-illustrations/references/routing.md` | Keeps IP id, aliases, default flag, output suffix, references, attribution context, and status in the existing route table. |
+| Skill runtime docs | Extend `ian-xiaohei-illustrations/SKILL.md` route selection, shot-list, generation, QA, and delivery sections | The runtime remains prose-driven and route-first. |
+| Agent metadata | Update `ian-xiaohei-illustrations/agents/openai.yaml` display copy | Installed skill surfaces Xiaohei, Littlebox, and Tom selection. |
+| Public docs | Update `README.md`, `examples/prompts.md`, `NOTICE.md`, and `RELEASE_CHECKLIST.md` | Users and maintainers need Tom prompts, output paths, release checks, and rights context. |
+| Validation | Extend `scripts/validate-skill-package.mjs` and `scripts/validate-skill-package.test.mjs` | Existing checks are hard-coded for Xiaohei and Littlebox; Tom needs the same package, route, docs, prompt, output, smoke, and boundary coverage. |
 
-### Recommended Directory Shape
+## Tom Canonical Pack
+
+Recommended files:
 
 ```text
-ian-xiaohei-illustrations/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-├── assets/
-│   └── examples/
-├── references/
-│   ├── ip-manifest.yaml
-│   ├── routing.md
-│   ├── style-dna.md
-│   ├── prompt-template.md
-│   ├── qa-checklist.md
-│   ├── xiaohei-ip.md
-│   └── ips/
-│       ├── xiaohei/
-│       │   ├── style-dna.md
-│       │   ├── ip.md
-│       │   ├── composition-patterns.md
-│       │   ├── prompt-template.md
-│       │   └── qa-checklist.md
-│       └── littlebox/
-│           ├── visual-language.md
-│           ├── ip.md
-│           ├── composition-methods.md
-│           ├── language-and-labels.md
-│           ├── prompt-template.md
-│           ├── quality-gate.md
-│           └── examples.md
-└── scripts/
-    └── validate_skill_package.py
+ian-xiaohei-illustrations/references/ips/tom/
+├── index.md
+├── style-dna.md
+├── tom-ip.md
+├── composition-patterns.md
+├── language-and-labels.md
+├── prompt-template.md
+└── qa-checklist.md
 ```
 
-Keep the current top-level reference files as compatibility wrappers or canonical Xiaohei files during the first milestone:
+Use the Littlebox pack shape because Tom also needs IP-specific identity, label policy, prompt constraints, QA failures, and attribution boundaries. Keep file names lowercase kebab-case and keep `tom-ip.md` parallel to `xiaohei-ip.md` and `littlebox-ip.md`.
 
-- `references/style-dna.md` continues to describe Xiaohei visual DNA or points to `references/ips/xiaohei/style-dna.md`.
-- `references/prompt-template.md` continues to provide the default Xiaohei prompt or points to `references/ips/xiaohei/prompt-template.md`.
-- `references/qa-checklist.md`, `references/xiaohei-ip.md`, and `references/composition-patterns.md` continue to resolve for existing instructions.
+## Routing Contract
 
-### IP Manifest
+Add a third active route with these expected fields:
 
-Add `ian-xiaohei-illustrations/references/ip-manifest.yaml`:
+| Field | Recommended value |
+|---|---|
+| `id` | `tom` |
+| `display_name` | `Tom` |
+| `aliases` | `Tom`, `汤姆`, `Tom Cat`, `Tom and Jerry`, `tom-and-jerry` |
+| `default` | `false` |
+| `output_suffix` | `tom` |
+| `required_references` | all Tom canonical pack operational files |
+| `attribution_context` | Tom and Jerry / Tom Cat source, rights holder, allowed-use assumption, public distribution boundary |
+| `status` | `active` only after rights-boundary docs and validator markers land |
 
-```yaml
-default_ip: xiaohei
-ips:
-  xiaohei:
-    display_name: "Ian Xiaohei"
-    aliases: ["xiaohei", "小黑", "ian", "默认"]
-    output_suffix: "illustrations"
-    references:
-      style: "references/ips/xiaohei/style-dna.md"
-      ip: "references/ips/xiaohei/ip.md"
-      composition: "references/ips/xiaohei/composition-patterns.md"
-      prompt: "references/ips/xiaohei/prompt-template.md"
-      qa: "references/ips/xiaohei/qa-checklist.md"
-    hard_rules:
-      - "Pure white background"
-      - "Small solid-black Xiaohei performs the core action"
-      - "Sparse red/orange/blue handwritten Chinese annotations"
-  littlebox:
-    display_name: "Littlebox"
-    aliases: ["littlebox", "小盒", "纸盒", "box"]
-    output_suffix: "littlebox"
-    references:
-      style: "references/ips/littlebox/visual-language.md"
-      ip: "references/ips/littlebox/ip.md"
-      composition: "references/ips/littlebox/composition-methods.md"
-      labels: "references/ips/littlebox/language-and-labels.md"
-      prompt: "references/ips/littlebox/prompt-template.md"
-      qa: "references/ips/littlebox/quality-gate.md"
-      examples: "references/ips/littlebox/examples.md"
-    hard_rules:
-      - "Closed-only front-left three-quarter paper box"
-      - "Dot eyes on front panel, tiny legs, at most two side-seam twig arms"
-      - "One amber jagged seam tape"
-      - "Pale sky-blue or pale lavender flat background"
+Output path:
+
+```text
+assets/<article-slug>-tom/
+assets/&lt;article-slug&gt;-tom/
 ```
 
-Use this YAML as a validation and documentation source. The runtime behavior remains prose-driven in `SKILL.md`; the manifest prevents drift across docs, routes, and required reference files.
+Mixed-IP behavior should generalize from two variant groups to route groups for Xiaohei, Littlebox, and Tom. Each group loads only its own `required_references` and writes to its own output suffix.
 
-### Skill Routing Rules
+## Files to Modify
 
-Edit `ian-xiaohei-illustrations/SKILL.md` to add a short routing section near "先读这些参考":
+| File | Change |
+|---|---|
+| `ian-xiaohei-illustrations/references/ips/tom/index.md` | Pack navigation, responsibilities, output path, rights-boundary pointer. |
+| `ian-xiaohei-illustrations/references/ips/tom/style-dna.md` | Tom-specific article-illustration visual rules and style limits. |
+| `ian-xiaohei-illustrations/references/ips/tom/tom-ip.md` | Character identity, allowed poses/actions, likeness constraints, failure modes. |
+| `ian-xiaohei-illustrations/references/ips/tom/composition-patterns.md` | Tom-appropriate cognitive-action metaphors and anti-repeat rules. |
+| `ian-xiaohei-illustrations/references/ips/tom/language-and-labels.md` | Prompt language, visible-label language, and delivery wording. |
+| `ian-xiaohei-illustrations/references/ips/tom/prompt-template.md` | Shot-list fields, generation prompt, and edit prompts. |
+| `ian-xiaohei-illustrations/references/ips/tom/qa-checklist.md` | Tom identity, action, text, background, density, and rights-boundary checks. |
+| `ian-xiaohei-illustrations/references/routing.md` | Add Tom route row, aliases, suffix, required references, mixed route wording, output path. |
+| `ian-xiaohei-illustrations/SKILL.md` | Add Tom to reference loading, route selection, planning fields, generation rules, QA risks, save paths, and delivery blocks. |
+| `ian-xiaohei-illustrations/agents/openai.yaml` | Mention selectable Xiaohei, Littlebox, or Tom while preserving Xiaohei as default. |
+| `README.md` | Add Tom route overview, aliases, output path, canonical pack path, sample prompt, and rights boundary note. |
+| `examples/prompts.md` | Add explicit Tom route smoke prompts and mixed-IP examples that include Tom. |
+| `NOTICE.md` | Add Tom source, rights holder, allowed-use assumption, attribution wording, and distribution boundary. |
+| `RELEASE_CHECKLIST.md` | Add Tom automated gate, smoke prompt, attribution review, package boundary, and release-boundary checks. |
+| `scripts/validate-skill-package.mjs` | Add Tom file lists, route checks, prompt markers, docs markers, output tokens, smoke checks, and rights-boundary checks. |
+| `scripts/validate-skill-package.test.mjs` | Extend parser and marker tests around three-route behavior if existing tests assert fixed two-route fixtures. |
 
-- Default IP is Xiaohei when the user gives no visual-IP request.
-- Explicit Littlebox aliases route to `references/ips/littlebox/*`.
-- Explicit Xiaohei aliases route to `references/ips/xiaohei/*` or the existing compatibility references.
-- Generated assets use `assets/<article-slug>-illustrations/` for Xiaohei and `assets/<article-slug>-littlebox/` for Littlebox.
-- The selected IP's prompt template and QA gate govern generation and iteration.
-- Cross-IP rule leakage is a failure: Xiaohei keeps pure white thin-line visual DNA; Littlebox keeps pale background, chunky marker strokes, closed box anatomy, and amber tape identity.
+## Validator Changes
 
-The skill description frontmatter should mention selectable IPs while preserving Xiaohei defaults. Example:
+Extend existing helpers instead of adding a framework. Recommended changes:
 
-```yaml
-description: 生成 Ian 小黑或 Littlebox 风格的中文正文配图；默认使用小黑 IP，也可按用户指定选择 Littlebox/小盒/纸盒视觉 IP。
-```
+- Add `tomOperationalRefs()` parallel to `xiaoheiOperationalRefs()` and `littleboxOperationalRefs()`.
+- Add Tom files to `requiredPackageFiles()`.
+- Add `assets/<article-slug>-tom/` and escaped token to `outputPathTokens()`.
+- Update `ROUTE-TABLE-001` to require `xiaohei`, `littlebox`, and `tom`.
+- Add `ROUTE-TOM-001` for display name, aliases, suffix, attribution markers, and status.
+- Update `ROUTE-DEFAULT-001` so Xiaohei remains the only default route and Tom has `default=false`.
+- Update `ROUTE-REFS-001` to handle Tom reference count.
+- Add `REFS-TOM-001`, `PROMPT-TOM-001`, `IP-TOM-001`, `NOTICE-TOM-001`, and `SMOKE-TOM-001`.
+- Update mixed-IP checks so wording covers route groups across all active routes.
+- Add a boundary check that public examples do not import rendered Tom images before rights-boundary review clears them.
 
-### Validation Tooling
+## Validation Commands
 
-Add `scripts/validate_skill_package.py` using only the Python standard library. The command should be:
+Use the existing commands:
 
 ```bash
-python3 scripts/validate_skill_package.py
+node scripts/validate-skill-package.mjs
+node --test scripts/validate-skill-package.test.mjs
+git diff --check
 ```
 
-Minimum checks:
-
-1. Required package files exist: `SKILL.md`, `agents/openai.yaml`, `references/ip-manifest.yaml`.
-2. Manifest parses with `yaml` only if PyYAML is available, with a small fallback parser or JSON-compatible subset if dependencies stay zero. A simpler alternative is `ip-manifest.json`, but YAML fits the repository better.
-3. Each IP declares `display_name`, `aliases`, `output_suffix`, `references`, and `hard_rules`.
-4. Every declared reference file exists under `ian-xiaohei-illustrations/references/`.
-5. `default_ip` is `xiaohei`.
-6. `SKILL.md` includes both output suffixes: `assets/<article-slug>-illustrations/` and `assets/<article-slug>-littlebox/`.
-7. Xiaohei prompt includes pure white background, Xiaohei core action, and sparse red/orange/blue labels.
-8. Littlebox prompt includes closed-only box, front-left three-quarter view, two-arm maximum, one amber jagged seam tape, and the two allowed background colors.
-9. Compatibility reference files still exist at current paths.
-10. `NOTICE.md` mentions the adapted Littlebox source and MIT attribution.
-
-Recommended optional command for review:
+Useful inspection commands during implementation:
 
 ```bash
-python3 scripts/validate_skill_package.py --strict
+find ian-xiaohei-illustrations/references/ips -maxdepth 3 -type f | sort
+sed -n '1,220p' ian-xiaohei-illustrations/references/routing.md
 ```
 
-Strict mode can fail on stale README links, missing example prompts for each IP, and placeholder drift in prompt templates. Keep `--strict` optional until the repository has stable examples for both IPs.
+Manual smoke prompts should cover:
 
-### Commands
+1. Omitted visual IP selects Xiaohei.
+2. Explicit Xiaohei selects `assets/<article-slug>-illustrations/`.
+3. Explicit Littlebox selects `assets/<article-slug>-littlebox/`.
+4. Explicit Tom selects `assets/<article-slug>-tom/`.
+5. Mixed Xiaohei/Littlebox/Tom request produces isolated route groups.
 
-Use these commands in roadmap phases:
+## What Not To Add
 
-```bash
-# Inspect current package shape
-find ian-xiaohei-illustrations -maxdepth 3 -type f | sort
-
-# Validate multi-IP package shape
-python3 scripts/validate_skill_package.py
-
-# Validate after docs/examples are updated
-python3 scripts/validate_skill_package.py --strict
-
-# Manual install smoke check
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
-```
-
-## File Impact
-
-### Add
-
-| File | Purpose |
+| Avoid | Reason |
 |---|---|
-| `ian-xiaohei-illustrations/references/ip-manifest.yaml` | Machine-readable IP registry for aliases, default IP, output suffixes, reference files, and hard rules. |
-| `ian-xiaohei-illustrations/references/routing.md` | Human-readable routing policy for IP selection, defaulting, and cross-IP isolation. |
-| `ian-xiaohei-illustrations/references/ips/xiaohei/style-dna.md` | Xiaohei-specific visual DNA, copied or moved from existing `style-dna.md`. |
-| `ian-xiaohei-illustrations/references/ips/xiaohei/ip.md` | Xiaohei-specific character contract, adapted from existing `xiaohei-ip.md`. |
-| `ian-xiaohei-illustrations/references/ips/xiaohei/composition-patterns.md` | Xiaohei-specific composition rules, adapted from existing composition file. |
-| `ian-xiaohei-illustrations/references/ips/xiaohei/prompt-template.md` | Xiaohei-specific prompt template, adapted from existing prompt template. |
-| `ian-xiaohei-illustrations/references/ips/xiaohei/qa-checklist.md` | Xiaohei-specific QA, adapted from existing QA file. |
-| `ian-xiaohei-illustrations/references/ips/littlebox/visual-language.md` | Littlebox visual language adapted from source repository. |
-| `ian-xiaohei-illustrations/references/ips/littlebox/ip.md` | Littlebox closed-box anatomy and behavior contract. |
-| `ian-xiaohei-illustrations/references/ips/littlebox/composition-methods.md` | Littlebox-specific composition families and metaphor rules. |
-| `ian-xiaohei-illustrations/references/ips/littlebox/language-and-labels.md` | Littlebox multilingual visible-label policy. |
-| `ian-xiaohei-illustrations/references/ips/littlebox/prompt-template.md` | Littlebox generation and editing prompt templates. |
-| `ian-xiaohei-illustrations/references/ips/littlebox/quality-gate.md` | Littlebox-specific post-generation QA. |
-| `ian-xiaohei-illustrations/references/ips/littlebox/examples.md` | Littlebox invocation and forward-test examples. |
-| `scripts/validate_skill_package.py` | Dependency-light validation command for package shape and multi-IP consistency. |
-
-### Edit
-
-| File | Required change |
-|---|---|
-| `ian-xiaohei-illustrations/SKILL.md` | Add IP selection, default Xiaohei route, Littlebox route, manifest reference, output path rules, and per-IP QA routing. |
-| `ian-xiaohei-illustrations/agents/openai.yaml` | Update display/description copy to mention selectable visual IPs while keeping Xiaohei default behavior clear. |
-| `README.md` | Document default Xiaohei usage, explicit Littlebox usage, install path, output path differences, and attribution. |
-| `examples/prompts.md` | Add copyable prompts for default Xiaohei, explicit Xiaohei, explicit Littlebox, and mixed shot-list planning. |
-| `NOTICE.md` | Add Littlebox source attribution, MIT license note, source repository URL, and adaptation statement. |
-| `.planning/codebase/STRUCTURE.md` | Refresh after implementation so roadmap/execution maps know the new `references/ips/` and `scripts/` paths. |
-| `.planning/codebase/STACK.md` | Refresh after implementation to record the validation script and manifest. |
-
-### Preserve
-
-| File or behavior | Preservation rule |
-|---|---|
-| `ian-xiaohei-illustrations/references/style-dna.md` | Keep resolving for current Xiaohei instructions. |
-| `ian-xiaohei-illustrations/references/prompt-template.md` | Keep valid for default Xiaohei generation. |
-| `ian-xiaohei-illustrations/references/qa-checklist.md` | Keep valid for default Xiaohei QA. |
-| `ian-xiaohei-illustrations/references/xiaohei-ip.md` | Keep valid for current Xiaohei character loading. |
-| `assets/<article-slug>-illustrations/` | Continue as Xiaohei output path. |
-| Existing skill name `ian-xiaohei-illustrations` | Preserve install compatibility and existing user invocation habits. |
+| Web app, UI, API service, database, worker, or server runtime | The product is an installable Codex Skill package. |
+| `package.json`, npm dependencies, bundler, formatter, or lint stack | The current validator runs with Node built-ins and the repository has no build pipeline. |
+| New manifest format | `references/routing.md` is already the canonical machine-checkable route table. |
+| Generic custom-IP marketplace or import schema | v1.1 scope is one authorized Tom route. |
+| Public rendered Tom example assets before review | Tom needs rights-boundary clearance before public example distribution. |
+| Shared prompt template for all IPs | Xiaohei, Littlebox, and Tom need isolated identity, prompt, QA, and output rules. |
+| Moving legacy Xiaohei root references | Existing Xiaohei compatibility depends on those paths. |
 
 ## Confidence
 
 | Area | Level | Reason |
 |---|---|---|
-| No app runtime | HIGH | Existing Xiaohei repo and Littlebox source are static Codex Skill packages using Markdown/YAML plus image generation. |
-| Markdown reference organization | HIGH | Current package already uses modular references, and Littlebox uses the same reference-module style. |
-| Xiaohei default compatibility | HIGH | Keeping current reference files and output path preserves the existing route while adding new routing on top. |
-| Littlebox reference import shape | HIGH | Source files map cleanly to IP-scoped references: visual language, IP contract, composition, labels, prompt, quality gate, examples. |
-| YAML manifest | MEDIUM | YAML is already present through `agents/openai.yaml`, but multi-IP manifest schema is repository-owned. |
-| Python validation script | MEDIUM | It is the lightest durable quality gate; exact checks may evolve as implementation reveals doc/link drift. |
+| Stack shape | HIGH | Current repository already uses Markdown/YAML/static assets plus dependency-free Node validation. |
+| Integration points | HIGH | `SKILL.md`, `routing.md`, docs, agent metadata, notice, release checklist, and validator are established route integration files. |
+| Validator direction | HIGH | Current validator hard-codes package files, routes, prompt markers, docs markers, and output tokens, so Tom can be added by extending the same pattern. |
+| Tom visual rule details | MEDIUM | This stack research identifies where Tom rules live; exact style and likeness constraints belong in the Tom IP pack research and implementation. |
+| Rights-boundary wording | MEDIUM | The project requires source, rights holder, allowed-use assumption, attribution wording, and distribution boundary; final wording needs maintainer/legal review before broad release. |
 
-## Risks
+## Roadmap Implication
 
-### Cross-IP Rule Leakage
-
-The main failure mode is mixing Xiaohei and Littlebox visual contracts. Xiaohei requires pure white background, thin black linework, and a solid-black creature. Littlebox requires pale sky-blue or pale lavender background, chunky marker strokes, closed paper-box anatomy, and one amber jagged seam tape. Prevention: route through `ip-manifest.yaml`, keep IP references isolated, and validate hard-rule phrases in each prompt template.
-
-### Compatibility Drift
-
-Moving current Xiaohei files directly into `references/ips/xiaohei/` can break the existing `SKILL.md` reference list and user expectations. Prevention: first copy into IP-scoped files, then leave compatibility files in place as wrappers or canonical Xiaohei files until a later cleanup milestone.
-
-### Manifest Overengineering
-
-The manifest can become an application configuration system if it tries to model every prompt and QA rule. Keep it narrow: identity, aliases, output suffix, reference paths, and hard-rule smoke checks. Prose references remain the source for detailed generation behavior.
-
-### Validation Dependency Creep
-
-Adding PyYAML or a larger test framework creates avoidable setup work. Prefer a small standard-library validator. If YAML parsing becomes awkward, use a constrained manifest format or add a tiny parser for the subset used here.
-
-### Attribution Gaps
-
-Littlebox material comes from a separate MIT-licensed skill repository. Copying or adapting files needs `NOTICE.md` updates and source attribution in README or reference headers. Treat attribution as part of the validation checklist.
-
-### Prompt Regression
-
-Changing prompt templates can weaken output quality without obvious file-level failures. Add a small set of prompt-template fixture checks in `scripts/validate_skill_package.py --strict` and keep manual visual QA as the final gate for actual generated images.
+Implement Tom as a vertical route slice: canonical pack first, routing second, runtime/docs third, validator fourth, release-boundary review last. This ordering keeps the package lightweight and gives maintainers a local gate before Tom appears as a normal bundled route.
