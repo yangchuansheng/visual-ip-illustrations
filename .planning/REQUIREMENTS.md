@@ -22,7 +22,7 @@
 
 ### Tom IP Pack
 
-- [ ] **TOMP-01**: Maintainer can find Tom canonical references under `ian-xiaohei-illustrations/references/ips/tom/`.
+- [x] **TOMP-01**: Maintainer can find Tom canonical references under `ian-xiaohei-illustrations/references/ips/tom/`.
 - [ ] **TOMP-02**: User receives Tom planning fields for placement, core idea, structure type, Tom state, Tom action, supporting objects, visible labels, output path, and rights-status note.
 - [ ] **TOMP-03**: Tom prompt template produces one 16:9 article illustration where Tom performs the cognitive action.
 - [ ] **TOMP-04**: Tom QA rejects generic cats, passive Tom placement, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, excessive text, and route leakage.
@@ -95,7 +95,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TOMR-03 | Phase 8 | Pending |
 | TOMR-04 | Phase 8 | Pending |
 | TOMR-05 | Phase 6 | Complete |
-| TOMP-01 | Phase 7 | Pending |
+| TOMP-01 | Phase 7 | Complete |
 | TOMP-02 | Phase 7 | Pending |
 | TOMP-03 | Phase 7 | Pending |
 | TOMP-04 | Phase 7 | Pending |

@@ -59,11 +59,11 @@ Plans:
   4. Tom QA rejects generic cats, passive Tom placement, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, excessive text, and route leakage.
   5. Tom edit prompts support stronger Tom participation, off-model identity repair, title removal, text reduction, and preservation of unaffected content.
 
-**Plans:** 3 plans
+**Plans:** 1/3 plans executed
 
 Plans:
 
-- [ ] 07-01-PLAN.md — Create Tom pack index, style DNA, and identity/status foundations.
+- [x] 07-01-PLAN.md — Create Tom pack index, style DNA, and identity/status foundations.
 - [ ] 07-02-PLAN.md — Create Tom composition patterns plus planning, generation, and edit prompt templates.
 - [ ] 07-03-PLAN.md — Create Tom QA checklist and refine cross-file Tom pack coherence.
 
@@ -119,7 +119,7 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 6. Tom Rights and Route Contract | 3/3 | Complete    | 2026-06-12 |
-| 7. Tom Canonical Pack | 0/3 | Planned | - |
+| 7. Tom Canonical Pack | 1/3 | In Progress|  |
 | 8. Skill Controller Integration | 0/TBD | Not started | - |
 | 9. Docs, Examples, and Release Surface | 0/TBD | Not started | - |
 | 10. Validation Hardening | 0/TBD | Not started | - |

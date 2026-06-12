@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
 status: verifying
-stopped_at: Phase 7 context gathered
-last_updated: "2026-06-12T18:11:53.191Z"
+stopped_at: Completed 07-01-PLAN.md
+last_updated: "2026-06-12T18:49:00.253Z"
 last_activity: 2026-06-12
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 6
+  completed_plans: 4
   percent: 20
 ---
 
@@ -61,6 +61,7 @@ Progress: [███████░░░] 67%
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
 | Phase 06 P02 | 2min4s | 2 tasks | 4 files |
 | Phase 06 P03 | 4min | 3 tasks | 5 files |
+| Phase 07 P01 | 2min11s | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -81,6 +82,9 @@ Recent decisions affecting current work:
 - [Phase 06]: Phase 6 Tom validation checks future Tom pack reference markers while requiring only `rights.md` to exist. — Plan 06-03 added bounded Tom route reference validation.
 - [Phase 06]: Public rendered Tom samples remain blocked while the release checklist records `PENDING / reviewer / date`. — Plan 06-03 added `BOUNDARY-TOM-IMG-001`.
 - [Phase 06]: The validator matrix now has 40 checks covering the Phase 6 Tom contract. — Plan 06-03 updated the validator and Node tests.
+- [Phase 07]: Tom canonical foundation files stay route-local under ian-xiaohei-illustrations/references/ips/tom/. — Plan 07-01 creates only index.md, style-dna.md, and tom-ip.md inside the Tom pack.
+- [Phase 07]: Tom route status remains gated-authorized, with rights.md as the operational rights authority. — All three Tom foundation files repeat the route status and rights-status note.
+- [Phase 07]: Phase 7 Plan 01 defines solo Tom article-illustration identity and leaves controller, public docs, examples, metadata, and validator hardening to later phases. — The plan scope fences D-27 through D-29 were preserved.
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T18:11:53.188Z
-Stopped at: Phase 7 context gathered
-Resume file: .planning/phases/07-tom-canonical-pack/07-CONTEXT.md
+Last session: 2026-06-12T18:49:00.250Z
+Stopped at: Completed 07-01-PLAN.md
+Resume file: None
