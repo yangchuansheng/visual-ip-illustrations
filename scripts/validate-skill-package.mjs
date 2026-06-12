@@ -204,10 +204,15 @@ export function parseMarkdownLinks(text) {
 
 export function outputPathTokens() {
   return {
-    raw: ["assets/<article-slug>-illustrations/", "assets/<article-slug>-littlebox/"],
+    raw: [
+      "assets/<article-slug>-illustrations/",
+      "assets/<article-slug>-littlebox/",
+      "assets/<article-slug>-tom/",
+    ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
       "assets/&lt;article-slug&gt;-littlebox/",
+      "assets/&lt;article-slug&gt;-tom/",
     ],
   };
 }
@@ -489,7 +494,7 @@ const checks = [
       "attribution_context",
       "status",
     ], ROUTING_FILE, "IP Routes table columns");
-    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox"], ROUTING_FILE, "route ids");
+    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox", "tom"], ROUTING_FILE, "route ids");
   }),
   defineCheck("ROUTE-XH-001", "routing.md preserves the Xiaohei active route contract", () => {
     const row = routeById("xiaohei");
@@ -518,6 +523,48 @@ const checks = [
       "active",
     ], "Littlebox display name, aliases, suffix, attribution, and status");
   }),
+  defineCheck("ROUTE-TOM-001", "routing.md preserves the Tom gated route contract", () => {
+    const row = routeById("tom");
+    const references = routeReferencePaths(row);
+    assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
+      "Tom",
+      "Tom Cat",
+      "Tom and Jerry",
+      "汤姆",
+      "汤姆猫",
+      "tom",
+      "gated-authorized",
+      "attribution records source identity",
+      "permission remains authorization-scope specific",
+      "references/ips/tom/rights.md",
+    ], "Tom display name, aliases, suffix, attribution boundary, rights record, and status");
+    if (row.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected tom default=false; observed ${row.default || "missing"}`);
+    }
+    if (row.output_suffix !== "tom") {
+      throw new Error(`${ROUTING_FILE} expected tom output_suffix=tom; observed ${row.output_suffix || "missing"}`);
+    }
+    assertArrayIncludes(references, [
+      "references/ips/tom/index.md",
+      "references/ips/tom/rights.md",
+      "references/ips/tom/style-dna.md",
+      "references/ips/tom/tom-ip.md",
+      "references/ips/tom/composition-patterns.md",
+      "references/ips/tom/prompt-template.md",
+      "references/ips/tom/qa-checklist.md",
+    ], ROUTING_FILE, "Tom locked required reference markers");
+    const outsideTomPack = references.filter((reference) => !reference.startsWith("references/ips/tom/"));
+    if (outsideTomPack.length > 0) {
+      throw new Error(
+        `${ROUTING_FILE} expected Tom references under references/ips/tom/; observed ${outsideTomPack.join(", ")}`,
+      );
+    }
+    assertExistingFiles(
+      [path.join(PACKAGE_DIR, "references", "ips", "tom", "rights.md")],
+      ROUTING_FILE,
+      "Phase 6 Tom rights record existence",
+    );
+  }),
   defineCheck("ROUTE-DEFAULT-001", "routing.md keeps Xiaohei as the only default active route", () => {
     const rows = routeRows();
     const defaults = rows.filter((row) => row.default === "true").map((row) => row.id);
@@ -528,11 +575,16 @@ const checks = [
     if (littlebox.default !== "false") {
       throw new Error(`${ROUTING_FILE} expected littlebox default=false; observed ${littlebox.default || "missing"}`);
     }
+    const tom = routeById("tom");
+    if (tom.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected tom default=false; observed ${tom.default || "missing"}`);
+    }
   }),
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCount = row.id === "littlebox" ? 6 : 5;
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7 };
+      const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
           `${ROUTING_FILE} expected ${row.id} required_references count=${expectedCount}; observed ${references.length}`,
@@ -541,6 +593,12 @@ const checks = [
       for (const reference of references) {
         const resolved = safeReferencePath(reference);
         const relative = displayPath(resolved);
+        if (row.id === "tom") {
+          if (!reference.startsWith("references/ips/tom/")) {
+            throw new Error(`${ROUTING_FILE} expected tom reference ${reference} under references/ips/tom/`);
+          }
+          if (reference !== "references/ips/tom/rights.md") continue;
+        }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
         }
@@ -550,15 +608,21 @@ const checks = [
   defineCheck("ROUTE-PATHS-001", "routing.md output suffixes match public output directories", () => {
     const xiaohei = routeById("xiaohei");
     const littlebox = routeById("littlebox");
+    const tom = routeById("tom");
     if (xiaohei.output_suffix !== "illustrations") {
       throw new Error(`${ROUTING_FILE} expected xiaohei output_suffix=illustrations; observed ${xiaohei.output_suffix}`);
     }
     if (littlebox.output_suffix !== "littlebox") {
       throw new Error(`${ROUTING_FILE} expected littlebox output_suffix=littlebox; observed ${littlebox.output_suffix}`);
     }
+    if (tom.output_suffix !== "tom") {
+      throw new Error(`${ROUTING_FILE} expected tom output_suffix=tom; observed ${tom.output_suffix}`);
+    }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
+      "assets/<article-slug>-tom/",
+      "assets/&lt;article-slug&gt;-tom/",
     ], "output suffix to output directory mapping");
   }),
   defineCheck("ROUTE-MIXED-001", "routing.md preserves mixed-IP separate route group wording", () => {
@@ -567,6 +631,7 @@ const checks = [
       "每个 route group 只加载自己的 `required_references`",
       "`xiaohei` 写入 `assets/<article-slug>-illustrations/`",
       "`littlebox` 写入 `assets/<article-slug>-littlebox/`",
+      "`tom` 写入 `assets/<article-slug>-tom/`",
     ], "mixed-IP isolated reference and output-directory wording");
   }),
   defineCheck("REFS-XH-001", "Xiaohei canonical operational references and index exist", () => {
@@ -677,6 +742,20 @@ const checks = [
       "wrong tape placement",
     ], "Littlebox closed identity, backgrounds, language, view, tape, arms, output, and QA failure markers");
   }),
+  defineCheck("RIGHTS-TOM-001", "Tom rights record preserves required Phase 6 rights markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "rights.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "## Source",
+      "## Rights Holder",
+      "## Authorization Scope",
+      "## Allowed Use",
+      "## Restricted Use",
+      "## Distribution Boundary",
+      "## Sample Policy",
+      "## Review Owner",
+      "gated-authorized",
+    ], "Tom rights headings and gated status");
+  }),
   defineCheck("DOC-LINKS-001", "README and examples local Markdown links point to existing files", () => {
     const links = localMarkdownLinks(["README.md", "examples/prompts.md"]);
     if (links.length === 0) {
@@ -711,6 +790,20 @@ const checks = [
       "Littlebox",
     ], "public route docs, canonical pack paths, and route names");
   }),
+  defineCheck("DOC-TOM-001", "public docs expose Tom gated route markers", () => {
+    const text = combinedText(["README.md", "examples/prompts.md"]);
+    assertIncludes(text, "README.md + examples/prompts.md", [
+      "gated-authorized",
+      "Tom",
+      "Tom Cat",
+      "Tom and Jerry",
+      "汤姆",
+      "汤姆猫",
+      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
+      "assets/<article-slug>-tom/",
+      "assets/&lt;article-slug&gt;-tom/",
+    ], "Tom status, aliases, rights path, and raw plus escaped output path tokens");
+  }),
   defineCheck("NOTICE-IAN-001", "NOTICE keeps Ian Xiaohei attribution markers", () => {
     assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
       "Ian Xiaohei Illustrations",
@@ -732,6 +825,19 @@ const checks = [
       "Copyright (c) 2026 okooo5km",
       "derived documentation",
     ], "Littlebox source project, author, URL, MIT context, commits, copyright, and derived-credit guidance");
+  }),
+  defineCheck("NOTICE-TOM-001", "NOTICE keeps Tom source attribution and permission boundary markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Tom Source Attribution and Permission Boundary",
+      "Tom from Tom and Jerry",
+      "Tom and Jerry / Tom",
+      "gated-authorized",
+      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
+      "Attribution records Tom source identity",
+      "Permission is authorization-scope specific",
+      "release checklist approval",
+      "public-sample gate",
+    ], "Tom source attribution, route status, rights record, and permission boundary");
   }),
   defineCheck("SMOKE-DEFAULT-001", "examples prompts cover omitted-IP default Xiaohei smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
@@ -775,11 +881,33 @@ const checks = [
       "assets/<article-slug>-littlebox/",
     ], "text-only mixed-IP variant group smoke prompt");
   }),
+  defineCheck("RELEASE-TOM-001", "release checklist keeps Tom rights and public sample gate markers", () => {
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "## Tom Rights and Public Sample Gate",
+      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
+      "gated-authorized",
+      "default=false",
+      "assets/<article-slug>-tom/",
+      "assets/&lt;article-slug&gt;-tom/",
+      "Public rendered Tom samples approved",
+      "PENDING / reviewer / date",
+    ], "Tom release gate section and pending public sample approval marker");
+  }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
     if (matches.length > 0) {
       throw new Error(
         `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Littlebox import; observed ${matches.join(", ")}`,
+      );
+    }
+  }),
+  defineCheck("BOUNDARY-TOM-IMG-001", "example asset directories keep Tom rendered assets behind release approval", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const pendingPublicSamples = releaseChecklist.includes("PENDING / reviewer / date");
+    const matches = imageAssetPaths().filter((relativePath) => /tom|tom-cat|tom-and-jerry|汤姆|汤姆猫/i.test(relativePath));
+    if (pendingPublicSamples && matches.length > 0) {
+      throw new Error(
+        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Tom assets while approval is PENDING; observed ${matches.join(", ")}`,
       );
     }
   }),
