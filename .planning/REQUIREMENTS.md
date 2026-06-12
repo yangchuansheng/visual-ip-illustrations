@@ -7,8 +7,8 @@
 
 ### Rights
 
-- [ ] **RGT-01**: Maintainer can read Tom source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner in Tom-specific documentation.
-- [ ] **RGT-02**: Maintainer can distinguish Tom attribution from Tom permission in `NOTICE.md`.
+- [x] **RGT-01**: Maintainer can read Tom source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner in Tom-specific documentation.
+- [x] **RGT-02**: Maintainer can distinguish Tom attribution from Tom permission in `NOTICE.md`.
 - [ ] **RGT-03**: Maintainer can keep Tom route gated or active through explicit route-status wording shared by routing docs, README, examples, and release checklist.
 - [ ] **RGT-04**: Maintainer can block public rendered Tom example assets until release checklist records explicit public-sample approval.
 
@@ -18,7 +18,7 @@
 - [ ] **TOMR-02**: User who omits visual IP still gets Xiaohei as the only default route.
 - [ ] **TOMR-03**: User can request Xiaohei, Littlebox, and Tom for the same core idea and receive separate variant groups.
 - [ ] **TOMR-04**: Tom outputs use `assets/<article-slug>-tom/` and docs include the escaped token `assets/&lt;article-slug&gt;-tom/`.
-- [ ] **TOMR-05**: Maintainer can inspect Tom route metadata, aliases, default flag, output suffix, required references, attribution context, and route status in `references/routing.md`.
+- [x] **TOMR-05**: Maintainer can inspect Tom route metadata, aliases, default flag, output suffix, required references, attribution context, and route status in `references/routing.md`.
 
 ### Tom IP Pack
 
@@ -86,15 +86,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RGT-01 | Phase 6 | Pending |
-| RGT-02 | Phase 6 | Pending |
+| RGT-01 | Phase 6 | Complete |
+| RGT-02 | Phase 6 | Complete |
 | RGT-03 | Phase 6 | Pending |
 | RGT-04 | Phase 6 | Pending |
 | TOMR-01 | Phase 8 | Pending |
 | TOMR-02 | Phase 8 | Pending |
 | TOMR-03 | Phase 8 | Pending |
 | TOMR-04 | Phase 8 | Pending |
-| TOMR-05 | Phase 6 | Pending |
+| TOMR-05 | Phase 6 | Complete |
 | TOMP-01 | Phase 7 | Pending |
 | TOMP-02 | Phase 7 | Pending |
 | TOMP-03 | Phase 7 | Pending |

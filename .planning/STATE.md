@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
-status: planning
-stopped_at: Phase 6 context gathered
-last_updated: "2026-06-12T17:06:26.871Z"
-last_activity: 2026-06-13 — v1.1 roadmap created from current requirements and research.
+status: executing
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-06-12T17:39:07.076Z"
+last_activity: 2026-06-12 -- Phase 06 Plan 01 completed
 progress:
   total_phases: 5
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_plans: 3
+  completed_plans: 1
+  percent: 33
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Milestone v1.1 — Authorized Tom IP Integration
+**Current focus:** Phase 06 — tom-rights-and-route-contract
 
 ## Current Position
 
-Phase: 6 of 10 overall; 1 of 5 for v1.1 (Tom Rights and Route Contract)
-Plan: —
-Status: Ready to plan Phase 6
-Last activity: 2026-06-13 — v1.1 roadmap created from current requirements and research.
+Phase: 06 (tom-rights-and-route-contract) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
+Last activity: 2026-06-12 -- Phase 06 Plan 01 completed
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [███░░░░░░░] 33%
 
 ## Performance Metrics
 
@@ -57,6 +57,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: Phase 5 documentation packaging is complete; v1.1 is ready for Phase 6 planning.
 
 *Updated after each plan completion*
+| Phase 06 P01 | 3min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Recent decisions affecting current work:
 - [Phase 7]: Tom canonical rules stay isolated under `ian-xiaohei-illustrations/references/ips/tom/`.
 - [Phase 8]: Xiaohei remains the only implicit default; Littlebox and Tom stay explicit selectable routes.
 - [Phase 10]: Validation stays dependency-free Node and covers protected-IP route, leakage, docs, path, and public-sample gates.
+- [Phase 06]: Tom route status remains `gated-authorized` until maintainer release review changes it. — Plan 06-01 created the Tom rights record and route/NOTICE contract.
+- [Phase 06]: Tom attribution records source identity while permission remains authorization-scope specific through `rights.md` and release approval. — NOTICE.md now names the Tom source context and points permission to the rights record, release checklist, and public-sample gate.
+- [Phase 06]: Xiaohei remains the only default route; Tom is explicit with `default=false`. — The route table verification confirmed Xiaohei is the only `default=true` route and Tom is `default=false` with `gated-authorized` status.
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T17:06:26.868Z
-Stopped at: Phase 6 context gathered
-Resume file: .planning/phases/06-tom-rights-and-route-contract/06-CONTEXT.md
+Last session: 2026-06-12T17:38:42.638Z
+Stopped at: Completed 06-01-PLAN.md
+Resume file: None
