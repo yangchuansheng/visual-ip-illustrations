@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 9 context gathered
-last_updated: "2026-06-12T20:17:21.096Z"
+status: executing
+stopped_at: Completed 09-01-PLAN.md
+last_updated: "2026-06-12T20:48:15.588Z"
 last_activity: 2026-06-12
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 7
-  completed_plans: 7
-  percent: 60
+  total_plans: 12
+  completed_plans: 8
+  percent: 67
 ---
 
 # Project State
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 06 — tom-rights-and-route-contract
+**Current focus:** Phase 09 — tom-docs-examples-release-surface
 
 ## Current Position
 
-Phase: 8
-Plan: Not started
-Status: Phase complete — ready for verification
+Phase: 9
+Plan: 02 next
+Status: 09-01 complete — continuing Phase 9
 Last activity: 2026-06-12
 
 Progress: [███████░░░] 67%
@@ -36,7 +36,7 @@ Progress: [███████░░░] 67%
 
 **Velocity:**
 
-- Total plans completed: 22
+- Total plans completed: 23
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -64,6 +64,7 @@ Progress: [███████░░░] 67%
 | Phase 06 P03 | 4min | 3 tasks | 5 files |
 | Phase 07 P01 | 2min11s | 2 tasks | 4 files |
 | Phase 08 P01 | 34min | 3 tasks | 2 files |
+| Phase 09 P01 | 24min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -90,6 +91,8 @@ Recent decisions affecting current work:
 - [Phase 08]: Xiaohei remains the only omitted-IP default while Tom stays explicit with default=false.
 - [Phase 08]: Tom controller behavior consumes references/routing.md and the route-local Tom pack while public docs and validators stay scoped to later phases.
 - [Phase 08]: Tom delivery keeps gated-authorized and references/ips/tom/rights.md visible as route context.
+- [Phase 09]: README documents Xiaohei as implicit default, Littlebox as explicit active, and Tom as explicit gated protected-character route. — Plan 09-01 aligns README with Phase 8 verified controller behavior.
+- [Phase 09]: Tom public docs stay tied to gated-authorized, rights.md, output suffix tom, and RELEASE_CHECKLIST public-sample gate. — Plan 09-01 closes TDOC-05 while avoiding broad Tom availability and rendered sample claims.
 
 ### Pending Todos
 
@@ -109,6 +112,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T20:17:21.092Z
-Stopped at: Phase 9 context gathered
-Resume file: .planning/phases/09-tom-docs-examples-release-surface/09-CONTEXT.md
+Last session: 2026-06-12T20:48:15.585Z
+Stopped at: Completed 09-01-PLAN.md
+Resume file: None
