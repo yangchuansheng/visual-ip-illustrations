@@ -3,10 +3,10 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Authorized Tom IP Integration
 status: planning
-last_updated: "2026-06-13T00:06:49.726+08:00"
+last_updated: "2026-06-13T00:33:22+08:00"
 last_activity: 2026-06-13
 progress:
-  total_phases: 0
+  total_phases: 5
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -24,10 +24,12 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: 6 of 10 overall; 1 of 5 for v1.1 (Tom Rights and Route Contract)
 Plan: —
-Status: Defining requirements
-Last activity: 2026-06-13 — Milestone v1.1 started
+Status: Ready to plan Phase 6
+Last activity: 2026-06-13 — v1.1 roadmap created from current requirements and research.
+
+Progress: [░░░░░░░░░░] 0%
 
 ## Performance Metrics
 
@@ -46,19 +48,14 @@ Last activity: 2026-06-13 — Milestone v1.1 started
 | 3 | 5 | 26min | 5min 12s |
 | 4 | 3 | 19min | 6min 20s |
 | 5 | 3 | 10min | 3min 20s |
+| 6-10 | TBD | - | - |
 
 **Recent Trend:**
 
 - Last 5 plans: Phase 4 Plan 04-03 completed validation closeout; Phase 5 Plan 01 completed README and release checklist; Phase 5 Plan 02 expanded prompt examples and smoke fixtures; Phase 5 Plan 03 updated metadata and recorded closeout proof.
-- Trend: Phase 5 documentation packaging is complete.
+- Trend: Phase 5 documentation packaging is complete; v1.1 is ready for Phase 6 planning.
 
 *Updated after each plan completion*
-| Phase 04-validation-hardening P01 | 5min | 2 tasks | 3 files |
-| Phase 04-validation-hardening P02 | 9min | 3 tasks | 3 files |
-| Phase 04-validation-hardening P03 | 5min | 3 tasks | 2 files |
-| Phase 05-documentation-examples-and-release-packaging P01 | 4min | 2 tasks | 2 files |
-| Phase 05-documentation-examples-and-release-packaging P02 | 3min | 2 tasks | 1 files |
-| Phase 05-documentation-examples-and-release-packaging P03 | 3min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -67,21 +64,10 @@ Last activity: 2026-06-13 — Milestone v1.1 started
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
-- [Phase 1]: Use routing and shared workflow contracts as the first delivery boundary.
-- [Phase 2]: Preserve Xiaohei as the compatibility baseline before adding Littlebox.
-- [Phase 2]: Keep Xiaohei canonical files under `ian-xiaohei-illustrations/references/ips/xiaohei/` while root `references/*.md` remain legacy-compatible.
-- [Phase 3]: Land Littlebox as a full vertical IP slice with attribution in the same phase.
-- [Phase 4]: Keep validation lightweight and runnable without a full app framework.
-- [Phase 4]: Use a dependency-free Node validator with synchronous local file reads.
-- [Phase 4]: Export parser helpers from the validator script so parser behavior can be smoke-tested directly.
-- [Phase 4]: Kept the full contract matrix in the dependency-free validator script. — The repository has no package runtime and Phase 4 requires one local command.
-- [Phase 4]: Validated openai.yaml shape only while preserving Phase 5 metadata wording ownership. — Phase 5 owns broad selectable-IP copy and release docs.
-- [Phase 4]: Kept README discoverability to one maintainer command pointer while preserving Phase 5 ownership of broad docs and release packaging.
-- [Phase 5]: README is the concise public two-IP entrypoint. Xiaohei default behavior is stated early, Littlebox is explicit selectable IP, and examples cover Xiaohei planning/generation, Littlebox planning/generation, and same-idea IP contrast.
-- [Phase 5]: RELEASE_CHECKLIST.md is the maintainer release gate for validator commands, Node tests, smoke prompts, NOTICE attribution, installable package boundary, public docs markers, and Phase 5 scope fences.
-- [Phase 05]: Mixed-IP examples use one shared core idea with separate Xiaohei and Littlebox variant groups and output directories. — This matches the routing contract and prevents cross-IP prompt leakage.
-- [Phase 05]: examples/prompts.md now serves as both the public prompt catalog and the stable smoke fixture source for route validation. — Plan 05-02 expanded copyable prompts while preserving validator smoke markers.
-- [Phase 05]: Installed-agent metadata names Xiaohei and Littlebox, describes selectable visual IP support, preserves Xiaohei as default, and keeps `$ian-xiaohei-illustrations` as the default prompt invocation. — Plan 05-03 closed DOCS-05 and full Phase 5 validation proof.
+- [Phase 6]: Tom rights boundary and route status lead the milestone before runtime route integration.
+- [Phase 7]: Tom canonical rules stay isolated under `ian-xiaohei-illustrations/references/ips/tom/`.
+- [Phase 8]: Xiaohei remains the only implicit default; Littlebox and Tom stay explicit selectable routes.
+- [Phase 10]: Validation stays dependency-free Node and covers protected-IP route, leakage, docs, path, and public-sample gates.
 
 ### Pending Todos
 
@@ -89,7 +75,7 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-- None.
+- Final Tom authorization scope, public generated-sample policy, and release wording need maintainer review during Phase 6.
 
 ## Deferred Items
 
@@ -101,6 +87,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T10:02:52.000Z
-Stopped at: Completed 05-03-PLAN.md
+Last session: 2026-06-13
+Stopped at: v1.1 roadmap initialized
 Resume file: None

@@ -2,7 +2,11 @@
 
 ## Overview
 
-This MVP turns the existing Xiaohei-only Codex Skill into a reliable two-IP article illustration skill. The path starts with routing and shared workflow contracts, canonicalizes Xiaohei as the compatibility baseline, adds Littlebox as a complete vertical IP pack, makes the package shape executable through validation, then updates public documentation and release packaging around the working behavior.
+v1.1 adds an authorized Tom route as the third selectable visual IP while preserving the shipped Xiaohei default and Littlebox explicit route. The milestone follows the protected-character dependency chain: rights and route contract, Tom canonical pack, skill controller integration, public docs and release surface, then validation hardening. The package stays a lightweight Markdown/YAML Codex Skill with dependency-free local validation and host-provided image generation.
+
+**Current Milestone:** v1.1 Authorized Tom IP Integration
+**Phase Range:** 6-10
+**Granularity:** coarse
 
 ## Phases
 
@@ -13,166 +17,97 @@ This MVP turns the existing Xiaohei-only Codex Skill into a reliable two-IP arti
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [x] **Phase 1: Routing Foundation** - Users and maintainers get deterministic IP selection, Xiaohei defaulting, shared workflow boundaries, and route metadata. (completed 2026-06-12)
-- [x] **Phase 2: Xiaohei Canonicalization** - Maintainers get a canonical Xiaohei IP pack while existing Xiaohei usage and paths keep working. (completed 2026-06-12)
-- [x] **Phase 3: Littlebox Vertical Slice** - Users can request Littlebox and receive the correct identity, prompt, QA, output path, and attribution behavior. (completed 2026-06-12)
-- [x] **Phase 4: Validation Hardening** - Maintainers can run one local command that catches package, routing, prompt, path, docs, and attribution drift. (completed 2026-06-12)
-- [x] **Phase 5: Documentation, Examples, and Release Packaging** - Users and maintainers get public docs, copyable examples, metadata, and release checks that match the two-IP package. (completed 2026-06-12)
+- [ ] **Phase 6: Tom Rights and Route Contract** - Maintainers get Tom rights boundaries, route status, aliases, route metadata, and public-sample gates before broad release.
+- [ ] **Phase 7: Tom Canonical Pack** - Maintainers get an isolated Tom reference pack for identity, planning, prompts, composition, QA, edits, and rights notes.
+- [ ] **Phase 8: Skill Controller Integration** - Users can explicitly select Tom or request separate Xiaohei, Littlebox, and Tom variants while Xiaohei remains the only default route.
+- [ ] **Phase 9: Docs, Examples, and Release Surface** - Users and maintainers get Tom-aware README guidance, copyable prompts, metadata, and release checks with consistent route status wording.
+- [ ] **Phase 10: Validation Hardening** - Maintainers can run local validation and tests that cover Tom route behavior, protected-IP boundaries, docs markers, paths, and leakage gates.
 
 ## Phase Details
 
-### Phase 1: Routing Foundation
+### Phase 6: Tom Rights and Route Contract
 
-**Goal:** Users can omit or select the visual IP and the skill routes work through shared workflow rules with Xiaohei as the default.
-**Mode:** mvp
-**Depends on:** Nothing (first phase)
-**Requirements:** ROUT-01, ROUT-02, ROUT-05, IPCK-03, IPCK-05
+**Goal**: Maintainers can audit Tom rights boundaries and route metadata before Tom is treated as a selectable protected-character route.
+**Depends on**: Phase 5
+**Requirements**: RGT-01, RGT-02, RGT-03, RGT-04, TOMR-05
 **Success Criteria** (what must be TRUE):
 
-  1. User can omit an IP name and the skill follows the existing Xiaohei route by default.
-  2. User can request Xiaohei through documented aliases and see the Xiaohei route selected.
-  3. User-facing routing docs explain default IP behavior, explicit aliases, mixed-IP handling, and output paths.
-  4. Maintainer can read shared workflow guidance that covers article understanding, cognitive-anchor selection, generation loop, QA handoff, asset preservation, and delivery reporting without IP-specific style rules.
-  5. Maintainer can read each IP's aliases, output suffix, required references, and attribution context from one routing manifest or routing section.
+  1. Maintainer can read Tom source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner in Tom-specific documentation.
+  2. Maintainer can distinguish Tom attribution from Tom permission in `NOTICE.md`.
+  3. Maintainer can see explicit Tom route-status wording shared by routing docs, README, examples, and release checklist.
+  4. Maintainer can block public rendered Tom example assets until the release checklist records explicit public-sample approval.
+  5. Maintainer can inspect Tom route metadata, aliases, default flag, output suffix, required references, attribution context, and route status in `references/routing.md`.
 
-**Plans:** 2/2 plans complete
-**UI hint:** no
+**Plans**: TBD
 
-### Phase 2: Xiaohei Canonicalization
+### Phase 7: Tom Canonical Pack
 
-**Goal:** Maintainers can work from a canonical Xiaohei IP pack while users keep the current Xiaohei prompt, QA, and asset behavior.
-**Mode:** mvp
-**Depends on:** Phase 1
-**Requirements:** IPCK-01, IPCK-04, XIAO-01, XIAO-02, XIAO-03, XIAO-04, XIAO-05
+**Goal**: Users and maintainers can rely on a route-isolated Tom pack that defines Tom identity, article action language, prompts, QA, edits, and rights-status behavior.
+**Depends on**: Phase 6
+**Requirements**: TOMP-01, TOMP-02, TOMP-03, TOMP-04, TOMP-05
 **Success Criteria** (what must be TRUE):
 
-  1. Maintainer can find Xiaohei visual language, IP contract, composition rules, prompt template, and quality gate under a canonical Xiaohei IP pack.
-  2. Existing Xiaohei README and examples prompts still route to valid Xiaohei planning and generation instructions.
-  3. Xiaohei outputs continue to use `assets/<article-slug>-illustrations/`.
-  4. Xiaohei prompt and QA preserve the 16:9 white-background hand-drawn visual contract, solid-black character identity, labels, whitespace, and one-idea-per-image behavior.
-  5. Legacy Xiaohei reference paths remain available and the anti-repeat guidance keeps prior examples as calibration material.
+  1. Maintainer can find Tom canonical references under `ian-xiaohei-illustrations/references/ips/tom/`.
+  2. User receives Tom planning fields for placement, core idea, structure type, Tom state, Tom action, supporting objects, visible labels, output path, and rights-status note.
+  3. Tom prompt template produces one 16:9 article illustration where Tom performs the cognitive action.
+  4. Tom QA rejects generic cats, passive Tom placement, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, excessive text, and route leakage.
+  5. Tom edit prompts support stronger Tom participation, off-model identity repair, title removal, text reduction, and preservation of unaffected content.
 
-**Plans:** 3/3 plans complete
-Plans:
-**Wave 1**
+**Plans**: TBD
 
-- [x] 02-01-PLAN.md — Create canonical Xiaohei IP pack files with exact parity to current Xiaohei references.
+### Phase 8: Skill Controller Integration
 
-**Wave 2** *(blocked on Wave 1 completion)*
-
-- [x] 02-02-PLAN.md — Preserve legacy root reference entry points and point routing metadata to canonical Xiaohei files.
-
-**Wave 3** *(blocked on Wave 2 completion)*
-
-- [x] 02-03-PLAN.md — Wire canonical-first skill/docs pointers while preserving current Xiaohei prompts and output path.
-
-**UI hint:** no
-
-### Phase 3: Littlebox Vertical Slice
-
-**Goal:** Users can request Littlebox as a distinct visual IP and receive Littlebox-specific planning, prompts, QA, saved outputs, and attribution.
-**Mode:** mvp
-**Depends on:** Phase 2
-**Requirements:** ROUT-03, ROUT-04, IPCK-02, LBOX-01, LBOX-02, LBOX-03, LBOX-04, LBOX-05, LBOX-06, LBOX-07, DOCS-04
+**Goal**: Users can select Tom through the skill controller and receive route-isolated planning, generation, QA, mixed-IP grouping, and Tom output paths.
+**Depends on**: Phase 7
+**Requirements**: TOMR-01, TOMR-02, TOMR-03, TOMR-04
 **Success Criteria** (what must be TRUE):
 
-  1. User can request Littlebox through documented aliases and see Littlebox-specific planning, prompt, QA, and output path behavior.
-  2. User can ask for both Xiaohei and Littlebox and receive separate variant groups for the same idea.
-  3. Littlebox planning includes closed state, visual metaphor, pale sky-blue or pale lavender background choice, supporting objects, and short visible labels.
-  4. Littlebox prompt and QA enforce closed paper-box identity, front-left three-quarter view, front-panel dot eyes, tiny legs, side-seam arm limits, amber jagged seam tape, near-white body, rough marker linework, accent colors, background balancing, and active character placement.
-  5. Maintainer can verify Littlebox source attribution in `NOTICE.md`, including author, source repository, MIT context, and inspected commit.
+  1. User can explicitly request Tom through clear aliases such as `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫`.
+  2. User who omits a visual IP still gets Xiaohei as the only default route.
+  3. User can request Xiaohei, Littlebox, and Tom for the same core idea and receive separate variant groups.
+  4. Tom outputs use `assets/<article-slug>-tom/`, and docs include the escaped token `assets/&lt;article-slug&gt;-tom/`.
 
-**Plans:** 5/5 plans complete
-Plans:
-**Wave 1**
+**Plans**: TBD
 
-- [x] 03-01-PLAN.md — Create the canonical Littlebox IP pack under `references/ips/littlebox/`.
+### Phase 9: Docs, Examples, and Release Surface
 
-**Wave 2** *(blocked on Wave 1 completion)*
-
-- [x] 03-02-PLAN.md — Activate the Littlebox route in `references/routing.md` while preserving Xiaohei as default.
-
-**Wave 3** *(blocked on Wave 2 completion)*
-
-- [x] 03-03-PLAN.md — Wire `SKILL.md` selected-route runtime behavior for Littlebox and mixed-IP variants.
-
-**Wave 4** *(blocked on Wave 3 completion)*
-
-- [x] 03-04-PLAN.md — Update Littlebox attribution and minimal active-route public docs.
-
-**Wave 5** *(blocked on Wave 4 completion)*
-
-- [x] 03-05-PLAN.md — Run and record package verification for the Littlebox vertical slice.
-
-**UI hint:** no
-
-### Phase 4: Validation Hardening
-
-**Goal:** As a maintainer, I want to validate the installable skill package with a lightweight local command before release or broad documentation edits, so that package, routing, prompt, path, docs, and attribution drift is caught early.
-**Mode:** mvp
-**Depends on:** Phase 3
-**Requirements:** VALD-01, VALD-02, VALD-03, VALD-04, VALD-05
+**Goal**: Users and maintainers can request, inspect, and release Tom behavior through public docs and release materials that match the route-status contract.
+**Depends on**: Phase 8
+**Requirements**: TDOC-01, TDOC-02, TDOC-03, TDOC-04, TDOC-05
 **Success Criteria** (what must be TRUE):
 
-  1. Maintainer can run one local validation command for the installable skill package without external services or an application framework.
-  2. Validation reports required package shape, metadata, routing aliases, reference files, legacy paths, prompt placeholders, output suffixes, docs links, and NOTICE attribution status.
-  3. Validation exits nonzero when a required reference path, output path rule, alias group, prompt placeholder, or attribution marker is missing.
-  4. Maintainer can use manual smoke prompts to verify default Xiaohei, explicit Xiaohei, explicit Littlebox, and mixed-IP variant behavior.
+  1. README explains Tom as an explicit protected-character route with its status, aliases, output path, and rights boundary.
+  2. `examples/prompts.md` includes copyable Tom planning, Tom generation, Tom smoke, and three-IP mixed variant prompts.
+  3. `agents/openai.yaml` names Xiaohei, Littlebox, and Tom while preserving Xiaohei as the implicit default.
+  4. `RELEASE_CHECKLIST.md` includes Tom authorization review, route status review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final rights review.
+  5. Public docs avoid broad Tom availability claims when Tom route status is gated.
 
-**Plans:** 3/3 plans complete
-Plans:
-**Wave 1**
+**Plans**: TBD
 
-- [x] 04-01-PLAN.md — Create the dependency-free validator harness and parser foundation.
+### Phase 10: Validation Hardening
 
-**Wave 2** *(blocked on Wave 1 completion)*
-
-- [x] 04-02-PLAN.md — Implement the full skill package contract check matrix.
-
-**Wave 3** *(blocked on Wave 2 completion)*
-
-- [x] 04-03-PLAN.md — Prove positive and negative validation behavior and close Phase 4.
-
-**UI hint:** no
-
-### Phase 5: Documentation, Examples, and Release Packaging
-
-**Goal:** Users and maintainers can understand, use, verify, and package the two-IP skill from public docs and release materials.
-**Mode:** mvp
-**Depends on:** Phase 4
-**Requirements:** DOCS-01, DOCS-02, DOCS-03, DOCS-05, DOCS-06
+**Goal**: Maintainers can verify the three-route protected-IP package locally with deterministic validator checks and Node tests.
+**Depends on**: Phase 9
+**Requirements**: TVAL-01, TVAL-02, TVAL-03, TVAL-04, TVAL-05, TVAL-06, TVAL-07
 **Success Criteria** (what must be TRUE):
 
-  1. README explains multi-IP support, Xiaohei default behavior, and concise planning/generation examples for Xiaohei, Littlebox, and same-idea IP contrast.
-  2. `examples/prompts.md` gives copyable prompts for Xiaohei, Littlebox, and mixed-IP variants.
-  3. `agents/openai.yaml` metadata reflects selectable IP support while preserving Xiaohei as the default behavior.
-  4. Maintainer can follow a release checklist that requires validation, both-IP smoke tests, attribution review, and installable package boundary checks.
+  1. Maintainer can run the local validator successfully after v1.1 roadmap initialization clears prior phase working directories.
+  2. Validator checks Tom route row, aliases, default false, output suffix, required references, route status, and attribution context.
+  3. Validator checks Tom canonical pack files, prompt placeholders, QA markers, rights-boundary markers, docs markers, metadata, NOTICE, release checklist, raw and escaped output path tokens, and Tom smoke prompts.
+  4. Validator checks Tom leakage boundaries so Xiaohei and Littlebox packs stay free of Tom identity rules and Warner rights text.
+  5. Validator checks public example asset directories for Tom-rendered assets unless the release checklist has explicit public-sample approval, and Node tests cover three-route parser behavior, stable check ordering, Tom failure messages, and full pass output.
 
-**Plans:** 3/3 plans complete
-Plans:
-**Wave 1**
-
-- [x] 05-01-PLAN.md — Update README as the concise two-IP public entrypoint and add RELEASE_CHECKLIST.md.
-
-**Wave 2** *(blocked on Wave 1 completion)*
-
-- [x] 05-02-PLAN.md — Expand examples/prompts.md into copyable two-IP prompt groups and smoke fixtures.
-
-**Wave 3** *(blocked on Wave 2 completion)*
-
-- [x] 05-03-PLAN.md — Update agent metadata and record full Phase 5 validation closeout proof.
-
-**UI hint:** no
+**Plans**: TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
+Phases execute in numeric order: 6 -> 7 -> 8 -> 9 -> 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Routing Foundation | 2/2 | Complete    | 2026-06-12 |
-| 2. Xiaohei Canonicalization | 3/3 | Complete    | 2026-06-12 |
-| 3. Littlebox Vertical Slice | 5/5 | Complete    | 2026-06-12 |
-| 4. Validation Hardening | 3/3 | Complete    | 2026-06-12 |
-| 5. Documentation, Examples, and Release Packaging | 3/3 | Complete    | 2026-06-12 |
+| 6. Tom Rights and Route Contract | 0/TBD | Not started | - |
+| 7. Tom Canonical Pack | 0/TBD | Not started | - |
+| 8. Skill Controller Integration | 0/TBD | Not started | - |
+| 9. Docs, Examples, and Release Surface | 0/TBD | Not started | - |
+| 10. Validation Hardening | 0/TBD | Not started | - |

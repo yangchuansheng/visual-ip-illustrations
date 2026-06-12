@@ -86,13 +86,39 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| RGT-01 | Phase 6 | Pending |
+| RGT-02 | Phase 6 | Pending |
+| RGT-03 | Phase 6 | Pending |
+| RGT-04 | Phase 6 | Pending |
+| TOMR-01 | Phase 8 | Pending |
+| TOMR-02 | Phase 8 | Pending |
+| TOMR-03 | Phase 8 | Pending |
+| TOMR-04 | Phase 8 | Pending |
+| TOMR-05 | Phase 6 | Pending |
+| TOMP-01 | Phase 7 | Pending |
+| TOMP-02 | Phase 7 | Pending |
+| TOMP-03 | Phase 7 | Pending |
+| TOMP-04 | Phase 7 | Pending |
+| TOMP-05 | Phase 7 | Pending |
+| TDOC-01 | Phase 9 | Pending |
+| TDOC-02 | Phase 9 | Pending |
+| TDOC-03 | Phase 9 | Pending |
+| TDOC-04 | Phase 9 | Pending |
+| TDOC-05 | Phase 9 | Pending |
+| TVAL-01 | Phase 10 | Pending |
+| TVAL-02 | Phase 10 | Pending |
+| TVAL-03 | Phase 10 | Pending |
+| TVAL-04 | Phase 10 | Pending |
+| TVAL-05 | Phase 10 | Pending |
+| TVAL-06 | Phase 10 | Pending |
+| TVAL-07 | Phase 10 | Pending |
 
 **Coverage:**
 
 - v1.1 requirements: 26 total
-- Mapped to phases: 0
-- Unmapped: 26
+- Mapped to phases: 26
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-13*
-*Last updated: 2026-06-13 after v1.1 requirements definition*
+*Last updated: 2026-06-13 after v1.1 roadmap creation*
