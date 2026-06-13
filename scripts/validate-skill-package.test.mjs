@@ -28,16 +28,20 @@ const requiredCheckIds = [
   "REFS-XH-001",
   "REFS-LB-001",
   "REFS-TOM-001",
+  "REFS-FERRIS-001",
   "LEGACY-XH-001",
   "LEGACY-XH-002",
   "PROMPT-XH-001",
   "PROMPT-LB-001",
   "PROMPT-LB-002",
   "PROMPT-TOM-001",
+  "PROMPT-FERRIS-001",
   "IP-XH-001",
   "IP-LB-001",
   "IP-TOM-001",
+  "IP-FERRIS-001",
   "QA-TOM-001",
+  "QA-FERRIS-001",
   "RIGHTS-TOM-001",
   "SOURCE-FERRIS-001",
   "DOC-LINKS-001",
@@ -53,13 +57,16 @@ const requiredCheckIds = [
   "SMOKE-XH-001",
   "SMOKE-LB-001",
   "SMOKE-TOM-001",
+  "SMOKE-FERRIS-001",
   "SMOKE-MIXED-001",
   "RELEASE-TOM-001",
   "RELEASE-FERRIS-001",
   "BOUNDARY-IMG-001",
   "BOUNDARY-TOM-LEAK-001",
+  "BOUNDARY-FERRIS-LEAK-001",
   "BOUNDARY-TOM-IMG-001",
   "BOUNDARY-FERRIS-IMG-001",
+  "BOUNDARY-FERRIS-GEN-001",
   "BOUNDARY-P5-001",
 ];
 
@@ -122,7 +129,9 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] AGENT-SHAPE-001 /);
   assert.match(result.stdout, /\[PASS\] AGENT-TOM-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
-  assert.match(result.stdout, /Summary: total=\d+ passed=\d+ failed=0 skipped=0/);
+  assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
+  assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
+  assert.match(result.stdout, /Summary: total=60 passed=60 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -143,6 +152,7 @@ test("validator reports Task 1 contract checks in stable order", () => {
     "ROUTE-XH-001",
     "ROUTE-LB-001",
     "ROUTE-TOM-001",
+    "ROUTE-FERRIS-001",
     "ROUTE-DEFAULT-001",
     "ROUTE-REFS-001",
     "ROUTE-PATHS-001",
@@ -150,6 +160,7 @@ test("validator reports Task 1 contract checks in stable order", () => {
     "REFS-XH-001",
     "REFS-LB-001",
     "REFS-TOM-001",
+    "REFS-FERRIS-001",
     "LEGACY-XH-001",
     "LEGACY-XH-002",
   ];
@@ -300,7 +311,7 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
   assert.match(result.stdout, /observed missing marker/);
 });
 
-test("validator emits the full Phase 10 matrix with zero failures", () => {
+test("validator emits the full Phase 15 matrix with zero failures", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -311,7 +322,8 @@ test("validator emits the full Phase 10 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=53 passed=53 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=60 passed=60 failed=0 skipped=0/);
+  assert.equal(result.stderr, "");
 });
 
 test("parser helpers expose current package contract primitives", async () => {
@@ -319,7 +331,6 @@ test("parser helpers expose current package contract primitives", async () => {
   const skillText = readFileSync(path.join(repoRoot, "ian-xiaohei-illustrations", "SKILL.md"), "utf8");
   const routingText = readFileSync(path.join(repoRoot, "ian-xiaohei-illustrations", "references", "routing.md"), "utf8");
   const readmeText = readFileSync(path.join(repoRoot, "README.md"), "utf8");
-  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
 
   const frontmatter = validators.parseFrontmatter(skillText);
   assert.equal(frontmatter.data.name, "ian-xiaohei-illustrations");
@@ -351,7 +362,13 @@ test("parser helpers expose current package contract primitives", async () => {
     ],
   );
   assert.deepEqual(validators.splitRouteCell(routes[3].required_references), [
+    "references/ips/ferris/index.md",
     "references/ips/ferris/source.md",
+    "references/ips/ferris/style-dna.md",
+    "references/ips/ferris/ferris-ip.md",
+    "references/ips/ferris/composition-patterns.md",
+    "references/ips/ferris/prompt-template.md",
+    "references/ips/ferris/qa-checklist.md",
   ]);
   assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
 
@@ -365,6 +382,11 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-littlebox/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-tom/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-ferris/"));
+});
+
+test("approval parsers expose current release primitives", async () => {
+  const validators = await import(`${scriptPath}?approvalParsers=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
 
   const pendingApproval = validators.parsePublicTomSampleApproval(releaseChecklistText);
   assert.equal(pendingApproval.found, true);
