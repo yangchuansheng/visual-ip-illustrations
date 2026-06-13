@@ -400,6 +400,9 @@ function requiredPackageFiles() {
     ...littleboxOperationalRefs(),
     path.join(REFERENCES_DIR, "ips", "tom", "index.md"),
     ...tomOperationalRefs(),
+    path.join(REFERENCES_DIR, "ips", "ferris", "index.md"),
+    path.join(REFERENCES_DIR, "ips", "ferris", "source.md"),
+    ...ferrisOperationalRefs(),
     ...legacyXiaoheiRefs().map((item) => item.root),
     "README.md",
     "examples/prompts.md",
@@ -437,6 +440,16 @@ function tomOperationalRefs() {
     "references/ips/tom/composition-patterns.md",
     "references/ips/tom/prompt-template.md",
     "references/ips/tom/qa-checklist.md",
+  ].map((item) => path.join(PACKAGE_DIR, item));
+}
+
+function ferrisOperationalRefs() {
+  return [
+    "references/ips/ferris/style-dna.md",
+    "references/ips/ferris/ferris-ip.md",
+    "references/ips/ferris/composition-patterns.md",
+    "references/ips/ferris/prompt-template.md",
+    "references/ips/ferris/qa-checklist.md",
   ].map((item) => path.join(PACKAGE_DIR, item));
 }
 
@@ -875,6 +888,20 @@ const checks = [
       "route leakage",
     ], "Tom pack navigation, output path, and shared protected-route failure categories");
   }),
+  defineCheck("REFS-FERRIS-001", "Ferris canonical route references and source markers exist", () => {
+    const ferrisFiles = [
+      path.join(REFERENCES_DIR, "ips", "ferris", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "ferris", "source.md"),
+      ...ferrisOperationalRefs(),
+    ];
+    assertReadableFiles(ferrisFiles, path.join(REFERENCES_DIR, "ips", "ferris"), "Ferris seven-file pack");
+    for (const relativePath of ferrisFiles) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "source-reviewed",
+        "source.md",
+      ], "Ferris source-reviewed route status and source authority markers");
+    }
+  }),
   defineCheck("LEGACY-XH-001", "root Xiaohei compatibility files expose the current contract heading", () => {
     for (const item of legacyXiaoheiRefs()) {
       const body = bodyAfterHeading(requireFile(item.root), "Current Xiaohei Contract");
@@ -962,6 +989,28 @@ const checks = [
       "Protected-route block: source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, generic-cat drift, excessive text, and route leakage all fail the route.",
     ], "Tom planning fields, prompt placeholders, output path, rights note, edit gates, and protected-route block");
   }),
+  defineCheck("PROMPT-FERRIS-001", "Ferris prompt template preserves planning, generation, edit, and source markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "ferris", "prompt-template.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Ferris planning fields gate",
+      "Placement",
+      "Core idea",
+      "Structure type",
+      "Ferris state",
+      "Ferris action",
+      "Supporting objects",
+      "Visible labels",
+      "Output path: assets/<article-slug>-ferris/",
+      "Source/trademark note",
+      "Ferris one-image generation gate",
+      "Ferris edit participation repair gate",
+      "Ferris off-model identity repair gate",
+      "Ferris trademark-boundary repair gate",
+      "Ferris title removal edit gate",
+      "Ferris text reduction edit gate",
+      "Ferris unaffected-content preservation gate",
+    ], "Ferris planning fields, prompt placeholders, output path, source note, edit gates, and source/trademark repair markers");
+  }),
   defineCheck("IP-XH-001", "Xiaohei canonical pack preserves objective IP markers", () => {
     const text = combinedText([
       path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
@@ -1028,6 +1077,32 @@ const checks = [
       "assets/<article-slug>-tom/",
     ], "Tom rights authority, identity cues, cognitive action gates, composition gates, and output path");
   }),
+  defineCheck("IP-FERRIS-001", "Ferris canonical pack preserves source-reviewed identity and action gates", () => {
+    const text = combinedText([
+      path.join(REFERENCES_DIR, "ips", "ferris", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "ferris", "source.md"),
+      path.join(REFERENCES_DIR, "ips", "ferris", "style-dna.md"),
+      path.join(REFERENCES_DIR, "ips", "ferris", "ferris-ip.md"),
+      path.join(REFERENCES_DIR, "ips", "ferris", "composition-patterns.md"),
+    ]);
+    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "ferris"), [
+      "source-reviewed",
+      "Ferris the Rustacean",
+      "Ferris cognitive-action participation gate",
+      "Ferris must perform the central cognitive action",
+      "assets/<article-slug>-ferris/",
+      "source.md",
+      "Rust-themed article metaphors",
+      "generic-crab drift",
+      "passive Ferris placement",
+      "Rust-logo misuse",
+      "official-affiliation cues",
+      "over-detailed mascot rendering",
+      "excessive text",
+      "source-asset tracing",
+      "route leakage",
+    ], "Ferris source authority, identity cues, cognitive action gates, Rust-themed metaphors, route failures, and output path");
+  }),
   defineCheck("QA-TOM-001", "Tom QA checklist preserves protected-route pass, fail, repair, and delivery markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "qa-checklist.md");
     assertIncludes(requireFile(relativePath), relativePath, [
@@ -1056,6 +1131,34 @@ const checks = [
       "Tom QA unaffected-content preservation gate",
       "Accepted Tom images keep Tom as the action subject",
     ], "Tom QA pass criteria, protected-route failures, repair gates, rights marker, and delivery judgment");
+  }),
+  defineCheck("QA-FERRIS-001", "Ferris QA checklist preserves source-reviewed pass, fail, repair, and delivery markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "ferris", "qa-checklist.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Ferris QA source-reviewed gate.",
+      "Ferris QA source/trademark note gate.",
+      "Image is a 16:9 horizontal article illustration.",
+      "Ferris recognizability is clear",
+      "Ferris performs the active Ferris cognitive action.",
+      "Source/trademark note is present in planning, generation, edit, and delivery context.",
+      "generic-crab drift",
+      "passive Ferris placement",
+      "Rust-logo misuse",
+      "official-affiliation cues",
+      "over-detailed mascot rendering",
+      "excessive text",
+      "source-asset tracing",
+      "route leakage",
+      "Ferris QA route leakage failure",
+      "Ferris edit participation repair gate",
+      "Ferris off-model identity repair gate",
+      "Ferris trademark-boundary repair gate",
+      "Ferris title removal edit gate",
+      "Ferris text reduction edit gate",
+      "Ferris unaffected-content preservation gate",
+      "Delivery path uses `assets/<article-slug>-ferris/`.",
+      "Accepted Ferris images keep Ferris as the action subject",
+    ], "Ferris QA pass criteria, source/trademark checks, route leakage failure, repair gates, and delivery judgment");
   }),
   defineCheck("RIGHTS-TOM-001", "Tom rights record preserves required Phase 6 rights markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "rights.md");
@@ -1261,6 +1364,22 @@ const checks = [
       "Text-only maintainer route audit",
       "Public rendered Tom samples 由 RELEASE_CHECKLIST.md 的 public-sample gate 控制",
     ], "text-only explicit Tom route smoke, planning, generation, path, rights, and public-sample gate prompts");
+  }),
+  defineCheck("SMOKE-FERRIS-001", "examples prompts cover explicit Ferris route smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## 路由烟测：显式选择 Ferris",
+      "Ferris、Rust mascot、Rust crab、Rustacean、Rust 吉祥物、Rust 螃蟹",
+      "Ferris is an explicit Rust-community mascot route with status source-reviewed",
+      "route status 是 `source-reviewed`",
+      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
+      "使用 route-local reference directory：`ian-xiaohei-illustrations/references/ips/ferris/`",
+      "required references 包含 `index.md`、`source.md`、`style-dna.md`、`ferris-ip.md`、`composition-patterns.md`、`prompt-template.md`、`qa-checklist.md`",
+      "assets/<article-slug>-ferris/",
+      "assets/&lt;article-slug&gt;-ferris/",
+      "Source/trademark note",
+      "generated public Ferris samples require release review for Rust trademark and endorsement-safe wording",
+      "Text-only maintainer route audit",
+    ], "text-only explicit Ferris route smoke, planning, generation, path, source/trademark, and public-sample gate prompts");
   }),
   defineCheck("SMOKE-MIXED-001", "examples prompts cover mixed-IP variant smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
