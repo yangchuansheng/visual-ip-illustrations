@@ -1,62 +1,62 @@
-# Requirements: Authorized Tom IP Integration
+# Requirements: Ferris Rust Mascot IP Integration
 
 **Defined:** 2026-06-13
 **Core Value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## v1.1 Requirements
+## v1.2 Requirements
 
-### Rights
+### Source and Trademark Boundary
 
-- [x] **RGT-01**: Maintainer can read Tom source, rights holder, authorization scope, allowed use, restricted use, distribution boundary, sample policy, and review owner in Tom-specific documentation.
-- [x] **RGT-02**: Maintainer can distinguish Tom attribution from Tom permission in `NOTICE.md`.
-- [x] **RGT-03**: Maintainer can keep Tom route gated or active through explicit route-status wording shared by routing docs, README, examples, and release checklist.
-- [x] **RGT-04**: Maintainer can block public rendered Tom example assets until release checklist records explicit public-sample approval.
+- [ ] **FRGT-01**: Maintainer can read Ferris source, author, copyright waiver, reference URLs, Rust trademark policy context, endorsement boundary, allowed use, restricted use, distribution boundary, sample policy, and review owner in Ferris-specific documentation.
+- [ ] **FRGT-02**: Maintainer can distinguish Ferris source attribution from Rust trademark or official-affiliation permission in `NOTICE.md`.
+- [ ] **FRGT-03**: Maintainer can keep Ferris route status explicit through wording shared by routing docs, README, examples, and release checklist.
+- [ ] **FRGT-04**: Maintainer can verify that public Ferris examples avoid Rust-logo-forward claims, official endorsement language, and bundled Rust marks unless release review explicitly approves them.
 
 ### Routing
 
-- [x] **TOMR-01**: User can explicitly request Tom through clear aliases such as `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫`.
-- [x] **TOMR-02**: User who omits visual IP still gets Xiaohei as the only default route.
-- [x] **TOMR-03**: User can request Xiaohei, Littlebox, and Tom for the same core idea and receive separate variant groups.
-- [x] **TOMR-04**: Tom outputs use `assets/<article-slug>-tom/` and docs include the escaped token `assets/&lt;article-slug&gt;-tom/`.
-- [x] **TOMR-05**: Maintainer can inspect Tom route metadata, aliases, default flag, output suffix, required references, attribution context, and route status in `references/routing.md`.
+- [ ] **FERR-01**: User can explicitly request Ferris through clear aliases such as `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹`.
+- [ ] **FERR-02**: User who omits visual IP still gets Xiaohei as the only default route.
+- [ ] **FERR-03**: User can request Xiaohei, Littlebox, Tom, and Ferris for the same core idea and receive separate variant groups.
+- [ ] **FERR-04**: Ferris outputs use `assets/<article-slug>-ferris/` and docs include the escaped token `assets/&lt;article-slug&gt;-ferris/`.
+- [ ] **FERR-05**: Maintainer can inspect Ferris route metadata, aliases, default flag, output suffix, required references, attribution context, source status, and trademark boundary in `references/routing.md`.
 
-### Tom IP Pack
+### Ferris IP Pack
 
-- [x] **TOMP-01**: Maintainer can find Tom canonical references under `ian-xiaohei-illustrations/references/ips/tom/`.
-- [x] **TOMP-02**: User receives Tom planning fields for placement, core idea, structure type, Tom state, Tom action, supporting objects, visible labels, output path, and rights-status note.
-- [x] **TOMP-03**: Tom prompt template produces one 16:9 article illustration where Tom performs the cognitive action.
-- [x] **TOMP-04**: Tom QA rejects generic cats, passive Tom placement, source-frame recreation, show logos, title cards, default Jerry usage, broad cast expansion, excessive text, and route leakage.
-- [x] **TOMP-05**: Tom edit prompts support stronger Tom participation, off-model identity repair, title removal, text reduction, and preservation of unaffected content.
+- [ ] **FIP-01**: Maintainer can find Ferris canonical references under `ian-xiaohei-illustrations/references/ips/ferris/`.
+- [ ] **FIP-02**: User receives Ferris planning fields for placement, core idea, structure type, Ferris state, Ferris action, supporting objects, visible labels, output path, and source/trademark note.
+- [ ] **FIP-03**: Ferris prompt template produces one 16:9 article illustration where Ferris performs the cognitive action.
+- [ ] **FIP-04**: Ferris QA rejects generic crabs, passive Ferris placement, Rust-logo misuse, official-affiliation cues, over-detailed mascot rendering, excessive text, source-asset tracing, and route leakage.
+- [ ] **FIP-05**: Ferris edit prompts support stronger Ferris participation, off-model identity repair, trademark-boundary repair, title removal, text reduction, and preservation of unaffected content.
 
 ### Documentation
 
-- [x] **TDOC-01**: README explains Tom as an explicit protected-character route with its status, aliases, output path, and rights boundary.
-- [x] **TDOC-02**: `examples/prompts.md` includes copyable Tom planning, Tom generation, Tom smoke, and three-IP mixed variant prompts.
-- [x] **TDOC-03**: `agents/openai.yaml` names Xiaohei, Littlebox, and Tom while preserving Xiaohei as the implicit default.
-- [x] **TDOC-04**: `RELEASE_CHECKLIST.md` includes Tom authorization review, route status review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final rights review.
-- [x] **TDOC-05**: Public docs avoid broad Tom availability claims when Tom route status is gated.
+- [ ] **FDOC-01**: README explains Ferris as an explicit Rust-community mascot route with aliases, output path, source context, and trademark/endorsement boundary.
+- [ ] **FDOC-02**: `examples/prompts.md` includes copyable Ferris planning, Ferris generation, Ferris smoke, and four-IP mixed variant prompts.
+- [ ] **FDOC-03**: `agents/openai.yaml` names Xiaohei, Littlebox, Tom, and Ferris while preserving Xiaohei as the implicit default.
+- [ ] **FDOC-04**: `RELEASE_CHECKLIST.md` includes Ferris source review, Rust trademark wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
+- [ ] **FDOC-05**: Public docs use Ferris source attribution and Rust trademark boundary wording consistently across README, examples, NOTICE, routing docs, and release checklist.
 
 ### Validation
 
-- [x] **TVAL-01**: Maintainer can run the local validator successfully after v1.1 roadmap initialization clears prior phase working directories.
-- [x] **TVAL-02**: Validator checks Tom route row, aliases, default false, output suffix, required references, route status, and attribution context.
-- [x] **TVAL-03**: Validator checks Tom canonical pack files, prompt placeholders, QA markers, and rights-boundary markers.
-- [x] **TVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Tom output path tokens, and Tom smoke prompts.
-- [x] **TVAL-05**: Validator checks Tom leakage boundaries so Xiaohei and Littlebox packs stay free of Tom identity rules and Warner rights text.
-- [x] **TVAL-06**: Validator checks public example asset directories for Tom-rendered assets unless release checklist has explicit public-sample approval.
-- [x] **TVAL-07**: Node validator tests cover three-route parser behavior, stable check ordering, Tom failure messages, and full pass output.
+- [ ] **FVAL-01**: Maintainer can run the local validator successfully after v1.2 roadmap initialization clears prior phase working directories.
+- [ ] **FVAL-02**: Validator checks Ferris route row, aliases, default false, output suffix, required references, route status, source attribution context, and trademark boundary markers.
+- [ ] **FVAL-03**: Validator checks Ferris canonical pack files, prompt placeholders, QA markers, source markers, and trademark-boundary markers.
+- [ ] **FVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Ferris output path tokens, and Ferris smoke prompts.
+- [ ] **FVAL-05**: Validator checks Ferris leakage boundaries so Xiaohei, Littlebox, and Tom packs stay free of Ferris identity rules and Rust trademark boundary text.
+- [ ] **FVAL-06**: Validator checks public example asset directories for Ferris-rendered assets against the release checklist public-sample approval policy.
+- [ ] **FVAL-07**: Node validator tests cover four-route parser behavior, stable check ordering, Ferris failure messages, source/trademark fixtures, and full pass output.
 
 ## v2 Requirements
 
-### Broader Protected IP Support
+### Broader Mascot and IP Support
 
-- **PIP-01**: Maintainer can add another protected visual IP by reusing the Tom rights-boundary pattern.
-- **PIP-02**: Maintainer can track authorization records through a machine-readable protected-IP manifest.
-- **PIP-03**: User can request approved multi-character franchise variants when authorization explicitly covers those characters.
+- **MASC-01**: Maintainer can add another open-source mascot route by reusing the Ferris source-and-trademark-boundary pattern.
+- **MASC-02**: Maintainer can track source, license, trademark, and endorsement records through a machine-readable visual-IP manifest.
+- **MASC-03**: User can request approved mascot comparison sheets across active route groups.
 
 ### Assets
 
-- **AST-01**: Maintainer can manage a machine-readable asset manifest with title, path, hash, composition family, IP route, rights status, and anti-repeat notes.
+- **AST-01**: Maintainer can manage a machine-readable asset manifest with title, path, hash, composition family, IP route, source status, rights status, and anti-repeat notes.
 - **AST-02**: User can generate a contact sheet or visual comparison board across approved IP routes.
 - **AST-03**: Maintainer can run automated visual regression checks against calibration outputs.
 
@@ -72,13 +72,13 @@ Explicitly excluded. Documented to prevent scope creep.
 
 | Feature | Reason |
 |---------|--------|
-| Making Tom the default route | Xiaohei remains the compatibility baseline and protected-character generation should require explicit selection. |
-| Adding Jerry, Spike, logos, title cards, or broader franchise scenes | v1.1 targets Tom only and keeps broader cast support for a separately authorized milestone. |
-| Shipping public rendered Tom example images without approval | Public generated assets require explicit public-sample approval in the release checklist. |
-| Building a generic third-party IP marketplace | v1.1 focuses on one authorized Tom route. |
-| Hybrid Xiaohei-Littlebox-Tom characters | Blended identities break route isolation, QA, and attribution boundaries. |
+| Making Ferris the default route | Xiaohei remains the compatibility baseline and Ferris should require explicit selection. |
+| Bundling Rust logos or implying official Rust Foundation endorsement | v1.2 targets Ferris article-illustration behavior with clear source and trademark boundaries. |
+| Recreating rustacean.net assets as repository calibration images | Source references and route-local prompt rules are enough for this milestone. |
+| Shipping public Ferris rendered examples without release review | Public generated assets should pass the release checklist source and trademark review. |
+| Hybrid Xiaohei-Littlebox-Tom-Ferris characters | Blended identities break route isolation, QA, and attribution boundaries. |
 | Hosted web app, UI, API, database, or build runtime | The product remains a lightweight Codex Skill package. |
-| Automated visual likeness judgment | v1.1 validates objective text/package markers; visual taste and likeness review remain manual. |
+| Automated visual likeness judgment | v1.2 validates objective text/package markers; visual taste and identity review remain manual. |
 
 ## Traceability
 
@@ -86,35 +86,35 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RGT-01 | Phase 6 | Complete |
-| RGT-02 | Phase 6 | Complete |
-| RGT-03 | Phase 6 | Complete |
-| RGT-04 | Phase 6 | Complete |
-| TOMR-01 | Phase 8 | Complete |
-| TOMR-02 | Phase 8 | Complete |
-| TOMR-03 | Phase 8 | Complete |
-| TOMR-04 | Phase 8 | Complete |
-| TOMR-05 | Phase 6 | Complete |
-| TOMP-01 | Phase 7 | Complete |
-| TOMP-02 | Phase 7 | Complete |
-| TOMP-03 | Phase 7 | Complete |
-| TOMP-04 | Phase 7 | Complete |
-| TOMP-05 | Phase 7 | Complete |
-| TDOC-01 | Phase 9 | Complete |
-| TDOC-02 | Phase 9 | Complete |
-| TDOC-03 | Phase 9 | Complete |
-| TDOC-04 | Phase 9 | Complete |
-| TDOC-05 | Phase 9 | Complete |
-| TVAL-01 | Phase 10 | Complete |
-| TVAL-02 | Phase 10 | Complete |
-| TVAL-03 | Phase 10 | Complete |
-| TVAL-04 | Phase 10 | Complete |
-| TVAL-05 | Phase 10 | Complete |
-| TVAL-06 | Phase 10 | Complete |
-| TVAL-07 | Phase 10 | Complete |
-| PIP-01 | v2 | Future |
-| PIP-02 | v2 | Future |
-| PIP-03 | v2 | Future |
+| FRGT-01 | Phase 11 | Pending |
+| FRGT-02 | Phase 11 | Pending |
+| FRGT-03 | Phase 11 | Pending |
+| FRGT-04 | Phase 11 | Pending |
+| FERR-01 | Phase 13 | Pending |
+| FERR-02 | Phase 13 | Pending |
+| FERR-03 | Phase 13 | Pending |
+| FERR-04 | Phase 13 | Pending |
+| FERR-05 | Phase 11 | Pending |
+| FIP-01 | Phase 12 | Pending |
+| FIP-02 | Phase 12 | Pending |
+| FIP-03 | Phase 12 | Pending |
+| FIP-04 | Phase 12 | Pending |
+| FIP-05 | Phase 12 | Pending |
+| FDOC-01 | Phase 14 | Pending |
+| FDOC-02 | Phase 14 | Pending |
+| FDOC-03 | Phase 14 | Pending |
+| FDOC-04 | Phase 14 | Pending |
+| FDOC-05 | Phase 14 | Pending |
+| FVAL-01 | Phase 15 | Pending |
+| FVAL-02 | Phase 15 | Pending |
+| FVAL-03 | Phase 15 | Pending |
+| FVAL-04 | Phase 15 | Pending |
+| FVAL-05 | Phase 15 | Pending |
+| FVAL-06 | Phase 15 | Pending |
+| FVAL-07 | Phase 15 | Pending |
+| MASC-01 | v2 | Future |
+| MASC-02 | v2 | Future |
+| MASC-03 | v2 | Future |
 | AST-01 | v2 | Future |
 | AST-02 | v2 | Future |
 | AST-03 | v2 | Future |
@@ -124,10 +124,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 **Coverage:**
 
-- v1.1 requirements: 26 total
+- v1.2 requirements: 26 total
 - Mapped to phases: 26
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-13*
-*Last updated: 2026-06-13 after Phase 10 UAT and v1.1 transition*
+*Last updated: 2026-06-13 after starting v1.2 Ferris Rust Mascot IP Integration*

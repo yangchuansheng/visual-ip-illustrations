@@ -1,17 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.1
-milestone_name: milestone
-status: complete
-stopped_at: Completed Phase 10 UAT and v1.1 transition
-last_updated: "2026-06-12T22:47:53.808Z"
-last_activity: 2026-06-12
+milestone: v1.2
+milestone_name: Ferris Rust Mascot IP Integration
+status: planning
+last_updated: "2026-06-13T05:43:31.330Z"
+last_activity: 2026-06-13
 progress:
   total_phases: 5
-  completed_phases: 5
-  total_plans: 16
-  completed_plans: 16
-  percent: 100
+  completed_phases: 0
+  total_plans: 14
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -21,16 +20,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.1 milestone complete — ready for milestone closeout
+**Current focus:** v1.2 Ferris Rust Mascot IP Integration — ready for Phase 11 planning
 
 ## Current Position
 
-Phase: 10
-Plan: 10-03 complete
-Status: Phase 10 validation hardening complete — UAT passed with validator 47/47 and Node tests 15/15
-Last activity: 2026-06-12
-
-Progress: [██████████] 100%
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-06-13 — Milestone v1.2 started
 
 ## Performance Metrics
 
@@ -113,6 +110,7 @@ Recent decisions affecting current work:
 - [Phase 10]: Node regression tests lock the 47-check validator matrix and 15 passing tests. — Plan 10-02 adds targeted Tom fixture coverage for route, pack, docs, metadata, leakage, public assets, and approval parsing.
 - [Phase 10]: Public rendered Tom sample approval parsing preserves path slashes inside allowed directory fields. — Plan 10-02 fixed the parser while adding approved-record fixture coverage.
 - [Phase 10]: Final validation evidence is recorded with `Summary: total=47 passed=47 failed=0 skipped=0` and Node `tests 15`, `pass 15`, `fail 0`. — Plan 10-03 closes validation hardening into verification-ready state.
+- [Milestone v1.2]: Ferris enters planning as an explicit route with source attribution and Rust trademark boundary requirements. — The roadmap starts at Phase 11 and preserves Xiaohei as the only omitted-IP default.
 
 ### Pending Todos
 
@@ -124,7 +122,7 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-- Final Tom authorization scope, public generated-sample policy, and release wording remain maintainer release gates for Phase 10 validation and release review.
+- Ferris source attribution, Rust trademark wording, public generated-sample policy, and release wording are release gates for v1.2 planning and implementation.
 
 ## Deferred Items
 
@@ -136,6 +134,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-12T22:38:11.179Z
-Stopped at: Completed 10-03-PLAN.md
+Last session: 2026-06-13T05:43:31.330Z
+Stopped at: Started v1.2 Ferris Rust Mascot IP Integration
 Resume file: None
