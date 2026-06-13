@@ -128,6 +128,13 @@ function replaceInFixture(fixtureRoot, relativePath, searchValue, replaceValue) 
   writeFileSync(absolutePath, original.replace(searchValue, replaceValue), "utf8");
 }
 
+function replaceAllInFixture(fixtureRoot, relativePath, searchValue, replaceValue) {
+  const absolutePath = path.join(fixtureRoot, relativePath);
+  const original = readFileSync(absolutePath, "utf8");
+  assert.ok(original.includes(searchValue), `${relativePath} should contain fixture marker ${searchValue}`);
+  writeFileSync(absolutePath, original.replaceAll(searchValue, replaceValue), "utf8");
+}
+
 function pendingPublicApprovalLine(routeName) {
   return `- [ ] Public rendered ${routeName} samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.`;
 }
@@ -749,6 +756,82 @@ test("validator fixture rejects Sealos route metadata drift", () => {
   }
 });
 
+test("validator fixture reports Sealos pack, prompt, and QA marker drift", () => {
+  for (const [name, relativePath, searchValue, expectedId] of [
+    [
+      "pack",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "index.md"),
+      "uploaded-image-canonical",
+      "REFS-SEALOS-001",
+    ],
+    [
+      "prompt",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "prompt-template.md"),
+      "Brand/canonical-image note",
+      "PROMPT-SEALOS-001",
+    ],
+    [
+      "qa",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "qa-checklist.md"),
+      "Sealos QA route leakage failure",
+      "QA-SEALOS-001",
+    ],
+    [
+      "identity",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "sealos-ip.md"),
+      "Sealos Seal must perform the central cognitive action",
+      "IP-SEALOS-001",
+    ],
+  ]) {
+    const fixtureRoot = copyFixture(`sealos-${name}-drift`);
+    try {
+      replaceAllInFixture(fixtureRoot, relativePath, searchValue, `removed ${name} marker`);
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
+      const expectedPath = expectedId === "IP-SEALOS-001"
+        ? path.join("ian-xiaohei-illustrations", "references", "ips", "sealos")
+        : relativePath;
+      assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, /observed missing marker\(s\)/);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
+test("validator fixture reports Sealos docs, metadata, NOTICE, release, and smoke drift", () => {
+  for (const [name, relativePath, searchValue, expectedId] of [
+    [
+      "agent",
+      path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+      "explicit Sealos Seal brand-owned route",
+      "AGENT-SEALOS-001",
+    ],
+    ["readme", "README.md", "uploaded-image-canonical", "DOC-SEALOS-P19-001"],
+    ["examples", "examples/prompts.md", "## 路由烟测：显式选择 Sealos Seal", "SMOKE-SEALOS-001"],
+    ["mixed", "examples/prompts.md", "五个 separate variant group", "SMOKE-MIXED-SEALOS-001"],
+    ["notice", "NOTICE.md", "Sealos Seal Brand and Canonical Image Boundary", "NOTICE-SEALOS-001"],
+    ["release", "RELEASE_CHECKLIST.md", "Sealos Generated Sample Policy", "RELEASE-SEALOS-001"],
+  ]) {
+    const fixtureRoot = copyFixture(`sealos-${name}-docs-drift`);
+    try {
+      replaceAllInFixture(fixtureRoot, relativePath, searchValue, `removed ${name} marker`);
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
+      assert.match(result.stdout, new RegExp(relativePath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, /observed missing marker\(s\)/);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
 test("validator fixture requires Ferris canonical pack files", () => {
   const fixtureRoot = copyFixture("ferris-pack");
   const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "qa-checklist.md");
@@ -1032,6 +1115,45 @@ test("validator fixture reports Ferris leakage in non-Ferris packs", () => {
   }
 });
 
+test("validator fixture reports Sealos leakage in non-Sealos packs", () => {
+  for (const [name, relativePath, marker] of [
+    [
+      "xiaohei",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
+      "Sealos Seal",
+    ],
+    [
+      "littlebox",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      "uploaded-image-canonical",
+    ],
+    ["tom", path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "tom-ip.md"), "brand-owned"],
+    [
+      "ferris",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      "references/ips/sealos/source.md",
+    ],
+  ]) {
+    const fixtureRoot = copyFixture(`sealos-leak-${name}`);
+    try {
+      writeFileSync(
+        path.join(fixtureRoot, relativePath),
+        `${readFileSync(path.join(fixtureRoot, relativePath), "utf8")}\n\nLeaked route marker: ${marker}\n`,
+        "utf8",
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-SEALOS-LEAK-001 /);
+      assert.match(result.stdout, new RegExp(relativePath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, new RegExp(`observed forbidden marker\\(s\\): ${marker}`));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
 test("validator fixture enforces public Tom asset approval parsing", async () => {
   const validators = await import(`${scriptPath}?approval=${Date.now()}`);
   const fixtureRoot = copyFixture("tom-public-asset");
@@ -1225,6 +1347,52 @@ test("validator fixture rejects Ferris public sample placeholder approval dates"
   }
 });
 
+test("validator fixture rejects Sealos public sample placeholder approvals", async () => {
+  const validators = await import(`${scriptPath}?sealosPlaceholderApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  for (const [name, approvalLine, expectedField] of [
+    ["date", completeSealosPublicAssetApprovalLine("TBD"), "date=missing"],
+    [
+      "identity",
+      completeSealosPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-image identity outcome",
+        "brand logo wording approved",
+      ),
+      "uploaded-image identity outcome=missing",
+    ],
+    [
+      "brand-logo",
+      completeSealosPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded image identity preserved",
+        "brand-logo outcome",
+      ),
+      "brand-logo outcome=missing",
+    ],
+  ]) {
+    const approvalText = releaseChecklistText.replace(pendingSealosPublicAssetApprovalLine(), approvalLine);
+    const approval = validators.parsePublicSealosSampleApproval(approvalText);
+    assert.equal(approval.complete, false);
+
+    const fixtureRoot = copyFixture(`sealos-placeholder-${name}`);
+    try {
+      writeFileSync(path.join(fixtureRoot, "examples", "images", "99-sealos-test.png"), "fixture", "utf8");
+      replaceInFixture(fixtureRoot, "RELEASE_CHECKLIST.md", pendingSealosPublicAssetApprovalLine(), approvalLine);
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-SEALOS-IMG-001 /);
+      assert.match(result.stdout, /examples\/images\/99-sealos-test\.png/);
+      assert.match(result.stdout, new RegExp(expectedField));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
 test("validator fixture distinguishes Generated Sample Ferris review outputs from public samples", async () => {
   const validators = await import(`${scriptPath}?generatedFerrisApproval=${Date.now()}`);
   const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
@@ -1276,6 +1444,63 @@ test("validator fixture distinguishes Generated Sample Ferris review outputs fro
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] BOUNDARY-FERRIS-GEN-001 /);
     assert.match(result.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture distinguishes Generated Sample Sealos review outputs from public samples", async () => {
+  const validators = await import(`${scriptPath}?generatedSealosApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  const pendingApproval = validators.parseGeneratedSealosSampleApproval(releaseChecklistText);
+  assert.equal(pendingApproval.found, true);
+  assert.equal(pendingApproval.checked, false);
+  assert.equal(pendingApproval.complete, false);
+  assert.equal(pendingApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingApproval.publicDirectoriesPresent, false);
+
+  const completeText = releaseChecklistText.replace(
+    pendingGeneratedSealosSampleLine(),
+    completeGeneratedSealosSampleLine(),
+  );
+  const completeApproval = validators.parseGeneratedSealosSampleApproval(completeText);
+  assert.equal(completeApproval.complete, true);
+  assert.equal(completeApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(completeApproval.publicDirectoriesPresent, true);
+  assert.equal(completeApproval.identityOutcomePresent, true);
+  assert.equal(completeApproval.brandLogoOutcomePresent, true);
+
+  for (const [name, approvalLine, expectedFlag] of [
+    ["date", completeGeneratedSealosSampleLine("TBD"), "datePresent"],
+    [
+      "identity",
+      completeGeneratedSealosSampleLine("2026-06-13", "uploaded-image identity outcome", "brand logo approved"),
+      "identityOutcomePresent",
+    ],
+    [
+      "brand-logo",
+      completeGeneratedSealosSampleLine("2026-06-13", "uploaded image preserved", "brand-logo outcome"),
+      "brandLogoOutcomePresent",
+    ],
+  ]) {
+    const placeholderText = releaseChecklistText.replace(pendingGeneratedSealosSampleLine(), approvalLine);
+    const placeholderApproval = validators.parseGeneratedSealosSampleApproval(placeholderText);
+    assert.equal(placeholderApproval.checked, true);
+    assert.equal(placeholderApproval.complete, false);
+    assert.equal(placeholderApproval[expectedFlag], false);
+  }
+
+  const fixtureRoot = copyFixture("sealos-generated-sample");
+  try {
+    const workspaceOutputDir = path.join(fixtureRoot, "assets", "article-sealos");
+    mkdirSync(workspaceOutputDir, { recursive: true });
+    writeFileSync(path.join(workspaceOutputDir, "99-sealos-test.png"), "fixture", "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+    assert.equal(result.status, 0);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-SEALOS-GEN-001 /);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-SEALOS-IMG-001 /);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
