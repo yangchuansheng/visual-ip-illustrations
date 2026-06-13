@@ -7,8 +7,8 @@
 
 ### Source and Trademark Boundary
 
-- [ ] **FRGT-01**: Maintainer can read Ferris source, author, copyright waiver, reference URLs, Rust trademark policy context, endorsement boundary, allowed use, restricted use, distribution boundary, sample policy, and review owner in Ferris-specific documentation.
-- [ ] **FRGT-02**: Maintainer can distinguish Ferris source attribution from Rust trademark or official-affiliation permission in `NOTICE.md`.
+- [x] **FRGT-01**: Maintainer can read Ferris source, author, copyright waiver, reference URLs, Rust trademark policy context, endorsement boundary, allowed use, restricted use, distribution boundary, sample policy, and review owner in Ferris-specific documentation.
+- [x] **FRGT-02**: Maintainer can distinguish Ferris source attribution from Rust trademark or official-affiliation permission in `NOTICE.md`.
 - [ ] **FRGT-03**: Maintainer can keep Ferris route status explicit through wording shared by routing docs, README, examples, and release checklist.
 - [ ] **FRGT-04**: Maintainer can verify that public Ferris examples avoid Rust-logo-forward claims, official endorsement language, and bundled Rust marks unless release review explicitly approves them.
 
@@ -18,7 +18,7 @@
 - [ ] **FERR-02**: User who omits visual IP still gets Xiaohei as the only default route.
 - [ ] **FERR-03**: User can request Xiaohei, Littlebox, Tom, and Ferris for the same core idea and receive separate variant groups.
 - [ ] **FERR-04**: Ferris outputs use `assets/<article-slug>-ferris/` and docs include the escaped token `assets/&lt;article-slug&gt;-ferris/`.
-- [ ] **FERR-05**: Maintainer can inspect Ferris route metadata, aliases, default flag, output suffix, required references, attribution context, source status, and trademark boundary in `references/routing.md`.
+- [x] **FERR-05**: Maintainer can inspect Ferris route metadata, aliases, default flag, output suffix, required references, attribution context, source status, and trademark boundary in `references/routing.md`.
 
 ### Ferris IP Pack
 
@@ -86,15 +86,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FRGT-01 | Phase 11 | Pending |
-| FRGT-02 | Phase 11 | Pending |
+| FRGT-01 | Phase 11 | Complete |
+| FRGT-02 | Phase 11 | Complete |
 | FRGT-03 | Phase 11 | Pending |
 | FRGT-04 | Phase 11 | Pending |
 | FERR-01 | Phase 13 | Pending |
 | FERR-02 | Phase 13 | Pending |
 | FERR-03 | Phase 13 | Pending |
 | FERR-04 | Phase 13 | Pending |
-| FERR-05 | Phase 11 | Pending |
+| FERR-05 | Phase 11 | Complete |
 | FIP-01 | Phase 12 | Pending |
 | FIP-02 | Phase 12 | Pending |
 | FIP-03 | Phase 12 | Pending |

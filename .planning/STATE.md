@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
-status: planning
-stopped_at: Phase 11 context gathered
-last_updated: "2026-06-13T06:05:21.510Z"
+status: executing
+stopped_at: Completed 11-01-PLAN.md
+last_updated: "2026-06-13T06:46:51.008Z"
 last_activity: 2026-06-13
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 14
-  completed_plans: 0
-  percent: 0
+  completed_plans: 1
+  percent: 7
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.2 Ferris Rust Mascot IP Integration — ready for Phase 11 planning
+**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 11 Plan 11-01 complete
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-06-13 — Milestone v1.2 started
+Phase: 11 — Ferris Source and Route Contract
+Plan: 11-02 pending
+Status: Phase 11 in progress
+Last activity: 2026-06-13 — Completed 11-01 Ferris source record, route row, and NOTICE source/trademark boundary
 
 ## Performance Metrics
 
@@ -71,6 +71,7 @@ Last activity: 2026-06-13 — Milestone v1.2 started
 | Phase 10 P01 | 35min | 2 tasks | 2 files |
 | Phase 10 P02 | 1min | 2 tasks | 3 files |
 | Phase 10 P03 | 1min | 2 tasks | 3 files |
+| Phase 11 P11-01 | 3min | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -112,6 +113,7 @@ Recent decisions affecting current work:
 - [Phase 10]: Public rendered Tom sample approval parsing preserves path slashes inside allowed directory fields. — Plan 10-02 fixed the parser while adding approved-record fixture coverage.
 - [Phase 10]: Final validation evidence is recorded with `Summary: total=47 passed=47 failed=0 skipped=0` and Node `tests 15`, `pass 15`, `fail 0`. — Plan 10-03 closes validation hardening into verification-ready state.
 - [Milestone v1.2]: Ferris enters planning as an explicit route with source attribution and Rust trademark boundary requirements. — The roadmap starts at Phase 11 and preserves Xiaohei as the only omitted-IP default.
+- [Phase 11]: Ferris route status is source-reviewed while source attribution and Rust trademark boundaries are documented before pack/controller expansion.
 
 ### Pending Todos
 
@@ -135,6 +137,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T06:05:21.507Z
-Stopped at: Phase 11 context gathered
-Resume file: .planning/phases/11-ferris-source-and-route-contract/11-CONTEXT.md
+Last session: 2026-06-13T06:46:50.990Z
+Stopped at: Completed 11-01-PLAN.md
+Resume file: None
