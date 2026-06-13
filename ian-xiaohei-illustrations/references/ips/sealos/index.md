@@ -26,13 +26,13 @@ Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordere
 
 ## References
 
-- `index.md`: pack navigation, route status, brand/canonical-image authority, output path, shared failure categories, operational coherence, and phase boundary.
-- `source.md`: Sealos brand context, uploaded mascot image authority, fixed visual markers, prior exploration boundary, public-sample policy, review owner, and route status changes.
-- `style-dna.md`: sparse Sealos article-illustration style, uploaded-image identity markers, visual vetoes, and stable gates.
-- `sealos-ip.md`: Sealos Seal mascot identity, reliable cloud developer companion role, cognitive-action responsibility, recognition gates, and failure modes.
-- `composition-patterns.md`: structure families, cloud-developer metaphor invention, Sealos Seal action patterns, supporting object pool, and anti-repeat rules.
-- `prompt-template.md`: planning fields, one-image prompt template, edit prompts, brand/canonical-image note, and output reminder.
-- `qa-checklist.md`: pass/fail gates, uploaded-image identity checks, iteration moves, and delivery judgment.
+- `references/ips/sealos/index.md`: pack navigation, route status, brand/canonical-image authority, output path, shared failure categories, operational coherence, and phase boundary.
+- `references/ips/sealos/source.md`: Sealos brand context, uploaded mascot image authority, fixed visual markers, prior exploration boundary, public-sample policy, review owner, and route status changes.
+- `references/ips/sealos/style-dna.md`: sparse Sealos article-illustration style, uploaded-image identity markers, visual vetoes, and stable gates.
+- `references/ips/sealos/sealos-ip.md`: Sealos Seal mascot identity, reliable cloud developer companion role, cognitive-action responsibility, recognition gates, and failure modes.
+- `references/ips/sealos/composition-patterns.md`: structure families, cloud-developer metaphor invention, Sealos Seal action patterns, supporting object pool, and anti-repeat rules.
+- `references/ips/sealos/prompt-template.md`: planning fields, one-image prompt template, edit prompts, brand/canonical-image note, and output reminder.
+- `references/ips/sealos/qa-checklist.md`: pass/fail gates, uploaded-image identity checks, iteration moves, and delivery judgment.
 
 ## Sealos Route Failure Categories
 
