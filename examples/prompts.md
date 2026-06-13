@@ -148,19 +148,61 @@ Ferris is an explicit Rust-community mascot route with status source-reviewed; g
 
 显式选择 Ferris 时，可用别名包括：Ferris、Rust mascot、Rust crab、Rustacean、Rust 吉祥物、Rust 螃蟹。Ferris route status 是 `source-reviewed`，source record 位于 `ian-xiaohei-illustrations/references/ips/ferris/source.md`。
 
-### 显式 Ferris：route contract marker
+### 显式 Ferris：只做规划
+
+```text
+Use $ian-xiaohei-illustrations 使用 Ferris / Rust mascot / Rust crab / Rustacean / Rust 吉祥物 / Rust 螃蟹 路由，先不要生图。
+请为下面这篇文章做 3 张 Ferris route shot list。
+每张图写清楚：
+- Placement
+- Core idea
+- Structure type
+- Ferris state
+- Ferris action
+- Supporting objects
+- Visible labels
+- Output path
+- Source/trademark note
+使用 route-local reference directory：`ian-xiaohei-illustrations/references/ips/ferris/`。
+route status 必须保留 `source-reviewed`。
+source/trademark authority 必须保留 `ian-xiaohei-illustrations/references/ips/ferris/source.md`。
+输出路径使用 `assets/<article-slug>-ferris/`；文档校验 token 是 `assets/&lt;article-slug&gt;-ferris/`。
+Source/trademark note 写清楚：Ferris is a `source-reviewed` Rust-community mascot route; check `source.md` for source context and trademark boundary.
+generated public Ferris samples require release review for Rust trademark and endorsement-safe wording。
+
+<粘贴文章>
+```
+
+### 显式 Ferris：直接生成
+
+```text
+Use $ian-xiaohei-illustrations 使用 Ferris 路由为下面这篇文章生成 2 张正文配图。
+Ferris aliases 包括：Ferris、Rust mascot、Rust crab、Rustacean、Rust 吉祥物、Rust 螃蟹。
+每张图单独生成，使用 `ian-xiaohei-illustrations/references/ips/ferris/` route-local references。
+Ferris 必须承担 core idea 的 cognitive action，使用 Rust-themed low-tech article metaphors，例如 ownership tags、borrow ropes、lifetime clocks、compiler gates、type-check stamps、safety nets、unsafe warning flags、trait stamps、dependency knots、crate stacks、release locks 或 review gates。
+保留 route status `source-reviewed` 和 source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`。
+每张图都报告 Source/trademark note，并输出到 `assets/<article-slug>-ferris/`；文档校验 token 是 `assets/&lt;article-slug&gt;-ferris/`。
+generated public Ferris samples require release review for Rust trademark and endorsement-safe wording。
+
+<粘贴文章>
+```
+
+### 显式 Ferris：route smoke check
 
 ```text
 Use $ian-xiaohei-illustrations 先不要生图。
 Text-only maintainer route audit. 使用 Ferris / Rust mascot / Rust crab / Rustacean / Rust 吉祥物 / Rust 螃蟹 路由，为这个观点输出 1 张 route-status smoke shot list：
 观点：把 Rust 社区语境里的抽象约束变成可检查步骤。
 预期：selected IP 是 Ferris。
+预期：aliases 包含 Ferris、Rust mascot、Rust crab、Rustacean、Rust 吉祥物、Rust 螃蟹。
 预期：route status 是 `source-reviewed`。
 预期：source record 是 `ian-xiaohei-illustrations/references/ips/ferris/source.md`。
+预期：route-local reference directory 是 `ian-xiaohei-illustrations/references/ips/ferris/`。
+预期：required references 包含 `index.md`、`source.md`、`style-dna.md`、`ferris-ip.md`、`composition-patterns.md`、`prompt-template.md`、`qa-checklist.md`。
 预期：输出路径是 `assets/<article-slug>-ferris/`。
 预期：文档校验 token 是 `assets/&lt;article-slug&gt;-ferris/`。
+预期：planning fields 包含 Placement、Core idea、Structure type、Ferris state、Ferris action、Supporting objects、Visible labels、Output path、Source/trademark note。
 预期：generated public Ferris samples require release review for Rust trademark and endorsement-safe wording。
-用途：text-only route contract marker；Phase 14 负责 copyable Ferris prompt examples。
 ```
 
 ## 路由说明：多 IP 请求
