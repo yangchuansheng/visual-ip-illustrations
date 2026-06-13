@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Completed 14-03-PLAN.md
-last_updated: "2026-06-13T11:14:47.129Z"
-last_activity: 2026-06-13 — Completed 14-03 agent metadata for Ferris route
+stopped_at: Completed 14-04-PLAN.md
+last_updated: "2026-06-13T11:29:59.000Z"
+last_activity: 2026-06-13 — Completed 14-04 release checklist and Ferris consistency gate
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 14
-  completed_plans: 10
-  percent: 71
+  completed_plans: 11
+  percent: 79
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 14 — Docs, Examples, and Release Surface
-Plan: 14-04 pending
-Status: 14-03 complete; 14-04 pending
-Last activity: 2026-06-13 — Completed 14-03 agent metadata for Ferris route
+Plan: 14-04 complete
+Status: Phase 14 complete; Phase 15 pending
+Last activity: 2026-06-13 — Completed 14-04 release checklist and Ferris consistency gate
 
 ## Performance Metrics
 
@@ -81,6 +81,7 @@ Last activity: 2026-06-13 — Completed 14-03 agent metadata for Ferris route
 | Phase 14 P01 | 4min | 3 tasks | 2 files |
 | Phase 14 P02 | 5min | 3 tasks | 2 files |
 | Phase 14 P03 | 6min | 2 tasks | 2 files |
+| Phase 14 P04 | 12min | 4 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -141,6 +142,8 @@ Recent decisions affecting current work:
 - [Phase 14]: Agent discovery metadata now names Xiaohei, Littlebox, Tom, and Ferris across display_name, short_description, and default_prompt. — 14-03 metadata route coverage
 - [Phase 14]: Omitted visual IP behavior remains default Xiaohei while Littlebox, Tom, and Ferris are presented as explicit selectable routes. — 14-03 default route preservation
 - [Phase 14]: Ferris metadata uses explicit source-reviewed Rust-community mascot route wording and avoids endorsement or approval claims. — 14-03 source and trademark wording
+- [Phase 14]: Ferris release review now requires source record review, Rust trademark wording review, prompt leakage scan, public asset approval, generated sample approval, final release review, and Phase 15 validator/test evidence. — 14-04 release surface gate
+- [Phase 14]: FDOC-05 consistency is verified across README, examples, metadata, NOTICE, routing, and release checklist. — 14-04 final cross-document gate
 
 ### Pending Todos
 
@@ -152,7 +155,6 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-- Ferris source attribution, Rust trademark wording, public generated-sample policy, and release wording are release gates for v1.2 public documentation and release work.
 - Phase 15 validator hardening must update `ROUTE-FERRIS-001`, `ROUTE-REFS-001`, and related parser test expectations from Ferris source-only references to the full seven-file Ferris route pack.
 
 ## Deferred Items
@@ -165,6 +167,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T11:14:18.274Z
-Stopped at: Completed 14-03-PLAN.md
+Last session: 2026-06-13T11:29:59.000Z
+Stopped at: Completed 14-04-PLAN.md
 Resume file: None

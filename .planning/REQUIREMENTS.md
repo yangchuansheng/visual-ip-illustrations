@@ -33,7 +33,7 @@
 - [x] **FDOC-01**: README explains Ferris as an explicit Rust-community mascot route with aliases, output path, source context, and trademark/endorsement boundary.
 - [x] **FDOC-02**: `examples/prompts.md` includes copyable Ferris planning, Ferris generation, Ferris smoke, and four-IP mixed variant prompts.
 - [x] **FDOC-03**: `agents/openai.yaml` names Xiaohei, Littlebox, Tom, and Ferris while preserving Xiaohei as the implicit default.
-- [ ] **FDOC-04**: `RELEASE_CHECKLIST.md` includes Ferris source review, Rust trademark wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
+- [x] **FDOC-04**: `RELEASE_CHECKLIST.md` includes Ferris source review, Rust trademark wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
 - [x] **FDOC-05**: Public docs use Ferris source attribution and Rust trademark boundary wording consistently across README, examples, NOTICE, routing docs, and release checklist.
 
 ### Validation
@@ -103,7 +103,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FDOC-01 | Phase 14 | Complete |
 | FDOC-02 | Phase 14 | Complete |
 | FDOC-03 | Phase 14 | Complete |
-| FDOC-04 | Phase 14 | Pending |
+| FDOC-04 | Phase 14 | Complete |
 | FDOC-05 | Phase 14 | Complete |
 | FVAL-01 | Phase 15 | Pending |
 | FVAL-02 | Phase 15 | Pending |
