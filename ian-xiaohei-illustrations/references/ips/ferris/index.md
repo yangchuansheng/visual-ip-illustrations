@@ -42,6 +42,12 @@ Every operational Ferris file uses these shared failure names so later validatio
 - source-asset tracing
 - route leakage
 
+## Operational Coherence
+
+The six operational Ferris files are `index.md`, `style-dna.md`, `ferris-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
+
+Each operational file repeats the same route status, output path, source/trademark authority, compact source/trademark note, public sample gate, shared route block, delivery path note, and eight failure category names. This keeps Phase 13 controller loading, Phase 14 public wording, and Phase 15 validator hardening aligned to one Ferris contract.
+
 ## Scope Boundary
 
 This pack provides route-local operational references for Ferris. Phase 13 owns controller loading, route selection, runtime reference loading, and route grouping. Phase 14 owns public documentation expansion, example prompts, agent metadata wording, NOTICE consistency, release checklist expansion, and public rendered Ferris samples. Phase 15 owns validator hardening and regression tests.
