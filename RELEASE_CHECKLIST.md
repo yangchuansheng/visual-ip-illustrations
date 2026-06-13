@@ -30,7 +30,8 @@ Validator marker changes require `node scripts/validate-skill-package.mjs` and `
 - [ ] Explicit Xiaohei smoke: request `小黑`, `Xiaohei`, `Ian`, or `ian-xiaohei` and confirm output path `assets/<article-slug>-illustrations/`.
 - [ ] Explicit Littlebox smoke: request `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton` and confirm `Littlebox state: closed`, assigned background, and output path `assets/<article-slug>-littlebox/`.
 - [ ] Explicit Tom smoke: request `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` and confirm route status `gated-authorized`, rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`, and output path `assets/<article-slug>-tom/`.
-- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, and Tom variant groups and confirm each group loads its own references and output path.
+- [ ] Explicit Ferris smoke: request `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, or `Rust 螃蟹` and confirm route status `source-reviewed`, source record `ian-xiaohei-illustrations/references/ips/ferris/source.md`, and output path `assets/<article-slug>-ferris/`.
+- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, Tom, and Ferris variant groups and confirm each group loads its own references and output path.
 
 Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 
@@ -81,6 +82,35 @@ This section is the Tom maintainer release gate for authorization, route status,
 - [ ] Final rights review confirms `ian-xiaohei-illustrations/references/ips/tom/rights.md` is the authority for route status, authorization scope, distribution boundary, sample policy, and review fields.
 - [ ] Final rights review confirms Tom remains `gated-authorized` until the release reviewer records a different approved status.
 - [ ] Final rights review confirms broad availability, public rendered sample publication, source-frame recreation, show logos, title cards, default Jerry usage, and broad cast expansion stay outside the current release gate unless separately approved.
+
+## Ferris Source, Trademark, and Public Sample Gate
+
+Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+
+This section is the Ferris maintainer release gate for source record review, Rust trademark wording, public rendered samples, release channels, and final endorsement-safe wording review.
+
+### Ferris Source Record Review
+
+- [ ] Review `ian-xiaohei-illustrations/references/ips/ferris/source.md` for source, author and source sites, copyright waiver, trademark boundary, route status, allowed use, restricted use, distribution boundary, sample policy, and review owner.
+- [ ] Record source/trademark review: PENDING / reviewer / date / approval status / source record / release channels.
+- [ ] Confirm Ferris route status remains `source-reviewed` across `ian-xiaohei-illustrations/references/routing.md`, `README.md`, `examples/prompts.md`, and this checklist.
+
+### Rust Trademark Wording Review
+
+- [ ] Review public wording for Rust-logo-forward composition, bundled Rust marks, official-affiliation cues, and endorsement wording.
+- [ ] Confirm public Ferris route wording points to `ian-xiaohei-illustrations/references/ips/ferris/source.md` for the source/trademark boundary.
+- [ ] Confirm generated public Ferris samples require release review for Rust trademark and endorsement-safe wording before release channels list them.
+
+### Public Rendered Ferris Sample Gate
+
+- [ ] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.
+- [ ] Public rendered Ferris samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- [ ] Public rendered Ferris sample approval must cover Rust-logo-forward composition, bundled Rust marks, official-affiliation cues, endorsement wording, allowed directories, and release channels.
+
+### Final Ferris Release Review
+
+- [ ] Final Ferris release review confirms `ian-xiaohei-illustrations/references/ips/ferris/source.md` is the authority for source context, Rust trademark boundary, distribution boundary, sample policy, and review owner.
+- [ ] Final Ferris release review confirms public rendered assets in `examples/images/` and `ian-xiaohei-illustrations/assets/examples/` have recorded approval status, reviewer, date, allowed directories, and release channels.
 
 ## Installable Package Boundary
 
