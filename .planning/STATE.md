@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Completed 14-01-PLAN.md
-last_updated: "2026-06-13T10:54:16.027Z"
-last_activity: 2026-06-13 — Completed 14-01 README Ferris public route docs
+stopped_at: Completed 14-02-PLAN.md
+last_updated: "2026-06-13T11:06:20.934Z"
+last_activity: 2026-06-13 — Completed 14-02 Ferris prompt examples and four-IP mixed prompts
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 14
-  completed_plans: 8
-  percent: 57
+  completed_plans: 9
+  percent: 64
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 14 — Docs, Examples, and Release Surface
-Plan: 14-02 pending
-Status: 14-01 complete; 14-02 pending
-Last activity: 2026-06-13 — Completed 14-01 README Ferris public route docs
+Plan: 14-03 pending
+Status: 14-02 complete; 14-03 pending
+Last activity: 2026-06-13 — Completed 14-02 Ferris prompt examples and four-IP mixed prompts
 
 ## Performance Metrics
 
@@ -79,6 +79,7 @@ Last activity: 2026-06-13 — Completed 14-01 README Ferris public route docs
 | Phase 12 P12-03 | 5min | 2 tasks | 4 files |
 | Phase 13 P13-01 | 7min | 3 tasks | 5 files |
 | Phase 14 P01 | 4min | 3 tasks | 2 files |
+| Phase 14 P02 | 5min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -134,6 +135,8 @@ Recent decisions affecting current work:
 - [Phase 14]: README keeps Ferris explicit source-reviewed while Xiaohei remains the omitted-IP default. — 14-01 public docs preserve D-01 and D-05.
 - [Phase 14]: Validator implementation and Node green evidence remain Phase 15 work. — 14-01 documents commands while preserving script and test files.
 - [Phase 14]: README points Ferris to the route-local pack and source/trademark authority. — 14-01 uses references/ips/ferris/ plus source.md instead of duplicating the source record.
+- [Phase 14]: Mixed prompt examples now require Xiaohei, Littlebox, Tom, and Ferris as separate variant groups with route-specific fields and output directories. — 14-02 mixed prompt route isolation
+- [Phase 14]: Ferris prompt examples use the full route-local pack and source.md source/trademark authority instead of a placeholder route marker. — 14-02 examples prompt update
 
 ### Pending Todos
 
@@ -158,6 +161,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T10:54:01.637Z
-Stopped at: Completed 14-01-PLAN.md
+Last session: 2026-06-13T11:05:28.541Z
+Stopped at: Completed 14-02-PLAN.md
 Resume file: None
