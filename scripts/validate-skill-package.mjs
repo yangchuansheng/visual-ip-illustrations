@@ -698,7 +698,7 @@ const checks = [
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 1 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -713,6 +713,9 @@ const checks = [
             throw new Error(`${ROUTING_FILE} expected tom reference ${reference} under references/ips/tom/`);
           }
           if (reference !== "references/ips/tom/rights.md") continue;
+        }
+        if (row.id === "ferris" && !reference.startsWith("references/ips/ferris/")) {
+          throw new Error(`${ROUTING_FILE} expected ferris reference ${reference} under references/ips/ferris/`);
         }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
@@ -1189,18 +1192,36 @@ const checks = [
       );
     }
   }),
-  defineCheck("BOUNDARY-P5-001", "Phase 4 validator preserves Phase 5 documentation and release boundary", () => {
-    assertIncludes(combinedText([
-      ".planning/phases/04-validation-hardening/04-CONTEXT.md",
-      ".planning/phases/04-validation-hardening/04-RESEARCH.md",
-    ]), ".planning/phases/04-validation-hardening", [
-      "Phase 5 owns broad README refresh",
-      "agents/openai.yaml",
-      "release checklist",
-      "D-28",
-      "D-29",
-      "D-30",
-    ], "Phase 5 boundary for broad docs, metadata wording, release checklist, and excluded release artifacts");
+  defineCheck("BOUNDARY-P5-001", "validator enforces live package and workspace output boundaries", () => {
+    for (const row of routeRows()) {
+      const references = routeReferencePaths(row);
+      if (references.length === 0) {
+        throw new Error(`${ROUTING_FILE} expected ${row.id} to define at least one required reference`);
+      }
+      for (const reference of references) {
+        const resolved = safeReferencePath(reference);
+        const relative = displayPath(resolved);
+        if (!relative.startsWith(`${PACKAGE_DIR}/references/`)) {
+          throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} under ${PACKAGE_DIR}/references/`);
+        }
+        if (!fileExists(relative)) {
+          throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
+        }
+      }
+    }
+
+    const publicDocsText = combinedText(["README.md", "examples/prompts.md", ROUTING_FILE]);
+    const outputTokens = [...outputPathTokens().raw, ...outputPathTokens().escaped];
+    const invalidTokens = outputTokens.filter((token) => !token.startsWith("assets/"));
+    if (invalidTokens.length > 0) {
+      throw new Error(`outputPathTokens expected workspace assets/ prefixes; observed ${invalidTokens.join(", ")}`);
+    }
+    assertIncludes(
+      publicDocsText,
+      "README.md + examples/prompts.md + routing.md",
+      outputTokens,
+      "live workspace output path markers",
+    );
   }),
 ];
 

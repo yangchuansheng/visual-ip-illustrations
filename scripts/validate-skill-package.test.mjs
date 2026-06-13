@@ -312,8 +312,8 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(frontmatter.data.description.includes("小黑"));
 
   const routes = validators.parseMarkdownTable(routingText, "IP Routes");
-  assert.equal(routes.length, 3);
-  assert.deepEqual(routes.map((route) => route.id), ["xiaohei", "littlebox", "tom"]);
+  assert.equal(routes.length, 4);
+  assert.deepEqual(routes.map((route) => route.id), ["xiaohei", "littlebox", "tom", "ferris"]);
   assert.equal(routes[0].output_suffix, "illustrations");
   assert.equal(routes[0].default, "true");
   assert.equal(routes[1].output_suffix, "littlebox");
@@ -321,6 +321,9 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.equal(routes[2].aliases, "Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫");
   assert.equal(routes[2].output_suffix, "tom");
   assert.equal(routes[2].default, "false");
+  assert.equal(routes[3].aliases, "Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹");
+  assert.equal(routes[3].output_suffix, "ferris");
+  assert.equal(routes[3].default, "false");
   assert.deepEqual(
     validators.splitRouteCell(routes[2].required_references),
     [
@@ -333,6 +336,9 @@ test("parser helpers expose current package contract primitives", async () => {
       "references/ips/tom/qa-checklist.md",
     ],
   );
+  assert.deepEqual(validators.splitRouteCell(routes[3].required_references), [
+    "references/ips/ferris/source.md",
+  ]);
   assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
 
   const links = validators.parseMarkdownLinks(readmeText);
