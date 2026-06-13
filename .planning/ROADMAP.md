@@ -110,11 +110,11 @@ Plans:
   5. `RELEASE_CHECKLIST.md` includes uploaded-image identity review, Sealos logo/brand wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
   6. Public docs use Sealos Seal brand/canonical-image wording consistently across README, examples, NOTICE, routing docs, and release checklist.
 
-**Plans:** 0/4 plans complete
+**Plans:** 1/4 plans executed
 Plans:
 **Wave 1**
 
-- [ ] 19-01-PLAN.md — Update README public Sealos Seal route docs, output path, uploaded-image authority, and brand boundary.
+- [x] 19-01-PLAN.md — Update README public Sealos Seal route docs, output path, uploaded-image authority, and brand boundary.
 - [ ] 19-02-PLAN.md — Add copyable Sealos Seal planning, generation, smoke, and five-IP mixed prompts.
 - [ ] 19-03-PLAN.md — Update agent metadata for Xiaohei, Littlebox, Tom, Ferris, and explicit Sealos Seal.
 
@@ -153,5 +153,5 @@ Phases execute in numeric order: 16 -> 17 -> 18 -> 19 -> 20
 | 16. Sealos Seal Brand and Image Contract | 3/3 | Complete    | 2026-06-13 |
 | 17. Sealos Seal Canonical Pack | 3/3 | Complete    | 2026-06-13 |
 | 18. Skill Controller Integration | 1/1 | Complete    | 2026-06-13 |
-| 19. Docs, Examples, and Release Surface | 0/4 | Pending | — |
+| 19. Docs, Examples, and Release Surface | 1/4 | In Progress|  |
 | 20. Validation Hardening | 0/3 | Pending | — |
