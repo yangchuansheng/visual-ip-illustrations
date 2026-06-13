@@ -124,8 +124,8 @@ Plans:
 
 Plans:
 
-- [ ] 15-01-PLAN.md — Harden validator implementation for Ferris route, pack, docs, leakage, source/trademark, and public asset gates.
-- [ ] 15-02-PLAN.md — Harden Node test coverage for Phase 15 check ordering, fixtures, failure messages, and full-pass output.
+- [ ] 15-01-PLAN.md — Harden validator implementation for Ferris route, pack, docs, leakage, source/trademark, public asset, and generated sample gates.
+- [ ] 15-02-PLAN.md — Harden Node test coverage for Phase 15 check ordering, parser behavior, fixtures, failure messages, public/generated sample gates, and full pass output.
 - [ ] 15-03-PLAN.md — Record final validation evidence and close Phase 15 planning state.
 
 ## Progress
