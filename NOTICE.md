@@ -35,7 +35,7 @@ Ferris source context records Ferris the Rustacean from `rustacean.net` and Kare
 
 - Source context: `rustacean.net` / Ferris the Rustacean / Karen Rustad Tolva
 - Route status: `source-reviewed`
-- Source record: `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- Source record and operational authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`
 - Attribution context: Ferris source, author, and copyright-waiver context for route metadata, documentation, and release review
 
 Ferris attribution records source context. Rust and Cargo marks, logos, official-affiliation claims, and endorsement wording are governed by Rust Foundation trademark policy context and release review.
