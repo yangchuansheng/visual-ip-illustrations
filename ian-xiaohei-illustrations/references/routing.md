@@ -57,7 +57,9 @@ The root Xiaohei reference paths remain available during migration and point to 
 - `tom` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
 - `ferris` 输出目录为 `assets/<article-slug>-ferris/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-ferris/`。
 - `ferris` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
-- 混合 IP 请求按 IP 分成 separate route groups：`xiaohei` 写入 `assets/<article-slug>-illustrations/`，`littlebox` 写入 `assets/<article-slug>-littlebox/`，`tom` 写入 `assets/<article-slug>-tom/`，`ferris` 写入 `assets/<article-slug>-ferris/`。
+- `sealos` 输出目录为 `assets/<article-slug>-sealos/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-sealos/`。
+- `sealos` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
+- 混合 IP 请求按 IP 分成 separate route groups：`xiaohei` 写入 `assets/<article-slug>-illustrations/`，`littlebox` 写入 `assets/<article-slug>-littlebox/`，`tom` 写入 `assets/<article-slug>-tom/`，`ferris` 写入 `assets/<article-slug>-ferris/`，`sealos` 写入 `assets/<article-slug>-sealos/`。
 - 输出前检查目标目录已有资产，生成新文件名以保留历史结果。
 
 ## 交付报告字段

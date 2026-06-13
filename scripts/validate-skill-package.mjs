@@ -224,12 +224,14 @@ export function outputPathTokens() {
       "assets/<article-slug>-littlebox/",
       "assets/<article-slug>-tom/",
       "assets/<article-slug>-ferris/",
+      "assets/<article-slug>-sealos/",
     ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
       "assets/&lt;article-slug&gt;-littlebox/",
       "assets/&lt;article-slug&gt;-tom/",
       "assets/&lt;article-slug&gt;-ferris/",
+      "assets/&lt;article-slug&gt;-sealos/",
     ],
   };
 }
@@ -247,8 +249,20 @@ export function parsePublicFerrisSampleApproval(releaseChecklistText) {
   return parseFerrisApprovalLine(approvalLine, "public");
 }
 
-export function parseGeneratedFerrisSampleApproval(releaseChecklistText) {
+export function parsePublicSealosSampleApproval(releaseChecklistText) {
   const approvalLine = releaseChecklistText
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("Sealos public asset policy for"));
+
+  return parseSealosApprovalLine(approvalLine);
+}
+
+export function parseGeneratedFerrisSampleApproval(releaseChecklistText) {
+  const ferrisSection = releaseChecklistText
+    .split("## Ferris Source, Trademark, and Public Sample Gate")[1]
+    ?.split("## Sealos Seal Brand, Uploaded Image, and Public Sample Gate")[0] ?? "";
+  const approvalLine = ferrisSection
     .split("\n")
     .map((line) => line.trim())
     .find((line) => line.includes("Record generated sample review:"));
@@ -361,6 +375,100 @@ function emptyFerrisApproval() {
     releaseChannelsPresent: false,
     trademarkOutcomePresent: false,
     complete: false,
+  };
+}
+
+function emptySealosApproval() {
+  return {
+    found: false,
+    checked: false,
+    status: "",
+    reviewer: "",
+    reviewDate: "",
+    approvalStatus: "",
+    allowedDirectories: [],
+    releaseChannels: "",
+    identityOutcome: "",
+    brandLogoOutcome: "",
+    reviewerPresent: false,
+    datePresent: false,
+    approvalStatusPresent: false,
+    allowedDirectoriesPresent: false,
+    releaseChannelsPresent: false,
+    identityOutcomePresent: false,
+    brandLogoOutcomePresent: false,
+    complete: false,
+  };
+}
+
+function parseSealosApprovalLine(approvalLine) {
+  if (!approvalLine) {
+    return emptySealosApproval();
+  }
+
+  const checked = /^\-\s+\[[xX]\]/.test(approvalLine);
+  const recordMatch = approvalLine.match(/:\s*(.+?)(?:\.)?$/);
+  const approvalRecord = recordMatch?.[1] ?? "";
+  const fields = approvalRecord.split(/\s+\/(?=\s)/).map((field) => field.trim().replace(/\.$/, ""));
+  const [
+    status = "",
+    reviewer = "",
+    reviewDate = "",
+    approvalStatus = "",
+    allowedDirectoriesText = "",
+    releaseChannels = "",
+    identityOutcome = "",
+    brandLogoOutcome = "",
+  ] = fields;
+  const allowedDirectories = allowedDirectoriesText
+    .split(/,|;|\band\b/)
+    .map((directory) => directory.trim())
+    .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
+    .filter(Boolean);
+  const requiredDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
+  const datePresent = isValidReviewDate(reviewDate);
+  const approvalStatusPresent =
+    Boolean(approvalStatus) &&
+    !/^approval status$/i.test(approvalStatus) &&
+    /(approved|complete|granted)/i.test(approvalStatus);
+  const allowedDirectoriesPresent = requiredDirectories.every((directory) => allowedDirectories.includes(directory));
+  const releaseChannelsPresent = Boolean(releaseChannels) && !/^release channels\.?$/i.test(releaseChannels);
+  const identityOutcomePresent =
+    Boolean(identityOutcome) && !/^uploaded-image identity outcome\.?$/i.test(identityOutcome);
+  const brandLogoOutcomePresent = Boolean(brandLogoOutcome) && !/^brand-logo outcome\.?$/i.test(brandLogoOutcome);
+  const complete =
+    checked &&
+    /(approved|complete|granted)/i.test(status) &&
+    !/pending/i.test(status) &&
+    reviewerPresent &&
+    datePresent &&
+    approvalStatusPresent &&
+    !/pending/i.test(approvalStatus) &&
+    allowedDirectoriesPresent &&
+    releaseChannelsPresent &&
+    identityOutcomePresent &&
+    brandLogoOutcomePresent;
+
+  return {
+    found: true,
+    checked,
+    status,
+    reviewer,
+    reviewDate,
+    approvalStatus,
+    allowedDirectories,
+    releaseChannels,
+    identityOutcome,
+    brandLogoOutcome,
+    reviewerPresent,
+    datePresent,
+    approvalStatusPresent,
+    allowedDirectoriesPresent,
+    releaseChannelsPresent,
+    identityOutcomePresent,
+    brandLogoOutcomePresent,
+    complete,
   };
 }
 
@@ -618,6 +726,60 @@ function combinedText(relativePaths) {
   return relativePaths.map((relativePath) => requireFile(relativePath)).join("\n");
 }
 
+function sealosFixedMarkers() {
+  return [
+    "white rounded seal body",
+    "navy cap",
+    "deep-blue hoodie",
+    "Sealos logo marks on cap and chest",
+    "glossy dark eyes",
+    "black nose",
+    "whisker dots",
+    "small smile",
+    "short rounded flippers",
+    "compact legs",
+    "side-rear white tail",
+  ];
+}
+
+function sealosAliases() {
+  return [
+    "Sealos Seal",
+    "Sealos mascot",
+    "Sealos 吉祥物",
+    "Sealos 海豹",
+    "white Sealos seal",
+    "blue hoodie seal",
+  ];
+}
+
+function sealosPlannedReferences() {
+  return [
+    "references/ips/sealos/index.md",
+    "references/ips/sealos/source.md",
+    "references/ips/sealos/style-dna.md",
+    "references/ips/sealos/sealos-ip.md",
+    "references/ips/sealos/composition-patterns.md",
+    "references/ips/sealos/prompt-template.md",
+    "references/ips/sealos/qa-checklist.md",
+  ];
+}
+
+function sealosDriftMarkers() {
+  return [
+    "generic seals",
+    "abstract logo creatures",
+    "missing cap",
+    "missing hoodie",
+    "missing Sealos logo marks",
+    "changed body color",
+    "missing side-rear tail",
+    "plain bald-head variants",
+    "prior exploration variants",
+    "different selected mascot",
+  ];
+}
+
 function imageAssetPaths() {
   return [
     ...sortedDirectoryEntries("examples/images").filter((entry) => entry.type === "file").map((entry) => entry.path),
@@ -777,7 +939,7 @@ const checks = [
       "attribution_context",
       "status",
     ], ROUTING_FILE, "IP Routes table columns");
-    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox", "tom", "ferris"], ROUTING_FILE, "route ids");
+    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox", "tom", "ferris", "sealos"], ROUTING_FILE, "route ids");
   }),
   defineCheck("ROUTE-XH-001", "routing.md preserves the Xiaohei active route contract", () => {
     const row = routeById("xiaohei");
@@ -887,6 +1049,44 @@ const checks = [
     }
     assertExistingFiles(expectedReferences.map((reference) => path.join(PACKAGE_DIR, reference)), ROUTING_FILE, "Phase 15 Ferris seven-file pack existence");
   }),
+  defineCheck("ROUTE-SEALOS-001", "routing.md preserves the Phase 16 Sealos brand-owned route contract", () => {
+    const row = routeById("sealos");
+    const references = routeReferencePaths(row);
+    assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
+      ...sealosAliases(),
+      "sealos",
+      "brand-owned",
+      "uploaded mascot image",
+      "uploaded-image authority",
+      "brand/canonical-image boundary",
+      "references/ips/sealos/source.md",
+    ], "Sealos display name, aliases, suffix, uploaded-image authority, source record, and status");
+    if (row.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected sealos default=false; observed ${row.default || "missing"}`);
+    }
+    if (row.output_suffix !== "sealos") {
+      throw new Error(`${ROUTING_FILE} expected sealos output_suffix=sealos; observed ${row.output_suffix || "missing"}`);
+    }
+    if (references.join("\n") !== sealosPlannedReferences().join("\n")) {
+      throw new Error(
+        `${ROUTING_FILE} expected sealos required_references=${sealosPlannedReferences().join(", ")}; observed ${references.join(", ") || "none"}`,
+      );
+    }
+    assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
+      "brand_context",
+      "reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes",
+      "canonical_image_status",
+      "uploaded-image-canonical",
+      "drift_boundary",
+      "uploaded-image-locked",
+      ...sealosFixedMarkers(),
+    ], "Sealos metadata block with brand context, canonical image status, drift boundary, and fixed markers");
+    assertExistingFiles(
+      [path.join(PACKAGE_DIR, "references", "ips", "sealos", "source.md")],
+      ROUTING_FILE,
+      "Phase 16 Sealos source record existence",
+    );
+  }),
   defineCheck("ROUTE-DEFAULT-001", "routing.md keeps Xiaohei as the only default active route", () => {
     const rows = routeRows();
     const defaults = rows.filter((row) => row.default === "true").map((row) => row.id);
@@ -905,11 +1105,15 @@ const checks = [
     if (ferris.default !== "false") {
       throw new Error(`${ROUTING_FILE} expected ferris default=false; observed ${ferris.default || "missing"}`);
     }
+    const sealos = routeById("sealos");
+    if (sealos.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected sealos default=false; observed ${sealos.default || "missing"}`);
+    }
   }),
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, sealos: 7 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -931,6 +1135,15 @@ const checks = [
         if (row.id === "ferris" && !displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/ferris/`)) {
           throw new Error(`${ROUTING_FILE} expected ferris reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/ferris/`);
         }
+        if (row.id === "sealos") {
+          if (!reference.startsWith("references/ips/sealos/")) {
+            throw new Error(`${ROUTING_FILE} expected sealos reference ${reference} under references/ips/sealos/`);
+          }
+          if (!displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/sealos/`)) {
+            throw new Error(`${ROUTING_FILE} expected sealos reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/sealos/`);
+          }
+          if (reference !== "references/ips/sealos/source.md") continue;
+        }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
         }
@@ -942,6 +1155,7 @@ const checks = [
     const littlebox = routeById("littlebox");
     const tom = routeById("tom");
     const ferris = routeById("ferris");
+    const sealos = routeById("sealos");
     if (xiaohei.output_suffix !== "illustrations") {
       throw new Error(`${ROUTING_FILE} expected xiaohei output_suffix=illustrations; observed ${xiaohei.output_suffix}`);
     }
@@ -954,6 +1168,9 @@ const checks = [
     if (ferris.output_suffix !== "ferris") {
       throw new Error(`${ROUTING_FILE} expected ferris output_suffix=ferris; observed ${ferris.output_suffix}`);
     }
+    if (sealos.output_suffix !== "sealos") {
+      throw new Error(`${ROUTING_FILE} expected sealos output_suffix=sealos; observed ${sealos.output_suffix}`);
+    }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
@@ -961,6 +1178,8 @@ const checks = [
       "assets/&lt;article-slug&gt;-tom/",
       "assets/<article-slug>-ferris/",
       "assets/&lt;article-slug&gt;-ferris/",
+      "assets/<article-slug>-sealos/",
+      "assets/&lt;article-slug&gt;-sealos/",
     ], "output suffix to output directory mapping");
   }),
   defineCheck("ROUTE-MIXED-001", "routing.md preserves mixed-IP separate route group wording", () => {
@@ -971,6 +1190,7 @@ const checks = [
       "`littlebox` 写入 `assets/<article-slug>-littlebox/`",
       "`tom` 写入 `assets/<article-slug>-tom/`",
       "`ferris` 写入 `assets/<article-slug>-ferris/`",
+      "Sealos Seal",
     ], "mixed-IP isolated reference and output-directory wording");
   }),
   defineCheck("REFS-XH-001", "Xiaohei canonical operational references and index exist", () => {
@@ -1326,6 +1546,43 @@ const checks = [
       "endorsement language",
     ], "Ferris source headings, author/source markers, CC0 context, trademark boundary, status, and sample gate markers");
   }),
+  defineCheck("SOURCE-SEALOS-001", "Sealos source record preserves Phase 16 brand and uploaded-image markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "sealos", "source.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Sealos Seal Brand and Canonical Image Record",
+      "## Source",
+      "## Brand Context",
+      "## Canonical Image Authority",
+      "## Fixed Visual Markers",
+      "## Prior Exploration Boundary",
+      "## Route Status",
+      "## Allowed Use",
+      "## Restricted Use",
+      "## Distribution Boundary",
+      "## Sample Policy",
+      "## Drift Boundary",
+      "## Review Owner",
+      "uploaded mascot image",
+      "canonical Sealos Seal reference for v1.3",
+      "brand-owned",
+      "uploaded-image-canonical",
+      "uploaded-image-locked",
+      "prior Sealos mascot exploration",
+      "reliable cloud developer companion",
+      "Sealos cloud OS",
+      "AI-native deployment",
+      "DevBox",
+      "databases",
+      "app deployment",
+      "Kubernetes",
+      "generic seals",
+      "abstract logo creatures",
+      "blue-gradient cloud/seal explorations",
+      "bald or plain-head seal variants",
+      "different mascot selection",
+      ...sealosFixedMarkers(),
+    ], "Sealos source headings, uploaded-image authority, fixed markers, brand context, sample policy, and drift boundary");
+  }),
   defineCheck("DOC-LINKS-001", "README and examples local Markdown links point to existing files", () => {
     const links = localMarkdownLinks(["README.md", "examples/prompts.md"]);
     if (links.length === 0) {
@@ -1394,6 +1651,27 @@ const checks = [
       "assets/&lt;article-slug&gt;-ferris/",
     ], "Ferris aliases, source record path, and raw plus escaped output path tokens");
   }),
+  defineCheck("DOC-SEALOS-P16-001", "public docs expose Phase 16 Sealos route-status markers", () => {
+    const text = combinedText(["README.md", "examples/prompts.md"]);
+    assertIncludes(text, "README.md + examples/prompts.md", [
+      "Sealos Seal",
+      "brand-owned",
+      "Sealos mascot",
+      "Sealos 吉祥物",
+      "Sealos 海豹",
+      "white Sealos seal",
+      "blue hoodie seal",
+      "ian-xiaohei-illustrations/references/ips/sealos/source.md",
+      "ian-xiaohei-illustrations/references/routing.md",
+      "assets/<article-slug>-sealos/",
+      "assets/&lt;article-slug&gt;-sealos/",
+      "reliable cloud developer companion",
+      "uploaded-image identity",
+      "generic seal",
+      "abstract logo creature",
+      "prior exploration variant",
+    ], "Phase 16 Sealos route status, aliases, source record, routing link, output tokens, brand context, and drift markers");
+  }),
   defineCheck("NOTICE-IAN-001", "NOTICE keeps Ian Xiaohei attribution markers", () => {
     assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
       "Ian Xiaohei Illustrations",
@@ -1444,6 +1722,20 @@ const checks = [
       "Rust Foundation trademark policy context",
       "release review",
     ], "Ferris source attribution, route status, source record, Rust trademark boundary, and release review");
+  }),
+  defineCheck("NOTICE-SEALOS-001", "NOTICE keeps Sealos brand and canonical image boundary markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Sealos Seal Brand and Canonical Image Boundary",
+      "uploaded white seal mascot",
+      "brand-owned",
+      "Uploaded-image authority",
+      "ian-xiaohei-illustrations/references/ips/sealos/source.md",
+      "reliable cloud developer companion",
+      "Prior Sealos mascot exploration",
+      "v1.3 canonical mascot reference",
+      "Public rendered samples",
+      "brand/logo wording",
+    ], "Sealos NOTICE brand-owned route, uploaded-image authority, source record, prior exploration boundary, and public sample review");
   }),
   defineCheck("SMOKE-DEFAULT-001", "examples prompts cover omitted-IP default Xiaohei smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
@@ -1554,6 +1846,35 @@ const checks = [
       "allowed directories / release channels",
     ], "Ferris release gate section, source record, trademark review, public asset policy, generated sample policy, and Phase 15 evidence marker");
   }),
+  defineCheck("RELEASE-SEALOS-001", "release checklist keeps Sealos uploaded-image, brand, and public sample gates", () => {
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "## Sealos Seal Brand, Uploaded Image, and Public Sample Gate",
+      "Sealos Source Record Review",
+      "Uploaded-Image Identity Review",
+      "Sealos Brand and Logo Wording Review",
+      "Sealos Prompt Leakage Scan",
+      "Sealos Public Asset Policy",
+      "Sealos Generated Sample Policy",
+      "Final Sealos Release Review",
+      "ian-xiaohei-illustrations/references/ips/sealos/source.md",
+      "brand-owned",
+      "uploaded-image-canonical",
+      "uploaded-image-locked",
+      "Sealos public asset policy for",
+      "reviewer",
+      "approval status",
+      "allowed directories",
+      "release channels",
+      "uploaded-image identity outcome",
+      "brand-logo outcome",
+      "assets/<article-slug>-sealos/",
+      "node scripts/validate-skill-package.mjs",
+      "node --test scripts/validate-skill-package.test.mjs",
+      "git diff --check",
+      ...sealosFixedMarkers(),
+      ...sealosDriftMarkers(),
+    ], "Sealos release checklist identity, brand/logo, leakage, public asset, generated sample, validator, and final review markers");
+  }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
     if (matches.length > 0) {
@@ -1638,6 +1959,21 @@ const checks = [
       );
     }
   }),
+  defineCheck("BOUNDARY-SEALOS-IMG-001", "example asset directories keep Sealos rendered assets behind release approval", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parsePublicSealosSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected Sealos public asset policy approval record; observed missing line");
+    }
+    const matches = imageAssetPaths().filter((relativePath) =>
+      /sealos|sealos-seal|white-seal|blue-hoodie-seal|海豹/i.test(relativePath),
+    );
+    if (!approval.complete && matches.length > 0) {
+      throw new Error(
+        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Sealos assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, uploaded-image identity outcome=${approval.identityOutcomePresent ? "present" : "missing"}, brand-logo outcome=${approval.brandLogoOutcomePresent ? "present" : "missing"}`,
+      );
+    }
+  }),
   defineCheck("BOUNDARY-FERRIS-GEN-001", "Ferris generated samples stay distinct from public rendered sample release gates", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parseGeneratedFerrisSampleApproval(releaseChecklist);
@@ -1661,6 +1997,9 @@ const checks = [
         const relative = displayPath(resolved);
         if (!relative.startsWith(`${PACKAGE_DIR}/references/`)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} under ${PACKAGE_DIR}/references/`);
+        }
+        if (row.id === "sealos" && reference !== "references/ips/sealos/source.md") {
+          continue;
         }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);

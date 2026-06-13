@@ -670,8 +670,8 @@ test("validator fixture reports Sealos source marker drift", () => {
     replaceInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
-      "canonical Sealos Seal reference for v1.3",
-      "canonical brand mascot reference",
+      "uploaded-image-canonical",
+      "uploaded-image-reviewed",
     );
 
     const result = runFixtureValidator(fixtureRoot);
@@ -679,7 +679,7 @@ test("validator fixture reports Sealos source marker drift", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] SOURCE-SEALOS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/sealos\/source\.md/);
-    assert.match(result.stdout, /observed missing marker\(s\): canonical Sealos Seal reference for v1\.3/);
+    assert.match(result.stdout, /observed missing marker\(s\): uploaded-image-canonical/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

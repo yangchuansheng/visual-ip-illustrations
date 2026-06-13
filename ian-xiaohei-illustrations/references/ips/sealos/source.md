@@ -41,6 +41,7 @@ The Sealos Seal route must preserve these uploaded-image markers:
 ## Prior Exploration Boundary
 
 - Prior Sealos mascot exploration can inform wording such as reliable cloud developer companion, cloud OS identity, and developer-tool friendliness.
+- The phrase prior Sealos mascot exploration names the supporting context boundary for validator and release review.
 - Generated shapes and earlier alternate mascot concepts stay supporting context.
 - The uploaded mascot image controls body shape, outfit, logo placement, and visible identity markers.
 
