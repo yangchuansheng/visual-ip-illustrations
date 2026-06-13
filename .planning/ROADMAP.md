@@ -2,10 +2,10 @@
 
 ## Overview
 
-v1.2 adds Ferris the Rustacean as the fourth selectable visual IP while preserving the shipped Xiaohei default, Littlebox explicit route, and Tom protected-character route. The milestone follows the source-aware mascot dependency chain: Ferris source and trademark boundary, Ferris canonical pack, skill controller integration, public docs and release surface, then validation hardening. The package stays a lightweight Markdown/YAML Codex Skill with dependency-free local validation and host-provided image generation.
+v1.3 adds the uploaded Sealos white seal mascot as the fifth selectable visual IP while preserving the shipped Xiaohei default, Littlebox explicit route, Tom protected-character route, and Ferris source-reviewed mascot route. The milestone follows the brand-owned mascot dependency chain: Sealos Seal brand and uploaded-image contract, canonical Sealos Seal pack, skill controller integration, public docs and release surface, then validation hardening. The package stays a lightweight Markdown/YAML Codex Skill with dependency-free local validation and host-provided image generation.
 
-**Current Milestone:** v1.2 Ferris Rust Mascot IP Integration
-**Phase Range:** 11-15
+**Current Milestone:** v1.3 Sealos Seal Mascot IP Integration
+**Phase Range:** 16-20
 **Granularity:** coarse
 
 ## Phases
@@ -17,126 +17,129 @@ v1.2 adds Ferris the Rustacean as the fourth selectable visual IP while preservi
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [x] **Phase 11: Ferris Source and Route Contract** - Maintainers get Ferris source, CC0/public-domain context, Rust trademark boundary, aliases, route metadata, and public-sample gates before broad release. (completed 2026-06-13)
-- [x] **Phase 12: Ferris Canonical Pack** - Maintainers get an isolated Ferris reference pack for identity, planning, prompts, composition, QA, edits, source notes, and trademark-boundary behavior. (completed 2026-06-13)
-- [x] **Phase 13: Skill Controller Integration** - Users can explicitly select Ferris or request separate Xiaohei, Littlebox, Tom, and Ferris variants while Xiaohei remains the only default route. (implementation complete 2026-06-13; validator baseline update remains in Phase 15)
-- [x] **Phase 14: Docs, Examples, and Release Surface** - Users and maintainers get Ferris-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent source/trademark wording. (completed 2026-06-13)
-- [x] **Phase 15: Validation Hardening** - Maintainers can run local validation and tests that cover Ferris route behavior, source/trademark boundaries, docs markers, paths, and route leakage gates. (completed 2026-06-13)
+- [ ] **Phase 16: Sealos Seal Brand and Image Contract** - Maintainers get Sealos Seal brand context, uploaded-image authority, fixed visual markers, route metadata, and public-sample gates before broad route expansion.
+- [ ] **Phase 17: Sealos Seal Canonical Pack** - Maintainers get an isolated Sealos Seal reference pack for identity, planning, prompts, composition, QA, edits, brand notes, and uploaded-image drift prevention.
+- [ ] **Phase 18: Skill Controller Integration** - Users can explicitly select Sealos Seal or request separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal variants while Xiaohei remains the only default route.
+- [ ] **Phase 19: Docs, Examples, and Release Surface** - Users and maintainers get Sealos Seal-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent uploaded-image and brand-boundary wording.
+- [ ] **Phase 20: Validation Hardening** - Maintainers can run local validation and tests that cover Sealos Seal route behavior, uploaded-image identity markers, brand boundaries, docs markers, paths, sample gates, and route leakage gates.
 
 ## Phase Details
 
-### Phase 11: Ferris Source and Route Contract
+### Phase 16: Sealos Seal Brand and Image Contract
 
-**Goal**: Maintainers can audit Ferris source, copyright waiver, Rust trademark boundary, route metadata, and public-sample policy before Ferris is treated as a selectable mascot route.
-**Depends on**: Phase 10
-**Requirements**: FRGT-01, FRGT-02, FRGT-03, FRGT-04, FERR-05
+**Goal**: Maintainers can audit Sealos Seal brand context, uploaded-image authority, fixed mascot markers, route metadata, and public-sample policy before Sealos Seal is treated as a selectable brand mascot route.
+**Depends on**: Phase 15
+**Requirements**: SBRD-01, SBRD-02, SBRD-03, SBRD-04, SBRD-05
 **Success Criteria** (what must be TRUE):
 
-  1. Maintainer can read Ferris source, author, copyright waiver, reference URLs, Rust trademark policy context, endorsement boundary, allowed use, restricted use, distribution boundary, sample policy, and review owner in Ferris-specific documentation.
-  2. Maintainer can distinguish Ferris source attribution from Rust trademark or official-affiliation permission in `NOTICE.md`.
-  3. Maintainer can see explicit Ferris route-status wording shared by routing docs, README, examples, and release checklist.
-  4. Maintainer can block Rust-logo-forward or official-affiliation public samples until release review records explicit approval.
-  5. Maintainer can inspect Ferris route metadata, aliases, default flag, output suffix, required references, attribution context, source status, and trademark boundary in `references/routing.md`.
+  1. Maintainer can read a Sealos Seal brand/source record that names the uploaded image as the canonical mascot reference for v1.3.
+  2. Maintainer can verify the required visual markers: white rounded seal, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+  3. Maintainer can distinguish the selected uploaded mascot from prior Sealos mascot exploration variants and generic seal concepts.
+  4. Maintainer can block public samples that drift away from the uploaded mascot identity.
+  5. Maintainer can inspect Sealos Seal route metadata, aliases, default flag, output suffix, required references, brand context, canonical image status, and drift boundary in `references/routing.md`.
 
-**Plans:** 3/3 plans complete
+**Plans:** 0/3 plans complete
 
 Plans:
 
-- [x] 11-01-PLAN.md — Create Ferris source record, route row, and NOTICE source/trademark boundary.
-- [x] 11-02-PLAN.md — Add public route-status wording, Ferris path tokens, and release checklist sample gate.
-- [x] 11-03-PLAN.md — Repair validator baseline and add minimal Phase 11 Ferris contract checks.
+- [ ] 16-01-PLAN.md — Create Sealos Seal brand/source record, route row, and NOTICE brand boundary.
+- [ ] 16-02-PLAN.md — Add public route-status wording, Sealos output path tokens, and release checklist identity gate.
+- [ ] 16-03-PLAN.md — Repair validator baseline and add minimal Phase 16 Sealos Seal contract checks.
 
-### Phase 12: Ferris Canonical Pack
+### Phase 17: Sealos Seal Canonical Pack
 
-**Goal**: Users and maintainers can rely on a route-isolated Ferris pack that defines Ferris identity, Rust-themed article action language, prompts, QA, edits, source notes, and trademark-safe behavior.
-**Depends on**: Phase 11
-**Requirements**: FIP-01, FIP-02, FIP-03, FIP-04, FIP-05
+**Goal**: Users and maintainers can rely on a route-isolated Sealos Seal pack that defines the uploaded mascot identity, Sealos cloud developer companion action language, prompts, QA, edits, brand notes, and drift-safe behavior.
+**Depends on**: Phase 16
+**Requirements**: SIP-01, SIP-02, SIP-03, SIP-04, SIP-05, SIP-06
 **Success Criteria** (what must be TRUE):
 
-  1. Maintainer can find Ferris canonical references under `ian-xiaohei-illustrations/references/ips/ferris/`.
-  2. User receives Ferris planning fields for placement, core idea, structure type, Ferris state, Ferris action, supporting objects, visible labels, output path, and source/trademark note.
-  3. Ferris prompt template produces one 16:9 article illustration where Ferris performs the cognitive action.
-  4. Ferris QA rejects generic crabs, passive Ferris placement, Rust-logo misuse, official-affiliation cues, over-detailed mascot rendering, excessive text, source-asset tracing, and route leakage.
-  5. Ferris edit prompts support stronger Ferris participation, off-model identity repair, trademark-boundary repair, title removal, text reduction, and preservation of unaffected content.
+  1. Maintainer can find Sealos Seal canonical references under `ian-xiaohei-illustrations/references/ips/sealos/`.
+  2. User receives Sealos Seal planning fields for placement, core idea, structure type, mascot state, mascot action, supporting objects, visible labels, output path, and brand/canonical-image note.
+  3. Sealos Seal prompt template produces one 16:9 article illustration where the uploaded white seal mascot performs the cognitive action.
+  4. Sealos Seal composition guidance supports cloud OS, AI deployment, DevBox, database, Kubernetes, app launch, troubleshooting, and workflow metaphor families while preserving the fixed mascot identity.
+  5. Sealos Seal QA rejects generic seals, abstract logo creatures, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage.
+  6. Sealos Seal edit prompts support stronger mascot participation, uploaded-image identity repair, logo/hoodie/cap repair, title removal, text reduction, and preservation of unaffected content.
 
-**Plans:** 3/3 plans complete
+**Plans:** 0/3 plans complete
 
 Plans:
 
-- [x] 12-01-PLAN.md — Create Ferris pack index, source/trademark notes, style DNA, and identity foundations.
-- [x] 12-02-PLAN.md — Create Ferris composition patterns plus planning, generation, and edit prompt templates.
-- [x] 12-03-PLAN.md — Create Ferris QA checklist and refine cross-file Ferris pack coherence.
+- [ ] 17-01-PLAN.md — Create Sealos Seal pack index, brand/canonical notes, style DNA, and identity foundations.
+- [ ] 17-02-PLAN.md — Create Sealos Seal composition patterns plus planning, generation, and edit prompt templates.
+- [ ] 17-03-PLAN.md — Create Sealos Seal QA checklist and refine cross-file Sealos pack coherence.
 
-### Phase 13: Skill Controller Integration
+### Phase 18: Skill Controller Integration
 
-**Goal**: Users can select Ferris through the skill controller and receive route-isolated planning, generation, QA, mixed-IP grouping, and Ferris output paths.
-**Depends on**: Phase 12
-**Requirements**: FERR-01, FERR-02, FERR-03, FERR-04
+**Goal**: Users can select Sealos Seal through the skill controller and receive route-isolated planning, generation, QA, mixed-IP grouping, and Sealos output paths.
+**Depends on**: Phase 17
+**Requirements**: SEAL-01, SEAL-02, SEAL-03, SEAL-04, SEAL-05
 **Success Criteria** (what must be TRUE):
 
-  1. User can explicitly request Ferris through clear aliases such as `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹`.
+  1. User can explicitly request Sealos Seal through aliases such as `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, and `blue hoodie seal`.
   2. User who omits a visual IP still gets Xiaohei as the only default route.
-  3. User can request Xiaohei, Littlebox, Tom, and Ferris for the same core idea and receive separate variant groups.
-  4. Ferris outputs use `assets/<article-slug>-ferris/`, and docs include the escaped token `assets/&lt;article-slug&gt;-ferris/`.
+  3. User can request Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal for the same core idea and receive separate variant groups.
+  4. Sealos Seal outputs use `assets/<article-slug>-sealos/`, and docs include the escaped token `assets/&lt;article-slug&gt;-sealos/`.
+  5. Sealos Seal planning and delivery output includes a brand/canonical-image note that preserves the uploaded mascot identity.
 
-**Plans:** 1/1 plans complete
+**Plans:** 0/1 plans complete
 
 Plans:
 
-- [x] 13-01-PLAN.md — Integrate Ferris into the skill controller route, planning, generation, QA, output, and delivery paths.
+- [ ] 18-01-PLAN.md — Integrate Sealos Seal into the skill controller route, planning, generation, QA, output, and delivery paths.
 
-### Phase 14: Docs, Examples, and Release Surface
+### Phase 19: Docs, Examples, and Release Surface
 
-**Goal**: Users and maintainers can request, inspect, and release Ferris behavior through public docs and release materials that match the source/trademark boundary contract.
-**Depends on**: Phase 13
-**Requirements**: FDOC-01, FDOC-02, FDOC-03, FDOC-04, FDOC-05
+**Goal**: Users and maintainers can request, inspect, and release Sealos Seal behavior through public docs and release materials that match the uploaded-image identity and brand-boundary contract.
+**Depends on**: Phase 18
+**Requirements**: SDOC-01, SDOC-02, SDOC-03, SDOC-04, SDOC-05, SDOC-06
 **Success Criteria** (what must be TRUE):
 
-  1. README explains Ferris as an explicit Rust-community mascot route with aliases, output path, source context, and trademark/endorsement boundary.
-  2. `examples/prompts.md` includes copyable Ferris planning, Ferris generation, Ferris smoke, and four-IP mixed variant prompts.
-  3. `agents/openai.yaml` names Xiaohei, Littlebox, Tom, and Ferris while preserving Xiaohei as the implicit default.
-  4. `RELEASE_CHECKLIST.md` includes Ferris source review, Rust trademark wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
-  5. Public docs use Ferris source attribution and Rust trademark boundary wording consistently across README, examples, NOTICE, routing docs, and release checklist.
+  1. README explains Sealos Seal as an explicit brand mascot route with aliases, output path, uploaded-image authority, and brand/logo boundary.
+  2. `examples/prompts.md` includes copyable Sealos Seal planning, Sealos Seal generation, Sealos Seal smoke, and five-IP mixed variant prompts.
+  3. `agents/openai.yaml` names Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal while preserving Xiaohei as the implicit default.
+  4. `NOTICE.md` and release materials record Sealos Seal as a Sealos brand mascot route based on the uploaded image and avoid treating prior exploration variants as canonical.
+  5. `RELEASE_CHECKLIST.md` includes uploaded-image identity review, Sealos logo/brand wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
+  6. Public docs use Sealos Seal brand/canonical-image wording consistently across README, examples, NOTICE, routing docs, and release checklist.
 
-**Plans:** 4/4 plans complete
+**Plans:** 0/4 plans complete
 
 Plans:
 
-- [x] 14-01-PLAN.md — Update README public Ferris route docs, output path, source context, and trademark boundary.
-- [x] 14-02-PLAN.md — Add copyable Ferris planning, generation, smoke, and four-IP mixed prompts.
-- [x] 14-03-PLAN.md — Update agent metadata for Xiaohei, Littlebox, Tom, and explicit Ferris.
-- [x] 14-04-PLAN.md — Expand release checklist Ferris source, trademark, leakage, sample, validator, and final review gates.
+- [ ] 19-01-PLAN.md — Update README public Sealos Seal route docs, output path, uploaded-image authority, and brand boundary.
+- [ ] 19-02-PLAN.md — Add copyable Sealos Seal planning, generation, smoke, and five-IP mixed prompts.
+- [ ] 19-03-PLAN.md — Update agent metadata for Xiaohei, Littlebox, Tom, Ferris, and explicit Sealos Seal.
+- [ ] 19-04-PLAN.md — Expand release checklist Sealos Seal identity, brand, leakage, sample, validator, and final review gates.
 
-### Phase 15: Validation Hardening
+### Phase 20: Validation Hardening
 
-**Goal**: Maintainers can verify the four-route mascot-aware package locally with deterministic validator checks and Node tests.
-**Depends on**: Phase 14
-**Requirements**: FVAL-01, FVAL-02, FVAL-03, FVAL-04, FVAL-05, FVAL-06, FVAL-07
+**Goal**: Maintainers can verify the five-route brand-mascot-aware package locally with deterministic validator checks and Node tests.
+**Depends on**: Phase 19
+**Requirements**: SVAL-01, SVAL-02, SVAL-03, SVAL-04, SVAL-05, SVAL-06, SVAL-07
 **Success Criteria** (what must be TRUE):
 
-  1. Maintainer can run the local validator successfully after v1.2 roadmap initialization clears prior phase working directories.
-  2. Validator checks Ferris route row, aliases, default false, output suffix, required references, route status, source attribution context, and trademark boundary markers.
-  3. Validator checks Ferris canonical pack files, prompt placeholders, QA markers, source markers, trademark-boundary markers, docs markers, metadata, NOTICE, release checklist, raw and escaped output path tokens, and Ferris smoke prompts.
-  4. Validator checks Ferris leakage boundaries so Xiaohei, Littlebox, and Tom packs stay free of Ferris identity rules and Rust trademark boundary text.
-  5. Validator checks public example asset directories for Ferris-rendered assets against the release checklist public-sample approval policy, and Node tests cover four-route parser behavior, stable check ordering, Ferris failure messages, source/trademark fixtures, and full pass output.
+  1. Maintainer can run the local validator successfully after v1.3 roadmap initialization.
+  2. Validator checks Sealos Seal route row, aliases, default false, output suffix, required references, route status, brand context, canonical image markers, and drift boundary markers.
+  3. Validator checks Sealos Seal canonical pack files, prompt placeholders, QA markers, uploaded-image markers, brand-boundary markers, docs markers, metadata, NOTICE, release checklist, raw and escaped output path tokens, and Sealos Seal smoke prompts.
+  4. Validator checks Sealos Seal leakage boundaries so Xiaohei, Littlebox, Tom, and Ferris packs stay free of Sealos Seal identity rules and brand mascot text.
+  5. Validator checks public example asset directories for Sealos Seal rendered assets against the release checklist public-sample approval policy, and Node tests cover five-route parser behavior, stable check ordering, Sealos Seal failure messages, brand/canonical-image fixtures, and full pass output.
 
-**Plans:** 3/3 plans complete
+**Plans:** 0/3 plans complete
 
 Plans:
 
-- [x] 15-01-PLAN.md — Harden validator implementation for Ferris route, pack, docs, leakage, source/trademark, public asset, and generated sample gates.
-- [x] 15-02-PLAN.md — Harden Node test coverage for Phase 15 check ordering, parser behavior, fixtures, failure messages, public/generated sample gates, and full pass output.
-- [x] 15-03-PLAN.md — Record final validation evidence and close Phase 15 planning state.
+- [ ] 20-01-PLAN.md — Harden validator implementation for Sealos Seal route, pack, docs, leakage, uploaded-image, brand, public asset, and generated sample gates.
+- [ ] 20-02-PLAN.md — Harden Node test coverage for Phase 20 check ordering, parser behavior, fixtures, failure messages, public/generated sample gates, and full pass output.
+- [ ] 20-03-PLAN.md — Record final validation evidence and close Phase 20 planning state.
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 11 -> 12 -> 13 -> 14 -> 15
+Phases execute in numeric order: 16 -> 17 -> 18 -> 19 -> 20
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 11. Ferris Source and Route Contract | 3/3 | Complete   | 2026-06-13 |
-| 12. Ferris Canonical Pack | 3/3 | Complete   | 2026-06-13 |
-| 13. Skill Controller Integration | 1/1 | Complete | 2026-06-13 |
-| 14. Docs, Examples, and Release Surface | 4/4 | Complete | 2026-06-13 |
-| 15. Validation Hardening | 3/3 | Complete | 2026-06-13 |
+| 16. Sealos Seal Brand and Image Contract | 0/3 | Pending | — |
+| 17. Sealos Seal Canonical Pack | 0/3 | Pending | — |
+| 18. Skill Controller Integration | 0/1 | Pending | — |
+| 19. Docs, Examples, and Release Surface | 0/4 | Pending | — |
+| 20. Validation Hardening | 0/3 | Pending | — |

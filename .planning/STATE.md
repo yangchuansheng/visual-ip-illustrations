@@ -1,17 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.2
-milestone_name: Ferris Rust Mascot IP Integration
-status: complete
-stopped_at: Completed 15-03-PLAN.md
-last_updated: "2026-06-13T13:00:42Z"
-last_activity: 2026-06-13 — Completed Phase 15 Plan 15-03 final validation evidence with validator 60/60 and Node tests 31/31
+milestone: v1.3
+milestone_name: Sealos Seal Mascot IP Integration
+status: planning
+last_updated: "2026-06-13T13:50:25.249Z"
+last_activity: 2026-06-13 — Started v1.3 Sealos Seal Mascot IP Integration and defined Phase 16-20 roadmap
 progress:
   total_phases: 5
-  completed_phases: 5
+  completed_phases: 0
   total_plans: 14
-  completed_plans: 14
-  percent: 100
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -21,14 +20,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 15 validation hardening complete
+**Current focus:** v1.3 Sealos Seal Mascot IP Integration — Phase 16 brand and uploaded-image contract next
 
 ## Current Position
 
-Phase: 15 — Validation Hardening
-Plan: 15-03 complete
-Status: Phase 15 complete; final validator, Node test, and whitespace evidence recorded
-Last activity: 2026-06-13 — Completed Phase 15 Plan 15-03 final validation evidence with validator 60/60 and Node tests 31/31
+Phase: Not started (defining requirements)
+Plan: —
+Status: Roadmap defined; ready to plan Phase 16
+Last activity: 2026-06-13 — Started v1.3 Sealos Seal Mascot IP Integration and defined Phase 16-20 roadmap
 
 ## Performance Metrics
 
@@ -55,8 +54,8 @@ Last activity: 2026-06-13 — Completed Phase 15 Plan 15-03 final validation evi
 
 **Recent Trend:**
 
-- Last 5 plans: Phase 9 Plan 09-03 updated metadata; Phase 9 Plan 09-04 added release gates; Phase 10 Plan 10-01 hardened the validator; Phase 10 Plan 10-02 hardened Node tests; Phase 10 Plan 10-03 recorded validation evidence.
-- Trend: v1.1 Tom integration is complete through Phase 10 verification and UAT; ready for milestone closeout.
+- Last 5 plans: Phase 14 Plan 14-04 expanded release gates; Phase 15 Plan 15-01 hardened the validator; Phase 15 Plan 15-02 hardened Node tests; Phase 15 Plan 15-03 recorded final validation evidence; v1.3 roadmap initialized Phase 16-20 for Sealos Seal.
+- Trend: v1.2 Ferris integration is complete through Phase 15 verification and UAT; v1.3 starts with Sealos Seal brand and uploaded-image identity contract work.
 
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
@@ -150,6 +149,9 @@ Recent decisions affecting current work:
 - [Phase 15]: Ferris validation now treats the route as a seven-file source-reviewed pack, with source.md as source/trademark authority.
 - [Phase 15]: Ferris public asset and generated sample records use Ferris-specific checklist parsers instead of Tom-shaped public sample wording.
 - [Phase 15]: Final validation evidence is recorded with `Summary: total=60 passed=60 failed=0 skipped=0`, Node `tests 31`, `pass 31`, `fail 0`, and `git diff --check` exit 0. — D-26 final evidence exists in `15-VERIFICATION.md` and `15-UAT.md`.
+- [Milestone v1.3]: Sealos Seal enters planning as an explicit brand mascot route using the uploaded white seal in navy cap and deep-blue hoodie as the canonical image authority. — The roadmap starts at Phase 16 and preserves Xiaohei as the only omitted-IP default.
+- [Milestone v1.3]: Sealos Seal route work must preserve the uploaded image markers: white rounded seal, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- [Milestone v1.3]: Prior Sealos mascot exploration is supporting brand context; the uploaded image is the route authority for v1.3.
 
 ### Pending Todos
 
