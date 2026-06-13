@@ -40,6 +40,20 @@ Ferris source context records Ferris the Rustacean from `rustacean.net` and Kare
 
 Ferris attribution records source context. Rust and Cargo marks, logos, official-affiliation claims, and endorsement wording are governed by Rust Foundation trademark policy context and release review.
 
+## Sealos Seal Brand and Canonical Image Boundary
+
+Sealos Seal source context records the uploaded white seal mascot for the `sealos` route.
+
+- Route: Sealos Seal
+- Route status: `brand-owned`
+- Uploaded-image authority: the user's uploaded mascot image is the v1.3 canonical mascot reference.
+- Source record and operational authority: `ian-xiaohei-illustrations/references/ips/sealos/source.md`
+- Brand context: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes.
+
+Prior Sealos mascot exploration supplies supporting brand context. The uploaded image remains the v1.3 canonical mascot reference for body shape, navy cap, deep-blue hoodie, Sealos logo marks, facial markers, flippers, compact legs, and side-rear white tail.
+
+Public rendered samples and Sealos brand/logo wording require release review before publication in `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
+
 Author links:
 
 - GitHub: <https://github.com/helloianneo>
