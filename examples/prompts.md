@@ -142,17 +142,38 @@ Text-only maintainer route audit. 使用 Tom / Tom Cat / Tom and Jerry / 汤姆 
 预期：Public rendered Tom samples 由 RELEASE_CHECKLIST.md 的 public-sample gate 控制。
 ```
 
+## 路由烟测：显式选择 Ferris
+
+Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+
+显式选择 Ferris 时，可用别名包括：Ferris、Rust mascot、Rust crab、Rustacean、Rust 吉祥物、Rust 螃蟹。Ferris route status 是 `source-reviewed`，source record 位于 `ian-xiaohei-illustrations/references/ips/ferris/source.md`。
+
+### 显式 Ferris：route contract marker
+
+```text
+Use $ian-xiaohei-illustrations 先不要生图。
+Text-only maintainer route audit. 使用 Ferris / Rust mascot / Rust crab / Rustacean / Rust 吉祥物 / Rust 螃蟹 路由，为这个观点输出 1 张 route-status smoke shot list：
+观点：把 Rust 社区语境里的抽象约束变成可检查步骤。
+预期：selected IP 是 Ferris。
+预期：route status 是 `source-reviewed`。
+预期：source record 是 `ian-xiaohei-illustrations/references/ips/ferris/source.md`。
+预期：输出路径是 `assets/<article-slug>-ferris/`。
+预期：文档校验 token 是 `assets/&lt;article-slug&gt;-ferris/`。
+预期：generated public Ferris samples require release review for Rust trademark and endorsement-safe wording。
+用途：text-only route contract marker；Phase 14 负责 copyable Ferris prompt examples。
+```
+
 ## 路由说明：多 IP 请求
 
-同一个观点可以按 IP 分组形成 variant group。Xiaohei 组使用 `assets/<article-slug>-illustrations/`，Littlebox 组使用 `assets/<article-slug>-littlebox/`，Tom 组使用 `assets/<article-slug>-tom/`，三组分别加载自己的参考、提示词、QA 和输出路径。
+同一个观点可以按 IP 分组形成 variant group。Xiaohei 组使用 `assets/<article-slug>-illustrations/`，Littlebox 组使用 `assets/<article-slug>-littlebox/`，Tom 组使用 `assets/<article-slug>-tom/`，Ferris 组使用 `assets/<article-slug>-ferris/`，四组分别加载自己的参考、提示词、QA 和输出路径。
 
-维护者参考：Xiaohei canonical pack 位于 `ian-xiaohei-illustrations/references/ips/xiaohei/`，Littlebox canonical pack 位于 `ian-xiaohei-illustrations/references/ips/littlebox/`，Tom canonical pack 位于 `ian-xiaohei-illustrations/references/ips/tom/`，Tom rights record 位于 `ian-xiaohei-illustrations/references/ips/tom/rights.md`，路由元数据位于 `ian-xiaohei-illustrations/references/routing.md`。
+维护者参考：Xiaohei canonical pack 位于 `ian-xiaohei-illustrations/references/ips/xiaohei/`，Littlebox canonical pack 位于 `ian-xiaohei-illustrations/references/ips/littlebox/`，Tom canonical pack 位于 `ian-xiaohei-illustrations/references/ips/tom/`，Tom rights record 位于 `ian-xiaohei-illustrations/references/ips/tom/rights.md`，Ferris source record 位于 `ian-xiaohei-illustrations/references/ips/ferris/source.md`，路由元数据位于 `ian-xiaohei-illustrations/references/routing.md`。
 
 ### 混合 IP：只做 variant planning
 
 ```text
 Use $ian-xiaohei-illustrations 先不要生图。
-请用同一个 core idea 分别输出 Xiaohei、Littlebox、Tom 三个 separate variant group。
+请用同一个 core idea 分别输出 Xiaohei、Littlebox、Tom、Ferris 四个 separate variant group。
 每个 group 使用自己的 route-local references、planning fields、QA gates 和输出目录。
 
 Xiaohei variant group：
@@ -172,6 +193,14 @@ Tom variant group：
 - 写清楚 Tom state、Tom action、Supporting objects、Visible labels、Output path、Rights-status note
 - 输出到 `assets/<article-slug>-tom/`
 - Public rendered Tom samples 由 RELEASE_CHECKLIST.md 的 public-sample gate 控制
+
+Ferris variant group：
+- 使用 source record `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- route status 保留 `source-reviewed`
+- aliases 包括 Ferris、Rust mascot、Rust crab、Rustacean、Rust 吉祥物、Rust 螃蟹
+- 输出到 `assets/<article-slug>-ferris/`
+- 文档校验 token 是 `assets/&lt;article-slug&gt;-ferris/`
+- generated public Ferris samples require release review
 
 <粘贴文章或单个观点>
 ```
