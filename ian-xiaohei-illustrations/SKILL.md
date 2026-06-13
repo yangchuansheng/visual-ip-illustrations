@@ -349,13 +349,20 @@ Ferris 路由的当前活动路径为：
 assets/<article-slug>-ferris/
 ```
 
+Sealos Seal 路由的当前活动路径为：
+
+```text
+assets/<article-slug>-sealos/
+```
+
 保存路径来自 `references/routing.md` 的 `output_suffix`：
 
 - Xiaohei `output_suffix: illustrations` -> `assets/<article-slug>-illustrations/`
 - Littlebox `output_suffix: littlebox` -> `assets/<article-slug>-littlebox/`
 - Tom `output_suffix: tom` -> `assets/<article-slug>-tom/`
 - Ferris `output_suffix: ferris` -> `assets/<article-slug>-ferris/`
-- Validation markers: Xiaohei `assets/&lt;article-slug&gt;-illustrations/`; Littlebox `assets/&lt;article-slug&gt;-littlebox/`; Tom `assets/&lt;article-slug&gt;-tom/`; Ferris `assets/&lt;article-slug&gt;-ferris/`
+- Sealos Seal `output_suffix: sealos` -> `assets/<article-slug>-sealos/`
+- Validation markers: Xiaohei `assets/&lt;article-slug&gt;-illustrations/`; Littlebox `assets/&lt;article-slug&gt;-littlebox/`; Tom `assets/&lt;article-slug&gt;-tom/`; Ferris `assets/&lt;article-slug&gt;-ferris/`; Sealos Seal `assets/&lt;article-slug&gt;-sealos/`
 
 按顺序命名：
 
@@ -364,7 +371,7 @@ assets/<article-slug>-ferris/
 02-topic-name.png
 ```
 
-文件名使用 ordered English slug。混合 IP 请求按 separate route groups 分别写入输出目录：Xiaohei 写入 `assets/<article-slug>-illustrations/`，Littlebox 写入 `assets/<article-slug>-littlebox/`，Tom 写入 `assets/<article-slug>-tom/`，Ferris 写入 `assets/<article-slug>-ferris/`；每个 variant group 保留自己的文件序号和用途说明。
+文件名使用 ordered English slug。Sealos Seal accepted outputs use ordered English slug filenames such as `01-topic-name.png`。混合 IP 请求按 separate route groups 分别写入输出目录：Xiaohei 写入 `assets/<article-slug>-illustrations/`，Littlebox 写入 `assets/<article-slug>-littlebox/`，Tom 写入 `assets/<article-slug>-tom/`，Ferris 写入 `assets/<article-slug>-ferris/`，Sealos Seal 写入 `assets/<article-slug>-sealos/`；每个 variant group 保留自己的文件序号和用途说明。
 
 保留原始生成文件，不要覆盖已有资产，除非用户明确要求替换。
 
@@ -372,11 +379,11 @@ assets/<article-slug>-ferris/
 
 生成前的策略输出要短而准。生成后的交付要包含：
 
-- 选中的视觉 IP / selected IP
-- 生成了几张
-- 每张图的用途
-- 保存路径
-- 哪些图最稳，哪些图是可选
+- 选中的视觉 IP / selected visual IP
+- image count / 生成了几张
+- purpose per image / 每张图的用途
+- saved path / 保存路径
+- stability notes / 哪些图最稳，哪些图是可选
 
 混合 IP 交付时，按 IP 输出 one block per IP：
 
@@ -384,7 +391,8 @@ assets/<article-slug>-ferris/
 - Littlebox block：shared core idea、图片用途、保存路径 `assets/<article-slug>-littlebox/`、assigned background、稳定性备注
 - Tom block：selected IP `Tom`、shared core idea、image purposes、save path `assets/<article-slug>-tom/`、route status `gated-authorized`、rights note `references/ips/tom/rights.md`、stability notes
 - Ferris block：selected IP `Ferris`、shared core idea、image purposes、save path `assets/<article-slug>-ferris/`、route status `source-reviewed`、source/trademark note、source pointer `references/ips/ferris/source.md`、stability notes
+- Sealos block：selected IP: Sealos Seal、shared core idea、image purposes、save path `assets/<article-slug>-sealos/`、route status `brand-owned`、brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, Sealos logo marks, and fixed identity markers from source.md.、source pointer `references/ips/sealos/source.md`、stability notes
 
-交付前做 route-leakage delivery guard：Tom block 保留 `gated-authorized` 和 `references/ips/tom/rights.md`；Ferris block 保留 `source-reviewed`、`references/ips/ferris/source.md`、source/trademark note、route-local QA 和 `assets/<article-slug>-ferris/`；Xiaohei 和 Littlebox blocks 保留各自 route-local wording、QA 和输出目录。
+交付前做 route-leakage delivery guard：Tom block 保留 `gated-authorized` 和 `references/ips/tom/rights.md`；Ferris block 保留 `source-reviewed`、`references/ips/ferris/source.md`、source/trademark note、route-local QA 和 `assets/<article-slug>-ferris/`；Sealos block 保留 `brand-owned`、`references/ips/sealos/source.md`、brand/canonical-image note、route-local QA、uploaded-image-canonical、uploaded-image-locked 和 `assets/<article-slug>-sealos/`；Xiaohei 和 Littlebox blocks 保留各自 route-local wording、QA 和输出目录。
 
 不要长篇解释风格理论；让图自己说话。
