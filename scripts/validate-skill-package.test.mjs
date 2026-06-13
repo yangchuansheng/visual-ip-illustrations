@@ -119,6 +119,22 @@ function completePublicApprovalLine(routeName, reviewDate = "2026-06-13") {
   return `- [x] Public rendered ${routeName} samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.`;
 }
 
+function pendingFerrisPublicAssetApprovalLine() {
+  return "- [ ] Ferris public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / trademark and endorsement-safe wording outcome.";
+}
+
+function completeFerrisPublicAssetApprovalLine(reviewDate = "2026-06-13", trademarkOutcome = "trademark safe") {
+  return `- [x] Ferris public asset policy for \`examples/images/\` and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${trademarkOutcome}.`;
+}
+
+function pendingGeneratedFerrisSampleLine() {
+  return "- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / trademark and endorsement-safe wording outcome.";
+}
+
+function completeGeneratedFerrisSampleLine(reviewDate = "2026-06-13", trademarkOutcome = "trademark safe") {
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-ferris / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${trademarkOutcome}.`;
+}
+
 test("validator command prints deterministic harness smoke logs", () => {
   const result = runValidator();
 
@@ -384,7 +400,7 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-ferris/"));
 });
 
-test("approval parsers expose current release primitives", async () => {
+test("approval parser helpers expose current release primitives", async () => {
   const validators = await import(`${scriptPath}?approvalParsers=${Date.now()}`);
   const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
 
@@ -419,10 +435,11 @@ test("approval parsers expose current release primitives", async () => {
   assert.equal(pendingFerrisApproval.checked, false);
   assert.equal(pendingFerrisApproval.complete, false);
   assert.equal(pendingFerrisApproval.allowedDirectoriesPresent, false);
+  assert.equal(pendingFerrisApproval.trademarkOutcomePresent, false);
 
   const approvedFerrisText = releaseChecklistText.replace(
-    pendingPublicApprovalLine("Ferris"),
-    completePublicApprovalLine("Ferris"),
+    pendingFerrisPublicAssetApprovalLine(),
+    completeFerrisPublicAssetApprovalLine(),
   );
   const approvedFerris = validators.parsePublicFerrisSampleApproval(approvedFerrisText);
   assert.equal(approvedFerris.complete, true);
@@ -430,13 +447,53 @@ test("approval parsers expose current release primitives", async () => {
     "examples/images",
     "ian-xiaohei-illustrations/assets/examples",
   ]);
+  assert.equal(approvedFerris.trademarkOutcomePresent, true);
 
   for (const placeholderDate of ["TBD", "pending", "", "   "]) {
     const placeholderText = releaseChecklistText.replace(
-      pendingPublicApprovalLine("Ferris"),
-      completePublicApprovalLine("Ferris", placeholderDate),
+      pendingFerrisPublicAssetApprovalLine(),
+      completeFerrisPublicAssetApprovalLine(placeholderDate),
     );
     const placeholderApproval = validators.parsePublicFerrisSampleApproval(placeholderText);
+    assert.equal(placeholderApproval.checked, true);
+    assert.equal(placeholderApproval.complete, false);
+    assert.equal(placeholderApproval.datePresent, false);
+  }
+
+  const missingTrademarkText = releaseChecklistText.replace(
+    pendingFerrisPublicAssetApprovalLine(),
+    completeFerrisPublicAssetApprovalLine("2026-06-13", "trademark and endorsement-safe wording outcome"),
+  );
+  const missingTrademarkApproval = validators.parsePublicFerrisSampleApproval(missingTrademarkText);
+  assert.equal(missingTrademarkApproval.checked, true);
+  assert.equal(missingTrademarkApproval.complete, false);
+  assert.equal(missingTrademarkApproval.trademarkOutcomePresent, false);
+
+  const pendingGeneratedApproval = validators.parseGeneratedFerrisSampleApproval(releaseChecklistText);
+  assert.equal(pendingGeneratedApproval.found, true);
+  assert.equal(pendingGeneratedApproval.checked, false);
+  assert.equal(pendingGeneratedApproval.complete, false);
+  assert.equal(pendingGeneratedApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingGeneratedApproval.publicDirectoriesPresent, false);
+
+  const completeGeneratedText = releaseChecklistText.replace(
+    pendingGeneratedFerrisSampleLine(),
+    completeGeneratedFerrisSampleLine(),
+  );
+  const completeGeneratedApproval = validators.parseGeneratedFerrisSampleApproval(completeGeneratedText);
+  assert.equal(completeGeneratedApproval.complete, true);
+  assert.deepEqual(completeGeneratedApproval.internalReviewDirectories, ["assets/<article-slug>-ferris"]);
+  assert.deepEqual(completeGeneratedApproval.publicDirectories, [
+    "examples/images",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
+
+  for (const placeholderDate of ["TBD", "pending", "", "   "]) {
+    const placeholderText = releaseChecklistText.replace(
+      pendingGeneratedFerrisSampleLine(),
+      completeGeneratedFerrisSampleLine(placeholderDate),
+    );
+    const placeholderApproval = validators.parseGeneratedFerrisSampleApproval(placeholderText);
     assert.equal(placeholderApproval.checked, true);
     assert.equal(placeholderApproval.complete, false);
     assert.equal(placeholderApproval.datePresent, false);
@@ -719,7 +776,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=53 passed=53 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=60 passed=60 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -778,8 +835,8 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
 
     const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
     const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
-      pendingPublicApprovalLine("Ferris"),
-      completePublicApprovalLine("Ferris"),
+      pendingFerrisPublicAssetApprovalLine(),
+      completeFerrisPublicAssetApprovalLine(),
     );
     writeFileSync(releaseChecklistPath, approvedText, "utf8");
 
@@ -788,6 +845,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     assert.equal(approval.reviewerPresent, true);
     assert.equal(approval.datePresent, true);
     assert.equal(approval.allowedDirectoriesPresent, true);
+    assert.equal(approval.trademarkOutcomePresent, true);
     assert.deepEqual(approval.allowedDirectories, [
       "examples/images",
       "ian-xiaohei-illustrations/assets/examples",
@@ -796,7 +854,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=53 passed=53 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=60 passed=60 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -808,8 +866,8 @@ test("validator fixture rejects Ferris public sample placeholder approval dates"
 
   for (const placeholderDate of ["TBD", "pending", "", "   "]) {
     const approvalText = releaseChecklistText.replace(
-      pendingPublicApprovalLine("Ferris"),
-      completePublicApprovalLine("Ferris", placeholderDate),
+      pendingFerrisPublicAssetApprovalLine(),
+      completeFerrisPublicAssetApprovalLine(placeholderDate),
     );
     const approval = validators.parsePublicFerrisSampleApproval(approvalText);
     assert.equal(approval.complete, false);
@@ -821,8 +879,8 @@ test("validator fixture rejects Ferris public sample placeholder approval dates"
       replaceInFixture(
         fixtureRoot,
         "RELEASE_CHECKLIST.md",
-        pendingPublicApprovalLine("Ferris"),
-        completePublicApprovalLine("Ferris", placeholderDate),
+        pendingFerrisPublicAssetApprovalLine(),
+        completeFerrisPublicAssetApprovalLine(placeholderDate),
       );
 
       const result = runFixtureValidator(fixtureRoot);
@@ -834,5 +892,61 @@ test("validator fixture rejects Ferris public sample placeholder approval dates"
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true });
     }
+  }
+});
+
+test("validator fixture distinguishes Generated Sample Ferris review outputs from public samples", async () => {
+  const validators = await import(`${scriptPath}?generatedFerrisApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  const pendingApproval = validators.parseGeneratedFerrisSampleApproval(releaseChecklistText);
+  assert.equal(pendingApproval.found, true);
+  assert.equal(pendingApproval.checked, false);
+  assert.equal(pendingApproval.complete, false);
+  assert.equal(pendingApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingApproval.publicDirectoriesPresent, false);
+
+  const completeText = releaseChecklistText.replace(
+    pendingGeneratedFerrisSampleLine(),
+    completeGeneratedFerrisSampleLine(),
+  );
+  const completeApproval = validators.parseGeneratedFerrisSampleApproval(completeText);
+  assert.equal(completeApproval.complete, true);
+  assert.equal(completeApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(completeApproval.publicDirectoriesPresent, true);
+  assert.equal(completeApproval.trademarkOutcomePresent, true);
+
+  for (const placeholderDate of ["TBD", "pending", "", "   "]) {
+    const placeholderText = releaseChecklistText.replace(
+      pendingGeneratedFerrisSampleLine(),
+      completeGeneratedFerrisSampleLine(placeholderDate),
+    );
+    const placeholderApproval = validators.parseGeneratedFerrisSampleApproval(placeholderText);
+    assert.equal(placeholderApproval.checked, true);
+    assert.equal(placeholderApproval.complete, false);
+    assert.equal(placeholderApproval.datePresent, false);
+  }
+
+  const missingTrademarkText = releaseChecklistText.replace(
+    pendingGeneratedFerrisSampleLine(),
+    completeGeneratedFerrisSampleLine("2026-06-13", "trademark and endorsement-safe wording outcome"),
+  );
+  const missingTrademarkApproval = validators.parseGeneratedFerrisSampleApproval(missingTrademarkText);
+  assert.equal(missingTrademarkApproval.checked, true);
+  assert.equal(missingTrademarkApproval.complete, false);
+  assert.equal(missingTrademarkApproval.trademarkOutcomePresent, false);
+
+  const fixtureRoot = copyFixture("ferris-generated-sample");
+  try {
+    const workspaceOutputDir = path.join(fixtureRoot, "assets", "article-ferris");
+    mkdirSync(workspaceOutputDir, { recursive: true });
+    writeFileSync(path.join(workspaceOutputDir, "99-ferris-test.png"), "fixture", "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+    assert.equal(result.status, 0);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-FERRIS-GEN-001 /);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
   }
 });
