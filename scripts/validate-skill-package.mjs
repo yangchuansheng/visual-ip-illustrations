@@ -239,7 +239,21 @@ export function parsePublicTomSampleApproval(releaseChecklistText) {
 }
 
 export function parsePublicFerrisSampleApproval(releaseChecklistText) {
-  return parsePublicRouteSampleApproval(releaseChecklistText, "Ferris");
+  const approvalLine = releaseChecklistText
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("Ferris public asset policy for"));
+
+  return parseFerrisApprovalLine(approvalLine, "public");
+}
+
+export function parseGeneratedFerrisSampleApproval(releaseChecklistText) {
+  const approvalLine = releaseChecklistText
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("Record generated sample review:"));
+
+  return parseFerrisApprovalLine(approvalLine, "generated");
 }
 
 function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
@@ -321,6 +335,121 @@ function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
     approvalStatusPresent,
     allowedDirectoriesPresent,
     releaseChannelsPresent,
+    complete,
+  };
+}
+
+function emptyFerrisApproval() {
+  return {
+    found: false,
+    checked: false,
+    status: "",
+    reviewer: "",
+    reviewDate: "",
+    approvalStatus: "",
+    allowedDirectories: [],
+    internalReviewDirectories: [],
+    publicDirectories: [],
+    releaseChannels: "",
+    trademarkOutcome: "",
+    reviewerPresent: false,
+    datePresent: false,
+    approvalStatusPresent: false,
+    allowedDirectoriesPresent: false,
+    internalReviewDirectoriesPresent: false,
+    publicDirectoriesPresent: false,
+    releaseChannelsPresent: false,
+    trademarkOutcomePresent: false,
+    complete: false,
+  };
+}
+
+function parseFerrisApprovalLine(approvalLine, kind) {
+  if (!approvalLine) {
+    return emptyFerrisApproval();
+  }
+
+  const checked = /^\-\s+\[[xX]\]/.test(approvalLine);
+  const recordMatch = approvalLine.match(/:\s*(.+?)(?:\.)?$/);
+  const approvalRecord = recordMatch?.[1] ?? "";
+  const fields = approvalRecord.split(/\s+\/(?=\s)/).map((field) => field.trim().replace(/\.$/, ""));
+  const [
+    status = "",
+    reviewer = "",
+    reviewDate = "",
+    approvalStatus = "",
+    firstDirectoryText = "",
+    secondDirectoryOrChannels = "",
+    releaseChannelsOrTrademark = "",
+    trademarkOutcomeText = "",
+  ] = fields;
+
+  const parseDirectories = (value) =>
+    value
+      .split(/,|;|\band\b/)
+      .map((directory) => directory.trim())
+      .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
+      .filter(Boolean);
+
+  const publicRequiredDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const generatedRequiredInternalDirectories = ["assets/<article-slug>-ferris"];
+  const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const allowedDirectories = kind === "public" ? parseDirectories(firstDirectoryText) : [];
+  const internalReviewDirectories = kind === "generated" ? parseDirectories(firstDirectoryText) : [];
+  const publicDirectories = kind === "generated" ? parseDirectories(secondDirectoryOrChannels) : [];
+  const releaseChannels = kind === "public" ? secondDirectoryOrChannels : releaseChannelsOrTrademark;
+  const trademarkOutcome = kind === "public" ? releaseChannelsOrTrademark : trademarkOutcomeText;
+  const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
+  const datePresent = isValidReviewDate(reviewDate);
+  const approvalStatusPresent =
+    Boolean(approvalStatus) &&
+    !/^approval status$/i.test(approvalStatus) &&
+    /(approved|complete|granted)/i.test(approvalStatus);
+  const allowedDirectoriesPresent =
+    kind === "public" && publicRequiredDirectories.every((directory) => allowedDirectories.includes(directory));
+  const internalReviewDirectoriesPresent =
+    kind === "generated" &&
+    generatedRequiredInternalDirectories.every((directory) => internalReviewDirectories.includes(directory));
+  const publicDirectoriesPresent =
+    kind === "generated" &&
+    generatedRequiredPublicDirectories.every((directory) => publicDirectories.includes(directory));
+  const releaseChannelsPresent = Boolean(releaseChannels) && !/^release channels\.?$/i.test(releaseChannels);
+  const trademarkOutcomePresent =
+    Boolean(trademarkOutcome) && !/^trademark and endorsement-safe wording outcome\.?$/i.test(trademarkOutcome);
+  const directoryFieldsPresent =
+    kind === "public" ? allowedDirectoriesPresent : internalReviewDirectoriesPresent && publicDirectoriesPresent;
+  const complete =
+    checked &&
+    /(approved|complete|granted)/i.test(status) &&
+    !/pending/i.test(status) &&
+    reviewerPresent &&
+    datePresent &&
+    approvalStatusPresent &&
+    !/pending/i.test(approvalStatus) &&
+    directoryFieldsPresent &&
+    releaseChannelsPresent &&
+    trademarkOutcomePresent;
+
+  return {
+    found: true,
+    checked,
+    status,
+    reviewer,
+    reviewDate,
+    approvalStatus,
+    allowedDirectories,
+    internalReviewDirectories,
+    publicDirectories,
+    releaseChannels,
+    trademarkOutcome,
+    reviewerPresent,
+    datePresent,
+    approvalStatusPresent,
+    allowedDirectoriesPresent,
+    internalReviewDirectoriesPresent,
+    publicDirectoriesPresent,
+    releaseChannelsPresent,
+    trademarkOutcomePresent,
     complete,
   };
 }
@@ -1413,10 +1542,17 @@ const checks = [
       "bundled Rust marks",
       "official-affiliation cues",
       "endorsement wording",
-      "Public rendered Ferris samples approved",
+      "Ferris Public Asset Policy",
+      "Ferris Generated Sample Policy",
+      "Ferris public asset policy for",
+      "Public rendered Ferris samples require explicit approval",
+      "Record generated sample review",
+      "internal review directories / public directories / release channels",
+      "trademark and endorsement-safe wording outcome",
+      "Phase 15 validator/test evidence",
       "PENDING / reviewer / date",
       "allowed directories / release channels",
-    ], "Ferris release gate section, source record, trademark review, and pending public sample approval marker");
+    ], "Ferris release gate section, source record, trademark review, public asset policy, generated sample policy, and Phase 15 evidence marker");
   }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
@@ -1451,6 +1587,31 @@ const checks = [
       assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no Tom protected-route text leakage");
     }
   }),
+  defineCheck("BOUNDARY-FERRIS-LEAK-001", "non-Ferris route references keep Ferris source-reviewed markers isolated", () => {
+    const leakMarkers = [
+      "Ferris",
+      "Rustacean",
+      "Rust mascot",
+      "Rust crab",
+      "Rust 螃蟹",
+      "source-reviewed",
+      "Rust trademark boundary",
+      "references/ips/ferris",
+      "assets/<article-slug>-ferris/",
+    ];
+    const scannedPaths = [
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
+      ...xiaoheiOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
+      ...littleboxOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "tom", "index.md"),
+      ...tomOperationalRefs(),
+      ...legacyXiaoheiRefs().map((item) => item.root),
+    ];
+    for (const relativePath of scannedPaths) {
+      assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no Ferris source-reviewed route text leakage");
+    }
+  }),
   defineCheck("BOUNDARY-TOM-IMG-001", "example asset directories keep Tom rendered assets behind release approval", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parsePublicTomSampleApproval(releaseChecklist);
@@ -1468,14 +1629,26 @@ const checks = [
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parsePublicFerrisSampleApproval(releaseChecklist);
     if (!approval.found) {
-      throw new Error("RELEASE_CHECKLIST.md expected Public rendered Ferris samples approval record; observed missing line");
+      throw new Error("RELEASE_CHECKLIST.md expected Ferris public asset policy approval record; observed missing line");
     }
     const matches = imageAssetPaths().filter((relativePath) => /ferris|rustacean|rust-crab|rust-mascot/i.test(relativePath));
     if (!approval.complete && matches.length > 0) {
       throw new Error(
-        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Ferris assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}`,
+        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Ferris assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, trademark outcome=${approval.trademarkOutcomePresent ? "present" : "missing"}`,
       );
     }
+  }),
+  defineCheck("BOUNDARY-FERRIS-GEN-001", "Ferris generated samples stay distinct from public rendered sample release gates", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parseGeneratedFerrisSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected Ferris generated sample review record; observed missing line");
+    }
+    assertIncludes(releaseChecklist, "RELEASE_CHECKLIST.md", [
+      "Internal review samples under `assets/<article-slug>-ferris/` may be used",
+      "Public rendered samples from `assets/<article-slug>-ferris/` require Ferris Public Asset Policy approval",
+      "Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / trademark and endorsement-safe wording outcome",
+    ], "Ferris generated sample workspace and public release distinction");
   }),
   defineCheck("BOUNDARY-P5-001", "validator enforces live package and workspace output boundaries", () => {
     for (const row of routeRows()) {
