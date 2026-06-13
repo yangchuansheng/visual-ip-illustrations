@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Phase 14 context gathered
-last_updated: "2026-06-13T10:09:46.365Z"
-last_activity: 2026-06-13 — Completed 13-01 Ferris skill controller integration
+stopped_at: Completed 14-01-PLAN.md
+last_updated: "2026-06-13T10:54:16.027Z"
+last_activity: 2026-06-13 — Completed 14-01 README Ferris public route docs
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 14
-  completed_plans: 7
-  percent: 50
+  completed_plans: 8
+  percent: 57
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 14 — Docs, Examples, and Release Surface
-Plan: 14-01 pending
-Status: Phase 13 controller implementation complete; validator baseline update remains assigned to Phase 15
-Last activity: 2026-06-13 — Completed 13-01 Ferris skill controller integration
+Plan: 14-02 pending
+Status: 14-01 complete; 14-02 pending
+Last activity: 2026-06-13 — Completed 14-01 README Ferris public route docs
 
 ## Performance Metrics
 
@@ -78,6 +78,7 @@ Last activity: 2026-06-13 — Completed 13-01 Ferris skill controller integratio
 | Phase 12 P12-02 | 6min | 2 tasks | 3 files |
 | Phase 12 P12-03 | 5min | 2 tasks | 4 files |
 | Phase 13 P13-01 | 7min | 3 tasks | 5 files |
+| Phase 14 P01 | 4min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -130,6 +131,9 @@ Recent decisions affecting current work:
 - [Phase 13]: Ferris is wired into the skill controller as an explicit source-reviewed route with six aliases, full seven-file required references, route-local planning/generation/QA/edit behavior, raw and escaped output paths, and mixed-IP separation across Xiaohei, Littlebox, Tom, and Ferris.
 - [Phase 13]: Xiaohei remains the only omitted-IP default while Ferris stays `default=false` with `output_suffix=ferris` and source/trademark authority at `references/ips/ferris/source.md`.
 - [Phase 13]: Existing validator and Node tests still expect the old Ferris source-only route baseline; Phase 15 owns updating those checks to the new seven-file controller contract.
+- [Phase 14]: README keeps Ferris explicit source-reviewed while Xiaohei remains the omitted-IP default. — 14-01 public docs preserve D-01 and D-05.
+- [Phase 14]: Validator implementation and Node green evidence remain Phase 15 work. — 14-01 documents commands while preserving script and test files.
+- [Phase 14]: README points Ferris to the route-local pack and source/trademark authority. — 14-01 uses references/ips/ferris/ plus source.md instead of duplicating the source record.
 
 ### Pending Todos
 
@@ -154,6 +158,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T10:09:00.073Z
-Stopped at: Phase 14 context gathered
-Resume file: .planning/phases/14-docs-examples-and-release-surface/14-CONTEXT.md
+Last session: 2026-06-13T10:54:01.637Z
+Stopped at: Completed 14-01-PLAN.md
+Resume file: None

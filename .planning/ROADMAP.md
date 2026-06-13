@@ -98,11 +98,11 @@ Plans:
   4. `RELEASE_CHECKLIST.md` includes Ferris source review, Rust trademark wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
   5. Public docs use Ferris source attribution and Rust trademark boundary wording consistently across README, examples, NOTICE, routing docs, and release checklist.
 
-**Plans:** 0/4 plans complete
+**Plans:** 1/4 plans executed
 
 Plans:
 
-- [ ] 14-01-PLAN.md — Update README public Ferris route docs, output path, source context, and trademark boundary.
+- [x] 14-01-PLAN.md — Update README public Ferris route docs, output path, source context, and trademark boundary.
 - [ ] 14-02-PLAN.md — Add copyable Ferris planning, generation, smoke, and four-IP mixed prompts.
 - [ ] 14-03-PLAN.md — Update agent metadata for Xiaohei, Littlebox, Tom, and explicit Ferris.
 - [ ] 14-04-PLAN.md — Expand release checklist Ferris source, trademark, leakage, sample, validator, and final review gates.
@@ -138,5 +138,5 @@ Phases execute in numeric order: 11 -> 12 -> 13 -> 14 -> 15
 | 11. Ferris Source and Route Contract | 3/3 | Complete   | 2026-06-13 |
 | 12. Ferris Canonical Pack | 3/3 | Complete   | 2026-06-13 |
 | 13. Skill Controller Integration | 1/1 | Complete | 2026-06-13 |
-| 14. Docs, Examples, and Release Surface | 0/4 | Pending | |
+| 14. Docs, Examples, and Release Surface | 1/4 | In Progress|  |
 | 15. Validation Hardening | 0/3 | Pending | |
