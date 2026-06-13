@@ -111,12 +111,15 @@ Plans:
   6. Public docs use Sealos Seal brand/canonical-image wording consistently across README, examples, NOTICE, routing docs, and release checklist.
 
 **Plans:** 0/4 plans complete
-
 Plans:
+**Wave 1**
 
 - [ ] 19-01-PLAN.md — Update README public Sealos Seal route docs, output path, uploaded-image authority, and brand boundary.
 - [ ] 19-02-PLAN.md — Add copyable Sealos Seal planning, generation, smoke, and five-IP mixed prompts.
 - [ ] 19-03-PLAN.md — Update agent metadata for Xiaohei, Littlebox, Tom, Ferris, and explicit Sealos Seal.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 19-04-PLAN.md — Expand release checklist Sealos Seal identity, brand, leakage, sample, validator, and final review gates.
 
 ### Phase 20: Validation Hardening
