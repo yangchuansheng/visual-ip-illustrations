@@ -74,9 +74,13 @@ Ferris is an explicit Rust-community mascot route with status source-reviewed; g
 
 可用别名：`Ferris`、`Rust mascot`、`Rust crab`、`Rustacean`、`Rust 吉祥物`、`Rust 螃蟹`。
 
-Source record：`ian-xiaohei-illustrations/references/ips/ferris/source.md`。
+Route-local reference directory：`ian-xiaohei-illustrations/references/ips/ferris/`。
+
+Source/trademark authority：`ian-xiaohei-illustrations/references/ips/ferris/source.md`。
 
 输出路径合同：`assets/<article-slug>-ferris/`。文档校验 token：`assets/&lt;article-slug&gt;-ferris/`。输出后缀：`ferris`。
+
+规划字段：Placement、Core idea、Structure type、Ferris state、Ferris action、Supporting objects、Visible labels、Output path、Source/trademark note。
 
 Public rendered Ferris samples 由 `RELEASE_CHECKLIST.md` 的 Rust trademark 和 endorsement-safe wording gate 审核通过后进入公开样例目录。
 
@@ -89,7 +93,7 @@ Canonical packs：
 - Xiaohei: `ian-xiaohei-illustrations/references/ips/xiaohei/`
 - Littlebox: `ian-xiaohei-illustrations/references/ips/littlebox/`
 - Tom: `ian-xiaohei-illustrations/references/ips/tom/`，核心入口 `index.md`，rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
-- Ferris source record: `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`，source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
 
 同时请求多个视觉 IP 时，交付口径按 IP 分组，每个 IP 形成独立 variant group，并写入各自输出目录。Xiaohei 是 implicit default route；Littlebox 是 explicit active route；Tom 是 explicit protected-character route，当前 status 为 `gated-authorized`；Ferris 是 explicit Rust-community mascot route，当前 status 为 `source-reviewed`。
 
