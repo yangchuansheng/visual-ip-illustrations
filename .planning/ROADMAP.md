@@ -64,11 +64,17 @@ Plans:
   6. Sealos Seal edit prompts support stronger mascot participation, uploaded-image identity repair, logo/hoodie/cap repair, title removal, text reduction, and preservation of unaffected content.
 
 **Plans:** 0/3 plans complete
-
 Plans:
+**Wave 1**
 
 - [ ] 17-01-PLAN.md — Create Sealos Seal pack index, brand/canonical notes, style DNA, and identity foundations.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 17-02-PLAN.md — Create Sealos Seal composition patterns plus planning, generation, and edit prompt templates.
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
 - [ ] 17-03-PLAN.md — Create Sealos Seal QA checklist and refine cross-file Sealos pack coherence.
 
 ### Phase 18: Skill Controller Integration
