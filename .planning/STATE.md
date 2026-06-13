@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Completed 12-02-PLAN.md
-last_updated: "2026-06-13T08:29:04.000Z"
-last_activity: 2026-06-13 — Completed 12-02 Ferris composition and prompt templates
+stopped_at: Completed 12-03-PLAN.md
+last_updated: "2026-06-13T08:38:27.443Z"
+last_activity: 2026-06-13 — Completed 12-03 Ferris QA checklist and pack coherence
 progress:
   total_phases: 5
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 14
-  completed_plans: 5
-  percent: 36
+  completed_plans: 6
+  percent: 43
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 12 Ferris canonical pack in progress
+**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 13 controller integration pending
 
 ## Current Position
 
-Phase: 12 — Ferris Canonical Pack
-Plan: 12-03 pending
-Status: Phase 12 in progress; 12-01 and 12-02 complete
-Last activity: 2026-06-13 — Completed 12-02 Ferris composition and prompt templates
+Phase: 13 — Skill Controller Integration
+Plan: 13-01 pending
+Status: Phase 12 complete; ready for Phase 13 controller integration
+Last activity: 2026-06-13 — Completed 12-03 Ferris QA checklist and pack coherence
 
 ## Performance Metrics
 
@@ -76,6 +76,7 @@ Last activity: 2026-06-13 — Completed 12-02 Ferris composition and prompt temp
 | Phase 11 P11-03 | 7min | 3 tasks | 2 files |
 | Phase 12 P12-01 | 8min | 3 tasks | 4 files |
 | Phase 12 P12-02 | 6min | 2 tasks | 3 files |
+| Phase 12 P12-03 | 5min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -124,6 +125,7 @@ Recent decisions affecting current work:
 - [Phase 12]: Ferris canonical foundations stay route-local under `ian-xiaohei-illustrations/references/ips/ferris/` and repeat exact source-reviewed markers for downstream composition, prompt, QA, controller, docs, and validator work.
 - [Phase 12]: Ferris identity and style gates require active cognitive-action participation with compact orange/rust-red crab cues, source-asset tracing rejection, trademark-boundary repair, and stable failure category names.
 - [Phase 12]: Ferris composition and prompt templates use eight article-illustration families, Rust-themed low-tech object metaphors, source/trademark boundary fields, and six named edit gates.
+- [Phase 12]: Ferris QA checklist is the route-local QA authority and all six Ferris operational files repeat exact source-reviewed markers plus eight stable failure category names.
 
 ### Pending Todos
 
@@ -147,6 +149,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T08:29:04.000Z
-Stopped at: Completed 12-02-PLAN.md
-Resume file: .planning/phases/12-ferris-canonical-pack/12-02-SUMMARY.md
+Last session: 2026-06-13T08:38:27.440Z
+Stopped at: Completed 12-03-PLAN.md
+Resume file: .planning/phases/12-ferris-canonical-pack/12-03-SUMMARY.md

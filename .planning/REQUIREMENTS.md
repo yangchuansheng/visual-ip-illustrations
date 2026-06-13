@@ -22,7 +22,7 @@
 
 ### Ferris IP Pack
 
-- [ ] **FIP-01**: Maintainer can find Ferris canonical references under `ian-xiaohei-illustrations/references/ips/ferris/`.
+- [x] **FIP-01**: Maintainer can find Ferris canonical references under `ian-xiaohei-illustrations/references/ips/ferris/`.
 - [x] **FIP-02**: User receives Ferris planning fields for placement, core idea, structure type, Ferris state, Ferris action, supporting objects, visible labels, output path, and source/trademark note.
 - [x] **FIP-03**: Ferris prompt template produces one 16:9 article illustration where Ferris performs the cognitive action.
 - [x] **FIP-04**: Ferris QA rejects generic crabs, passive Ferris placement, Rust-logo misuse, official-affiliation cues, over-detailed mascot rendering, excessive text, source-asset tracing, and route leakage.
@@ -95,7 +95,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FERR-03 | Phase 13 | Pending |
 | FERR-04 | Phase 13 | Pending |
 | FERR-05 | Phase 11 | Complete |
-| FIP-01 | Phase 12 | Pending |
+| FIP-01 | Phase 12 | Complete |
 | FIP-02 | Phase 12 | Complete |
 | FIP-03 | Phase 12 | Complete |
 | FIP-04 | Phase 12 | Complete |

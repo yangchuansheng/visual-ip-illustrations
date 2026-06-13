@@ -18,7 +18,7 @@ v1.2 adds Ferris the Rustacean as the fourth selectable visual IP while preservi
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 11: Ferris Source and Route Contract** - Maintainers get Ferris source, CC0/public-domain context, Rust trademark boundary, aliases, route metadata, and public-sample gates before broad release. (completed 2026-06-13)
-- [ ] **Phase 12: Ferris Canonical Pack** - Maintainers get an isolated Ferris reference pack for identity, planning, prompts, composition, QA, edits, source notes, and trademark-boundary behavior.
+- [x] **Phase 12: Ferris Canonical Pack** - Maintainers get an isolated Ferris reference pack for identity, planning, prompts, composition, QA, edits, source notes, and trademark-boundary behavior. (completed 2026-06-13)
 - [ ] **Phase 13: Skill Controller Integration** - Users can explicitly select Ferris or request separate Xiaohei, Littlebox, Tom, and Ferris variants while Xiaohei remains the only default route.
 - [ ] **Phase 14: Docs, Examples, and Release Surface** - Users and maintainers get Ferris-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent source/trademark wording.
 - [ ] **Phase 15: Validation Hardening** - Maintainers can run local validation and tests that cover Ferris route behavior, source/trademark boundaries, docs markers, paths, and route leakage gates.
@@ -59,13 +59,13 @@ Plans:
   4. Ferris QA rejects generic crabs, passive Ferris placement, Rust-logo misuse, official-affiliation cues, over-detailed mascot rendering, excessive text, source-asset tracing, and route leakage.
   5. Ferris edit prompts support stronger Ferris participation, off-model identity repair, trademark-boundary repair, title removal, text reduction, and preservation of unaffected content.
 
-**Plans:** 2/3 plans complete
+**Plans:** 3/3 plans complete
 
 Plans:
 
 - [x] 12-01-PLAN.md — Create Ferris pack index, source/trademark notes, style DNA, and identity foundations.
 - [x] 12-02-PLAN.md — Create Ferris composition patterns plus planning, generation, and edit prompt templates.
-- [ ] 12-03-PLAN.md — Create Ferris QA checklist and refine cross-file Ferris pack coherence.
+- [x] 12-03-PLAN.md — Create Ferris QA checklist and refine cross-file Ferris pack coherence.
 
 ### Phase 13: Skill Controller Integration
 
@@ -136,7 +136,7 @@ Phases execute in numeric order: 11 -> 12 -> 13 -> 14 -> 15
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 11. Ferris Source and Route Contract | 3/3 | Complete   | 2026-06-13 |
-| 12. Ferris Canonical Pack | 2/3 | In Progress | |
+| 12. Ferris Canonical Pack | 3/3 | Complete   | 2026-06-13 |
 | 13. Skill Controller Integration | 0/1 | Pending | |
 | 14. Docs, Examples, and Release Surface | 0/4 | Pending | |
 | 15. Validation Hardening | 0/3 | Pending | |
