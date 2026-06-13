@@ -208,22 +208,32 @@ export function outputPathTokens() {
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
       "assets/<article-slug>-tom/",
+      "assets/<article-slug>-ferris/",
     ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
       "assets/&lt;article-slug&gt;-littlebox/",
       "assets/&lt;article-slug&gt;-tom/",
+      "assets/&lt;article-slug&gt;-ferris/",
     ],
   };
 }
 
 export function parsePublicTomSampleApproval(releaseChecklistText) {
+  return parsePublicRouteSampleApproval(releaseChecklistText, "Tom");
+}
+
+export function parsePublicFerrisSampleApproval(releaseChecklistText) {
+  return parsePublicRouteSampleApproval(releaseChecklistText, "Ferris");
+}
+
+function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
   const approvalLine = releaseChecklistText
     .split("\n")
     .map((line) => line.trim())
     .find((line) =>
       line.includes(
-        "Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/:",
+        `Public rendered ${routeName} samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/:`,
       ),
     );
 
@@ -680,6 +690,40 @@ const checks = [
       "Phase 6 Tom rights record existence",
     );
   }),
+  defineCheck("ROUTE-FERRIS-001", "routing.md preserves the Ferris source-reviewed route contract", () => {
+    const row = routeById("ferris");
+    const references = routeReferencePaths(row);
+    assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
+      "Ferris",
+      "Rust mascot",
+      "Rust crab",
+      "Rustacean",
+      "Rust 吉祥物",
+      "Rust 螃蟹",
+      "ferris",
+      "source-reviewed",
+      "rustacean.net",
+      "Karen Rustad Tolva",
+      "Rust trademark boundary",
+      "references/ips/ferris/source.md",
+    ], "Ferris display name, aliases, suffix, source attribution, source record, trademark boundary, and status");
+    if (row.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected ferris default=false; observed ${row.default || "missing"}`);
+    }
+    if (row.output_suffix !== "ferris") {
+      throw new Error(`${ROUTING_FILE} expected ferris output_suffix=ferris; observed ${row.output_suffix || "missing"}`);
+    }
+    if (references.length !== 1 || references[0] !== "references/ips/ferris/source.md") {
+      throw new Error(
+        `${ROUTING_FILE} expected ferris required_references=references/ips/ferris/source.md; observed ${references.join(", ") || "none"}`,
+      );
+    }
+    assertExistingFiles(
+      [path.join(PACKAGE_DIR, "references", "ips", "ferris", "source.md")],
+      ROUTING_FILE,
+      "Phase 11 Ferris source record existence",
+    );
+  }),
   defineCheck("ROUTE-DEFAULT-001", "routing.md keeps Xiaohei as the only default active route", () => {
     const rows = routeRows();
     const defaults = rows.filter((row) => row.default === "true").map((row) => row.id);
@@ -693,6 +737,10 @@ const checks = [
     const tom = routeById("tom");
     if (tom.default !== "false") {
       throw new Error(`${ROUTING_FILE} expected tom default=false; observed ${tom.default || "missing"}`);
+    }
+    const ferris = routeById("ferris");
+    if (ferris.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected ferris default=false; observed ${ferris.default || "missing"}`);
     }
   }),
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
@@ -727,6 +775,7 @@ const checks = [
     const xiaohei = routeById("xiaohei");
     const littlebox = routeById("littlebox");
     const tom = routeById("tom");
+    const ferris = routeById("ferris");
     if (xiaohei.output_suffix !== "illustrations") {
       throw new Error(`${ROUTING_FILE} expected xiaohei output_suffix=illustrations; observed ${xiaohei.output_suffix}`);
     }
@@ -736,11 +785,16 @@ const checks = [
     if (tom.output_suffix !== "tom") {
       throw new Error(`${ROUTING_FILE} expected tom output_suffix=tom; observed ${tom.output_suffix}`);
     }
+    if (ferris.output_suffix !== "ferris") {
+      throw new Error(`${ROUTING_FILE} expected ferris output_suffix=ferris; observed ${ferris.output_suffix}`);
+    }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
       "assets/<article-slug>-tom/",
       "assets/&lt;article-slug&gt;-tom/",
+      "assets/<article-slug>-ferris/",
+      "assets/&lt;article-slug&gt;-ferris/",
     ], "output suffix to output directory mapping");
   }),
   defineCheck("ROUTE-MIXED-001", "routing.md preserves mixed-IP separate route group wording", () => {
@@ -750,6 +804,7 @@ const checks = [
       "`xiaohei` 写入 `assets/<article-slug>-illustrations/`",
       "`littlebox` 写入 `assets/<article-slug>-littlebox/`",
       "`tom` 写入 `assets/<article-slug>-tom/`",
+      "`ferris` 写入 `assets/<article-slug>-ferris/`",
     ], "mixed-IP isolated reference and output-directory wording");
   }),
   defineCheck("REFS-XH-001", "Xiaohei canonical operational references and index exist", () => {
@@ -992,6 +1047,29 @@ const checks = [
       "gated-authorized",
     ], "Tom rights headings and gated status");
   }),
+  defineCheck("SOURCE-FERRIS-001", "Ferris source record preserves required Phase 11 source and trademark markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "ferris", "source.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "## Source",
+      "## Author and Source Sites",
+      "## Copyright Waiver",
+      "## Trademark Boundary",
+      "## Route Status",
+      "## Allowed Use",
+      "## Restricted Use",
+      "## Distribution Boundary",
+      "## Sample Policy",
+      "## Review Owner",
+      "rustacean.net",
+      "Karen Rustad Tolva",
+      "CC0/public-domain dedication context",
+      "Rust Foundation trademark policy context",
+      "source-reviewed",
+      "Rust-logo-forward compositions",
+      "official-affiliation cues",
+      "endorsement language",
+    ], "Ferris source headings, author/source markers, CC0 context, trademark boundary, status, and sample gate markers");
+  }),
   defineCheck("DOC-LINKS-001", "README and examples local Markdown links point to existing files", () => {
     const links = localMarkdownLinks(["README.md", "examples/prompts.md"]);
     if (links.length === 0) {
@@ -1013,7 +1091,7 @@ const checks = [
     const tokens = outputPathTokens();
     for (const [relativePath, text] of Object.entries(docsTexts())) {
       const pathName = relativePath === "readme" ? "README.md" : "examples/prompts.md";
-      assertIncludes(text, pathName, [...tokens.raw, ...tokens.escaped], "raw and HTML-escaped Xiaohei and Littlebox output path tokens");
+      assertIncludes(text, pathName, [...tokens.raw, ...tokens.escaped], "raw and HTML-escaped route output path tokens");
     }
   }),
   defineCheck("DOC-ROUTES-001", "public docs expose route metadata and canonical pack paths", () => {
@@ -1039,6 +1117,21 @@ const checks = [
       "assets/<article-slug>-tom/",
       "assets/&lt;article-slug&gt;-tom/",
     ], "Tom status, aliases, rights path, and raw plus escaped output path tokens");
+  }),
+  defineCheck("DOC-FERRIS-001", "public docs expose Ferris source-reviewed route markers", () => {
+    const text = combinedText(["README.md", "examples/prompts.md", ROUTING_FILE, "RELEASE_CHECKLIST.md"]);
+    assertIncludes(text, "README.md + examples/prompts.md + routing.md + RELEASE_CHECKLIST.md", [
+      "Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.",
+      "Ferris",
+      "Rust mascot",
+      "Rust crab",
+      "Rustacean",
+      "Rust 吉祥物",
+      "Rust 螃蟹",
+      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
+      "assets/<article-slug>-ferris/",
+      "assets/&lt;article-slug&gt;-ferris/",
+    ], "Ferris D-15 phrase, aliases, source record path, and raw plus escaped output path tokens");
   }),
   defineCheck("NOTICE-IAN-001", "NOTICE keeps Ian Xiaohei attribution markers", () => {
     assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
@@ -1074,6 +1167,22 @@ const checks = [
       "release checklist approval",
       "public-sample gate",
     ], "Tom source attribution, route status, rights record, and permission boundary");
+  }),
+  defineCheck("NOTICE-FERRIS-001", "NOTICE keeps Ferris source attribution and Rust trademark boundary markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Ferris Source Attribution and Rust Trademark Boundary",
+      "Ferris the Rustacean",
+      "rustacean.net",
+      "Karen Rustad Tolva",
+      "source-reviewed",
+      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
+      "Ferris attribution records source context",
+      "Rust and Cargo marks",
+      "official-affiliation claims",
+      "endorsement wording",
+      "Rust Foundation trademark policy context",
+      "release review",
+    ], "Ferris source attribution, route status, source record, Rust trademark boundary, and release review");
   }),
   defineCheck("SMOKE-DEFAULT-001", "examples prompts cover omitted-IP default Xiaohei smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
@@ -1146,6 +1255,21 @@ const checks = [
       "PENDING / reviewer / date",
     ], "Tom release gate section and pending public sample approval marker");
   }),
+  defineCheck("RELEASE-FERRIS-001", "release checklist keeps Ferris source, trademark, and public sample gate markers", () => {
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "## Ferris Source, Trademark, and Public Sample Gate",
+      "Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.",
+      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
+      "source-reviewed",
+      "Rust-logo-forward",
+      "bundled Rust marks",
+      "official-affiliation cues",
+      "endorsement wording",
+      "Public rendered Ferris samples approved",
+      "PENDING / reviewer / date",
+      "allowed directories / release channels",
+    ], "Ferris release gate section, source record, trademark review, and pending public sample approval marker");
+  }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
     if (matches.length > 0) {
@@ -1189,6 +1313,19 @@ const checks = [
     if (!approval.complete && matches.length > 0) {
       throw new Error(
         `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Tom assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}`,
+      );
+    }
+  }),
+  defineCheck("BOUNDARY-FERRIS-IMG-001", "example asset directories keep Ferris rendered assets behind release approval", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parsePublicFerrisSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected Public rendered Ferris samples approval record; observed missing line");
+    }
+    const matches = imageAssetPaths().filter((relativePath) => /ferris|rustacean|rust-crab|rust-mascot/i.test(relativePath));
+    if (!approval.complete && matches.length > 0) {
+      throw new Error(
+        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Ferris assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}`,
       );
     }
   }),
