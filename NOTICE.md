@@ -29,6 +29,17 @@ Tom source context records Tom from Tom and Jerry for the `tom` route.
 
 Attribution records Tom source identity. Permission is authorization-scope specific and is governed by the Tom rights record, release checklist approval, and public-sample gate.
 
+## Ferris Source Attribution and Rust Trademark Boundary
+
+Ferris source context records Ferris the Rustacean from `rustacean.net` and Karen Rustad Tolva for the `ferris` route.
+
+- Source context: `rustacean.net` / Ferris the Rustacean / Karen Rustad Tolva
+- Route status: `source-reviewed`
+- Source record: `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- Attribution context: Ferris source, author, and copyright-waiver context for route metadata, documentation, and release review
+
+Ferris attribution records source context. Rust and Cargo marks, logos, official-affiliation claims, and endorsement wording are governed by Rust Foundation trademark policy context and release review.
+
 Author links:
 
 - GitHub: <https://github.com/helloianneo>
