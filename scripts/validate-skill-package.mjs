@@ -613,13 +613,14 @@ const checks = [
   }),
   defineCheck("AGENT-TOM-001", "openai.yaml exposes Tom gated route metadata markers", () => {
     assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
-      "Xiaohei / Littlebox / Tom Article Illustrations",
-      "默认使用 Xiaohei",
-      "Tom 是 explicit gated-authorized protected-character route",
+      "Xiaohei / Littlebox / Tom / Ferris Article Illustrations",
       "default Xiaohei",
+      "Tom 是 explicit gated-authorized protected-character route",
       "explicit Tom protected-character route（gated-authorized）",
+      "Ferris 是 explicit source-reviewed Rust-community mascot route",
+      "explicit Ferris Rust-community mascot route（source-reviewed）",
       "allow_implicit_invocation: true",
-    ], "Xiaohei default behavior, Littlebox selection, explicit gated Tom, and implicit invocation markers");
+    ], "Xiaohei default behavior, Littlebox selection, explicit gated Tom, explicit source-reviewed Ferris, and implicit invocation markers");
   }),
   defineCheck("ROUTE-TABLE-001", "routing.md exposes the required route metadata columns and rows", () => {
     const text = requireFile(ROUTING_FILE);
@@ -634,7 +635,7 @@ const checks = [
       "attribution_context",
       "status",
     ], ROUTING_FILE, "IP Routes table columns");
-    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox", "tom"], ROUTING_FILE, "route ids");
+    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox", "tom", "ferris"], ROUTING_FILE, "route ids");
   }),
   defineCheck("ROUTE-XH-001", "routing.md preserves the Xiaohei active route contract", () => {
     const row = routeById("xiaohei");
@@ -728,16 +729,21 @@ const checks = [
     if (row.output_suffix !== "ferris") {
       throw new Error(`${ROUTING_FILE} expected ferris output_suffix=ferris; observed ${row.output_suffix || "missing"}`);
     }
-    if (references.length !== 1 || references[0] !== "references/ips/ferris/source.md") {
+    const expectedReferences = [
+      "references/ips/ferris/index.md",
+      "references/ips/ferris/source.md",
+      "references/ips/ferris/style-dna.md",
+      "references/ips/ferris/ferris-ip.md",
+      "references/ips/ferris/composition-patterns.md",
+      "references/ips/ferris/prompt-template.md",
+      "references/ips/ferris/qa-checklist.md",
+    ];
+    if (references.join("\n") !== expectedReferences.join("\n")) {
       throw new Error(
-        `${ROUTING_FILE} expected ferris required_references=references/ips/ferris/source.md; observed ${references.join(", ") || "none"}`,
+        `${ROUTING_FILE} expected ferris required_references=${expectedReferences.join(", ")}; observed ${references.join(", ") || "none"}`,
       );
     }
-    assertExistingFiles(
-      [path.join(PACKAGE_DIR, "references", "ips", "ferris", "source.md")],
-      ROUTING_FILE,
-      "Phase 11 Ferris source record existence",
-    );
+    assertExistingFiles(expectedReferences.map((reference) => path.join(PACKAGE_DIR, reference)), ROUTING_FILE, "Phase 15 Ferris seven-file pack existence");
   }),
   defineCheck("ROUTE-DEFAULT-001", "routing.md keeps Xiaohei as the only default active route", () => {
     const rows = routeRows();
@@ -761,7 +767,7 @@ const checks = [
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 1 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -779,6 +785,9 @@ const checks = [
         }
         if (row.id === "ferris" && !reference.startsWith("references/ips/ferris/")) {
           throw new Error(`${ROUTING_FILE} expected ferris reference ${reference} under references/ips/ferris/`);
+        }
+        if (row.id === "ferris" && !displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/ferris/`)) {
+          throw new Error(`${ROUTING_FILE} expected ferris reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/ferris/`);
         }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
