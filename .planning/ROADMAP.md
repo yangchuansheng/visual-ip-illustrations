@@ -39,11 +39,14 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. Maintainer can inspect Sealos Seal route metadata, aliases, default flag, output suffix, required references, brand context, canonical image status, and drift boundary in `references/routing.md`.
 
 **Plans:** 0/3 plans complete
-
 Plans:
+**Wave 1**
 
 - [ ] 16-01-PLAN.md — Create Sealos Seal brand/source record, route row, and NOTICE brand boundary.
 - [ ] 16-02-PLAN.md — Add public route-status wording, Sealos output path tokens, and release checklist identity gate.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 16-03-PLAN.md — Repair validator baseline and add minimal Phase 16 Sealos Seal contract checks.
 
 ### Phase 17: Sealos Seal Canonical Pack
