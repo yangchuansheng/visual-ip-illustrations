@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Completed 14-02-PLAN.md
-last_updated: "2026-06-13T11:06:20.934Z"
-last_activity: 2026-06-13 — Completed 14-02 Ferris prompt examples and four-IP mixed prompts
+stopped_at: Completed 14-03-PLAN.md
+last_updated: "2026-06-13T11:14:47.129Z"
+last_activity: 2026-06-13 — Completed 14-03 agent metadata for Ferris route
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 14
-  completed_plans: 9
-  percent: 64
+  completed_plans: 10
+  percent: 71
 ---
 
 # Project State
@@ -26,15 +26,15 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 14 — Docs, Examples, and Release Surface
-Plan: 14-03 pending
-Status: 14-02 complete; 14-03 pending
-Last activity: 2026-06-13 — Completed 14-02 Ferris prompt examples and four-IP mixed prompts
+Plan: 14-04 pending
+Status: 14-03 complete; 14-04 pending
+Last activity: 2026-06-13 — Completed 14-03 agent metadata for Ferris route
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 31
+- Total plans completed: 32
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -80,6 +80,7 @@ Last activity: 2026-06-13 — Completed 14-02 Ferris prompt examples and four-IP
 | Phase 13 P13-01 | 7min | 3 tasks | 5 files |
 | Phase 14 P01 | 4min | 3 tasks | 2 files |
 | Phase 14 P02 | 5min | 3 tasks | 2 files |
+| Phase 14 P03 | 6min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -137,6 +138,9 @@ Recent decisions affecting current work:
 - [Phase 14]: README points Ferris to the route-local pack and source/trademark authority. — 14-01 uses references/ips/ferris/ plus source.md instead of duplicating the source record.
 - [Phase 14]: Mixed prompt examples now require Xiaohei, Littlebox, Tom, and Ferris as separate variant groups with route-specific fields and output directories. — 14-02 mixed prompt route isolation
 - [Phase 14]: Ferris prompt examples use the full route-local pack and source.md source/trademark authority instead of a placeholder route marker. — 14-02 examples prompt update
+- [Phase 14]: Agent discovery metadata now names Xiaohei, Littlebox, Tom, and Ferris across display_name, short_description, and default_prompt. — 14-03 metadata route coverage
+- [Phase 14]: Omitted visual IP behavior remains default Xiaohei while Littlebox, Tom, and Ferris are presented as explicit selectable routes. — 14-03 default route preservation
+- [Phase 14]: Ferris metadata uses explicit source-reviewed Rust-community mascot route wording and avoids endorsement or approval claims. — 14-03 source and trademark wording
 
 ### Pending Todos
 
@@ -161,6 +165,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T11:05:28.541Z
-Stopped at: Completed 14-02-PLAN.md
+Last session: 2026-06-13T11:14:18.274Z
+Stopped at: Completed 14-03-PLAN.md
 Resume file: None
