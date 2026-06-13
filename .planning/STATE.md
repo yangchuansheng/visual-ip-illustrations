@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Phase 13 context gathered
-last_updated: "2026-06-13T08:59:24.773Z"
-last_activity: 2026-06-13 — Completed 12-03 Ferris QA checklist and pack coherence
+stopped_at: Phase 13 implementation complete; validator baseline pending Phase 15
+last_updated: "2026-06-13T09:44:06Z"
+last_activity: 2026-06-13 — Completed 13-01 Ferris skill controller integration
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 14
-  completed_plans: 6
-  percent: 43
+  completed_plans: 7
+  percent: 50
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 13 controller integration pending
+**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 14 public docs and release surface readiness
 
 ## Current Position
 
-Phase: 13 — Skill Controller Integration
-Plan: 13-01 pending
-Status: Phase 12 complete; ready for Phase 13 controller integration
-Last activity: 2026-06-13 — Completed 12-03 Ferris QA checklist and pack coherence
+Phase: 14 — Docs, Examples, and Release Surface
+Plan: 14-01 pending
+Status: Phase 13 controller implementation complete; validator baseline update remains assigned to Phase 15
+Last activity: 2026-06-13 — Completed 13-01 Ferris skill controller integration
 
 ## Performance Metrics
 
@@ -77,6 +77,7 @@ Last activity: 2026-06-13 — Completed 12-03 Ferris QA checklist and pack coher
 | Phase 12 P12-01 | 8min | 3 tasks | 4 files |
 | Phase 12 P12-02 | 6min | 2 tasks | 3 files |
 | Phase 12 P12-03 | 5min | 2 tasks | 4 files |
+| Phase 13 P13-01 | 7min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -126,6 +127,9 @@ Recent decisions affecting current work:
 - [Phase 12]: Ferris identity and style gates require active cognitive-action participation with compact orange/rust-red crab cues, source-asset tracing rejection, trademark-boundary repair, and stable failure category names.
 - [Phase 12]: Ferris composition and prompt templates use eight article-illustration families, Rust-themed low-tech object metaphors, source/trademark boundary fields, and six named edit gates.
 - [Phase 12]: Ferris QA checklist is the route-local QA authority and all six Ferris operational files repeat exact source-reviewed markers plus eight stable failure category names.
+- [Phase 13]: Ferris is wired into the skill controller as an explicit source-reviewed route with six aliases, full seven-file required references, route-local planning/generation/QA/edit behavior, raw and escaped output paths, and mixed-IP separation across Xiaohei, Littlebox, Tom, and Ferris.
+- [Phase 13]: Xiaohei remains the only omitted-IP default while Ferris stays `default=false` with `output_suffix=ferris` and source/trademark authority at `references/ips/ferris/source.md`.
+- [Phase 13]: Existing validator and Node tests still expect the old Ferris source-only route baseline; Phase 15 owns updating those checks to the new seven-file controller contract.
 
 ### Pending Todos
 
@@ -137,7 +141,8 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-- Ferris source attribution, Rust trademark wording, public generated-sample policy, and release wording are release gates for v1.2 planning and implementation.
+- Ferris source attribution, Rust trademark wording, public generated-sample policy, and release wording are release gates for v1.2 public documentation and release work.
+- Phase 15 validator hardening must update `ROUTE-FERRIS-001`, `ROUTE-REFS-001`, and related parser test expectations from Ferris source-only references to the full seven-file Ferris route pack.
 
 ## Deferred Items
 
@@ -149,6 +154,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T08:59:24.769Z
-Stopped at: Phase 13 context gathered
-Resume file: .planning/phases/13-skill-controller-integration/13-CONTEXT.md
+Last session: 2026-06-13T09:44:06Z
+Stopped at: Phase 13 implementation complete; validator baseline pending Phase 15
+Resume file: .planning/phases/13-skill-controller-integration/13-01-SUMMARY.md

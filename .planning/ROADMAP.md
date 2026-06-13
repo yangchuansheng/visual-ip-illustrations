@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 11: Ferris Source and Route Contract** - Maintainers get Ferris source, CC0/public-domain context, Rust trademark boundary, aliases, route metadata, and public-sample gates before broad release. (completed 2026-06-13)
 - [x] **Phase 12: Ferris Canonical Pack** - Maintainers get an isolated Ferris reference pack for identity, planning, prompts, composition, QA, edits, source notes, and trademark-boundary behavior. (completed 2026-06-13)
-- [ ] **Phase 13: Skill Controller Integration** - Users can explicitly select Ferris or request separate Xiaohei, Littlebox, Tom, and Ferris variants while Xiaohei remains the only default route.
+- [x] **Phase 13: Skill Controller Integration** - Users can explicitly select Ferris or request separate Xiaohei, Littlebox, Tom, and Ferris variants while Xiaohei remains the only default route. (implementation complete 2026-06-13; validator baseline update remains in Phase 15)
 - [ ] **Phase 14: Docs, Examples, and Release Surface** - Users and maintainers get Ferris-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent source/trademark wording.
 - [ ] **Phase 15: Validation Hardening** - Maintainers can run local validation and tests that cover Ferris route behavior, source/trademark boundaries, docs markers, paths, and route leakage gates.
 
@@ -79,11 +79,11 @@ Plans:
   3. User can request Xiaohei, Littlebox, Tom, and Ferris for the same core idea and receive separate variant groups.
   4. Ferris outputs use `assets/<article-slug>-ferris/`, and docs include the escaped token `assets/&lt;article-slug&gt;-ferris/`.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 
 Plans:
 
-- [ ] 13-01-PLAN.md — Integrate Ferris into the skill controller route, planning, generation, QA, output, and delivery paths.
+- [x] 13-01-PLAN.md — Integrate Ferris into the skill controller route, planning, generation, QA, output, and delivery paths.
 
 ### Phase 14: Docs, Examples, and Release Surface
 
@@ -137,6 +137,6 @@ Phases execute in numeric order: 11 -> 12 -> 13 -> 14 -> 15
 |-------|----------------|--------|-----------|
 | 11. Ferris Source and Route Contract | 3/3 | Complete   | 2026-06-13 |
 | 12. Ferris Canonical Pack | 3/3 | Complete   | 2026-06-13 |
-| 13. Skill Controller Integration | 0/1 | Pending | |
+| 13. Skill Controller Integration | 1/1 | Complete | 2026-06-13 |
 | 14. Docs, Examples, and Release Surface | 0/4 | Pending | |
 | 15. Validation Hardening | 0/3 | Pending | |

@@ -14,10 +14,10 @@
 
 ### Routing
 
-- [ ] **FERR-01**: User can explicitly request Ferris through clear aliases such as `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹`.
-- [ ] **FERR-02**: User who omits visual IP still gets Xiaohei as the only default route.
-- [ ] **FERR-03**: User can request Xiaohei, Littlebox, Tom, and Ferris for the same core idea and receive separate variant groups.
-- [ ] **FERR-04**: Ferris outputs use `assets/<article-slug>-ferris/` and docs include the escaped token `assets/&lt;article-slug&gt;-ferris/`.
+- [x] **FERR-01**: User can explicitly request Ferris through clear aliases such as `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹`.
+- [x] **FERR-02**: User who omits visual IP still gets Xiaohei as the only default route.
+- [x] **FERR-03**: User can request Xiaohei, Littlebox, Tom, and Ferris for the same core idea and receive separate variant groups.
+- [x] **FERR-04**: Ferris outputs use `assets/<article-slug>-ferris/` and docs include the escaped token `assets/&lt;article-slug&gt;-ferris/`.
 - [x] **FERR-05**: Maintainer can inspect Ferris route metadata, aliases, default flag, output suffix, required references, attribution context, source status, and trademark boundary in `references/routing.md`.
 
 ### Ferris IP Pack
@@ -90,10 +90,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FRGT-02 | Phase 11 | Complete |
 | FRGT-03 | Phase 11 | Complete |
 | FRGT-04 | Phase 11 | Complete |
-| FERR-01 | Phase 13 | Pending |
-| FERR-02 | Phase 13 | Pending |
-| FERR-03 | Phase 13 | Pending |
-| FERR-04 | Phase 13 | Pending |
+| FERR-01 | Phase 13 | Complete |
+| FERR-02 | Phase 13 | Complete |
+| FERR-03 | Phase 13 | Complete |
+| FERR-04 | Phase 13 | Complete |
 | FERR-05 | Phase 11 | Complete |
 | FIP-01 | Phase 12 | Complete |
 | FIP-02 | Phase 12 | Complete |
