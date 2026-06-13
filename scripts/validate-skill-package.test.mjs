@@ -20,6 +20,7 @@ const requiredCheckIds = [
   "ROUTE-XH-001",
   "ROUTE-LB-001",
   "ROUTE-TOM-001",
+  "ROUTE-FERRIS-001",
   "ROUTE-DEFAULT-001",
   "ROUTE-REFS-001",
   "ROUTE-PATHS-001",
@@ -38,22 +39,27 @@ const requiredCheckIds = [
   "IP-TOM-001",
   "QA-TOM-001",
   "RIGHTS-TOM-001",
+  "SOURCE-FERRIS-001",
   "DOC-LINKS-001",
   "DOC-PATHS-001",
   "DOC-ROUTES-001",
   "DOC-TOM-001",
+  "DOC-FERRIS-001",
   "NOTICE-IAN-001",
   "NOTICE-LB-001",
   "NOTICE-TOM-001",
+  "NOTICE-FERRIS-001",
   "SMOKE-DEFAULT-001",
   "SMOKE-XH-001",
   "SMOKE-LB-001",
   "SMOKE-TOM-001",
   "SMOKE-MIXED-001",
   "RELEASE-TOM-001",
+  "RELEASE-FERRIS-001",
   "BOUNDARY-IMG-001",
   "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-TOM-IMG-001",
+  "BOUNDARY-FERRIS-IMG-001",
   "BOUNDARY-P5-001",
 ];
 
@@ -297,7 +303,7 @@ test("validator emits the full Phase 10 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=47 passed=47 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=53 passed=53 failed=0 skipped=0/);
 });
 
 test("parser helpers expose current package contract primitives", async () => {
@@ -347,8 +353,10 @@ test("parser helpers expose current package contract primitives", async () => {
 
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-illustrations/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-tom/"));
+  assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-ferris/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-littlebox/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-tom/"));
+  assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-ferris/"));
 
   const pendingApproval = validators.parsePublicTomSampleApproval(releaseChecklistText);
   assert.equal(pendingApproval.found, true);
@@ -364,6 +372,23 @@ test("parser helpers expose current package contract primitives", async () => {
   const approved = validators.parsePublicTomSampleApproval(approvedText);
   assert.equal(approved.complete, true);
   assert.deepEqual(approved.allowedDirectories, ["examples/images", "ian-xiaohei-illustrations/assets/examples"]);
+
+  const pendingFerrisApproval = validators.parsePublicFerrisSampleApproval(releaseChecklistText);
+  assert.equal(pendingFerrisApproval.found, true);
+  assert.equal(pendingFerrisApproval.checked, false);
+  assert.equal(pendingFerrisApproval.complete, false);
+  assert.equal(pendingFerrisApproval.allowedDirectoriesPresent, false);
+
+  const approvedFerrisText = releaseChecklistText.replace(
+    "- [ ] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.",
+    "- [x] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / 2026-06-13 / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.",
+  );
+  const approvedFerris = validators.parsePublicFerrisSampleApproval(approvedFerrisText);
+  assert.equal(approvedFerris.complete, true);
+  assert.deepEqual(approvedFerris.allowedDirectories, [
+    "examples/images",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
 });
 
 test("validator fixture rejects Tom route metadata drift", () => {
@@ -382,6 +407,27 @@ test("validator fixture rejects Tom route metadata drift", () => {
     assert.match(result.stdout, /\[FAIL\] ROUTE-TOM-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Tom Cat/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects Ferris route metadata drift", () => {
+  const fixtureRoot = copyFixture("ferris-route");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      "`Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`",
+      "`Ferris`, `Rust mascot`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-FERRIS-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Rust crab/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -426,6 +472,27 @@ test("validator fixture reports Tom prompt marker drift", () => {
       result.stdout,
       /observed missing marker\(s\): Rights-status note: Tom is a `gated-authorized` protected-character route/,
     );
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Ferris source marker drift", () => {
+  const fixtureRoot = copyFixture("ferris-source");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "source.md"),
+      "Rust Foundation trademark policy context",
+      "Rust trademark review context",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] SOURCE-FERRIS-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris\/source\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Rust Foundation trademark policy context/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -477,6 +544,50 @@ test("validator fixture reports Tom docs and agent metadata drift", () => {
     assert.match(result.stdout, /\[FAIL\] SMOKE-TOM-001 /);
     assert.match(result.stdout, /examples\/prompts\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): ## 路由烟测：显式选择 Tom/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Ferris NOTICE boundary drift", () => {
+  const fixtureRoot = copyFixture("ferris-notice");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      "NOTICE.md",
+      "Ferris Source Attribution and Rust Trademark Boundary",
+      "Ferris Source Attribution",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] NOTICE-FERRIS-001 /);
+    assert.match(result.stdout, /NOTICE\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Ferris Source Attribution and Rust Trademark Boundary/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Ferris release gate drift", () => {
+  const fixtureRoot = copyFixture("ferris-release");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      "RELEASE_CHECKLIST.md",
+      "Public rendered Ferris samples approved",
+      "Ferris rendered samples approved",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] RELEASE-FERRIS-001 /);
+    assert.match(result.stdout, /RELEASE_CHECKLIST\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Public rendered Ferris samples approved/);
+    assert.match(result.stdout, /\[FAIL\] BOUNDARY-FERRIS-IMG-001 /);
+    assert.match(result.stdout, /Public rendered Ferris samples approval record/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -535,7 +646,49 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=47 passed=47 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=53 passed=53 failed=0 skipped=0/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture enforces public Ferris sample approval parsing", async () => {
+  const validators = await import(`${scriptPath}?ferrisApproval=${Date.now()}`);
+  const fixtureRoot = copyFixture("ferris-public-asset");
+  try {
+    writeFileSync(path.join(fixtureRoot, "examples", "images", "99-ferris-test.png"), "fixture", "utf8");
+
+    const pendingResult = runFixtureValidator(fixtureRoot);
+
+    assert.equal(pendingResult.status, 1);
+    assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-FERRIS-IMG-001 /);
+    assert.match(pendingResult.stdout, /examples\/images and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images\/99-ferris-test\.png/);
+    assert.match(pendingResult.stdout, /approval status=PENDING/);
+    assert.match(pendingResult.stdout, /reviewer=missing/);
+    assert.match(pendingResult.stdout, /allowed directories=missing/);
+
+    const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
+    const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
+      "- [ ] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.",
+      "- [x] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / 2026-06-13 / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.",
+    );
+    writeFileSync(releaseChecklistPath, approvedText, "utf8");
+
+    const approval = validators.parsePublicFerrisSampleApproval(approvedText);
+    assert.equal(approval.complete, true);
+    assert.equal(approval.reviewerPresent, true);
+    assert.equal(approval.datePresent, true);
+    assert.equal(approval.allowedDirectoriesPresent, true);
+    assert.deepEqual(approval.allowedDirectories, [
+      "examples/images",
+      "ian-xiaohei-illustrations/assets/examples",
+    ]);
+
+    const approvedResult = runFixtureValidator(fixtureRoot);
+    assert.equal(approvedResult.status, 0);
+    assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
+    assert.match(approvedResult.stdout, /Summary: total=53 passed=53 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
