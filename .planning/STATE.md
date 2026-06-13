@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Completed 11-02-PLAN.md
-last_updated: "2026-06-13T06:55:31.525Z"
-last_activity: 2026-06-13 — Completed 11-02 Ferris public route wording, path tokens, and sample release gate
+stopped_at: Completed 11-03-PLAN.md
+last_updated: "2026-06-13T07:07:21.008Z"
+last_activity: 2026-06-13 — Completed 11-03 Ferris validator baseline repair and contract checks
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 14
-  completed_plans: 2
-  percent: 14
+  completed_plans: 3
+  percent: 21
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 11 Plan 11-02 complete
+**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 11 complete; Phase 12 next
 
 ## Current Position
 
-Phase: 11 — Ferris Source and Route Contract
-Plan: 11-03 pending
-Status: Phase 11 in progress
-Last activity: 2026-06-13 — Completed 11-02 Ferris public route wording, path tokens, and sample release gate
+Phase: 12 — Ferris Canonical Pack
+Plan: 12-01 pending
+Status: Phase 11 complete; Phase 12 pending
+Last activity: 2026-06-13 — Completed 11-03 Ferris validator baseline repair and contract checks
 
 ## Performance Metrics
 
@@ -73,6 +73,7 @@ Last activity: 2026-06-13 — Completed 11-02 Ferris public route wording, path 
 | Phase 10 P03 | 1min | 2 tasks | 3 files |
 | Phase 11 P11-01 | 3min | 3 tasks | 3 files |
 | Phase 11 P11-02 | 3min | 3 tasks | 4 files |
+| Phase 11 P11-03 | 7min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -117,6 +118,7 @@ Recent decisions affecting current work:
 - [Phase 11]: Ferris route status is source-reviewed while source attribution and Rust trademark boundaries are documented before pack/controller expansion.
 - [Phase 11]: Ferris public wording stays limited to route status, aliases, source record, output path tokens, and release sample gate in Plan 11-02.
 - [Phase 11]: Public rendered Ferris samples require release review for Rust trademark and endorsement-safe wording before publication.
+- [Phase 11]: The validator matrix now has 53 checks covering the Phase 11 Ferris source, route, NOTICE, docs, release, and public sample contract.
 
 ### Pending Todos
 
@@ -140,6 +142,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T06:55:31.439Z
-Stopped at: Completed 11-02-PLAN.md
+Last session: 2026-06-13T07:07:21.005Z
+Stopped at: Completed 11-03-PLAN.md
 Resume file: None

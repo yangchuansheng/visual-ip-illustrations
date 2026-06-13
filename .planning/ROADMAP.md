@@ -17,7 +17,7 @@ v1.2 adds Ferris the Rustacean as the fourth selectable visual IP while preservi
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 11: Ferris Source and Route Contract** - Maintainers get Ferris source, CC0/public-domain context, Rust trademark boundary, aliases, route metadata, and public-sample gates before broad release.
+- [x] **Phase 11: Ferris Source and Route Contract** - Maintainers get Ferris source, CC0/public-domain context, Rust trademark boundary, aliases, route metadata, and public-sample gates before broad release. (completed 2026-06-13)
 - [ ] **Phase 12: Ferris Canonical Pack** - Maintainers get an isolated Ferris reference pack for identity, planning, prompts, composition, QA, edits, source notes, and trademark-boundary behavior.
 - [ ] **Phase 13: Skill Controller Integration** - Users can explicitly select Ferris or request separate Xiaohei, Littlebox, Tom, and Ferris variants while Xiaohei remains the only default route.
 - [ ] **Phase 14: Docs, Examples, and Release Surface** - Users and maintainers get Ferris-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent source/trademark wording.
@@ -38,13 +38,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Maintainer can block Rust-logo-forward or official-affiliation public samples until release review records explicit approval.
   5. Maintainer can inspect Ferris route metadata, aliases, default flag, output suffix, required references, attribution context, source status, and trademark boundary in `references/routing.md`.
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 
 - [x] 11-01-PLAN.md — Create Ferris source record, route row, and NOTICE source/trademark boundary.
 - [x] 11-02-PLAN.md — Add public route-status wording, Ferris path tokens, and release checklist sample gate.
-- [ ] 11-03-PLAN.md — Repair validator baseline and add minimal Phase 11 Ferris contract checks.
+- [x] 11-03-PLAN.md — Repair validator baseline and add minimal Phase 11 Ferris contract checks.
 
 ### Phase 12: Ferris Canonical Pack
 
@@ -135,7 +135,7 @@ Phases execute in numeric order: 11 -> 12 -> 13 -> 14 -> 15
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 11. Ferris Source and Route Contract | 2/3 | In Progress |  |
+| 11. Ferris Source and Route Contract | 3/3 | Complete   | 2026-06-13 |
 | 12. Ferris Canonical Pack | 0/3 | Pending | |
 | 13. Skill Controller Integration | 0/1 | Pending | |
 | 14. Docs, Examples, and Release Surface | 0/4 | Pending | |
