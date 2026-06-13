@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Completed 12-01-PLAN.md
-last_updated: "2026-06-13T08:20:00.000Z"
-last_activity: 2026-06-13 — Completed 12-01 Ferris canonical foundation files
+stopped_at: Completed 12-02-PLAN.md
+last_updated: "2026-06-13T08:29:04.000Z"
+last_activity: 2026-06-13 — Completed 12-02 Ferris composition and prompt templates
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 14
-  completed_plans: 4
-  percent: 29
+  completed_plans: 5
+  percent: 36
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 12 — Ferris Canonical Pack
-Plan: 12-02 pending
-Status: Phase 12 in progress; 12-01 complete
-Last activity: 2026-06-13 — Completed 12-01 Ferris canonical foundation files
+Plan: 12-03 pending
+Status: Phase 12 in progress; 12-01 and 12-02 complete
+Last activity: 2026-06-13 — Completed 12-02 Ferris composition and prompt templates
 
 ## Performance Metrics
 
@@ -75,6 +75,7 @@ Last activity: 2026-06-13 — Completed 12-01 Ferris canonical foundation files
 | Phase 11 P11-02 | 3min | 3 tasks | 4 files |
 | Phase 11 P11-03 | 7min | 3 tasks | 2 files |
 | Phase 12 P12-01 | 8min | 3 tasks | 4 files |
+| Phase 12 P12-02 | 6min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -122,6 +123,7 @@ Recent decisions affecting current work:
 - [Phase 11]: The validator matrix now has 53 checks covering the Phase 11 Ferris source, route, NOTICE, docs, release, and public sample contract.
 - [Phase 12]: Ferris canonical foundations stay route-local under `ian-xiaohei-illustrations/references/ips/ferris/` and repeat exact source-reviewed markers for downstream composition, prompt, QA, controller, docs, and validator work.
 - [Phase 12]: Ferris identity and style gates require active cognitive-action participation with compact orange/rust-red crab cues, source-asset tracing rejection, trademark-boundary repair, and stable failure category names.
+- [Phase 12]: Ferris composition and prompt templates use eight article-illustration families, Rust-themed low-tech object metaphors, source/trademark boundary fields, and six named edit gates.
 
 ### Pending Todos
 
@@ -145,6 +147,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T08:20:00.000Z
-Stopped at: Completed 12-01-PLAN.md
-Resume file: .planning/phases/12-ferris-canonical-pack/12-01-SUMMARY.md
+Last session: 2026-06-13T08:29:04.000Z
+Stopped at: Completed 12-02-PLAN.md
+Resume file: .planning/phases/12-ferris-canonical-pack/12-02-SUMMARY.md

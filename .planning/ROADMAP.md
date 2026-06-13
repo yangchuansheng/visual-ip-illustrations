@@ -59,12 +59,12 @@ Plans:
   4. Ferris QA rejects generic crabs, passive Ferris placement, Rust-logo misuse, official-affiliation cues, over-detailed mascot rendering, excessive text, source-asset tracing, and route leakage.
   5. Ferris edit prompts support stronger Ferris participation, off-model identity repair, trademark-boundary repair, title removal, text reduction, and preservation of unaffected content.
 
-**Plans:** 1/3 plans complete
+**Plans:** 2/3 plans complete
 
 Plans:
 
 - [x] 12-01-PLAN.md — Create Ferris pack index, source/trademark notes, style DNA, and identity foundations.
-- [ ] 12-02-PLAN.md — Create Ferris composition patterns plus planning, generation, and edit prompt templates.
+- [x] 12-02-PLAN.md — Create Ferris composition patterns plus planning, generation, and edit prompt templates.
 - [ ] 12-03-PLAN.md — Create Ferris QA checklist and refine cross-file Ferris pack coherence.
 
 ### Phase 13: Skill Controller Integration
@@ -136,7 +136,7 @@ Phases execute in numeric order: 11 -> 12 -> 13 -> 14 -> 15
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 11. Ferris Source and Route Contract | 3/3 | Complete   | 2026-06-13 |
-| 12. Ferris Canonical Pack | 1/3 | In Progress | |
+| 12. Ferris Canonical Pack | 2/3 | In Progress | |
 | 13. Skill Controller Integration | 0/1 | Pending | |
 | 14. Docs, Examples, and Release Surface | 0/4 | Pending | |
 | 15. Validation Hardening | 0/3 | Pending | |
