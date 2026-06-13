@@ -303,6 +303,7 @@ Ferris variant group：
 ## 维护者验证烟测
 
 这些 prompt 用来人工检查路由行为；完整包校验使用 `node scripts/validate-skill-package.mjs`。路由源文件是 `ian-xiaohei-illustrations/references/routing.md`。
+Phase 15 owns validator/test expectation updates and green Node evidence for Ferris route checks.
 
 ### 烟测：默认 Xiaohei 路由
 
