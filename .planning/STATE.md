@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
 status: executing
-stopped_at: Phase 12 context gathered
-last_updated: "2026-06-13T07:42:27.813Z"
-last_activity: 2026-06-13 — Completed 11-03 Ferris validator baseline repair and contract checks
+stopped_at: Completed 12-01-PLAN.md
+last_updated: "2026-06-13T08:20:00.000Z"
+last_activity: 2026-06-13 — Completed 12-01 Ferris canonical foundation files
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 14
-  completed_plans: 3
-  percent: 21
+  completed_plans: 4
+  percent: 29
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 11 complete; Phase 12 next
+**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 12 Ferris canonical pack in progress
 
 ## Current Position
 
 Phase: 12 — Ferris Canonical Pack
-Plan: 12-01 pending
-Status: Phase 11 complete; Phase 12 pending
-Last activity: 2026-06-13 — Completed 11-03 Ferris validator baseline repair and contract checks
+Plan: 12-02 pending
+Status: Phase 12 in progress; 12-01 complete
+Last activity: 2026-06-13 — Completed 12-01 Ferris canonical foundation files
 
 ## Performance Metrics
 
@@ -74,6 +74,7 @@ Last activity: 2026-06-13 — Completed 11-03 Ferris validator baseline repair a
 | Phase 11 P11-01 | 3min | 3 tasks | 3 files |
 | Phase 11 P11-02 | 3min | 3 tasks | 4 files |
 | Phase 11 P11-03 | 7min | 3 tasks | 2 files |
+| Phase 12 P12-01 | 8min | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -119,6 +120,8 @@ Recent decisions affecting current work:
 - [Phase 11]: Ferris public wording stays limited to route status, aliases, source record, output path tokens, and release sample gate in Plan 11-02.
 - [Phase 11]: Public rendered Ferris samples require release review for Rust trademark and endorsement-safe wording before publication.
 - [Phase 11]: The validator matrix now has 53 checks covering the Phase 11 Ferris source, route, NOTICE, docs, release, and public sample contract.
+- [Phase 12]: Ferris canonical foundations stay route-local under `ian-xiaohei-illustrations/references/ips/ferris/` and repeat exact source-reviewed markers for downstream composition, prompt, QA, controller, docs, and validator work.
+- [Phase 12]: Ferris identity and style gates require active cognitive-action participation with compact orange/rust-red crab cues, source-asset tracing rejection, trademark-boundary repair, and stable failure category names.
 
 ### Pending Todos
 
@@ -142,6 +145,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T07:42:27.810Z
-Stopped at: Phase 12 context gathered
-Resume file: .planning/phases/12-ferris-canonical-pack/12-CONTEXT.md
+Last session: 2026-06-13T08:20:00.000Z
+Stopped at: Completed 12-01-PLAN.md
+Resume file: .planning/phases/12-ferris-canonical-pack/12-01-SUMMARY.md
