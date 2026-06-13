@@ -438,17 +438,15 @@ Source: `references/ips/ferris/qa-checklist.md` and Phase 12 verification. [VERI
 |---|-------|---------|---------------|
 | A1 | None. | All sections | All research claims are sourced to repository files, local commands, phase context, or Phase 12 verification evidence. [VERIFIED: codebase grep] |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Should the frontmatter description mention Ferris?**
+1. **RESOLVED: Should the frontmatter description mention Ferris?**
    - What we know: Phase 13 scope includes `SKILL.md` controller integration; Phase 14 owns `agents/openai.yaml` public metadata. [VERIFIED: phase context]
-   - What's unclear: The frontmatter description is both runtime discovery text and user-facing skill description. [VERIFIED: codebase grep]
-   - Recommendation: Preserve Xiaohei as default in frontmatter and add Ferris there only if the planner decides route discoverability needs it; avoid wording that implies Ferris is implicit. [VERIFIED: phase context]
+   - Resolution: Preserve Xiaohei as the omitted-IP default in frontmatter. Add Ferris only as an explicit selectable route when controller clarity needs exact route discoverability wording. [VERIFIED: 13-01-PLAN.md]
 
-2. **Should Phase 13 update validator scripts?**
+2. **RESOLVED: Should Phase 13 update validator scripts?**
    - What we know: Phase 15 owns validator and Node test hardening. [VERIFIED: phase context]
-   - What's unclear: Existing validator already includes some Ferris route/doc checks but does not yet enforce the Phase 13 controller additions. [VERIFIED: codebase grep]
-   - Recommendation: Use grep assertions in Phase 13 verification and leave permanent validator/test expansion to Phase 15. [VERIFIED: phase context]
+   - Resolution: Use Phase 13 grep assertions plus existing validator and Node regression checks. Leave permanent validator and Node test hardening to Phase 15. [VERIFIED: 13-01-PLAN.md]
 
 ## Environment Availability
 
