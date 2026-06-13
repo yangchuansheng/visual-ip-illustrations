@@ -607,6 +607,101 @@ test("validator fixture reports Ferris source marker drift", () => {
   }
 });
 
+test("validator fixture requires Ferris canonical pack files", () => {
+  const fixtureRoot = copyFixture("ferris-pack");
+  const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "qa-checklist.md");
+  try {
+    writeFileSync(path.join(fixtureRoot, relativePath), "", "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REFS-FERRIS-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris/);
+    assert.match(
+      result.stdout,
+      /observed empty file\(s\): ian-xiaohei-illustrations\/references\/ips\/ferris\/qa-checklist\.md/,
+    );
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Ferris prompt marker drift", () => {
+  const fixtureRoot = copyFixture("ferris-prompt");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "prompt-template.md"),
+      "Ferris planning fields gate",
+      "Ferris planning format",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] PROMPT-FERRIS-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris\/prompt-template\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Ferris planning fields gate/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Ferris identity and trademark marker drift", () => {
+  const fixtureRoot = copyFixture("ferris-ip");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      "Ferris must perform the central cognitive action",
+      "Ferris performs the route action",
+    );
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "composition-patterns.md"),
+      "Rust trademark-boundary gate",
+      "Rust trademark review gate",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] IP-FERRIS-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris/);
+    assert.match(result.stdout, /observed missing marker\(s\): Ferris must perform the central cognitive action/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Ferris QA marker drift", () => {
+  const fixtureRoot = copyFixture("ferris-qa");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "qa-checklist.md"),
+      "Ferris QA source-reviewed gate",
+      "Ferris QA route gate",
+    );
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "qa-checklist.md"),
+      "Ferris QA route leakage failure",
+      "Ferris QA cross-route failure",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] QA-FERRIS-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris\/qa-checklist\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Ferris QA source-reviewed gate/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
 test("validator fixture requires Ferris D-15 wording in every public document", () => {
   const fixtureRoot = copyFixture("ferris-doc-phrase");
   try {
@@ -700,14 +795,14 @@ test("validator fixture reports Ferris NOTICE boundary drift", () => {
   }
 });
 
-test("validator fixture reports Ferris release gate drift", () => {
+test("validator fixture reports Ferris public asset release gate drift", () => {
   const fixtureRoot = copyFixture("ferris-release");
   try {
     replaceInFixture(
       fixtureRoot,
       "RELEASE_CHECKLIST.md",
-      "Public rendered Ferris samples approved",
-      "Ferris rendered samples approved",
+      "Ferris public asset policy for",
+      "Ferris rendered asset policy for",
     );
 
     const result = runFixtureValidator(fixtureRoot);
@@ -715,9 +810,30 @@ test("validator fixture reports Ferris release gate drift", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] RELEASE-FERRIS-001 /);
     assert.match(result.stdout, /RELEASE_CHECKLIST\.md/);
-    assert.match(result.stdout, /observed missing marker\(s\): Public rendered Ferris samples approved/);
+    assert.match(result.stdout, /observed missing marker\(s\): Ferris public asset policy for/);
     assert.match(result.stdout, /\[FAIL\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(result.stdout, /Public rendered Ferris samples approval record/);
+    assert.match(result.stdout, /Ferris public asset policy approval record/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Ferris generated sample release gate drift", () => {
+  const fixtureRoot = copyFixture("ferris-generated-release");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      "RELEASE_CHECKLIST.md",
+      pendingGeneratedFerrisSampleLine(),
+      "Record generated sample approval",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /RELEASE_CHECKLIST\.md/);
+    assert.match(result.stdout, /\[FAIL\] BOUNDARY-FERRIS-GEN-001 /);
+    assert.match(result.stdout, /Ferris generated sample review record/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -741,6 +857,36 @@ test("validator fixture reports Tom leakage in non-Tom packs", () => {
     assert.match(result.stdout, /observed forbidden marker\(s\): Tom Cat/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Ferris leakage in non-Ferris packs", () => {
+  for (const [name, relativePath, marker] of [
+    ["xiaohei", path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"), "Ferris"],
+    [
+      "littlebox",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      "Rustacean",
+    ],
+    ["tom", path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "tom-ip.md"), "Rust trademark boundary"],
+  ]) {
+    const fixtureRoot = copyFixture(`ferris-leak-${name}`);
+    try {
+      writeFileSync(
+        path.join(fixtureRoot, relativePath),
+        `${readFileSync(path.join(fixtureRoot, relativePath), "utf8")}\n\nLeaked route marker: ${marker}\n`,
+        "utf8",
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-FERRIS-LEAK-001 /);
+      assert.match(result.stdout, new RegExp(relativePath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, new RegExp(`observed forbidden marker\\(s\\): ${marker}`));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
   }
 });
 
