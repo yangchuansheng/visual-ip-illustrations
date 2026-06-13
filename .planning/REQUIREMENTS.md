@@ -15,11 +15,11 @@
 
 ### Routing
 
-- [ ] **SEAL-01**: User can explicitly request Sealos Seal through clear aliases such as `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, and `blue hoodie seal`.
-- [ ] **SEAL-02**: User who omits visual IP still gets Xiaohei as the only default route.
-- [ ] **SEAL-03**: User can request Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal for the same core idea and receive separate variant groups.
-- [ ] **SEAL-04**: Sealos Seal outputs use `assets/<article-slug>-sealos/`, and docs include the escaped token `assets/&lt;article-slug&gt;-sealos/`.
-- [ ] **SEAL-05**: Sealos Seal planning and delivery output includes a brand/canonical-image note that reminds maintainers to preserve the uploaded mascot identity.
+- [x] **SEAL-01**: User can explicitly request Sealos Seal through clear aliases such as `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, and `blue hoodie seal`.
+- [x] **SEAL-02**: User who omits visual IP still gets Xiaohei as the only default route.
+- [x] **SEAL-03**: User can request Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal for the same core idea and receive separate variant groups.
+- [x] **SEAL-04**: Sealos Seal outputs use `assets/<article-slug>-sealos/`, and docs include the escaped token `assets/&lt;article-slug&gt;-sealos/`.
+- [x] **SEAL-05**: Sealos Seal planning and delivery output includes a brand/canonical-image note that reminds maintainers to preserve the uploaded mascot identity.
 
 ### Sealos Seal IP Pack
 
@@ -96,11 +96,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SBRD-03 | Phase 16 | Complete |
 | SBRD-04 | Phase 16 | Complete |
 | SBRD-05 | Phase 16 | Complete |
-| SEAL-01 | Phase 18 | Pending |
-| SEAL-02 | Phase 18 | Pending |
-| SEAL-03 | Phase 18 | Pending |
-| SEAL-04 | Phase 18 | Pending |
-| SEAL-05 | Phase 18 | Pending |
+| SEAL-01 | Phase 18 | Complete |
+| SEAL-02 | Phase 18 | Complete |
+| SEAL-03 | Phase 18 | Complete |
+| SEAL-04 | Phase 18 | Complete |
+| SEAL-05 | Phase 18 | Complete |
 | SIP-01 | Phase 17 | Complete |
 | SIP-02 | Phase 17 | Complete |
 | SIP-03 | Phase 17 | Complete |

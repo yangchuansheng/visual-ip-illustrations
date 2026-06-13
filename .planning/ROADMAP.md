@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 16: Sealos Seal Brand and Image Contract** - Maintainers get Sealos Seal brand context, uploaded-image authority, fixed visual markers, route metadata, and public-sample gates before broad route expansion. (completed 2026-06-13)
 - [x] **Phase 17: Sealos Seal Canonical Pack** - Maintainers get an isolated Sealos Seal reference pack for identity, planning, prompts, composition, QA, edits, brand notes, and uploaded-image drift prevention. (completed 2026-06-13)
-- [ ] **Phase 18: Skill Controller Integration** - Users can explicitly select Sealos Seal or request separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal variants while Xiaohei remains the only default route.
+- [x] **Phase 18: Skill Controller Integration** - Users can explicitly select Sealos Seal or request separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal variants while Xiaohei remains the only default route. (completed 2026-06-13)
 - [ ] **Phase 19: Docs, Examples, and Release Surface** - Users and maintainers get Sealos Seal-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent uploaded-image and brand-boundary wording.
 - [ ] **Phase 20: Validation Hardening** - Maintainers can run local validation and tests that cover Sealos Seal route behavior, uploaded-image identity markers, brand boundaries, docs markers, paths, sample gates, and route leakage gates.
 
@@ -90,11 +90,11 @@ Plans:
   4. Sealos Seal outputs use `assets/<article-slug>-sealos/`, and docs include the escaped token `assets/&lt;article-slug&gt;-sealos/`.
   5. Sealos Seal planning and delivery output includes a brand/canonical-image note that preserves the uploaded mascot identity.
 
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 
-- [ ] 18-01-PLAN.md — Integrate Sealos Seal into the skill controller route, planning, generation, QA, output, and delivery paths.
+- [x] 18-01-PLAN.md — Integrate Sealos Seal into the skill controller route, planning, generation, QA, output, and delivery paths.
 
 ### Phase 19: Docs, Examples, and Release Surface
 
@@ -149,6 +149,6 @@ Phases execute in numeric order: 16 -> 17 -> 18 -> 19 -> 20
 |-------|----------------|--------|-----------|
 | 16. Sealos Seal Brand and Image Contract | 3/3 | Complete    | 2026-06-13 |
 | 17. Sealos Seal Canonical Pack | 3/3 | Complete    | 2026-06-13 |
-| 18. Skill Controller Integration | 0/1 | Pending | — |
+| 18. Skill Controller Integration | 1/1 | Complete   | 2026-06-13 |
 | 19. Docs, Examples, and Release Surface | 0/4 | Pending | — |
 | 20. Validation Hardening | 0/3 | Pending | — |
