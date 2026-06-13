@@ -9,11 +9,15 @@
 - 用户使用 `小盒`、`Littlebox`、`纸盒`、`paper-box`、`carton` 时，选择同一个 `littlebox` 路由。
 - 用户使用 `Tom`、`Tom Cat`、`Tom and Jerry`、`汤姆`、`汤姆猫` 时，选择同一个 `tom` 路由，路线状态保持 `gated-authorized`。
 - 用户使用 `Ferris`、`Rust mascot`、`Rust crab`、`Rustacean`、`Rust 吉祥物`、`Rust 螃蟹` 时，选择同一个 `ferris` 路由，路线状态保持 `source-reviewed`。
-- 同时请求 Xiaohei、Littlebox、Tom 和 Ferris 中的多个 IP 时，建立 separate route groups，每个 route group 只加载自己的 `required_references`，并写入自己的输出目录。
+- 用户使用 `Sealos Seal`、`Sealos mascot`、`Sealos 吉祥物`、`Sealos 海豹`、`white Sealos seal`、`blue hoodie seal` 时，选择同一个 `sealos` 路由，路线状态保持 `brand-owned`。
+- 同时请求 Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal 中的多个 IP 时，建立 separate route groups，每个 route group 只加载自己的 `required_references`，并写入自己的输出目录。
 - 路由只保存选择、引用、输出后缀和归因上下文。风格、角色身份、提示词措辞和 QA 规则保存在所选 IP 的参考文件中。
 - Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Ferris route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
 - Ferris source/trademark authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
+- Sealos Seal is an explicit brand mascot route with status brand-owned; generated public Sealos samples require release review for uploaded-image identity and Sealos brand/logo wording.
+- Sealos Seal route-local reference directory: `ian-xiaohei-illustrations/references/ips/sealos/`.
+- Sealos Seal brand/canonical-image authority: `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
 
 ## IP Routes
 
@@ -23,6 +27,15 @@
 | `littlebox` | Littlebox | `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton` | `false` | `littlebox` | `references/ips/littlebox/style-dna.md`; `references/ips/littlebox/littlebox-ip.md`; `references/ips/littlebox/composition-patterns.md`; `references/ips/littlebox/language-and-labels.md`; `references/ips/littlebox/prompt-template.md`; `references/ips/littlebox/qa-checklist.md` | 5km Littlebox Illustrations by okooo5km; source https://github.com/okooo5km/5km-littlebox-illustrations; MIT; inspected commit 37cd93e | `active` |
 | `tom` | Tom | `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫` | `false` | `tom` | `references/ips/tom/index.md`; `references/ips/tom/rights.md`; `references/ips/tom/style-dna.md`; `references/ips/tom/tom-ip.md`; `references/ips/tom/composition-patterns.md`; `references/ips/tom/prompt-template.md`; `references/ips/tom/qa-checklist.md` | Tom and Jerry / Tom source context; attribution records source identity while permission remains authorization-scope specific through `references/ips/tom/rights.md` | `gated-authorized` |
 | `ferris` | Ferris | `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹` | `false` | `ferris` | `references/ips/ferris/index.md`; `references/ips/ferris/source.md`; `references/ips/ferris/style-dna.md`; `references/ips/ferris/ferris-ip.md`; `references/ips/ferris/composition-patterns.md`; `references/ips/ferris/prompt-template.md`; `references/ips/ferris/qa-checklist.md` | Ferris source context from `rustacean.net` and Karen Rustad Tolva; attribution records source context while Rust trademark boundary is governed through `references/ips/ferris/source.md` | `source-reviewed` |
+| `sealos` | Sealos Seal | `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, `blue hoodie seal` | `false` | `sealos` | `references/ips/sealos/index.md`; `references/ips/sealos/source.md`; `references/ips/sealos/style-dna.md`; `references/ips/sealos/sealos-ip.md`; `references/ips/sealos/composition-patterns.md`; `references/ips/sealos/prompt-template.md`; `references/ips/sealos/qa-checklist.md` | Sealos uploaded mascot image; attribution records uploaded-image authority and brand/canonical-image boundary through `references/ips/sealos/source.md` | `brand-owned` |
+
+## Sealos Seal Metadata
+
+- `brand_context`: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes
+- `canonical_image_status`: uploaded-image-canonical
+- `drift_boundary`: uploaded-image-locked
+- Fixed visual markers: white rounded seal body, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Authority boundary: the uploaded mascot image is the v1.3 shape authority; prior Sealos mascot exploration supplies supporting brand context.
 
 ## Legacy Path Availability
 
