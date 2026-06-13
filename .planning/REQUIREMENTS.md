@@ -7,11 +7,11 @@
 
 ### Brand and Canonical Image Boundary
 
-- [ ] **SBRD-01**: Maintainer can read a Sealos Seal brand/source record that names the uploaded image as the canonical mascot reference for v1.3.
-- [ ] **SBRD-02**: Maintainer can verify the required Sealos Seal visual markers: white rounded seal body, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- [ ] **SBRD-03**: Maintainer can distinguish Sealos brand/logo usage guidance from generic seal mascot exploration and prior alternative mascot concepts.
-- [ ] **SBRD-04**: Maintainer can block public Sealos Seal examples that drift away from the uploaded image, remove the cap/hoodie/logo identity, or imply a different selected mascot.
-- [ ] **SBRD-05**: Maintainer can inspect Sealos Seal route metadata, aliases, default flag, output suffix, required references, brand context, canonical image status, and drift boundary in `references/routing.md`.
+- [x] **SBRD-01**: Maintainer can read a Sealos Seal brand/source record that names the uploaded image as the canonical mascot reference for v1.3.
+- [x] **SBRD-02**: Maintainer can verify the required Sealos Seal visual markers: white rounded seal body, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- [x] **SBRD-03**: Maintainer can distinguish Sealos brand/logo usage guidance from generic seal mascot exploration and prior alternative mascot concepts.
+- [x] **SBRD-04**: Maintainer can block public Sealos Seal examples that drift away from the uploaded image, remove the cap/hoodie/logo identity, or imply a different selected mascot.
+- [x] **SBRD-05**: Maintainer can inspect Sealos Seal route metadata, aliases, default flag, output suffix, required references, brand context, canonical image status, and drift boundary in `references/routing.md`.
 
 ### Routing
 
@@ -91,11 +91,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SBRD-01 | Phase 16 | Pending |
-| SBRD-02 | Phase 16 | Pending |
-| SBRD-03 | Phase 16 | Pending |
-| SBRD-04 | Phase 16 | Pending |
-| SBRD-05 | Phase 16 | Pending |
+| SBRD-01 | Phase 16 | Complete |
+| SBRD-02 | Phase 16 | Complete |
+| SBRD-03 | Phase 16 | Complete |
+| SBRD-04 | Phase 16 | Complete |
+| SBRD-05 | Phase 16 | Complete |
 | SEAL-01 | Phase 18 | Pending |
 | SEAL-02 | Phase 18 | Pending |
 | SEAL-03 | Phase 18 | Pending |

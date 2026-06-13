@@ -17,7 +17,7 @@ v1.3 adds the uploaded Sealos white seal mascot as the fifth selectable visual I
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 16: Sealos Seal Brand and Image Contract** - Maintainers get Sealos Seal brand context, uploaded-image authority, fixed visual markers, route metadata, and public-sample gates before broad route expansion.
+- [x] **Phase 16: Sealos Seal Brand and Image Contract** - Maintainers get Sealos Seal brand context, uploaded-image authority, fixed visual markers, route metadata, and public-sample gates before broad route expansion. (completed 2026-06-13)
 - [ ] **Phase 17: Sealos Seal Canonical Pack** - Maintainers get an isolated Sealos Seal reference pack for identity, planning, prompts, composition, QA, edits, brand notes, and uploaded-image drift prevention.
 - [ ] **Phase 18: Skill Controller Integration** - Users can explicitly select Sealos Seal or request separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal variants while Xiaohei remains the only default route.
 - [ ] **Phase 19: Docs, Examples, and Release Surface** - Users and maintainers get Sealos Seal-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent uploaded-image and brand-boundary wording.
@@ -38,16 +38,16 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Maintainer can block public samples that drift away from the uploaded mascot identity.
   5. Maintainer can inspect Sealos Seal route metadata, aliases, default flag, output suffix, required references, brand context, canonical image status, and drift boundary in `references/routing.md`.
 
-**Plans:** 0/3 plans complete
+**Plans:** 3/3 plans complete
 Plans:
 **Wave 1**
 
-- [ ] 16-01-PLAN.md — Create Sealos Seal brand/source record, route row, and NOTICE brand boundary.
-- [ ] 16-02-PLAN.md — Add public route-status wording, Sealos output path tokens, and release checklist identity gate.
+- [x] 16-01-PLAN.md — Create Sealos Seal brand/source record, route row, and NOTICE brand boundary.
+- [x] 16-02-PLAN.md — Add public route-status wording, Sealos output path tokens, and release checklist identity gate.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 16-03-PLAN.md — Repair validator baseline and add minimal Phase 16 Sealos Seal contract checks.
+- [x] 16-03-PLAN.md — Repair validator baseline and add minimal Phase 16 Sealos Seal contract checks.
 
 ### Phase 17: Sealos Seal Canonical Pack
 
@@ -141,7 +141,7 @@ Phases execute in numeric order: 16 -> 17 -> 18 -> 19 -> 20
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 16. Sealos Seal Brand and Image Contract | 0/3 | Pending | — |
+| 16. Sealos Seal Brand and Image Contract | 3/3 | Complete   | 2026-06-13 |
 | 17. Sealos Seal Canonical Pack | 0/3 | Pending | — |
 | 18. Skill Controller Integration | 0/1 | Pending | — |
 | 19. Docs, Examples, and Release Surface | 0/4 | Pending | — |
