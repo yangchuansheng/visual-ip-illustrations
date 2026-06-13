@@ -16,12 +16,14 @@ const requiredCheckIds = [
   "SKILL-GEN-001",
   "AGENT-SHAPE-001",
   "AGENT-TOM-001",
+  "AGENT-SEALOS-001",
   "ROUTE-TABLE-001",
   "ROUTE-XH-001",
   "ROUTE-LB-001",
   "ROUTE-TOM-001",
   "ROUTE-FERRIS-001",
   "ROUTE-SEALOS-001",
+  "ROUTE-SEALOS-002",
   "ROUTE-DEFAULT-001",
   "ROUTE-REFS-001",
   "ROUTE-PATHS-001",
@@ -30,6 +32,7 @@ const requiredCheckIds = [
   "REFS-LB-001",
   "REFS-TOM-001",
   "REFS-FERRIS-001",
+  "REFS-SEALOS-001",
   "LEGACY-XH-001",
   "LEGACY-XH-002",
   "PROMPT-XH-001",
@@ -37,12 +40,15 @@ const requiredCheckIds = [
   "PROMPT-LB-002",
   "PROMPT-TOM-001",
   "PROMPT-FERRIS-001",
+  "PROMPT-SEALOS-001",
   "IP-XH-001",
   "IP-LB-001",
   "IP-TOM-001",
   "IP-FERRIS-001",
+  "IP-SEALOS-001",
   "QA-TOM-001",
   "QA-FERRIS-001",
+  "QA-SEALOS-001",
   "RIGHTS-TOM-001",
   "SOURCE-FERRIS-001",
   "SOURCE-SEALOS-001",
@@ -52,6 +58,7 @@ const requiredCheckIds = [
   "DOC-TOM-001",
   "DOC-FERRIS-001",
   "DOC-SEALOS-P16-001",
+  "DOC-SEALOS-P19-001",
   "NOTICE-IAN-001",
   "NOTICE-LB-001",
   "NOTICE-TOM-001",
@@ -62,17 +69,21 @@ const requiredCheckIds = [
   "SMOKE-LB-001",
   "SMOKE-TOM-001",
   "SMOKE-FERRIS-001",
+  "SMOKE-SEALOS-001",
   "SMOKE-MIXED-001",
+  "SMOKE-MIXED-SEALOS-001",
   "RELEASE-TOM-001",
   "RELEASE-FERRIS-001",
   "RELEASE-SEALOS-001",
   "BOUNDARY-IMG-001",
   "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-FERRIS-LEAK-001",
+  "BOUNDARY-SEALOS-LEAK-001",
   "BOUNDARY-TOM-IMG-001",
   "BOUNDARY-FERRIS-IMG-001",
   "BOUNDARY-SEALOS-IMG-001",
   "BOUNDARY-FERRIS-GEN-001",
+  "BOUNDARY-SEALOS-GEN-001",
   "BOUNDARY-P5-001",
 ];
 
@@ -153,6 +164,18 @@ function completeSealosPublicAssetApprovalLine(
   return `- [x] Sealos public asset policy for \`examples/images/\` and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${brandLogoOutcome}.`;
 }
 
+function pendingGeneratedSealosSampleLine() {
+  return "- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / brand-logo outcome.";
+}
+
+function completeGeneratedSealosSampleLine(
+  reviewDate = "2026-06-13",
+  identityOutcome = "uploaded image identity preserved",
+  brandLogoOutcome = "brand logo wording approved",
+) {
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-sealos / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${brandLogoOutcome}.`;
+}
+
 test("validator command prints deterministic harness smoke logs", () => {
   const result = runValidator();
 
@@ -165,7 +188,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=66 passed=66 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -345,7 +368,7 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
   assert.match(result.stdout, /observed missing marker/);
 });
 
-test("validator emits the full Phase 16 matrix with zero failures", () => {
+test("validator emits the full Phase 20 matrix with zero failures", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -356,7 +379,7 @@ test("validator emits the full Phase 16 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=66 passed=66 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -533,6 +556,13 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(approvedSealos.identityOutcomePresent, true);
   assert.equal(approvedSealos.brandLogoOutcomePresent, true);
 
+  const pendingGeneratedSealosApproval = validators.parseGeneratedSealosSampleApproval(releaseChecklistText);
+  assert.equal(pendingGeneratedSealosApproval.found, true);
+  assert.equal(pendingGeneratedSealosApproval.checked, false);
+  assert.equal(pendingGeneratedSealosApproval.complete, false);
+  assert.equal(pendingGeneratedSealosApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingGeneratedSealosApproval.publicDirectoriesPresent, false);
+
   const completeGeneratedText = releaseChecklistText.replace(
     pendingGeneratedFerrisSampleLine(),
     completeGeneratedFerrisSampleLine(),
@@ -555,6 +585,19 @@ test("approval parser helpers expose current release primitives", async () => {
     assert.equal(placeholderApproval.complete, false);
     assert.equal(placeholderApproval.datePresent, false);
   }
+
+  const completeGeneratedSealosText = releaseChecklistText.replace(
+    pendingGeneratedSealosSampleLine(),
+    completeGeneratedSealosSampleLine(),
+  );
+  const completeGeneratedSealosApproval =
+    validators.parseGeneratedSealosSampleApproval(completeGeneratedSealosText);
+  assert.equal(completeGeneratedSealosApproval.complete, true);
+  assert.deepEqual(completeGeneratedSealosApproval.internalReviewDirectories, ["assets/<article-slug>-sealos"]);
+  assert.deepEqual(completeGeneratedSealosApproval.publicDirectories, [
+    "examples/images",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
 });
 
 test("validator fixture rejects Tom route metadata drift", () => {
@@ -1021,7 +1064,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=66 passed=66 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1099,7 +1142,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=66 passed=66 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1141,7 +1184,7 @@ test("validator fixture enforces public Sealos sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEALOS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=66 passed=66 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
