@@ -136,11 +136,17 @@ Plans:
   5. Validator checks public example asset directories for Sealos Seal rendered assets against the release checklist public-sample approval policy, and Node tests cover five-route parser behavior, stable check ordering, Sealos Seal failure messages, brand/canonical-image fixtures, and full pass output.
 
 **Plans:** 0/3 plans complete
-
 Plans:
+**Wave 1**
 
 - [ ] 20-01-PLAN.md — Harden validator implementation for Sealos Seal route, pack, docs, leakage, uploaded-image, brand, public asset, and generated sample gates.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 20-02-PLAN.md — Harden Node test coverage for Phase 20 check ordering, parser behavior, fixtures, failure messages, public/generated sample gates, and full pass output.
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
 - [ ] 20-03-PLAN.md — Record final validation evidence and close Phase 20 planning state.
 
 ## Progress
