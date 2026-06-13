@@ -205,6 +205,28 @@ Text-only maintainer route audit. 使用 Ferris / Rust mascot / Rust crab / Rust
 预期：generated public Ferris samples require release review for Rust trademark and endorsement-safe wording。
 ```
 
+## 路由烟测：显式选择 Sealos Seal
+
+Sealos Seal is an explicit `brand-owned` route under preparation for the uploaded Sealos white seal mascot. Phase 16 only records route-status and maintainer review markers.
+
+显式选择 Sealos Seal 时，可用别名包括：Sealos Seal、Sealos mascot、Sealos 吉祥物、Sealos 海豹、white Sealos seal、blue hoodie seal。Source record 位于 `ian-xiaohei-illustrations/references/ips/sealos/source.md`。
+
+### 显式 Sealos Seal：Phase 16 route-status review
+
+```text
+Use $ian-xiaohei-illustrations 先不要生图。
+Text-only maintainer route audit. 使用 Sealos Seal / Sealos mascot / Sealos 吉祥物 / Sealos 海豹 / white Sealos seal / blue hoodie seal 路由，为这个观点输出 1 张 Phase 16 route-status review：
+观点：把云端开发环境从混乱入口整理成一条可执行发布路径。
+预期：selected IP 是 Sealos Seal。
+预期：aliases 包含 Sealos Seal、Sealos mascot、Sealos 吉祥物、Sealos 海豹、white Sealos seal、blue hoodie seal。
+预期：route status 是 `brand-owned`。
+预期：source record 是 `ian-xiaohei-illustrations/references/ips/sealos/source.md`。
+预期：输出路径是 `assets/<article-slug>-sealos/`。
+预期：文档校验 token 是 `assets/&lt;article-slug&gt;-sealos/`。
+预期：brand/canonical-image note 保留 uploaded white seal with navy cap, deep-blue hoodie, and Sealos logo marks on cap and chest。
+预期：public sample review blocks generic seal, abstract logo creature, missing cap, missing hoodie, missing Sealos marks, missing side-rear tail, plain bald-head, prior exploration variant, and different selected mascot drift。
+```
+
 ## 路由说明：多 IP 请求
 
 同一个观点可以按 IP 分组形成 variant group。Xiaohei 组使用 `assets/<article-slug>-illustrations/`，Littlebox 组使用 `assets/<article-slug>-littlebox/`，Tom 组使用 `assets/<article-slug>-tom/`，Ferris 组使用 `assets/<article-slug>-ferris/`，四组分别加载自己的参考、提示词、QA 和输出路径。
