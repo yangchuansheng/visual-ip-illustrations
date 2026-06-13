@@ -33,7 +33,7 @@
 ### Documentation
 
 - [x] **SDOC-01**: README explains Sealos Seal as an explicit brand mascot route with aliases, output path, uploaded-image authority, and brand/logo boundary.
-- [ ] **SDOC-02**: `examples/prompts.md` includes copyable Sealos Seal planning, Sealos Seal generation, Sealos Seal smoke, and five-IP mixed variant prompts.
+- [x] **SDOC-02**: `examples/prompts.md` includes copyable Sealos Seal planning, Sealos Seal generation, Sealos Seal smoke, and five-IP mixed variant prompts.
 - [ ] **SDOC-03**: `agents/openai.yaml` names Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal while preserving Xiaohei as the implicit default.
 - [ ] **SDOC-04**: `NOTICE.md` and release materials record Sealos Seal as a Sealos brand mascot route based on the uploaded image and avoid treating prior exploration variants as canonical.
 - [ ] **SDOC-05**: `RELEASE_CHECKLIST.md` includes uploaded-image identity review, Sealos logo/brand wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
@@ -108,7 +108,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SIP-05 | Phase 17 | Complete |
 | SIP-06 | Phase 17 | Complete |
 | SDOC-01 | Phase 19 | Complete |
-| SDOC-02 | Phase 19 | Pending |
+| SDOC-02 | Phase 19 | Complete |
 | SDOC-03 | Phase 19 | Pending |
 | SDOC-04 | Phase 19 | Pending |
 | SDOC-05 | Phase 19 | Pending |
