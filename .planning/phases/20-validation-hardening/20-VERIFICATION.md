@@ -1,25 +1,33 @@
 ---
 phase: 20-validation-hardening
-verified: 2026-06-13T17:49:13Z
+verified: 2026-06-13T17:57:00Z
 status: passed
 score: 7/7 requirements verified
 overrides_applied: 0
+re_verification:
+  previous_status: passed
+  previous_score: 7/7 requirements verified
+  gaps_closed: []
+  gaps_remaining: []
+  regressions: []
 ---
 
 # Phase 20: Validation Hardening Verification Report
 
 **Phase Goal:** Maintainers can verify the five-route brand-mascot-aware package locally with deterministic validator checks and Node tests.
-**Verified:** 2026-06-13T17:49:13Z
+**Verified:** 2026-06-13T17:57:00Z
 **Status:** passed
-**Re-verification:** No - initial verification
+**Re-verification:** Yes - final goal-backward verification after Phase 20 closeout
 
 ## Command Evidence
 
 | Command | Exit | Evidence |
 |---------|------|----------|
 | `node scripts/validate-skill-package.mjs` | 0 | `Summary: total=77 passed=77 failed=0 skipped=0` |
-| `node --test scripts/validate-skill-package.test.mjs` | 0 | `tests 39`, `pass 39`, `fail 0`, `skipped 0`, `todo 0`, `duration_ms 4180.209292` |
+| `node --test scripts/validate-skill-package.test.mjs` | 0 | `tests 39`, `pass 39`, `fail 0`, `skipped 0`, `todo 0`, `duration_ms 4660.809958` |
 | `git diff --check` | 0 | Whitespace check passed with empty output. |
+| `git status --short` | 0 | Empty output; worktree was clean before final verification artifact update. |
+| `gsd-tools query audit-open --json` | 0 | `has_open_items: false`, all open item counts `0`. |
 
 ## Goal Achievement
 
@@ -36,6 +44,17 @@ overrides_applied: 0
 | 7 | Node tests cover positive output, failing fixtures, parser behavior, stable check ordering, and actionable messages. | VERIFIED | Node reports `tests 39`, `pass 39`, `fail 0`, `skipped 0`. |
 
 **Score:** 7/7 requirements verified
+
+### Re-Verification Checks
+
+| Check | Status | Evidence |
+|-------|--------|----------|
+| Previous verification reviewed | VERIFIED | Existing `20-VERIFICATION.md` had `status: passed`, `score: 7/7 requirements verified`, and no `gaps` section. |
+| Roadmap success criteria loaded | VERIFIED | `roadmap.get-phase 20` lists five success criteria and SVAL-01 through SVAL-07. |
+| Plan must-haves loaded | VERIFIED | Plans 20-01, 20-02, and 20-03 all expose must-have truths, artifacts, and command gates. |
+| Artifact verification | VERIFIED | `verify.artifacts` returned `valid` for 20-01, 20-02, and 20-03. |
+| Open artifact scan | VERIFIED | `audit-open --json` returned `has_open_items: false`. |
+| MVP mode check | VERIFIED | `phase.mvp-mode 20 --pick active` returned `false`; standard goal-backward verification applies. |
 
 ## Requirements Coverage
 
@@ -70,6 +89,34 @@ overrides_applied: 0
 | `scripts/validate-skill-package.test.mjs` | Positive and failing fixtures for Phase 20 checks | VERIFIED |
 | `.planning/phases/20-validation-hardening/20-UAT.md` | Maintainer-facing UAT evidence | VERIFIED |
 
+## Key Link Verification
+
+| From | To | Via | Status | Details |
+|------|----|-----|--------|---------|
+| `20-VERIFICATION.md` | `scripts/validate-skill-package.mjs` | recorded command result | VERIFIED | Command evidence records the validator command and `Summary: total=77 passed=77 failed=0 skipped=0`. |
+| `20-VERIFICATION.md` | `scripts/validate-skill-package.test.mjs` | recorded Node test result | VERIFIED | Command evidence records `node --test scripts/validate-skill-package.test.mjs` with `tests 39`, `pass 39`, `fail 0`, `skipped 0`. |
+| `scripts/validate-skill-package.test.mjs` | `scripts/validate-skill-package.mjs` | `spawnSync(process.execPath, [scriptPath])` and dynamic imports | VERIFIED | Tests execute the live validator and import parser helpers for positive and failing fixtures. |
+
+## Behavioral Spot-Checks
+
+| Behavior | Command | Result | Status |
+|----------|---------|--------|--------|
+| Local validator full pass | `node scripts/validate-skill-package.mjs` | `Summary: total=77 passed=77 failed=0 skipped=0` | PASS |
+| Node regression suite full pass | `node --test scripts/validate-skill-package.test.mjs` | `tests 39`, `pass 39`, `fail 0`, `skipped 0` | PASS |
+| Formatting safety | `git diff --check` | Empty output | PASS |
+| Worktree state before final artifact update | `git status --short` | Empty output | PASS |
+
+## Probe Execution
+
+No probe scripts are declared for Phase 20. Phase verification uses the required local validator, Node test, formatting, and git state commands.
+
+## Anti-Patterns Found
+
+| File | Line | Pattern | Severity | Impact |
+|------|------|---------|----------|--------|
+| `scripts/validate-skill-package.test.mjs` | fixture helper/test strings | placeholder terms such as `TBD`, `pending`, and `placeholder` | INFO | Intentional negative fixture coverage for approval placeholder rejection. |
+| `scripts/validate-skill-package.mjs` | 873, 879 | `console.log` | INFO | CLI output implementation for validator check lines and summary. |
+
 ## Human Verification Required
 
 None. Phase 20 evidence is command-based and all SVAL requirements are covered by deterministic local validation and Node tests.
@@ -80,5 +127,5 @@ No blocking gaps found. All Phase 20 success criteria, SVAL requirements, artifa
 
 ---
 
-_Verified: 2026-06-13T17:49:13Z_
-_Verifier: the agent (gsd-execute-phase)_
+_Verified: 2026-06-13T17:57:00Z_
+_Verifier: the agent (gsd-verifier)_
