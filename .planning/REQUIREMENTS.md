@@ -9,8 +9,8 @@
 
 - [x] **FRGT-01**: Maintainer can read Ferris source, author, copyright waiver, reference URLs, Rust trademark policy context, endorsement boundary, allowed use, restricted use, distribution boundary, sample policy, and review owner in Ferris-specific documentation.
 - [x] **FRGT-02**: Maintainer can distinguish Ferris source attribution from Rust trademark or official-affiliation permission in `NOTICE.md`.
-- [ ] **FRGT-03**: Maintainer can keep Ferris route status explicit through wording shared by routing docs, README, examples, and release checklist.
-- [ ] **FRGT-04**: Maintainer can verify that public Ferris examples avoid Rust-logo-forward claims, official endorsement language, and bundled Rust marks unless release review explicitly approves them.
+- [x] **FRGT-03**: Maintainer can keep Ferris route status explicit through wording shared by routing docs, README, examples, and release checklist.
+- [x] **FRGT-04**: Maintainer can verify that public Ferris examples avoid Rust-logo-forward claims, official endorsement language, and bundled Rust marks unless release review explicitly approves them.
 
 ### Routing
 
@@ -88,8 +88,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | FRGT-01 | Phase 11 | Complete |
 | FRGT-02 | Phase 11 | Complete |
-| FRGT-03 | Phase 11 | Pending |
-| FRGT-04 | Phase 11 | Pending |
+| FRGT-03 | Phase 11 | Complete |
+| FRGT-04 | Phase 11 | Complete |
 | FERR-01 | Phase 13 | Pending |
 | FERR-02 | Phase 13 | Pending |
 | FERR-03 | Phase 13 | Pending |
