@@ -23,7 +23,7 @@
 
 ### Sealos Seal IP Pack
 
-- [ ] **SIP-01**: Maintainer can find Sealos Seal canonical references under `ian-xiaohei-illustrations/references/ips/sealos/`.
+- [x] **SIP-01**: Maintainer can find Sealos Seal canonical references under `ian-xiaohei-illustrations/references/ips/sealos/`.
 - [ ] **SIP-02**: User receives Sealos Seal planning fields for placement, core idea, structure type, mascot state, mascot action, supporting objects, visible labels, output path, and brand/canonical-image note.
 - [ ] **SIP-03**: Sealos Seal prompt template produces one 16:9 article illustration where the uploaded white seal mascot performs the cognitive action.
 - [ ] **SIP-04**: Sealos Seal composition guidance supports cloud OS, AI deployment, DevBox, database, Kubernetes, app launch, troubleshooting, and workflow metaphor families without losing the fixed mascot identity.
@@ -101,7 +101,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEAL-03 | Phase 18 | Pending |
 | SEAL-04 | Phase 18 | Pending |
 | SEAL-05 | Phase 18 | Pending |
-| SIP-01 | Phase 17 | Pending |
+| SIP-01 | Phase 17 | Complete |
 | SIP-02 | Phase 17 | Pending |
 | SIP-03 | Phase 17 | Pending |
 | SIP-04 | Phase 17 | Pending |
