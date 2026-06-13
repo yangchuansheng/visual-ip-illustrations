@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
-status: in_progress
-stopped_at: Completed 15-02-PLAN.md
-last_updated: "2026-06-13T12:54:25.562Z"
-last_activity: 2026-06-13 — Completed Phase 15 Plan 15-02 Node test hardening
+status: complete
+stopped_at: Completed 15-03-PLAN.md
+last_updated: "2026-06-13T13:00:42Z"
+last_activity: 2026-06-13 — Completed Phase 15 Plan 15-03 final validation evidence with validator 60/60 and Node tests 31/31
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 14
-  completed_plans: 13
-  percent: 93
+  completed_plans: 14
+  percent: 100
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 15 validation hardening execution
+**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 15 validation hardening complete
 
 ## Current Position
 
 Phase: 15 — Validation Hardening
-Plan: 15-03 next
-Status: Plan 15-02 complete; Phase 15 validator and Node test baselines are green
-Last activity: 2026-06-13 — Completed Phase 15 Plan 15-02 Node test hardening
+Plan: 15-03 complete
+Status: Phase 15 complete; final validator, Node test, and whitespace evidence recorded
+Last activity: 2026-06-13 — Completed Phase 15 Plan 15-03 final validation evidence with validator 60/60 and Node tests 31/31
 
 ## Performance Metrics
 
@@ -83,6 +83,8 @@ Last activity: 2026-06-13 — Completed Phase 15 Plan 15-02 Node test hardening
 | Phase 14 P03 | 6min | 2 tasks | 2 files |
 | Phase 14 P04 | 12min | 4 tasks | 8 files |
 | Phase 15 P01 | 9min | 3 tasks | 2 files |
+| Phase 15 P02 | 9min | 3 tasks | 2 files |
+| Phase 15 P03 | 6min | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -147,6 +149,7 @@ Recent decisions affecting current work:
 - [Phase 14]: FDOC-05 consistency is verified across README, examples, metadata, NOTICE, routing, and release checklist. — 14-04 final cross-document gate
 - [Phase 15]: Ferris validation now treats the route as a seven-file source-reviewed pack, with source.md as source/trademark authority.
 - [Phase 15]: Ferris public asset and generated sample records use Ferris-specific checklist parsers instead of Tom-shaped public sample wording.
+- [Phase 15]: Final validation evidence is recorded with `Summary: total=60 passed=60 failed=0 skipped=0`, Node `tests 31`, `pass 31`, `fail 0`, and `git diff --check` exit 0. — D-26 final evidence exists in `15-VERIFICATION.md` and `15-UAT.md`.
 
 ### Pending Todos
 
@@ -155,10 +158,11 @@ Recent decisions affecting current work:
 ### UAT
 
 - [Phase 10]: UAT complete with 4 passed, 0 issues. Validator reports 47/47 and Node tests report 15/15.
+- [Phase 15]: UAT complete with 9 passed, 0 issues. Validator reports 60/60 and Node tests report 31/31.
 
 ### Blockers/Concerns
 
-- Phase 15 Plan 15-03 must record final validation evidence and close Phase 15 planning state.
+- None.
 
 ## Deferred Items
 
@@ -170,6 +174,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T12:54:25.559Z
-Stopped at: Completed 15-02-PLAN.md
-Resume file: .planning/phases/15-validation-hardening/15-03-PLAN.md
+Last session: 2026-06-13T13:00:42Z
+Stopped at: Completed 15-03-PLAN.md
+Resume file: None
