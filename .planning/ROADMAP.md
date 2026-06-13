@@ -141,7 +141,7 @@ Phases execute in numeric order: 16 -> 17 -> 18 -> 19 -> 20
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 16. Sealos Seal Brand and Image Contract | 3/3 | Complete   | 2026-06-13 |
+| 16. Sealos Seal Brand and Image Contract | 3/3 | Complete    | 2026-06-13 |
 | 17. Sealos Seal Canonical Pack | 0/3 | Pending | — |
 | 18. Skill Controller Integration | 0/1 | Pending | — |
 | 19. Docs, Examples, and Release Surface | 0/4 | Pending | — |
