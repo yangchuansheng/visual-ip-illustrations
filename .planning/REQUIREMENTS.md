@@ -44,7 +44,7 @@
 - [x] **FVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Ferris output path tokens, and Ferris smoke prompts.
 - [x] **FVAL-05**: Validator checks Ferris leakage boundaries so Xiaohei, Littlebox, and Tom packs stay free of Ferris identity rules and Rust trademark boundary text.
 - [x] **FVAL-06**: Validator checks public example asset directories for Ferris-rendered assets against the release checklist public-sample approval policy.
-- [ ] **FVAL-07**: Node validator tests cover four-route parser behavior, stable check ordering, Ferris failure messages, source/trademark fixtures, and full pass output.
+- [x] **FVAL-07**: Node validator tests cover four-route parser behavior, stable check ordering, Ferris failure messages, source/trademark fixtures, and full pass output.
 
 ## v2 Requirements
 
@@ -111,7 +111,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FVAL-04 | Phase 15 | Complete |
 | FVAL-05 | Phase 15 | Complete |
 | FVAL-06 | Phase 15 | Complete |
-| FVAL-07 | Phase 15 | Pending |
+| FVAL-07 | Phase 15 | Complete |
 | MASC-01 | v2 | Future |
 | MASC-02 | v2 | Future |
 | MASC-03 | v2 | Future |
