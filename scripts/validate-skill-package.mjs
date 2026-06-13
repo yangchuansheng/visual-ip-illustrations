@@ -81,6 +81,21 @@ function splitRouteCell(value) {
     .filter(Boolean);
 }
 
+function isValidReviewDate(value) {
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return false;
+
+  const [, yearText, monthText, dayText] = match;
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) return false;
+
+  return (
+    date.getUTCFullYear() === Number(yearText) &&
+    date.getUTCMonth() + 1 === Number(monthText) &&
+    date.getUTCDate() === Number(dayText)
+  );
+}
+
 export function parseFrontmatter(text) {
   if (!text.startsWith("---\n")) {
     return { data: {}, body: text };
@@ -258,7 +273,7 @@ function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
 
   const checked = /^\-\s+\[[xX]\]/.test(approvalLine);
   const [, approvalRecord = ""] = approvalLine.split(/:\s*/, 2);
-  const fields = approvalRecord.split(/\s+\/\s+/).map((field) => field.trim());
+  const fields = approvalRecord.split(/\s+\/(?=\s)/).map((field) => field.trim());
   const [
     status = "",
     reviewer = "",
@@ -274,7 +289,7 @@ function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
     .filter(Boolean);
   const requiredDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
   const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
-  const datePresent = Boolean(reviewDate) && !/^date$/i.test(reviewDate);
+  const datePresent = isValidReviewDate(reviewDate);
   const approvalStatusPresent =
     Boolean(approvalStatus) &&
     !/^approval status$/i.test(approvalStatus) &&
@@ -1119,9 +1134,14 @@ const checks = [
     ], "Tom status, aliases, rights path, and raw plus escaped output path tokens");
   }),
   defineCheck("DOC-FERRIS-001", "public docs expose Ferris source-reviewed route markers", () => {
+    const requiredPhrase =
+      "Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.";
+    for (const relativePath of ["README.md", "examples/prompts.md", ROUTING_FILE, "RELEASE_CHECKLIST.md"]) {
+      assertIncludes(requireFile(relativePath), relativePath, [requiredPhrase], "Ferris D-15 route-status phrase");
+    }
+
     const text = combinedText(["README.md", "examples/prompts.md", ROUTING_FILE, "RELEASE_CHECKLIST.md"]);
     assertIncludes(text, "README.md + examples/prompts.md + routing.md + RELEASE_CHECKLIST.md", [
-      "Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.",
       "Ferris",
       "Rust mascot",
       "Rust crab",
@@ -1131,7 +1151,7 @@ const checks = [
       "ian-xiaohei-illustrations/references/ips/ferris/source.md",
       "assets/<article-slug>-ferris/",
       "assets/&lt;article-slug&gt;-ferris/",
-    ], "Ferris D-15 phrase, aliases, source record path, and raw plus escaped output path tokens");
+    ], "Ferris aliases, source record path, and raw plus escaped output path tokens");
   }),
   defineCheck("NOTICE-IAN-001", "NOTICE keeps Ian Xiaohei attribution markers", () => {
     assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [

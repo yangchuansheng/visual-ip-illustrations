@@ -104,6 +104,14 @@ function replaceInFixture(fixtureRoot, relativePath, searchValue, replaceValue) 
   writeFileSync(absolutePath, original.replace(searchValue, replaceValue), "utf8");
 }
 
+function pendingPublicApprovalLine(routeName) {
+  return `- [ ] Public rendered ${routeName} samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.`;
+}
+
+function completePublicApprovalLine(routeName, reviewDate = "2026-06-13") {
+  return `- [x] Public rendered ${routeName} samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.`;
+}
+
 test("validator command prints deterministic harness smoke logs", () => {
   const result = runValidator();
 
@@ -366,12 +374,23 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.equal(pendingApproval.allowedDirectoriesPresent, false);
 
   const approvedText = releaseChecklistText.replace(
-    "- [ ] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.",
-    "- [x] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / 2026-06-13 / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.",
+    pendingPublicApprovalLine("Tom"),
+    completePublicApprovalLine("Tom"),
   );
   const approved = validators.parsePublicTomSampleApproval(approvedText);
   assert.equal(approved.complete, true);
   assert.deepEqual(approved.allowedDirectories, ["examples/images", "ian-xiaohei-illustrations/assets/examples"]);
+
+  for (const placeholderDate of ["TBD", "pending", "", "   "]) {
+    const placeholderText = releaseChecklistText.replace(
+      pendingPublicApprovalLine("Tom"),
+      completePublicApprovalLine("Tom", placeholderDate),
+    );
+    const placeholderApproval = validators.parsePublicTomSampleApproval(placeholderText);
+    assert.equal(placeholderApproval.checked, true);
+    assert.equal(placeholderApproval.complete, false);
+    assert.equal(placeholderApproval.datePresent, false);
+  }
 
   const pendingFerrisApproval = validators.parsePublicFerrisSampleApproval(releaseChecklistText);
   assert.equal(pendingFerrisApproval.found, true);
@@ -380,8 +399,8 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.equal(pendingFerrisApproval.allowedDirectoriesPresent, false);
 
   const approvedFerrisText = releaseChecklistText.replace(
-    "- [ ] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.",
-    "- [x] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / 2026-06-13 / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.",
+    pendingPublicApprovalLine("Ferris"),
+    completePublicApprovalLine("Ferris"),
   );
   const approvedFerris = validators.parsePublicFerrisSampleApproval(approvedFerrisText);
   assert.equal(approvedFerris.complete, true);
@@ -389,6 +408,17 @@ test("parser helpers expose current package contract primitives", async () => {
     "examples/images",
     "ian-xiaohei-illustrations/assets/examples",
   ]);
+
+  for (const placeholderDate of ["TBD", "pending", "", "   "]) {
+    const placeholderText = releaseChecklistText.replace(
+      pendingPublicApprovalLine("Ferris"),
+      completePublicApprovalLine("Ferris", placeholderDate),
+    );
+    const placeholderApproval = validators.parsePublicFerrisSampleApproval(placeholderText);
+    assert.equal(placeholderApproval.checked, true);
+    assert.equal(placeholderApproval.complete, false);
+    assert.equal(placeholderApproval.datePresent, false);
+  }
 });
 
 test("validator fixture rejects Tom route metadata drift", () => {
@@ -493,6 +523,27 @@ test("validator fixture reports Ferris source marker drift", () => {
     assert.match(result.stdout, /\[FAIL\] SOURCE-FERRIS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris\/source\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Rust Foundation trademark policy context/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture requires Ferris D-15 wording in every public document", () => {
+  const fixtureRoot = copyFixture("ferris-doc-phrase");
+  try {
+    const readmePath = path.join(fixtureRoot, "README.md");
+    const requiredPhrase =
+      "Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.";
+    const readmeText = readFileSync(readmePath, "utf8");
+    assert.ok(readmeText.includes(requiredPhrase), "README.md should contain fixture marker");
+    writeFileSync(readmePath, readmeText.replaceAll(requiredPhrase, "Ferris route status is source-reviewed."), "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] DOC-FERRIS-001 /);
+    assert.match(result.stdout, /README\.md/);
+    assert.match(result.stdout, /Ferris D-15 route-status phrase/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -632,8 +683,8 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
 
     const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
     const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
-      "- [ ] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.",
-      "- [x] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / 2026-06-13 / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.",
+      pendingPublicApprovalLine("Tom"),
+      completePublicApprovalLine("Tom"),
     );
     writeFileSync(releaseChecklistPath, approvedText, "utf8");
 
@@ -649,6 +700,41 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     assert.match(approvedResult.stdout, /Summary: total=53 passed=53 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects Tom public sample placeholder approval dates", async () => {
+  const validators = await import(`${scriptPath}?tomPlaceholderApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  for (const placeholderDate of ["TBD", "pending", "", "   "]) {
+    const approvalText = releaseChecklistText.replace(
+      pendingPublicApprovalLine("Tom"),
+      completePublicApprovalLine("Tom", placeholderDate),
+    );
+    const approval = validators.parsePublicTomSampleApproval(approvalText);
+    assert.equal(approval.complete, false);
+    assert.equal(approval.datePresent, false);
+
+    const fixtureRoot = copyFixture(`tom-placeholder-date-${placeholderDate.trim() || "blank"}`);
+    try {
+      writeFileSync(path.join(fixtureRoot, "examples", "images", "99-tom-test.png"), "fixture", "utf8");
+      replaceInFixture(
+        fixtureRoot,
+        "RELEASE_CHECKLIST.md",
+        pendingPublicApprovalLine("Tom"),
+        completePublicApprovalLine("Tom", placeholderDate),
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-TOM-IMG-001 /);
+      assert.match(result.stdout, /examples\/images\/99-tom-test\.png/);
+      assert.match(result.stdout, /date=missing/);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
   }
 });
 
@@ -670,8 +756,8 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
 
     const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
     const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
-      "- [ ] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.",
-      "- [x] Public rendered Ferris samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / 2026-06-13 / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes.",
+      pendingPublicApprovalLine("Ferris"),
+      completePublicApprovalLine("Ferris"),
     );
     writeFileSync(releaseChecklistPath, approvedText, "utf8");
 
@@ -691,5 +777,40 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     assert.match(approvedResult.stdout, /Summary: total=53 passed=53 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects Ferris public sample placeholder approval dates", async () => {
+  const validators = await import(`${scriptPath}?ferrisPlaceholderApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  for (const placeholderDate of ["TBD", "pending", "", "   "]) {
+    const approvalText = releaseChecklistText.replace(
+      pendingPublicApprovalLine("Ferris"),
+      completePublicApprovalLine("Ferris", placeholderDate),
+    );
+    const approval = validators.parsePublicFerrisSampleApproval(approvalText);
+    assert.equal(approval.complete, false);
+    assert.equal(approval.datePresent, false);
+
+    const fixtureRoot = copyFixture(`ferris-placeholder-date-${placeholderDate.trim() || "blank"}`);
+    try {
+      writeFileSync(path.join(fixtureRoot, "examples", "images", "99-ferris-test.png"), "fixture", "utf8");
+      replaceInFixture(
+        fixtureRoot,
+        "RELEASE_CHECKLIST.md",
+        pendingPublicApprovalLine("Ferris"),
+        completePublicApprovalLine("Ferris", placeholderDate),
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-FERRIS-IMG-001 /);
+      assert.match(result.stdout, /examples\/images\/99-ferris-test\.png/);
+      assert.match(result.stdout, /date=missing/);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
   }
 });
