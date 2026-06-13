@@ -12,6 +12,8 @@
 - 同时请求 Xiaohei、Littlebox、Tom 和 Ferris 中的多个 IP 时，建立 separate route groups，每个 route group 只加载自己的 `required_references`，并写入自己的输出目录。
 - 路由只保存选择、引用、输出后缀和归因上下文。风格、角色身份、提示词措辞和 QA 规则保存在所选 IP 的参考文件中。
 - Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+- Ferris route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
+- Ferris source/trademark authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
 
 ## IP Routes
 
