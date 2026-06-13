@@ -24,11 +24,11 @@
 ### Sealos Seal IP Pack
 
 - [x] **SIP-01**: Maintainer can find Sealos Seal canonical references under `ian-xiaohei-illustrations/references/ips/sealos/`.
-- [ ] **SIP-02**: User receives Sealos Seal planning fields for placement, core idea, structure type, mascot state, mascot action, supporting objects, visible labels, output path, and brand/canonical-image note.
-- [ ] **SIP-03**: Sealos Seal prompt template produces one 16:9 article illustration where the uploaded white seal mascot performs the cognitive action.
-- [ ] **SIP-04**: Sealos Seal composition guidance supports cloud OS, AI deployment, DevBox, database, Kubernetes, app launch, troubleshooting, and workflow metaphor families without losing the fixed mascot identity.
+- [x] **SIP-02**: User receives Sealos Seal planning fields for placement, core idea, structure type, mascot state, mascot action, supporting objects, visible labels, output path, and brand/canonical-image note.
+- [x] **SIP-03**: Sealos Seal prompt template produces one 16:9 article illustration where the uploaded white seal mascot performs the cognitive action.
+- [x] **SIP-04**: Sealos Seal composition guidance supports cloud OS, AI deployment, DevBox, database, Kubernetes, app launch, troubleshooting, and workflow metaphor families without losing the fixed mascot identity.
 - [ ] **SIP-05**: Sealos Seal QA rejects generic seals, abstract logo creatures, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage.
-- [ ] **SIP-06**: Sealos Seal edit prompts support stronger mascot participation, uploaded-image identity repair, logo/hoodie/cap repair, title removal, text reduction, and preservation of unaffected content.
+- [x] **SIP-06**: Sealos Seal edit prompts support stronger mascot participation, uploaded-image identity repair, logo/hoodie/cap repair, title removal, text reduction, and preservation of unaffected content.
 
 ### Documentation
 
@@ -102,11 +102,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEAL-04 | Phase 18 | Pending |
 | SEAL-05 | Phase 18 | Pending |
 | SIP-01 | Phase 17 | Complete |
-| SIP-02 | Phase 17 | Pending |
-| SIP-03 | Phase 17 | Pending |
-| SIP-04 | Phase 17 | Pending |
+| SIP-02 | Phase 17 | Complete |
+| SIP-03 | Phase 17 | Complete |
+| SIP-04 | Phase 17 | Complete |
 | SIP-05 | Phase 17 | Pending |
-| SIP-06 | Phase 17 | Pending |
+| SIP-06 | Phase 17 | Complete |
 | SDOC-01 | Phase 19 | Pending |
 | SDOC-02 | Phase 19 | Pending |
 | SDOC-03 | Phase 19 | Pending |
