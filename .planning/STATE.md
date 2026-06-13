@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.3
 milestone_name: milestone
-status: Ready to execute
-stopped_at: Phase 20 planned
-last_updated: "2026-06-13T17:30:11.538Z"
-last_activity: 2026-06-13 -- Phase 20 planning complete
+status: Phase 20 complete
+stopped_at: Phase 20 complete
+last_updated: "2026-06-13T17:51:19Z"
+last_activity: 2026-06-14 -- Phase 20 validation hardening complete
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 14
-  completed_plans: 11
-  percent: 80
+  completed_plans: 14
+  percent: 100
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 ## Current Position
 
 Phase: 20
-Plan: 3 plans ready
-Status: Ready to execute
-Last activity: 2026-06-13 -- Phase 20 planning complete
+Plan: complete
+Status: Phase 20 complete
+Last activity: 2026-06-14 -- Phase 20 validation hardening complete
 
 ## Performance Metrics
 
@@ -100,6 +100,9 @@ Last activity: 2026-06-13 -- Phase 20 planning complete
 | Phase 19 P02 | 4min | 3 tasks | 1 files |
 | Phase 19 P03 | 3min | 2 tasks | 1 files |
 | Phase 19 P04 | 6min | 3 tasks | 2 files |
+| Phase 20 P01 | 36min | 3 tasks | 2 files |
+| Phase 20 P02 | 24min | 3 tasks | 1 files |
+| Phase 20 P03 | 8min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -182,6 +185,9 @@ Recent decisions affecting current work:
 - [Phase 18]: Xiaohei remains the only omitted-IP default while mixed-IP requests can create separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal route groups.
 - [Phase 18]: Phase 18 keeps public docs, metadata, release surface, validator expansion, and Node hardening for Phases 19 and 20.
 - [Phase 18]: Sealos Seal is integrated as an explicit brand-owned controller route with route id sealos, default=false, output_suffix sealos, and source pointer references/ips/sealos/source.md.
+- [Phase 20]: The validator matrix now has 77 checks covering Sealos route behavior, pack markers, docs consistency, leakage, public asset policy, and generated sample policy.
+- [Phase 20]: The Node regression suite now has 39 tests covering five-route parser behavior, stable ordering, failing fixtures, public/generated Sealos sample gates, and full pass output.
+- [Phase 20]: Final validation evidence is recorded with `Summary: total=77 passed=77 failed=0 skipped=0`, Node `tests 39`, `pass 39`, `fail 0`, and `git diff --check` exit 0.
 
 ### Pending Todos
 
@@ -191,6 +197,7 @@ Recent decisions affecting current work:
 
 - [Phase 10]: UAT complete with 4 passed, 0 issues. Validator reports 47/47 and Node tests report 15/15.
 - [Phase 15]: UAT complete with 9 passed, 0 issues. Validator reports 60/60 and Node tests report 31/31.
+- [Phase 20]: UAT complete with 8 passed, 0 issues. Validator reports 77/77 and Node tests report 39/39.
 
 ### Blockers/Concerns
 
@@ -206,6 +213,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T17:19:41.133Z
-Stopped at: Phase 20 context gathered
-Resume file: .planning/phases/20-validation-hardening/20-CONTEXT.md
+Last session: 2026-06-13T17:51:19Z
+Stopped at: Phase 20 complete
+Resume file: None

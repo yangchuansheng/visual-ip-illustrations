@@ -21,7 +21,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 17: Sealos Seal Canonical Pack** - Maintainers get an isolated Sealos Seal reference pack for identity, planning, prompts, composition, QA, edits, brand notes, and uploaded-image drift prevention. (completed 2026-06-13)
 - [x] **Phase 18: Skill Controller Integration** - Users can explicitly select Sealos Seal or request separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal variants while Xiaohei remains the only default route. (completed 2026-06-13)
 - [x] **Phase 19: Docs, Examples, and Release Surface** - Users and maintainers get Sealos Seal-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent uploaded-image and brand-boundary wording. (completed 2026-06-13)
-- [ ] **Phase 20: Validation Hardening** - Maintainers can run local validation and tests that cover Sealos Seal route behavior, uploaded-image identity markers, brand boundaries, docs markers, paths, sample gates, and route leakage gates.
+- [x] **Phase 20: Validation Hardening** - Maintainers can run local validation and tests that cover Sealos Seal route behavior, uploaded-image identity markers, brand boundaries, docs markers, paths, sample gates, and route leakage gates. (completed 2026-06-14)
 
 ## Phase Details
 
@@ -135,19 +135,19 @@ Plans:
   4. Validator checks Sealos Seal leakage boundaries so Xiaohei, Littlebox, Tom, and Ferris packs stay free of Sealos Seal identity rules and brand mascot text.
   5. Validator checks public example asset directories for Sealos Seal rendered assets against the release checklist public-sample approval policy, and Node tests cover five-route parser behavior, stable check ordering, Sealos Seal failure messages, brand/canonical-image fixtures, and full pass output.
 
-**Plans:** 0/3 plans complete
+**Plans:** 3/3 plans complete
 Plans:
 **Wave 1**
 
-- [ ] 20-01-PLAN.md — Harden validator implementation for Sealos Seal route, pack, docs, leakage, uploaded-image, brand, public asset, and generated sample gates.
+- [x] 20-01-PLAN.md — Harden validator implementation for Sealos Seal route, pack, docs, leakage, uploaded-image, brand, public asset, and generated sample gates.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 20-02-PLAN.md — Harden Node test coverage for Phase 20 check ordering, parser behavior, fixtures, failure messages, public/generated sample gates, and full pass output.
+- [x] 20-02-PLAN.md — Harden Node test coverage for Phase 20 check ordering, parser behavior, fixtures, failure messages, public/generated sample gates, and full pass output.
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 20-03-PLAN.md — Record final validation evidence and close Phase 20 planning state.
+- [x] 20-03-PLAN.md — Record final validation evidence and close Phase 20 planning state.
 
 ## Progress
 
@@ -160,4 +160,4 @@ Phases execute in numeric order: 16 -> 17 -> 18 -> 19 -> 20
 | 17. Sealos Seal Canonical Pack | 3/3 | Complete    | 2026-06-13 |
 | 18. Skill Controller Integration | 1/1 | Complete    | 2026-06-13 |
 | 19. Docs, Examples, and Release Surface | 4/4 | Complete    | 2026-06-13 |
-| 20. Validation Hardening | 0/3 | Pending | — |
+| 20. Validation Hardening | 3/3 | Complete | 2026-06-14 |

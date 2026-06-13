@@ -41,13 +41,13 @@
 
 ### Validation
 
-- [ ] **SVAL-01**: Maintainer can run the local validator successfully after v1.3 roadmap initialization.
-- [ ] **SVAL-02**: Validator checks Sealos Seal route row, aliases, default false, output suffix, required references, route status, brand context, canonical image markers, and drift boundary markers.
-- [ ] **SVAL-03**: Validator checks Sealos Seal canonical pack files, prompt placeholders, QA markers, uploaded-image markers, and brand-boundary markers.
-- [ ] **SVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw and escaped Sealos output path tokens, and Sealos Seal smoke prompts.
-- [ ] **SVAL-05**: Validator checks Sealos Seal leakage boundaries so Xiaohei, Littlebox, Tom, and Ferris packs stay free of Sealos Seal identity rules and brand mascot text.
-- [ ] **SVAL-06**: Validator checks public example asset directories for Sealos Seal rendered assets against the release checklist public-sample approval policy.
-- [ ] **SVAL-07**: Node validator tests cover five-route parser behavior, stable check ordering, Sealos Seal failure messages, brand/canonical-image fixtures, public/generated sample gates, and full pass output.
+- [x] **SVAL-01**: Maintainer can run the local validator successfully after v1.3 roadmap initialization.
+- [x] **SVAL-02**: Validator checks Sealos Seal route row, aliases, default false, output suffix, required references, route status, brand context, canonical image markers, and drift boundary markers.
+- [x] **SVAL-03**: Validator checks Sealos Seal canonical pack files, prompt placeholders, QA markers, uploaded-image markers, and brand-boundary markers.
+- [x] **SVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw and escaped Sealos output path tokens, and Sealos Seal smoke prompts.
+- [x] **SVAL-05**: Validator checks Sealos Seal leakage boundaries so Xiaohei, Littlebox, Tom, and Ferris packs stay free of Sealos Seal identity rules and brand mascot text.
+- [x] **SVAL-06**: Validator checks public example asset directories for Sealos Seal rendered assets against the release checklist public-sample approval policy.
+- [x] **SVAL-07**: Node validator tests cover five-route parser behavior, stable check ordering, Sealos Seal failure messages, brand/canonical-image fixtures, public/generated sample gates, and full pass output.
 
 ## v2 Requirements
 
@@ -113,13 +113,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SDOC-04 | Phase 19 | Complete |
 | SDOC-05 | Phase 19 | Complete |
 | SDOC-06 | Phase 19 | Complete |
-| SVAL-01 | Phase 20 | Pending |
-| SVAL-02 | Phase 20 | Pending |
-| SVAL-03 | Phase 20 | Pending |
-| SVAL-04 | Phase 20 | Pending |
-| SVAL-05 | Phase 20 | Pending |
-| SVAL-06 | Phase 20 | Pending |
-| SVAL-07 | Phase 20 | Pending |
+| SVAL-01 | Phase 20 | Complete |
+| SVAL-02 | Phase 20 | Complete |
+| SVAL-03 | Phase 20 | Complete |
+| SVAL-04 | Phase 20 | Complete |
+| SVAL-05 | Phase 20 | Complete |
+| SVAL-06 | Phase 20 | Complete |
+| SVAL-07 | Phase 20 | Complete |
 | MASC-01 | v2 | Future |
 | MASC-02 | v2 | Future |
 | MASC-03 | v2 | Future |
@@ -139,4 +139,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-06-13*
-*Last updated: 2026-06-13 after starting v1.3 Sealos Seal Mascot IP Integration*
+*Last updated: 2026-06-14 after completing Phase 20 validation hardening*
