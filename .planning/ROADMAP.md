@@ -90,7 +90,7 @@ Plans:
   4. Sealos Seal outputs use `assets/<article-slug>-sealos/`, and docs include the escaped token `assets/&lt;article-slug&gt;-sealos/`.
   5. Sealos Seal planning and delivery output includes a brand/canonical-image note that preserves the uploaded mascot identity.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1 plan
 
 Plans:
 
