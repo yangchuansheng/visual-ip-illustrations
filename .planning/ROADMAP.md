@@ -18,7 +18,7 @@ v1.3 adds the uploaded Sealos white seal mascot as the fifth selectable visual I
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 16: Sealos Seal Brand and Image Contract** - Maintainers get Sealos Seal brand context, uploaded-image authority, fixed visual markers, route metadata, and public-sample gates before broad route expansion. (completed 2026-06-13)
-- [ ] **Phase 17: Sealos Seal Canonical Pack** - Maintainers get an isolated Sealos Seal reference pack for identity, planning, prompts, composition, QA, edits, brand notes, and uploaded-image drift prevention.
+- [x] **Phase 17: Sealos Seal Canonical Pack** - Maintainers get an isolated Sealos Seal reference pack for identity, planning, prompts, composition, QA, edits, brand notes, and uploaded-image drift prevention. (completed 2026-06-13)
 - [ ] **Phase 18: Skill Controller Integration** - Users can explicitly select Sealos Seal or request separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal variants while Xiaohei remains the only default route.
 - [ ] **Phase 19: Docs, Examples, and Release Surface** - Users and maintainers get Sealos Seal-aware README guidance, copyable prompts, metadata, NOTICE wording, and release checks with consistent uploaded-image and brand-boundary wording.
 - [ ] **Phase 20: Validation Hardening** - Maintainers can run local validation and tests that cover Sealos Seal route behavior, uploaded-image identity markers, brand boundaries, docs markers, paths, sample gates, and route leakage gates.
@@ -63,7 +63,7 @@ Plans:
   5. Sealos Seal QA rejects generic seals, abstract logo creatures, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage.
   6. Sealos Seal edit prompts support stronger mascot participation, uploaded-image identity repair, logo/hoodie/cap repair, title removal, text reduction, and preservation of unaffected content.
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 Plans:
 **Wave 1**
 
@@ -75,7 +75,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 17-03-PLAN.md — Create Sealos Seal QA checklist and refine cross-file Sealos pack coherence.
+- [x] 17-03-PLAN.md — Create Sealos Seal QA checklist and refine cross-file Sealos pack coherence.
 
 ### Phase 18: Skill Controller Integration
 
@@ -148,7 +148,7 @@ Phases execute in numeric order: 16 -> 17 -> 18 -> 19 -> 20
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 16. Sealos Seal Brand and Image Contract | 3/3 | Complete    | 2026-06-13 |
-| 17. Sealos Seal Canonical Pack | 2/3 | In Progress|  |
+| 17. Sealos Seal Canonical Pack | 3/3 | Complete   | 2026-06-13 |
 | 18. Skill Controller Integration | 0/1 | Pending | — |
 | 19. Docs, Examples, and Release Surface | 0/4 | Pending | — |
 | 20. Validation Hardening | 0/3 | Pending | — |
