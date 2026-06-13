@@ -42,17 +42,22 @@ Ferris attribution records source context. Rust and Cargo marks, logos, official
 
 ## Sealos Seal Brand and Canonical Image Boundary
 
-Sealos Seal source context records the uploaded white seal mascot for the `sealos` route.
+Sealos Seal source context records the Sealos brand mascot route based on the user's uploaded mascot image for the `sealos` route.
 
 - Route: Sealos Seal
+- Display name: `Sealos Seal`
+- Route id `sealos`
 - Route status: `brand-owned`
-- Uploaded-image authority: the user's uploaded mascot image is the v1.3 canonical mascot reference.
+- Uploaded-image authority: the user's uploaded mascot image, an uploaded white seal mascot, is the v1.3 canonical mascot reference.
 - Source record and operational authority: `ian-xiaohei-illustrations/references/ips/sealos/source.md`
+- Release-review references: `NOTICE.md`, `RELEASE_CHECKLIST.md`, `ian-xiaohei-illustrations/references/routing.md`, and `ian-xiaohei-illustrations/references/ips/sealos/source.md`
 - Brand context: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes.
 
-Prior Sealos mascot exploration supplies supporting brand context. The uploaded image remains the v1.3 canonical mascot reference for body shape, navy cap, deep-blue hoodie, Sealos logo marks, facial markers, flippers, compact legs, and side-rear white tail.
+Prior Sealos mascot exploration supplies supporting brand context. The uploaded image remains the canonical mascot reference for v1.3 and controls body shape, navy cap, deep-blue hoodie, Sealos logo marks, facial markers, flippers, compact legs, and side-rear white tail.
 
-Public rendered samples and Sealos brand/logo wording require release review before publication in `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
+Earlier Sealos exploration variants, generic seals, abstract logo creatures, blue-gradient cloud/seal explorations, and bald/plain-head variants are drift boundaries for this route. They are not canonical route options for Sealos Seal.
+
+Public rendered samples for Sealos Seal and Sealos brand/logo wording remain gated until reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, and brand-logo outcome are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
 
 Author links:
 
