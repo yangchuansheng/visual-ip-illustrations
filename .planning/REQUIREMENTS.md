@@ -38,12 +38,12 @@
 
 ### Validation
 
-- [ ] **FVAL-01**: Maintainer can run the local validator successfully after v1.2 roadmap initialization clears prior phase working directories.
-- [ ] **FVAL-02**: Validator checks Ferris route row, aliases, default false, output suffix, required references, route status, source attribution context, and trademark boundary markers.
-- [ ] **FVAL-03**: Validator checks Ferris canonical pack files, prompt placeholders, QA markers, source markers, and trademark-boundary markers.
-- [ ] **FVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Ferris output path tokens, and Ferris smoke prompts.
-- [ ] **FVAL-05**: Validator checks Ferris leakage boundaries so Xiaohei, Littlebox, and Tom packs stay free of Ferris identity rules and Rust trademark boundary text.
-- [ ] **FVAL-06**: Validator checks public example asset directories for Ferris-rendered assets against the release checklist public-sample approval policy.
+- [x] **FVAL-01**: Maintainer can run the local validator successfully after v1.2 roadmap initialization clears prior phase working directories.
+- [x] **FVAL-02**: Validator checks Ferris route row, aliases, default false, output suffix, required references, route status, source attribution context, and trademark boundary markers.
+- [x] **FVAL-03**: Validator checks Ferris canonical pack files, prompt placeholders, QA markers, source markers, and trademark-boundary markers.
+- [x] **FVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw/escaped Ferris output path tokens, and Ferris smoke prompts.
+- [x] **FVAL-05**: Validator checks Ferris leakage boundaries so Xiaohei, Littlebox, and Tom packs stay free of Ferris identity rules and Rust trademark boundary text.
+- [x] **FVAL-06**: Validator checks public example asset directories for Ferris-rendered assets against the release checklist public-sample approval policy.
 - [ ] **FVAL-07**: Node validator tests cover four-route parser behavior, stable check ordering, Ferris failure messages, source/trademark fixtures, and full pass output.
 
 ## v2 Requirements
@@ -105,12 +105,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FDOC-03 | Phase 14 | Complete |
 | FDOC-04 | Phase 14 | Complete |
 | FDOC-05 | Phase 14 | Complete |
-| FVAL-01 | Phase 15 | Pending |
-| FVAL-02 | Phase 15 | Pending |
-| FVAL-03 | Phase 15 | Pending |
-| FVAL-04 | Phase 15 | Pending |
-| FVAL-05 | Phase 15 | Pending |
-| FVAL-06 | Phase 15 | Pending |
+| FVAL-01 | Phase 15 | Complete |
+| FVAL-02 | Phase 15 | Complete |
+| FVAL-03 | Phase 15 | Complete |
+| FVAL-04 | Phase 15 | Complete |
+| FVAL-05 | Phase 15 | Complete |
+| FVAL-06 | Phase 15 | Complete |
 | FVAL-07 | Phase 15 | Pending |
 | MASC-01 | v2 | Future |
 | MASC-02 | v2 | Future |

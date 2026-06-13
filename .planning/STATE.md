@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Ferris Rust Mascot IP Integration
-status: planning
-stopped_at: Phase 15 plans created and ready for execution
-last_updated: "2026-06-13T12:18:01Z"
-last_activity: 2026-06-13 — Created Phase 15 validation hardening plans
+status: in_progress
+stopped_at: Completed 15-01-PLAN.md
+last_updated: "2026-06-13T12:38:51.381Z"
+last_activity: 2026-06-13 — Completed Phase 15 Plan 15-01 validator implementation hardening
 progress:
   total_phases: 5
   completed_phases: 4
   total_plans: 14
-  completed_plans: 11
-  percent: 79
+  completed_plans: 12
+  percent: 86
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-13)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 15 validation hardening execution readiness
+**Current focus:** v1.2 Ferris Rust Mascot IP Integration — Phase 15 validation hardening execution
 
 ## Current Position
 
 Phase: 15 — Validation Hardening
-Plan: 15-01 through 15-03 planned
-Status: Phase 15 plans created and ready for execution
-Last activity: 2026-06-13 — Created Phase 15 validation hardening plans
+Plan: 15-02 next
+Status: Plan 15-01 complete; Phase 15 validator implementation baseline is green
+Last activity: 2026-06-13 — Completed Phase 15 Plan 15-01 validator implementation hardening
 
 ## Performance Metrics
 
@@ -82,6 +82,7 @@ Last activity: 2026-06-13 — Created Phase 15 validation hardening plans
 | Phase 14 P02 | 5min | 3 tasks | 2 files |
 | Phase 14 P03 | 6min | 2 tasks | 2 files |
 | Phase 14 P04 | 12min | 4 tasks | 8 files |
+| Phase 15 P01 | 9min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -144,6 +145,8 @@ Recent decisions affecting current work:
 - [Phase 14]: Ferris metadata uses explicit source-reviewed Rust-community mascot route wording and avoids endorsement or approval claims. — 14-03 source and trademark wording
 - [Phase 14]: Ferris release review now requires source record review, Rust trademark wording review, prompt leakage scan, public asset approval, generated sample approval, final release review, and Phase 15 validator/test evidence. — 14-04 release surface gate
 - [Phase 14]: FDOC-05 consistency is verified across README, examples, metadata, NOTICE, routing, and release checklist. — 14-04 final cross-document gate
+- [Phase 15]: Ferris validation now treats the route as a seven-file source-reviewed pack, with source.md as source/trademark authority.
+- [Phase 15]: Ferris public asset and generated sample records use Ferris-specific checklist parsers instead of Tom-shaped public sample wording.
 
 ### Pending Todos
 
@@ -155,7 +158,7 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-- Phase 15 validator hardening must update `ROUTE-FERRIS-001`, `ROUTE-REFS-001`, and related parser test expectations from Ferris source-only references to the full seven-file Ferris route pack.
+- Phase 15 Plan 15-02 must update Node test expectations from the old Ferris source-only baseline to the new 60-check validator matrix.
 
 ## Deferred Items
 
@@ -167,6 +170,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-13T11:50:29.287Z
-Stopped at: Phase 15 context gathered and ready for planning
-Resume file: .planning/phases/15-validation-hardening/15-CONTEXT.md
+Last session: 2026-06-13T12:38:28.128Z
+Stopped at: Completed 15-01-PLAN.md
+Resume file: .planning/phases/15-validation-hardening/15-02-PLAN.md

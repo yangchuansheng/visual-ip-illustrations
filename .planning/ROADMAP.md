@@ -120,11 +120,11 @@ Plans:
   4. Validator checks Ferris leakage boundaries so Xiaohei, Littlebox, and Tom packs stay free of Ferris identity rules and Rust trademark boundary text.
   5. Validator checks public example asset directories for Ferris-rendered assets against the release checklist public-sample approval policy, and Node tests cover four-route parser behavior, stable check ordering, Ferris failure messages, source/trademark fixtures, and full pass output.
 
-**Plans:** 0/3 plans complete
+**Plans:** 1/3 plans executed
 
 Plans:
 
-- [ ] 15-01-PLAN.md — Harden validator implementation for Ferris route, pack, docs, leakage, source/trademark, public asset, and generated sample gates.
+- [x] 15-01-PLAN.md — Harden validator implementation for Ferris route, pack, docs, leakage, source/trademark, public asset, and generated sample gates.
 - [ ] 15-02-PLAN.md — Harden Node test coverage for Phase 15 check ordering, parser behavior, fixtures, failure messages, public/generated sample gates, and full pass output.
 - [ ] 15-03-PLAN.md — Record final validation evidence and close Phase 15 planning state.
 
@@ -139,4 +139,4 @@ Phases execute in numeric order: 11 -> 12 -> 13 -> 14 -> 15
 | 12. Ferris Canonical Pack | 3/3 | Complete   | 2026-06-13 |
 | 13. Skill Controller Integration | 1/1 | Complete | 2026-06-13 |
 | 14. Docs, Examples, and Release Surface | 4/4 | Complete | 2026-06-13 |
-| 15. Validation Hardening | 0/3 | Pending | |
+| 15. Validation Hardening | 1/3 | In Progress | |
