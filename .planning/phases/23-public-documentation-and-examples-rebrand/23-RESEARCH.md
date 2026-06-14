@@ -150,7 +150,7 @@ The safe implementation shape is narrow: update README first-view identity, inst
 |------|----------------------------------|-----------------------------|
 | `README.md` | `# Ian Xiaohei Illustrations` [VERIFIED: README.md:1] | Change to `# Visual IP Illustrations`. [CITED: 23-CONTEXT.md] |
 | `README.md` | `Ian Xiaohei Illustrations 是一个 Codex Skill` [VERIFIED: README.md:11] | Reframe as `Visual IP Illustrations 是一个 Codex Skill` and mention former Xiaohei-centered naming only in compatibility/migration or attribution context. [CITED: 23-CONTEXT.md] |
-| `README.md` | `git clone https://github.com/helloianneo/ian-xiaohei-illustrations.git` and `cd ian-xiaohei-illustrations` [VERIFIED: README.md:164-165] | Show canonical public clone/install with `https://github.com/helloianneo/visual-ip-illustrations.git` and `cd visual-ip-illustrations`; add a v1.4 compatibility note that current repo/package paths may still include `ian-xiaohei-illustrations/`. [CITED: 23-CONTEXT.md; CITED: NAMING-CONTRACT.md] |
+| `README.md` | `git clone https://github.com/helloianneo/ian-xiaohei-illustrations.git` and `cd ian-xiaohei-illustrations` [VERIFIED: README.md:164-165] | Show current-reality-safe clone/install guidance with the live remote and canonical local target directory: `git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations`, then `cd visual-ip-illustrations`; add a v1.4 compatibility note that current repo/package paths may still include `ian-xiaohei-illustrations/`. [VERIFIED: git remote -v; CITED: 23-CONTEXT.md; CITED: NAMING-CONTRACT.md] |
 | `README.md` | `安装后在 Codex 里使用 $ian-xiaohei-illustrations` [VERIFIED: README.md:170] | Change primary invocation to `$visual-ip-illustrations`; document `$ian-xiaohei-illustrations` as a v1.4 legacy compatibility alias. [CITED: 23-CONTEXT.md] |
 | `README.md` | Quick examples use `Use $ian-xiaohei-illustrations`. [VERIFIED: rg README.md] | Change quick examples to `Use $visual-ip-illustrations`; keep a labeled legacy compatibility example or note. [CITED: 23-CONTEXT.md] |
 | `examples/prompts.md` | Top examples and normal flows use `Use $ian-xiaohei-illustrations`. [VERIFIED: rg examples/prompts.md] | Add top canonical flow examples using `Use $visual-ip-illustrations`; keep existing route smoke prompts with `$ian-xiaohei-illustrations` as compatibility smoke. [CITED: 23-CONTEXT.md] |
@@ -181,7 +181,7 @@ The safe implementation shape is narrow: update README first-view identity, inst
 1. Change the H1 to `# Visual IP Illustrations`; keep the current Chinese-first tagline but make the first-view product identity Visual IP Illustrations. [VERIFIED: README.md:1-5; CITED: 23-CONTEXT.md]
 2. Rework `## 这个仓库是什么` so Visual IP Illustrations is the product and Xiaohei is the default route inside a five-route system. [VERIFIED: README.md:9-23; CITED: 23-CONTEXT.md]
 3. Keep the route inventory with the exact Tom/Ferris/Sealos status/source/brand phrases and all route-local reference paths. [VERIFIED: scripts/validate-skill-package.mjs]
-4. Update `## 安装` to show canonical public clone/install guidance for `visual-ip-illustrations` and `$visual-ip-illustrations`; add a v1.4 compatibility note for `ian-xiaohei-illustrations/` and `$ian-xiaohei-illustrations`. [VERIFIED: README.md:161-170; CITED: NAMING-CONTRACT.md]
+4. Update `## 安装` to show current-live-remote clone/install guidance with `visual-ip-illustrations` as the local target directory and `$visual-ip-illustrations` as canonical invocation; add a v1.4 compatibility note for `ian-xiaohei-illustrations/` and `$ian-xiaohei-illustrations`. [VERIFIED: README.md:161-170; VERIFIED: git remote -v; CITED: NAMING-CONTRACT.md]
 5. Update quick examples to use `$visual-ip-illustrations` for normal user flows; include or link legacy compatibility wording rather than making old invocation the first command users see. [VERIFIED: rg README.md; CITED: 23-CONTEXT.md]
 6. Update the installable package boundary section to explain current live directory reality: root docs are public distribution docs; the package directory remains `ian-xiaohei-illustrations/` during v1.4 compatibility while canonical slug/path wording is `visual-ip-illustrations`. [VERIFIED: README.md:390-396; CITED: 22-01-SUMMARY.md]
 7. Keep maintainer verification commands unchanged: `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, `git diff --check`. [VERIFIED: README.md:400-414; VERIFIED: baseline commands]
@@ -366,19 +366,18 @@ This command surfaces primary old-name framing, canonical naming gaps, and route
 
 | # | Claim | Section | Risk if Wrong |
 |---|-------|---------|---------------|
-| A1 | The GitHub canonical clone URL should be `https://github.com/helloianneo/visual-ip-illustrations.git` once public docs lead with the canonical slug. [ASSUMED] | Exact Strings To Change Or Add, README edit set | GitHub repo rename/distribution work is deferred; docs may need wording that frames this as canonical public guidance rather than confirmed live remote. |
+| A1 | The current live remote is `https://github.com/yangchuansheng/ian-xiaohei-illustrations`, and docs can use `visual-ip-illustrations` as the local target directory for canonical slug guidance. [VERIFIED] | Exact Strings To Change Or Add, README edit set | GitHub repo rename/distribution work is deferred; docs should use the current live remote and local target-directory naming until a renamed remote exists. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Canonical clone URL runtime availability**
+1. **RESOLVED: Canonical clone URL runtime availability**
    - What we know: Phase 21/23 lock `visual-ip-illustrations` as canonical repository/install slug. [CITED: NAMING-CONTRACT.md; CITED: 23-CONTEXT.md]
-   - What's unclear: The current Git remote availability for `helloianneo/visual-ip-illustrations` was not verified because Phase 23 is a local docs research task and future repository rename is deferred. [ASSUMED]
-   - Recommendation: Phrase README install guidance as canonical v1.4 guidance while preserving a compatibility note for the current `ian-xiaohei-illustrations/` package path; avoid claiming GitHub redirect behavior. [CITED: 23-CONTEXT.md]
+   - Current fact: `git remote -v` reports `origin https://github.com/yangchuansheng/ian-xiaohei-illustrations` for fetch and push. [VERIFIED]
+   - Resolution: README install guidance should use `git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations`, then `cd visual-ip-illustrations`, and describe `visual-ip-illustrations` as the canonical v1.4 local target directory while preserving a compatibility note for the current `ian-xiaohei-illustrations/` package path. GitHub rename and redirect behavior remain deferred distribution work. [VERIFIED: git remote -v; CITED: 23-CONTEXT.md]
 
-2. **Validator synchronization threshold**
+2. **RESOLVED: Validator synchronization threshold**
    - What we know: Broad validator naming checks are Phase 24, while Phase 23 may synchronize directly affected docs expectations. [CITED: 23-CONTEXT.md]
-   - What's unclear: Implementation may choose wording that touches validator-covered marker strings.
-   - Recommendation: Planner should include a post-edit validator run before deciding whether script/test synchronization is needed. [VERIFIED: scripts/validate-skill-package.mjs]
+   - Resolution: Phase 23 should default to marker-preserving docs-only edits, then run `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`. Validator/test synchronization is allowed only when a directly affected Phase 23 docs expectation fails after the docs have preserved all route/status/path/source/brand markers. Broad naming and stale-surface checks remain Phase 24 work. [VERIFIED: scripts/validate-skill-package.mjs; VERIFIED: scripts/validate-skill-package.test.mjs]
 
 ## Environment Availability
 
@@ -442,7 +441,7 @@ Skipped because `.planning/config.json` sets `workflow.nyquist_validation` to `f
 
 ### Tertiary (LOW confidence)
 
-- GitHub remote availability for `helloianneo/visual-ip-illustrations` was not verified; docs should avoid redirect/runtime claims. [ASSUMED]
+- GitHub repository rename and redirect availability are deferred distribution work; docs should use the current live remote with `visual-ip-illustrations` as the local clone target directory. [VERIFIED: git remote -v]
 
 ## Metadata
 

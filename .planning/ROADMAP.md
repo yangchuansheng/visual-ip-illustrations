@@ -71,7 +71,11 @@ Plans:
   4. NOTICE and release checklist preserve Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries.
   5. Public docs avoid stale old-name-only framing on primary surfaces.
 
-**Plans:** 0/0 plans complete
+**Plans:** 0/1 plans complete
+
+Plans:
+
+- [ ] 23-01-PLAN.md — Rebrand README, examples, NOTICE, and release checklist public docs while preserving route markers and validation baselines.
 
 ### Phase 24: Validation and Release Evidence
 
@@ -97,5 +101,5 @@ Phases execute in numeric order: 21 -> 22 -> 23 -> 24
 |-------|----------------|--------|-----------|
 | 21. Naming and Compatibility Contract | 1/1 | Complete    | 2026-06-14 |
 | 22. Skill Package and Runtime Metadata Rebrand | 1/1 | Complete    | 2026-06-14 |
-| 23. Public Documentation and Examples Rebrand | 0/0 | Pending | - |
+| 23. Public Documentation and Examples Rebrand | 0/1 | Pending | - |
 | 24. Validation and Release Evidence | 0/0 | Pending | - |
