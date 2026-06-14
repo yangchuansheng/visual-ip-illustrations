@@ -76,6 +76,17 @@ const requiredCheckIds = [
   "RELEASE-TOM-001",
   "RELEASE-FERRIS-001",
   "RELEASE-SEALOS-001",
+  "REBRAND-CANON-001",
+  "REBRAND-CANON-002",
+  "REBRAND-CANON-003",
+  "REBRAND-CANON-004",
+  "REBRAND-COMPAT-001",
+  "REBRAND-COMPAT-002",
+  "REBRAND-MIGRATE-001",
+  "REBRAND-ROUTE-001",
+  "REBRAND-PATH-001",
+  "REBRAND-EVIDENCE-001",
+  "REBRAND-DOCS-001",
   "BOUNDARY-IMG-001",
   "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-FERRIS-LEAK-001",
@@ -196,7 +207,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -376,7 +387,7 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
   assert.match(result.stdout, /observed missing marker/);
 });
 
-test("validator emits the full Phase 20 matrix with zero failures", () => {
+test("validator emits the full Phase 24 matrix with zero failures", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -387,8 +398,202 @@ test("validator emits the full Phase 20 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
+});
+
+test("validator reports Phase 24 rebrand checks in stable order", () => {
+  const result = runValidator();
+
+  assert.equal(result.status, 0);
+  const expectedIds = [
+    "REBRAND-CANON-001",
+    "REBRAND-CANON-002",
+    "REBRAND-CANON-003",
+    "REBRAND-CANON-004",
+    "REBRAND-COMPAT-001",
+    "REBRAND-COMPAT-002",
+    "REBRAND-MIGRATE-001",
+    "REBRAND-ROUTE-001",
+    "REBRAND-PATH-001",
+    "REBRAND-EVIDENCE-001",
+    "REBRAND-DOCS-001",
+  ];
+
+  let lastIndex = result.stdout.indexOf("[PASS] RELEASE-SEALOS-001 ");
+  assert.ok(lastIndex >= 0, "Phase 24 rebrand checks should follow release checks");
+  for (const id of expectedIds) {
+    const index = result.stdout.indexOf(`[PASS] ${id} `);
+    assert.ok(index > lastIndex, `${id} should appear after the previous Phase 24 rebrand check`);
+    lastIndex = index;
+  }
+});
+
+test("validator fixture rejects missing canonical runtime identity", () => {
+  const fixtureRoot = copyFixture("rebrand-runtime-canonical");
+  try {
+    replaceAllInFixture(fixtureRoot, path.join("ian-xiaohei-illustrations", "SKILL.md"), "$visual-ip-illustrations", "$legacy-only");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/SKILL\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): \$visual-ip-illustrations/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing canonical public docs identity", () => {
+  const fixtureRoot = copyFixture("rebrand-public-canonical");
+  try {
+    replaceInFixture(fixtureRoot, "README.md", "# Visual IP Illustrations", "# Ian Xiaohei Illustrations");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-002 /);
+    assert.match(result.stdout, /README\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): # Visual IP Illustrations/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing release rebrand markers", () => {
+  const fixtureRoot = copyFixture("rebrand-release-markers");
+  try {
+    replaceInFixture(fixtureRoot, "RELEASE_CHECKLIST.md", "## Release 1.4 Rebrand Review", "## Release Review");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-003 /);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-EVIDENCE-001 /);
+    assert.match(result.stdout, /RELEASE_CHECKLIST\.md/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing compatibility runtime alias", () => {
+  const fixtureRoot = copyFixture("rebrand-runtime-compat");
+  try {
+    replaceAllInFixture(fixtureRoot, path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"), "$ian-xiaohei-illustrations", "$visual-ip-legacy");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-001 /);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-COMPAT-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/agents\/openai\.yaml/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing compatibility public alias", () => {
+  const fixtureRoot = copyFixture("rebrand-public-compat");
+  try {
+    replaceAllInFixture(fixtureRoot, "examples/prompts.md", "$ian-xiaohei-illustrations", "$visual-ip-legacy");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-COMPAT-002 /);
+    assert.match(result.stdout, /examples\/prompts\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): \$ian-xiaohei-illustrations/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing install migration guidance", () => {
+  const fixtureRoot = copyFixture("rebrand-migration");
+  try {
+    replaceInFixture(fixtureRoot, "README.md", "cd visual-ip-illustrations", "cd ian-xiaohei-illustrations");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-MIGRATE-001 /);
+    assert.match(result.stdout, /README\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): cd visual-ip-illustrations/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture locks rebrand route stability", () => {
+  const fixtureRoot = copyFixture("rebrand-route-stability");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      "| `false` | `sealos` |",
+      "| `false` | `cloud` |",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-004 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /expected sealos output_suffix=sealos; observed cloud/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture locks rebrand output path stability", () => {
+  const fixtureRoot = copyFixture("rebrand-path-stability");
+  try {
+    replaceAllInFixture(fixtureRoot, "examples/prompts.md", "assets/&lt;article-slug&gt;-sealos/", "assets/&lt;article-slug&gt;-cloud/");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-PATH-001 /);
+    assert.match(result.stdout, /examples\/prompts\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): assets\/&lt;article-slug&gt;-sealos\//);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects stale README old-name-only framing", () => {
+  const fixtureRoot = copyFixture("rebrand-readme-stale-old-name");
+  try {
+    replaceInFixture(fixtureRoot, "README.md", "# Visual IP Illustrations", "# Ian Xiaohei Illustrations");
+    replaceAllInFixture(fixtureRoot, "README.md", "$visual-ip-illustrations", "$ian-xiaohei-illustrations");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-002 /);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-DOCS-001 /);
+    assert.match(result.stdout, /README\.md/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects stale examples old-name-only framing", () => {
+  const fixtureRoot = copyFixture("rebrand-examples-stale-old-name");
+  try {
+    replaceInFixture(fixtureRoot, "examples/prompts.md", "## Canonical normal-flow prompts", "## Legacy normal-flow prompts");
+    replaceAllInFixture(fixtureRoot, "examples/prompts.md", "$visual-ip-illustrations", "$ian-xiaohei-illustrations");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-002 /);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-DOCS-001 /);
+    assert.match(result.stdout, /examples\/prompts\.md/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
 });
 
 test("parser helpers expose current package contract primitives", async () => {
@@ -1233,7 +1438,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1311,7 +1516,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1353,7 +1558,7 @@ test("validator fixture enforces public Sealos sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEALOS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

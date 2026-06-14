@@ -50,9 +50,9 @@ The root Xiaohei reference paths remain available during migration and point to 
 
 ## 输出路径
 
-- `xiaohei` 输出目录保持为 `assets/<article-slug>-illustrations/`。
+- `xiaohei` 输出目录保持为 `assets/<article-slug>-illustrations/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-illustrations/`。
 - `xiaohei` 文件名继续使用有序英文 slug，例如 `01-topic-name.png`。
-- `littlebox` 输出目录为 `assets/<article-slug>-littlebox/`。
+- `littlebox` 输出目录为 `assets/<article-slug>-littlebox/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-littlebox/`。
 - `littlebox` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
 - `tom` 输出目录为 `assets/<article-slug>-tom/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-tom/`。
 - `tom` 文件名使用有序英文 slug，例如 `01-topic-name.png`。

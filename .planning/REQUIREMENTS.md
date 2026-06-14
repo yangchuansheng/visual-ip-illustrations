@@ -28,10 +28,10 @@
 
 ### Validation
 
-- [ ] **VAL-01**: Validator checks canonical naming across skill metadata, agent metadata, README, examples, NOTICE, release checklist, and route docs.
-- [ ] **VAL-02**: Validator checks the legacy alias compatibility markers and install migration guidance.
-- [ ] **VAL-03**: Node tests cover canonical invocation, legacy invocation, route stability, output path stability, and stale old-name-only fixtures.
-- [ ] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, docs consistency, and compatibility smoke coverage.
+- [x] **VAL-01**: Validator checks canonical naming across skill metadata, agent metadata, README, examples, NOTICE, release checklist, and route docs.
+- [x] **VAL-02**: Validator checks the legacy alias compatibility markers and install migration guidance.
+- [x] **VAL-03**: Node tests cover canonical invocation, legacy invocation, route stability, output path stability, and stale old-name-only fixtures.
+- [x] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, docs consistency, and compatibility smoke coverage.
 
 ## v2 Requirements
 
@@ -85,10 +85,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOC-02 | Phase 23 | Complete |
 | DOC-03 | Phase 23 | Complete |
 | DOC-04 | Phase 23 | Complete |
-| VAL-01 | Phase 24 | Pending |
-| VAL-02 | Phase 24 | Pending |
-| VAL-03 | Phase 24 | Pending |
-| VAL-04 | Phase 24 | Pending |
+| VAL-01 | Phase 24 | Complete |
+| VAL-02 | Phase 24 | Complete |
+| VAL-03 | Phase 24 | Complete |
+| VAL-04 | Phase 24 | Complete |
 | MASC-01 | v2 | Future |
 | MASC-02 | v2 | Future |
 | MASC-03 | v2 | Future |

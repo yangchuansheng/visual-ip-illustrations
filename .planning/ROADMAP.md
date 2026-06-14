@@ -20,7 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 21: Naming and Compatibility Contract** - Maintainers get a single source of truth for canonical name, repository slug, install slug, canonical skill id, legacy alias, and compatibility boundaries. (completed 2026-06-14)
 - [x] **Phase 22: Skill Package and Runtime Metadata Rebrand** - Users can discover and invoke the canonical skill identity while all shipped route behavior remains stable. (completed 2026-06-14)
 - [x] **Phase 23: Public Documentation and Examples Rebrand** - Users and maintainers get README, examples, NOTICE, install, migration, and release guidance that leads with Visual IP Illustrations. (completed 2026-06-14)
-- [ ] **Phase 24: Validation and Release Evidence** - Maintainers can verify canonical naming, legacy alias compatibility, route stability, docs consistency, and final release readiness locally.
+- [ ] **Phase 24: Validation and Release Evidence** - Maintainers can verify canonical naming, legacy alias compatibility, route stability, docs consistency, and final release readiness locally. (plan complete; awaiting final verify-work closeout)
 
 ## Phase Details
 
@@ -90,11 +90,11 @@ Plans:
   4. Final release evidence records validator output, Node test output, `git diff --check`, docs consistency, and compatibility smoke coverage.
   5. UAT confirms current users can migrate naming without losing route behavior.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 
 Plans:
 
-- [ ] 24-01-PLAN.md — Harden rebrand validator/test coverage and record release evidence.
+- [x] 24-01-PLAN.md — Harden rebrand validator/test coverage and record release evidence.
 
 ## Progress
 
@@ -106,4 +106,4 @@ Phases execute in numeric order: 21 -> 22 -> 23 -> 24
 | 21. Naming and Compatibility Contract | 1/1 | Complete    | 2026-06-14 |
 | 22. Skill Package and Runtime Metadata Rebrand | 1/1 | Complete    | 2026-06-14 |
 | 23. Public Documentation and Examples Rebrand | 1/1 | Complete    | 2026-06-14 |
-| 24. Validation and Release Evidence | 0/1 | Pending | - |
+| 24. Validation and Release Evidence | 1/1 | Awaiting verify-work | - |

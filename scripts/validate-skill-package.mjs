@@ -81,6 +81,13 @@ function splitRouteCell(value) {
     .filter(Boolean);
 }
 
+function splitRouteAliases(value) {
+  return value
+    .split(",")
+    .map((item) => stripWrappingTicks(item))
+    .filter(Boolean);
+}
+
 function isValidReviewDate(value) {
   const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return false;
@@ -839,6 +846,87 @@ function sealosDriftMarkers() {
     "prior exploration variants",
     "different selected mascot",
   ];
+}
+
+function rebrandRouteExpectations() {
+  return [
+    {
+      id: "xiaohei",
+      aliases: ["小黑", "Xiaohei", "Ian", "ian-xiaohei"],
+      default: "true",
+      status: "active",
+      outputSuffix: "illustrations",
+      referenceCount: 5,
+    },
+    {
+      id: "littlebox",
+      aliases: ["小盒", "Littlebox", "纸盒", "paper-box", "carton"],
+      default: "false",
+      status: "active",
+      outputSuffix: "littlebox",
+      referenceCount: 6,
+    },
+    {
+      id: "tom",
+      aliases: ["Tom", "Tom Cat", "Tom and Jerry", "汤姆", "汤姆猫"],
+      default: "false",
+      status: "gated-authorized",
+      outputSuffix: "tom",
+      referenceCount: 7,
+    },
+    {
+      id: "ferris",
+      aliases: ["Ferris", "Rust mascot", "Rust crab", "Rustacean", "Rust 吉祥物", "Rust 螃蟹"],
+      default: "false",
+      status: "source-reviewed",
+      outputSuffix: "ferris",
+      referenceCount: 7,
+    },
+    {
+      id: "sealos",
+      aliases: ["Sealos Seal", "Sealos mascot", "Sealos 吉祥物", "Sealos 海豹", "white Sealos seal", "blue hoodie seal"],
+      default: "false",
+      status: "brand-owned",
+      outputSuffix: "sealos",
+      referenceCount: 7,
+    },
+  ];
+}
+
+function assertRebrandRouteTable() {
+  const rows = routeRows();
+  const expectations = rebrandRouteExpectations();
+  const expectedIds = expectations.map((route) => route.id);
+  const actualIds = rows.map((route) => route.id);
+  if (rows.length !== expectations.length) {
+    throw new Error(`${ROUTING_FILE} expected exactly ${expectations.length} rebrand route rows; observed ${rows.length}`);
+  }
+  if (actualIds.join(", ") !== expectedIds.join(", ")) {
+    throw new Error(`${ROUTING_FILE} expected rebrand route ids ${expectedIds.join(", ")}; observed ${actualIds.join(", ")}`);
+  }
+
+  for (const expected of expectations) {
+    const row = routeById(expected.id);
+    const aliases = splitRouteAliases(row.aliases ?? "");
+    const references = routeReferencePaths(row);
+    assertArrayIncludes(aliases, expected.aliases, ROUTING_FILE, `${expected.id} aliases`);
+    if (row.default !== expected.default) {
+      throw new Error(`${ROUTING_FILE} expected ${expected.id} default=${expected.default}; observed ${row.default}`);
+    }
+    if (row.status !== expected.status) {
+      throw new Error(`${ROUTING_FILE} expected ${expected.id} status=${expected.status}; observed ${row.status}`);
+    }
+    if (row.output_suffix !== expected.outputSuffix) {
+      throw new Error(
+        `${ROUTING_FILE} expected ${expected.id} output_suffix=${expected.outputSuffix}; observed ${row.output_suffix}`,
+      );
+    }
+    if (references.length !== expected.referenceCount) {
+      throw new Error(
+        `${ROUTING_FILE} expected ${expected.id} required reference count=${expected.referenceCount}; observed ${references.length}`,
+      );
+    }
+  }
 }
 
 function imageAssetPaths() {
@@ -2290,6 +2378,163 @@ const checks = [
       ...sealosFixedMarkers(),
       ...sealosDriftMarkers(),
     ], "Sealos release checklist identity, brand/logo, leakage, public asset, generated sample, validator, and final review markers");
+  }),
+  defineCheck("REBRAND-CANON-001", "runtime metadata preserves Visual IP Illustrations canonical identity", () => {
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
+      "Visual IP Illustrations",
+      "name: visual-ip-illustrations",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+      "visual-ip-illustrations",
+      "ian-xiaohei-illustrations",
+    ], "canonical runtime identity, canonical invocation, compatibility alias, slug, and package path");
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "Visual IP Illustrations",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+    ], "canonical agent metadata identity and invocation aliases");
+  }),
+  defineCheck("REBRAND-CANON-002", "public docs preserve canonical rebrand identity", () => {
+    assertIncludes(requireFile("README.md"), "README.md", [
+      "# Visual IP Illustrations",
+      "$visual-ip-illustrations",
+      "visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+    ], "README canonical public identity, canonical invocation, checkout slug, and compatibility alias");
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## Canonical normal-flow prompts",
+      "$visual-ip-illustrations",
+    ], "examples canonical invocation surface");
+  }),
+  defineCheck("REBRAND-CANON-003", "release docs preserve rebrand identity and review markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Visual IP Illustrations",
+      "rebrand scope",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+    ], "NOTICE release 1.4 rebrand scope and aliases");
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "Release 1.4 Rebrand Review",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+      "Visual IP Illustrations",
+    ], "release checklist rebrand review and alias markers");
+  }),
+  defineCheck("REBRAND-CANON-004", "routing docs preserve five stable Visual IP routes", () => {
+    assertRebrandRouteTable();
+    assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
+      "Xiaohei",
+      "Littlebox",
+      "Tom",
+      "Ferris",
+      "Sealos Seal",
+      "illustrations",
+      "littlebox",
+      "tom",
+      "ferris",
+      "sealos",
+    ], "five route display names and output suffix markers");
+  }),
+  defineCheck("REBRAND-COMPAT-001", "runtime metadata preserves legacy alias compatibility", () => {
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
+      "$ian-xiaohei-illustrations",
+      "v1.4 compatibility alias",
+      "$visual-ip-illustrations",
+    ], "runtime canonical invocation and release 1.4 compatibility alias");
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "$ian-xiaohei-illustrations 是 v1.4 compatibility alias",
+      "$visual-ip-illustrations",
+    ], "agent canonical invocation and compatibility alias");
+  }),
+  defineCheck("REBRAND-COMPAT-002", "public docs preserve legacy alias smoke coverage", () => {
+    assertIncludes(requireFile("README.md"), "README.md", [
+      "Legacy compatibility alias",
+      "$ian-xiaohei-illustrations",
+    ], "README legacy compatibility guidance");
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "Legacy compatibility route smoke prompts",
+      "$ian-xiaohei-illustrations",
+      "route smoke fixture",
+    ], "examples legacy compatibility smoke prompts");
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "$ian-xiaohei-illustrations",
+      "legacy compatibility alias",
+      "Omitted-IP Xiaohei smoke",
+    ], "release checklist alias review and compatibility smoke marker");
+  }),
+  defineCheck("REBRAND-MIGRATE-001", "install guidance preserves rebrand migration contract", () => {
+    assertIncludes(combinedText(["README.md", SKILL_FILE, "RELEASE_CHECKLIST.md"]), "README.md + SKILL.md + RELEASE_CHECKLIST.md", [
+      "https://github.com/yangchuansheng/ian-xiaohei-illustrations.git",
+      "visual-ip-illustrations",
+      "ian-xiaohei-illustrations/",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+    ], "live remote, canonical checkout slug, package directory, canonical invocation, and compatibility alias");
+    assertIncludes(requireFile("README.md"), "README.md", [
+      "git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations",
+      "cd visual-ip-illustrations",
+      "cp -R ./ian-xiaohei-illustrations",
+    ], "README install migration commands");
+  }),
+  defineCheck("REBRAND-ROUTE-001", "routing table preserves rebrand route contract", () => {
+    assertRebrandRouteTable();
+  }),
+  defineCheck("REBRAND-PATH-001", "runtime and docs preserve rebrand output path tokens", () => {
+    const tokens = outputPathTokens();
+    const allTokens = [...tokens.raw, ...tokens.escaped];
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, allTokens, "SKILL raw and escaped route output path tokens");
+    assertIncludes(requireFile("README.md"), "README.md", allTokens, "README raw and escaped route output path tokens");
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", allTokens, "examples raw and escaped route output path tokens");
+    assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, allTokens, "routing raw and escaped route output path tokens");
+  }),
+  defineCheck("REBRAND-EVIDENCE-001", "release checklist preserves Phase 24 evidence gates", () => {
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "node scripts/validate-skill-package.mjs",
+      "node --test scripts/validate-skill-package.test.mjs",
+      "git diff --check",
+      "Release 1.4 Rebrand Review",
+      "Route Smoke Prompts",
+      "Omitted-IP Xiaohei smoke",
+      "Mixed-IP smoke",
+    ], "validator, test, diff hygiene, rebrand review, and route smoke evidence gates");
+  }),
+  defineCheck("REBRAND-DOCS-001", "combined docs preserve rebrand consistency markers", () => {
+    assertIncludes(requireFile("README.md"), "README.md", [
+      "# Visual IP Illustrations",
+      "$visual-ip-illustrations",
+    ], "README first-view canonical rebrand framing");
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## Canonical normal-flow prompts",
+      "$visual-ip-illustrations",
+    ], "examples first-view canonical rebrand framing");
+    const text = combinedText([
+      SKILL_FILE,
+      OPENAI_AGENT_FILE,
+      "README.md",
+      "examples/prompts.md",
+      "NOTICE.md",
+      "RELEASE_CHECKLIST.md",
+      ROUTING_FILE,
+    ]);
+    assertIncludes(text, "runtime + docs + release + routing surfaces", [
+      "Visual IP Illustrations",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+      "visual-ip-illustrations",
+      "ian-xiaohei-illustrations/",
+      "active",
+      "gated-authorized",
+      "source-reviewed",
+      "brand-owned",
+      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
+      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
+      "ian-xiaohei-illustrations/references/ips/sealos/source.md",
+      "assets/<article-slug>-illustrations/",
+      "assets/<article-slug>-littlebox/",
+      "assets/<article-slug>-tom/",
+      "assets/<article-slug>-ferris/",
+      "assets/<article-slug>-sealos/",
+    ], "canonical name, invocation aliases, install markers, route statuses, authority paths, and output paths");
   }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
