@@ -779,7 +779,10 @@ function sealosFixedMarkers() {
     "navy cap",
     "deep-blue hoodie",
     "official uploaded Sealos logo shape on cap and chest",
+    "exact uploaded Sealos logo match on cap and chest",
     "blue curled wave / seal-tail mark above a rounded cloud-tray base",
+    "vector-traced reproduction of the uploaded Sealos logo image",
+    "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
     "same official uploaded Sealos logo silhouette on both cap and chest",
     "glossy dark eyes",
     "black nose",
@@ -821,6 +824,10 @@ function sealosDriftMarkers() {
     "missing cap",
     "missing hoodie",
     "missing official uploaded Sealos logo shape on cap or chest",
+    "missing exact uploaded Sealos logo match",
+    "approximate logo redraw",
+    "alternate wave mark",
+    "simplified logo mark",
     "changed logo silhouette",
     "changed body color",
     "missing side-rear tail",
@@ -1795,29 +1802,56 @@ const checks = [
       ...sealosFixedMarkers(),
     ], "Sealos source headings, uploaded-image authority, fixed markers, brand context, sample policy, and drift boundary");
   }),
-  defineCheck("LOGO-SEALOS-001", "Sealos route preserves official uploaded logo shape on cap and chest", () => {
+  defineCheck("LOGO-SEALOS-001", "Sealos route preserves exact uploaded logo match on cap and chest", () => {
     const routeLocalFiles = [
+      path.join(REFERENCES_DIR, "ips", "sealos", "index.md"),
       path.join(REFERENCES_DIR, "ips", "sealos", "source.md"),
       path.join(REFERENCES_DIR, "ips", "sealos", "style-dna.md"),
       path.join(REFERENCES_DIR, "ips", "sealos", "sealos-ip.md"),
+      path.join(REFERENCES_DIR, "ips", "sealos", "composition-patterns.md"),
       path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md"),
       path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"),
     ];
     for (const relativePath of routeLocalFiles) {
       assertIncludes(requireFile(relativePath), relativePath, [
         "official uploaded Sealos logo shape",
+        "exact uploaded Sealos logo match",
         "blue curled wave / seal-tail mark above a rounded cloud-tray base",
-      ], "route-local official uploaded logo shape geometry");
+        "vector-traced reproduction of the uploaded Sealos logo image",
+        "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
+      ], "route-local exact uploaded logo geometry");
     }
     assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "source.md")), path.join(REFERENCES_DIR, "ips", "sealos", "source.md"), [
       "official uploaded Sealos logo shape on cap and chest",
-      "same official uploaded Sealos logo silhouette on both cap and chest",
+      "exact uploaded Sealos logo match on cap and chest",
+      "vector-traced reproduction of the uploaded Sealos logo image",
+      "no redraw, no alternate wave, no simplified mark",
+      "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
+      "missing exact uploaded Sealos logo match",
+      "approximate logo redraw",
+      "alternate wave mark",
+      "simplified logo mark",
       "changed logo silhouette",
-    ], "Sealos source official uploaded logo shape markers");
+    ], "Sealos source exact uploaded logo markers");
+    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md")), path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md"), [
+      "Logo exactness note",
+      "exact miniature applied patches",
+      "copy the uploaded Sealos logo image",
+      "no redraw, no alternate wave, no simplified mark",
+      "missing exact uploaded Sealos logo match",
+      "approximate logo redraw",
+      "alternate wave mark",
+      "simplified logo mark",
+    ], "Sealos prompt exact uploaded logo generation and repair markers");
     assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md")), path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"), [
       "Sealos QA official uploaded Sealos logo shape failure",
+      "Sealos QA exact uploaded logo match failure",
+      "missing exact uploaded Sealos logo match",
+      "approximate logo redraw",
+      "alternate wave mark",
+      "simplified logo mark",
       "changed logo silhouette",
-    ], "Sealos QA official uploaded logo shape failure markers");
+    ], "Sealos QA exact uploaded logo failure markers");
 
     for (const relativePath of [
       "README.md",
@@ -1828,15 +1862,23 @@ const checks = [
     ]) {
       assertIncludes(requireFile(relativePath), relativePath, [
         "official uploaded Sealos logo shape",
-      ], "Sealos public official uploaded logo shape marker");
+        "exact uploaded Sealos logo match",
+      ], "Sealos public exact uploaded logo marker");
     }
     const publicText = combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE, path.join(PACKAGE_DIR, "SKILL.md")]);
     assertIncludes(publicText, "Sealos public docs and SKILL.md", [
       "official uploaded Sealos logo shape",
+      "exact uploaded Sealos logo match",
       "blue curled wave / seal-tail mark above a rounded cloud-tray base",
+      "vector-traced reproduction of the uploaded Sealos logo image",
+      "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
+      "missing exact uploaded Sealos logo match",
+      "approximate logo redraw",
+      "alternate wave mark",
+      "simplified logo mark",
       "cap and chest",
       "changed logo silhouette",
-    ], "Sealos public official uploaded logo shape markers");
+    ], "Sealos public exact uploaded logo markers");
   }),
   defineCheck("DOC-LINKS-001", "README and examples local Markdown links point to existing files", () => {
     const links = localMarkdownLinks(["README.md", "examples/prompts.md"]);

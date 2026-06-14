@@ -100,7 +100,7 @@ Brand/canonical-image authority：`ian-xiaohei-illustrations/references/ips/seal
 
 Brand context：reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes. Prior Sealos mascot exploration supplies supporting brand context; the uploaded mascot image is the v1.3 canonical mascot reference.
 
-Brand/logo boundary：cap and chest marks must use the official uploaded Sealos logo shape from the user's uploaded logo image: blue curled wave / seal-tail mark above a rounded cloud-tray base. Public rendered Sealos samples require release review for uploaded-image identity, cap/hoodie/logo preservation, brand/logo wording, generic seal drift, abstract logo creature drift, and prior-variant drift. Release review and brand/logo wording are governed by `RELEASE_CHECKLIST.md`。
+Brand/logo boundary：cap and chest marks must preserve the official uploaded Sealos logo shape as the exact uploaded Sealos logo match from the user's uploaded logo image: vector-traced reproduction of the uploaded Sealos logo image with the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship. Public rendered Sealos samples require release review for uploaded-image identity, exact cap/hoodie/logo preservation, brand/logo wording, generic seal drift, abstract logo creature drift, approximate logo redraw, alternate wave mark, simplified logo mark, and prior-variant drift. Release review and brand/logo wording are governed by `RELEASE_CHECKLIST.md`。
 
 输出路径合同：`assets/<article-slug>-sealos/`。文档校验 token：`assets/&lt;article-slug&gt;-sealos/`。输出后缀：`sealos`。
 

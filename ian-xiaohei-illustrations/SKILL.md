@@ -157,7 +157,7 @@ Sealos Seal shot list 使用 `references/ips/sealos/prompt-template.md`，额外
 - Supporting objects
 - Visible labels
 - Output path: `assets/<article-slug>-sealos/`
-- Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, and fixed identity markers from source.md.
+- Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, exact uploaded Sealos logo match on cap and chest, and fixed identity markers from source.md.
 
 Sealos planning prose 可以跟随用户语言；Sealos image-generation prompts stay English；visible labels are copied exactly in the user's language。Sealos Seal 必须执行中心认知动作，优先从 cloud-developer supporting objects 中选择 1-2 个物件，再让 Mascot action 承担 deploy、launch、connect、debug、route、lift、inspect、repair、shield、bridge、tune、roll back、stamp、sort、assemble 或 guide。
 
@@ -244,7 +244,8 @@ Sealos Seal 路由只加载 Sealos `required_references`，使用 `references/ip
 - route status note: `brand-owned`
 - brand/canonical-image authority: `references/ips/sealos/source.md`
 - canonical image note: `uploaded-image-canonical` and `uploaded-image-locked`
-- uploaded-image markers: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail
+- uploaded-image markers: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo match on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, vector-traced reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail
+- logo exactness markers: same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship
 - save reminder: `assets/<article-slug>-sealos/`
 - Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, route leakage, missing brand/canonical-image note, and missing output path all fail the route
 
@@ -391,7 +392,7 @@ assets/<article-slug>-sealos/
 - Littlebox block：shared core idea、图片用途、保存路径 `assets/<article-slug>-littlebox/`、assigned background、稳定性备注
 - Tom block：selected IP `Tom`、shared core idea、image purposes、save path `assets/<article-slug>-tom/`、route status `gated-authorized`、rights note `references/ips/tom/rights.md`、stability notes
 - Ferris block：selected IP `Ferris`、shared core idea、image purposes、save path `assets/<article-slug>-ferris/`、route status `source-reviewed`、source/trademark note、source pointer `references/ips/ferris/source.md`、stability notes
-- Sealos block：selected IP: Sealos Seal、shared core idea、image purposes、save path `assets/<article-slug>-sealos/`、route status `brand-owned`、brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, and fixed identity markers from source.md.、source pointer `references/ips/sealos/source.md`、stability notes
+- Sealos block：selected IP: Sealos Seal、shared core idea、image purposes、save path `assets/<article-slug>-sealos/`、route status `brand-owned`、brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, exact uploaded Sealos logo match on cap and chest, and fixed identity markers from source.md.、source pointer `references/ips/sealos/source.md`、stability notes
 
 交付前做 route-leakage delivery guard：Tom block 保留 `gated-authorized` 和 `references/ips/tom/rights.md`；Ferris block 保留 `source-reviewed`、`references/ips/ferris/source.md`、source/trademark note、route-local QA 和 `assets/<article-slug>-ferris/`；Sealos block 保留 `brand-owned`、`references/ips/sealos/source.md`、brand/canonical-image note、route-local QA、uploaded-image-canonical、uploaded-image-locked 和 `assets/<article-slug>-sealos/`；Xiaohei 和 Littlebox blocks 保留各自 route-local wording、QA 和输出目录。
 

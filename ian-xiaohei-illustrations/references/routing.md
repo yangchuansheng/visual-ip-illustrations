@@ -15,7 +15,7 @@
 - Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Ferris route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
 - Ferris source/trademark authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
-- Sealos Seal is an explicit brand mascot route with status brand-owned; generated public Sealos samples require release review for uploaded-image identity, official uploaded logo shape, and Sealos brand/logo wording.
+- Sealos Seal is an explicit brand mascot route with status brand-owned; generated public Sealos samples require release review for uploaded-image identity, exact uploaded logo match, and Sealos brand/logo wording.
 - Sealos Seal route-local reference directory: `ian-xiaohei-illustrations/references/ips/sealos/`.
 - Sealos Seal brand/canonical-image authority: `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
 
@@ -34,8 +34,9 @@
 - `brand_context`: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes
 - `canonical_image_status`: uploaded-image-canonical
 - `drift_boundary`: uploaded-image-locked
-- Fixed visual markers: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, same official uploaded Sealos logo silhouette on both cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- Authority boundary: the uploaded mascot image is the v1.3 shape authority; prior Sealos mascot exploration supplies supporting brand context.
+- Fixed visual markers: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo match on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, vector-traced reproduction of the uploaded Sealos logo image, same official uploaded Sealos logo silhouette on both cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Logo exactness markers: same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
+- Authority boundary: the uploaded mascot image is the v1.3 shape authority; the uploaded logo image is the cap and chest exact-logo authority; prior Sealos mascot exploration supplies supporting brand context.
 
 ## Legacy Path Availability
 

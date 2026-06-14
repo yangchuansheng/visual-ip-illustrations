@@ -146,19 +146,20 @@ This section is the Sealos Seal maintainer release gate for source record review
 
 ### Uploaded-Image Identity Review
 
-- [ ] Confirm the uploaded Sealos Seal image preserves these markers exactly: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, same official uploaded Sealos logo silhouette on both cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- [ ] Confirm public review blocks generic seals, abstract logo creatures, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, changed logo silhouette, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, and different selected mascot.
+- [ ] Confirm the uploaded Sealos Seal image preserves these markers exactly: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo match on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, vector-traced reproduction of the uploaded Sealos logo image, same official uploaded Sealos logo silhouette on both cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- [ ] Confirm cap and chest logo review preserves the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship from the uploaded logo image.
+- [ ] Confirm public review blocks generic seals, abstract logo creatures, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, missing exact uploaded Sealos logo match, approximate logo redraw, alternate wave mark, simplified logo mark, changed logo silhouette, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, and different selected mascot.
 - [ ] Confirm prior Sealos mascot exploration supplies supporting brand context while the uploaded image stays the v1.3 canonical mascot reference.
 
 ### Sealos Brand and Logo Wording Review
 
-- [ ] Review README, examples, routing docs, NOTICE, generated samples, and release notes for Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, Kubernetes, reliable cloud developer companion, official uploaded Sealos logo shape on cap and chest, and Sealos brand/logo wording.
-- [ ] Confirm the cap logo and chest logo use the same official uploaded Sealos logo silhouette: blue curled wave / seal-tail mark above a rounded cloud-tray base.
+- [ ] Review README, examples, routing docs, NOTICE, generated samples, and release notes for Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, Kubernetes, reliable cloud developer companion, exact uploaded Sealos logo match on cap and chest, and Sealos brand/logo wording.
+- [ ] Confirm the cap logo and chest logo use the exact uploaded Sealos logo match: vector-traced reproduction of the uploaded Sealos logo image with the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
 - [ ] Confirm public rendered samples receive brand/logo review before publication.
 
 ### Sealos Prompt Leakage Scan
 
-- [ ] Scan Sealos planning, generation, edit, smoke, README, examples, routing, release notes, and delivery text for generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, changed logo silhouette, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, different selected mascot drift, excessive text, route leakage, and public sample claims without approval.
+- [ ] Scan Sealos planning, generation, edit, smoke, README, examples, routing, release notes, and delivery text for generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, missing exact uploaded Sealos logo match, approximate logo redraw, alternate wave mark, simplified logo mark, changed logo silhouette, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, different selected mascot drift, excessive text, route leakage, and public sample claims without approval.
 - [ ] Confirm prompt leakage scan covers `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/SKILL.md`, `ian-xiaohei-illustrations/references/routing.md`, `ian-xiaohei-illustrations/references/ips/sealos/`, `NOTICE.md`, and release notes.
 - [ ] Confirm Sealos wording stays route-local and does not leak Sealos brand mascot rules into Xiaohei, Littlebox, Tom, or Ferris route contracts.
 
@@ -166,7 +167,7 @@ This section is the Sealos Seal maintainer release gate for source record review
 
 - [ ] Sealos public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / brand-logo outcome.
 - [ ] Public rendered Sealos Seal samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
-- [ ] Public rendered Sealos sample approval must cover uploaded-image identity, official uploaded logo shape on cap and chest, cap/hoodie/logo preservation, Sealos brand/logo wording, allowed directories, release channels, and drift markers.
+- [ ] Public rendered Sealos sample approval must cover uploaded-image identity, exact uploaded logo match on cap and chest, cap/hoodie/logo preservation, Sealos brand/logo wording, allowed directories, release channels, and drift markers.
 
 ### Sealos Generated Sample Policy
 

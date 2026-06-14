@@ -35,8 +35,10 @@ Preserve the uploaded-image markers together:
 - navy cap
 - deep-blue hoodie
 - official uploaded Sealos logo shape on cap and chest
+- exact uploaded Sealos logo match on cap and chest
 - blue curled wave / seal-tail mark above a rounded cloud-tray base
 - same official uploaded Sealos logo silhouette on both cap and chest
+- vector-traced reproduction of the uploaded Sealos logo image
 - glossy dark eyes
 - black nose
 - whisker dots
@@ -45,7 +47,7 @@ Preserve the uploaded-image markers together:
 - compact legs
 - side-rear white tail
 
-The uploaded-image identity matters more than rendering detail density. Keep the mascot simple enough for article explanation while preserving the cap, hoodie, official uploaded Sealos logo shape, body color, face, flippers, legs, and tail.
+The uploaded-image identity matters more than rendering detail density. Keep the mascot simple enough for article explanation while preserving the cap, hoodie, official uploaded Sealos logo shape, exact uploaded Sealos logo match, body color, face, flippers, legs, and tail. Cap and chest logo marks require a vector-traced reproduction of the uploaded logo image; no redraw, no alternate wave, no simplified mark. Preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
 
 ## Composition
 
@@ -66,6 +68,11 @@ Regenerate or edit when the result contains:
 - missing cap
 - missing hoodie
 - missing Sealos marks
+- missing exact uploaded Sealos logo match
+- approximate logo redraw
+- alternate wave mark
+- simplified logo mark
+- changed logo silhouette
 - changed body color
 - passive mascot placement
 - over-detailed 3D toy drift
@@ -91,7 +98,8 @@ Regenerate or edit when the result contains:
 
 ## Stable Gates
 
-- Sealos identity gate: the image preserves white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Sealos identity gate: the image preserves white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo match on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, vector-traced reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Sealos logo exactness gate: cap and chest marks preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship from the uploaded logo image.
 - Sealos cognitive-action participation gate: the Sealos Seal performs the central cognitive action, and removing the mascot breaks the metaphor.
 - Sealos uploaded-image gate: the mascot follows `source.md`, `uploaded-image-canonical`, and `uploaded-image-locked`.
 - Sealos sparse article gate: the scene stays clean white or near-white, hand-drawn, low-density, and label-light.

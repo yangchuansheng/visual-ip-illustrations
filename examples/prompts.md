@@ -269,7 +269,8 @@ Text-only maintainer route audit. 使用 Sealos Seal / Sealos mascot / Sealos �
 预期：文档校验 token 是 `assets/&lt;article-slug&gt;-sealos/`。
 预期：Brand/canonical-image note 保留 uploaded-image-canonical、uploaded-image-locked 和 uploaded-image identity markers。
 预期：uploaded-image identity markers 包含 white rounded seal body、navy cap、deep-blue hoodie、official uploaded Sealos logo shape on cap and chest、blue curled wave / seal-tail mark above a rounded cloud-tray base、glossy dark eyes、black nose、whisker dots、small smile、short rounded flippers、compact legs、side-rear white tail。
-预期：public sample review blocks generic seal, abstract logo creature, missing cap, missing hoodie, missing official uploaded Sealos logo shape, changed logo silhouette, missing side-rear tail, plain bald-head, prior exploration variant, and different selected mascot drift。
+预期：logo exactness markers 包含 exact uploaded Sealos logo match on cap and chest、vector-traced reproduction of the uploaded Sealos logo image、same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship。
+预期：public sample review blocks generic seal, abstract logo creature, missing cap, missing hoodie, missing official uploaded Sealos logo shape, missing exact uploaded Sealos logo match, approximate logo redraw, alternate wave mark, simplified logo mark, changed logo silhouette, missing side-rear tail, plain bald-head, prior exploration variant, and different selected mascot drift。
 预期：public sample gate 由 RELEASE_CHECKLIST.md 控制，public rendered Sealos samples require release review。
 ```
 

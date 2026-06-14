@@ -833,26 +833,32 @@ test("validator fixture reports Sealos docs, metadata, NOTICE, release, and smok
   }
 });
 
-test("validator fixture rejects Sealos official uploaded logo shape drift", () => {
-  const fixtureRoot = copyFixture("sealos-official-logo-shape");
+test("validator fixture rejects Sealos exact uploaded logo match drift", () => {
+  const fixtureRoot = copyFixture("sealos-exact-logo-match");
   try {
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
-      "official uploaded Sealos logo shape",
-      "Sealos logo mark",
+      "exact uploaded Sealos logo match",
+      "similar Sealos logo mark",
+    );
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "prompt-template.md"),
+      "vector-traced reproduction of the uploaded Sealos logo image",
+      "brand-inspired blue logo drawing",
     );
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "qa-checklist.md"),
-      "blue curled wave / seal-tail mark above a rounded cloud-tray base",
-      "simple blue brand mark",
+      "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
+      "similar logo proportions",
     );
     replaceAllInFixture(
       fixtureRoot,
       "README.md",
-      "official uploaded Sealos logo shape",
-      "Sealos logo mark",
+      "exact uploaded Sealos logo match",
+      "similar Sealos logo mark",
     );
 
     const result = runFixtureValidator(fixtureRoot);
@@ -860,7 +866,7 @@ test("validator fixture rejects Sealos official uploaded logo shape drift", () =
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] LOGO-SEALOS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/sealos/);
-    assert.match(result.stdout, /observed missing marker\(s\): official uploaded Sealos logo shape on cap and chest/);
+    assert.match(result.stdout, /observed missing marker\(s\): exact uploaded Sealos logo match/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

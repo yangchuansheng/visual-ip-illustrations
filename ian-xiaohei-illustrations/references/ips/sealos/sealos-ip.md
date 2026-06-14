@@ -26,8 +26,10 @@ Preserve the uploaded-image markers in a simplified article-illustration style:
 - navy cap
 - deep-blue hoodie
 - official uploaded Sealos logo shape on cap and chest
+- exact uploaded Sealos logo match on cap and chest
 - blue curled wave / seal-tail mark above a rounded cloud-tray base
 - same official uploaded Sealos logo silhouette on both cap and chest
+- vector-traced reproduction of the uploaded Sealos logo image
 - glossy dark eyes
 - black nose
 - whisker dots
@@ -71,7 +73,8 @@ Sealos cognitive-action participation gate: the visual metaphor depends on the m
 - These objects explain article concepts such as cloud OS structure, AI-native deployment, DevBox readiness, database reliability, app launch, Kubernetes coordination, troubleshooting, workflow handoff, hidden coupling, and system resilience.
 - Cloud-developer objects function as explanatory props for the article idea.
 - Scene design stays original, article-explanatory, and route-local.
-- The uploaded mascot image controls body shape, outfit, Sealos marks, face, flippers, compact legs, and side-rear tail. The user's uploaded Sealos logo image controls the cap logo and hoodie chest logo geometry.
+- The uploaded mascot image controls body shape, outfit, Sealos marks, face, flippers, compact legs, and side-rear tail. The user's uploaded Sealos logo image controls the cap logo and hoodie chest logo geometry as an exact uploaded Sealos logo match.
+- Cap and chest marks require a vector-traced reproduction of the uploaded logo image; no redraw, no alternate wave, no simplified mark. Preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
 
 ## Failure Modes
 
@@ -82,6 +85,11 @@ Regenerate or rewrite when the result contains:
 - missing cap
 - missing hoodie
 - missing Sealos marks
+- missing exact uploaded Sealos logo match
+- approximate logo redraw
+- alternate wave mark
+- simplified logo mark
+- changed logo silhouette
 - changed body color
 - passive mascot placement
 - over-detailed 3D toy drift
@@ -111,7 +119,8 @@ Regenerate or rewrite when the result contains:
 
 ## Stable Gates
 
-- Sealos identity gate: the image preserves white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Sealos identity gate: the image preserves white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo match on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, vector-traced reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Sealos logo exactness gate: cap and chest marks preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship from the uploaded logo image.
 - Sealos cognitive-action participation gate: Sealos Seal performs the central cognitive action, and removing the mascot breaks the metaphor.
 - Sealos uploaded-image gate: the route follows `source.md`, `uploaded-image-canonical`, and `uploaded-image-locked`.
 - Sealos reliable companion gate: the mascot feels reliable, premium, friendly, technically credible, and useful for cloud developer work.
