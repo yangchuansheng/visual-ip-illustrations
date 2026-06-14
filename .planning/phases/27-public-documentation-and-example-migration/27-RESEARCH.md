@@ -178,17 +178,15 @@ Plan this as one phase plan with four implementation task groups plus verificati
 4. Validator/test sync: update only public-doc markers whose headings/prose changed, especially `SMOKE-*` markers and tests that reference Chinese headings; keep parser helpers stable unless absolutely required.
 5. Verification: run normal validator, Node tests, `git diff --check`, enforce-mode residual scan, and targeted Han scan; record remaining Han findings by policy category.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Should `## Canonical normal-flow prompts` remain unchanged?**
    - What we know: Validator and tests assert it today. [VERIFIED: scripts/validate-skill-package.mjs; scripts/validate-skill-package.test.mjs]
-   - What's unclear: The implementation may prefer title case such as `## Canonical Normal-Flow Prompts`.
-   - Recommendation: Keep the current heading to reduce sync churn.
+   - Resolution: Keep the current heading to reduce sync churn.
 
 2. **Should Chinese article prompt bodies remain Chinese in legacy smoke fixtures?**
    - What we know: The language policy explicitly allows compatibility smoke fixtures and Chinese article illustration examples. [VERIFIED: LANGUAGE_POLICY.md]
-   - What's unclear: The exact number of Chinese fixtures needed after English-default rewrite.
-   - Recommendation: Keep one compact fixture per route-smoke category where it proves alias/user-language behavior, and translate surrounding guidance.
+   - Resolution: Keep compact Chinese article/user-language fixtures only where they prove alias behavior, user-language label behavior, or Chinese article illustration compatibility under `LANGUAGE_POLICY.md`; translate surrounding guidance.
 
 ## Sources
 
