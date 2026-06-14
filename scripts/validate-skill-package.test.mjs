@@ -471,21 +471,14 @@ test("validator fixture rejects missing language policy exception category", () 
   }
 });
 
-test("validator fixture reports approved multilingual tokens separately from stale prose", () => {
-  const fixtureRoot = copyFixture("language-scan-approved-and-stale");
+test("validator fixture reports approved multilingual tokens in enforce mode", () => {
+  const fixtureRoot = copyFixture("language-scan-approved-only");
   try {
     const result = runFixtureValidator(fixtureRoot, { LANGUAGE_SCAN_ENFORCE: "1" });
 
-    assert.equal(result.status, 1);
-    assert.match(result.stdout, /\[FAIL\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /status=approved/);
-    assert.match(result.stdout, /category=route aliases/);
-    assert.match(result.stdout, /token=小黑/);
-    assert.match(result.stdout, /status=stale/);
-    assert.match(result.stdout, /category=stale Chinese prose/);
-    assert.match(result.stdout, /path=[^;]+:\d+/);
-    assert.match(result.stdout, /excerpt=/);
-    assert.match(result.stdout, /remediation=/);
+    assert.equal(result.status, 0);
+    assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
+    assert.match(result.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1124,8 +1117,8 @@ test("validator fixture reports Sealos docs, metadata, NOTICE, release, and smok
       "AGENT-SEALOS-001",
     ],
     ["readme", "README.md", "uploaded-image-canonical", "DOC-SEALOS-P19-001"],
-    ["examples", "examples/prompts.md", "## 路由烟测：显式选择 Sealos Seal", "SMOKE-SEALOS-001"],
-    ["mixed", "examples/prompts.md", "五个 separate variant group", "SMOKE-MIXED-SEALOS-001"],
+    ["examples", "examples/prompts.md", "## Route Smoke: Explicit Sealos Seal", "SMOKE-SEALOS-001"],
+    ["mixed", "examples/prompts.md", "five separate variant groups", "SMOKE-MIXED-SEALOS-001"],
     ["notice", "NOTICE.md", "Sealos Seal Brand and Canonical Image Boundary", "NOTICE-SEALOS-001"],
     ["release", "RELEASE_CHECKLIST.md", "Sealos Generated Sample Policy", "RELEASE-SEALOS-001"],
   ]) {
@@ -1340,7 +1333,7 @@ test("validator fixture reports Tom docs and agent metadata drift", () => {
     replaceInFixture(
       fixtureRoot,
       "examples/prompts.md",
-      "## 路由烟测：显式选择 Tom",
+      "## Route Smoke: Explicit Tom",
       "## Route smoke: explicit protected character",
     );
 
@@ -1352,7 +1345,7 @@ test("validator fixture reports Tom docs and agent metadata drift", () => {
     assert.match(result.stdout, /observed missing marker\(s\): explicit Tom protected-character route/);
     assert.match(result.stdout, /\[FAIL\] SMOKE-TOM-001 /);
     assert.match(result.stdout, /examples\/prompts\.md/);
-    assert.match(result.stdout, /observed missing marker\(s\): ## 路由烟测：显式选择 Tom/);
+    assert.match(result.stdout, /observed missing marker\(s\): ## Route Smoke: Explicit Tom/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

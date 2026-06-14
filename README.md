@@ -1,166 +1,166 @@
 # Visual IP Illustrations
 
-> Visual IP Illustrations 是一个多视觉 IP 中文正文配图 Codex Skill：Xiaohei 是 implicit default，可显式选择 Littlebox；Tom 是显式 protected-character route，当前状态 `gated-authorized`；Ferris 是 explicit Rust-community mascot route，当前状态 `source-reviewed`；Sealos Seal 是 explicit Sealos brand mascot route，当前状态 `brand-owned`。
+> Visual IP Illustrations is a multi-visual-IP Codex Skill for article body illustrations. Xiaohei is the implicit default route; Littlebox is explicit and active; Tom is an explicit protected-character route with status `gated-authorized`; Ferris is an explicit Rust-community mascot route with status `source-reviewed`; Sealos Seal is an explicit Sealos brand mascot route with status `brand-owned`.
 >
-> 16:9 横版 | 多视觉 IP | 中文文章配图 | Canonical invocation: `$visual-ip-illustrations`
+> 16:9 horizontal | multi visual IP | article body illustrations | Canonical invocation: `$visual-ip-illustrations`
 
 ---
 
-## 这个仓库是什么
+## What This Repository Is
 
-Visual IP Illustrations 是一个 Codex Skill，用来指导 AI Agent 为中文文章、帖子、博客、Notion 文档和方法论内容生成正文配图。
+Visual IP Illustrations guides an AI agent to create body illustrations for articles, posts, blogs, Notion documents, and methodology writing.
 
-它先理解文章里的认知锚点，再把一个判断、流程、结构、状态或隐喻，变成一张有记忆点的 16:9 手绘解释图。
+The skill reads the cognitive anchor in the source text, then turns one judgment, workflow, structure, state, or metaphor into a memorable 16:9 hand-drawn explanatory image.
 
-当前路线层级：
+Current route inventory:
 
-- **Xiaohei**：implicit default route。用户省略视觉 IP 时使用 Xiaohei 路由，沿用小黑白底手绘正文配图体验。
-- **Littlebox**：explicit active route。用户写 `小盒`、`Littlebox`、`纸盒`、`paper-box` 或 `carton` 时使用 Littlebox 路由。
-- **Tom**：explicit protected-character route。用户写 `Tom`、`Tom Cat`、`Tom and Jerry`、`汤姆` 或 `汤姆猫` 时使用 Tom 路由；当前 status 为 `gated-authorized`，rights boundary 位于 `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
-- **Ferris**：Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
-- **Sealos Seal**：explicit Sealos brand mascot route。route id `sealos`，default=false，output suffix `sealos`，当前 status 为 `brand-owned`。route-local reference directory 是 `ian-xiaohei-illustrations/references/ips/sealos/`，brand/canonical-image authority 是 `ian-xiaohei-illustrations/references/ips/sealos/source.md`。
+- **Xiaohei**: implicit default route. When the user omits a visual IP, the skill uses Xiaohei and preserves the white-background hand-drawn article illustration experience.
+- **Littlebox**: explicit active route. Requests that name `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton` use the Littlebox route.
+- **Tom**: explicit protected-character route. Requests that name `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` use the Tom route. Current status is `gated-authorized`, and the rights boundary lives at `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
+- **Ferris**: Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+- **Sealos Seal**: explicit Sealos brand mascot route. Route id `sealos`, default=false, output suffix `sealos`, current status `brand-owned`. The route-local reference directory is `ian-xiaohei-illustrations/references/ips/sealos/`, and brand/canonical-image authority lives at `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
 
-核心价值：用户可以选择视觉 IP，并得到角色、风格规则、提示词、QA、保存路径和归因、source、brand boundary 都一致的文章配图资产。
+Core value: users can choose a visual IP and receive article illustration assets whose character, style rules, prompts, QA gates, saved outputs, attribution, source context, and brand boundary stay consistent with that IP.
 
-Release 1.4 public identity 使用 `Visual IP Illustrations`、canonical local checkout slug `visual-ip-illustrations` 和 canonical invocation `$visual-ip-illustrations`。兼容表面继续保留：installable package directory 是 `ian-xiaohei-illustrations/`，legacy alias 是 `$ian-xiaohei-illustrations`，现有 `ian-xiaohei-illustrations/` source paths、route behavior、output directories 和 validator markers 保持稳定。
-
----
-
-## 适合谁用
-
-- 写中文文章，需要正文配图和文章插图的人
-- 做知识型内容、方法论内容、AI 工作流内容的人
-- 想把抽象判断画成具体隐喻的人
-- 用 Codex 做内容生产，希望稳定复用视觉语言的人
-
-## 它会产出什么
-
-- 一篇文章的 4-8 张 shot list
-- 每张图的主题、核心意思、结构类型、角色动作和中文标注建议
-- 最终 PNG 图片
-- Xiaohei 输出到 workspace 的 `assets/<article-slug>-illustrations/`
-- Littlebox 输出到 workspace 的 `assets/<article-slug>-littlebox/`
-- Tom route 输出路径合同为 `assets/<article-slug>-tom/`
-- Ferris route 输出路径合同为 `assets/<article-slug>-ferris/`
-- Sealos Seal route 输出路径合同为 `assets/<article-slug>-sealos/`
-
-文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-illustrations/`、`assets/&lt;article-slug&gt;-littlebox/`、`assets/&lt;article-slug&gt;-tom/`、`assets/&lt;article-slug&gt;-ferris/` 和 `assets/&lt;article-slug&gt;-sealos/`。
+Release 1.4 public identity uses `Visual IP Illustrations`, canonical local checkout slug `visual-ip-illustrations`, and canonical invocation `$visual-ip-illustrations`. Compatibility surfaces remain stable: installable package directory `ian-xiaohei-illustrations/`, Legacy compatibility alias `$ian-xiaohei-illustrations`, existing `ian-xiaohei-illustrations/` source paths, route behavior, output directories, and validator markers.
 
 ---
 
-## 视觉 IP
+## Who It Is For
+
+- Writers who need body illustrations for article concepts.
+- Product thinkers and methodology writers who want clear visual metaphors.
+- AI workflow authors who need reusable visual-language prompts.
+- Codex users who want a stable multi-IP skill package instead of one-off image prompts.
+
+## Outputs
+
+- A 4-8 image shot list for an article.
+- For each image: placement, theme, core idea, structure type, character action, and suggested visible labels.
+- Final PNG images.
+- Xiaohei outputs to workspace path `assets/<article-slug>-illustrations/`.
+- Littlebox outputs to workspace path `assets/<article-slug>-littlebox/`.
+- Tom route output path contract: `assets/<article-slug>-tom/`.
+- Ferris route output path contract: `assets/<article-slug>-ferris/`.
+- Sealos Seal route output path contract: `assets/<article-slug>-sealos/`.
+
+Docs validation also keeps HTML-escaped path markers: `assets/&lt;article-slug&gt;-illustrations/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/&lt;article-slug&gt;-tom/`, `assets/&lt;article-slug&gt;-ferris/`, and `assets/&lt;article-slug&gt;-sealos/`.
+
+---
+
+## Visual IP Routes
 
 ### Xiaohei
 
-Xiaohei 是默认路线：黑色实心、白点眼、细腿、空表情，在纯白背景里认真参与一个荒诞但成立的认知动作。它适合把文章里的判断、流程、断点、坑、承接路径和系统局部画成清爽的手绘解释图。
+Xiaohei is the default route: a solid black figure with dot eyes, thin legs, and a blank expression, actively performing a strange but legible cognitive action on a pure white background. It works well for judgments, workflows, breakpoints, traps, handoff paths, and local system views.
 
-可用别名：`小黑`、`Xiaohei`、`Ian`、`ian-xiaohei`。
+Aliases: `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei`.
 
 ### Littlebox
 
-Littlebox 是显式选择路线：封闭纸盒角色，粗黑 marker 线条，浅天蓝或浅薰衣草背景，琥珀胶带和少量珊瑚强调。它适合把同一个认知动作翻译成收集、封装、排序、交付、阻挡或修复。
+Littlebox is an explicit route: a closed paper-box character with rough black marker lines, pale sky-blue or pale lavender background, amber seam tape, and sparse coral accents. It translates a cognitive action into collecting, packing, sorting, handing off, blocking, or repairing.
 
-可用别名：`小盒`、`Littlebox`、`纸盒`、`paper-box`、`carton`。
+Aliases: `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton`.
 
 ### Tom
 
-Tom 是 explicit protected-character route，当前 route status 是 `gated-authorized`。用户通过 Tom aliases 显式选择 Tom 路由；该路线使用 route-local Tom references、`output_suffix: tom`、Tom QA/edit gates 和独立输出目录。Rights boundary 以 `ian-xiaohei-illustrations/references/ips/tom/rights.md` 为准。
+Tom is an explicit protected-character route with current route status `gated-authorized`. Users select the Tom route with Tom aliases. The route uses route-local Tom references, `output_suffix: tom`, Tom QA/edit gates, and its own output directory. The rights boundary is `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
 
-可用别名：`Tom`、`Tom Cat`、`Tom and Jerry`、`汤姆`、`汤姆猫`。
+Aliases: `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`.
 
-输出路径合同：`assets/<article-slug>-tom/`。文档校验 token：`assets/&lt;article-slug&gt;-tom/`。输出后缀：`tom`。
+Output path contract: `assets/<article-slug>-tom/`. Docs validation token: `assets/&lt;article-slug&gt;-tom/`. Output suffix: `tom`.
 
-Public rendered Tom samples 由 `RELEASE_CHECKLIST.md` 的 public-sample gate 和 Tom rights record 审核通过后进入公开样例目录。
+Public rendered Tom samples enter public sample directories only after the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approve them.
 
 ### Ferris
 
 Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 
-可用别名：`Ferris`、`Rust mascot`、`Rust crab`、`Rustacean`、`Rust 吉祥物`、`Rust 螃蟹`。
+Aliases: `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`.
 
-Route-local reference directory：`ian-xiaohei-illustrations/references/ips/ferris/`。
+Route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
 
-Source/trademark authority：`ian-xiaohei-illustrations/references/ips/ferris/source.md`。
+Source/trademark authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
 
-输出路径合同：`assets/<article-slug>-ferris/`。文档校验 token：`assets/&lt;article-slug&gt;-ferris/`。输出后缀：`ferris`。
+Output path contract: `assets/<article-slug>-ferris/`. Docs validation token: `assets/&lt;article-slug&gt;-ferris/`. Output suffix: `ferris`.
 
-规划字段：Placement、Core idea、Structure type、Ferris state、Ferris action、Supporting objects、Visible labels、Output path、Source/trademark note。
+Planning fields: Placement, Core idea, Structure type, Ferris state, Ferris action, Supporting objects, Visible labels, Output path, Source/trademark note.
 
-Public rendered Ferris samples 由 `RELEASE_CHECKLIST.md` 的 Rust trademark 和 endorsement-safe wording gate 审核通过后进入公开样例目录。
+Public rendered Ferris samples enter public sample directories only after the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate approves them.
 
 ### Sealos Seal
 
 Sealos Seal is an explicit Sealos brand mascot route with status `brand-owned`.
 
-可用别名：`Sealos Seal`、`Sealos mascot`、`Sealos 吉祥物`、`Sealos 海豹`、`white Sealos seal`、`blue hoodie seal`。
+Aliases: `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, `blue hoodie seal`.
 
-Route id：`sealos`。Default：`false`。Output suffix：`sealos`。
+Route id: `sealos`. Default: `false`. Output suffix: `sealos`.
 
-Route-local reference directory：`ian-xiaohei-illustrations/references/ips/sealos/`。
+Route-local reference directory: `ian-xiaohei-illustrations/references/ips/sealos/`.
 
-Brand/canonical-image authority：`ian-xiaohei-illustrations/references/ips/sealos/source.md`。Route metadata：`ian-xiaohei-illustrations/references/routing.md`。
+Brand/canonical-image authority: `ian-xiaohei-illustrations/references/ips/sealos/source.md`. Route metadata: `ian-xiaohei-illustrations/references/routing.md`.
 
-Brand context：reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes. Prior Sealos mascot exploration supplies supporting brand context; the uploaded mascot image is the v1.3 canonical mascot reference.
+Brand context: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes. Prior Sealos mascot exploration supplies supporting brand context; the uploaded mascot image is the v1.3 canonical mascot reference.
 
-No-logo boundary：Sealos outputs preserve the uploaded white seal mascot with plain navy cap with no logo and plain deep-blue hoodie chest with no logo. Cap, hoodie chest, mascot body, props, and scene use no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge. Public rendered Sealos samples require release review for uploaded-image identity, no-logo mascot identity, Sealos brand wording, generic seal drift, abstract logo creature drift, logo-bearing mascot variants, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, and prior-variant drift. Release review and brand wording are governed by `RELEASE_CHECKLIST.md`。
+No-logo boundary: Sealos outputs preserve the uploaded white seal mascot with a plain navy cap with no logo and a plain deep-blue hoodie chest with no logo. Cap, hoodie chest, mascot body, props, and scene use no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge. Public rendered Sealos samples require release review for uploaded-image identity, no-logo mascot identity, Sealos brand wording, generic seal drift, abstract logo creature drift, logo-bearing mascot variants, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, and prior-variant drift. Release review and brand wording are governed by `RELEASE_CHECKLIST.md`.
 
-输出路径合同：`assets/<article-slug>-sealos/`。文档校验 token：`assets/&lt;article-slug&gt;-sealos/`。输出后缀：`sealos`。
+Output path contract: `assets/<article-slug>-sealos/`. Docs validation token: `assets/&lt;article-slug&gt;-sealos/`. Output suffix: `sealos`.
 
-### 路由参考
+### Route Reference
 
-维护者可以在 `ian-xiaohei-illustrations/references/routing.md` 查看路由元数据字段：`id`、`display_name`、`aliases`、`default`、`output_suffix`、`required_references`、`attribution_context`、`status`。
+Maintainers can inspect route metadata fields in `ian-xiaohei-illustrations/references/routing.md`: `id`, `display_name`, `aliases`, `default`, `output_suffix`, `required_references`, `attribution_context`, and `status`.
 
-Canonical packs：
+Canonical packs:
 
 - Xiaohei: `ian-xiaohei-illustrations/references/ips/xiaohei/`
 - Littlebox: `ian-xiaohei-illustrations/references/ips/littlebox/`
-- Tom: `ian-xiaohei-illustrations/references/ips/tom/`，核心入口 `index.md`，rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
-- Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`，source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
-- Sealos Seal: `ian-xiaohei-illustrations/references/ips/sealos/`，brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`
+- Tom: `ian-xiaohei-illustrations/references/ips/tom/`, core entry `index.md`, rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
+- Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- Sealos Seal: `ian-xiaohei-illustrations/references/ips/sealos/`, brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`
 
-同时请求多个视觉 IP 时，交付口径按 IP 分组，每个 IP 形成独立 variant group，并写入各自输出目录。Xiaohei 是 implicit default route；Littlebox 是 explicit active route；Tom 是 explicit protected-character route，当前 status 为 `gated-authorized`；Ferris 是 explicit Rust-community mascot route，当前 status 为 `source-reviewed`；Sealos Seal 是 explicit Sealos brand mascot route，当前 status 为 `brand-owned`。
-
----
-
-## 示例效果
-
-以下图片是 Xiaohei 风格校准样例，用来观察线条密度、留白、颜色克制和角色参与方式。使用时从当前文章重新发明隐喻。
-
-### 两个断点
-
-![两个断点](examples/images/01-two-breakpoints.png)
-
-### 按目的分拣
-
-![按目的分拣](examples/images/02-sort-by-purpose.png)
-
-### 一鱼多吃
-
-![一鱼多吃](examples/images/03-one-fish-many-uses.png)
-
-### 承接路径
-
-![承接路径](examples/images/04-handoff-path.png)
-
-### 信息井
-
-![信息井](examples/images/05-information-well.png)
-
-### 想法压机
-
-![想法压机](examples/images/06-idea-press.png)
-
-### 内容发酵
-
-![内容发酵](examples/images/07-content-fermentation.png)
-
-### 信任桥
-
-![信任桥](examples/images/08-trust-bridge.png)
+When one request asks for multiple visual IPs, deliver by separate variant group and write each group into its own output directory. Xiaohei is the implicit default route; Littlebox is an explicit active route; Tom is an explicit protected-character route with status `gated-authorized`; Ferris is an explicit Rust-community mascot route with status `source-reviewed`; Sealos Seal is an explicit Sealos brand mascot route with status `brand-owned`.
 
 ---
 
-## 安装
+## Example Gallery
+
+These images are Xiaohei style calibration examples. Use them to understand line density, whitespace, color restraint, and character participation, then invent a fresh metaphor for the current article.
+
+### Two Breakpoints
+
+![Two Breakpoints](examples/images/01-two-breakpoints.png)
+
+### Sort by Purpose
+
+![Sort by Purpose](examples/images/02-sort-by-purpose.png)
+
+### One Fish, Many Uses
+
+![One Fish, Many Uses](examples/images/03-one-fish-many-uses.png)
+
+### Handoff Path
+
+![Handoff Path](examples/images/04-handoff-path.png)
+
+### Information Well
+
+![Information Well](examples/images/05-information-well.png)
+
+### Idea Press
+
+![Idea Press](examples/images/06-idea-press.png)
+
+### Content Fermentation
+
+![Content Fermentation](examples/images/07-content-fermentation.png)
+
+### Trust Bridge
+
+![Trust Bridge](examples/images/08-trust-bridge.png)
+
+---
+
+## Installation
 
 ```bash
 git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations
@@ -169,82 +169,81 @@ mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-安装后在 Codex 里优先使用 `$visual-ip-illustrations`。
+After installation, prefer `$visual-ip-illustrations` in Codex.
 
-Release 1.4 compatibility：
+Release 1.4 compatibility:
 
-- Canonical public invocation：`$visual-ip-illustrations`
-- Legacy compatibility alias：`$ian-xiaohei-illustrations`
-- Installable skill package directory：`ian-xiaohei-illustrations/`
-- Current live repository remote：`https://github.com/yangchuansheng/ian-xiaohei-illustrations.git`
-- Local checkout target directory：`visual-ip-illustrations`
+- Canonical public invocation: `$visual-ip-illustrations`
+- Legacy compatibility alias: `$ian-xiaohei-illustrations`
+- Installable skill package directory: `ian-xiaohei-illustrations/`
+- Current live repository remote: `https://github.com/yangchuansheng/ian-xiaohei-illustrations.git`
+- Local checkout target directory: `visual-ip-illustrations`
 - Route behavior and output directories remain stable across both invocation surfaces.
 
 ---
 
-## 快速示例
+## Quick Examples
 
-`{视觉 IP}` 可填 `Xiaohei`、`Littlebox`、`Tom`、`Ferris`、`Sealos Seal` 或对应中文别名。省略时默认使用 Xiaohei。
+`{visual IP}` can be `Xiaohei`, `Littlebox`, `Tom`, `Ferris`, `Sealos Seal`, or a supported alias. Omitted visual IP selects Xiaohei.
 
-### 规划 shot list
-
-```text
-Use $visual-ip-illustrations 先不要生图。
-请用 {视觉 IP} 为下面这篇文章做 5 张正文配图 shot list。
-每张写清楚：放在哪段后、主题、核心意思、结构类型、角色动作、建议中文标注词。
-
-<粘贴文章>
-```
-
-### 生成正文配图
+### Plan a Shot List
 
 ```text
-Use $visual-ip-illustrations 使用 {视觉 IP} 为下面这篇文章生成 4 张正文配图。
-每张图只表达一个核心意思，角色必须承担动作。
-按该 IP 的 route-local references、QA checklist 和输出路径保存。
+Use $visual-ip-illustrations. Do not generate images yet.
+Use {visual IP} to create a 5-image article body illustration shot list for the article below.
+For each image, include placement, theme, core idea, structure type, character action, and suggested visible labels in the user's language.
 
-<粘贴文章>
+<paste article>
 ```
 
-### 单个观点
+### Generate Body Illustrations
 
 ```text
-Use $visual-ip-illustrations 使用 {视觉 IP} 生成一张 16:9 正文配图。
-观点：信任是一块证据一块证据铺出来的路。
-要求：手绘、留白、少量中文标注，角色正在完成核心动作。
+Use $visual-ip-illustrations with {visual IP} to generate 4 article body illustrations for the article below.
+Each image should express one core idea, and the selected character must carry the action.
+Use the selected IP's route-local references, QA checklist, and output path.
 
+<paste article>
 ```
 
-### IP 对照
+### Single Idea
 
 ```text
-Use $visual-ip-illustrations 先不要生图。
-请用同一个观点分别输出 Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal 五组 shot list。
-每组保留独立 IP、角色动作、可见标注和输出路径。
-
-观点：信任是一块证据一块证据铺出来的路。
+Use $visual-ip-illustrations with {visual IP} to generate one 16:9 article body illustration.
+Idea: trust is built by placing one piece of evidence after another.
+Requirements: hand-drawn, spacious, sparse visible labels in the user's language, and the character performing the central action.
 ```
 
-受保护、来源审查和品牌路由会自动带上 route status、source/rights note、release gate 和专属输出目录。
+### IP Comparison
 
-更多可复制示例见 [examples/prompts.md](examples/prompts.md)。
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Create separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal shot-list groups from the same idea.
+Each group must keep its own IP, character action, visible labels, and output path.
+
+Idea: trust is built by placing one piece of evidence after another.
+```
+
+Protected, source-reviewed, and brand-owned routes automatically carry route status, source/rights note, release gate, and route-specific output directory.
+
+More copyable examples are in [examples/prompts.md](examples/prompts.md).
 
 ---
 
-## 工作流程
+## Workflow
 
-1. 读取文章、Markdown、Notion 内容、截图或用户给的主题
-2. 选择视觉 IP：省略时走 Xiaohei，显式 Littlebox 时走 Littlebox，显式 Tom aliases 时走 Tom protected-character route，显式 Ferris aliases 时走 Ferris source-reviewed pack，显式 Sealos Seal aliases 时走 Sealos brand-owned pack
-3. 提炼核心观点、认知转折、流程结构和适合视觉化的段落
-4. 先输出 shot list：每张图只选一个认知锚点
-5. 为每张图选择结构类型：Workflow、系统局部、前后对比、角色状态、概念隐喻、方法分层、地图路线或小漫画分镜
-6. 按所选 IP 读取 canonical pack，组装提示词并单张生成；混合 IP 请求生成 separate route groups 和独立输出目录，Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal 各自保留 route-local references
-7. 按所选 IP 的 QA checklist 检查角色身份、构图、背景、标注和输出路径；Tom 路由保留 `gated-authorized` 与 `ian-xiaohei-illustrations/references/ips/tom/rights.md`，Ferris 路由保留 `source-reviewed`、Source/trademark note 与 `ian-xiaohei-illustrations/references/ips/ferris/source.md`，Sealos Seal 路由保留 `brand-owned`、Brand/canonical-image note、`uploaded-image-canonical`、`uploaded-image-locked` 与 `ian-xiaohei-illustrations/references/ips/sealos/source.md`
-8. 保存最终 PNG，并报告用途和路径
+1. Read the article, Markdown, Notion content, screenshot, or user-provided topic.
+2. Select the visual IP: omitted IP selects Xiaohei; explicit Littlebox selects Littlebox; explicit Tom aliases select the Tom protected-character route; explicit Ferris aliases select the Ferris source-reviewed pack; explicit Sealos Seal aliases select the Sealos brand-owned pack.
+3. Extract core claims, cognitive turns, workflow structures, and visualizable paragraphs.
+4. Produce a shot list first; each image receives one cognitive anchor.
+5. Choose one structure type for each image: Workflow, system local view, before/after, character state, concept metaphor, method layers, map route, or comic panels.
+6. Load the selected IP's canonical pack, assemble prompts, and generate images one by one. Mixed-IP requests create separate route groups and separate output directories, with Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal each keeping route-local references.
+7. Check character identity, composition, background, labels, and output path against the selected IP's QA checklist. Tom keeps `gated-authorized` and `ian-xiaohei-illustrations/references/ips/tom/rights.md`; Ferris keeps `source-reviewed`, Source/trademark note, and `ian-xiaohei-illustrations/references/ips/ferris/source.md`; Sealos Seal keeps `brand-owned`, Brand/canonical-image note, `uploaded-image-canonical`, `uploaded-image-locked`, and `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
+8. Save final PNGs and report purpose plus path.
 
 ---
 
-## 目录结构
+## Directory Structure
 
 ```text
 .
@@ -314,25 +313,25 @@ Use $visual-ip-illustrations 先不要生图。
                 └── qa-checklist.md
 ```
 
-真正需要安装到 Codex 的是子目录：
+The Codex install target is this subdirectory:
 
 ```text
 ian-xiaohei-illustrations/
 ```
 
-根目录的 README、LICENSE、NOTICE 和 examples 是 GitHub 分享文档。
+Root README, LICENSE, NOTICE, and examples are GitHub distribution docs.
 
 ---
 
-## 维护者校验
+## Maintainer Validation
 
 ```bash
 node scripts/validate-skill-package.mjs
 ```
 
-验证范围包括 skill 包形状、路由表、Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal canonical packs、legacy Xiaohei 路径、公开文档链接、输出路径标记、NOTICE 归因、Tom `gated-authorized` route markers、Ferris `source-reviewed` route markers、Sealos Seal `brand-owned` route markers、Brand/canonical-image note、`uploaded-image-canonical` 和 `uploaded-image-locked`。
+Validation covers skill package shape, route table, Xiaohei, Littlebox, Tom, Ferris and Sealos Seal canonical packs, legacy Xiaohei paths, public docs links, output path markers, NOTICE attribution, Tom `gated-authorized` route markers, Ferris `source-reviewed` route markers, Sealos Seal `brand-owned` route markers, Brand/canonical-image note, `uploaded-image-canonical`, and `uploaded-image-locked`.
 
-当前维护者校验命令：
+Current maintainer validation commands:
 
 ```bash
 node scripts/validate-skill-package.mjs
@@ -340,32 +339,32 @@ node --test scripts/validate-skill-package.test.mjs
 git diff --check
 ```
 
-发布前检查见 [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md)。
+Pre-release checks live in [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
 
 ---
 
-## 相关项目
+## Related Projects
 
-- [Ian Handdrawn PPT](https://github.com/helloianneo/ian-handdrawn-ppt) — 中文手绘技术 PPT-style 页面图生成 Skill
-- [Awesome Claude Code Skills](https://github.com/helloianneo/awesome-claude-code-skills) — Claude Code Skills / Agents / Plugins 精选合集
-- [Obsidian + Claude AI Second Brain](https://github.com/helloianneo/obsidian-ai-second-brain) — Obsidian + Claude AI 个人知识库搭建指南
+- [Ian Handdrawn PPT](https://github.com/helloianneo/ian-handdrawn-ppt) - hand-drawn technical PPT-style page generation Skill.
+- [Awesome Claude Code Skills](https://github.com/helloianneo/awesome-claude-code-skills) - curated Claude Code Skills, Agents, and Plugins.
+- [Obsidian + Claude AI Second Brain](https://github.com/helloianneo/obsidian-ai-second-brain) - guide for building an Obsidian and Claude AI personal knowledge base.
 
 ---
 
-## 关于作者
+## Author
 
-**Ian (伊恩)** — 产品设计师 / 一人公司实践者 / AI Builder
+**Ian** - Product designer, one-person-company builder, AI Builder.
 
-用 AI 团队打造一人公司。
+Building a one-person company with an AI team.
 
 - GitHub: [helloianneo](https://github.com/helloianneo)
 - X/Twitter: [@ianneo_ai](https://x.com/ianneo_ai)
-- 网站: [www.ianneo.xyz](https://www.ianneo.xyz)
-- 微信: `ianneoxyz`
-- 邮箱: hello.neoc@gmail.com
+- Website: [www.ianneo.xyz](https://www.ianneo.xyz)
+- WeChat: `ianneoxyz`
+- Email: hello.neoc@gmail.com
 
 <p>
-  <img src="assets/ian-wechat-qr.jpg" alt="Ian 微信二维码" width="120">
+  <img src="assets/ian-wechat-qr.jpg" alt="Ian WeChat QR code" width="120">
 </p>
 
 ---

@@ -1,6 +1,6 @@
 # Release Checklist
 
-用于发布前确认 multi-IP skill 包、公开文档、归因和边界保持一致。
+Use this checklist before release to confirm the multi-IP skill package, public docs, attribution, and boundaries stay aligned.
 
 ## Automated Gates
 
