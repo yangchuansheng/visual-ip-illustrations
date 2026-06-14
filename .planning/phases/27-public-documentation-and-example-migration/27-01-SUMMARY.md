@@ -3,7 +3,7 @@ status: completed
 plan_id: 27-01
 phase: 27
 phase_name: public-documentation-and-example-migration
-commit_hash: pending-final-commit
+commit_hash: e8b82e8
 updated: 2026-06-14T18:26:10Z
 requirements:
   - DOC-01

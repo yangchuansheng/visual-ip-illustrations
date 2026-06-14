@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 25: Language Policy and Residual Scan Contract** - Maintainers get a single English-default language policy, an explicit multilingual exception allowlist, and a scan contract for detecting stale Chinese prose. (completed 2026-06-14)
 - [x] **Phase 26: Skill and Reference Content Migration** - Users can read skill instructions, routing, shared references, and all route-local IP packs in English-default prose while existing route behavior stays stable. (completed 2026-06-14)
-- [ ] **Phase 27: Public Documentation and Example Migration** - Users and maintainers can install, invoke, inspect, and release the package through English-default README, examples, NOTICE, and release checklist content.
+- [x] **Phase 27: Public Documentation and Example Migration** - Users and maintainers can install, invoke, inspect, and release the package through English-default README, examples, NOTICE, and release checklist content. (completed 2026-06-14)
 - [ ] **Phase 28: English-Default Validation and Release Evidence** - Maintainers can verify English-default coverage, exception handling, route stability, docs consistency, and release readiness locally.
 
 ## Phase Details
@@ -75,7 +75,7 @@ Plans:
   4. Public docs preserve canonical `$visual-ip-illustrations`, legacy `$ian-xiaohei-illustrations`, install path guidance, route status markers, and output path contracts.
   5. Public example captions and alt text follow the English-default policy while retaining exact required Chinese sample labels where they are intentional fixtures.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 
 ### Phase 28: English-Default Validation and Release Evidence
 
@@ -101,5 +101,5 @@ Phases execute in numeric order: 25 -> 26 -> 27 -> 28
 |-------|----------------|--------|-----------|
 | 25. Language Policy and Residual Scan Contract | 1/1 | Complete    | 2026-06-14 |
 | 26. Skill and Reference Content Migration | 4/4 | Complete    | 2026-06-14 |
-| 27. Public Documentation and Example Migration | 0/1 | Pending | — |
+| 27. Public Documentation and Example Migration | 1/1 | Complete   | 2026-06-14 |
 | 28. English-Default Validation and Release Evidence | 0/1 | Pending | — |
