@@ -4,8 +4,8 @@ milestone: v1.3
 milestone_name: milestone
 status: Phase 20 complete
 stopped_at: Phase 20 complete
-last_updated: "2026-06-14T06:15:30Z"
-last_activity: 2026-06-14 -- Completed quick task 260614-jk6: Require Sealos logo exact source shape mask
+last_updated: "2026-06-14T06:50:06Z"
+last_activity: 2026-06-14 -- Completed quick task 260614-k62: Remove all Sealos IP mascot logos
 progress:
   total_phases: 5
   completed_phases: 5
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 Phase: 20
 Plan: complete
 Status: Phase 20 complete
-Last activity: 2026-06-14 -- Completed quick task 260614-jk6: Require Sealos logo exact source shape mask
+Last activity: 2026-06-14 -- Completed quick task 260614-k62: Remove all Sealos IP mascot logos
 
 ## Performance Metrics
 
@@ -192,6 +192,7 @@ Recent decisions affecting current work:
 - [Quick 260614-fow]: Sealos Seal cap and chest logos now require exact uploaded Sealos logo match with vector-traced reproduction, same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship. Validator coverage reports 78/78 and Node tests report 40/40.
 - [Quick 260614-izu]: Sealos Seal cap and chest logos now require uploaded Sealos logo source image overlay, overlay-only logo finalization, no prompt-rendered logo accepted, blank cap and chest logo patches before overlay, uploaded logo file as only logo pixels, uniform scale and placement only, and source asset path or attachment id. Validator coverage reports 78/78 and Node tests report 40/40.
 - [Quick 260614-jk6]: Sealos Seal cap and chest logos now require uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask as the geometry authority, with uniform scale, placement, and color remap only. Validator coverage reports 78/78 and Node tests report 40/40.
+- [Quick 260614-k62]: Sealos Seal is now logo-free: cap, hoodie chest, mascot body, props, and scene require no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge. Validator coverage reports 78/78 and Node tests report 40/40.
 
 ### Pending Todos
 
@@ -215,6 +216,7 @@ Recent decisions affecting current work:
 | 260614-fow | Make Sealos cap and chest logo exactly match uploaded logo | 2026-06-14 | b537fdc | [260614-fow-make-sealos-cap-and-chest-logo-exactly-m](./quick/260614-fow-make-sealos-cap-and-chest-logo-exactly-m/) |
 | 260614-izu | Require uploaded Sealos logo source overlay | 2026-06-14 | 870fe0b | [260614-izu-require-uploaded-sealos-logo-source-over](./quick/260614-izu-require-uploaded-sealos-logo-source-over/) |
 | 260614-jk6 | Require Sealos logo exact source shape mask | 2026-06-14 | a9e0007 | [260614-jk6-require-sealos-logo-exact-source-shape-m](./quick/260614-jk6-require-sealos-logo-exact-source-shape-m/) |
+| 260614-k62 | Remove all Sealos IP mascot logos | 2026-06-14 | 7c059dd | [260614-k62-remove-all-sealos-ip-mascot-logos](./quick/260614-k62-remove-all-sealos-ip-mascot-logos/) |
 
 ## Deferred Items
 
