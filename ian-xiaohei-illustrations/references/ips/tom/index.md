@@ -40,4 +40,4 @@ Every operational Tom file uses these shared failure names so later validation c
 
 ## Scope Boundary
 
-This pack provides route-local operational references for Tom. SKILL.md controller behavior, public documentation expansion, agent metadata wording, validator hardening, release checklist expansion, and public rendered Tom examples are owned by later phases.
+This pack provides route-local operational references for Tom. `rights.md` remains the route authority for authorization scope, distribution boundary, public-sample policy, reviewer fields, and status changes. Public rendered Tom examples remain gated by explicit public-sample approval.

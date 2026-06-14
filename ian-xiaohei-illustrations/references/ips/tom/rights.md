@@ -23,14 +23,14 @@
 ## Allowed Use
 
 - Document Tom route metadata, rights boundaries, source attribution context, and release-review fields.
-- Reference future Tom canonical pack paths under `references/ips/tom/` so maintainers can audit route completeness across later phases.
+- Reference Tom canonical pack paths under `references/ips/tom/` so maintainers can audit route completeness.
 - Use Tom route status wording in maintainer-facing docs while route status remains `gated-authorized`.
 
 ## Restricted Use
 
 - Generated public Tom sample assets require explicit public-sample approval before appearing in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
 - Broad Tom availability claims require release checklist approval and authorization-scope confirmation.
-- Tom identity, style, prompt, composition, and QA rules belong to the later Tom canonical pack phase.
+- Tom identity, style, prompt, composition, and QA rules stay route-local in the Tom canonical pack.
 - Broader Tom and Jerry cast, logos, title cards, source-frame recreation, and unrelated franchise scenes require separate authorization scope.
 
 ## Distribution Boundary

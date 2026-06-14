@@ -8,7 +8,7 @@ Rights-status note: Tom is a protected-character route. Use `rights.md` as the a
 
 Tom is Tom from Tom and Jerry under a protected-character route.
 
-Phase 7 defines a solo Tom article-illustration variant: Tom appears alone as the active operator of an article concept. The image uses original explanatory scenes and fresh metaphors for article-body illustration.
+The Tom route defines a solo Tom article-illustration variant: Tom appears alone as the active operator of an article concept. The image uses original explanatory scenes and fresh metaphors for article-body illustration.
 
 ## Recognition Rules
 
@@ -49,7 +49,7 @@ Tom cognitive-action participation gate: the visual metaphor depends on Tom's ac
 
 ## Solo Route Boundary
 
-- The Phase 7 Tom route is solo Tom.
+- The Tom route is solo Tom.
 - Supporting objects come from article metaphors: evidence slips, traps, levers, doors, paths, tools, piles, bridges, stamps, broken machines, gates, tags, ropes, springs, nets, or warning marks.
 - Scene design stays original, article-explanatory, and route-local.
 - Broader cast, logo, title-card, and source-frame concepts require separate authorization scope and later review.
