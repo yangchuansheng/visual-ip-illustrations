@@ -21,10 +21,10 @@
 
 ### Public Documentation
 
-- [ ] **DOC-01**: README opens with Visual IP Illustrations and explains the multi-IP product identity.
-- [ ] **DOC-02**: README install commands show the canonical clone/install path and the legacy compatibility path.
-- [ ] **DOC-03**: `examples/prompts.md` includes canonical `$visual-ip-illustrations` prompts plus legacy compatibility smoke prompts.
-- [ ] **DOC-04**: NOTICE and release materials preserve Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries while recording the rebrand scope.
+- [x] **DOC-01**: README opens with Visual IP Illustrations and explains the multi-IP product identity.
+- [x] **DOC-02**: README install commands show the canonical clone/install path and the legacy compatibility path.
+- [x] **DOC-03**: `examples/prompts.md` includes canonical `$visual-ip-illustrations` prompts plus legacy compatibility smoke prompts.
+- [x] **DOC-04**: NOTICE and release materials preserve Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries while recording the rebrand scope.
 
 ### Validation
 
@@ -81,10 +81,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PKG-02 | Phase 22 | Complete |
 | PKG-03 | Phase 22 | Complete |
 | PKG-04 | Phase 22 | Complete |
-| DOC-01 | Phase 23 | Pending |
-| DOC-02 | Phase 23 | Pending |
-| DOC-03 | Phase 23 | Pending |
-| DOC-04 | Phase 23 | Pending |
+| DOC-01 | Phase 23 | Complete |
+| DOC-02 | Phase 23 | Complete |
+| DOC-03 | Phase 23 | Complete |
+| DOC-04 | Phase 23 | Complete |
 | VAL-01 | Phase 24 | Pending |
 | VAL-02 | Phase 24 | Pending |
 | VAL-03 | Phase 24 | Pending |

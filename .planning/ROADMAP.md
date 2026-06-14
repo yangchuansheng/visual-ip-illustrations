@@ -101,5 +101,5 @@ Phases execute in numeric order: 21 -> 22 -> 23 -> 24
 |-------|----------------|--------|-----------|
 | 21. Naming and Compatibility Contract | 1/1 | Complete    | 2026-06-14 |
 | 22. Skill Package and Runtime Metadata Rebrand | 1/1 | Complete    | 2026-06-14 |
-| 23. Public Documentation and Examples Rebrand | 1/1 | Complete   | 2026-06-14 |
+| 23. Public Documentation and Examples Rebrand | 1/1 | Complete    | 2026-06-14 |
 | 24. Validation and Release Evidence | 0/0 | Pending | - |
