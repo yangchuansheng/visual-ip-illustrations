@@ -13,10 +13,10 @@
 
 ### Skill and Reference Content
 
-- [ ] **SKILL-01**: User can read `SKILL.md` in English-default prose while canonical and legacy invocations remain documented.
-- [ ] **SKILL-02**: User can read routing rules and shared references in English-default prose while route ids, aliases, required references, statuses, and output suffixes remain stable.
-- [ ] **SKILL-03**: User can read Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal route-local reference packs in English-default prose while each route preserves its prompt, QA, source, rights, brand, and visible-label behavior.
-- [ ] **SKILL-04**: Agent metadata presents the skill in English-default prose and preserves Xiaohei as the omitted-IP default plus explicit Littlebox, Tom, Ferris, and Sealos Seal routes.
+- [x] **SKILL-01**: User can read `SKILL.md` in English-default prose while canonical and legacy invocations remain documented.
+- [x] **SKILL-02**: User can read routing rules and shared references in English-default prose while route ids, aliases, required references, statuses, and output suffixes remain stable.
+- [x] **SKILL-03**: User can read Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal route-local reference packs in English-default prose while each route preserves its prompt, QA, source, rights, brand, and visible-label behavior.
+- [x] **SKILL-04**: Agent metadata presents the skill in English-default prose and preserves Xiaohei as the omitted-IP default plus explicit Littlebox, Tom, Ferris, and Sealos Seal routes.
 
 ### Public Documentation and Examples
 
@@ -76,10 +76,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LANG-01 | Phase 25 | Complete |
 | LANG-02 | Phase 25 | Complete |
 | LANG-03 | Phase 25 | Complete |
-| SKILL-01 | Phase 26 | Pending |
-| SKILL-02 | Phase 26 | Pending |
-| SKILL-03 | Phase 26 | Pending |
-| SKILL-04 | Phase 26 | Pending |
+| SKILL-01 | Phase 26 | Complete |
+| SKILL-02 | Phase 26 | Complete |
+| SKILL-03 | Phase 26 | Complete |
+| SKILL-04 | Phase 26 | Complete |
 | DOC-01 | Phase 27 | Pending |
 | DOC-02 | Phase 27 | Pending |
 | DOC-03 | Phase 27 | Pending |
