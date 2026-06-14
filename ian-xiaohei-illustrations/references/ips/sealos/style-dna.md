@@ -7,7 +7,7 @@ Brand/canonical-image authority: `source.md`.
 Canonical image status: `uploaded-image-canonical`.
 Drift boundary: `uploaded-image-locked`.
 Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
-Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
 Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`.
 
 ## Core Style
@@ -32,15 +32,12 @@ Sealos Seal images are sparse 16:9 horizontal article illustration outputs where
 Preserve the uploaded-image markers together:
 
 - white rounded seal body
-- navy cap
-- deep-blue hoodie
-- official uploaded Sealos logo shape on cap and chest
-- exact uploaded Sealos logo source shape on cap and chest
-- uploaded Sealos logo source shape mask
-- exact source shape with color remap allowed
-- blue curled wave / seal-tail mark above a rounded cloud-tray base
-- same official uploaded Sealos logo silhouette on both cap and chest
-- source-mask reproduction of the uploaded Sealos logo image
+- plain navy cap with no logo
+- plain deep-blue hoodie chest with no logo
+- no cap logo
+- no chest logo
+- no mascot logos
+- no logo patches
 - glossy dark eyes
 - black nose
 - whisker dots
@@ -49,7 +46,7 @@ Preserve the uploaded-image markers together:
 - compact legs
 - side-rear white tail
 
-The uploaded-image identity matters more than rendering detail density. Keep the mascot simple enough for article explanation while preserving the cap, hoodie, official uploaded Sealos logo shape, exact uploaded Sealos logo source shape, body color, face, flippers, legs, and tail. Cap and chest logo marks require the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask; no redraw, no generated tracing, no alternate wave, no simplified mark. Preserve the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base. Color remap allowed after the source shape mask is locked.
+The uploaded-image identity matters more than rendering detail density. Keep the mascot simple enough for article explanation while preserving the plain cap, plain hoodie chest, body color, face, flippers, legs, and tail. Cap and chest areas stay blank: no logo-like wave/cloud mark, no emblem, no patch, no text badge, no generated logo approximation, and no redrawn logo.
 
 ## Composition
 
@@ -58,7 +55,7 @@ The uploaded-image identity matters more than rendering detail density. Keep the
 - Use low-tech cloud-developer metaphor props sparingly: cloud OS tiles, deployment rails, DevBox workbenches, database cylinders, Kubernetes pods, app launch pads, traffic routes, incident cones, log slips, config keys, health checks, rollback handles, workflow gates, or service bridges.
 - Treat cloud-developer props as article metaphors for launch, reliability, review, diagnosis, handoff, hidden coupling, failure mode, decision gates, or system resilience.
 - Leave empty space around the mascot action so the metaphor reads at a glance.
-- Keep labels short and separated from the mascot's face, cap, chest logo, hoodie, flippers, and tail.
+- Keep labels short and separated from the mascot's face, cap, plain hoodie chest, flippers, and tail.
 - Sealos cognitive-action participation gate: the Sealos Seal performs the core cognitive action, so the image loses its meaning if the mascot is removed.
 
 ## Sealos Visual Vetoes
@@ -69,17 +66,18 @@ Regenerate or edit when the result contains:
 - abstract logo creature drift
 - missing cap
 - missing hoodie
-- missing Sealos marks
-- missing exact uploaded Sealos logo match
-- approximate logo redraw
+- logo-bearing mascot variants
+- cap logo
+- chest logo
+- mascot logo
+- logo patch
+- logo-like wave/cloud mark
+- text badge
+- generated logo approximation
+- redrawn logo
 - generated logo tracing
 - alternate wave mark
 - simplified logo mark
-- changed logo silhouette
-- changed logo proportions
-- changed logo curl
-- changed top fin/notch
-- changed rounded cloud-tray base
 - changed body color
 - passive mascot placement
 - over-detailed 3D toy drift
@@ -105,9 +103,9 @@ Regenerate or edit when the result contains:
 
 ## Stable Gates
 
-- Sealos identity gate: the image preserves white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo source shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- Sealos logo exactness gate: cap and chest marks preserve the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base from the uploaded logo image; color remap allowed after source shape mask lock.
+- Sealos identity gate: the image preserves white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Sealos no-logo gate: cap, hoodie chest, mascot body, props, and scene contain no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
 - Sealos cognitive-action participation gate: the Sealos Seal performs the central cognitive action, and removing the mascot breaks the metaphor.
 - Sealos uploaded-image gate: the mascot follows `source.md`, `uploaded-image-canonical`, and `uploaded-image-locked`.
 - Sealos sparse article gate: the scene stays clean white or near-white, hand-drawn, low-density, and label-light.
-- Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+- Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.

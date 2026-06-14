@@ -13,36 +13,31 @@
 - Brand role: reliable cloud developer companion.
 - Product context: Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes.
 - Mascot purpose: make cloud infrastructure work feel approachable, stable, and action-oriented in article illustrations.
-- Logo identity: cap and chest marks use the exact uploaded Sealos logo source shape from the user's uploaded logo image and require release review before public rendered samples.
-- Logo exactness: cap and chest marks require uploaded Sealos logo source image overlay with overlay-only logo finalization; no prompt-rendered logo accepted. Preserve the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base.
-- Logo source rule: use the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask as the geometry authority, with uniform scale, placement, and color remap only. Base images use blank cap and chest logo patches before overlay.
+- Logo-free identity: cap, hoodie chest, flippers, props, and scene use no Sealos logo, no logo mark, no emblem, no text badge, and no logo patch.
+- No-logo rule: preserve a plain navy cap and plain deep-blue hoodie chest. Remove cap and chest logo placement from all planning, generation, edit, QA, and delivery instructions.
+- Release rule: public rendered Sealos samples require review for uploaded-image identity, no mascot logos, brand wording, route isolation, and drift boundaries before publication.
 
 ## Canonical Image Authority
 
 - The user's uploaded mascot image is the canonical Sealos Seal reference for v1.3.
 - The uploaded image is the shape authority for this route.
-- The user's uploaded Sealos logo image is the logo shape authority for the cap mark and chest mark.
 - Earlier Sealos mascot exploration supplies brand personality and domain context only.
-- Maintain route identity against generic seals, abstract logo creatures, blue-gradient cloud/seal explorations, bald or plain-head seal variants, and any different mascot selection.
+- Maintain route identity against generic seals, abstract logo creatures, logo-bearing mascot variants, blue-gradient cloud/seal explorations, bald or plain-head seal variants, and any different mascot selection.
 
 ## Fixed Visual Markers
 
 The Sealos Seal route must preserve these uploaded-image markers:
 
 - white rounded seal body
-- navy cap
-- deep-blue hoodie
-- official uploaded Sealos logo shape on cap and chest
-- exact uploaded Sealos logo source shape on cap and chest
-- uploaded Sealos logo source image overlay
-- uploaded Sealos logo source shape mask
-- uploaded Sealos logo source alpha mask
-- overlay-only logo finalization
-- no prompt-rendered logo accepted
-- exact source shape with color remap allowed
-- blue curled wave / seal-tail mark above a rounded cloud-tray base
-- same official uploaded Sealos logo silhouette on both cap and chest
-- source-mask reproduction of the uploaded Sealos logo image
+- plain navy cap with no logo
+- plain deep-blue hoodie chest with no logo
+- no cap logo
+- no chest logo
+- no mascot logos
+- no logo patches
+- no logo-like wave/cloud mark
+- no emblem
+- no text badge
 - glossy dark eyes
 - black nose
 - whisker dots
@@ -56,10 +51,9 @@ The Sealos Seal route must preserve these uploaded-image markers:
 - Prior Sealos mascot exploration can inform wording such as reliable cloud developer companion, cloud OS identity, and developer-tool friendliness.
 - The phrase prior Sealos mascot exploration names the supporting context boundary for validator and release review.
 - Generated shapes and earlier alternate mascot concepts stay supporting context.
-- The uploaded mascot image controls body shape, outfit, logo placement, and visible identity markers.
-- The uploaded logo image controls the cap logo and hoodie chest logo geometry as an exact uploaded Sealos logo source shape.
-- Logo geometry gate: use uploaded Sealos logo source image overlay on both placements; preserve the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base.
-- Logo delivery gate: record the source asset path or attachment id, keep blank cap and chest logo patches before overlay, and use the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask with color remap allowed.
+- The uploaded mascot image controls body shape, outfit, face, flippers, compact legs, side-rear white tail, and visible identity markers.
+- No-logo geometry gate: keep the cap and hoodie chest plain, clean, and free of Sealos logo marks, logo-like wave/cloud marks, emblems, text badges, and patches.
+- No-logo delivery gate: report that Sealos mascot logos were removed across cap, chest, props, and scene.
 
 ## Route Status
 
@@ -77,9 +71,9 @@ The Sealos Seal route must preserve these uploaded-image markers:
 ## Restricted Use
 
 - Public rendered Sealos Seal sample assets require release review before appearing in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
-- Public rendered samples require brand/logo review for uploaded Sealos logo source image overlay on the cap mark, uploaded Sealos logo source image overlay on the chest mark, source asset path or attachment id, and Sealos brand/logo wording.
+- Public rendered samples require review for uploaded-image identity, plain cap, plain hoodie chest, no mascot logos, no logo patches, route-local Sealos wording, and public-sample claims.
 - Broad route availability claims require later runtime integration and release checklist approval.
-- Generic seal mascots, abstract logo creatures, blue-gradient cloud/seal explorations, bald or plain-head seal variants, and different mascot selection belong outside this route contract.
+- Generic seal mascots, abstract logo creatures, logo-bearing mascot variants, blue-gradient cloud/seal explorations, bald or plain-head seal variants, and different mascot selection belong outside this route contract.
 
 ## Distribution Boundary
 
@@ -91,15 +85,15 @@ The Sealos Seal route must preserve these uploaded-image markers:
 
 - Public rendered Sealos Seal samples: pending explicit release approval.
 - Internal review samples: allowed under `assets/<article-slug>-sealos/` when this source record and the brand/canonical-image note stay attached.
-- Sample approval record: reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, and brand-logo outcome must be recorded before public sample publication.
+- Sample approval record: reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, and no-logo outcome must be recorded before public sample publication.
 
 ## Drift Boundary
 
-- Reject drift into generic seals, abstract logo creatures, blue-gradient cloud/seal explorations, bald or plain-head seal variants, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, missing uploaded Sealos logo source image overlay, missing uploaded Sealos logo source shape mask, prompt-rendered logo accepted, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed logo silhouette, changed logo proportions, changed logo curl, changed top fin/notch, changed rounded cloud-tray base, changed body color, missing side-rear white tail, prior exploration variants, or a different mascot selection.
+- Reject drift into generic seals, abstract logo creatures, logo-bearing mascot variants, blue-gradient cloud/seal explorations, bald or plain-head seal variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, logo-like wave/cloud mark, text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed body color, missing side-rear white tail, prior exploration variants, or a different mascot selection.
 - Preserve the uploaded image as the canonical Sealos Seal reference for v1.3 until a maintainer records a new release decision.
 
 ## Review Owner
 
 - Owner: maintainer / release reviewer for the Sealos Seal route.
 - Review purpose: decide whether Sealos Seal remains `brand-owned`, expands to a selectable runtime route, or receives a different release status after downstream phases.
-- Required review fields: reviewer, review date, approval status, uploaded-image identity outcome, brand-logo outcome, allowed use, restricted use, distribution channels, and public-sample decision.
+- Required review fields: reviewer, review date, approval status, uploaded-image identity outcome, no-logo outcome, allowed use, restricted use, distribution channels, and public-sample decision.

@@ -7,7 +7,7 @@ Brand/canonical-image authority: `source.md`.
 Canonical image status: `uploaded-image-canonical`.
 Drift boundary: `uploaded-image-locked`.
 Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
-Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
 Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`.
 
 Use one composition family per image. Keep one core idea, one physical cloud-developer metaphor, and one active Mascot action.
@@ -137,7 +137,7 @@ The action must serve the core idea. Sealos Seal's flippers, eyes, body directio
 - Copy labels exactly from the user's language.
 - Use nouns or short verb phrases.
 - Place labels near supporting objects, route nodes, paths, gates, warnings, health checks, or outputs.
-- Keep labels away from the mascot's face, cap, chest logo, hoodie, flippers, and tail.
+- Keep labels away from the mascot's face, cap, plain hoodie chest, flippers, and tail.
 - Move explanation into the article text when the label set starts to crowd the canvas.
 
 ## Brand and Identity Gates
@@ -145,8 +145,8 @@ The action must serve the core idea. Sealos Seal's flippers, eyes, body directio
 Apply these before generation and during prompt repair:
 
 - Sealos brand/canonical-image authority gate: use `source.md` for uploaded-image authority, brand context, fixed visual markers, public-sample policy, reviewer fields, and route status changes.
-- Uploaded-image identity gate: preserve white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo source shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- Logo exactness gate: cap and chest marks preserve the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base from the uploaded logo image; use the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask, with color remap allowed.
+- Uploaded-image identity gate: preserve white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- No-logo gate: cap, hoodie chest, mascot body, props, and scene contain no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
 - Mascot action gate: Sealos Seal must operate the metaphor with a physical action; decorative side placement fails.
 - Identity-first variation gate: change supporting objects and scene metaphors before changing uploaded-image identity markers.
 - Cloud-developer metaphor gate: Sealos cloud/OS puns can shape props, while the article concept remains the visual priority.
@@ -155,7 +155,7 @@ Apply these before generation and during prompt repair:
 
 Composition vetoes include formal diagrams, dense PPT-like infographics, UI screenshots, IDE scenes, terminal scenes, code screenshots, poster layouts, top-left titles, copied prior route compositions, and route leakage.
 
-Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
 
 ## Anti-Repeat Rule
 

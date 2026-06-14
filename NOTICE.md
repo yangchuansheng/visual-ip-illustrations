@@ -53,11 +53,11 @@ Sealos Seal source context records the Sealos brand mascot route based on the us
 - Release-review references: `NOTICE.md`, `RELEASE_CHECKLIST.md`, `ian-xiaohei-illustrations/references/routing.md`, and `ian-xiaohei-illustrations/references/ips/sealos/source.md`
 - Brand context: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes.
 
-Prior Sealos mascot exploration supplies supporting brand context. The uploaded image remains the canonical mascot reference for v1.3 and controls body shape, navy cap, deep-blue hoodie, uploaded Sealos logo source image overlay on cap and chest, facial markers, flippers, compact legs, and side-rear white tail. The official uploaded Sealos logo shape is the blue curled wave / seal-tail mark above a rounded cloud-tray base and requires overlay-only logo finalization from the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask, with uniform scale, placement, and color remap only. Color remap allowed after the source shape mask is locked. No prompt-rendered logo accepted.
+Prior Sealos mascot exploration supplies supporting brand context. The uploaded image remains the canonical mascot reference for v1.3 and controls body shape, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, facial markers, flippers, compact legs, and side-rear white tail. Sealos mascot imagery keeps cap, hoodie chest, mascot body, props, and scene free of cap logo, chest logo, mascot logos, logo patches, logo-like wave/cloud marks, emblems, and text badges.
 
 Earlier Sealos exploration variants, generic seals, abstract logo creatures, blue-gradient cloud/seal explorations, and bald/plain-head variants are drift boundaries for this route. They are not canonical route options for Sealos Seal.
 
-Public rendered samples for Sealos Seal and Sealos brand/logo wording remain gated until reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, uploaded Sealos logo source image overlay outcome, source shape mask outcome, source asset path or attachment id, and brand-logo outcome are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
+Public rendered samples for Sealos Seal and Sealos brand wording remain gated until reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, no-logo mascot identity outcome, and brand wording outcome are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
 
 Author links:
 

@@ -135,51 +135,51 @@ This section is the Ferris maintainer release gate for source record review, Rus
 
 ## Sealos Seal Brand, Uploaded Image, and Public Sample Gate
 
-This section is the Sealos Seal maintainer release gate for source record review, uploaded-image identity, official uploaded logo shape, Sealos brand/logo wording, prompt leakage, public assets, generated samples, validator evidence, release channels, and final brand review.
+This section is the Sealos Seal maintainer release gate for source record review, uploaded-image identity, no-logo mascot identity, Sealos brand wording, prompt leakage, public assets, generated samples, validator evidence, release channels, and final brand review.
 
 ### Sealos Source Record Review
 
 - [ ] Review `ian-xiaohei-illustrations/references/ips/sealos/source.md` for source, brand context, canonical image authority, fixed visual markers, prior exploration boundary, route status, allowed use, restricted use, distribution boundary, sample policy, drift boundary, and review owner.
 - [ ] Confirm route status remains `brand-owned`, canonical image status remains `uploaded-image-canonical`, and drift boundary remains `uploaded-image-locked`.
 - [ ] Confirm `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep Sealos Seal, route id `sealos`, `brand-owned`, `uploaded-image-canonical`, `uploaded-image-locked`, `assets/<article-slug>-sealos/`, `assets/&lt;article-slug&gt;-sealos/`, and `ian-xiaohei-illustrations/references/ips/sealos/source.md` aligned.
-- [ ] Record source review: PENDING / reviewer / date / approval status / source record / release channels / uploaded-image identity outcome / brand-logo outcome.
+- [ ] Record source review: PENDING / reviewer / date / approval status / source record / release channels / uploaded-image identity outcome / no-logo outcome.
 
 ### Uploaded-Image Identity Review
 
-- [ ] Confirm the uploaded Sealos Seal image preserves these markers exactly: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest after overlay, exact uploaded Sealos logo source shape on cap and chest, uploaded Sealos logo source image overlay on cap and chest, uploaded Sealos logo source shape mask, uploaded Sealos logo source alpha mask, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, same official uploaded Sealos logo silhouette on both cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- [ ] Confirm cap and chest logo review uses overlay-only logo finalization, no prompt-rendered logo accepted, blank cap and chest logo patches before overlay, uploaded Sealos logo source shape mask, uploaded Sealos logo source alpha mask, exact source shape with color remap allowed, uniform scale, placement, and color remap only, source asset path or attachment id, and preserves the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base.
-- [ ] Confirm public review blocks generic seals, abstract logo creatures, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, missing uploaded Sealos logo source image overlay, missing uploaded Sealos logo source shape mask, prompt-rendered logo accepted, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed logo silhouette, changed logo proportions, changed logo curl, changed top fin/notch, changed rounded cloud-tray base, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, and different selected mascot.
+- [ ] Confirm the uploaded Sealos Seal image preserves these markers exactly: white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- [ ] Confirm no-logo review covers no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, no text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, and simplified logo mark across cap, hoodie chest, mascot body, props, and scene.
+- [ ] Confirm public review blocks generic seals, abstract logo creatures, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, logo-like wave/cloud mark, text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, and different selected mascot.
 - [ ] Confirm prior Sealos mascot exploration supplies supporting brand context while the uploaded image stays the v1.3 canonical mascot reference.
 
-### Sealos Brand and Logo Wording Review
+### Sealos Brand and No-Logo Wording Review
 
-- [ ] Review README, examples, routing docs, NOTICE, generated samples, and release notes for Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, Kubernetes, reliable cloud developer companion, uploaded Sealos logo source image overlay on cap and chest, and Sealos brand/logo wording.
-- [ ] Confirm the cap logo and chest logo use uploaded Sealos logo source image overlay: use the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask, keep uniform scale, placement, and color remap only, preserve orientation and aspect ratio, and record source asset path or attachment id.
-- [ ] Confirm public rendered samples receive brand/logo review before publication.
+- [ ] Review README, examples, routing docs, NOTICE, generated samples, and release notes for Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, Kubernetes, reliable cloud developer companion, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, and Sealos brand wording.
+- [ ] Confirm cap, hoodie chest, mascot body, props, and scene stay free of cap logo, chest logo, mascot logos, logo patches, logo-like wave/cloud marks, emblems, and text badges.
+- [ ] Confirm public rendered samples receive brand and no-logo review before publication.
 
 ### Sealos Prompt Leakage Scan
 
-- [ ] Scan Sealos planning, generation, edit, smoke, README, examples, routing, release notes, and delivery text for generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, missing uploaded Sealos logo source image overlay, missing uploaded Sealos logo source shape mask, prompt-rendered logo accepted, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed logo silhouette, changed logo proportions, changed logo curl, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, different selected mascot drift, excessive text, route leakage, and public sample claims without approval.
+- [ ] Scan Sealos planning, generation, edit, smoke, README, examples, routing, release notes, and delivery text for generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, logo-like wave/cloud mark, text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, different selected mascot drift, excessive text, route leakage, and public sample claims without approval.
 - [ ] Confirm prompt leakage scan covers `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/SKILL.md`, `ian-xiaohei-illustrations/references/routing.md`, `ian-xiaohei-illustrations/references/ips/sealos/`, `NOTICE.md`, and release notes.
 - [ ] Confirm Sealos wording stays route-local and does not leak Sealos brand mascot rules into Xiaohei, Littlebox, Tom, or Ferris route contracts.
 
 ### Sealos Public Asset Policy
 
-- [ ] Sealos public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / brand-logo outcome.
+- [ ] Sealos public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / no-logo outcome.
 - [ ] Public rendered Sealos Seal samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
-- [ ] Public rendered Sealos sample approval must cover uploaded-image identity, exact uploaded logo match on cap and chest, cap/hoodie/logo preservation, Sealos brand/logo wording, allowed directories, release channels, and drift markers.
+- [ ] Public rendered Sealos sample approval must cover uploaded-image identity, no-logo mascot identity, cap/hoodie preservation, Sealos brand wording, allowed directories, release channels, and drift markers.
 
 ### Sealos Generated Sample Policy
 
 - [ ] Internal review samples under `assets/<article-slug>-sealos/` may be used when the source record and brand/canonical-image note stay attached.
 - [ ] Public rendered samples from `assets/<article-slug>-sealos/` require Sealos Public Asset Policy approval before release channels list or copy them into public sample directories.
-- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / brand-logo outcome.
+- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / no-logo outcome.
 
 ### Final Sealos Release Review
 
 - [ ] Final Sealos release review confirms `ian-xiaohei-illustrations/references/ips/sealos/source.md` is the authority for brand context, uploaded-image identity, distribution boundary, sample policy, and review owner.
 - [ ] Final Sealos release review confirms NOTICE consistency, README/examples/metadata parity, routing parity, route status `brand-owned`, public asset approvals, generated sample approvals, and Phase 20 validator/test evidence before v1.3 release.
-- [ ] Final Sealos release review confirms public rendered assets in `examples/images/` and `ian-xiaohei-illustrations/assets/examples/` have recorded approval status, reviewer, date, allowed directories, release channels, uploaded-image identity outcome, and brand-logo outcome.
+- [ ] Final Sealos release review confirms public rendered assets in `examples/images/` and `ian-xiaohei-illustrations/assets/examples/` have recorded approval status, reviewer, date, allowed directories, release channels, uploaded-image identity outcome, and no-logo outcome.
 - [ ] Final Sealos release review requires green evidence from `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`.
 
 ## Installable Package Boundary

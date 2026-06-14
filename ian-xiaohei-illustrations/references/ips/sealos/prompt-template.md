@@ -9,10 +9,9 @@ Brand/canonical-image authority: `source.md`.
 Canonical image status: `uploaded-image-canonical`.
 Drift boundary: `uploaded-image-locked`.
 Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
-Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
 Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`.
-Logo overlay authority: `logo-overlay.md`.
-Logo overlay markers: uploaded Sealos logo source image overlay, overlay-only logo finalization, no prompt-rendered logo accepted, blank cap and chest logo patches before overlay, uploaded Sealos logo source shape mask, uploaded Sealos logo source alpha mask, exact source shape with color remap allowed, uniform scale, placement, and color remap only, and source asset path or attachment id.
+No-logo markers: plain navy cap with no logo, plain deep-blue hoodie chest with no logo, no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
 
 ## Planning Output Format
 
@@ -29,8 +28,8 @@ Use this format for Sealos Seal shot lists:
    Supporting objects: [1-2 cloud-developer low-tech objects: cloud OS tiles, deployment rails, DevBox workbenches, database cylinders, Kubernetes pods, app launch pads, traffic routes, incident cones, log slips, config keys, health checks, rollback handles, workflow gates, or service bridges]
    Visible labels: ["short label 1", "short label 2", "short label 3" copied exactly in the user's language]
    Output path: assets/<article-slug>-sealos/
-   Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, uploaded Sealos logo source image overlay on cap and chest, and fixed identity markers from source.md.
-   Logo overlay note: generate blank cap and chest logo patches before overlay, then composite the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask with uniform scale, placement, and color remap only. Record source asset path or attachment id.
+   Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with plain navy cap with no logo, plain deep-blue hoodie chest with no logo, and fixed identity markers from source.md.
+   No-logo note: keep cap, hoodie chest, mascot body, props, and scene free of cap logo, chest logo, mascot logos, logo patches, logo-like wave/cloud marks, emblems, and text badges.
 ```
 
 Planning rule: Sealos Seal must perform the cognitive action. Choose supporting objects from the cloud-developer article metaphor, then make Sealos Seal deploy, launch, connect, debug, route, lift, inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide the decisive idea.
@@ -46,15 +45,15 @@ Generate one standalone 16:9 horizontal article illustration.
 
 Route status note: Sealos Seal is a `brand-owned` route. Use `source.md` as the brand/canonical-image authority for uploaded-image identity, brand context, fixed visual markers, public-sample policy, reviewer fields, and status changes. Keep the scene original, article-explanatory, and route-local.
 
-Canonical image note: Sealos Seal is `uploaded-image-canonical` and `uploaded-image-locked`. Preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, uploaded Sealos logo source image overlay on cap and chest, uploaded Sealos logo source shape mask, uploaded Sealos logo source alpha mask, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+Canonical image note: Sealos Seal is `uploaded-image-canonical` and `uploaded-image-locked`. Preserve the uploaded white seal mascot with plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
 
-Logo overlay note: produce the base image with blank cap and chest logo patches before overlay. After generation, composite the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask onto both patches. Use uniform scale, placement, and color remap only. Preserve the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base. Color remap allowed after the source shape mask is locked. No prompt-rendered logo accepted.
+No-logo note: the cap and hoodie chest must stay plain. Use no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge anywhere on the mascot, props, or scene.
 
 Scene: [core idea in one sentence].
 
 Visual language: sparse hand-drawn article illustration on a clean white or near-white background. Loose black linework with visible human looseness, generous whitespace, one enlarged action subject, and a few low-tech supporting objects. Use black for main strokes, objects, mascot details, and labels. Use restrained Sealos blue and deep-blue accents for the cap, hoodie, infrastructure cues, and selected action emphasis. Use minimal red/orange emphasis for warnings, decisions, motion, stamps, or decisive transitions. No gradients, no shadows, no paper texture, no polished vector style, no dense infographic, no PPT slide, no UI screenshot, no poster composition.
 
-Recurring IP: Sealos Seal as the selected route's uploaded white seal mascot. Preserve recognizable Sealos Seal cues: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, uploaded Sealos logo source image overlay on cap and chest, uploaded Sealos logo source shape mask, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail. Keep Sealos Seal sparse and explanatory while remaining recognizable as the uploaded mascot route.
+Recurring IP: Sealos Seal as the selected route's uploaded white seal mascot. Preserve recognizable Sealos Seal cues: white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail. Keep Sealos Seal sparse and explanatory while remaining recognizable as the uploaded mascot route.
 
 Structure type: [Workflow / System Local View / Before/After / Character State / Concept Metaphor / Method Layers / Map Route / Mini Comic].
 
@@ -64,17 +63,17 @@ Mascot action: Sealos Seal must perform the central cognitive action: [specific 
 
 Supporting objects: [1-2 cloud-developer low-tech objects: cloud OS tiles, deployment rails, DevBox workbenches, database cylinders, Kubernetes pods, app launch pads, traffic routes, incident cones, log slips, config keys, health checks, rollback handles, workflow gates, or service bridges].
 
-Composition: one core idea only. [Describe exact positions, Sealos Seal's body direction, flipper action, the supporting objects, and the information flow]. Main Mascot action takes about 35%-55% of the canvas. Leave generous whitespace around the action. Keep labels away from the mascot's face, cap, chest logo, hoodie, flippers, and tail. Leave blank cap and chest logo patches before overlay, positioned for later uploaded logo source image overlay.
+Composition: one core idea only. [Describe exact positions, Sealos Seal's body direction, flipper action, the supporting objects, and the information flow]. Main Mascot action takes about 35%-55% of the canvas. Leave generous whitespace around the action. Keep labels away from the mascot's face, cap, plain hoodie chest, flippers, and tail. Keep cap and hoodie chest clean, plain, and logo-free.
 
 Cloud-developer article metaphor: use cloud OS, AI deployment, DevBox, database, Kubernetes, app launch, troubleshooting, and workflow objects as explanatory metaphors for launch, reliability, review, diagnosis, handoff, hidden coupling, failure mode, decision gates, or system resilience. Treat these objects as article props, brand-owned Sealos route context, and uploaded-image-safe metaphors.
 
 Visible handwritten labels, copied exactly in the user's language: [quoted labels]. Keep labels concise, sparse, legible, and drawn as rough handwritten text. For non-Latin scripts, copy the label text exactly, preserve the script, and do not translate it.
 
-Save reminder: save accepted output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`. Delivery must record source asset path or attachment id for the uploaded Sealos logo source image overlay.
+Save reminder: save accepted output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`. Delivery must report that cap, hoodie chest, mascot body, props, and scene contain no logo.
 
-Constraints: one image explains one core idea. Keep Sealos Seal as the central cognitive action subject. Use no generic seal drift, no abstract logo creature drift, no missing cap, no missing hoodie, no missing official uploaded Sealos logo shape on cap or chest after overlay, no missing uploaded Sealos logo source image overlay, no missing uploaded Sealos logo source shape mask, no prompt-rendered logo accepted, no generated logo approximation, no generated logo tracing, no redrawn logo, no alternate wave mark, no simplified logo mark, no changed logo silhouette, no changed logo proportions, no changed logo curl, no changed top fin/notch, no changed rounded cloud-tray base, no changed body color, no passive mascot placement, no over-detailed 3D toy drift, no excessive text, no route leakage, no missing side-rear tail, no missing glossy dark eyes, no missing black nose, no missing whisker dots, no missing small smile, no missing short rounded flippers, no missing compact legs, no prior exploration variant drift, no bald/plain-head seal drift, no formal diagrams, no dense PPT-like infographics, no UI screenshots, no IDE scenes, no terminal scenes, no code screenshots, no poster layouts, no top-left titles, no clean digital font labels, no crowded nodes, and no copied prior composition.
+Constraints: one image explains one core idea. Keep Sealos Seal as the central cognitive action subject. Use no generic seal drift, no abstract logo creature drift, no logo-bearing mascot variants, no missing cap, no missing hoodie, no cap logo, no chest logo, no mascot logo, no logo patches, no logo-like wave/cloud mark, no emblem, no text badge, no generated logo approximation, no generated logo tracing, no redrawn logo, no alternate wave mark, no simplified logo mark, no changed body color, no passive mascot placement, no over-detailed 3D toy drift, no excessive text, no route leakage, no missing side-rear tail, no missing glossy dark eyes, no missing black nose, no missing whisker dots, no missing small smile, no missing short rounded flippers, no missing compact legs, no prior exploration variant drift, no bald/plain-head seal drift, no formal diagrams, no dense PPT-like infographics, no UI screenshots, no IDE scenes, no terminal scenes, no code screenshots, no poster layouts, no top-left titles, no clean digital font labels, no crowded nodes, and no copied prior composition.
 
-Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
 ```
 
 ## Editing Prompts
@@ -90,7 +89,7 @@ Regenerate the image with the same core idea, same article-illustration style, s
 
 Route status note: Sealos Seal is a `brand-owned` route. Use `source.md` as the brand/canonical-image authority for uploaded-image identity, brand context, public-sample policy, reviewer fields, and status changes. Keep `uploaded-image-canonical` and `uploaded-image-locked`.
 
-Sealos Seal should physically deploy, launch, connect, debug, route, lift, inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide the concept through the scene. The metaphor should depend on Sealos Seal's action. Preserve the uploaded mascot identity: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, uploaded Sealos logo source image overlay on cap and chest, uploaded Sealos logo source shape mask, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+Sealos Seal should physically deploy, launch, connect, debug, route, lift, inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide the concept through the scene. The metaphor should depend on Sealos Seal's action. Preserve the uploaded mascot identity: white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
 ```
 
 ### Uploaded-Image Identity Repair
@@ -102,21 +101,21 @@ Edit the image to keep the same composition, labels, style, 16:9 aspect ratio, a
 
 Route status note: Sealos Seal is a `brand-owned` route. Use `source.md` as the brand/canonical-image authority for uploaded-image identity, brand context, public-sample policy, reviewer fields, and status changes. Keep `uploaded-image-canonical` and `uploaded-image-locked`.
 
-Restore the uploaded-image markers: white rounded body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest after overlay, uploaded Sealos logo source image overlay on cap and chest, uploaded Sealos logo source shape mask, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail. Repair the logo through overlay-only logo finalization: blank cap and chest logo patches before overlay, then composite the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask with uniform scale, placement, and color remap only. Remove generic seal drift, abstract logo creature drift, changed body color, missing cap, missing hoodie, missing official uploaded Sealos logo shape, missing uploaded Sealos logo source image overlay, missing uploaded Sealos logo source shape mask, prompt-rendered logo accepted, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed logo silhouette, changed logo proportions, changed logo curl, changed top fin/notch, changed rounded cloud-tray base, over-detailed 3D toy drift, prior exploration variant drift, bald/plain-head seal drift, and route-neutral mascot features.
+Restore the uploaded-image markers: white rounded body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail. Keep cap and hoodie chest plain and logo-free. Remove generic seal drift, abstract logo creature drift, logo-bearing mascot variants, changed body color, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, logo-like wave/cloud mark, text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, over-detailed 3D toy drift, prior exploration variant drift, bald/plain-head seal drift, and route-neutral mascot features.
 ```
 
-### Logo Hoodie Cap Repair
+### No-Logo Hoodie Cap Repair
 
-Sealos logo, hoodie, and cap repair gate.
+Sealos no-logo hoodie and cap repair gate.
 
 ```text
-Edit the image to keep the same core idea, successful mascot action, successful composition, visible labels, 16:9 aspect ratio, and article metaphor, but replace the cap and chest marks through uploaded Sealos logo source image overlay, then preserve navy cap shape, deep-blue hoodie, and brand-color consistency.
+Edit the image to keep the same core idea, successful mascot action, successful composition, visible labels, 16:9 aspect ratio, and article metaphor, but remove every logo from the cap, hoodie chest, mascot body, props, and scene. Preserve plain navy cap shape, plain deep-blue hoodie chest, and brand-color consistency.
 
 Route status note: Sealos Seal is a `brand-owned` route. Use `source.md` as the brand/canonical-image authority for uploaded-image identity, brand context, public-sample policy, reviewer fields, and status changes. Keep `uploaded-image-canonical` and `uploaded-image-locked`.
 
-Preserve the uploaded white seal mascot, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, side-rear white tail, sparse article-illustration style, and unaffected supporting objects. The cap logo and chest logo must use uploaded Sealos logo source image overlay with overlay-only logo finalization: use the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask, preserve aspect ratio and orientation, and allow uniform scale, placement, and color remap only. No prompt-rendered logo accepted. Keep Sealos blue and deep-blue accents restrained and readable.
+Preserve the uploaded white seal mascot, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, side-rear white tail, sparse article-illustration style, and unaffected supporting objects. Keep the cap and hoodie chest plain: no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge. Keep Sealos blue and deep-blue accents restrained and readable.
 
-Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
 ```
 
 ### Title Removal
@@ -140,7 +139,7 @@ Edit or regenerate the image with the same core idea, same Mascot action, same s
 
 Route status note: Sealos Seal is a `brand-owned` route. Use `source.md` as the brand/canonical-image authority for uploaded-image identity, brand context, public-sample policy, reviewer fields, and status changes. Keep `uploaded-image-canonical` and `uploaded-image-locked`.
 
-Keep only these short visible labels, copied exactly in the user's language: [quoted labels]. Remove full sentences, dense annotations, bilingual text, clean digital typography, top-left titles, labels that crowd the mascot's face, cap, chest logo, hoodie, flippers, or tail, and text that creates excessive text. Preserve mascot identity, Mascot action, supporting objects, labels that remain correct, line style, color accents, aspect ratio, image quality, and brand/canonical-image boundary.
+Keep only these short visible labels, copied exactly in the user's language: [quoted labels]. Remove full sentences, dense annotations, bilingual text, clean digital typography, top-left titles, labels that crowd the mascot's face, cap, plain hoodie chest, flippers, or tail, and text that creates excessive text. Preserve mascot identity, Mascot action, supporting objects, labels that remain correct, line style, color accents, aspect ratio, image quality, and brand/canonical-image boundary.
 ```
 
 ### Preserve Unaffected Content
@@ -148,11 +147,11 @@ Keep only these short visible labels, copied exactly in the user's language: [qu
 Sealos unaffected-content preservation gate.
 
 ```text
-Edit only the named failure: [participation / uploaded-image identity / logo hoodie cap / title / text density / label typo / route leakage]. First name the exact failure being repaired. Preserve all successful content outside that failure: successful Mascot action, uploaded Sealos Seal identity cues, existing composition, visible labels that are already correct, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality.
+Edit only the named failure: [participation / uploaded-image identity / no-logo hoodie cap / title / text density / label typo / route leakage]. First name the exact failure being repaired. Preserve all successful content outside that failure: successful Mascot action, uploaded Sealos Seal identity cues, existing composition, visible labels that are already correct, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality.
 
 Route status note: Sealos Seal is a `brand-owned` route. Use `source.md` as the brand/canonical-image authority for uploaded-image identity, brand context, public-sample policy, reviewer fields, and status changes. Keep `uploaded-image-canonical` and `uploaded-image-locked`.
 
-Keep the scene an original article metaphor. Add no generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, route leakage, formal diagrams, UI screenshots, title cards, dense PPT-like infographics, or copied prior route compositions.
+Keep the scene an original article metaphor. Add no generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, route leakage, formal diagrams, UI screenshots, title cards, dense PPT-like infographics, or copied prior route compositions.
 
-Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
 ```

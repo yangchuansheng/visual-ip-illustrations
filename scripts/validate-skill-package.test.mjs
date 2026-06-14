@@ -161,27 +161,27 @@ function completeGeneratedFerrisSampleLine(reviewDate = "2026-06-13", trademarkO
 }
 
 function pendingSealosPublicAssetApprovalLine() {
-  return "- [ ] Sealos public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / brand-logo outcome.";
+  return "- [ ] Sealos public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / no-logo outcome.";
 }
 
 function completeSealosPublicAssetApprovalLine(
   reviewDate = "2026-06-13",
   identityOutcome = "uploaded image identity preserved",
-  brandLogoOutcome = "brand logo wording approved",
+  noLogoOutcome = "no-logo identity approved",
 ) {
-  return `- [x] Sealos public asset policy for \`examples/images/\` and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${brandLogoOutcome}.`;
+  return `- [x] Sealos public asset policy for \`examples/images/\` and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${noLogoOutcome}.`;
 }
 
 function pendingGeneratedSealosSampleLine() {
-  return "- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / brand-logo outcome.";
+  return "- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / no-logo outcome.";
 }
 
 function completeGeneratedSealosSampleLine(
   reviewDate = "2026-06-13",
   identityOutcome = "uploaded image identity preserved",
-  brandLogoOutcome = "brand logo wording approved",
+  noLogoOutcome = "no-logo identity approved",
 ) {
-  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-sealos / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${brandLogoOutcome}.`;
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-sealos / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${noLogoOutcome}.`;
 }
 
 test("validator command prints deterministic harness smoke logs", () => {
@@ -449,7 +449,6 @@ test("parser helpers expose current package contract primitives", async () => {
     "references/ips/sealos/sealos-ip.md",
     "references/ips/sealos/composition-patterns.md",
     "references/ips/sealos/prompt-template.md",
-    "references/ips/sealos/logo-overlay.md",
     "references/ips/sealos/qa-checklist.md",
   ]);
   assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
@@ -550,7 +549,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingSealosApproval.complete, false);
   assert.equal(pendingSealosApproval.allowedDirectoriesPresent, false);
   assert.equal(pendingSealosApproval.identityOutcomePresent, false);
-  assert.equal(pendingSealosApproval.brandLogoOutcomePresent, false);
+  assert.equal(pendingSealosApproval.noLogoOutcomePresent, false);
 
   const approvedSealosText = releaseChecklistText.replace(
     pendingSealosPublicAssetApprovalLine(),
@@ -563,7 +562,7 @@ test("approval parser helpers expose current release primitives", async () => {
     "ian-xiaohei-illustrations/assets/examples",
   ]);
   assert.equal(approvedSealos.identityOutcomePresent, true);
-  assert.equal(approvedSealos.brandLogoOutcomePresent, true);
+  assert.equal(approvedSealos.noLogoOutcomePresent, true);
 
   const pendingGeneratedSealosApproval = validators.parseGeneratedSealosSampleApproval(releaseChecklistText);
   assert.equal(pendingGeneratedSealosApproval.found, true);
@@ -779,12 +778,6 @@ test("validator fixture reports Sealos pack, prompt, and QA marker drift", () =>
       "QA-SEALOS-001",
     ],
     [
-      "logo-overlay",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "logo-overlay.md"),
-      "overlay-only logo finalization",
-      "LOGO-SEALOS-001",
-    ],
-    [
       "identity",
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "sealos-ip.md"),
       "Sealos Seal must perform the central cognitive action",
@@ -840,44 +833,38 @@ test("validator fixture reports Sealos docs, metadata, NOTICE, release, and smok
   }
 });
 
-test("validator fixture rejects Sealos uploaded logo overlay drift", () => {
-  const fixtureRoot = copyFixture("sealos-logo-overlay");
+test("validator fixture rejects Sealos no-logo drift", () => {
+  const fixtureRoot = copyFixture("sealos-no-logo");
   try {
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
-      "uploaded Sealos logo source image overlay",
-      "similar Sealos logo mark",
+      "plain navy cap with no logo",
+      "navy cap with a small Sealos logo",
     );
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
-      "uploaded Sealos logo source shape mask",
-      "generated logo shape",
+      "no cap logo",
+      "cap logo",
     );
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "prompt-template.md"),
-      "no prompt-rendered logo accepted",
-      "prompt-rendered logo accepted",
-    );
-    replaceAllInFixture(
-      fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "logo-overlay.md"),
-      "uploaded Sealos logo source shape mask",
-      "generated logo approximation",
+      "No-logo note",
+      "Logo note",
     );
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "qa-checklist.md"),
-      "source asset path or attachment id",
-      "logo review note",
+      "Sealos QA no-logo failure",
+      "Sealos QA logo allowed failure",
     );
     replaceAllInFixture(
       fixtureRoot,
       "README.md",
-      "uploaded Sealos logo source image overlay",
-      "similar Sealos logo mark",
+      "no-logo mascot identity",
+      "logo-bearing mascot identity",
     );
 
     const result = runFixtureValidator(fixtureRoot);
@@ -885,8 +872,8 @@ test("validator fixture rejects Sealos uploaded logo overlay drift", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] LOGO-SEALOS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/sealos/);
-    assert.match(result.stdout, /observed missing marker\(s\): uploaded Sealos logo source image overlay/);
-    assert.match(result.stdout, /uploaded Sealos logo source shape mask/);
+    assert.match(result.stdout, /observed missing marker\(s\): plain navy cap with no logo/);
+    assert.match(result.stdout, /no cap logo/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1346,7 +1333,7 @@ test("validator fixture enforces public Sealos sample approval parsing", async (
     assert.match(pendingResult.stdout, /reviewer=missing/);
     assert.match(pendingResult.stdout, /allowed directories=missing/);
     assert.match(pendingResult.stdout, /uploaded-image identity outcome=missing/);
-    assert.match(pendingResult.stdout, /brand-logo outcome=missing/);
+    assert.match(pendingResult.stdout, /no-logo outcome=missing/);
 
     const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
     const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
@@ -1361,7 +1348,7 @@ test("validator fixture enforces public Sealos sample approval parsing", async (
     assert.equal(approval.datePresent, true);
     assert.equal(approval.allowedDirectoriesPresent, true);
     assert.equal(approval.identityOutcomePresent, true);
-    assert.equal(approval.brandLogoOutcomePresent, true);
+    assert.equal(approval.noLogoOutcomePresent, true);
 
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
@@ -1418,18 +1405,18 @@ test("validator fixture rejects Sealos public sample placeholder approvals", asy
       completeSealosPublicAssetApprovalLine(
         "2026-06-13",
         "uploaded-image identity outcome",
-        "brand logo wording approved",
+        "no-logo identity approved",
       ),
       "uploaded-image identity outcome=missing",
     ],
     [
-      "brand-logo",
+      "no-logo",
       completeSealosPublicAssetApprovalLine(
         "2026-06-13",
         "uploaded image identity preserved",
-        "brand-logo outcome",
+        "no-logo outcome",
       ),
-      "brand-logo outcome=missing",
+      "no-logo outcome=missing",
     ],
   ]) {
     const approvalText = releaseChecklistText.replace(pendingSealosPublicAssetApprovalLine(), approvalLine);
@@ -1529,19 +1516,19 @@ test("validator fixture distinguishes Generated Sample Sealos review outputs fro
   assert.equal(completeApproval.internalReviewDirectoriesPresent, true);
   assert.equal(completeApproval.publicDirectoriesPresent, true);
   assert.equal(completeApproval.identityOutcomePresent, true);
-  assert.equal(completeApproval.brandLogoOutcomePresent, true);
+  assert.equal(completeApproval.noLogoOutcomePresent, true);
 
   for (const [name, approvalLine, expectedFlag] of [
     ["date", completeGeneratedSealosSampleLine("TBD"), "datePresent"],
     [
       "identity",
-      completeGeneratedSealosSampleLine("2026-06-13", "uploaded-image identity outcome", "brand logo approved"),
+      completeGeneratedSealosSampleLine("2026-06-13", "uploaded-image identity outcome", "no-logo approved"),
       "identityOutcomePresent",
     ],
     [
-      "brand-logo",
-      completeGeneratedSealosSampleLine("2026-06-13", "uploaded image preserved", "brand-logo outcome"),
-      "brandLogoOutcomePresent",
+      "no-logo",
+      completeGeneratedSealosSampleLine("2026-06-13", "uploaded image preserved", "no-logo outcome"),
+      "noLogoOutcomePresent",
     ],
   ]) {
     const placeholderText = releaseChecklistText.replace(pendingGeneratedSealosSampleLine(), approvalLine);

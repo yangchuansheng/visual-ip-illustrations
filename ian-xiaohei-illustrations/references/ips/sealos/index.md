@@ -9,7 +9,7 @@ Brand/canonical-image authority: `source.md`.
 Canonical image status: `uploaded-image-canonical`.
 Drift boundary: `uploaded-image-locked`.
 Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
-Sealos route block: generic seal drift, abstract logo creature drift, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
 Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`.
 
 ## Route Contract
@@ -20,8 +20,8 @@ Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordere
 - Canonical image status: `uploaded-image-canonical`.
 - Drift boundary: `uploaded-image-locked`.
 - Output path: `assets/<article-slug>-sealos/`.
-- Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, exact uploaded Sealos logo source shape on cap and chest, and fixed identity markers from source.md.
-- Logo overlay note: Sealos logo finalization uses uploaded Sealos logo source image overlay with overlay-only logo finalization, no prompt-rendered logo accepted, blank cap and chest logo patches before overlay, uploaded Sealos logo source shape mask, uploaded Sealos logo source alpha mask, exact source shape with color remap allowed, uniform scale, placement, and color remap only, and source asset path or attachment id.
+- Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with plain navy cap with no logo, plain deep-blue hoodie chest with no logo, and fixed identity markers from source.md.
+- No-logo note: Sealos mascot imagery uses no cap logo, no chest logo, no mascot logos, and no logo patches across planning, generation, edit, QA, and delivery surfaces.
 - Route boundary: Sealos references stay route-local and preserve brand/canonical-image wording through planning, prompt, edit, QA, and delivery surfaces.
 - Public-sample boundary: public rendered Sealos samples require `RELEASE_CHECKLIST.md` review before appearing in public examples or release surfaces.
 
@@ -33,7 +33,6 @@ Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordere
 - `references/ips/sealos/sealos-ip.md`: Sealos Seal mascot identity, reliable cloud developer companion role, cognitive-action responsibility, recognition gates, and failure modes.
 - `references/ips/sealos/composition-patterns.md`: structure families, cloud-developer metaphor invention, Sealos Seal action patterns, supporting object pool, and anti-repeat rules.
 - `references/ips/sealos/prompt-template.md`: planning fields, one-image prompt template, edit prompts, brand/canonical-image note, and output reminder.
-- `references/ips/sealos/logo-overlay.md`: uploaded Sealos logo source image overlay, uploaded Sealos logo source shape mask, uploaded Sealos logo source alpha mask, overlay-only logo finalization, color remap allowed, source asset path or attachment id, and hard failure signals for prompt-rendered logo acceptance.
 - `references/ips/sealos/qa-checklist.md`: pass/fail gates, uploaded-image identity checks, iteration moves, and delivery judgment.
 
 ## Sealos Route Failure Categories
@@ -44,7 +43,11 @@ Every operational Sealos file uses these shared failure names so later validatio
 - abstract logo creature drift
 - missing cap
 - missing hoodie
-- missing Sealos marks
+- logo-bearing mascot variants
+- cap logo
+- chest logo
+- mascot logo
+- logo patch
 - changed body color
 - passive mascot placement
 - over-detailed 3D toy drift
@@ -53,11 +56,11 @@ Every operational Sealos file uses these shared failure names so later validatio
 
 ## Operational Coherence
 
-The seven operational Sealos files are `index.md`, `style-dna.md`, `sealos-ip.md`, `composition-patterns.md`, `prompt-template.md`, `logo-overlay.md`, and `qa-checklist.md`.
+The six operational Sealos files are `index.md`, `style-dna.md`, `sealos-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 
 Each operational file repeats the same route id, route status, output path, brand/canonical-image authority, canonical image status, drift boundary, compact brand/canonical-image note, public sample gate, shared route block, delivery path note, and ten failure category names. This keeps Phase 18 controller loading, Phase 19 public wording, and Phase 20 validator hardening aligned to one Sealos contract.
 
-Official logo-shape rule: the cap logo and hoodie chest logo preserve the official uploaded Sealos logo shape as the exact uploaded Sealos logo source shape from the user's uploaded logo image: blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image with the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base. Use uploaded Sealos logo source image overlay with overlay-only logo finalization; no prompt-rendered logo accepted. Color remap allowed after the uploaded source shape mask is locked.
+Logo-free rule: the cap and hoodie chest stay plain. Sealos route images use no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge. Color accents remain allowed on the cap, hoodie, and cloud-developer props.
 
 ## Scope Boundary
 
