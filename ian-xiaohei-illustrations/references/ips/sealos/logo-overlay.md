@@ -1,4 +1,4 @@
-# Sealos Logo Overlay Contract
+# Sealos Logo Shape Mask Contract
 
 Use this file after selecting the `sealos` route whenever cap or chest logos are present.
 
@@ -12,8 +12,10 @@ Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
 
 ## Exact Logo Authority
 
-The uploaded Sealos logo source image is the only authority for cap and chest logo pixels.
+The uploaded Sealos logo source image is the only authority for cap and chest logo shape.
 The official uploaded Sealos logo shape is the blue curled wave / seal-tail mark above a rounded cloud-tray base.
+The final cap and chest logo geometry must come from the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask.
+Color remap allowed after the source shape mask is locked.
 
 Required overlay markers:
 
@@ -21,34 +23,40 @@ Required overlay markers:
 - overlay-only logo finalization
 - no prompt-rendered logo accepted
 - blank cap and chest logo patches before overlay
-- use the uploaded logo file as the only logo pixels
-- uniform scale and placement only
+- uploaded Sealos logo source shape mask
+- uploaded Sealos logo source alpha mask
+- exact source shape with color remap allowed
+- uniform scale, placement, and color remap only
 - source asset path or attachment id
 
 ## Required Workflow
 
 1. Generate the Sealos Seal illustration as a base image with blank cap and chest logo patches before overlay.
 2. Keep the cap, hoodie, mascot body, scene, labels, and action readable in the base image.
-3. Composite the uploaded Sealos logo source image onto the cap patch and chest patch.
-4. Use the uploaded logo file as the only logo pixels.
-5. Use uniform scale and placement only; preserve aspect ratio, orientation, silhouette, negative space, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
+3. Extract the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask from the source image.
+4. Composite that source mask onto the cap patch and chest patch.
+5. Use uniform scale, placement, and color remap only; preserve aspect ratio, orientation, exact silhouette, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base.
 6. Record the source asset path or attachment id in the delivery note.
 
 ## Hard Failure Signals
 
 - prompt-rendered logo accepted
 - generated logo approximation
+- generated logo tracing
 - redrawn logo
 - alternate wave mark
 - simplified logo mark
 - changed logo silhouette
 - changed negative space
+- changed logo proportions
+- changed logo curl
 - changed top fin/notch
 - changed rounded cloud-tray base
-- changed blue gradient relationship
 - missing source asset path or attachment id
 - missing uploaded Sealos logo source image overlay
+- missing uploaded Sealos logo source shape mask
+- missing uploaded Sealos logo source alpha mask
 
 ## Delivery Gate
 
-Accepted Sealos images use overlay-only logo finalization: the cap logo and chest logo are composited from the uploaded Sealos logo source image, with uniform scale and placement only. The final delivery report names the source asset path or attachment id and confirms no prompt-rendered logo accepted.
+Accepted Sealos images use overlay-only logo finalization: the cap logo and chest logo are composited from the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask, with uniform scale, placement, and color remap only. The final delivery report names the source asset path or attachment id and confirms no prompt-rendered logo accepted.

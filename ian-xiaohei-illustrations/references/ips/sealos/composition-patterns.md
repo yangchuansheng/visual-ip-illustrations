@@ -145,8 +145,8 @@ The action must serve the core idea. Sealos Seal's flippers, eyes, body directio
 Apply these before generation and during prompt repair:
 
 - Sealos brand/canonical-image authority gate: use `source.md` for uploaded-image authority, brand context, fixed visual markers, public-sample policy, reviewer fields, and route status changes.
-- Uploaded-image identity gate: preserve white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo match on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, vector-traced reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- Logo exactness gate: cap and chest marks preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship from the uploaded logo image; use no redraw, no alternate wave, no simplified mark.
+- Uploaded-image identity gate: preserve white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo source shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Logo exactness gate: cap and chest marks preserve the same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base from the uploaded logo image; use the uploaded Sealos logo source shape mask and uploaded Sealos logo source alpha mask, with color remap allowed.
 - Mascot action gate: Sealos Seal must operate the metaphor with a physical action; decorative side placement fails.
 - Identity-first variation gate: change supporting objects and scene metaphors before changing uploaded-image identity markers.
 - Cloud-developer metaphor gate: Sealos cloud/OS puns can shape props, while the article concept remains the visual priority.

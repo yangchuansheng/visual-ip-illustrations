@@ -34,9 +34,9 @@
 - `brand_context`: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes
 - `canonical_image_status`: uploaded-image-canonical
 - `drift_boundary`: uploaded-image-locked
-- Fixed visual markers: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo match on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, vector-traced reproduction of the uploaded Sealos logo image, same official uploaded Sealos logo silhouette on both cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- Logo exactness markers: same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
-- Logo overlay markers: uploaded Sealos logo source image overlay, overlay-only logo finalization, no prompt-rendered logo accepted, blank cap and chest logo patches before overlay, use the uploaded logo file as the only logo pixels, uniform scale and placement only, and source asset path or attachment id.
+- Fixed visual markers: white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, exact uploaded Sealos logo source shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, source-mask reproduction of the uploaded Sealos logo image, same official uploaded Sealos logo silhouette on both cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Logo exactness markers: same outline, negative space, proportions, curl, top fin/notch, and rounded cloud-tray base; color remap allowed after source shape mask lock.
+- Logo overlay markers: uploaded Sealos logo source image overlay, overlay-only logo finalization, no prompt-rendered logo accepted, blank cap and chest logo patches before overlay, uploaded Sealos logo source shape mask, uploaded Sealos logo source alpha mask, exact source shape with color remap allowed, uniform scale, placement, and color remap only, and source asset path or attachment id.
 - Authority boundary: the uploaded mascot image is the v1.3 shape authority; the uploaded logo image is the cap and chest exact-logo authority; prior Sealos mascot exploration supplies supporting brand context.
 
 ## Legacy Path Availability

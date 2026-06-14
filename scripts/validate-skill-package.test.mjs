@@ -851,6 +851,12 @@ test("validator fixture rejects Sealos uploaded logo overlay drift", () => {
     );
     replaceAllInFixture(
       fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
+      "uploaded Sealos logo source shape mask",
+      "generated logo shape",
+    );
+    replaceAllInFixture(
+      fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "prompt-template.md"),
       "no prompt-rendered logo accepted",
       "prompt-rendered logo accepted",
@@ -858,8 +864,8 @@ test("validator fixture rejects Sealos uploaded logo overlay drift", () => {
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "logo-overlay.md"),
-      "use the uploaded logo file as the only logo pixels",
-      "use a generated logo approximation",
+      "uploaded Sealos logo source shape mask",
+      "generated logo approximation",
     );
     replaceAllInFixture(
       fixtureRoot,
@@ -880,6 +886,7 @@ test("validator fixture rejects Sealos uploaded logo overlay drift", () => {
     assert.match(result.stdout, /\[FAIL\] LOGO-SEALOS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/sealos/);
     assert.match(result.stdout, /observed missing marker\(s\): uploaded Sealos logo source image overlay/);
+    assert.match(result.stdout, /uploaded Sealos logo source shape mask/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
