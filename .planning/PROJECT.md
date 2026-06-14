@@ -4,23 +4,23 @@
 
 Visual IP Illustrations is a Codex Skill package for selectable visual-IP article illustrations. It turns article judgments, workflows, structures, states, and metaphors into 16:9 body illustrations while routing each image through the selected IP's character rules, prompt template, QA gates, output path, and source or brand boundary.
 
-The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal. The v1.4 milestone rebrands the project from the Xiaohei-centered `ian-xiaohei-illustrations` identity to `Visual IP Illustrations` while preserving the existing Xiaohei default route, explicit IP routes, output contracts, and legacy skill invocation.
+The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal. The v1.5 milestone makes English the default repository, skill, reference, examples, release, and validation language while preserving route aliases, user-language visible labels, and existing image-generation behavior.
 
 ## Core Value
 
 Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## Current Milestone: v1.4 Project Rebrand to Visual IP Illustrations
+## Current Milestone: v1.5 English Default Language Migration
 
-**Goal:** Establish Visual IP Illustrations as the canonical project, repository, and skill identity while preserving the legacy `$ian-xiaohei-illustrations` compatibility surface.
+**Goal:** Make English the default language across public docs, skill instructions, reference packs, examples, release materials, validation output, and maintainer-facing content while preserving required multilingual compatibility surfaces.
 
 **Target features:**
 
-- Define the canonical naming contract: project name `Visual IP Illustrations`, repository slug `visual-ip-illustrations`, canonical skill id `$visual-ip-illustrations`, and legacy alias `$ian-xiaohei-illustrations`.
-- Update skill metadata, agent metadata, README, examples, NOTICE, release checklist, and maintainer docs so the multi-IP product identity leads every public surface.
-- Preserve the shipped Xiaohei default route, explicit Littlebox/Tom/Ferris/Sealos Seal routes, route ids, output path contracts, source records, brand records, and QA gates.
-- Add validation and Node test coverage for canonical naming, legacy alias compatibility, route stability, install guidance, and stale old-name-only surfaces.
-- Record migration guidance for local installs and release review so current users can adopt the new name smoothly.
+- Define a repository language policy that makes English the default and records explicit non-English exceptions.
+- Translate README, examples, `SKILL.md`, route references, IP packs, NOTICE, release checklist, and maintainer docs to English-default prose.
+- Preserve Chinese aliases, route ids, output paths, prompt variables, visible-label behavior, attribution names, source records, rights records, and brand records.
+- Add validation and Node test coverage for English-default surfaces, allowed exception handling, route stability, output path stability, and stale Chinese prose.
+- Record release evidence for validator output, Node tests, `git diff --check`, residual Chinese scan, docs consistency, and compatibility smoke coverage.
 
 ## Requirements
 
@@ -44,25 +44,30 @@ Users can choose a visual IP and receive article illustrations whose character, 
 - Complete: Sealos Seal can be selected as an explicit brand-owned route with route-local source record, canonical pack, controller routing, docs, release checklist, validator coverage, and Node tests - v1.3
 - Complete: Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, and Sealos Seal remain explicit selectable routes - v1.3
 - Complete: The latest Sealos Seal route is logo-free across cap, hoodie chest, mascot body, props, and scene, with validator and Node test coverage at 78/78 and 40/40 after quick task 260614-k62 - v1.3 follow-up
+- Complete: Visual IP Illustrations is established as the canonical product, repository, install, and skill identity while preserving `$ian-xiaohei-illustrations` as a legacy alias - v1.4
+- Complete: Public docs, examples, skill metadata, agent metadata, release materials, validator checks, and Node tests lead with the Visual IP Illustrations identity - v1.4
+- Complete: Existing Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal route behavior, output paths, attribution/source/brand boundaries, and legacy invocation remain stable after the rebrand - v1.4
+- Complete: Rebrand validation evidence records validator 89/89, Node tests 51/51, and `git diff --check` success - v1.4
 
 ### Active
 
-- [ ] Establish `Visual IP Illustrations` as the canonical product name across planning docs, public docs, skill metadata, agent metadata, and release materials.
-- [ ] Establish `visual-ip-illustrations` as the canonical repository and install slug while preserving migration guidance from `ian-xiaohei-illustrations`.
-- [ ] Establish `$visual-ip-illustrations` as the canonical skill id while preserving `$ian-xiaohei-illustrations` as a documented legacy alias during the v1.4 transition.
-- [ ] Preserve all shipped IP route behavior for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal during the rebrand.
-- [ ] Update public examples and smoke prompts so users can request the canonical skill name and still understand legacy compatibility.
-- [ ] Extend the validator and Node tests to check canonical naming, legacy alias compatibility, route stability, install guidance, and stale old-name-only surfaces.
-- [ ] Record release evidence for validator output, Node tests, `git diff --check`, docs consistency, and compatibility smoke coverage.
+- [ ] Establish English as the default language across public docs, skill instructions, route references, IP packs, examples, release materials, validation output, and maintainer-facing repository content.
+- [ ] Document allowed non-English exceptions for route aliases, user-language visible labels, prompt placeholders, attribution/source names, compatibility smoke fixtures, and Chinese article illustration examples.
+- [ ] Translate README, examples, `SKILL.md`, `agents/openai.yaml`, NOTICE, release checklist, and route-local references while preserving route semantics and output contracts.
+- [ ] Preserve Xiaohei default behavior, explicit Littlebox/Tom/Ferris/Sealos Seal routes, canonical and legacy skill invocations, route ids, output suffixes, source/rights/brand records, and QA gates.
+- [ ] Extend validator and Node tests to enforce English-default surfaces with an allowlist for required multilingual compatibility tokens.
+- [ ] Record release evidence for validator output, Node tests, `git diff --check`, residual Chinese scan, docs consistency, and compatibility smoke coverage.
 
 ### Out of Scope
 
-- Visual behavior redesign - v1.4 is a naming and compatibility milestone.
+- Visual behavior redesign - v1.5 is a language-default migration milestone.
 - Adding a new visual IP route - route expansion resumes after the rebrand lands.
 - Changing Xiaohei default behavior - compatibility remains a core requirement.
 - Changing existing output directories for shipped routes - current user assets keep their path contracts.
+- Removing Chinese route aliases - alias compatibility remains part of the routing contract.
+- Forcing user-visible labels into English - labels continue to follow the user's requested language.
+- Removing the legacy `$ian-xiaohei-illustrations` invocation during v1.5 - compatibility remains covered by validation.
 - Creating a hosted app, UI, API, database, or build runtime - the package remains a lightweight Codex Skill.
-- Removing the legacy `$ian-xiaohei-illustrations` invocation during v1.4 - migration guidance ships first.
 
 ## Context
 
@@ -78,7 +83,9 @@ v1.2 completed the Ferris route: Ferris remains explicit, source-reviewed, Rust-
 
 v1.3 completed the Sealos Seal route: Sealos Seal remains explicit, brand-owned, route-local, uploaded-image-derived, logo-free after quick task 260614-k62, and covered by docs, examples, metadata, release checklist, validator, and Node tests. The latest validation evidence recorded validator 78/78 and Node tests 40/40.
 
-The current codebase map calls out fragile areas that matter for this work: repeated naming instructions across docs, route metadata, examples, validator strings, install commands, skill frontmatter, and agent metadata. v1.4 treats the naming contract as a first-class compatibility surface, with validator coverage to prevent drift.
+v1.4 completed the Visual IP Illustrations rebrand: the canonical product, repository, install, and skill identity now lead the public and runtime surfaces while the legacy `$ian-xiaohei-illustrations` alias remains documented and tested. The latest validation evidence recorded validator 89/89, Node tests 51/51, and `git diff --check` success.
+
+The current codebase map calls out fragile areas that matter for this work: repeated naming instructions across docs, route metadata, examples, validator strings, install commands, skill frontmatter, and agent metadata. v1.5 treats English-default language behavior as a first-class compatibility surface, with explicit exception handling for route aliases, prompt variables, visible labels, and attribution/source names.
 
 ## Constraints
 
@@ -91,7 +98,8 @@ The current codebase map calls out fragile areas that matter for this work: repe
 - **Brand Boundary**: Sealos Seal references preserve brand lineage, uploaded-image identity markers, logo-free route constraints, and generic mascot drift checks.
 - **No Build Runtime**: The project stays usable as a lightweight skill package; validation can be script-based and dependency-free.
 - **Image Generation Dependency**: Final generation still depends on the host agent's `image_gen` capability.
-- **Documentation Language**: User-facing repository docs can stay Chinese-first; code, scripts, comments, commit messages, and PR copy stay English.
+- **Documentation Language**: English is the default language for repository docs, skill instructions, reference docs, examples, release materials, validation output, code, scripts, comments, commit messages, and PR copy.
+- **Multilingual Compatibility**: Chinese aliases, user-language visible labels, prompt placeholders, exact attribution/source names, and compatibility smoke fixtures remain allowed through documented exceptions.
 
 ## Key Decisions
 
@@ -104,8 +112,9 @@ The current codebase map calls out fragile areas that matter for this work: repe
 | Add Tom through an explicit authorized-IP milestone | Tom is a recognizable commercial character, so the route needs rights-boundary docs in addition to normal IP pack, prompt, QA, and validation work | Good |
 | Add Ferris through a source-and-trademark-aware mascot milestone | Ferris has permissive copyright source context and Rust-related trademark boundaries, so the route needs attribution, source clarity, and endorsement-safe wording | Good |
 | Add Sealos Seal through an uploaded-image-locked brand mascot milestone | The user selected the uploaded white seal in cap and hoodie as the Sealos mascot authority, so the route needs fixed visual markers, brand lineage, and drift checks | Good |
-| Rebrand the product to Visual IP Illustrations | The current capability is a routeable multi-IP illustration system, and the Xiaohei-centered repository name now undersells the product | Pending |
-| Preserve `$ian-xiaohei-illustrations` as a legacy alias during v1.4 | Existing user prompts and local installs should continue working while canonical naming rolls out | Pending |
+| Rebrand the product to Visual IP Illustrations | The current capability is a routeable multi-IP illustration system, and the Xiaohei-centered repository name now undersells the product | Good |
+| Preserve `$ian-xiaohei-illustrations` as a legacy alias during v1.4 | Existing user prompts and local installs should continue working while canonical naming rolls out | Good |
+| Make English the default repository and skill language | The project is now a multi-IP skill package with public distribution and validator coverage, so English-default docs reduce ambiguity for broader users while compatibility exceptions preserve shipped behavior | Pending |
 
 ## Evolution
 
@@ -125,4 +134,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after starting v1.4 Project Rebrand to Visual IP Illustrations*
+*Last updated: 2026-06-14 after starting v1.5 English Default Language Migration*

@@ -1,17 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.4
-milestone_name: Project Rebrand to Visual IP Illustrations
-status: complete
-stopped_at: Phase 24 complete; v1.4 milestone complete
-last_updated: "2026-06-14T10:36:03.193Z"
+milestone: v1.5
+milestone_name: English Default Language Migration
+status: planning
+last_updated: "2026-06-14T15:01:51.025Z"
 last_activity: 2026-06-14
 progress:
   total_phases: 4
-  completed_phases: 4
+  completed_phases: 0
   total_plans: 4
-  completed_plans: 4
-  percent: 100
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -21,14 +20,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 24 — validation-and-release-evidence
+**Current focus:** Phase 25 — language-policy-and-residual-scan-contract
 
 ## Current Position
 
-Phase: 24
-Plan: 24-01 complete
-Status: Phase 24 complete; v1.4 milestone complete
-Last activity: 2026-06-14
+Phase: 25
+Plan: —
+Status: Roadmap ready
+Last activity: 2026-06-14 — Milestone v1.5 roadmap created
 
 ## Performance Metrics
 

@@ -1,39 +1,38 @@
-# Requirements: Project Rebrand to Visual IP Illustrations
+# Requirements: English Default Language Migration
 
 **Defined:** 2026-06-14
 **Core Value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## v1.4 Requirements
+## v1.5 Requirements
 
-### Naming Contract
+### Language Policy
 
-- [x] **RBRD-01**: Maintainer can read a single naming contract that defines `Visual IP Illustrations` as the canonical product name.
-- [x] **RBRD-02**: Maintainer can identify `visual-ip-illustrations` as the canonical repository and install slug.
-- [x] **RBRD-03**: User can invoke the canonical skill id `$visual-ip-illustrations`.
-- [x] **RBRD-04**: User can keep using the legacy `$ian-xiaohei-illustrations` invocation during the v1.4 transition.
+- [ ] **LANG-01**: Maintainer can read a single English-default language policy for repository docs, skill instructions, reference docs, examples, release materials, validation output, code, scripts, comments, commit messages, and PR copy.
+- [ ] **LANG-02**: Maintainer can read an explicit exception allowlist for Chinese route aliases, user-language visible labels, prompt placeholders, attribution/source names, compatibility smoke fixtures, and Chinese article illustration examples.
+- [ ] **LANG-03**: Maintainer can run a residual Chinese scan that distinguishes policy-approved multilingual tokens from stale Chinese prose.
 
-### Package and Runtime Compatibility
+### Skill and Reference Content
 
-- [x] **PKG-01**: Installed skill metadata exposes `Visual IP Illustrations` as the canonical skill identity.
-- [x] **PKG-02**: Agent metadata presents Visual IP Illustrations as the multi-IP article illustration skill while preserving Xiaohei as the omitted-IP default.
-- [x] **PKG-03**: Existing route ids, aliases, required references, route statuses, and output suffixes for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal remain stable.
-- [x] **PKG-04**: Maintainer can follow documented local migration guidance from `ian-xiaohei-illustrations` to `visual-ip-illustrations`.
+- [ ] **SKILL-01**: User can read `SKILL.md` in English-default prose while canonical and legacy invocations remain documented.
+- [ ] **SKILL-02**: User can read routing rules and shared references in English-default prose while route ids, aliases, required references, statuses, and output suffixes remain stable.
+- [ ] **SKILL-03**: User can read Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal route-local reference packs in English-default prose while each route preserves its prompt, QA, source, rights, brand, and visible-label behavior.
+- [ ] **SKILL-04**: Agent metadata presents the skill in English-default prose and preserves Xiaohei as the omitted-IP default plus explicit Littlebox, Tom, Ferris, and Sealos Seal routes.
 
-### Public Documentation
+### Public Documentation and Examples
 
-- [x] **DOC-01**: README opens with Visual IP Illustrations and explains the multi-IP product identity.
-- [x] **DOC-02**: README install commands show the canonical clone/install path and the legacy compatibility path.
-- [x] **DOC-03**: `examples/prompts.md` includes canonical `$visual-ip-illustrations` prompts plus legacy compatibility smoke prompts.
-- [x] **DOC-04**: NOTICE and release materials preserve Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries while recording the rebrand scope.
+- [ ] **DOC-01**: User can read README installation, route selection, workflow, validation, related project, and author sections in English-default prose.
+- [ ] **DOC-02**: User can copy English-default examples from `examples/prompts.md` for planning, generation, mixed-IP comparisons, legacy smoke tests, and route-specific prompts.
+- [ ] **DOC-03**: Maintainer can read NOTICE and RELEASE_CHECKLIST in English-default prose while Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries stay intact.
+- [ ] **DOC-04**: Public docs continue to preserve canonical `$visual-ip-illustrations`, legacy `$ian-xiaohei-illustrations`, install path guidance, route status markers, and output path contracts.
 
-### Validation
+### Validation and Release Evidence
 
-- [x] **VAL-01**: Validator checks canonical naming across skill metadata, agent metadata, README, examples, NOTICE, release checklist, and route docs.
-- [x] **VAL-02**: Validator checks the legacy alias compatibility markers and install migration guidance.
-- [x] **VAL-03**: Node tests cover canonical invocation, legacy invocation, route stability, output path stability, and stale old-name-only fixtures.
-- [x] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, docs consistency, and compatibility smoke coverage.
+- [ ] **VAL-01**: Validator enforces English-default content coverage for README, examples, `SKILL.md`, agent metadata, NOTICE, release checklist, routing, and route-local references.
+- [ ] **VAL-02**: Validator enforces the allowed multilingual exception policy and fails on stale Chinese prose outside approved surfaces.
+- [ ] **VAL-03**: Node tests cover English-default checks, allowed exception fixtures, route stability, invocation stability, and output path stability.
+- [ ] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, residual Chinese scan, docs consistency, and compatibility smoke coverage.
 
-## v2 Requirements
+## Future Requirements
 
 ### Broader Mascot and IP Support
 
@@ -52,7 +51,6 @@
 
 - **DIST-01**: Maintainer can package the installable skill directory through a release script.
 - **DIST-02**: User can install selected IP variants through a CLI-level selector.
-- **DIST-03**: Documentation supports a full English localization pass.
 
 ## Out of Scope
 
@@ -60,11 +58,13 @@ Explicitly excluded. Documented to prevent scope creep.
 
 | Feature | Reason |
 |---------|--------|
-| Changing visual IP behavior | v1.4 is a naming and compatibility milestone. |
-| Adding another IP route | Route expansion resumes after the rebrand lands. |
+| Changing visual IP behavior | v1.5 is a language-default migration milestone. |
+| Adding another IP route | Route expansion resumes after the language migration lands. |
 | Changing Xiaohei default behavior | Xiaohei remains the compatibility baseline and omitted-IP default. |
 | Changing shipped output directories | Existing user assets keep stable path contracts. |
-| Removing legacy invocation during v1.4 | Users get migration guidance before legacy cleanup. |
+| Removing Chinese route aliases | Alias compatibility remains part of the routing contract. |
+| Forcing visible labels into English | Visible labels continue to follow the user's requested language. |
+| Removing legacy invocation | `$ian-xiaohei-illustrations` remains a validated compatibility alias. |
 | Hosted app, UI, API, database, or build runtime | The product remains a lightweight Codex Skill package. |
 
 ## Traceability
@@ -73,39 +73,37 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RBRD-01 | Phase 21 | Complete |
-| RBRD-02 | Phase 21 | Complete |
-| RBRD-03 | Phase 21 | Complete |
-| RBRD-04 | Phase 21 | Complete |
-| PKG-01 | Phase 22 | Complete |
-| PKG-02 | Phase 22 | Complete |
-| PKG-03 | Phase 22 | Complete |
-| PKG-04 | Phase 22 | Complete |
-| DOC-01 | Phase 23 | Complete |
-| DOC-02 | Phase 23 | Complete |
-| DOC-03 | Phase 23 | Complete |
-| DOC-04 | Phase 23 | Complete |
-| VAL-01 | Phase 24 | Complete |
-| VAL-02 | Phase 24 | Complete |
-| VAL-03 | Phase 24 | Complete |
-| VAL-04 | Phase 24 | Complete |
-| MASC-01 | v2 | Future |
-| MASC-02 | v2 | Future |
-| MASC-03 | v2 | Future |
-| MASC-04 | v2 | Future |
-| AST-01 | v2 | Future |
-| AST-02 | v2 | Future |
-| AST-03 | v2 | Future |
-| DIST-01 | v2 | Future |
-| DIST-02 | v2 | Future |
-| DIST-03 | v2 | Future |
+| LANG-01 | Phase 25 | Pending |
+| LANG-02 | Phase 25 | Pending |
+| LANG-03 | Phase 25 | Pending |
+| SKILL-01 | Phase 26 | Pending |
+| SKILL-02 | Phase 26 | Pending |
+| SKILL-03 | Phase 26 | Pending |
+| SKILL-04 | Phase 26 | Pending |
+| DOC-01 | Phase 27 | Pending |
+| DOC-02 | Phase 27 | Pending |
+| DOC-03 | Phase 27 | Pending |
+| DOC-04 | Phase 27 | Pending |
+| VAL-01 | Phase 28 | Pending |
+| VAL-02 | Phase 28 | Pending |
+| VAL-03 | Phase 28 | Pending |
+| VAL-04 | Phase 28 | Pending |
+| MASC-01 | Future | Future |
+| MASC-02 | Future | Future |
+| MASC-03 | Future | Future |
+| MASC-04 | Future | Future |
+| AST-01 | Future | Future |
+| AST-02 | Future | Future |
+| AST-03 | Future | Future |
+| DIST-01 | Future | Future |
+| DIST-02 | Future | Future |
 
 **Coverage:**
 
-- v1.4 requirements: 16 total
-- Mapped to phases: 16
+- v1.5 requirements: 15 total
+- Mapped to phases: 15
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-14*
-*Last updated: 2026-06-14 after starting v1.4 Project Rebrand to Visual IP Illustrations*
+*Last updated: 2026-06-14 after starting v1.5 English Default Language Migration*
