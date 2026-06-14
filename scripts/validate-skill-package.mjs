@@ -1369,10 +1369,10 @@ const checks = [
       "$visual-ip-illustrations",
       "$ian-xiaohei-illustrations",
       "default Xiaohei",
-      "Tom 是 explicit gated-authorized protected-character route",
-      "explicit Tom protected-character route（gated-authorized）",
-      "Ferris 是 explicit source-reviewed Rust-community mascot route",
-      "explicit Ferris Rust-community mascot route（source-reviewed）",
+      "Tom is an explicit gated-authorized protected-character route",
+      "explicit Tom protected-character route (gated-authorized)",
+      "Ferris is an explicit source-reviewed Rust-community mascot route",
+      "explicit Ferris Rust-community mascot route (source-reviewed)",
       "allow_implicit_invocation: true",
     ], "Xiaohei default behavior, Littlebox selection, explicit gated Tom, explicit source-reviewed Ferris, and implicit invocation markers");
   }),
@@ -2733,7 +2733,7 @@ const checks = [
       "$visual-ip-illustrations",
     ], "runtime canonical invocation and release 1.4 compatibility alias");
     assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
-      "$ian-xiaohei-illustrations 是 v1.4 compatibility alias",
+      "$ian-xiaohei-illustrations is the v1.4 compatibility alias",
       "$visual-ip-illustrations",
     ], "agent canonical invocation and compatibility alias");
   }),

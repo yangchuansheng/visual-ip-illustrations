@@ -1334,7 +1334,7 @@ test("validator fixture reports Tom docs and agent metadata drift", () => {
     replaceInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
-      "explicit Tom protected-character route（gated-authorized）",
+      "explicit Tom protected-character route (gated-authorized)",
       "explicit protected-character route",
     );
     replaceInFixture(
