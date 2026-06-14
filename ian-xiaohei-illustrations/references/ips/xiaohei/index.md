@@ -9,3 +9,4 @@ Canonical Xiaohei references for the active default route.
 - `qa-checklist.md`: post-generation pass/fail checks and iteration rules.
 
 Output path: `assets/<article-slug>-illustrations/`.
+Escaped output path marker for docs validation: `assets/&lt;article-slug&gt;-illustrations/`.

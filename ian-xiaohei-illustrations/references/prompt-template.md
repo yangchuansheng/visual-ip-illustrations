@@ -9,9 +9,11 @@ Canonical Xiaohei prompt templates live at `references/ips/xiaohei/prompt-templa
 - Treat the canonical file as the editable source of truth for generation prompts, edit prompts, template variables, and constraints.
 
 ## Current Xiaohei Contract
-# 生图提示词模板
+# Prompt Template
 
-每张图单独生成。根据正文内容替换变量，不要把多张图拼在一起。
+Generate each image separately. Replace variables from the article context. Keep one generated image per prompt.
+
+Visible labels follow the user's language for the article. The Xiaohei Chinese article prompt keeps the approved Chinese placeholders exactly.
 
 ```text
 Generate one standalone 16:9 horizontal Chinese article illustration.
@@ -47,15 +49,15 @@ Constraints:
 One image explains only one core structure. Keep the main subject around 40%-60% of the canvas. Preserve at least 35% blank white space. Use at most 5-8 short handwritten Chinese labels. Do not write a title in the top-left corner. Do not write the structure type on the image. Do not make it a formal diagram, course slide, or dense explainer. Do not copy prior examples or reuse known case compositions unless explicitly requested; invent a fresh visual metaphor for this specific article. It should be clear but not instructional, interesting but not childish, strange but clean.
 ```
 
-## 图像编辑提示
+## Image Edit Prompts
 
-去掉左上角标题：
+### Remove Top-Left Title
 
 ```text
 Edit the provided image. Remove only the handwritten title "{要删除的文字}" and its underline from the top-left corner. Fill that area with the same clean white background, matching the surrounding blank paper. Preserve everything else exactly: characters, labels, paths, line style, composition, aspect ratio, and image quality. Do not add any new text or objects.
 ```
 
-增强怪诞感：
+### Strengthen Xiaohei Participation
 
 ```text
 Regenerate this illustration with the same core meaning and simple layout, but make 小黑 more central to the conceptual action. 小黑 should be doing the strange work that explains the idea, not standing beside the diagram. Keep it clean, sparse, hand-drawn, and not cute.
