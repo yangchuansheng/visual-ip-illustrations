@@ -38,6 +38,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 **Plans:** 0/1 plans complete
 
+Plans:
+- [ ] 25-01-PLAN.md — Create the root language policy, LANG-* validator checks, residual scan contract, and fixture tests.
+
 ### Phase 26: Skill and Reference Content Migration
 
 **Goal**: Users can rely on English-default runtime instructions and route references while all shipped IP behavior remains stable.
