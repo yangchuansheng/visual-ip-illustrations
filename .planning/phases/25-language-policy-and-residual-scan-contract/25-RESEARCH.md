@@ -462,17 +462,15 @@ Current baseline before Phase 25 implementation:
 | A2 | Broad allowlist rejection can be tested by mutating validator constants in a fixture. | Code Examples | Test may be brittle if validator constants are arranged differently after implementation. |
 | A3 | Stable scanner output needs sorted files, file-order line scans, and capped excerpts. | Common Pitfalls | Output could remain stable through another deterministic ordering method. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Should Phase 25 production validator hard-fail on current stale Chinese prose or only on controlled stale-prose fixtures?** [VERIFIED: 25-CONTEXT.md]
    - What we know: Phase 25 can be contract-oriented and Phase 26/27 own broad migration. [VERIFIED: 25-CONTEXT.md; .planning/ROADMAP.md]
-   - What's unclear: The exact balance between current baseline green and immediate full-scope `LANG-SCAN-*` hard failure. [VERIFIED: 25-CONTEXT.md]
-   - Recommendation: Keep current baseline green in Phase 25 while adding fixture-proven hard-fail behavior, then enable full repository hard-fail in Phase 28. [VERIFIED: 25-CONTEXT.md; .planning/ROADMAP.md]
+   - RESOLVED: Keep current baseline green in Phase 25 while adding fixture-proven hard-fail behavior, then enable full repository hard-fail in Phase 28. [VERIFIED: 25-CONTEXT.md; .planning/ROADMAP.md]
 
 2. **Should the allowlist live only in validator code or also as a machine-readable table in `LANGUAGE_POLICY.md`?** [VERIFIED: 25-CONTEXT.md]
    - What we know: Policy is human authority and validator is executable path. [VERIFIED: 25-CONTEXT.md]
-   - What's unclear: The phase context locks shape, but leaves helper/internal structure to implementation discretion. [VERIFIED: 25-CONTEXT.md]
-   - Recommendation: Start with policy prose plus in-code constants, and keep the fields identical so Phase 28 can extract or compare them if needed. [VERIFIED: 25-CONTEXT.md; scripts/validate-skill-package.mjs]
+   - RESOLVED: Start with policy prose plus in-code constants, and keep the fields identical so Phase 28 can extract or compare them if needed. [VERIFIED: 25-CONTEXT.md; scripts/validate-skill-package.mjs]
 
 ## Environment Availability
 
