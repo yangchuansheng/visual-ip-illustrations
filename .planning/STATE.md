@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.5
 milestone_name: milestone
-status: ready_to_plan
-stopped_at: Phase 28 context gathered
-last_updated: "2026-06-14T18:44:52.915Z"
-last_activity: 2026-06-14 -- Phase 28 context gathered, ready to plan Phase 28
+status: complete
+stopped_at: Phase 28 complete; v1.5 milestone complete
+last_updated: "2026-06-14T19:25:56.013Z"
+last_activity: 2026-06-14 -- Phase 28 complete; v1.5 milestone complete
 progress:
   total_phases: 4
-  completed_phases: 3
-  total_plans: 6
-  completed_plans: 6
-  percent: 75
+  completed_phases: 4
+  total_plans: 7
+  completed_plans: 7
+  percent: 100
 ---
 
 # Project State
@@ -21,20 +21,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 28 — English-Default Validation and Release Evidence
+**Current focus:** v1.5 English Default Language Migration complete
 
 ## Current Position
 
-Phase: 28 (English-Default Validation and Release Evidence) — DISCUSSING
-Plan: Not started
-Status: Ready to plan Phase 28
-Last activity: 2026-06-14 -- Phase 28 context gathered, ready to plan Phase 28
+Phase: 28 (English-Default Validation and Release Evidence) — COMPLETE
+Plan: 28-01 complete
+Status: v1.5 milestone complete
+Last activity: 2026-06-14 -- Phase 28 complete; v1.5 milestone complete
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 53
+- Total plans completed: 54
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -63,6 +63,7 @@ Last activity: 2026-06-14 -- Phase 28 context gathered, ready to plan Phase 28
 | 25 | 1 | - | - |
 | 26 | 4 | - | - |
 | 27 | 1 | - | - |
+| 28 | 1 | - | - |
 
 **Recent Trend:**
 
@@ -221,6 +222,10 @@ Recent decisions affecting current work:
 - [Phase 15]: UAT complete with 9 passed, 0 issues. Validator reports 60/60 and Node tests report 31/31.
 - [Phase 20]: UAT complete with 9 passed, 0 issues. Validator reports 77/77 and Node tests report 39/39.
 - [Phase 24]: UAT complete with 9 passed, 0 issues. Validator reports 89/89 and Node tests report 51/51.
+- [Phase 25]: UAT complete with 4 passed, 0 issues. Validator reports 93/93 and Node tests report 56/56.
+- [Phase 26]: UAT complete with 5 passed, 0 issues. Validator reports 93/93 and Node tests report 56/56.
+- [Phase 27]: UAT complete with 5 passed, 0 issues. Validator reports 93/93 and Node tests report 56/56.
+- [Phase 28]: UAT complete with 5 passed, 0 issues. Validator reports 98/98 and Node tests report 66/66.
 
 ### Blockers/Concerns
 
@@ -247,6 +252,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-14T18:44:52.911Z
-Stopped at: Phase 28 context gathered
-Resume file: .planning/phases/28-english-default-validation-and-release-evidence/28-CONTEXT.md
+Last session: 2026-06-14T19:25:56.013Z
+Stopped at: Phase 28 complete; v1.5 milestone complete
+Resume file: .planning/phases/28-english-default-validation-and-release-evidence/28-UAT.md

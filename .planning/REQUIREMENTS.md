@@ -27,10 +27,10 @@
 
 ### Validation and Release Evidence
 
-- [ ] **VAL-01**: Validator enforces English-default content coverage for README, examples, `SKILL.md`, agent metadata, NOTICE, release checklist, routing, and route-local references.
-- [ ] **VAL-02**: Validator enforces the allowed multilingual exception policy and fails on stale Chinese prose outside approved surfaces.
-- [ ] **VAL-03**: Node tests cover English-default checks, allowed exception fixtures, route stability, invocation stability, and output path stability.
-- [ ] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, residual Chinese scan, docs consistency, and compatibility smoke coverage.
+- [x] **VAL-01**: Validator enforces English-default content coverage for README, examples, `SKILL.md`, agent metadata, NOTICE, release checklist, routing, and route-local references.
+- [x] **VAL-02**: Validator enforces the allowed multilingual exception policy and fails on stale Chinese prose outside approved surfaces.
+- [x] **VAL-03**: Node tests cover English-default checks, allowed exception fixtures, route stability, invocation stability, and output path stability.
+- [x] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, residual Chinese scan, docs consistency, and compatibility smoke coverage.
 
 ## Future Requirements
 
@@ -84,10 +84,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOC-02 | Phase 27 | Complete |
 | DOC-03 | Phase 27 | Complete |
 | DOC-04 | Phase 27 | Complete |
-| VAL-01 | Phase 28 | Pending |
-| VAL-02 | Phase 28 | Pending |
-| VAL-03 | Phase 28 | Pending |
-| VAL-04 | Phase 28 | Pending |
+| VAL-01 | Phase 28 | Complete |
+| VAL-02 | Phase 28 | Complete |
+| VAL-03 | Phase 28 | Complete |
+| VAL-04 | Phase 28 | Complete |
 | MASC-01 | Future | Future |
 | MASC-02 | Future | Future |
 | MASC-03 | Future | Future |
