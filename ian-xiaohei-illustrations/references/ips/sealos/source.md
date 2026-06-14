@@ -14,7 +14,8 @@
 - Product context: Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes.
 - Mascot purpose: make cloud infrastructure work feel approachable, stable, and action-oriented in article illustrations.
 - Logo identity: cap and chest marks use the exact uploaded Sealos logo match from the user's uploaded logo image and require release review before public rendered samples.
-- Logo exactness: cap and chest marks require a vector-traced reproduction of the uploaded logo image; no redraw, no alternate wave, no simplified mark. Preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
+- Logo exactness: cap and chest marks require uploaded Sealos logo source image overlay with overlay-only logo finalization; no prompt-rendered logo accepted. Preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
+- Logo source rule: use the uploaded logo file as the only logo pixels, with uniform scale and placement only. Base images use blank cap and chest logo patches before overlay.
 
 ## Canonical Image Authority
 
@@ -33,6 +34,9 @@ The Sealos Seal route must preserve these uploaded-image markers:
 - deep-blue hoodie
 - official uploaded Sealos logo shape on cap and chest
 - exact uploaded Sealos logo match on cap and chest
+- uploaded Sealos logo source image overlay
+- overlay-only logo finalization
+- no prompt-rendered logo accepted
 - blue curled wave / seal-tail mark above a rounded cloud-tray base
 - same official uploaded Sealos logo silhouette on both cap and chest
 - vector-traced reproduction of the uploaded Sealos logo image
@@ -51,7 +55,8 @@ The Sealos Seal route must preserve these uploaded-image markers:
 - Generated shapes and earlier alternate mascot concepts stay supporting context.
 - The uploaded mascot image controls body shape, outfit, logo placement, and visible identity markers.
 - The uploaded logo image controls the cap logo and hoodie chest logo geometry as an exact uploaded Sealos logo match.
-- Logo geometry gate: use a vector-traced reproduction of the uploaded Sealos logo image on both placements; preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
+- Logo geometry gate: use uploaded Sealos logo source image overlay on both placements; preserve the same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship.
+- Logo delivery gate: record the source asset path or attachment id, keep blank cap and chest logo patches before overlay, and use the uploaded logo file as the only logo pixels.
 
 ## Route Status
 
@@ -69,7 +74,7 @@ The Sealos Seal route must preserve these uploaded-image markers:
 ## Restricted Use
 
 - Public rendered Sealos Seal sample assets require release review before appearing in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
-- Public rendered samples require brand/logo review for the exact uploaded Sealos logo match on the cap mark, the exact uploaded Sealos logo match on the chest mark, and Sealos brand/logo wording.
+- Public rendered samples require brand/logo review for uploaded Sealos logo source image overlay on the cap mark, uploaded Sealos logo source image overlay on the chest mark, source asset path or attachment id, and Sealos brand/logo wording.
 - Broad route availability claims require later runtime integration and release checklist approval.
 - Generic seal mascots, abstract logo creatures, blue-gradient cloud/seal explorations, bald or plain-head seal variants, and different mascot selection belong outside this route contract.
 
@@ -87,7 +92,7 @@ The Sealos Seal route must preserve these uploaded-image markers:
 
 ## Drift Boundary
 
-- Reject drift into generic seals, abstract logo creatures, blue-gradient cloud/seal explorations, bald or plain-head seal variants, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, missing exact uploaded Sealos logo match, approximate logo redraw, alternate wave mark, simplified logo mark, changed logo silhouette, changed body color, missing side-rear white tail, prior exploration variants, or a different mascot selection.
+- Reject drift into generic seals, abstract logo creatures, blue-gradient cloud/seal explorations, bald or plain-head seal variants, missing cap, missing hoodie, missing official uploaded Sealos logo shape on cap or chest, missing uploaded Sealos logo source image overlay, prompt-rendered logo accepted, generated logo approximation, redrawn logo, alternate wave mark, simplified logo mark, changed logo silhouette, changed body color, missing side-rear white tail, prior exploration variants, or a different mascot selection.
 - Preserve the uploaded image as the canonical Sealos Seal reference for v1.3 until a maintainer records a new release decision.
 
 ## Review Owner

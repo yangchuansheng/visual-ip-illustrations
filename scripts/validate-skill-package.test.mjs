@@ -449,6 +449,7 @@ test("parser helpers expose current package contract primitives", async () => {
     "references/ips/sealos/sealos-ip.md",
     "references/ips/sealos/composition-patterns.md",
     "references/ips/sealos/prompt-template.md",
+    "references/ips/sealos/logo-overlay.md",
     "references/ips/sealos/qa-checklist.md",
   ]);
   assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
@@ -778,6 +779,12 @@ test("validator fixture reports Sealos pack, prompt, and QA marker drift", () =>
       "QA-SEALOS-001",
     ],
     [
+      "logo-overlay",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "logo-overlay.md"),
+      "overlay-only logo finalization",
+      "LOGO-SEALOS-001",
+    ],
+    [
       "identity",
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "sealos-ip.md"),
       "Sealos Seal must perform the central cognitive action",
@@ -833,31 +840,37 @@ test("validator fixture reports Sealos docs, metadata, NOTICE, release, and smok
   }
 });
 
-test("validator fixture rejects Sealos exact uploaded logo match drift", () => {
-  const fixtureRoot = copyFixture("sealos-exact-logo-match");
+test("validator fixture rejects Sealos uploaded logo overlay drift", () => {
+  const fixtureRoot = copyFixture("sealos-logo-overlay");
   try {
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
-      "exact uploaded Sealos logo match",
+      "uploaded Sealos logo source image overlay",
       "similar Sealos logo mark",
     );
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "prompt-template.md"),
-      "vector-traced reproduction of the uploaded Sealos logo image",
-      "brand-inspired blue logo drawing",
+      "no prompt-rendered logo accepted",
+      "prompt-rendered logo accepted",
+    );
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "logo-overlay.md"),
+      "use the uploaded logo file as the only logo pixels",
+      "use a generated logo approximation",
     );
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "qa-checklist.md"),
-      "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
-      "similar logo proportions",
+      "source asset path or attachment id",
+      "logo review note",
     );
     replaceAllInFixture(
       fixtureRoot,
       "README.md",
-      "exact uploaded Sealos logo match",
+      "uploaded Sealos logo source image overlay",
       "similar Sealos logo mark",
     );
 
@@ -866,7 +879,7 @@ test("validator fixture rejects Sealos exact uploaded logo match drift", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] LOGO-SEALOS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/sealos/);
-    assert.match(result.stdout, /observed missing marker\(s\): exact uploaded Sealos logo match/);
+    assert.match(result.stdout, /observed missing marker\(s\): uploaded Sealos logo source image overlay/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

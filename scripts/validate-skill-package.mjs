@@ -813,6 +813,7 @@ function sealosPlannedReferences() {
     "references/ips/sealos/sealos-ip.md",
     "references/ips/sealos/composition-patterns.md",
     "references/ips/sealos/prompt-template.md",
+    "references/ips/sealos/logo-overlay.md",
     "references/ips/sealos/qa-checklist.md",
   ];
 }
@@ -824,8 +825,10 @@ function sealosDriftMarkers() {
     "missing cap",
     "missing hoodie",
     "missing official uploaded Sealos logo shape on cap or chest",
-    "missing exact uploaded Sealos logo match",
-    "approximate logo redraw",
+    "missing uploaded Sealos logo source image overlay",
+    "prompt-rendered logo accepted",
+    "generated logo approximation",
+    "redrawn logo",
     "alternate wave mark",
     "simplified logo mark",
     "changed logo silhouette",
@@ -1207,7 +1210,7 @@ const checks = [
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, sealos: 7 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, sealos: 8 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -1347,7 +1350,7 @@ const checks = [
   }),
   defineCheck("REFS-SEALOS-001", "Sealos canonical route references and shared markers exist", () => {
     const sealosFiles = sealosOperationalRefs();
-    assertReadableFiles(sealosFiles, path.join(REFERENCES_DIR, "ips", "sealos"), "Sealos seven-file pack");
+    assertReadableFiles(sealosFiles, path.join(REFERENCES_DIR, "ips", "sealos"), "Sealos eight-file pack");
     for (const relativePath of sealosFiles) {
       assertIncludes(requireFile(relativePath), relativePath, [
         "sealos",
@@ -1365,6 +1368,9 @@ const checks = [
     ]), path.join(REFERENCES_DIR, "ips", "sealos"), [
       "Public rendered Sealos samples",
       "Sealos route block",
+      "uploaded Sealos logo source image overlay",
+      "overlay-only logo finalization",
+      "no prompt-rendered logo accepted",
     ], "Sealos route-local shared sample gate and route block markers");
   }),
   defineCheck("LEGACY-XH-001", "root Xiaohei compatibility files expose the current contract heading", () => {
@@ -1806,52 +1812,73 @@ const checks = [
     const routeLocalFiles = [
       path.join(REFERENCES_DIR, "ips", "sealos", "index.md"),
       path.join(REFERENCES_DIR, "ips", "sealos", "source.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "style-dna.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "sealos-ip.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "composition-patterns.md"),
       path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "ips", "sealos", "logo-overlay.md"),
       path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"),
     ];
     for (const relativePath of routeLocalFiles) {
       assertIncludes(requireFile(relativePath), relativePath, [
         "official uploaded Sealos logo shape",
-        "exact uploaded Sealos logo match",
+        "uploaded Sealos logo source image overlay",
+        "overlay-only logo finalization",
+        "no prompt-rendered logo accepted",
         "blue curled wave / seal-tail mark above a rounded cloud-tray base",
-        "vector-traced reproduction of the uploaded Sealos logo image",
-        "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
-      ], "route-local exact uploaded logo geometry");
+        "use the uploaded logo file as the only logo pixels",
+        "uniform scale and placement only",
+        "source asset path or attachment id",
+      ], "route-local uploaded logo source overlay markers");
     }
     assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "source.md")), path.join(REFERENCES_DIR, "ips", "sealos", "source.md"), [
       "official uploaded Sealos logo shape on cap and chest",
-      "exact uploaded Sealos logo match on cap and chest",
-      "vector-traced reproduction of the uploaded Sealos logo image",
-      "no redraw, no alternate wave, no simplified mark",
-      "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
-      "missing exact uploaded Sealos logo match",
-      "approximate logo redraw",
+      "uploaded Sealos logo source image overlay",
+      "blank cap and chest logo patches before overlay",
+      "use the uploaded logo file as the only logo pixels",
+      "source asset path or attachment id",
+      "missing uploaded Sealos logo source image overlay",
+      "prompt-rendered logo accepted",
+      "generated logo approximation",
+      "redrawn logo",
       "alternate wave mark",
       "simplified logo mark",
       "changed logo silhouette",
-    ], "Sealos source exact uploaded logo markers");
+    ], "Sealos source uploaded logo overlay markers");
     assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md")), path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md"), [
-      "Logo exactness note",
-      "exact miniature applied patches",
-      "copy the uploaded Sealos logo image",
-      "no redraw, no alternate wave, no simplified mark",
-      "missing exact uploaded Sealos logo match",
-      "approximate logo redraw",
+      "Logo overlay note",
+      "blank cap and chest logo patches before overlay",
+      "uploaded Sealos logo source image overlay",
+      "no prompt-rendered logo accepted",
+      "missing uploaded Sealos logo source image overlay",
+      "prompt-rendered logo accepted",
+      "generated logo approximation",
+      "redrawn logo",
       "alternate wave mark",
       "simplified logo mark",
-    ], "Sealos prompt exact uploaded logo generation and repair markers");
+    ], "Sealos prompt uploaded logo overlay generation and repair markers");
+    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "logo-overlay.md")), path.join(REFERENCES_DIR, "ips", "sealos", "logo-overlay.md"), [
+      "Exact Logo Authority",
+      "Required Workflow",
+      "Hard Failure Signals",
+      "Delivery Gate",
+      "uploaded Sealos logo source image overlay",
+      "overlay-only logo finalization",
+      "no prompt-rendered logo accepted",
+      "blank cap and chest logo patches before overlay",
+      "use the uploaded logo file as the only logo pixels",
+      "uniform scale and placement only",
+      "source asset path or attachment id",
+    ], "Sealos logo overlay protocol markers");
     assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md")), path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"), [
       "Sealos QA official uploaded Sealos logo shape failure",
       "Sealos QA exact uploaded logo match failure",
-      "missing exact uploaded Sealos logo match",
-      "approximate logo redraw",
+      "Sealos QA logo overlay failure",
+      "missing uploaded Sealos logo source image overlay",
+      "prompt-rendered logo accepted",
+      "generated logo approximation",
+      "redrawn logo",
       "alternate wave mark",
       "simplified logo mark",
       "changed logo silhouette",
-    ], "Sealos QA exact uploaded logo failure markers");
+    ], "Sealos QA uploaded logo overlay failure markers");
 
     for (const relativePath of [
       "README.md",
@@ -1862,23 +1889,32 @@ const checks = [
     ]) {
       assertIncludes(requireFile(relativePath), relativePath, [
         "official uploaded Sealos logo shape",
-        "exact uploaded Sealos logo match",
-      ], "Sealos public exact uploaded logo marker");
+        "uploaded Sealos logo source image overlay",
+        "no prompt-rendered logo accepted",
+      ], "Sealos public uploaded logo overlay marker");
     }
     const publicText = combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE, path.join(PACKAGE_DIR, "SKILL.md")]);
     assertIncludes(publicText, "Sealos public docs and SKILL.md", [
       "official uploaded Sealos logo shape",
-      "exact uploaded Sealos logo match",
+      "uploaded Sealos logo source image overlay",
+      "overlay-only logo finalization",
+      "no prompt-rendered logo accepted",
+      "blank cap and chest logo patches before overlay",
+      "use the uploaded logo file as the only logo pixels",
+      "uniform scale and placement only",
+      "source asset path or attachment id",
       "blue curled wave / seal-tail mark above a rounded cloud-tray base",
       "vector-traced reproduction of the uploaded Sealos logo image",
       "same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship",
-      "missing exact uploaded Sealos logo match",
-      "approximate logo redraw",
+      "missing uploaded Sealos logo source image overlay",
+      "prompt-rendered logo accepted",
+      "generated logo approximation",
+      "redrawn logo",
       "alternate wave mark",
       "simplified logo mark",
       "cap and chest",
       "changed logo silhouette",
-    ], "Sealos public exact uploaded logo markers");
+    ], "Sealos public uploaded logo overlay markers");
   }),
   defineCheck("DOC-LINKS-001", "README and examples local Markdown links point to existing files", () => {
     const links = localMarkdownLinks(["README.md", "examples/prompts.md"]);
@@ -2131,11 +2167,12 @@ const checks = [
       "route status 是 `brand-owned`",
       "source authority 是 `ian-xiaohei-illustrations/references/ips/sealos/source.md`",
       "route-local reference directory 是 `ian-xiaohei-illustrations/references/ips/sealos/`",
-      "required references 包含 `index.md`、`source.md`、`style-dna.md`、`sealos-ip.md`、`composition-patterns.md`、`prompt-template.md`、`qa-checklist.md`",
+      "required references 包含 `index.md`、`source.md`、`style-dna.md`、`sealos-ip.md`、`composition-patterns.md`、`prompt-template.md`、`logo-overlay.md`、`qa-checklist.md`",
       "planning fields 包含 Placement、Core idea、Structure type、Mascot state、Mascot action、Supporting objects、Visible labels、Output path、Brand/canonical-image note",
       "assets/<article-slug>-sealos/",
       "assets/&lt;article-slug&gt;-sealos/",
       "uploaded-image identity markers 包含 white rounded seal body、navy cap、deep-blue hoodie、official uploaded Sealos logo shape on cap and chest、blue curled wave / seal-tail mark above a rounded cloud-tray base、glossy dark eyes、black nose、whisker dots、small smile、short rounded flippers、compact legs、side-rear white tail",
+      "logo overlay markers 包含 uploaded Sealos logo source image overlay、overlay-only logo finalization、no prompt-rendered logo accepted、blank cap and chest logo patches before overlay、use the uploaded logo file as the only logo pixels、uniform scale and placement only、source asset path or attachment id",
       "public rendered Sealos samples require release review",
     ], "text-only explicit Sealos route smoke, planning, generation, path, identity, and public-sample gate prompts");
   }),
