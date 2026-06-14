@@ -52,7 +52,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Littlebox, Tom, Ferris, and Sealos Seal remain explicit routes with stable route ids, aliases, statuses, required references, and output suffixes.
   5. Maintainer can follow local migration guidance from the legacy package path to the canonical package path.
 
-**Plans:** 0/0 plans complete
+**Plans:** 0/1 plans complete
+
+Plans:
+- [ ] 22-01-PLAN.md — Rebrand runtime/package metadata and sync directly affected validation checks.
 
 ### Phase 23: Public Documentation and Examples Rebrand
 
