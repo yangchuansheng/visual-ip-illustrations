@@ -1,6 +1,70 @@
 # Prompt Examples
 
-下面这些 prompt 可以直接复制到 Codex 里使用。它们同时作为路由烟测夹具，保留路径、别名、字段名和 canonical reference markers。
+下面这些 prompt 可以直接复制到 Codex 里使用。Release 1.4 以后，正常流程优先使用 canonical invocation `$visual-ip-illustrations`；`$ian-xiaohei-illustrations` 保留为 legacy compatibility alias 和 route smoke fixture。路径、别名、字段名和 canonical reference markers 必须保持稳定。
+
+## Canonical normal-flow prompts
+
+### 默认 Xiaohei：canonical planning
+
+```text
+Use $visual-ip-illustrations 先不要生图。
+请用默认视觉 IP 为下面这篇文章做 5 张 shot list。
+每张图写清楚：放在哪段后、主题、核心意思、结构类型、Xiaohei 在图里承担的核心动作、建议中文标注词。
+默认视觉 IP 应选择 Xiaohei / 小黑。
+保存路径使用 `assets/<article-slug>-illustrations/`；文档校验 token 是 `assets/&lt;article-slug&gt;-illustrations/`。
+
+<粘贴文章>
+```
+
+### 默认 Xiaohei：canonical generation
+
+```text
+Use $visual-ip-illustrations 为下面这篇文章生成 4 张正文配图。
+使用默认视觉 IP Xiaohei。每张图单独生成，16:9 横版、纯白背景、黑色手绘线稿、少量红橙蓝中文手写标注。
+小黑必须承担核心动作，每张图只表达一个 core idea。
+保存路径使用 `assets/<article-slug>-illustrations/`；文档校验 token 是 `assets/&lt;article-slug&gt;-illustrations/`。
+
+<粘贴文章>
+```
+
+### Littlebox：canonical planning
+
+```text
+Use $visual-ip-illustrations 使用 Littlebox 路由为下面这篇文章做 4 张 shot list，先不要生图。
+每张图写清楚：Placement、Core idea、Littlebox state: closed、visual metaphor、assigned background、suggested objects、short visible labels。
+保存路径使用 `assets/<article-slug>-littlebox/`；文档校验 token 是 `assets/&lt;article-slug&gt;-littlebox/`。
+
+<粘贴文章>
+```
+
+### Littlebox：canonical generation
+
+```text
+Use $visual-ip-illustrations 使用 Littlebox 路由为下面这篇文章生成 3 张正文配图。
+要求：closed paper-box character、rough black marker linework、pale sky-blue #E3F2FD 或 pale lavender #E6E6FA background、short visible labels copied exactly in the user's language。
+保存路径使用 `assets/<article-slug>-littlebox/`；文档校验 token 是 `assets/&lt;article-slug&gt;-littlebox/`。
+
+<粘贴文章>
+```
+
+### 多 IP：canonical planning
+
+```text
+Use $visual-ip-illustrations 先不要生图。
+请用同一个 shared core idea 输出 Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal 五个 separate variant group。
+每个 group 使用 route-local references、route-local prompt template、route-local QA 和独立输出路径。
+Xiaohei group 使用 `ian-xiaohei-illustrations/references/ips/xiaohei/` 和 `assets/<article-slug>-illustrations/`。
+Littlebox group 使用 `ian-xiaohei-illustrations/references/ips/littlebox/` 和 `assets/<article-slug>-littlebox/`。
+Tom group 使用 `ian-xiaohei-illustrations/references/ips/tom/`、route status `gated-authorized`、rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md` 和 `assets/<article-slug>-tom/`。
+Ferris group 使用 `ian-xiaohei-illustrations/references/ips/ferris/`、route status `source-reviewed`、source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md` 和 `assets/<article-slug>-ferris/`。
+Sealos Seal group 使用 `ian-xiaohei-illustrations/references/ips/sealos/`、route status `brand-owned`、brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`、uploaded-image-canonical、uploaded-image-locked、no-logo mascot identity 和 `assets/<article-slug>-sealos/`。
+
+观点：信任是一块证据一块证据铺出来的路。
+```
+
+## Legacy compatibility route smoke prompts
+
+以下 prompt 保留 `$ian-xiaohei-illustrations` legacy alias 覆盖，用于 release 1.4 兼容烟测。
 
 ## 路由烟测：省略视觉 IP
 

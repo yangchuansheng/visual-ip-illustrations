@@ -28,9 +28,19 @@ Phase 15 owns Ferris validator/test expectation updates for the full seven-file 
 
 Phase 20 owns Sealos validator/test expectation updates for the public docs, prompt examples, agent metadata, NOTICE, release checklist, route leakage checks, public asset gates, generated sample gates, and green Node evidence before v1.3 release evidence.
 
+## Release 1.4 Rebrand Review
+
+- [ ] Confirm public docs lead with `Visual IP Illustrations` as the current release 1.4 public identity.
+- [ ] Confirm normal-flow examples use canonical invocation `$visual-ip-illustrations`.
+- [ ] Confirm `$ian-xiaohei-illustrations` remains documented as the release 1.4 legacy compatibility alias.
+- [ ] Confirm install guidance uses `git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations` and `cd visual-ip-illustrations`.
+- [ ] Confirm the installable package directory remains `ian-xiaohei-illustrations/`.
+- [ ] Scan README, examples, NOTICE, and release materials for stale old-name-only first-view public surfaces.
+- [ ] Confirm route behavior, route statuses, authority paths, raw output path tokens, and escaped output path tokens remain stable for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal.
+
 ## Route Smoke Prompts
 
-- [ ] Omitted-IP Xiaohei smoke: use `$ian-xiaohei-illustrations` with no visual IP name and confirm the selected route is Xiaohei.
+- [ ] Omitted-IP Xiaohei smoke: use canonical `$visual-ip-illustrations` with no visual IP name and confirm the selected route is Xiaohei; repeat with legacy `$ian-xiaohei-illustrations` for compatibility.
 - [ ] Explicit Xiaohei smoke: request `小黑`, `Xiaohei`, `Ian`, or `ian-xiaohei` and confirm output path `assets/<article-slug>-illustrations/`.
 - [ ] Explicit Littlebox smoke: request `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton` and confirm `Littlebox state: closed`, assigned background, and output path `assets/<article-slug>-littlebox/`.
 - [ ] Explicit Tom smoke: request `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` and confirm route status `gated-authorized`, rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`, and output path `assets/<article-slug>-tom/`.
