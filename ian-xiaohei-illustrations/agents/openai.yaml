@@ -1,6 +1,6 @@
 interface:
   display_name: "Visual IP Illustrations - Xiaohei / Littlebox / Tom / Ferris + Sealos Seal"
-  short_description: "Visual IP Illustrations 为中文文章生成可选视觉 IP 正文配图资产；未指定视觉 IP 时默认使用 Xiaohei，也可以显式选择 Littlebox、Tom、Ferris 或 Sealos Seal；Littlebox 是 explicit active route，Tom 是 explicit gated-authorized protected-character route，Ferris 是 explicit source-reviewed Rust-community mascot route，Sealos Seal 是 explicit brand-owned Sealos brand mascot route with uploaded-image authority。"
-  default_prompt: "Use $visual-ip-illustrations to 为这篇中文文章设计并生成几张正文配图；$ian-xiaohei-illustrations 是 v1.4 compatibility alias；未指定视觉 IP 时 default Xiaohei，也可以显式选择 Littlebox、explicit Tom protected-character route（gated-authorized）、explicit Ferris Rust-community mascot route（source-reviewed）或 explicit Sealos Seal brand-owned route（uploaded-image authority）。"
+  short_description: "Visual IP Illustrations generates selectable visual-IP article-body illustration assets for Chinese articles. Omitted visual IP uses default Xiaohei; Littlebox is an explicit active route, Tom 是 explicit gated-authorized protected-character route, Ferris 是 explicit source-reviewed Rust-community mascot route, and Sealos Seal is an explicit Sealos Seal brand-owned route with uploaded-image authority."
+  default_prompt: "Use $visual-ip-illustrations to design and generate article-body illustrations for this Chinese article. $ian-xiaohei-illustrations 是 v1.4 compatibility alias. Omitted visual IP uses default Xiaohei; explicit choices include Littlebox, explicit Tom protected-character route（gated-authorized）, explicit Ferris Rust-community mascot route（source-reviewed）, and explicit Sealos Seal brand-owned route（uploaded-image authority）."
 policy:
   allow_implicit_invocation: true

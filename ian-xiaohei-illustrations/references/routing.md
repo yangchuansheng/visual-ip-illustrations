@@ -1,17 +1,17 @@
-# 视觉 IP 路由
+# Visual IP Routing
 
-本文件定义技能入口的视觉 IP 选择规则和可验证路由元数据。`SKILL.md` 先选择视觉 IP，再加载所选路由的参考文件。
+This file defines visual-IP selection rules and verifiable route metadata for the skill entrypoint. `SKILL.md` selects the visual IP first, then loads only the selected route's reference files.
 
-## 路由选择规则
+## Route Selection Rules
 
-- 用户省略视觉 IP 时，选择 `xiaohei`。
-- 用户使用 `小黑`、`Xiaohei`、`Ian`、`ian-xiaohei` 时，选择同一个 `xiaohei` 路由。
-- 用户使用 `小盒`、`Littlebox`、`纸盒`、`paper-box`、`carton` 时，选择同一个 `littlebox` 路由。
-- 用户使用 `Tom`、`Tom Cat`、`Tom and Jerry`、`汤姆`、`汤姆猫` 时，选择同一个 `tom` 路由，路线状态保持 `gated-authorized`。
-- 用户使用 `Ferris`、`Rust mascot`、`Rust crab`、`Rustacean`、`Rust 吉祥物`、`Rust 螃蟹` 时，选择同一个 `ferris` 路由，路线状态保持 `source-reviewed`。
-- 用户使用 `Sealos Seal`、`Sealos mascot`、`Sealos 吉祥物`、`Sealos 海豹`、`white Sealos seal`、`blue hoodie seal` 时，选择同一个 `sealos` 路由，路线状态保持 `brand-owned`。
-- 同时请求 Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal 中的多个 IP 时，建立 separate route groups，每个 route group 只加载自己的 `required_references`，并写入自己的输出目录。
-- 路由只保存选择、引用、输出后缀和归因上下文。风格、角色身份、提示词措辞和 QA 规则保存在所选 IP 的参考文件中。
+- Omitted visual IP selects `xiaohei`.
+- `小黑`, `Xiaohei`, `Ian`, and `ian-xiaohei` select the same `xiaohei` route.
+- `小盒`, `Littlebox`, `纸盒`, `paper-box`, and `carton` select the same `littlebox` route.
+- `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫` select the same `tom` route and keep route status `gated-authorized`.
+- `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹` select the same `ferris` route and keep route status `source-reviewed`.
+- `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, and `blue hoodie seal` select the same `sealos` route and keep route status `brand-owned`.
+- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal create separate route groups. Compatibility marker: 每个 route group 只加载自己的 `required_references`; each group writes to its own output directory.
+- Routes store only selection, references, output suffixes, and attribution context. Style, character identity, prompt wording, and QA rules live in the selected IP's reference files.
 - Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Ferris route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
 - Ferris source/trademark authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
@@ -40,7 +40,7 @@
 
 ## Legacy Path Availability
 
-The root Xiaohei reference paths remain available during migration and point to canonical pack files:
+Root Xiaohei reference paths remain available during migration and point to canonical pack files:
 
 - `references/style-dna.md` -> `references/ips/xiaohei/style-dna.md`
 - `references/xiaohei-ip.md` -> `references/ips/xiaohei/xiaohei-ip.md`
@@ -48,27 +48,27 @@ The root Xiaohei reference paths remain available during migration and point to 
 - `references/prompt-template.md` -> `references/ips/xiaohei/prompt-template.md`
 - `references/qa-checklist.md` -> `references/ips/xiaohei/qa-checklist.md`
 
-## 输出路径
+## Output Paths
 
-- `xiaohei` 输出目录保持为 `assets/<article-slug>-illustrations/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-illustrations/`。
-- `xiaohei` 文件名继续使用有序英文 slug，例如 `01-topic-name.png`。
-- `littlebox` 输出目录为 `assets/<article-slug>-littlebox/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-littlebox/`。
-- `littlebox` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
-- `tom` 输出目录为 `assets/<article-slug>-tom/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-tom/`。
-- `tom` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
-- `ferris` 输出目录为 `assets/<article-slug>-ferris/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-ferris/`。
-- `ferris` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
-- `sealos` 输出目录为 `assets/<article-slug>-sealos/`，文档校验也保留 HTML 转义路径标记：`assets/&lt;article-slug&gt;-sealos/`。
-- `sealos` 文件名使用有序英文 slug，例如 `01-topic-name.png`。
-- 混合 IP 请求按 IP 分成 separate route groups：`xiaohei` 写入 `assets/<article-slug>-illustrations/`，`littlebox` 写入 `assets/<article-slug>-littlebox/`，`tom` 写入 `assets/<article-slug>-tom/`，`ferris` 写入 `assets/<article-slug>-ferris/`，`sealos` 写入 `assets/<article-slug>-sealos/`。
-- 输出前检查目标目录已有资产，生成新文件名以保留历史结果。
+- `xiaohei` output directory remains `assets/<article-slug>-illustrations/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-illustrations/`.
+- `xiaohei` filenames continue to use ordered English slugs such as `01-topic-name.png`.
+- `littlebox` output directory is `assets/<article-slug>-littlebox/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-littlebox/`.
+- `littlebox` filenames use ordered English slugs such as `01-topic-name.png`.
+- `tom` output directory is `assets/<article-slug>-tom/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-tom/`.
+- `tom` filenames use ordered English slugs such as `01-topic-name.png`.
+- `ferris` output directory is `assets/<article-slug>-ferris/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-ferris/`.
+- `ferris` filenames use ordered English slugs such as `01-topic-name.png`.
+- `sealos` output directory is `assets/<article-slug>-sealos/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-sealos/`.
+- `sealos` filenames use ordered English slugs such as `01-topic-name.png`.
+- Mixed-IP requests split by IP into separate route groups: `xiaohei` 写入 `assets/<article-slug>-illustrations/`, `littlebox` 写入 `assets/<article-slug>-littlebox/`, `tom` 写入 `assets/<article-slug>-tom/`, `ferris` 写入 `assets/<article-slug>-ferris/`, and `sealos` writes to `assets/<article-slug>-sealos/`.
+- Before output, inspect the target directory and choose a new filename to preserve historical results.
 
-## 交付报告字段
+## Delivery Report Fields
 
-每次生成交付都写清楚：
+Each generated-image delivery states:
 
-- 选中的视觉 IP
-- 生成了几张
-- 每张图的用途
-- 保存路径
-- 稳定性备注：哪些图最稳，哪些图是可选
+- selected visual IP
+- image count
+- purpose per image
+- saved path
+- stability notes: strongest images and optional images
