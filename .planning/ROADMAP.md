@@ -101,5 +101,5 @@ Phases execute in numeric order: 25 -> 26 -> 27 -> 28
 |-------|----------------|--------|-----------|
 | 25. Language Policy and Residual Scan Contract | 1/1 | Complete    | 2026-06-14 |
 | 26. Skill and Reference Content Migration | 4/4 | Complete    | 2026-06-14 |
-| 27. Public Documentation and Example Migration | 1/1 | Complete   | 2026-06-14 |
+| 27. Public Documentation and Example Migration | 1/1 | Complete    | 2026-06-14 |
 | 28. English-Default Validation and Release Evidence | 0/1 | Pending | — |

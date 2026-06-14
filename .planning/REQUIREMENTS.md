@@ -20,10 +20,10 @@
 
 ### Public Documentation and Examples
 
-- [ ] **DOC-01**: User can read README installation, route selection, workflow, validation, related project, and author sections in English-default prose.
-- [ ] **DOC-02**: User can copy English-default examples from `examples/prompts.md` for planning, generation, mixed-IP comparisons, legacy smoke tests, and route-specific prompts.
-- [ ] **DOC-03**: Maintainer can read NOTICE and RELEASE_CHECKLIST in English-default prose while Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries stay intact.
-- [ ] **DOC-04**: Public docs continue to preserve canonical `$visual-ip-illustrations`, legacy `$ian-xiaohei-illustrations`, install path guidance, route status markers, and output path contracts.
+- [x] **DOC-01**: User can read README installation, route selection, workflow, validation, related project, and author sections in English-default prose.
+- [x] **DOC-02**: User can copy English-default examples from `examples/prompts.md` for planning, generation, mixed-IP comparisons, legacy smoke tests, and route-specific prompts.
+- [x] **DOC-03**: Maintainer can read NOTICE and RELEASE_CHECKLIST in English-default prose while Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries stay intact.
+- [x] **DOC-04**: Public docs continue to preserve canonical `$visual-ip-illustrations`, legacy `$ian-xiaohei-illustrations`, install path guidance, route status markers, and output path contracts.
 
 ### Validation and Release Evidence
 
@@ -80,10 +80,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SKILL-02 | Phase 26 | Complete |
 | SKILL-03 | Phase 26 | Complete |
 | SKILL-04 | Phase 26 | Complete |
-| DOC-01 | Phase 27 | Pending |
-| DOC-02 | Phase 27 | Pending |
-| DOC-03 | Phase 27 | Pending |
-| DOC-04 | Phase 27 | Pending |
+| DOC-01 | Phase 27 | Complete |
+| DOC-02 | Phase 27 | Complete |
+| DOC-03 | Phase 27 | Complete |
+| DOC-04 | Phase 27 | Complete |
 | VAL-01 | Phase 28 | Pending |
 | VAL-02 | Phase 28 | Pending |
 | VAL-03 | Phase 28 | Pending |

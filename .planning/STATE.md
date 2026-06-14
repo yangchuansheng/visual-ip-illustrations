@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.5
 milestone_name: milestone
 status: discussing
-stopped_at: Phase 26 complete, ready to discuss Phase 27
-last_updated: "2026-06-14T17:44:54.934Z"
-last_activity: 2026-06-14 -- Phase 26 complete, ready to discuss Phase 27
+stopped_at: Phase 27 complete, ready to discuss Phase 28
+last_updated: "2026-06-14T18:37:20.706Z"
+last_activity: 2026-06-14 -- Phase 27 complete, ready to discuss Phase 28
 progress:
   total_phases: 4
-  completed_phases: 2
-  total_plans: 5
-  completed_plans: 5
-  percent: 50
+  completed_phases: 3
+  total_plans: 6
+  completed_plans: 6
+  percent: 75
 ---
 
 # Project State
@@ -21,20 +21,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 27 — Public Documentation and Example Migration
+**Current focus:** Phase 28 — English-Default Validation and Release Evidence
 
 ## Current Position
 
-Phase: 27 (Public Documentation and Example Migration) — DISCUSSING
+Phase: 28 (English-Default Validation and Release Evidence) — DISCUSSING
 Plan: Not started
-Status: Ready to discuss Phase 27
-Last activity: 2026-06-14 -- Phase 26 complete, ready to discuss Phase 27
+Status: Ready to discuss Phase 28
+Last activity: 2026-06-14 -- Phase 27 complete, ready to discuss Phase 28
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 52
+- Total plans completed: 53
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -62,6 +62,7 @@ Last activity: 2026-06-14 -- Phase 26 complete, ready to discuss Phase 27
 | 24 | 1 | - | - |
 | 25 | 1 | - | - |
 | 26 | 4 | - | - |
+| 27 | 1 | - | - |
 
 **Recent Trend:**
 
