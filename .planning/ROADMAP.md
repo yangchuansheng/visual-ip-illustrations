@@ -18,7 +18,7 @@ v1.4 rebrands the project from the Xiaohei-centered `ian-xiaohei-illustrations` 
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 21: Naming and Compatibility Contract** - Maintainers get a single source of truth for canonical name, repository slug, install slug, canonical skill id, legacy alias, and compatibility boundaries. (completed 2026-06-14)
-- [ ] **Phase 22: Skill Package and Runtime Metadata Rebrand** - Users can discover and invoke the canonical skill identity while all shipped route behavior remains stable.
+- [x] **Phase 22: Skill Package and Runtime Metadata Rebrand** - Users can discover and invoke the canonical skill identity while all shipped route behavior remains stable. (completed 2026-06-14)
 - [ ] **Phase 23: Public Documentation and Examples Rebrand** - Users and maintainers get README, examples, NOTICE, install, migration, and release guidance that leads with Visual IP Illustrations.
 - [ ] **Phase 24: Validation and Release Evidence** - Maintainers can verify canonical naming, legacy alias compatibility, route stability, docs consistency, and final release readiness locally.
 
@@ -52,10 +52,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Littlebox, Tom, Ferris, and Sealos Seal remain explicit routes with stable route ids, aliases, statuses, required references, and output suffixes.
   5. Maintainer can follow local migration guidance from the legacy package path to the canonical package path.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 
 Plans:
-- [ ] 22-01-PLAN.md — Rebrand runtime/package metadata and sync directly affected validation checks.
+
+- [x] 22-01-PLAN.md — Rebrand runtime/package metadata and sync directly affected validation checks.
 
 ### Phase 23: Public Documentation and Examples Rebrand
 
@@ -95,6 +96,6 @@ Phases execute in numeric order: 21 -> 22 -> 23 -> 24
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 21. Naming and Compatibility Contract | 1/1 | Complete    | 2026-06-14 |
-| 22. Skill Package and Runtime Metadata Rebrand | 0/0 | Pending | - |
+| 22. Skill Package and Runtime Metadata Rebrand | 1/1 | Complete   | 2026-06-14 |
 | 23. Public Documentation and Examples Rebrand | 0/0 | Pending | - |
 | 24. Validation and Release Evidence | 0/0 | Pending | - |
