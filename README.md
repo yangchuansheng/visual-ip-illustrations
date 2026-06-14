@@ -184,132 +184,48 @@ Release 1.4 compatibility：
 
 ## 快速示例
 
-### Xiaohei 规划
+`{视觉 IP}` 可填 `Xiaohei`、`Littlebox`、`Tom`、`Ferris`、`Sealos Seal` 或对应中文别名。省略时默认使用 Xiaohei。
+
+### 规划 shot list
 
 ```text
 Use $visual-ip-illustrations 先不要生图。
-请用默认视觉 IP 为下面这篇文章做 5 张 shot list。
-每张图写清楚：放在哪段后、主题、核心意思、结构类型、Xiaohei 在图里做什么、建议中文标注词。
+请用 {视觉 IP} 为下面这篇文章做 5 张正文配图 shot list。
+每张写清楚：放在哪段后、主题、核心意思、结构类型、角色动作、建议中文标注词。
 
 <粘贴文章>
 ```
 
-### Xiaohei 生成
+### 生成正文配图
 
 ```text
-Use $visual-ip-illustrations 使用 Xiaohei 路由为下面这篇文章生成 4 张正文配图。
-要求：16:9 横版、纯白背景、黑色手绘线稿、少量红橙蓝中文手写批注。
-保存路径使用 assets/<article-slug>-illustrations/。
+Use $visual-ip-illustrations 使用 {视觉 IP} 为下面这篇文章生成 4 张正文配图。
+每张图只表达一个核心意思，角色必须承担动作。
+按该 IP 的 route-local references、QA checklist 和输出路径保存。
 
 <粘贴文章>
 ```
 
-### Littlebox 规划
+### 单个观点
 
 ```text
-Use $visual-ip-illustrations 使用 Littlebox 路由为下面这篇文章做 4 张 shot list，先不要生图。
-每张图写清楚：Placement、Core idea、Littlebox state: closed、visual metaphor、assigned background、suggested objects、short visible labels。
+Use $visual-ip-illustrations 使用 {视觉 IP} 生成一张 16:9 正文配图。
+观点：信任是一块证据一块证据铺出来的路。
+要求：手绘、留白、少量中文标注，角色正在完成核心动作。
 
-<粘贴文章>
 ```
 
-### Littlebox 生成
-
-```text
-Use $visual-ip-illustrations 使用 Littlebox 路由为下面这篇文章生成 3 张正文配图。
-要求：closed paper-box character、rough black marker linework、pale sky-blue 或 pale lavender background、short Chinese visible labels。
-保存路径使用 assets/<article-slug>-littlebox/。
-
-<粘贴文章>
-```
-
-### 同一观点的 IP 对照
+### IP 对照
 
 ```text
 Use $visual-ip-illustrations 先不要生图。
-请用同一个 core idea 分别输出 Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal 五个 separate variant group。
-Xiaohei variant group 使用 assets/<article-slug>-illustrations/。
-Littlebox variant group 使用 assets/<article-slug>-littlebox/，并写清楚 Littlebox state: closed、visual metaphor、assigned background、short visible labels。
-Tom variant group 使用 assets/<article-slug>-tom/，并保留 route status `gated-authorized`、rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`、Tom action、supporting objects、visible labels。
-Ferris variant group 使用 assets/<article-slug>-ferris/，并保留 route status `source-reviewed`、route-local reference directory `ian-xiaohei-illustrations/references/ips/ferris/`、source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`、Ferris action、Supporting objects、Visible labels、Source/trademark note。
-Sealos Seal variant group 使用 assets/<article-slug>-sealos/，并保留 route status `brand-owned`、route-local reference directory `ian-xiaohei-illustrations/references/ips/sealos/`、brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`、Mascot state、Mascot action、Supporting objects、Visible labels、Brand/canonical-image note。
+请用同一个观点分别输出 Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal 五组 shot list。
+每组保留独立 IP、角色动作、可见标注和输出路径。
 
 观点：信任是一块证据一块证据铺出来的路。
 ```
 
-### Tom 路由审核提示
-
-```text
-Use $visual-ip-illustrations 使用 Tom / Tom Cat / Tom and Jerry / 汤姆 / 汤姆猫 路由，先不要生图。
-请为下面这篇文章做 3 张 Tom route shot list。
-每张图写清楚：Placement、Core idea、Structure type、Tom state、Tom action、Supporting objects、Visible labels、Output path、Rights-status note。
-route status 必须保留 `gated-authorized`。
-rights boundary 必须保留 `ian-xiaohei-illustrations/references/ips/tom/rights.md`。
-输出路径使用 `assets/<article-slug>-tom/`；文档校验 token 是 `assets/&lt;article-slug&gt;-tom/`。
-公共 rendered Tom samples 以 RELEASE_CHECKLIST.md 的 public-sample gate 为准。
-
-<粘贴文章>
-```
-
-### Ferris 路由规划
-
-```text
-Use $visual-ip-illustrations 使用 Ferris / Rust mascot / Rust crab / Rustacean / Rust 吉祥物 / Rust 螃蟹 路由，先不要生图。
-请为下面这篇文章做 3 张 Ferris route shot list。
-每张图写清楚：Placement、Core idea、Structure type、Ferris state、Ferris action、Supporting objects、Visible labels、Output path、Source/trademark note。
-route status 必须保留 `source-reviewed`。
-route-local reference directory 必须保留 `ian-xiaohei-illustrations/references/ips/ferris/`。
-source/trademark authority 必须保留 `ian-xiaohei-illustrations/references/ips/ferris/source.md`。
-输出路径使用 `assets/<article-slug>-ferris/`；文档校验 token 是 `assets/&lt;article-slug&gt;-ferris/`。
-公共 rendered Ferris samples 以 RELEASE_CHECKLIST.md 的 Rust trademark 和 endorsement-safe wording gate 为准。
-
-<粘贴文章>
-```
-
-### Ferris 生成
-
-```text
-Use $ian-xiaohei-illustrations 使用 Ferris / Rust mascot / Rust crab / Rustacean / Rust 吉祥物 / Rust 螃蟹 路由，为下面这篇文章生成 2 张正文配图。
-要求：Ferris 执行核心认知动作，使用 Rust-themed low-tech article metaphors，例如 ownership tags、borrow ropes、lifetime clocks、compiler gates、type-check stamps、safety nets、trait stamps 或 review gates。
-route status 必须保留 `source-reviewed`。
-route-local reference directory 必须保留 `ian-xiaohei-illustrations/references/ips/ferris/`。
-source/trademark authority 必须保留 `ian-xiaohei-illustrations/references/ips/ferris/source.md`。
-保存路径使用 `assets/<article-slug>-ferris/`；文档校验 token 是 `assets/&lt;article-slug&gt;-ferris/`。
-交付报告保留 Source/trademark note，并说明 public rendered Ferris samples 以 RELEASE_CHECKLIST.md 的 Rust trademark 和 endorsement-safe wording gate 为准。
-
-<粘贴文章>
-```
-
-### Sealos Seal 规划
-
-```text
-Use $ian-xiaohei-illustrations 使用 Sealos Seal / Sealos mascot / Sealos 吉祥物 / Sealos 海豹 / white Sealos seal / blue hoodie seal 路由，先不要生图。
-请为下面这篇文章做 3 张 Sealos Seal route shot list。
-每张图写清楚：Placement、Core idea、Structure type、Mascot state、Mascot action、Supporting objects、Visible labels、Output path、Brand/canonical-image note。
-route status 必须保留 `brand-owned`。
-route-local reference directory 必须保留 `ian-xiaohei-illustrations/references/ips/sealos/`。
-brand/canonical-image authority 必须保留 `ian-xiaohei-illustrations/references/ips/sealos/source.md`。
-输出路径使用 `assets/<article-slug>-sealos/`；文档校验 token 是 `assets/&lt;article-slug&gt;-sealos/`。
-Brand/canonical-image note 写清楚：Sealos Seal is a `brand-owned` route; preserve the uploaded mascot image as the v1.3 canonical mascot reference with uploaded-image-canonical and uploaded-image-locked markers.
-Public rendered Sealos samples require release review in `RELEASE_CHECKLIST.md`。
-
-<粘贴文章>
-```
-
-### Sealos Seal 生成
-
-```text
-Use $ian-xiaohei-illustrations 使用 Sealos Seal 路由为下面这篇文章生成 2 张正文配图。
-Sealos aliases 包括：Sealos Seal、Sealos mascot、Sealos 吉祥物、Sealos 海豹、white Sealos seal、blue hoodie seal。
-每张图单独生成，使用 `ian-xiaohei-illustrations/references/ips/sealos/` route-local references。
-Sealos Seal 必须承担 core idea 的 Mascot action，使用 cloud-developer article metaphors，例如 cloud OS tiles、deployment rails、DevBox workbenches、database cylinders、Kubernetes pods、app launch pads、traffic routes、incident cones、log slips、config keys、health checks、rollback handles、workflow gates 或 service bridges。
-保留 route status `brand-owned` 和 brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`。
-每张图都报告 Brand/canonical-image note，并保留 `uploaded-image-canonical` 和 `uploaded-image-locked`。
-保存路径使用 `assets/<article-slug>-sealos/`；文档校验 token 是 `assets/&lt;article-slug&gt;-sealos/`。
-交付报告说明 public rendered Sealos samples 以 `RELEASE_CHECKLIST.md` 的 uploaded-image identity、no-logo mascot identity 和 Sealos brand wording gate 为准。
-
-<粘贴文章>
-```
+受保护、来源审查和品牌路由会自动带上 route status、source/rights note、release gate 和专属输出目录。
 
 更多可复制示例见 [examples/prompts.md](examples/prompts.md)。
 

@@ -228,6 +228,7 @@ Recent decisions affecting current work:
 | 260614-izu | Require uploaded Sealos logo source overlay | 2026-06-14 | 870fe0b | [260614-izu-require-uploaded-sealos-logo-source-over](./quick/260614-izu-require-uploaded-sealos-logo-source-over/) |
 | 260614-jk6 | Require Sealos logo exact source shape mask | 2026-06-14 | a9e0007 | [260614-jk6-require-sealos-logo-exact-source-shape-m](./quick/260614-jk6-require-sealos-logo-exact-source-shape-m/) |
 | 260614-k62 | Remove all Sealos IP mascot logos | 2026-06-14 | 7c059dd | [260614-k62-remove-all-sealos-ip-mascot-logos](./quick/260614-k62-remove-all-sealos-ip-mascot-logos/) |
+| 260614-v86 | Optimize README prompt examples | 2026-06-14 | pending | [260614-v86-optimize-readme-prompt-examples](./quick/260614-v86-optimize-readme-prompt-examples/) |
 
 ## Deferred Items
 
