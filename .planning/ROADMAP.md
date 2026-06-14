@@ -54,7 +54,13 @@ Plans:
   4. `ian-xiaohei-illustrations/agents/openai.yaml` presents the skill in English-default prose and preserves Xiaohei as the omitted-IP default.
   5. No route-local migration collapses IP isolation or mixes source/rights/brand authority between routes.
 
-**Plans:** 0/1 plans complete
+**Plans:** 0/4 plans complete
+Plans:
+
+- [ ] 26-01-PLAN.md — Migrate the runtime controller, route registry, and agent metadata.
+- [ ] 26-02-PLAN.md — Migrate shared Xiaohei compatibility references and the canonical Xiaohei pack.
+- [ ] 26-03-PLAN.md — Migrate Littlebox and Tom route-local packs.
+- [ ] 26-04-PLAN.md — Migrate Ferris and Sealos Seal route-local packs and run targeted Phase 26 language diagnostics.
 
 ### Phase 27: Public Documentation and Example Migration
 
