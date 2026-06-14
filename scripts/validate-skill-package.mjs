@@ -796,7 +796,7 @@ function assertArrayIncludes(actual, expected, relativePath, relation) {
 }
 
 function uniqueItems(items) {
-  return [...new Set(items)].sort((a, b) => a.localeCompare(b, "en"));
+  return [...new Set(items)];
 }
 
 function normalizeBody(text) {
@@ -824,11 +824,11 @@ function languageScanTargets() {
     routeReferencePaths(row).map((referencePath) => displayPath(safeReferencePath(referencePath))),
   );
   return uniqueItems([
+    LANGUAGE_POLICY_FILE,
     "README.md",
     "examples/prompts.md",
     "NOTICE.md",
     "RELEASE_CHECKLIST.md",
-    LANGUAGE_POLICY_FILE,
     SKILL_FILE,
     OPENAI_AGENT_FILE,
     ROUTING_FILE,

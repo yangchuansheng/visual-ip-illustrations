@@ -87,6 +87,10 @@ const requiredCheckIds = [
   "REBRAND-PATH-001",
   "REBRAND-EVIDENCE-001",
   "REBRAND-DOCS-001",
+  "LANG-POLICY-001",
+  "LANG-POLICY-002",
+  "LANG-SCAN-001",
+  "LANG-SCAN-002",
   "BOUNDARY-IMG-001",
   "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-FERRIS-LEAK-001",
@@ -126,9 +130,10 @@ function copyFixture(name) {
   return fixtureRoot;
 }
 
-function runFixtureValidator(fixtureRoot) {
+function runFixtureValidator(fixtureRoot, extraEnv = {}) {
   return spawnSync(process.execPath, [path.join(fixtureRoot, "scripts", "validate-skill-package.mjs")], {
     cwd: fixtureRoot,
+    env: { ...process.env, ...extraEnv },
     encoding: "utf8",
   });
 }
@@ -207,7 +212,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -398,7 +403,7 @@ test("validator emits the full Phase 24 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -426,6 +431,108 @@ test("validator reports Phase 24 rebrand checks in stable order", () => {
     const index = result.stdout.indexOf(`[PASS] ${id} `);
     assert.ok(index > lastIndex, `${id} should appear after the previous Phase 24 rebrand check`);
     lastIndex = index;
+  }
+});
+
+test("validator fixture rejects missing language policy default surfaces", () => {
+  const fixtureRoot = copyFixture("language-policy-default-surfaces");
+  try {
+    replaceInFixture(fixtureRoot, "LANGUAGE_POLICY.md", "- validation output", "- validator messages");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] LANG-POLICY-001 /);
+    assert.match(result.stdout, /LANGUAGE_POLICY\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): validation output/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing language policy exception category", () => {
+  const fixtureRoot = copyFixture("language-policy-exception-category");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      "LANGUAGE_POLICY.md",
+      "- compatibility smoke fixtures that prove legacy Chinese aliases and route behavior still work",
+      "- compatibility fixtures that prove legacy Chinese aliases and route behavior still work",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] LANG-POLICY-002 /);
+    assert.match(result.stdout, /LANGUAGE_POLICY\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): compatibility smoke fixtures/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports approved multilingual tokens separately from stale prose", () => {
+  const fixtureRoot = copyFixture("language-scan-approved-and-stale");
+  try {
+    const result = runFixtureValidator(fixtureRoot, { LANGUAGE_SCAN_ENFORCE: "1" });
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] LANG-SCAN-001 /);
+    assert.match(result.stdout, /status=approved/);
+    assert.match(result.stdout, /category=route aliases/);
+    assert.match(result.stdout, /token=小黑/);
+    assert.match(result.stdout, /status=stale/);
+    assert.match(result.stdout, /category=stale Chinese prose/);
+    assert.match(result.stdout, /path=[^;]+:\d+/);
+    assert.match(result.stdout, /excerpt=/);
+    assert.match(result.stdout, /remediation=/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects stale Chinese prose in controlled language scan fixture", () => {
+  const fixtureRoot = copyFixture("language-scan-controlled-stale");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      "LANGUAGE_POLICY.md",
+      "This file is the canonical English-default language authority for Visual IP Illustrations.",
+      "This file is the canonical English-default language authority for Visual IP Illustrations.\n这是一段未迁移的中文说明。",
+    );
+
+    const result = runFixtureValidator(fixtureRoot, { LANGUAGE_SCAN_ENFORCE: "1" });
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] LANG-SCAN-001 /);
+    assert.match(result.stdout, /status=stale/);
+    assert.match(result.stdout, /path=LANGUAGE_POLICY\.md:\d+/);
+    assert.match(result.stdout, /excerpt=这是一段未迁移的中文说明。/);
+    assert.match(result.stdout, /remediation=Translate surrounding prose/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects broad language allowlist entries", () => {
+  const fixtureRoot = copyFixture("language-broad-allowlist");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("scripts", "validate-skill-package.mjs"),
+      "paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, \"README.md\", \"examples/prompts.md\", \"RELEASE_CHECKLIST.md\"],\n    token: \"小黑\",",
+      "paths: [\"**/*.md\"],\n    token: \"小黑\",",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] LANG-SCAN-001 /);
+    assert.match(result.stdout, /\[FAIL\] LANG-SCAN-002 /);
+    assert.match(result.stdout, /LANGUAGE_ALLOWLIST expected narrow entries/);
+    assert.match(result.stdout, /rejects broad Markdown path scope=\*\*\/\*\.md/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
   }
 });
 
@@ -1438,7 +1545,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1516,7 +1623,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1558,7 +1665,7 @@ test("validator fixture enforces public Sealos sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEALOS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=89 passed=89 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
