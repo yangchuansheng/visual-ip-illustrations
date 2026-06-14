@@ -20,7 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 21: Naming and Compatibility Contract** - Maintainers get a single source of truth for canonical name, repository slug, install slug, canonical skill id, legacy alias, and compatibility boundaries. (completed 2026-06-14)
 - [x] **Phase 22: Skill Package and Runtime Metadata Rebrand** - Users can discover and invoke the canonical skill identity while all shipped route behavior remains stable. (completed 2026-06-14)
 - [x] **Phase 23: Public Documentation and Examples Rebrand** - Users and maintainers get README, examples, NOTICE, install, migration, and release guidance that leads with Visual IP Illustrations. (completed 2026-06-14)
-- [ ] **Phase 24: Validation and Release Evidence** - Maintainers can verify canonical naming, legacy alias compatibility, route stability, docs consistency, and final release readiness locally. (plan complete; awaiting final verify-work closeout)
+- [x] **Phase 24: Validation and Release Evidence** - Maintainers can verify canonical naming, legacy alias compatibility, route stability, docs consistency, and final release readiness locally. (completed 2026-06-14)
 
 ## Phase Details
 
@@ -106,4 +106,4 @@ Phases execute in numeric order: 21 -> 22 -> 23 -> 24
 | 21. Naming and Compatibility Contract | 1/1 | Complete    | 2026-06-14 |
 | 22. Skill Package and Runtime Metadata Rebrand | 1/1 | Complete    | 2026-06-14 |
 | 23. Public Documentation and Examples Rebrand | 1/1 | Complete    | 2026-06-14 |
-| 24. Validation and Release Evidence | 1/1 | Awaiting verify-work | - |
+| 24. Validation and Release Evidence | 1/1 | Complete    | 2026-06-14 |
