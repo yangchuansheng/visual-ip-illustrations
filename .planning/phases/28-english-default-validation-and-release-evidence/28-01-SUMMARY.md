@@ -3,7 +3,7 @@ status: completed
 plan_id: 28-01
 phase: 28
 plan_name: English-Default Validation and Release Evidence
-commit_hash: final commit carries this summary
+commit_hash: 92b36b1
 updated: 2026-06-14T19:13:04Z
 requirements:
   - VAL-01
