@@ -7,9 +7,9 @@
 
 ### Language Policy
 
-- [ ] **LANG-01**: Maintainer can read a single English-default language policy for repository docs, skill instructions, reference docs, examples, release materials, validation output, code, scripts, comments, commit messages, and PR copy.
-- [ ] **LANG-02**: Maintainer can read an explicit exception allowlist for Chinese route aliases, user-language visible labels, prompt placeholders, attribution/source names, compatibility smoke fixtures, and Chinese article illustration examples.
-- [ ] **LANG-03**: Maintainer can run a residual Chinese scan that distinguishes policy-approved multilingual tokens from stale Chinese prose.
+- [x] **LANG-01**: Maintainer can read a single English-default language policy for repository docs, skill instructions, reference docs, examples, release materials, validation output, code, scripts, comments, commit messages, and PR copy.
+- [x] **LANG-02**: Maintainer can read an explicit exception allowlist for Chinese route aliases, user-language visible labels, prompt placeholders, attribution/source names, compatibility smoke fixtures, and Chinese article illustration examples.
+- [x] **LANG-03**: Maintainer can run a residual Chinese scan that distinguishes policy-approved multilingual tokens from stale Chinese prose.
 
 ### Skill and Reference Content
 
@@ -73,9 +73,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| LANG-01 | Phase 25 | Pending |
-| LANG-02 | Phase 25 | Pending |
-| LANG-03 | Phase 25 | Pending |
+| LANG-01 | Phase 25 | Complete |
+| LANG-02 | Phase 25 | Complete |
+| LANG-03 | Phase 25 | Complete |
 | SKILL-01 | Phase 26 | Pending |
 | SKILL-02 | Phase 26 | Pending |
 | SKILL-03 | Phase 26 | Pending |

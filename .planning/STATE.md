@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.5
 milestone_name: milestone
-status: Roadmap ready
+status: verifying
 stopped_at: Phase 25 context gathered
-last_updated: "2026-06-14T16:00:00.351Z"
-last_activity: 2026-06-14 — Milestone v1.5 roadmap created
+last_updated: "2026-06-14T16:11:25.665Z"
+last_activity: 2026-06-14 -- Phase 25 execution started
 progress:
   total_phases: 4
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  completed_phases: 1
+  total_plans: 1
+  completed_plans: 1
+  percent: 25
 ---
 
 # Project State
@@ -25,10 +25,10 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 
 ## Current Position
 
-Phase: 25
-Plan: —
-Status: Roadmap ready
-Last activity: 2026-06-14 — Milestone v1.5 roadmap created
+Phase: 25 (language-policy-and-residual-scan-contract) — EXECUTING
+Plan: 1 of 1
+Status: Phase complete — ready for verification
+Last activity: 2026-06-14 -- Phase 25 execution started
 
 ## Performance Metrics
 
@@ -108,6 +108,7 @@ Last activity: 2026-06-14 — Milestone v1.5 roadmap created
 | Phase 20 P02 | 24min | 3 tasks | 1 files |
 | Phase 20 P03 | 8min | 2 tasks | 5 files |
 | Phase 24 P24-01 | 25min | 3 tasks | 9 files |
+| Phase 25 P01 | 7min51s | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -203,6 +204,9 @@ Recent decisions affecting current work:
 - [Phase 24]: The validator matrix now has 89 checks, including 11 dedicated `REBRAND-*` checks for canonical identity, compatibility alias, migration guidance, route stability, output paths, evidence gates, and docs consistency.
 - [Phase 24]: The Node regression suite now has 51 tests covering canonical invocation, legacy invocation, route contract stability, output path stability, release evidence, and stale README/examples old-name-only fixtures.
 - [Phase 24]: Final release evidence is recorded with `Summary: total=89 passed=89 failed=0 skipped=0`, Node `tests 51`, `pass 51`, `fail 0`, and `git diff --check` exit 0.
+- [Phase 25]: LANGUAGE_POLICY.md is the root English-default authority for docs and release surfaces.
+- [Phase 25]: Production residual Chinese scanning stays green in report mode during Phase 26/27 migration, while LANGUAGE_SCAN_ENFORCE=1 hard-fails stale prose in fixtures.
+- [Phase 25]: The language allowlist is executable, narrow, and limited to exact tokens or anchored patterns.
 
 ### Pending Todos
 
@@ -240,6 +244,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-14T15:35:26.618Z
+Last session: 2026-06-14T16:10:50.206Z
 Stopped at: Phase 25 context gathered
 Resume file: .planning/phases/25-language-policy-and-residual-scan-contract/25-CONTEXT.md
