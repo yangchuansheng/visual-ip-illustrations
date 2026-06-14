@@ -4,8 +4,8 @@ milestone: v1.3
 milestone_name: milestone
 status: Phase 20 complete
 stopped_at: Phase 20 complete
-last_updated: "2026-06-13T17:57:00Z"
-last_activity: 2026-06-14 -- Completed quick task 260614-fow: Make Sealos cap and chest logo exactly match uploaded logo
+last_updated: "2026-06-14T05:56:53Z"
+last_activity: 2026-06-14 -- Completed quick task 260614-izu: Require uploaded Sealos logo source overlay
 progress:
   total_phases: 5
   completed_phases: 5
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-06-13)
 Phase: 20
 Plan: complete
 Status: Phase 20 complete
-Last activity: 2026-06-14 -- Completed quick task 260614-fow: Make Sealos cap and chest logo exactly match uploaded logo
+Last activity: 2026-06-14 -- Completed quick task 260614-izu: Require uploaded Sealos logo source overlay
 
 ## Performance Metrics
 
@@ -190,6 +190,7 @@ Recent decisions affecting current work:
 - [Phase 20]: Final validation evidence is recorded with `Summary: total=77 passed=77 failed=0 skipped=0`, Node `tests 39`, `pass 39`, `fail 0`, and `git diff --check` exit 0.
 - [Quick 260614-f7o]: Sealos Seal cap and chest logos now use the official uploaded Sealos logo shape: blue curled wave / seal-tail mark above a rounded cloud-tray base. Validator coverage now reports 78/78 and Node tests report 40/40.
 - [Quick 260614-fow]: Sealos Seal cap and chest logos now require exact uploaded Sealos logo match with vector-traced reproduction, same outline, negative space, proportions, curl, top fin/notch, rounded cloud-tray base, and blue gradient relationship. Validator coverage reports 78/78 and Node tests report 40/40.
+- [Quick 260614-izu]: Sealos Seal cap and chest logos now require uploaded Sealos logo source image overlay, overlay-only logo finalization, no prompt-rendered logo accepted, blank cap and chest logo patches before overlay, uploaded logo file as only logo pixels, uniform scale and placement only, and source asset path or attachment id. Validator coverage reports 78/78 and Node tests report 40/40.
 
 ### Pending Todos
 
@@ -211,6 +212,7 @@ Recent decisions affecting current work:
 |---|-------------|------|--------|-----------|
 | 260614-f7o | Tighten Sealos Seal cap and chest logo to official uploaded logo shape | 2026-06-14 | 94fe2e8 | [260614-f7o-tighten-sealos-seal-cap-and-chest-logo-t](./quick/260614-f7o-tighten-sealos-seal-cap-and-chest-logo-t/) |
 | 260614-fow | Make Sealos cap and chest logo exactly match uploaded logo | 2026-06-14 | b537fdc | [260614-fow-make-sealos-cap-and-chest-logo-exactly-m](./quick/260614-fow-make-sealos-cap-and-chest-logo-exactly-m/) |
+| 260614-izu | Require uploaded Sealos logo source overlay | 2026-06-14 | 870fe0b | [260614-izu-require-uploaded-sealos-logo-source-over](./quick/260614-izu-require-uploaded-sealos-logo-source-over/) |
 
 ## Deferred Items
 
