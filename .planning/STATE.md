@@ -1,14 +1,15 @@
 ---
 gsd_state_version: 1.0
 milestone: v1.5
-milestone_name: English Default Language Migration
-status: planning
-last_updated: "2026-06-14T15:01:51.025Z"
-last_activity: 2026-06-14
+milestone_name: milestone
+status: Roadmap ready
+stopped_at: Phase 25 context gathered
+last_updated: "2026-06-14T15:35:26.622Z"
+last_activity: 2026-06-14 — Milestone v1.5 roadmap created
 progress:
   total_phases: 4
   completed_phases: 0
-  total_plans: 4
+  total_plans: 0
   completed_plans: 0
   percent: 0
 ---
@@ -239,6 +240,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-14T10:36:03.193Z
-Stopped at: Phase 24 complete; v1.4 milestone complete
-Resume file: None
+Last session: 2026-06-14T15:35:26.618Z
+Stopped at: Phase 25 context gathered
+Resume file: .planning/phases/25-language-policy-and-residual-scan-contract/25-CONTEXT.md
