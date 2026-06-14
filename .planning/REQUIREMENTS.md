@@ -1,53 +1,37 @@
-# Requirements: Sealos Seal Mascot IP Integration
+# Requirements: Project Rebrand to Visual IP Illustrations
 
-**Defined:** 2026-06-13
+**Defined:** 2026-06-14
 **Core Value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## v1.3 Requirements
+## v1.4 Requirements
 
-### Brand and Canonical Image Boundary
+### Naming Contract
 
-- [x] **SBRD-01**: Maintainer can read a Sealos Seal brand/source record that names the uploaded image as the canonical mascot reference for v1.3.
-- [x] **SBRD-02**: Maintainer can verify the required Sealos Seal visual markers: white rounded seal body, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- [x] **SBRD-03**: Maintainer can distinguish Sealos brand/logo usage guidance from generic seal mascot exploration and prior alternative mascot concepts.
-- [x] **SBRD-04**: Maintainer can block public Sealos Seal examples that drift away from the uploaded image, remove the cap/hoodie/logo identity, or imply a different selected mascot.
-- [x] **SBRD-05**: Maintainer can inspect Sealos Seal route metadata, aliases, default flag, output suffix, required references, brand context, canonical image status, and drift boundary in `references/routing.md`.
+- [ ] **RBRD-01**: Maintainer can read a single naming contract that defines `Visual IP Illustrations` as the canonical product name.
+- [ ] **RBRD-02**: Maintainer can identify `visual-ip-illustrations` as the canonical repository and install slug.
+- [ ] **RBRD-03**: User can invoke the canonical skill id `$visual-ip-illustrations`.
+- [ ] **RBRD-04**: User can keep using the legacy `$ian-xiaohei-illustrations` invocation during the v1.4 transition.
 
-### Routing
+### Package and Runtime Compatibility
 
-- [x] **SEAL-01**: User can explicitly request Sealos Seal through clear aliases such as `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, and `blue hoodie seal`.
-- [x] **SEAL-02**: User who omits visual IP still gets Xiaohei as the only default route.
-- [x] **SEAL-03**: User can request Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal for the same core idea and receive separate variant groups.
-- [x] **SEAL-04**: Sealos Seal outputs use `assets/<article-slug>-sealos/`, and docs include the escaped token `assets/&lt;article-slug&gt;-sealos/`.
-- [x] **SEAL-05**: Sealos Seal planning and delivery output includes a brand/canonical-image note that reminds maintainers to preserve the uploaded mascot identity.
+- [ ] **PKG-01**: Installed skill metadata exposes `Visual IP Illustrations` as the canonical skill identity.
+- [ ] **PKG-02**: Agent metadata presents Visual IP Illustrations as the multi-IP article illustration skill while preserving Xiaohei as the omitted-IP default.
+- [ ] **PKG-03**: Existing route ids, aliases, required references, route statuses, and output suffixes for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal remain stable.
+- [ ] **PKG-04**: Maintainer can follow documented local migration guidance from `ian-xiaohei-illustrations` to `visual-ip-illustrations`.
 
-### Sealos Seal IP Pack
+### Public Documentation
 
-- [x] **SIP-01**: Maintainer can find Sealos Seal canonical references under `ian-xiaohei-illustrations/references/ips/sealos/`.
-- [x] **SIP-02**: User receives Sealos Seal planning fields for placement, core idea, structure type, mascot state, mascot action, supporting objects, visible labels, output path, and brand/canonical-image note.
-- [x] **SIP-03**: Sealos Seal prompt template produces one 16:9 article illustration where the uploaded white seal mascot performs the cognitive action.
-- [x] **SIP-04**: Sealos Seal composition guidance supports cloud OS, AI deployment, DevBox, database, Kubernetes, app launch, troubleshooting, and workflow metaphor families without losing the fixed mascot identity.
-- [x] **SIP-05**: Sealos Seal QA rejects generic seals, abstract logo creatures, missing cap, missing hoodie, missing Sealos marks, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage.
-- [x] **SIP-06**: Sealos Seal edit prompts support stronger mascot participation, uploaded-image identity repair, logo/hoodie/cap repair, title removal, text reduction, and preservation of unaffected content.
-
-### Documentation
-
-- [x] **SDOC-01**: README explains Sealos Seal as an explicit brand mascot route with aliases, output path, uploaded-image authority, and brand/logo boundary.
-- [x] **SDOC-02**: `examples/prompts.md` includes copyable Sealos Seal planning, Sealos Seal generation, Sealos Seal smoke, and five-IP mixed variant prompts.
-- [x] **SDOC-03**: `agents/openai.yaml` names Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal while preserving Xiaohei as the implicit default.
-- [x] **SDOC-04**: `NOTICE.md` and release materials record Sealos Seal as a Sealos brand mascot route based on the uploaded image and avoid treating prior exploration variants as canonical.
-- [x] **SDOC-05**: `RELEASE_CHECKLIST.md` includes uploaded-image identity review, Sealos logo/brand wording review, prompt leakage scan, public asset policy, generated sample policy, validator commands, and final release review.
-- [x] **SDOC-06**: Public docs use Sealos Seal brand/canonical-image wording consistently across README, examples, NOTICE, routing docs, and release checklist.
+- [ ] **DOC-01**: README opens with Visual IP Illustrations and explains the multi-IP product identity.
+- [ ] **DOC-02**: README install commands show the canonical clone/install path and the legacy compatibility path.
+- [ ] **DOC-03**: `examples/prompts.md` includes canonical `$visual-ip-illustrations` prompts plus legacy compatibility smoke prompts.
+- [ ] **DOC-04**: NOTICE and release materials preserve Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries while recording the rebrand scope.
 
 ### Validation
 
-- [x] **SVAL-01**: Maintainer can run the local validator successfully after v1.3 roadmap initialization.
-- [x] **SVAL-02**: Validator checks Sealos Seal route row, aliases, default false, output suffix, required references, route status, brand context, canonical image markers, and drift boundary markers.
-- [x] **SVAL-03**: Validator checks Sealos Seal canonical pack files, prompt placeholders, QA markers, uploaded-image markers, and brand-boundary markers.
-- [x] **SVAL-04**: Validator checks README, examples, agent metadata, NOTICE, release checklist, raw and escaped Sealos output path tokens, and Sealos Seal smoke prompts.
-- [x] **SVAL-05**: Validator checks Sealos Seal leakage boundaries so Xiaohei, Littlebox, Tom, and Ferris packs stay free of Sealos Seal identity rules and brand mascot text.
-- [x] **SVAL-06**: Validator checks public example asset directories for Sealos Seal rendered assets against the release checklist public-sample approval policy.
-- [x] **SVAL-07**: Node validator tests cover five-route parser behavior, stable check ordering, Sealos Seal failure messages, brand/canonical-image fixtures, public/generated sample gates, and full pass output.
+- [ ] **VAL-01**: Validator checks canonical naming across skill metadata, agent metadata, README, examples, NOTICE, release checklist, and route docs.
+- [ ] **VAL-02**: Validator checks the legacy alias compatibility markers and install migration guidance.
+- [ ] **VAL-03**: Node tests cover canonical invocation, legacy invocation, route stability, output path stability, and stale old-name-only fixtures.
+- [ ] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, docs consistency, and compatibility smoke coverage.
 
 ## v2 Requirements
 
@@ -76,14 +60,12 @@ Explicitly excluded. Documented to prevent scope creep.
 
 | Feature | Reason |
 |---------|--------|
-| Making Sealos Seal the default route | Xiaohei remains the compatibility baseline and Sealos Seal should require explicit selection. |
-| Redesigning the mascot away from the uploaded image | v1.3 locks the uploaded white seal in cap and hoodie as the canonical Sealos Seal identity. |
-| Using prior Sealos mascot exploration variants as the canonical route | The user selected the uploaded image as the mascot authority for this milestone. |
-| Creating a generic seal mascot generator | v1.3 targets one Sealos brand route with fixed identity markers. |
-| Shipping public Sealos Seal rendered examples without release review | Public generated assets should pass the release checklist identity and brand review. |
-| Hybrid Xiaohei-Littlebox-Tom-Ferris-Sealos characters | Blended identities break route isolation, QA, and brand/source boundaries. |
-| Hosted web app, UI, API, database, or build runtime | The product remains a lightweight Codex Skill package. |
-| Automated visual likeness judgment | v1.3 validates objective text/package markers; visual identity review remains manual. |
+| Changing visual IP behavior | v1.4 is a naming and compatibility milestone. |
+| Adding another IP route | Route expansion resumes after the rebrand lands. |
+| Changing Xiaohei default behavior | Xiaohei remains the compatibility baseline and omitted-IP default. |
+| Changing shipped output directories | Existing user assets keep stable path contracts. |
+| Removing legacy invocation during v1.4 | Users get migration guidance before legacy cleanup. |
+| Hosted app, UI, API, database, or build runtime | The product remains a lightweight Codex Skill package. |
 
 ## Traceability
 
@@ -91,35 +73,22 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SBRD-01 | Phase 16 | Complete |
-| SBRD-02 | Phase 16 | Complete |
-| SBRD-03 | Phase 16 | Complete |
-| SBRD-04 | Phase 16 | Complete |
-| SBRD-05 | Phase 16 | Complete |
-| SEAL-01 | Phase 18 | Complete |
-| SEAL-02 | Phase 18 | Complete |
-| SEAL-03 | Phase 18 | Complete |
-| SEAL-04 | Phase 18 | Complete |
-| SEAL-05 | Phase 18 | Complete |
-| SIP-01 | Phase 17 | Complete |
-| SIP-02 | Phase 17 | Complete |
-| SIP-03 | Phase 17 | Complete |
-| SIP-04 | Phase 17 | Complete |
-| SIP-05 | Phase 17 | Complete |
-| SIP-06 | Phase 17 | Complete |
-| SDOC-01 | Phase 19 | Complete |
-| SDOC-02 | Phase 19 | Complete |
-| SDOC-03 | Phase 19 | Complete |
-| SDOC-04 | Phase 19 | Complete |
-| SDOC-05 | Phase 19 | Complete |
-| SDOC-06 | Phase 19 | Complete |
-| SVAL-01 | Phase 20 | Complete |
-| SVAL-02 | Phase 20 | Complete |
-| SVAL-03 | Phase 20 | Complete |
-| SVAL-04 | Phase 20 | Complete |
-| SVAL-05 | Phase 20 | Complete |
-| SVAL-06 | Phase 20 | Complete |
-| SVAL-07 | Phase 20 | Complete |
+| RBRD-01 | Phase 21 | Pending |
+| RBRD-02 | Phase 21 | Pending |
+| RBRD-03 | Phase 21 | Pending |
+| RBRD-04 | Phase 21 | Pending |
+| PKG-01 | Phase 22 | Pending |
+| PKG-02 | Phase 22 | Pending |
+| PKG-03 | Phase 22 | Pending |
+| PKG-04 | Phase 22 | Pending |
+| DOC-01 | Phase 23 | Pending |
+| DOC-02 | Phase 23 | Pending |
+| DOC-03 | Phase 23 | Pending |
+| DOC-04 | Phase 23 | Pending |
+| VAL-01 | Phase 24 | Pending |
+| VAL-02 | Phase 24 | Pending |
+| VAL-03 | Phase 24 | Pending |
+| VAL-04 | Phase 24 | Pending |
 | MASC-01 | v2 | Future |
 | MASC-02 | v2 | Future |
 | MASC-03 | v2 | Future |
@@ -133,10 +102,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 **Coverage:**
 
-- v1.3 requirements: 29 total
-- Mapped to phases: 29
+- v1.4 requirements: 16 total
+- Mapped to phases: 16
 - Unmapped: 0
 
 ---
-*Requirements defined: 2026-06-13*
-*Last updated: 2026-06-14 after completing Phase 20 validation hardening*
+*Requirements defined: 2026-06-14*
+*Last updated: 2026-06-14 after starting v1.4 Project Rebrand to Visual IP Illustrations*

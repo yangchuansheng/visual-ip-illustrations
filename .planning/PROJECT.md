@@ -1,74 +1,74 @@
-# Multi-IP Article Illustration Skills
+# Visual IP Illustrations
 
 ## What This Is
 
-This project evolves the current Ian Xiaohei article-illustration Codex Skill into a multi-visual-IP skill system. It keeps the existing Xiaohei experience working while adding selectable visual IPs. The current shipped baseline supports Xiaohei, Littlebox, Tom, and Ferris, and the next milestone adds the uploaded Sealos white seal mascot as a brand-owned mascot route.
+Visual IP Illustrations is a Codex Skill package for selectable visual-IP article illustrations. It turns article judgments, workflows, structures, states, and metaphors into 16:9 body illustrations while routing each image through the selected IP's character rules, prompt template, QA gates, output path, and source or brand boundary.
 
-The product is for writers, product thinkers, AI workflow authors, and Codex users who want article body illustrations that explain one cognitive action through a consistent visual language. The near-term outcome is a reliable skill package where users can choose Xiaohei, Littlebox, Tom, Ferris, or Sealos Seal and get the right planning, prompt, QA, asset path, documentation, and source or brand-boundary behavior.
+The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal. The v1.4 milestone rebrands the project from the Xiaohei-centered `ian-xiaohei-illustrations` identity to `Visual IP Illustrations` while preserving the existing Xiaohei default route, explicit IP routes, output contracts, and legacy skill invocation.
 
 ## Core Value
 
 Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## Current Milestone: v1.3 Sealos Seal Mascot IP Integration
+## Current Milestone: v1.4 Project Rebrand to Visual IP Illustrations
 
-**Goal:** Add the uploaded Sealos white seal mascot as a fifth selectable visual IP route while keeping the shipped Xiaohei, Littlebox, Tom, and Ferris routes stable.
+**Goal:** Establish Visual IP Illustrations as the canonical project, repository, and skill identity while preserving the legacy `$ian-xiaohei-illustrations` compatibility surface.
 
 **Target features:**
 
-- Add a Sealos Seal brand/source record that treats the uploaded image as the canonical mascot reference.
-- Add a canonical Sealos Seal IP pack with fixed character identity, visual rules, action library, composition patterns, prompt template, and QA checklist.
-- Add Sealos Seal routing metadata, aliases, output suffix, required references, brand context, and mixed-IP variant behavior.
-- Update skill runtime instructions, public examples, agent metadata, and release checks for Sealos Seal.
-- Extend the lightweight validator and Node tests to cover Sealos Seal route, references, prompt placeholders, docs markers, output path, uploaded-image identity markers, brand-boundary markers, and route leakage.
+- Define the canonical naming contract: project name `Visual IP Illustrations`, repository slug `visual-ip-illustrations`, canonical skill id `$visual-ip-illustrations`, and legacy alias `$ian-xiaohei-illustrations`.
+- Update skill metadata, agent metadata, README, examples, NOTICE, release checklist, and maintainer docs so the multi-IP product identity leads every public surface.
+- Preserve the shipped Xiaohei default route, explicit Littlebox/Tom/Ferris/Sealos Seal routes, route ids, output path contracts, source records, brand records, and QA gates.
+- Add validation and Node test coverage for canonical naming, legacy alias compatibility, route stability, install guidance, and stale old-name-only surfaces.
+- Record migration guidance for local installs and release review so current users can adopt the new name smoothly.
 
 ## Requirements
 
 ### Validated
 
-- ✓ Existing Xiaohei skill can plan and generate 16:9 Chinese article body illustrations from articles, posts, blogs, Notion content, screenshots, and single concepts — existing
-- ✓ Existing Xiaohei workflow extracts cognitive anchors, produces shot lists, generates each image separately, checks outputs manually, and saves PNGs under `assets/<article-slug>-illustrations/` — existing
-- ✓ Existing Xiaohei visual language is documented through modular references for style DNA, IP behavior, composition patterns, prompt templates, and QA — existing
-- ✓ Existing package shape supports Codex skill installation through the `ian-xiaohei-illustrations/` subdirectory with `SKILL.md`, `agents/openai.yaml`, `references/`, and calibration assets — existing
-- ✓ Existing repository includes public README usage examples, prompt examples, calibration images, MIT license, and NOTICE attribution — existing
-- ✓ Xiaohei and Littlebox can be selected through deterministic routing metadata with Xiaohei as the default route — v1.0
-- ✓ Littlebox ships as an isolated canonical IP pack with prompt, QA, language, background, attribution, and output path behavior — v1.0
-- ✓ Maintainers can run a dependency-free validator that checks package shape, routes, references, prompt placeholders, docs links, output paths, and attribution markers — v1.0
-- ✓ Public docs and prompt examples explain the two-IP Xiaohei/Littlebox package and release checklist — v1.0
-- ✓ Tom can be selected as an explicit protected-character route with route-local rights, prompt, composition, QA, docs, metadata, release checklist, and validator coverage — v1.1
-- ✓ Xiaohei remains the omitted-IP default while Littlebox and Tom remain explicit selectable routes — v1.1
-- ✓ Protected-IP validation checks route metadata, docs markers, output paths, public sample gates, and route leakage locally through dependency-free Node scripts — v1.1
-- ✓ Ferris can be selected as an explicit source-reviewed Rust-community mascot route with route-local source/trademark records, prompt, composition, QA, docs, metadata, release checklist, validator, and Node test coverage — v1.2
-- ✓ Xiaohei remains the omitted-IP default while Littlebox, Tom, and Ferris remain explicit selectable routes — v1.2
-- ✓ Mascot validation checks route metadata, docs markers, output paths, public sample gates, source/trademark boundaries, and route leakage locally through dependency-free Node scripts — v1.2
+- Complete: Existing Xiaohei skill can plan and generate 16:9 Chinese article body illustrations from articles, posts, blogs, Notion content, screenshots, and single concepts - existing
+- Complete: Existing Xiaohei workflow extracts cognitive anchors, produces shot lists, generates each image separately, checks outputs manually, and saves PNGs under `assets/<article-slug>-illustrations/` - existing
+- Complete: Existing Xiaohei visual language is documented through modular references for style DNA, IP behavior, composition patterns, prompt templates, and QA - existing
+- Complete: Existing package shape supports Codex skill installation through the `ian-xiaohei-illustrations/` subdirectory with `SKILL.md`, `agents/openai.yaml`, `references/`, and calibration assets - existing
+- Complete: Existing repository includes public README usage examples, prompt examples, calibration images, MIT license, and NOTICE attribution - existing
+- Complete: Xiaohei and Littlebox can be selected through deterministic routing metadata with Xiaohei as the default route - v1.0
+- Complete: Littlebox ships as an isolated canonical IP pack with prompt, QA, language, background, attribution, and output path behavior - v1.0
+- Complete: Maintainers can run a dependency-free validator that checks package shape, routes, references, prompt placeholders, docs links, output paths, and attribution markers - v1.0
+- Complete: Public docs and prompt examples explain the two-IP Xiaohei/Littlebox package and release checklist - v1.0
+- Complete: Tom can be selected as an explicit protected-character route with route-local rights, prompt, composition, QA, docs, metadata, release checklist, and validator coverage - v1.1
+- Complete: Xiaohei remains the omitted-IP default while Littlebox and Tom remain explicit selectable routes - v1.1
+- Complete: Protected-IP validation checks route metadata, docs markers, output paths, public sample gates, and route leakage locally through dependency-free Node scripts - v1.1
+- Complete: Ferris can be selected as an explicit source-reviewed Rust-community mascot route with route-local source/trademark records, prompt, composition, QA, docs, metadata, release checklist, validator, and Node test coverage - v1.2
+- Complete: Xiaohei remains the omitted-IP default while Littlebox, Tom, and Ferris remain explicit selectable routes - v1.2
+- Complete: Mascot validation checks route metadata, docs markers, output paths, public sample gates, source/trademark boundaries, and route leakage locally through dependency-free Node scripts - v1.2
+- Complete: Sealos Seal can be selected as an explicit brand-owned route with route-local source record, canonical pack, controller routing, docs, release checklist, validator coverage, and Node tests - v1.3
+- Complete: Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, and Sealos Seal remain explicit selectable routes - v1.3
+- Complete: The latest Sealos Seal route is logo-free across cap, hoodie chest, mascot body, props, and scene, with validator and Node test coverage at 78/78 and 40/40 after quick task 260614-k62 - v1.3 follow-up
 
 ### Active
 
-- [ ] Add Sealos Seal as a fifth selectable IP with canonical references under `ian-xiaohei-illustrations/references/ips/sealos/`.
-- [ ] Preserve the shipped Xiaohei default route and existing Littlebox/Tom/Ferris explicit routes while adding Sealos Seal aliases and mixed-IP grouping.
-- [ ] Define Sealos Seal visual identity from the uploaded image: white rounded seal, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- [ ] Define Sealos Seal action rules, composition families, prompt template, edit prompts, and QA failures for article illustrations.
-- [ ] Document Sealos brand/source context, uploaded-image authority, logo usage boundary, public sample policy, and drift prevention before release.
-- [ ] Update public docs, examples, agent metadata, and release checklist so users and maintainers can request and verify Sealos Seal.
-- [ ] Extend the validator and tests so Sealos Seal route, references, output path, prompt placeholders, docs markers, uploaded-image markers, brand-boundary markers, and route leakage are checked locally.
+- [ ] Establish `Visual IP Illustrations` as the canonical product name across planning docs, public docs, skill metadata, agent metadata, and release materials.
+- [ ] Establish `visual-ip-illustrations` as the canonical repository and install slug while preserving migration guidance from `ian-xiaohei-illustrations`.
+- [ ] Establish `$visual-ip-illustrations` as the canonical skill id while preserving `$ian-xiaohei-illustrations` as a documented legacy alias during the v1.4 transition.
+- [ ] Preserve all shipped IP route behavior for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal during the rebrand.
+- [ ] Update public examples and smoke prompts so users can request the canonical skill name and still understand legacy compatibility.
+- [ ] Extend the validator and Node tests to check canonical naming, legacy alias compatibility, route stability, install guidance, and stale old-name-only surfaces.
+- [ ] Record release evidence for validator output, Node tests, `git diff --check`, docs consistency, and compatibility smoke coverage.
 
 ### Out of Scope
 
-- Merging multiple IP identities into one hybrid character — each IP needs a distinct visual contract.
-- Building a hosted web app or UI — this remains a Codex Skill repository.
-- Generating new final illustration images as part of milestone initialization — this planning project prepares the code/docs changes.
-- Redesigning the Sealos mascot away from the uploaded image — v1.3 locks the uploaded white seal in cap and hoodie as the canonical shape.
-- Supporting arbitrary user-defined IP imports in v1.3 — this milestone focuses on one Sealos Seal route.
-- Treating generic seal mascots, abstract logo-creature variants, or prior exploration variants as the primary Sealos route — the uploaded image is the route authority.
-- Creating a generic brand mascot marketplace — v1.3 focuses on one Sealos brand route.
+- Visual behavior redesign - v1.4 is a naming and compatibility milestone.
+- Adding a new visual IP route - route expansion resumes after the rebrand lands.
+- Changing Xiaohei default behavior - compatibility remains a core requirement.
+- Changing existing output directories for shipped routes - current user assets keep their path contracts.
+- Creating a hosted app, UI, API, database, or build runtime - the package remains a lightweight Codex Skill.
+- Removing the legacy `$ian-xiaohei-illustrations` invocation during v1.4 - migration guidance ships first.
 
 ## Context
 
-The existing repository is a documentation-first Codex Skill package. It has no application runtime, package manager, database, CI, or automated test runner. The installable unit is `ian-xiaohei-illustrations/`; root-level README, examples, license, notice, and assets support GitHub distribution.
+The existing repository is a documentation-first Codex Skill package. It has no application runtime, package manager, database, CI, or automated test runner. The installable unit currently lives at `ian-xiaohei-illustrations/`; root-level README, examples, license, notice, release checklist, scripts, and assets support GitHub distribution.
 
-The current Xiaohei package is centered on pure-white 16:9 hand-drawn Chinese article illustrations. Xiaohei is a solid-black, white-dot-eyed, thin-legged, deadpan character that must perform the conceptual action. Current references live in `ian-xiaohei-illustrations/references/ips/xiaohei/`, with legacy root reference paths kept for compatibility.
-
-The Littlebox source repository was inspected from `https://github.com/okooo5km/5km-littlebox-illustrations` at short commit `37cd93e` on 2026-06-12. It is also an MIT-licensed Codex Skill. Littlebox uses a closed paper-box character, route-local references, and `assets/<article-slug>-littlebox/` outputs.
+The current product has outgrown the original Xiaohei-only name. Xiaohei remains the compatibility baseline and omitted-IP default, while Littlebox, Tom, Ferris, and Sealos Seal now have isolated route-local packs, route metadata, output suffixes, docs, rights/source/brand boundaries, release gates, and local validation coverage.
 
 v1.0 completed the two-IP foundation: Xiaohei remains the default route, Littlebox is an explicit selectable route, and the validator covers package shape, routes, references, prompt placeholders, docs links, output paths, and attribution markers.
 
@@ -76,20 +76,20 @@ v1.1 completed the Tom route: Tom remains explicit, gated-authorized, route-loca
 
 v1.2 completed the Ferris route: Ferris remains explicit, source-reviewed, Rust-trademark-boundary aware, and covered by docs, examples, metadata, release checklist, validator, and Node tests. The v1.2 completion evidence recorded validator 60/60, Node tests 31/31, and `git diff --check` success.
 
-Sealos Seal context comes from the user's uploaded mascot image and the prior Sealos mascot thread `019ec004-7c7c-7632-abe9-ac7b84cdf22e`. The route authority is the uploaded white seal wearing a navy cap and deep-blue hoodie, with Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, a small smile, short rounded flippers, compact legs, and a side-rear white tail. Prior Sealos mascot exploration established the brand personality as a reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes context.
+v1.3 completed the Sealos Seal route: Sealos Seal remains explicit, brand-owned, route-local, uploaded-image-derived, logo-free after quick task 260614-k62, and covered by docs, examples, metadata, release checklist, validator, and Node tests. The latest validation evidence recorded validator 78/78 and Node tests 40/40.
 
-The current codebase map calls out fragile areas that matter for this work: manual-only validation, repeated style instructions across files, no machine-readable asset inventory, implicit package boundary, no validation command beyond local scripts, no release/package workflow, and no prompt regression examples.
+The current codebase map calls out fragile areas that matter for this work: repeated naming instructions across docs, route metadata, examples, validator strings, install commands, skill frontmatter, and agent metadata. v1.4 treats the naming contract as a first-class compatibility surface, with validator coverage to prevent drift.
 
 ## Constraints
 
 - **Runtime**: Preserve Codex Skill compatibility through Markdown `SKILL.md`, local reference files, and `agents/openai.yaml` metadata.
-- **Compatibility**: Existing `$ian-xiaohei-illustrations` behavior and documented Xiaohei prompts must keep working.
-- **IP Isolation**: Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal rules must remain separately readable, testable, and routable.
-- **Attribution**: Preserve MIT license notices and derived documentation attribution for Ian and okooo5km; add Ferris source attribution for Karen Rustad Tolva and rustacean.net.
-- **Trademark Boundary**: Ferris references can record CC0/public-domain source context, while Rust word/logo usage follows the Rust Foundation trademark policy and avoids official-affiliation claims.
-- **Brand Boundary**: Sealos Seal references must preserve Sealos logo usage, brand lineage, and uploaded-image identity markers while avoiding generic seal mascot drift.
-- **Visual Reference**: The uploaded image is the canonical Sealos Seal shape reference for v1.3.
-- **No Build Runtime**: The project should stay usable as a lightweight skill package; validation can be script-based but should not require a full app framework.
+- **Naming Compatibility**: Canonical identity becomes `Visual IP Illustrations` / `visual-ip-illustrations` / `$visual-ip-illustrations`, with `$ian-xiaohei-illustrations` preserved as a documented legacy alias during v1.4.
+- **Route Compatibility**: Existing Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal routing behavior, route ids, required references, output suffixes, and output directories remain stable.
+- **IP Isolation**: Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal rules remain separately readable, testable, and routable.
+- **Attribution**: Preserve MIT license notices and derived documentation attribution for Ian and okooo5km; preserve Ferris source attribution for Karen Rustad Tolva and rustacean.net.
+- **Trademark Boundary**: Ferris references record CC0/public-domain source context, while Rust word/logo usage follows the Rust Foundation trademark policy and avoids official-affiliation claims.
+- **Brand Boundary**: Sealos Seal references preserve brand lineage, uploaded-image identity markers, logo-free route constraints, and generic mascot drift checks.
+- **No Build Runtime**: The project stays usable as a lightweight skill package; validation can be script-based and dependency-free.
 - **Image Generation Dependency**: Final generation still depends on the host agent's `image_gen` capability.
 - **Documentation Language**: User-facing repository docs can stay Chinese-first; code, scripts, comments, commit messages, and PR copy stay English.
 
@@ -97,13 +97,15 @@ The current codebase map calls out fragile areas that matter for this work: manu
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Build a multi-IP skill system inside the existing repository | The current package already has a complete Xiaohei workflow and public distribution shape | ✓ Good |
-| Add Littlebox as the first additional IP | The Littlebox repository follows the same skill pattern and provides a strong contrasting IP contract | ✓ Good |
-| Keep IP-specific rules in separate reference modules | The IPs have incompatible visual constraints, character anatomy, output paths, rights boundaries, and QA | ✓ Good |
-| Add validation before broad refactoring | Current risks come from drift across prose docs, reference files, examples, and package boundaries | ✓ Good |
-| Add Tom through an explicit authorized-IP milestone | Tom is a recognizable commercial character, so the route needs rights-boundary docs in addition to normal IP pack, prompt, QA, and validation work | ✓ Good |
-| Add Ferris through a source-and-trademark-aware mascot milestone | Ferris has permissive copyright source context and Rust-related trademark boundaries, so the route needs attribution, source clarity, and endorsement-safe wording | ✓ Good |
-| Add Sealos Seal through an uploaded-image-locked brand mascot milestone | The user selected the uploaded white seal in cap and hoodie as the Sealos mascot authority, so the route needs fixed visual markers, brand lineage, logo usage guidance, and drift checks | -- Pending |
+| Build a multi-IP skill system inside the existing repository | The current package already has a complete Xiaohei workflow and public distribution shape | Good |
+| Add Littlebox as the first additional IP | The Littlebox repository follows the same skill pattern and provides a strong contrasting IP contract | Good |
+| Keep IP-specific rules in separate reference modules | The IPs have incompatible visual constraints, character anatomy, output paths, rights boundaries, and QA | Good |
+| Add validation before broad refactoring | Current risks come from drift across prose docs, reference files, examples, and package boundaries | Good |
+| Add Tom through an explicit authorized-IP milestone | Tom is a recognizable commercial character, so the route needs rights-boundary docs in addition to normal IP pack, prompt, QA, and validation work | Good |
+| Add Ferris through a source-and-trademark-aware mascot milestone | Ferris has permissive copyright source context and Rust-related trademark boundaries, so the route needs attribution, source clarity, and endorsement-safe wording | Good |
+| Add Sealos Seal through an uploaded-image-locked brand mascot milestone | The user selected the uploaded white seal in cap and hoodie as the Sealos mascot authority, so the route needs fixed visual markers, brand lineage, and drift checks | Good |
+| Rebrand the product to Visual IP Illustrations | The current capability is a routeable multi-IP illustration system, and the Xiaohei-centered repository name now undersells the product | Pending |
+| Preserve `$ian-xiaohei-illustrations` as a legacy alias during v1.4 | Existing user prompts and local installs should continue working while canonical naming rolls out | Pending |
 
 ## Evolution
 
@@ -123,4 +125,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-13 after starting v1.3 Sealos Seal Mascot IP Integration*
+*Last updated: 2026-06-14 after starting v1.4 Project Rebrand to Visual IP Illustrations*
