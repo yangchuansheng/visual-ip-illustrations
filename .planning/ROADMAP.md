@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 21: Naming and Compatibility Contract** - Maintainers get a single source of truth for canonical name, repository slug, install slug, canonical skill id, legacy alias, and compatibility boundaries. (completed 2026-06-14)
 - [x] **Phase 22: Skill Package and Runtime Metadata Rebrand** - Users can discover and invoke the canonical skill identity while all shipped route behavior remains stable. (completed 2026-06-14)
-- [ ] **Phase 23: Public Documentation and Examples Rebrand** - Users and maintainers get README, examples, NOTICE, install, migration, and release guidance that leads with Visual IP Illustrations.
+- [x] **Phase 23: Public Documentation and Examples Rebrand** - Users and maintainers get README, examples, NOTICE, install, migration, and release guidance that leads with Visual IP Illustrations. (completed 2026-06-14)
 - [ ] **Phase 24: Validation and Release Evidence** - Maintainers can verify canonical naming, legacy alias compatibility, route stability, docs consistency, and final release readiness locally.
 
 ## Phase Details
@@ -71,11 +71,11 @@ Plans:
   4. NOTICE and release checklist preserve Ian, Littlebox, Tom, Ferris, and Sealos Seal attribution/source/brand boundaries.
   5. Public docs avoid stale old-name-only framing on primary surfaces.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 
 Plans:
 
-- [ ] 23-01-PLAN.md — Rebrand README, examples, NOTICE, and release checklist public docs while preserving route markers and validation baselines.
+- [x] 23-01-PLAN.md — Rebrand README, examples, NOTICE, and release checklist public docs while preserving route markers and validation baselines.
 
 ### Phase 24: Validation and Release Evidence
 
@@ -101,5 +101,5 @@ Phases execute in numeric order: 21 -> 22 -> 23 -> 24
 |-------|----------------|--------|-----------|
 | 21. Naming and Compatibility Contract | 1/1 | Complete    | 2026-06-14 |
 | 22. Skill Package and Runtime Metadata Rebrand | 1/1 | Complete    | 2026-06-14 |
-| 23. Public Documentation and Examples Rebrand | 0/1 | Pending | - |
+| 23. Public Documentation and Examples Rebrand | 1/1 | Complete   | 2026-06-14 |
 | 24. Validation and Release Evidence | 0/0 | Pending | - |
