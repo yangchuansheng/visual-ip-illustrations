@@ -14,10 +14,10 @@
 
 ### Package and Runtime Compatibility
 
-- [ ] **PKG-01**: Installed skill metadata exposes `Visual IP Illustrations` as the canonical skill identity.
-- [ ] **PKG-02**: Agent metadata presents Visual IP Illustrations as the multi-IP article illustration skill while preserving Xiaohei as the omitted-IP default.
-- [ ] **PKG-03**: Existing route ids, aliases, required references, route statuses, and output suffixes for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal remain stable.
-- [ ] **PKG-04**: Maintainer can follow documented local migration guidance from `ian-xiaohei-illustrations` to `visual-ip-illustrations`.
+- [x] **PKG-01**: Installed skill metadata exposes `Visual IP Illustrations` as the canonical skill identity.
+- [x] **PKG-02**: Agent metadata presents Visual IP Illustrations as the multi-IP article illustration skill while preserving Xiaohei as the omitted-IP default.
+- [x] **PKG-03**: Existing route ids, aliases, required references, route statuses, and output suffixes for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal remain stable.
+- [x] **PKG-04**: Maintainer can follow documented local migration guidance from `ian-xiaohei-illustrations` to `visual-ip-illustrations`.
 
 ### Public Documentation
 
@@ -77,10 +77,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RBRD-02 | Phase 21 | Complete |
 | RBRD-03 | Phase 21 | Complete |
 | RBRD-04 | Phase 21 | Complete |
-| PKG-01 | Phase 22 | Pending |
-| PKG-02 | Phase 22 | Pending |
-| PKG-03 | Phase 22 | Pending |
-| PKG-04 | Phase 22 | Pending |
+| PKG-01 | Phase 22 | Complete |
+| PKG-02 | Phase 22 | Complete |
+| PKG-03 | Phase 22 | Complete |
+| PKG-04 | Phase 22 | Complete |
 | DOC-01 | Phase 23 | Pending |
 | DOC-02 | Phase 23 | Pending |
 | DOC-03 | Phase 23 | Pending |
