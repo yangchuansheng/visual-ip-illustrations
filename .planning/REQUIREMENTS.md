@@ -7,10 +7,10 @@
 
 ### Naming Contract
 
-- [ ] **RBRD-01**: Maintainer can read a single naming contract that defines `Visual IP Illustrations` as the canonical product name.
-- [ ] **RBRD-02**: Maintainer can identify `visual-ip-illustrations` as the canonical repository and install slug.
-- [ ] **RBRD-03**: User can invoke the canonical skill id `$visual-ip-illustrations`.
-- [ ] **RBRD-04**: User can keep using the legacy `$ian-xiaohei-illustrations` invocation during the v1.4 transition.
+- [x] **RBRD-01**: Maintainer can read a single naming contract that defines `Visual IP Illustrations` as the canonical product name.
+- [x] **RBRD-02**: Maintainer can identify `visual-ip-illustrations` as the canonical repository and install slug.
+- [x] **RBRD-03**: User can invoke the canonical skill id `$visual-ip-illustrations`.
+- [x] **RBRD-04**: User can keep using the legacy `$ian-xiaohei-illustrations` invocation during the v1.4 transition.
 
 ### Package and Runtime Compatibility
 
@@ -73,10 +73,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RBRD-01 | Phase 21 | Pending |
-| RBRD-02 | Phase 21 | Pending |
-| RBRD-03 | Phase 21 | Pending |
-| RBRD-04 | Phase 21 | Pending |
+| RBRD-01 | Phase 21 | Complete |
+| RBRD-02 | Phase 21 | Complete |
+| RBRD-03 | Phase 21 | Complete |
+| RBRD-04 | Phase 21 | Complete |
 | PKG-01 | Phase 22 | Pending |
 | PKG-02 | Phase 22 | Pending |
 | PKG-03 | Phase 22 | Pending |
