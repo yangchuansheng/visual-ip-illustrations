@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v1.5
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 25 context gathered
-last_updated: "2026-06-14T16:11:25.665Z"
-last_activity: 2026-06-14 -- Phase 25 execution started
+status: planning
+stopped_at: Phase 25 complete, ready to discuss Phase 26
+last_updated: "2026-06-14T16:20:55.753Z"
+last_activity: 2026-06-14
 progress:
   total_phases: 4
   completed_phases: 1
@@ -21,20 +21,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 25 — language-policy-and-residual-scan-contract
+**Current focus:** Phase 26 — skill-and-reference-content-migration
 
 ## Current Position
 
-Phase: 25 (language-policy-and-residual-scan-contract) — EXECUTING
-Plan: 1 of 1
-Status: Phase complete — ready for verification
-Last activity: 2026-06-14 -- Phase 25 execution started
+Phase: 26
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-06-14
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 47
+- Total plans completed: 48
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -60,6 +60,7 @@ Last activity: 2026-06-14 -- Phase 25 execution started
 | 22 | 1 | - | - |
 | 23 | 1 | - | - |
 | 24 | 1 | - | - |
+| 25 | 1 | - | - |
 
 **Recent Trend:**
 
@@ -244,6 +245,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-14T16:10:50.206Z
-Stopped at: Phase 25 context gathered
-Resume file: .planning/phases/25-language-policy-and-residual-scan-contract/25-CONTEXT.md
+Last session: 2026-06-14T16:20:55.749Z
+Stopped at: Phase 25 complete, ready to discuss Phase 26
+Resume file: None
