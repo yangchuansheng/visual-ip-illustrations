@@ -191,6 +191,24 @@ const LANGUAGE_ALLOWLIST = [
     rationale: "Chinese label placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   },
+  ...[
+    "{元素2}",
+    "{元素3}",
+    "{元素4}",
+    "{标注词2}",
+    "{标注词3}",
+    "{标注词4}",
+    "{可选标注词5}",
+  ].map((token) => ({
+    category: "prompt placeholders",
+    paths: [
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "prompt-template.md"),
+    ],
+    token,
+    rationale: "Chinese article illustration prompt placeholder compatibility.",
+    remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
+  })),
   {
     category: "route aliases",
     paths: [
@@ -1124,7 +1142,7 @@ function classifyLanguageLine(relativePath, lineNumber, line) {
   if (!HAN_CHARACTER_PATTERN.test(line)) return [];
   const approved = LANGUAGE_ALLOWLIST.filter((entry) => languageEntryMatches(entry, relativePath, line));
   if (approved.length > 0) {
-    return approved.map((entry) => ({
+    const findings = approved.map((entry) => ({
       status: "approved",
       category: entry.category,
       path: relativePath,
@@ -1132,6 +1150,27 @@ function classifyLanguageLine(relativePath, lineNumber, line) {
       token: entry.token ?? entry.pattern.source,
       remediation: entry.remediation,
     }));
+    const tokenApprovals = approved
+      .filter((entry) => entry.token)
+      .sort((a, b) => b.token.length - a.token.length);
+    if (tokenApprovals.length === 0) {
+      return findings;
+    }
+    const remainingLine = tokenApprovals.reduce(
+      (remaining, entry) => remaining.split(entry.token).join(""),
+      line,
+    );
+    if (HAN_CHARACTER_PATTERN.test(remainingLine)) {
+      findings.push({
+        status: "stale",
+        category: "stale Chinese prose",
+        path: relativePath,
+        line: lineNumber,
+        excerpt: findHanExcerpt(remainingLine),
+        remediation: "Translate surrounding prose in Phase 26 or Phase 27, or add a narrow approved exception.",
+      });
+    }
+    return findings;
   }
   return [
     {
@@ -1162,7 +1201,7 @@ function formatLanguageFinding(finding) {
   return `status=${finding.status}; category=${finding.category}; path=${finding.path}:${finding.line}; ${payload}; remediation=${finding.remediation}`;
 }
 
-function languageScanReport({ enforce = process.env.LANGUAGE_SCAN_ENFORCE === "1" } = {}) {
+function languageScanReport({ enforce = true } = {}) {
   const findings = collectLanguageFindings();
   const approved = findings.filter((finding) => finding.status === "approved");
   const stale = findings.filter((finding) => finding.status === "stale");
@@ -1292,6 +1331,177 @@ function docsTexts() {
 
 function combinedText(relativePaths) {
   return relativePaths.map((relativePath) => requireFile(relativePath)).join("\n");
+}
+
+function routeReferenceScanTargets() {
+  return routeRows().flatMap((row) =>
+    routeReferencePaths(row).map((referencePath) => displayPath(safeReferencePath(referencePath))),
+  );
+}
+
+function assertLanguageScanTargetCoverage() {
+  const targets = languageScanTargets();
+  const expectedTargets = [
+    LANGUAGE_POLICY_FILE,
+    "README.md",
+    "examples/prompts.md",
+    "NOTICE.md",
+    "RELEASE_CHECKLIST.md",
+    SKILL_FILE,
+    OPENAI_AGENT_FILE,
+    ROUTING_FILE,
+    ...routeReferenceScanTargets(),
+  ];
+  assertArrayIncludes(targets, uniqueItems(expectedTargets), "language scan targets", "Phase 28 English-default surfaces");
+}
+
+function assertEnglishDefaultSurfaceCoverage() {
+  assertLanguageScanTargetCoverage();
+  const surfaceExpectations = [
+    {
+      path: "README.md",
+      markers: ["# Visual IP Illustrations", "Current route inventory", "Release 1.4 public identity"],
+    },
+    {
+      path: "examples/prompts.md",
+      markers: ["# Prompt Examples", "## Canonical normal-flow prompts", "## Legacy compatibility route smoke prompts"],
+    },
+    {
+      path: LANGUAGE_POLICY_FILE,
+      markers: ["English is the default", "Approved Multilingual Exceptions", "Phase 28 hardens"],
+    },
+    {
+      path: SKILL_FILE,
+      markers: ["# Visual IP Illustrations", "Canonical invocation: `$visual-ip-illustrations`", "Read `references/routing.md` first"],
+    },
+    {
+      path: OPENAI_AGENT_FILE,
+      markers: ["Visual IP Illustrations", "default_prompt", "allow_implicit_invocation: true"],
+    },
+    {
+      path: ROUTING_FILE,
+      markers: ["# Visual IP Routing", "## IP Routes", "## Output Paths"],
+    },
+    {
+      path: "NOTICE.md",
+      markers: ["# Notice", "Littlebox Source Attribution", "Sealos Seal Brand and Canonical Image Boundary"],
+    },
+    {
+      path: "RELEASE_CHECKLIST.md",
+      markers: ["# Release Checklist", "## Automated Gates", "## Release 1.5 English-Default Review"],
+    },
+  ];
+  for (const expectation of surfaceExpectations) {
+    assertIncludes(
+      requireFile(expectation.path),
+      expectation.path,
+      expectation.markers,
+      "Phase 28 English-default coverage markers",
+    );
+  }
+}
+
+function assertRouteLocalEnglishCoverage() {
+  const targets = languageScanTargets();
+  const missingTargets = [];
+  const missingMarkers = [];
+  for (const relativePath of routeReferenceScanTargets()) {
+    if (!targets.includes(relativePath)) {
+      missingTargets.push(relativePath);
+      continue;
+    }
+    const text = requireFile(relativePath);
+    if (!text.includes("# ") && !text.includes("## ")) {
+      missingMarkers.push(`${relativePath}: heading`);
+    }
+    if (!/[A-Za-z]{4,}/.test(text)) {
+      missingMarkers.push(`${relativePath}: English marker`);
+    }
+  }
+  if (missingTargets.length > 0 || missingMarkers.length > 0) {
+    throw new Error(
+      `route-local language coverage expected scan targets and English content markers; missing targets=${missingTargets.join(", ") || "none"}; missing markers=${missingMarkers.join(", ") || "none"}`,
+    );
+  }
+}
+
+function assertPhase28LanguagePolicy() {
+  const report = languageScanReport({ enforce: true });
+  const approvedCategories = new Set(report.approved.map((finding) => finding.category));
+  const missingCategories = LANGUAGE_EXCEPTION_CATEGORIES.filter((category) => !approvedCategories.has(category));
+  if (missingCategories.length > 0) {
+    throw new Error(`residual Chinese scan expected approved categories; observed missing ${missingCategories.join(", ")}`);
+  }
+  if (report.stale.length > 0) {
+    throw new Error(`residual Chinese scan expected stale=0; observed ${report.stale.map(formatLanguageFinding).join(" | ")}`);
+  }
+}
+
+function assertPhase28CompatibilitySurface() {
+  assertRebrandRouteTable();
+  const combinedRuntimeDocs = combinedText([
+    SKILL_FILE,
+    OPENAI_AGENT_FILE,
+    "README.md",
+    "examples/prompts.md",
+    LANGUAGE_POLICY_FILE,
+    ROUTING_FILE,
+  ]);
+  assertIncludes(combinedRuntimeDocs, "runtime + docs + policy + routing surfaces", [
+    "$visual-ip-illustrations",
+    "$ian-xiaohei-illustrations",
+    "user's language",
+    "visible labels",
+    "小黑",
+    "小盒",
+    "纸盒",
+    "汤姆",
+    "汤姆猫",
+    "Rust 吉祥物",
+    "Rust 螃蟹",
+    "Sealos 吉祥物",
+    "Sealos 海豹",
+  ], "canonical and legacy invocations, Chinese aliases, and visible-label behavior");
+
+  const routingText = requireFile(ROUTING_FILE);
+  for (const route of rebrandRouteExpectations()) {
+    assertIncludes(routingText, ROUTING_FILE, [
+      `\`${route.id}\``,
+      `\`${route.outputSuffix}\``,
+      `\`${route.status}\``,
+      ...route.aliases,
+    ], `${route.id} route id, status, output suffix, and aliases`);
+  }
+
+  const outputTokens = outputPathTokens();
+  const routePathText = combinedText(["README.md", "examples/prompts.md", LANGUAGE_POLICY_FILE, ROUTING_FILE]);
+  assertIncludes(
+    routePathText,
+    "README.md + examples/prompts.md + LANGUAGE_POLICY.md + routing.md",
+    [...outputTokens.raw, ...outputTokens.escaped],
+    "raw and escaped output path compatibility",
+  );
+}
+
+function assertPhase28ReleaseEvidenceMarkers() {
+  const releaseText = requireFile("RELEASE_CHECKLIST.md");
+  assertIncludes(releaseText, "RELEASE_CHECKLIST.md", [
+    "## Release 1.5 English-Default Review",
+    "English-default coverage",
+    "node scripts/validate-skill-package.mjs",
+    "LANGUAGE_SCAN_ENFORCE=1 node scripts/validate-skill-package.mjs",
+    "node --test scripts/validate-skill-package.test.mjs",
+    "git diff --check",
+    "residual Han classification",
+    "docs consistency",
+    "compatibility smoke coverage",
+    "$visual-ip-illustrations",
+    "$ian-xiaohei-illustrations",
+    "Chinese route aliases",
+    "Chinese article workflow compatibility",
+    "visible-label behavior",
+    "route/output path stability",
+  ], "Release 1.5 English-default evidence markers");
 }
 
 function sealosFixedMarkers() {
@@ -3083,6 +3293,21 @@ const checks = [
   }),
   defineCheck("LANG-SCAN-002", "language allowlist entries stay narrow and auditable", () => {
     validateLanguageAllowlistShape();
+  }),
+  defineCheck("VAL-ENGLISH-001", "Phase 28 validates English-default coverage across public and runtime surfaces", () => {
+    assertEnglishDefaultSurfaceCoverage();
+  }),
+  defineCheck("VAL-ENGLISH-002", "Phase 28 validates route-local reference language scan coverage", () => {
+    assertRouteLocalEnglishCoverage();
+  }),
+  defineCheck("VAL-LANGUAGE-001", "Phase 28 validates default stale-prose hard failure and approved multilingual categories", () => {
+    assertPhase28LanguagePolicy();
+  }),
+  defineCheck("VAL-COMPAT-001", "Phase 28 validates invocation, route alias, status, and output path compatibility", () => {
+    assertPhase28CompatibilitySurface();
+  }),
+  defineCheck("VAL-RELEASE-001", "Phase 28 validates Release 1.5 English-default evidence markers", () => {
+    assertPhase28ReleaseEvidenceMarkers();
   }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));

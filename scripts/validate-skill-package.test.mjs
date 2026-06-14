@@ -91,6 +91,11 @@ const requiredCheckIds = [
   "LANG-POLICY-002",
   "LANG-SCAN-001",
   "LANG-SCAN-002",
+  "VAL-ENGLISH-001",
+  "VAL-ENGLISH-002",
+  "VAL-LANGUAGE-001",
+  "VAL-COMPAT-001",
+  "VAL-RELEASE-001",
   "BOUNDARY-IMG-001",
   "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-FERRIS-LEAK-001",
@@ -212,7 +217,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -392,7 +397,7 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
   assert.match(result.stdout, /observed missing marker/);
 });
 
-test("validator emits the full Phase 24 matrix with zero failures", () => {
+test("validator emits the full Phase 28 matrix with zero failures", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -403,7 +408,7 @@ test("validator emits the full Phase 24 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -432,6 +437,29 @@ test("validator reports Phase 24 rebrand checks in stable order", () => {
     assert.ok(index > lastIndex, `${id} should appear after the previous Phase 24 rebrand check`);
     lastIndex = index;
   }
+});
+
+test("validator reports Phase 28 validation checks in stable order", () => {
+  const result = runValidator();
+
+  assert.equal(result.status, 0);
+  const expectedIds = [
+    "VAL-ENGLISH-001",
+    "VAL-ENGLISH-002",
+    "VAL-LANGUAGE-001",
+    "VAL-COMPAT-001",
+    "VAL-RELEASE-001",
+  ];
+
+  let lastIndex = result.stdout.indexOf("[PASS] LANG-SCAN-002 ");
+  assert.ok(lastIndex >= 0, "Phase 28 validation checks should follow language scan checks");
+  for (const id of expectedIds) {
+    const index = result.stdout.indexOf(`[PASS] ${id} `);
+    assert.ok(index > lastIndex, `${id} should appear after the previous Phase 28 validation check`);
+    lastIndex = index;
+  }
+  const boundaryIndex = result.stdout.indexOf("[PASS] BOUNDARY-IMG-001 ");
+  assert.ok(boundaryIndex > lastIndex, "boundary checks should follow Phase 28 validation checks");
 });
 
 test("validator fixture rejects missing language policy default surfaces", () => {
@@ -478,7 +506,7 @@ test("validator fixture reports approved multilingual tokens in enforce mode", (
 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
+    assert.match(result.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -494,14 +522,38 @@ test("validator fixture rejects stale Chinese prose in controlled language scan 
       "This file is the canonical English-default language authority for Visual IP Illustrations.\n这是一段未迁移的中文说明。",
     );
 
-    const result = runFixtureValidator(fixtureRoot, { LANGUAGE_SCAN_ENFORCE: "1" });
+    const result = runFixtureValidator(fixtureRoot);
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] LANG-SCAN-001 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-LANGUAGE-001 /);
     assert.match(result.stdout, /status=stale/);
     assert.match(result.stdout, /path=LANGUAGE_POLICY\.md:\d+/);
-    assert.match(result.stdout, /excerpt=这是一段未迁移的中文说明。/);
+    assert.match(result.stdout, /这是一段未迁移的中文说明。/);
     assert.match(result.stdout, /remediation=Translate surrounding prose/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects stale prose appended to an approved alias line", () => {
+  const fixtureRoot = copyFixture("language-scan-approved-line-stale");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      "README.md",
+      "Aliases: `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei`.",
+      "Aliases: `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei`. 这是一段未迁移的中文说明。",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] LANG-SCAN-001 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-LANGUAGE-001 /);
+    assert.match(result.stdout, /status=stale/);
+    assert.match(result.stdout, /path=README\.md:\d+/);
+    assert.match(result.stdout, /这是一段未迁移的中文说明。/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -522,6 +574,7 @@ test("validator fixture rejects broad language allowlist entries", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] LANG-SCAN-001 /);
     assert.match(result.stdout, /\[FAIL\] LANG-SCAN-002 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-LANGUAGE-001 /);
     assert.match(result.stdout, /LANGUAGE_ALLOWLIST expected narrow entries/);
     assert.match(result.stdout, /rejects broad Markdown path scope=\*\*\/\*\.md/);
   } finally {
@@ -625,6 +678,39 @@ test("validator fixture rejects missing install migration guidance", () => {
   }
 });
 
+test("validator fixture rejects missing Phase 28 public English-default marker", () => {
+  const fixtureRoot = copyFixture("val-english-public-marker");
+  try {
+    replaceInFixture(fixtureRoot, "README.md", "Current route inventory:", "Current routes:");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] VAL-ENGLISH-001 /);
+    assert.match(result.stdout, /README\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Current route inventory/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing route-local scan target content", () => {
+  const fixtureRoot = copyFixture("val-route-local-language");
+  const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "style-dna.md");
+  try {
+    writeFileSync(path.join(fixtureRoot, relativePath), "# \n\n", "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] VAL-ENGLISH-002 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/xiaohei\/style-dna\.md/);
+    assert.match(result.stdout, /English content markers/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
 test("validator fixture locks rebrand route stability", () => {
   const fixtureRoot = copyFixture("rebrand-route-stability");
   try {
@@ -639,6 +725,7 @@ test("validator fixture locks rebrand route stability", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-004 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /expected sealos output_suffix=sealos; observed cloud/);
   } finally {
@@ -649,14 +736,154 @@ test("validator fixture locks rebrand route stability", () => {
 test("validator fixture locks rebrand output path stability", () => {
   const fixtureRoot = copyFixture("rebrand-path-stability");
   try {
-    replaceAllInFixture(fixtureRoot, "examples/prompts.md", "assets/&lt;article-slug&gt;-sealos/", "assets/&lt;article-slug&gt;-cloud/");
+    for (const relativePath of [
+      "examples/prompts.md",
+      "README.md",
+      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+    ]) {
+      replaceAllInFixture(
+        fixtureRoot,
+        relativePath,
+        "assets/&lt;article-slug&gt;-sealos/",
+        "assets/&lt;article-slug&gt;-cloud/",
+      );
+    }
 
     const result = runFixtureValidator(fixtureRoot);
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REBRAND-PATH-001 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
     assert.match(result.stdout, /examples\/prompts\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): assets\/&lt;article-slug&gt;-sealos\//);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture locks canonical invocation compatibility through Phase 28", () => {
+  const fixtureRoot = copyFixture("val-canonical-invocation");
+  try {
+    for (const relativePath of [
+      "README.md",
+      "examples/prompts.md",
+      "LANGUAGE_POLICY.md",
+      path.join("ian-xiaohei-illustrations", "SKILL.md"),
+      path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+    ]) {
+      replaceAllInFixture(fixtureRoot, relativePath, "$visual-ip-illustrations", "$visual-ip-renamed");
+    }
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-002 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
+    assert.match(result.stdout, /README\.md/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture locks legacy invocation compatibility through Phase 28", () => {
+  const fixtureRoot = copyFixture("val-legacy-invocation");
+  try {
+    for (const relativePath of [
+      "README.md",
+      "examples/prompts.md",
+      "LANGUAGE_POLICY.md",
+      path.join("ian-xiaohei-illustrations", "SKILL.md"),
+      path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+    ]) {
+      replaceAllInFixture(fixtureRoot, relativePath, "$ian-xiaohei-illustrations", "$visual-ip-legacy");
+    }
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-COMPAT-002 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/SKILL\.md|README\.md|examples\/prompts\.md/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture locks Chinese route aliases through Phase 28", () => {
+  const fixtureRoot = copyFixture("val-route-alias");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      "`Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`",
+      "`Tom`, `Tom Cat`, `Tom and Jerry`",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-TOM-001 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
+    assert.match(result.stdout, /observed missing item\(s\): 汤姆, 汤姆猫/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture locks raw output path stability through Phase 28", () => {
+  const fixtureRoot = copyFixture("val-raw-output-path");
+  try {
+    for (const relativePath of [
+      "README.md",
+      "examples/prompts.md",
+      "LANGUAGE_POLICY.md",
+      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+    ]) {
+      replaceAllInFixture(fixtureRoot, relativePath, "assets/<article-slug>-sealos/", "assets/<article-slug>-cloud/");
+    }
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-PATH-001 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
+    assert.match(result.stdout, /assets\/<article-slug>-sealos\//);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing Release 1.5 evidence marker", () => {
+  const fixtureRoot = copyFixture("val-release-marker");
+  try {
+    replaceInFixture(fixtureRoot, "RELEASE_CHECKLIST.md", "## Release 1.5 English-Default Review", "## Release Review");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] VAL-ENGLISH-001 /);
+    assert.match(result.stdout, /\[FAIL\] VAL-RELEASE-001 /);
+    assert.match(result.stdout, /RELEASE_CHECKLIST\.md/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects missing Release 1.5 command evidence marker", () => {
+  const fixtureRoot = copyFixture("val-release-command-marker");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      "RELEASE_CHECKLIST.md",
+      "LANGUAGE_SCAN_ENFORCE=1 node scripts/validate-skill-package.mjs",
+      "node scripts/validate-skill-package.mjs",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] VAL-RELEASE-001 /);
+    assert.match(result.stdout, /LANGUAGE_SCAN_ENFORCE=1 node scripts\/validate-skill-package\.mjs/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1538,7 +1765,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1616,7 +1843,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1658,7 +1885,7 @@ test("validator fixture enforces public Sealos sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEALOS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=93 passed=93 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

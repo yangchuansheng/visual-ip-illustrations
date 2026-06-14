@@ -28,6 +28,17 @@ Phase 15 owns Ferris validator/test expectation updates for the full seven-file 
 
 Phase 20 owns Sealos validator/test expectation updates for the public docs, prompt examples, agent metadata, NOTICE, release checklist, route leakage checks, public asset gates, generated sample gates, and green Node evidence before v1.3 release evidence.
 
+## Release 1.5 English-Default Review
+
+- [ ] Confirm English-default coverage across README, examples, `LANGUAGE_POLICY.md`, `SKILL.md`, `openai.yaml`, routing, route-local references, NOTICE, and this release checklist.
+- [ ] Confirm default stale-language hard fail by running `node scripts/validate-skill-package.mjs`.
+- [ ] Record explicit enforce-mode evidence by running `LANGUAGE_SCAN_ENFORCE=1 node scripts/validate-skill-package.mjs`.
+- [ ] Record Node regression evidence by running `node --test scripts/validate-skill-package.test.mjs`.
+- [ ] Record whitespace evidence by running `git diff --check`.
+- [ ] Record residual Han classification and confirm every finding maps to route aliases, user-language visible labels, prompt placeholders, attribution/source names, compatibility smoke fixtures, or Chinese article illustration examples.
+- [ ] Confirm docs consistency across public docs, runtime docs, route metadata, NOTICE, and release materials.
+- [ ] Confirm compatibility smoke coverage for canonical invocation `$visual-ip-illustrations`, legacy invocation `$ian-xiaohei-illustrations`, Chinese route aliases, Chinese article workflow compatibility, visible-label behavior, route/output path stability, route ids, route statuses, and output suffixes.
+
 ## Release 1.4 Rebrand Review
 
 - [ ] Confirm public docs lead with `Visual IP Illustrations` as the current release 1.4 public identity.
