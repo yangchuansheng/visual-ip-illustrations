@@ -906,15 +906,23 @@ const checks = [
     assertReadableFiles(requiredPackageFiles(), PACKAGE_DIR, "complete installable package shape");
   }),
   defineCheck("SKILL-FM-001", "SKILL.md frontmatter exposes required skill metadata", () => {
-    const frontmatter = parseFrontmatter(requireFile(SKILL_FILE));
-    if (frontmatter.data.name !== "ian-xiaohei-illustrations") {
+    const skillText = requireFile(SKILL_FILE);
+    const frontmatter = parseFrontmatter(skillText);
+    if (frontmatter.data.name !== "visual-ip-illustrations") {
       throw new Error(
-        `${SKILL_FILE} expected frontmatter name=ian-xiaohei-illustrations; observed ${frontmatter.data.name ?? "missing"}`,
+        `${SKILL_FILE} expected frontmatter name=visual-ip-illustrations; observed ${frontmatter.data.name ?? "missing"}`,
       );
     }
     if (!frontmatter.data.description) {
       throw new Error(`${SKILL_FILE} expected non-empty frontmatter description; observed missing value`);
     }
+    assertIncludes(skillText, SKILL_FILE, [
+      "Visual IP Illustrations",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+      "visual-ip-illustrations",
+      "ian-xiaohei-illustrations",
+    ], "canonical Visual IP Illustrations runtime identity, canonical invocation, compatibility alias, and local migration markers");
   }),
   defineCheck("SKILL-ROUTE-001", "SKILL.md routes requests through routing.md and selected IP behavior", () => {
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
@@ -978,7 +986,9 @@ const checks = [
   }),
   defineCheck("AGENT-TOM-001", "openai.yaml exposes Tom gated route metadata markers", () => {
     assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
-      "Xiaohei / Littlebox / Tom / Ferris Article Illustrations",
+      "Visual IP Illustrations",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
       "default Xiaohei",
       "Tom 是 explicit gated-authorized protected-character route",
       "explicit Tom protected-character route（gated-authorized）",

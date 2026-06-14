@@ -398,7 +398,7 @@ test("parser helpers expose current package contract primitives", async () => {
   const readmeText = readFileSync(path.join(repoRoot, "README.md"), "utf8");
 
   const frontmatter = validators.parseFrontmatter(skillText);
-  assert.equal(frontmatter.data.name, "ian-xiaohei-illustrations");
+  assert.equal(frontmatter.data.name, "visual-ip-illustrations");
   assert.ok(frontmatter.data.description.includes("小黑"));
 
   const routes = validators.parseMarkdownTable(routingText, "IP Routes");

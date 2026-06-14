@@ -1,13 +1,24 @@
 ---
-name: ian-xiaohei-illustrations
-description: 生成 Ian 风格的中文正文配图。用于用户要求为中文文章、帖子、博客、Notion 文档、工作流文档、方法论、流程、结构、状态、隐喻或观点生成“怪诞”“小黑”“手绘”“正文配图”“文章插图”“配图建议”“shot list”“去标题/改图”等任务；默认使用小黑 IP、纯白手绘、少量红橙蓝批注、简洁清爽但天马行空的视觉风格。
+name: visual-ip-illustrations
+description: Visual IP Illustrations 为中文文章生成可选视觉 IP 正文配图。用于用户要求为中文文章、帖子、博客、Notion 文档、工作流文档、方法论、流程、结构、状态、隐喻或观点生成“怪诞”“小黑”“手绘”“正文配图”“文章插图”“配图建议”“shot list”“去标题/改图”等任务；默认使用小黑 IP，也可以显式选择 Littlebox、Tom、Ferris 或 Sealos Seal。
 ---
 
-# Ian 小黑怪诞正文配图
+# Visual IP Illustrations
 
 ## 核心定位
 
-为中文文章设计和生成 16:9 横版正文配图。目标是把文章里的关键判断、流程、结构、状态或隐喻，变成一张清爽、怪诞、有创意、可读但不说明书的手绘解释图。
+Visual IP Illustrations 为中文文章设计和生成 16:9 横版正文配图。目标是把文章里的关键判断、流程、结构、状态或隐喻，变成一张清爽、怪诞、有创意、可读但不说明书的手绘解释图。
+
+规范调用是 `$visual-ip-illustrations`。`$ian-xiaohei-illustrations` 是 v1.4 compatibility alias，用于现有提示和本地安装迁移期。
+
+## 1.4 Runtime Identity and Local Migration
+
+- Canonical runtime identity: Visual IP Illustrations.
+- Canonical skill invocation: `$visual-ip-illustrations`.
+- v1.4 compatibility alias: `$ian-xiaohei-illustrations`.
+- Canonical package slug/path: `visual-ip-illustrations`.
+- Legacy package slug/path: `ian-xiaohei-illustrations`.
+- Local migration: install or copy the package as `visual-ip-illustrations` for canonical discovery while keeping `ian-xiaohei-illustrations` available for existing prompts during v1.4.
 
 默认视觉 IP 是“小黑”：黑色实心、白点眼、细腿、空表情，认真做一件荒诞但成立的事。小黑必须参与画面的核心动作，不能只是站在旁边当装饰。
 
@@ -76,7 +87,7 @@ Sealos Seal imagery is logo-free: cap, hoodie chest, mascot body, props, and sce
 - 用户写 `Ferris`、`Rust mascot`、`Rust crab`、`Rustacean`、`Rust 吉祥物` 或 `Rust 螃蟹` 时，选择同一个 Ferris 路由：route id `ferris`，display name `Ferris`，default=false，output_suffix: ferris，route status `source-reviewed`，source/trademark pointer `references/ips/ferris/source.md`。
 - 用户写 `Sealos Seal`、`Sealos mascot`、`Sealos 吉祥物`、`Sealos 海豹`、`white Sealos seal` 或 `blue hoodie seal` 时，选择同一个 Sealos Seal 路由：route id `sealos`，display name `Sealos Seal`，default=false，output_suffix: sealos，route status `brand-owned`，source pointer `references/ips/sealos/source.md`。
 - 同时请求 Xiaohei、Littlebox、Tom、Ferris 和 Sealos Seal 中的多个 IP 时，先识别一个 shared core idea，再建立 separate route groups：每个 selected route group 使用自己的 route id、required_references、prompt template、composition rules、QA、edit repairs、output_suffix、route note 和输出目录。
-- 小黑路由沿用现有 `$ian-xiaohei-illustrations` 行为和 `assets/<article-slug>-illustrations/` 输出路径。
+- 小黑路由沿用现有 `$ian-xiaohei-illustrations` compatibility alias 行为和 `assets/<article-slug>-illustrations/` 输出路径；canonical invocation is `$visual-ip-illustrations`。
 - Littlebox 路由使用 `assets/<article-slug>-littlebox/` 输出路径。
 - Tom 路由使用 `assets/<article-slug>-tom/` 输出路径，并在 planning、generation、QA、edit 和 delivery 中保留 `gated-authorized` 与 `references/ips/tom/rights.md`。
 - Ferris 路由使用 `assets/<article-slug>-ferris/` 输出路径，并在 planning、generation、QA、edit 和 delivery 中保留 `source-reviewed` 与 `references/ips/ferris/source.md`。
