@@ -90,7 +90,10 @@ Plans:
   4. Final evidence records validator output, Node test output, `git diff --check`, residual Chinese scan, docs consistency, and compatibility smoke coverage.
   5. UAT confirms users can migrate to English-default docs without losing Chinese article illustration workflows, route aliases, or visible-label behavior.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1 plan
+Plans:
+
+- [ ] 28-01-PLAN.md — Harden English-default validation and release evidence gates.
 
 ## Progress
 
