@@ -10,6 +10,155 @@ const SKILL_FILE = path.join(PACKAGE_DIR, "SKILL.md");
 const OPENAI_AGENT_FILE = path.join(PACKAGE_DIR, "agents", "openai.yaml");
 const ROUTING_FILE = path.join(REFERENCES_DIR, "routing.md");
 const README_FILE = "README.md";
+const LANGUAGE_POLICY_FILE = "LANGUAGE_POLICY.md";
+const HAN_CHARACTER_PATTERN = /\p{Script=Han}/u;
+const LANGUAGE_DEFAULT_SURFACES = [
+  "repository docs",
+  "skill instructions",
+  "reference docs",
+  "examples",
+  "release materials",
+  "validation output",
+  "code",
+  "scripts",
+  "comments",
+  "commit messages",
+  "PR copy",
+];
+const LANGUAGE_EXCEPTION_CATEGORIES = [
+  "route aliases",
+  "user-language visible labels",
+  "prompt placeholders",
+  "attribution/source names",
+  "compatibility smoke fixtures",
+  "Chinese article illustration examples",
+];
+const LANGUAGE_ALLOWLIST = [
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token: "小黑",
+    rationale: "Xiaohei Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md"],
+    token: "小盒",
+    rationale: "Littlebox Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md"],
+    token: "纸盒",
+    rationale: "Littlebox Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token: "汤姆",
+    rationale: "Tom Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token: "汤姆猫",
+    rationale: "Tom Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token: "Rust 吉祥物",
+    rationale: "Ferris Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token: "Rust 螃蟹",
+    rationale: "Ferris Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token: "Sealos 吉祥物",
+    rationale: "Sealos Seal Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token: "Sealos 海豹",
+    rationale: "Sealos Seal Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "prompt placeholders",
+    paths: [
+      LANGUAGE_POLICY_FILE,
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "prompt-template.md"),
+    ],
+    token: "{正文配图主题}",
+    rationale: "Chinese article illustration prompt placeholder compatibility.",
+    remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
+  },
+  {
+    category: "prompt placeholders",
+    paths: [
+      LANGUAGE_POLICY_FILE,
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "prompt-template.md"),
+    ],
+    token: "{结构类型：Workflow / 系统局部 / 前后对比 / 角色状态 / 概念隐喻 / 方法分层 / 地图路线 / 小漫画分镜}",
+    rationale: "Chinese article illustration structure placeholder compatibility.",
+    remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
+  },
+  {
+    category: "prompt placeholders",
+    paths: [
+      LANGUAGE_POLICY_FILE,
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "prompt-template.md"),
+    ],
+    token: "{标注词1}",
+    rationale: "Chinese label placeholder compatibility.",
+    remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
+  },
+  {
+    category: "user-language visible labels",
+    paths: [path.join(REFERENCES_DIR, "ips", "littlebox", "language-and-labels.md"), "examples/prompts.md"],
+    token: "原始材料",
+    rationale: "Visible label example copied exactly in the user's language.",
+    remediation: "Keep intentional label examples and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "user-language visible labels",
+    paths: [path.join(REFERENCES_DIR, "ips", "littlebox", "language-and-labels.md"), "examples/prompts.md"],
+    token: "判断",
+    rationale: "Visible label example copied exactly in the user's language.",
+    remediation: "Keep intentional label examples and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "user-language visible labels",
+    paths: [path.join(REFERENCES_DIR, "ips", "littlebox", "language-and-labels.md"), "examples/prompts.md"],
+    token: "输出",
+    rationale: "Visible label example copied exactly in the user's language.",
+    remediation: "Keep intentional label examples and translate surrounding prose in Phase 26 or Phase 27.",
+  },
+  {
+    category: "Chinese article illustration examples",
+    paths: ["examples/prompts.md"],
+    pattern: /^Use \$ian-xiaohei-illustrations .*[\p{Script=Han}]/u,
+    rationale: "Legacy smoke examples intentionally model Chinese article illustration requests.",
+    remediation: "Keep compatibility smoke intent and translate surrounding guidance in Phase 27.",
+  },
+];
 
 function repoPath(...segments) {
   return path.join(REPO_ROOT, ...segments);
@@ -646,6 +795,10 @@ function assertArrayIncludes(actual, expected, relativePath, relation) {
   }
 }
 
+function uniqueItems(items) {
+  return [...new Set(items)].sort((a, b) => a.localeCompare(b, "en"));
+}
+
 function normalizeBody(text) {
   return text.trim().replace(/\r\n/g, "\n");
 }
@@ -664,6 +817,144 @@ function routeById(id) {
 
 function routeReferencePaths(row) {
   return splitRouteCell(row.required_references ?? "");
+}
+
+function languageScanTargets() {
+  const routeReferences = routeRows().flatMap((row) =>
+    routeReferencePaths(row).map((referencePath) => displayPath(safeReferencePath(referencePath))),
+  );
+  return uniqueItems([
+    "README.md",
+    "examples/prompts.md",
+    "NOTICE.md",
+    "RELEASE_CHECKLIST.md",
+    LANGUAGE_POLICY_FILE,
+    SKILL_FILE,
+    OPENAI_AGENT_FILE,
+    ROUTING_FILE,
+    ...routeReferences,
+    ...legacyXiaoheiRefs().map((item) => item.root),
+  ]).filter(fileExists);
+}
+
+function validateLanguageAllowlistShape(entries = LANGUAGE_ALLOWLIST) {
+  const allowedCategories = new Set(LANGUAGE_EXCEPTION_CATEGORIES);
+  const errors = [];
+  entries.forEach((entry, index) => {
+    const label = `LANGUAGE_ALLOWLIST[${index}]`;
+    if (!entry.category || !allowedCategories.has(entry.category)) {
+      errors.push(`${label} has invalid category=${entry.category ?? "missing"}`);
+    }
+    if (!Array.isArray(entry.paths) || entry.paths.length === 0) {
+      errors.push(`${label} missing paths`);
+    } else {
+      for (const scopedPath of entry.paths) {
+        if (!scopedPath || typeof scopedPath !== "string") {
+          errors.push(`${label} has invalid path scope`);
+        }
+        if (
+          scopedPath === "." ||
+          scopedPath.endsWith("/") ||
+          (scopedPath.includes("*") && (/\.md$/i.test(scopedPath) || scopedPath.includes(".md")))
+        ) {
+          errors.push(`${label} rejects broad Markdown path scope=${scopedPath}`);
+        }
+      }
+    }
+    const hasToken = typeof entry.token === "string" && entry.token.length > 0;
+    const hasPattern = entry.pattern instanceof RegExp;
+    if (hasToken === hasPattern) {
+      errors.push(`${label} must define exact token or anchored pattern`);
+    }
+    if (hasPattern && !entry.pattern.source.startsWith("^")) {
+      errors.push(`${label} pattern must be anchored`);
+    }
+    if (!entry.rationale) {
+      errors.push(`${label} missing rationale`);
+    }
+    if (!entry.remediation) {
+      errors.push(`${label} missing remediation target`);
+    }
+  });
+  if (errors.length > 0) {
+    throw new Error(`LANGUAGE_ALLOWLIST expected narrow entries; observed ${errors.join("; ")}`);
+  }
+}
+
+function findHanExcerpt(line) {
+  const index = line.search(HAN_CHARACTER_PATTERN);
+  if (index === -1) return "";
+  const start = Math.max(0, index - 24);
+  const end = Math.min(line.length, index + 48);
+  const prefix = start > 0 ? "..." : "";
+  const suffix = end < line.length ? "..." : "";
+  return `${prefix}${line.slice(start, end).trim()}${suffix}`;
+}
+
+function languageEntryMatches(entry, relativePath, line) {
+  if (!entry.paths.includes(relativePath)) return false;
+  if (entry.token) return line.includes(entry.token);
+  return entry.pattern.test(line);
+}
+
+function classifyLanguageLine(relativePath, lineNumber, line) {
+  if (!HAN_CHARACTER_PATTERN.test(line)) return [];
+  const approved = LANGUAGE_ALLOWLIST.filter((entry) => languageEntryMatches(entry, relativePath, line));
+  if (approved.length > 0) {
+    return approved.map((entry) => ({
+      status: "approved",
+      category: entry.category,
+      path: relativePath,
+      line: lineNumber,
+      token: entry.token ?? entry.pattern.source,
+      remediation: entry.remediation,
+    }));
+  }
+  return [
+    {
+      status: "stale",
+      category: "stale Chinese prose",
+      path: relativePath,
+      line: lineNumber,
+      excerpt: findHanExcerpt(line),
+      remediation: "Translate surrounding prose in Phase 26 or Phase 27, or add a narrow approved exception.",
+    },
+  ];
+}
+
+function collectLanguageFindings(targets = languageScanTargets()) {
+  validateLanguageAllowlistShape();
+  const findings = [];
+  for (const relativePath of targets) {
+    const lines = requireFile(relativePath).split("\n");
+    lines.forEach((line, index) => {
+      findings.push(...classifyLanguageLine(relativePath, index + 1, line));
+    });
+  }
+  return findings;
+}
+
+function formatLanguageFinding(finding) {
+  const payload = finding.token ? `token=${finding.token}` : `excerpt=${finding.excerpt}`;
+  return `status=${finding.status}; category=${finding.category}; path=${finding.path}:${finding.line}; ${payload}; remediation=${finding.remediation}`;
+}
+
+function languageScanReport({ enforce = process.env.LANGUAGE_SCAN_ENFORCE === "1" } = {}) {
+  const findings = collectLanguageFindings();
+  const approved = findings.filter((finding) => finding.status === "approved");
+  const stale = findings.filter((finding) => finding.status === "stale");
+  const sampleFindings = [...approved.slice(0, 3), ...stale.slice(0, 3)].map(formatLanguageFinding);
+  if (enforce && stale.length > 0) {
+    throw new Error(
+      `residual Chinese scan expected no stale prose; observed approved=${approved.length} stale=${stale.length}; ${sampleFindings.join(" | ")}`,
+    );
+  }
+  return {
+    approved,
+    stale,
+    formatted: sampleFindings,
+    summary: `approved=${approved.length} stale=${stale.length} mode=${enforce ? "enforce" : "report"}`,
+  };
 }
 
 function markdownTableHeader(text, headingText) {
@@ -2535,6 +2826,40 @@ const checks = [
       "assets/<article-slug>-ferris/",
       "assets/<article-slug>-sealos/",
     ], "canonical name, invocation aliases, install markers, route statuses, authority paths, and output paths");
+  }),
+  defineCheck("LANG-POLICY-001", "language policy names every English-default surface", () => {
+    const policyText = requireFile(LANGUAGE_POLICY_FILE);
+    assertIncludes(policyText, LANGUAGE_POLICY_FILE, [
+      "English is the default",
+      ...LANGUAGE_DEFAULT_SURFACES,
+    ], "English-default language surfaces from LANG-01 and D-02");
+  }),
+  defineCheck("LANG-POLICY-002", "language policy names every approved multilingual exception category", () => {
+    const policyText = requireFile(LANGUAGE_POLICY_FILE);
+    assertIncludes(policyText, LANGUAGE_POLICY_FILE, [
+      ...LANGUAGE_EXCEPTION_CATEGORIES,
+      "category",
+      "path scope",
+      "exact token or anchored pattern",
+      "rationale",
+      "remediation target",
+      "Whole-file and whole-directory exemptions are reserved for generated binary assets and image files",
+    ], "approved multilingual exceptions and narrow allowlist fields from LANG-02, D-04, D-05, and D-06");
+  }),
+  defineCheck("LANG-SCAN-001", "residual Chinese scan classifies approved tokens separately from stale prose", () => {
+    const report = languageScanReport();
+    if (report.approved.length === 0) {
+      throw new Error("residual Chinese scan expected approved multilingual tokens; observed approved=0");
+    }
+    if (report.stale.length === 0 && process.env.LANGUAGE_SCAN_EXPECT_STALE === "1") {
+      throw new Error("residual Chinese scan expected controlled stale prose; observed stale=0");
+    }
+    if (!report.formatted.every((line) => line.includes("status=") && line.includes("category=") && line.includes("path="))) {
+      throw new Error(`residual Chinese scan expected formatted findings; observed ${report.formatted.join(" | ")}`);
+    }
+  }),
+  defineCheck("LANG-SCAN-002", "language allowlist entries stay narrow and auditable", () => {
+    validateLanguageAllowlistShape();
   }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
