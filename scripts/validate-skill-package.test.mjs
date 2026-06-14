@@ -52,6 +52,7 @@ const requiredCheckIds = [
   "RIGHTS-TOM-001",
   "SOURCE-FERRIS-001",
   "SOURCE-SEALOS-001",
+  "LOGO-SEALOS-001",
   "DOC-LINKS-001",
   "DOC-PATHS-001",
   "DOC-ROUTES-001",
@@ -195,7 +196,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -386,7 +387,7 @@ test("validator emits the full Phase 20 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -832,6 +833,39 @@ test("validator fixture reports Sealos docs, metadata, NOTICE, release, and smok
   }
 });
 
+test("validator fixture rejects Sealos official uploaded logo shape drift", () => {
+  const fixtureRoot = copyFixture("sealos-official-logo-shape");
+  try {
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
+      "official uploaded Sealos logo shape",
+      "Sealos logo mark",
+    );
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "qa-checklist.md"),
+      "blue curled wave / seal-tail mark above a rounded cloud-tray base",
+      "simple blue brand mark",
+    );
+    replaceAllInFixture(
+      fixtureRoot,
+      "README.md",
+      "official uploaded Sealos logo shape",
+      "Sealos logo mark",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] LOGO-SEALOS-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/sealos/);
+    assert.match(result.stdout, /observed missing marker\(s\): official uploaded Sealos logo shape on cap and chest/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
 test("validator fixture requires Ferris canonical pack files", () => {
   const fixtureRoot = copyFixture("ferris-pack");
   const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "qa-checklist.md");
@@ -1186,7 +1220,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1264,7 +1298,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1306,7 +1340,7 @@ test("validator fixture enforces public Sealos sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEALOS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=77 passed=77 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=78 passed=78 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

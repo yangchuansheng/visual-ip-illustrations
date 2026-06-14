@@ -20,7 +20,7 @@ Sealos QA uploaded-image identity gate.
 - Image is a 16:9 horizontal article illustration.
 - Image explains one core idea.
 - Image uses clean sparse hand-drawn style on a clean white or near-white background with generous whitespace.
-- Sealos Seal recognizability is clear through white rounded seal body, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Sealos Seal recognizability is clear through white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
 - Sealos Seal performs the active Mascot action. The visual metaphor depends on Sealos Seal deploying, launching, connecting, debugging, routing, lifting, inspecting, repairing, shielding, bridging, tuning, rolling back, stamping, sorting, assembling, or guiding the concept.
 - The scene is an original article metaphor created for the current article.
 - Brand/canonical-image note is present in planning, generation, edit, and delivery context.
@@ -37,6 +37,8 @@ Reject or repair any output with:
 - missing cap
 - missing hoodie
 - missing Sealos marks
+- missing official uploaded Sealos logo shape on cap or chest
+- changed logo silhouette
 - changed body color
 - passive mascot placement
 - over-detailed 3D toy drift
@@ -60,7 +62,9 @@ Sealos QA abstract logo creature drift failure: the image turns the mascot into 
 
 Sealos QA passive mascot placement failure: Sealos Seal stands beside the idea while props, arrows, labels, cloud objects, or infrastructure objects carry the meaning.
 
-Sealos QA missing Sealos marks failure: the cap mark, chest mark, or both route identity marks disappear, become unreadable, or become unrelated decoration.
+Sealos QA missing Sealos marks failure: the cap mark, chest mark, or both route identity marks disappear, become unreadable, become unrelated decoration, or drift away from the official uploaded Sealos logo shape.
+
+Sealos QA official uploaded Sealos logo shape failure: the cap logo or chest logo loses the uploaded logo geometry: blue curled wave / seal-tail mark above a rounded cloud-tray base.
 
 Sealos QA route leakage failure: planning, prompt, image text, or delivery notes drop `brand-owned`, omit `source.md`, imply broad public sample approval, mix Sealos rules into Xiaohei/Littlebox/Tom/Ferris routes, or import another route identity into Sealos.
 
@@ -70,7 +74,7 @@ Regenerate or edit when:
 
 - Sealos Seal is passive, removable, tiny, decorative, or only reacting.
 - Sealos Seal identity reads as a generic seal, abstract logo creature, plain-head seal, prior exploration variant, route-neutral mascot, or different mascot.
-- The image misses the cap, hoodie, Sealos marks, white body color, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, or side-rear white tail.
+- The image misses the cap, hoodie, official uploaded Sealos logo shape, white body color, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, or side-rear white tail.
 - The image has over-detailed 3D toy drift, character-sheet rendering, plush-toy rendering, polished vector mascot rendering, or generic mascot rendering.
 - The image has excessive text, full-sentence annotations, bilingual clutter, clean digital typography, or labels crowding the mascot's face, cap, chest logo, hoodie, flippers, or tail.
 - The image becomes formal diagrams, dense PPT-like infographics, UI screenshots, IDE or terminal scenes, code screenshots, poster layouts, top-left title artifacts, dense text blocks, or clean digital labels.
@@ -82,8 +86,8 @@ Regenerate or edit when:
 ## Iteration Moves
 
 - Stronger Mascot Participation: use `### Stronger Mascot Participation` from `prompt-template.md`; keep the same core idea and make Sealos Seal perform the central cognitive action.
-- Uploaded-Image Identity Repair: use `### Uploaded-Image Identity Repair`; preserve composition and labels while restoring white rounded body, navy cap, deep-blue hoodie, Sealos logo marks, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- Logo Hoodie Cap Repair: use `### Logo Hoodie Cap Repair`; repair Sealos logo marks on cap and chest, navy cap shape, deep-blue hoodie, and brand-color consistency while preserving successful mascot action, composition, labels, aspect ratio, and article metaphor.
+- Uploaded-Image Identity Repair: use `### Uploaded-Image Identity Repair`; preserve composition and labels while restoring white rounded body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Logo Hoodie Cap Repair: use `### Logo Hoodie Cap Repair`; repair official uploaded Sealos logo shape on cap and chest, navy cap shape, deep-blue hoodie, and brand-color consistency while preserving successful mascot action, composition, labels, aspect ratio, and article metaphor.
 - Title Removal: use `### Title Removal`; remove only title text, title cards, top-left headings, or underlines and preserve the rest.
 - Text Reduction: use `### Text Reduction`; keep only 2-6 short visible labels copied exactly in the user's language.
 - Preserve Unaffected Content: use `### Preserve Unaffected Content`; name the exact failure being repaired and preserve all successful content outside that failure.

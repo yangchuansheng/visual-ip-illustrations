@@ -20,7 +20,7 @@ Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordere
 - Canonical image status: `uploaded-image-canonical`.
 - Drift boundary: `uploaded-image-locked`.
 - Output path: `assets/<article-slug>-sealos/`.
-- Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, Sealos logo marks, and fixed identity markers from source.md.
+- Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, and fixed identity markers from source.md.
 - Route boundary: Sealos references stay route-local and preserve brand/canonical-image wording through planning, prompt, edit, QA, and delivery surfaces.
 - Public-sample boundary: public rendered Sealos samples require `RELEASE_CHECKLIST.md` review before appearing in public examples or release surfaces.
 
@@ -54,6 +54,8 @@ Every operational Sealos file uses these shared failure names so later validatio
 The six operational Sealos files are `index.md`, `style-dna.md`, `sealos-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 
 Each operational file repeats the same route id, route status, output path, brand/canonical-image authority, canonical image status, drift boundary, compact brand/canonical-image note, public sample gate, shared route block, delivery path note, and ten failure category names. This keeps Phase 18 controller loading, Phase 19 public wording, and Phase 20 validator hardening aligned to one Sealos contract.
+
+Official logo-shape rule: the cap logo and hoodie chest logo use the same official uploaded Sealos logo shape from the user's uploaded logo image: a blue curled wave / seal-tail mark above a rounded cloud-tray base.
 
 ## Scope Boundary
 

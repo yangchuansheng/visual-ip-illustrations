@@ -34,7 +34,9 @@ Preserve the uploaded-image markers together:
 - white rounded seal body
 - navy cap
 - deep-blue hoodie
-- Sealos logo marks on cap and chest
+- official uploaded Sealos logo shape on cap and chest
+- blue curled wave / seal-tail mark above a rounded cloud-tray base
+- same official uploaded Sealos logo silhouette on both cap and chest
 - glossy dark eyes
 - black nose
 - whisker dots
@@ -43,7 +45,7 @@ Preserve the uploaded-image markers together:
 - compact legs
 - side-rear white tail
 
-The uploaded-image identity matters more than rendering detail density. Keep the mascot simple enough for article explanation while preserving the cap, hoodie, Sealos marks, body color, face, flippers, legs, and tail.
+The uploaded-image identity matters more than rendering detail density. Keep the mascot simple enough for article explanation while preserving the cap, hoodie, official uploaded Sealos logo shape, body color, face, flippers, legs, and tail.
 
 ## Composition
 
@@ -89,7 +91,7 @@ Regenerate or edit when the result contains:
 
 ## Stable Gates
 
-- Sealos identity gate: the image preserves white rounded seal body, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Sealos identity gate: the image preserves white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
 - Sealos cognitive-action participation gate: the Sealos Seal performs the central cognitive action, and removing the mascot breaks the metaphor.
 - Sealos uploaded-image gate: the mascot follows `source.md`, `uploaded-image-canonical`, and `uploaded-image-locked`.
 - Sealos sparse article gate: the scene stays clean white or near-white, hand-drawn, low-density, and label-light.

@@ -145,7 +145,7 @@ The action must serve the core idea. Sealos Seal's flippers, eyes, body directio
 Apply these before generation and during prompt repair:
 
 - Sealos brand/canonical-image authority gate: use `source.md` for uploaded-image authority, brand context, fixed visual markers, public-sample policy, reviewer fields, and route status changes.
-- Uploaded-image identity gate: preserve white rounded seal body, navy cap, deep-blue hoodie, Sealos logo marks on cap and chest, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Uploaded-image identity gate: preserve white rounded seal body, navy cap, deep-blue hoodie, official uploaded Sealos logo shape on cap and chest, blue curled wave / seal-tail mark above a rounded cloud-tray base, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
 - Mascot action gate: Sealos Seal must operate the metaphor with a physical action; decorative side placement fails.
 - Identity-first variation gate: change supporting objects and scene metaphors before changing uploaded-image identity markers.
 - Cloud-developer metaphor gate: Sealos cloud/OS puns can shape props, while the article concept remains the visual priority.

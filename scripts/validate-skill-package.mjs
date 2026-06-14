@@ -778,7 +778,9 @@ function sealosFixedMarkers() {
     "white rounded seal body",
     "navy cap",
     "deep-blue hoodie",
-    "Sealos logo marks on cap and chest",
+    "official uploaded Sealos logo shape on cap and chest",
+    "blue curled wave / seal-tail mark above a rounded cloud-tray base",
+    "same official uploaded Sealos logo silhouette on both cap and chest",
     "glossy dark eyes",
     "black nose",
     "whisker dots",
@@ -818,7 +820,8 @@ function sealosDriftMarkers() {
     "abstract logo creatures",
     "missing cap",
     "missing hoodie",
-    "missing Sealos logo marks",
+    "missing official uploaded Sealos logo shape on cap or chest",
+    "changed logo silhouette",
     "changed body color",
     "missing side-rear tail",
     "plain bald-head variants",
@@ -1694,6 +1697,8 @@ const checks = [
       "missing cap",
       "missing hoodie",
       "missing Sealos marks",
+      "missing official uploaded Sealos logo shape on cap or chest",
+      "changed logo silhouette",
       "changed body color",
       "passive mascot placement",
       "over-detailed 3D toy drift",
@@ -1704,6 +1709,7 @@ const checks = [
       "Sealos QA abstract logo creature drift failure",
       "Sealos QA passive mascot placement failure",
       "Sealos QA missing Sealos marks failure",
+      "Sealos QA official uploaded Sealos logo shape failure",
       "Sealos QA route leakage failure",
       "Stronger Mascot Participation",
       "Uploaded-Image Identity Repair",
@@ -1788,6 +1794,49 @@ const checks = [
       "different mascot selection",
       ...sealosFixedMarkers(),
     ], "Sealos source headings, uploaded-image authority, fixed markers, brand context, sample policy, and drift boundary");
+  }),
+  defineCheck("LOGO-SEALOS-001", "Sealos route preserves official uploaded logo shape on cap and chest", () => {
+    const routeLocalFiles = [
+      path.join(REFERENCES_DIR, "ips", "sealos", "source.md"),
+      path.join(REFERENCES_DIR, "ips", "sealos", "style-dna.md"),
+      path.join(REFERENCES_DIR, "ips", "sealos", "sealos-ip.md"),
+      path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"),
+    ];
+    for (const relativePath of routeLocalFiles) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "official uploaded Sealos logo shape",
+        "blue curled wave / seal-tail mark above a rounded cloud-tray base",
+      ], "route-local official uploaded logo shape geometry");
+    }
+    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "source.md")), path.join(REFERENCES_DIR, "ips", "sealos", "source.md"), [
+      "official uploaded Sealos logo shape on cap and chest",
+      "same official uploaded Sealos logo silhouette on both cap and chest",
+      "changed logo silhouette",
+    ], "Sealos source official uploaded logo shape markers");
+    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md")), path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"), [
+      "Sealos QA official uploaded Sealos logo shape failure",
+      "changed logo silhouette",
+    ], "Sealos QA official uploaded logo shape failure markers");
+
+    for (const relativePath of [
+      "README.md",
+      "examples/prompts.md",
+      "RELEASE_CHECKLIST.md",
+      ROUTING_FILE,
+      path.join(PACKAGE_DIR, "SKILL.md"),
+    ]) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "official uploaded Sealos logo shape",
+      ], "Sealos public official uploaded logo shape marker");
+    }
+    const publicText = combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE, path.join(PACKAGE_DIR, "SKILL.md")]);
+    assertIncludes(publicText, "Sealos public docs and SKILL.md", [
+      "official uploaded Sealos logo shape",
+      "blue curled wave / seal-tail mark above a rounded cloud-tray base",
+      "cap and chest",
+      "changed logo silhouette",
+    ], "Sealos public official uploaded logo shape markers");
   }),
   defineCheck("DOC-LINKS-001", "README and examples local Markdown links point to existing files", () => {
     const links = localMarkdownLinks(["README.md", "examples/prompts.md"]);
@@ -1895,6 +1944,7 @@ const checks = [
       "prior exploration",
       "Brand/canonical-image note",
       "brand/logo wording",
+      "official uploaded logo shape",
       "Public rendered Sealos samples",
       "generated sample",
       "Phase 20",
@@ -1957,6 +2007,7 @@ const checks = [
       "uploaded white seal mascot",
       "brand-owned",
       "Uploaded-image authority",
+      "official uploaded Sealos logo shape",
       "ian-xiaohei-illustrations/references/ips/sealos/source.md",
       "reliable cloud developer companion",
       "Prior Sealos mascot exploration",
@@ -2042,7 +2093,7 @@ const checks = [
       "planning fields 包含 Placement、Core idea、Structure type、Mascot state、Mascot action、Supporting objects、Visible labels、Output path、Brand/canonical-image note",
       "assets/<article-slug>-sealos/",
       "assets/&lt;article-slug&gt;-sealos/",
-      "uploaded-image identity markers 包含 white rounded seal body、navy cap、deep-blue hoodie、Sealos logo marks on cap and chest、glossy dark eyes、black nose、whisker dots、small smile、short rounded flippers、compact legs、side-rear white tail",
+      "uploaded-image identity markers 包含 white rounded seal body、navy cap、deep-blue hoodie、official uploaded Sealos logo shape on cap and chest、blue curled wave / seal-tail mark above a rounded cloud-tray base、glossy dark eyes、black nose、whisker dots、small smile、short rounded flippers、compact legs、side-rear white tail",
       "public rendered Sealos samples require release review",
     ], "text-only explicit Sealos route smoke, planning, generation, path, identity, and public-sample gate prompts");
   }),
@@ -2111,6 +2162,7 @@ const checks = [
       "Sealos Source Record Review",
       "Uploaded-Image Identity Review",
       "Sealos Brand and Logo Wording Review",
+      "official uploaded logo shape",
       "Sealos Prompt Leakage Scan",
       "Sealos Public Asset Policy",
       "Sealos Generated Sample Policy",

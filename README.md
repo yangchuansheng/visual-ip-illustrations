@@ -100,7 +100,7 @@ Brand/canonical-image authority：`ian-xiaohei-illustrations/references/ips/seal
 
 Brand context：reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes. Prior Sealos mascot exploration supplies supporting brand context; the uploaded mascot image is the v1.3 canonical mascot reference.
 
-Brand/logo boundary：Sealos logo marks on cap and chest are route identity markers. Public rendered Sealos samples require release review for uploaded-image identity, cap/hoodie/logo preservation, brand/logo wording, generic seal drift, abstract logo creature drift, and prior-variant drift. Release review and brand/logo wording are governed by `RELEASE_CHECKLIST.md`。
+Brand/logo boundary：cap and chest marks must use the official uploaded Sealos logo shape from the user's uploaded logo image: blue curled wave / seal-tail mark above a rounded cloud-tray base. Public rendered Sealos samples require release review for uploaded-image identity, cap/hoodie/logo preservation, brand/logo wording, generic seal drift, abstract logo creature drift, and prior-variant drift. Release review and brand/logo wording are governed by `RELEASE_CHECKLIST.md`。
 
 输出路径合同：`assets/<article-slug>-sealos/`。文档校验 token：`assets/&lt;article-slug&gt;-sealos/`。输出后缀：`sealos`。
 
@@ -295,7 +295,7 @@ Sealos Seal 必须承担 core idea 的 Mascot action，使用 cloud-developer ar
 保留 route status `brand-owned` 和 brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`。
 每张图都报告 Brand/canonical-image note，并保留 `uploaded-image-canonical` 和 `uploaded-image-locked`。
 保存路径使用 `assets/<article-slug>-sealos/`；文档校验 token 是 `assets/&lt;article-slug&gt;-sealos/`。
-交付报告说明 public rendered Sealos samples 以 `RELEASE_CHECKLIST.md` 的 uploaded-image identity 和 Sealos logo/brand wording gate 为准。
+交付报告说明 public rendered Sealos samples 以 `RELEASE_CHECKLIST.md` 的 uploaded-image identity、official uploaded logo shape 和 Sealos logo/brand wording gate 为准。
 
 <粘贴文章>
 ```
