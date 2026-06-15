@@ -1,34 +1,29 @@
-# Sealos Seal IP
+# Seal IP
 
 Route id: `seal`.
-Route status: `brand-owned`.
+Route status: `active`.
 Output path: `assets/<article-slug>-seal/`.
-Brand/canonical-image authority: `source.md`.
-Canonical image status: `uploaded-image-canonical`.
-Drift boundary: `uploaded-image-locked`.
-Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
-Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
-Save accepted Sealos output under `assets/<article-slug>-seal/` with an ordered English slug filename such as `01-topic-name.png`.
+Source-history authority: `source.md`.
+hoodie seal identity note: preserve the product-neutral Seal character with white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+Logo-free note: cap, hoodie chest, mascot body, props, and scene stay plain and mark-free.
+Seal route block: generic seal drift, missing cap, missing hoodie, logo or mark artifacts, changed body color, passive placement, over-detailed toy drift, excessive text, route leakage, and copied composition all fail the route.
+Save accepted Seal output under `assets/<article-slug>-seal/` with an ordered English slug filename such as `01-topic-name.png`.
 
 ## Core Identity
 
-Sealos Seal is the uploaded white seal mascot in a plain navy cap with no logo and a plain deep-blue hoodie chest with no logo, adapted for sparse article illustrations.
+Seal is the selected route's product-neutral hoodie seal article character, adapted for sparse article illustrations.
 
-The Sealos route uses original explanatory scenes and fresh cloud-developer article metaphors. Sealos Seal appears as the active operator of an article concept, with brand-owned route status and uploaded-image authority recorded in `source.md`.
+The Seal route uses original explanatory scenes and fresh product-neutral article metaphors. Seal appears as the active operator of an article concept, with source-history authority and hoodie identity markers recorded in `source.md`.
 
-Sealos Seal is a reliable cloud developer companion for Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, Kubernetes, troubleshooting, and workflow explanation.
+Seal is a calm, useful, readable character for explaining judgment, sequencing, repair, comparison, decision gates, hidden coupling, and handoff logic.
 
 ## Recognition Rules
 
-Preserve the uploaded-image markers in a simplified article-illustration style:
+Preserve these hoodie Seal markers in a simplified article-illustration style:
 
 - white rounded seal body
-- plain navy cap with no logo
-- plain deep-blue hoodie chest with no logo
-- no cap logo
-- no chest logo
-- no mascot logos
-- no logo patches
+- plain navy cap
+- plain deep-blue hoodie
 - glossy dark eyes
 - black nose
 - whisker dots
@@ -37,42 +32,43 @@ Preserve the uploaded-image markers in a simplified article-illustration style:
 - compact legs
 - side-rear white tail
 
-For final article images, preserve enough cues that Sealos Seal reads as the uploaded brand mascot while the composition stays sparse and explanatory.
+For final article images, preserve enough cues that Seal reads as the hoodie seal route character while the composition stays sparse and explanatory.
 
 ## Cognitive Action Responsibility
 
-Sealos Seal must perform the central cognitive action in every Sealos-route illustration.
+Seal must perform the central cognitive action in every Seal-route illustration.
 
-Use Sealos Seal to:
+Use Seal to:
 
-- deploy a service across rails
-- launch an app from a small platform
-- connect isolated service bridges
-- debug a log slip or incident cone
-- route traffic through a clear path
-- lift a cloud OS tile into place
-- inspect a health check
-- repair a broken workflow gate
-- shield a database cylinder
-- bridge a deployment gap
-- tune a DevBox workbench
-- roll back a risky release handle
-- stamp a deployment result
-- sort config keys
-- assemble Kubernetes pods
-- guide a workflow route
+- inspect a map, lens, thread, note, or gate
+- repair a broken bridge, knot, lever, trail, or small hand-built machine
+- shield a fragile idea, boundary, or decision
+- bridge two stepping stones, shelves, paths, or article sections
+- tune a scale, lamp, compass, or signal
+- roll back a risky path or misplaced step
+- stamp a reviewed idea, checkpoint, or handoff
+- sort envelopes, keys, buckets, cards, or labels
+- assemble a small machine, shelf, bridge, or route
+- guide a reader through a trail, map, gate, or set of signposts
+- lift a stuck concept, bucket, key, or bridge piece
+- connect threads, trails, shelves, or stepping stones
+- untangle knots, threads, routes, or competing claims
+- weigh two claims, tradeoffs, paths, or choices on scales
+- map a hidden path, relationship, or sequence
+- carry a key, envelope, lamp, stamp, or small bridge piece
+- compare two trails, gates, buckets, shelves, or labels
+- mark the useful turn, risky gap, or stable next step
 
-Sealos action verbs stay physical and readable: deploy, launch, connect, debug, route, lift, inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, and guide.
+Seal action verbs stay physical and readable: inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, guide, lift, connect, untangle, weigh, map, carry, compare, and mark.
 
-Sealos cognitive-action participation gate: the visual metaphor depends on the mascot action. Removing the Sealos Seal mascot breaks the metaphor.
+Seal cognitive-action participation gate: the visual metaphor depends on Seal's action. Removing Seal breaks the metaphor.
 
 ## Route Boundary
 
-- Supporting objects come from low-tech cloud-developer article metaphors: cloud OS tiles, deployment rails, DevBox workbenches, database cylinders, Kubernetes pods, app launch pads, traffic routes, incident cones, log slips, config keys, health checks, rollback handles, workflow gates, and service bridges.
-- These objects explain article concepts such as cloud OS structure, AI-native deployment, DevBox readiness, database reliability, app launch, Kubernetes coordination, troubleshooting, workflow handoff, hidden coupling, and system resilience.
-- Cloud-developer objects function as explanatory props for the article idea.
+- Supporting objects come from product-neutral article metaphors: maps, stepping stones, bridges, levers, knots, shelves, signposts, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, compasses, and small hand-built machines.
+- These objects explain article concepts such as judgment, review, sequencing, handoff, hidden coupling, failure mode, decision gate, framing, prioritization, and conceptual repair.
 - Scene design stays original, article-explanatory, and route-local.
-- The uploaded mascot image controls body shape, outfit, face, flippers, compact legs, and side-rear tail.
+- Seal route references stay separate from Xiaohei, Littlebox, Tom, Ferris, and root legacy route identities.
 - Cap and chest areas stay plain and logo-free: no logo-like wave/cloud mark, no emblem, no patch, no text badge, no generated logo approximation, and no redrawn logo.
 
 ## Failure Modes
@@ -80,26 +76,15 @@ Sealos cognitive-action participation gate: the visual metaphor depends on the m
 Regenerate or rewrite when the result contains:
 
 - generic seal drift
-- abstract logo creature drift
 - missing cap
 - missing hoodie
-- logo-bearing mascot variants
-- cap logo
-- chest logo
-- mascot logo
-- logo patch
-- logo-like wave/cloud mark
-- text badge
-- generated logo approximation
-- redrawn logo
-- generated logo tracing
-- alternate wave mark
-- simplified logo mark
+- logo or mark artifacts
 - changed body color
-- passive mascot placement
-- over-detailed 3D toy drift
+- passive placement
+- over-detailed toy drift
 - excessive text
 - route leakage
+- copied composition
 - missing side-rear tail
 - missing glossy dark eyes
 - missing black nose
@@ -107,9 +92,8 @@ Regenerate or rewrite when the result contains:
 - missing small smile
 - missing short rounded flippers
 - missing compact legs
-- prior exploration variant drift
 - bald/plain-head seal drift
-- removable mascot
+- removable Seal
 - formal diagrams
 - dense PPT-like infographics
 - UI screenshots
@@ -119,15 +103,13 @@ Regenerate or rewrite when the result contains:
 - top-left title artifacts
 - dense text blocks
 - clean digital labels
-- copied prior route compositions
-- Sealos Seal standing beside the concept while props carry the meaning
+- Seal standing beside the concept while props carry the meaning
 
 ## Stable Gates
 
-- Sealos identity gate: the image preserves white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- Sealos no-logo gate: cap, hoodie chest, mascot body, props, and scene contain no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
-- Sealos cognitive-action participation gate: Sealos Seal performs the central cognitive action, and removing the mascot breaks the metaphor.
-- Sealos uploaded-image gate: the route follows `source.md`, `uploaded-image-canonical`, and `uploaded-image-locked`.
-- Sealos reliable companion gate: the mascot feels reliable, premium, friendly, technically credible, and useful for cloud developer work.
-- Sealos route isolation gate: Sealos rules stay separate from Xiaohei, Littlebox, Tom, Ferris, and root legacy route identities.
-- Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+- Seal identity gate: the image preserves white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Seal logo-free gate: cap, hoodie chest, mascot body, props, and scene contain no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
+- Seal cognitive-action participation gate: Seal must perform the central cognitive action, and removing Seal breaks the metaphor.
+- Seal source-history gate: the route follows `source.md`, `source-history authority`, `uploaded-image-canonical`, and `uploaded-image-locked`.
+- Seal route isolation gate: Seal rules stay separate from Xiaohei, Littlebox, Tom, Ferris, and root legacy route identities.
+- Seal route block: generic seal drift, missing cap, missing hoodie, logo or mark artifacts, changed body color, passive placement, over-detailed toy drift, excessive text, route leakage, and copied composition all fail the route.
