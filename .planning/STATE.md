@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-06-15)
 Phase: 32
 Plan: Not started
 Status: Complete
-Last activity: 2026-06-15 - Completed quick task 260615-mpv: expanded README translations added
+Last activity: 2026-06-15 - Completed quick task 260615-o4y: English README example images replaced
 
 ## Performance Metrics
 
@@ -266,6 +266,7 @@ Recent decisions affecting current work:
 | 260615-lo9 | Remove README fork author and related project sections | 2026-06-15 | 07fe963 | [260615-lo9-readme-fork-author-related-projects](./quick/260615-lo9-readme-fork-author-related-projects/) |
 | 260615-maz | Add README multilingual variant | 2026-06-15 | 48e51f7 | [260615-maz-readme-i18n-readme](./quick/260615-maz-readme-i18n-readme/) |
 | 260615-mpv | Add expanded README translations | 2026-06-15 | a69e198 | [260615-mpv-add-readme-translations-for-spanish-port](./quick/260615-mpv-add-readme-translations-for-spanish-port/) |
+| 260615-o4y | Replace English README example images with English-labeled Xiaohei examples | 2026-06-15 | 3dd2b77 | [260615-o4y-replace-english-readme-example-images-wi](./quick/260615-o4y-replace-english-readme-example-images-wi/) |
 
 ## Deferred Items
 
