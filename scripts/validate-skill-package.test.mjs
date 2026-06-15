@@ -717,7 +717,7 @@ test("validator fixture locks rebrand route stability", () => {
     replaceInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "routing.md"),
-      "| `false` | `sealos` |",
+      "| `false` | `seal` |",
       "| `false` | `cloud` |",
     );
 
@@ -727,7 +727,7 @@ test("validator fixture locks rebrand route stability", () => {
     assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-004 /);
     assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
-    assert.match(result.stdout, /expected sealos output_suffix=sealos; observed cloud/);
+    assert.match(result.stdout, /expected seal output_suffix=seal; observed cloud/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -737,14 +737,13 @@ test("validator fixture locks rebrand output path stability", () => {
   const fixtureRoot = copyFixture("rebrand-path-stability");
   try {
     for (const relativePath of [
-      "examples/prompts.md",
-      "README.md",
+      path.join("ian-xiaohei-illustrations", "SKILL.md"),
       path.join("ian-xiaohei-illustrations", "references", "routing.md"),
     ]) {
       replaceAllInFixture(
         fixtureRoot,
         relativePath,
-        "assets/&lt;article-slug&gt;-sealos/",
+        "assets/&lt;article-slug&gt;-seal/",
         "assets/&lt;article-slug&gt;-cloud/",
       );
     }
@@ -754,8 +753,8 @@ test("validator fixture locks rebrand output path stability", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REBRAND-PATH-001 /);
     assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
-    assert.match(result.stdout, /examples\/prompts\.md/);
-    assert.match(result.stdout, /observed missing marker\(s\): assets\/&lt;article-slug&gt;-sealos\//);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/SKILL\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): assets\/&lt;article-slug&gt;-seal\//);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -834,12 +833,10 @@ test("validator fixture locks raw output path stability through Phase 28", () =>
   const fixtureRoot = copyFixture("val-raw-output-path");
   try {
     for (const relativePath of [
-      "README.md",
-      "examples/prompts.md",
-      "LANGUAGE_POLICY.md",
+      path.join("ian-xiaohei-illustrations", "SKILL.md"),
       path.join("ian-xiaohei-illustrations", "references", "routing.md"),
     ]) {
-      replaceAllInFixture(fixtureRoot, relativePath, "assets/<article-slug>-sealos/", "assets/<article-slug>-cloud/");
+      replaceAllInFixture(fixtureRoot, relativePath, "assets/<article-slug>-seal/", "assets/<article-slug>-cloud/");
     }
 
     const result = runFixtureValidator(fixtureRoot);
@@ -847,7 +844,7 @@ test("validator fixture locks raw output path stability through Phase 28", () =>
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REBRAND-PATH-001 /);
     assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
-    assert.match(result.stdout, /assets\/<article-slug>-sealos\//);
+    assert.match(result.stdout, /assets\/<article-slug>-seal\//);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -935,7 +932,7 @@ test("parser helpers expose current package contract primitives", async () => {
 
   const routes = validators.parseMarkdownTable(routingText, "IP Routes");
   assert.equal(routes.length, 5);
-  assert.deepEqual(routes.map((route) => route.id), ["xiaohei", "littlebox", "tom", "ferris", "sealos"]);
+  assert.deepEqual(routes.map((route) => route.id), ["xiaohei", "littlebox", "tom", "ferris", "seal"]);
   assert.equal(routes[0].output_suffix, "illustrations");
   assert.equal(routes[0].default, "true");
   assert.equal(routes[1].output_suffix, "littlebox");
@@ -948,11 +945,11 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.equal(routes[3].default, "false");
   assert.equal(
     routes[4].aliases,
-    "Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, `blue hoodie seal",
+    "Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹",
   );
-  assert.equal(routes[4].output_suffix, "sealos");
+  assert.equal(routes[4].output_suffix, "seal");
   assert.equal(routes[4].default, "false");
-  assert.equal(routes[4].status, "brand-owned");
+  assert.equal(routes[4].status, "active");
   assert.deepEqual(
     validators.splitRouteCell(routes[2].required_references),
     [
@@ -975,13 +972,13 @@ test("parser helpers expose current package contract primitives", async () => {
     "references/ips/ferris/qa-checklist.md",
   ]);
   assert.deepEqual(validators.splitRouteCell(routes[4].required_references), [
-    "references/ips/sealos/index.md",
-    "references/ips/sealos/source.md",
-    "references/ips/sealos/style-dna.md",
-    "references/ips/sealos/sealos-ip.md",
-    "references/ips/sealos/composition-patterns.md",
-    "references/ips/sealos/prompt-template.md",
-    "references/ips/sealos/qa-checklist.md",
+    "references/ips/seal/index.md",
+    "references/ips/seal/source.md",
+    "references/ips/seal/style-dna.md",
+    "references/ips/seal/seal-ip.md",
+    "references/ips/seal/composition-patterns.md",
+    "references/ips/seal/prompt-template.md",
+    "references/ips/seal/qa-checklist.md",
   ]);
   assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
 
@@ -992,11 +989,11 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-illustrations/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-tom/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-ferris/"));
-  assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-sealos/"));
+  assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-seal/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-littlebox/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-tom/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-ferris/"));
-  assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-sealos/"));
+  assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-seal/"));
 });
 
 test("approval parser helpers expose current release primitives", async () => {
@@ -1252,7 +1249,7 @@ test("validator fixture reports Sealos source marker drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "source.md"),
       "uploaded-image-canonical",
       "uploaded-image-reviewed",
     );
@@ -1261,7 +1258,7 @@ test("validator fixture reports Sealos source marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] SOURCE-SEALOS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/sealos\/source\.md/);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/seal\/source\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): uploaded-image-canonical/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -1271,19 +1268,20 @@ test("validator fixture reports Sealos source marker drift", () => {
 test("validator fixture rejects Sealos route metadata drift", () => {
   const fixtureRoot = copyFixture("sealos-route");
   try {
-    replaceInFixture(
-      fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
-      "`Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, `blue hoodie seal`",
-      "`Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `white Sealos seal`, `blue hoodie seal`",
-    );
+    const routingPath = path.join("ian-xiaohei-illustrations", "references", "routing.md");
+    replaceAllInFixture(fixtureRoot, routingPath, "| `seal` | Seal |", "| `sealos` | Seal |");
+    replaceAllInFixture(fixtureRoot, routingPath, "| `false` | `seal` |", "| `false` | `sealos` |");
+    replaceAllInFixture(fixtureRoot, routingPath, "assets/<article-slug>-seal/", "assets/<article-slug>-sealos/");
+    replaceAllInFixture(fixtureRoot, routingPath, "assets/&lt;article-slug&gt;-seal/", "assets/&lt;article-slug&gt;-sealos/");
 
     const result = runFixtureValidator(fixtureRoot);
 
     assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-TABLE-001 /);
     assert.match(result.stdout, /\[FAIL\] ROUTE-SEALOS-001 /);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-PATHS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
-    assert.match(result.stdout, /observed missing marker\(s\): Sealos 海豹/);
+    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal; observed xiaohei, littlebox, tom, ferris, sealos/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1293,25 +1291,25 @@ test("validator fixture reports Sealos pack, prompt, and QA marker drift", () =>
   for (const [name, relativePath, searchValue, expectedId] of [
     [
       "pack",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "index.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "index.md"),
       "uploaded-image-canonical",
       "REFS-SEALOS-001",
     ],
     [
       "prompt",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "prompt-template.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "prompt-template.md"),
       "Brand/canonical-image note",
       "PROMPT-SEALOS-001",
     ],
     [
       "qa",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "qa-checklist.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "qa-checklist.md"),
       "Sealos QA route leakage failure",
       "QA-SEALOS-001",
     ],
     [
       "identity",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "sealos-ip.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "seal-ip.md"),
       "Sealos Seal must perform the central cognitive action",
       "IP-SEALOS-001",
     ],
@@ -1325,7 +1323,7 @@ test("validator fixture reports Sealos pack, prompt, and QA marker drift", () =>
       assert.equal(result.status, 1);
       assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
       const expectedPath = expectedId === "IP-SEALOS-001"
-        ? path.join("ian-xiaohei-illustrations", "references", "ips", "sealos")
+        ? path.join("ian-xiaohei-illustrations", "references", "ips", "seal")
         : relativePath;
       assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
       assert.match(result.stdout, /observed missing marker\(s\)/);
@@ -1370,25 +1368,25 @@ test("validator fixture rejects Sealos no-logo drift", () => {
   try {
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "source.md"),
       "plain navy cap with no logo",
       "navy cap with a small Sealos logo",
     );
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "source.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "source.md"),
       "no cap logo",
       "cap logo",
     );
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "prompt-template.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "prompt-template.md"),
       "No-logo note",
       "Logo note",
     );
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "sealos", "qa-checklist.md"),
+      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "qa-checklist.md"),
       "Sealos QA no-logo failure",
       "Sealos QA logo allowed failure",
     );
@@ -1403,7 +1401,7 @@ test("validator fixture rejects Sealos no-logo drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] LOGO-SEALOS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/sealos/);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/seal/);
     assert.match(result.stdout, /observed missing marker\(s\): plain navy cap with no logo/);
     assert.match(result.stdout, /no cap logo/);
   } finally {

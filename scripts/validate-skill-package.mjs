@@ -118,6 +118,13 @@ const LANGUAGE_ALLOWLIST = [
     rationale: "Sealos Seal Chinese route alias compatibility.",
     remediation: "Keep the exact route alias and translate surrounding prose in Phase 26 or Phase 27.",
   },
+  ...["海豹", "连帽衫海豹", "白色海豹", "蓝色连帽衫海豹"].map((token) => ({
+    category: "route aliases",
+    paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token,
+    rationale: "Seal Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias and translate surrounding prose in the planned public-docs migration phase.",
+  })),
   {
     category: "prompt placeholders",
     paths: [
@@ -615,6 +622,25 @@ export function parseMarkdownLinks(text) {
 }
 
 export function outputPathTokens() {
+  return {
+    raw: [
+      "assets/<article-slug>-illustrations/",
+      "assets/<article-slug>-littlebox/",
+      "assets/<article-slug>-tom/",
+      "assets/<article-slug>-ferris/",
+      "assets/<article-slug>-seal/",
+    ],
+    escaped: [
+      "assets/&lt;article-slug&gt;-illustrations/",
+      "assets/&lt;article-slug&gt;-littlebox/",
+      "assets/&lt;article-slug&gt;-tom/",
+      "assets/&lt;article-slug&gt;-ferris/",
+      "assets/&lt;article-slug&gt;-seal/",
+    ],
+  };
+}
+
+function publicDocsOutputPathTokens() {
   return {
     raw: [
       "assets/<article-slug>-illustrations/",
@@ -1459,8 +1485,14 @@ function assertPhase28CompatibilitySurface() {
     "汤姆猫",
     "Rust 吉祥物",
     "Rust 螃蟹",
-    "Sealos 吉祥物",
-    "Sealos 海豹",
+    "Seal",
+    "hoodie seal",
+    "white seal",
+    "blue hoodie seal",
+    "海豹",
+    "连帽衫海豹",
+    "白色海豹",
+    "蓝色连帽衫海豹",
   ], "canonical and legacy invocations, Chinese aliases, and visible-label behavior");
 
   const routingText = requireFile(ROUTING_FILE);
@@ -1474,10 +1506,10 @@ function assertPhase28CompatibilitySurface() {
   }
 
   const outputTokens = outputPathTokens();
-  const routePathText = combinedText(["README.md", "examples/prompts.md", LANGUAGE_POLICY_FILE, ROUTING_FILE]);
+  const routePathText = combinedText([SKILL_FILE, ROUTING_FILE]);
   assertIncludes(
     routePathText,
-    "README.md + examples/prompts.md + LANGUAGE_POLICY.md + routing.md",
+    "SKILL.md + routing.md",
     [...outputTokens.raw, ...outputTokens.escaped],
     "raw and escaped output path compatibility",
   );
@@ -1525,24 +1557,26 @@ function sealosFixedMarkers() {
 
 function sealosAliases() {
   return [
-    "Sealos Seal",
-    "Sealos mascot",
-    "Sealos 吉祥物",
-    "Sealos 海豹",
-    "white Sealos seal",
+    "Seal",
+    "hoodie seal",
+    "white seal",
     "blue hoodie seal",
+    "海豹",
+    "连帽衫海豹",
+    "白色海豹",
+    "蓝色连帽衫海豹",
   ];
 }
 
 function sealosPlannedReferences() {
   return [
-    "references/ips/sealos/index.md",
-    "references/ips/sealos/source.md",
-    "references/ips/sealos/style-dna.md",
-    "references/ips/sealos/sealos-ip.md",
-    "references/ips/sealos/composition-patterns.md",
-    "references/ips/sealos/prompt-template.md",
-    "references/ips/sealos/qa-checklist.md",
+    "references/ips/seal/index.md",
+    "references/ips/seal/source.md",
+    "references/ips/seal/style-dna.md",
+    "references/ips/seal/seal-ip.md",
+    "references/ips/seal/composition-patterns.md",
+    "references/ips/seal/prompt-template.md",
+    "references/ips/seal/qa-checklist.md",
   ];
 }
 
@@ -1607,11 +1641,11 @@ function rebrandRouteExpectations() {
       referenceCount: 7,
     },
     {
-      id: "sealos",
-      aliases: ["Sealos Seal", "Sealos mascot", "Sealos 吉祥物", "Sealos 海豹", "white Sealos seal", "blue hoodie seal"],
+      id: "seal",
+      aliases: sealosAliases(),
       default: "false",
-      status: "brand-owned",
-      outputSuffix: "sealos",
+      status: "active",
+      outputSuffix: "seal",
       referenceCount: 7,
     },
   ];
@@ -1809,15 +1843,14 @@ const checks = [
       "allow_implicit_invocation: true",
     ], "Xiaohei default behavior, Littlebox selection, explicit gated Tom, explicit source-reviewed Ferris, and implicit invocation markers");
   }),
-  defineCheck("AGENT-SEALOS-001", "openai.yaml exposes Sealos explicit brand-owned route metadata markers", () => {
+  defineCheck("AGENT-SEALOS-001", "openai.yaml exposes Seal explicit route metadata markers", () => {
     assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
       "Sealos Seal",
       "default Xiaohei",
       "explicit Sealos Seal brand-owned route",
-      "brand-owned",
       "uploaded-image authority",
       "allow_implicit_invocation: true",
-    ], "Sealos explicit brand-owned route discovery metadata and default Xiaohei preservation");
+    ], "Seal discovery metadata and default Xiaohei preservation");
   }),
   defineCheck("ROUTE-TABLE-001", "routing.md exposes the required route metadata columns and rows", () => {
     const text = requireFile(ROUTING_FILE);
@@ -1832,7 +1865,7 @@ const checks = [
       "attribution_context",
       "status",
     ], ROUTING_FILE, "IP Routes table columns");
-    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox", "tom", "ferris", "sealos"], ROUTING_FILE, "route ids");
+    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox", "tom", "ferris", "seal"], ROUTING_FILE, "route ids");
   }),
   defineCheck("ROUTE-XH-001", "routing.md preserves the Xiaohei active route contract", () => {
     const row = routeById("xiaohei");
@@ -1942,70 +1975,69 @@ const checks = [
     }
     assertExistingFiles(expectedReferences.map((reference) => path.join(PACKAGE_DIR, reference)), ROUTING_FILE, "Phase 15 Ferris seven-file pack existence");
   }),
-  defineCheck("ROUTE-SEALOS-001", "routing.md preserves the Phase 16 Sealos brand-owned route contract", () => {
-    const row = routeById("sealos");
+  defineCheck("ROUTE-SEALOS-001", "routing.md preserves the active Seal route contract", () => {
+    const row = routeById("seal");
     const references = routeReferencePaths(row);
     assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
       ...sealosAliases(),
-      "sealos",
-      "brand-owned",
-      "uploaded mascot image",
-      "uploaded-image authority",
-      "brand/canonical-image boundary",
-      "references/ips/sealos/source.md",
-    ], "Sealos display name, aliases, suffix, uploaded-image authority, source record, and status");
+      "seal",
+      "active",
+      "hoodie seal identity",
+      "no-logo mascot identity",
+      "source-history boundary",
+      "references/ips/seal/source.md",
+    ], "Seal display name, aliases, suffix, source-history authority, source record, and status");
     if (row.default !== "false") {
-      throw new Error(`${ROUTING_FILE} expected sealos default=false; observed ${row.default || "missing"}`);
+      throw new Error(`${ROUTING_FILE} expected seal default=false; observed ${row.default || "missing"}`);
     }
-    if (row.output_suffix !== "sealos") {
-      throw new Error(`${ROUTING_FILE} expected sealos output_suffix=sealos; observed ${row.output_suffix || "missing"}`);
+    if (row.output_suffix !== "seal") {
+      throw new Error(`${ROUTING_FILE} expected seal output_suffix=seal; observed ${row.output_suffix || "missing"}`);
     }
     if (references.join("\n") !== sealosPlannedReferences().join("\n")) {
       throw new Error(
-        `${ROUTING_FILE} expected sealos required_references=${sealosPlannedReferences().join(", ")}; observed ${references.join(", ") || "none"}`,
+        `${ROUTING_FILE} expected seal required_references=${sealosPlannedReferences().join(", ")}; observed ${references.join(", ") || "none"}`,
       );
     }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
-      "brand_context",
-      "reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes",
+      "source_history",
+      "former Sealos Seal route identity migrated to product-neutral Seal",
       "canonical_image_status",
       "uploaded-image-canonical",
       "drift_boundary",
       "uploaded-image-locked",
       ...sealosFixedMarkers(),
-    ], "Sealos metadata block with brand context, canonical image status, drift boundary, and fixed markers");
+    ], "Seal metadata block with source history, canonical image status, drift boundary, and fixed markers");
     assertExistingFiles(
-      [path.join(PACKAGE_DIR, "references", "ips", "sealos", "source.md")],
+      [path.join(PACKAGE_DIR, "references", "ips", "seal", "source.md")],
       ROUTING_FILE,
-      "Phase 16 Sealos source record existence",
+      "Phase 29 Seal source record existence",
     );
   }),
-  defineCheck("ROUTE-SEALOS-002", "routing.md preserves the full Phase 20 Sealos route metadata contract", () => {
-    const row = routeById("sealos");
+  defineCheck("ROUTE-SEALOS-002", "routing.md preserves the full active Seal route metadata contract", () => {
+    const row = routeById("seal");
     assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
-      "Sealos Seal",
-      "Sealos mascot",
-      "Sealos 吉祥物",
-      "Sealos 海豹",
-      "white Sealos seal",
+      "Seal",
+      "hoodie seal",
+      "white seal",
       "blue hoodie seal",
-      "sealos",
-      "brand-owned",
-      "brand/canonical-image boundary",
-      "references/ips/sealos/source.md",
-    ], "Sealos Phase 20 aliases, suffix, status, and source authority");
+      "海豹",
+      "seal",
+      "active",
+      "source-history boundary",
+      "references/ips/seal/source.md",
+    ], "Seal aliases, suffix, status, and source-history authority");
     if (row.default !== "false") {
-      throw new Error(`${ROUTING_FILE} expected sealos default=false; observed ${row.default || "missing"}`);
+      throw new Error(`${ROUTING_FILE} expected seal default=false; observed ${row.default || "missing"}`);
     }
-    if (row.output_suffix !== "sealos") {
-      throw new Error(`${ROUTING_FILE} expected sealos output_suffix=sealos; observed ${row.output_suffix || "missing"}`);
+    if (row.output_suffix !== "seal") {
+      throw new Error(`${ROUTING_FILE} expected seal output_suffix=seal; observed ${row.output_suffix || "missing"}`);
     }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "uploaded-image-canonical",
       "uploaded-image-locked",
-      "assets/<article-slug>-sealos/",
-      "assets/&lt;article-slug&gt;-sealos/",
-    ], "Sealos Phase 20 image status, drift boundary, and path tokens");
+      "assets/<article-slug>-seal/",
+      "assets/&lt;article-slug&gt;-seal/",
+    ], "Seal image status, drift boundary, and path tokens");
   }),
   defineCheck("ROUTE-DEFAULT-001", "routing.md keeps Xiaohei as the only default active route", () => {
     const rows = routeRows();
@@ -2025,15 +2057,15 @@ const checks = [
     if (ferris.default !== "false") {
       throw new Error(`${ROUTING_FILE} expected ferris default=false; observed ${ferris.default || "missing"}`);
     }
-    const sealos = routeById("sealos");
-    if (sealos.default !== "false") {
-      throw new Error(`${ROUTING_FILE} expected sealos default=false; observed ${sealos.default || "missing"}`);
+    const seal = routeById("seal");
+    if (seal.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected seal default=false; observed ${seal.default || "missing"}`);
     }
   }),
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, sealos: 7 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -2055,14 +2087,14 @@ const checks = [
         if (row.id === "ferris" && !displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/ferris/`)) {
           throw new Error(`${ROUTING_FILE} expected ferris reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/ferris/`);
         }
-        if (row.id === "sealos") {
-          if (!reference.startsWith("references/ips/sealos/")) {
-            throw new Error(`${ROUTING_FILE} expected sealos reference ${reference} under references/ips/sealos/`);
+        if (row.id === "seal") {
+          if (!reference.startsWith("references/ips/seal/")) {
+            throw new Error(`${ROUTING_FILE} expected seal reference ${reference} under references/ips/seal/`);
           }
-          if (!displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/sealos/`)) {
-            throw new Error(`${ROUTING_FILE} expected sealos reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/sealos/`);
+          if (!displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/seal/`)) {
+            throw new Error(`${ROUTING_FILE} expected seal reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/seal/`);
           }
-          if (reference !== "references/ips/sealos/source.md") continue;
+          if (reference !== "references/ips/seal/source.md") continue;
         }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
@@ -2075,7 +2107,7 @@ const checks = [
     const littlebox = routeById("littlebox");
     const tom = routeById("tom");
     const ferris = routeById("ferris");
-    const sealos = routeById("sealos");
+    const seal = routeById("seal");
     if (xiaohei.output_suffix !== "illustrations") {
       throw new Error(`${ROUTING_FILE} expected xiaohei output_suffix=illustrations; observed ${xiaohei.output_suffix}`);
     }
@@ -2088,8 +2120,8 @@ const checks = [
     if (ferris.output_suffix !== "ferris") {
       throw new Error(`${ROUTING_FILE} expected ferris output_suffix=ferris; observed ${ferris.output_suffix}`);
     }
-    if (sealos.output_suffix !== "sealos") {
-      throw new Error(`${ROUTING_FILE} expected sealos output_suffix=sealos; observed ${sealos.output_suffix}`);
+    if (seal.output_suffix !== "seal") {
+      throw new Error(`${ROUTING_FILE} expected seal output_suffix=seal; observed ${seal.output_suffix}`);
     }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "assets/<article-slug>-illustrations/",
@@ -2098,8 +2130,8 @@ const checks = [
       "assets/&lt;article-slug&gt;-tom/",
       "assets/<article-slug>-ferris/",
       "assets/&lt;article-slug&gt;-ferris/",
-      "assets/<article-slug>-sealos/",
-      "assets/&lt;article-slug&gt;-sealos/",
+      "assets/<article-slug>-seal/",
+      "assets/&lt;article-slug&gt;-seal/",
     ], "output suffix to output directory mapping");
   }),
   defineCheck("ROUTE-MIXED-001", "routing.md preserves mixed-IP separate route group wording", () => {
@@ -2110,7 +2142,7 @@ const checks = [
       "`littlebox` 写入 `assets/<article-slug>-littlebox/`",
       "`tom` 写入 `assets/<article-slug>-tom/`",
       "`ferris` 写入 `assets/<article-slug>-ferris/`",
-      "Sealos Seal",
+      "`seal` writes to `assets/<article-slug>-seal/`",
     ], "mixed-IP isolated reference and output-directory wording");
   }),
   defineCheck("REFS-XH-001", "Xiaohei canonical operational references and index exist", () => {
@@ -2173,22 +2205,22 @@ const checks = [
   }),
   defineCheck("REFS-SEALOS-001", "Sealos canonical route references and shared markers exist", () => {
     const sealosFiles = sealosOperationalRefs();
-    assertReadableFiles(sealosFiles, path.join(REFERENCES_DIR, "ips", "sealos"), "Sealos seven-file pack");
+    assertReadableFiles(sealosFiles, path.join(REFERENCES_DIR, "ips", "seal"), "Seal seven-file pack");
     for (const relativePath of sealosFiles) {
       assertIncludes(requireFile(relativePath), relativePath, [
-        "sealos",
+        "seal",
         "brand-owned",
         "source.md",
         "uploaded-image-canonical",
         "uploaded-image-locked",
-        "assets/<article-slug>-sealos/",
-      ], "Sealos route-local shared operational markers");
+        "assets/<article-slug>-seal/",
+      ], "Seal route-local shared operational markers");
     }
     assertIncludes(combinedText([
-      path.join(REFERENCES_DIR, "ips", "sealos", "index.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"),
-    ]), path.join(REFERENCES_DIR, "ips", "sealos"), [
+      path.join(REFERENCES_DIR, "ips", "seal", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "qa-checklist.md"),
+    ]), path.join(REFERENCES_DIR, "ips", "seal"), [
       "Public rendered Sealos samples",
       "Sealos route block",
       "plain navy cap with no logo",
@@ -2309,7 +2341,7 @@ const checks = [
     ], "Ferris planning fields, prompt placeholders, output path, source note, edit gates, and source/trademark repair markers");
   }),
   defineCheck("PROMPT-SEALOS-001", "Sealos prompt template preserves planning, generation, edit, and brand markers", () => {
-    const relativePath = path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md");
+    const relativePath = path.join(REFERENCES_DIR, "ips", "seal", "prompt-template.md");
     assertIncludes(requireFile(relativePath), relativePath, [
       "Sealos planning fields gate",
       "Placement",
@@ -2319,7 +2351,7 @@ const checks = [
       "Mascot action",
       "Supporting objects",
       "Visible labels",
-      "Output path: assets/<article-slug>-sealos/",
+      "Output path: assets/<article-slug>-seal/",
       "Brand/canonical-image note",
       "Image-generation prompts stay English",
       "Visible labels are copied exactly in the user's language",
@@ -2430,13 +2462,13 @@ const checks = [
   }),
   defineCheck("IP-SEALOS-001", "Sealos canonical pack preserves uploaded-image identity and action gates", () => {
     const text = combinedText([
-      path.join(REFERENCES_DIR, "ips", "sealos", "index.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "source.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "style-dna.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "sealos-ip.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "composition-patterns.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "source.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "style-dna.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "seal-ip.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "composition-patterns.md"),
     ]);
-    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "sealos"), [
+    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "seal"), [
       "brand-owned",
       "uploaded-image-canonical",
       "uploaded-image-locked",
@@ -2527,14 +2559,14 @@ const checks = [
     ], "Ferris QA pass criteria, source/trademark checks, route leakage failure, repair gates, and delivery judgment");
   }),
   defineCheck("QA-SEALOS-001", "Sealos QA checklist preserves brand-owned pass, fail, repair, and delivery markers", () => {
-    const relativePath = path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md");
+    const relativePath = path.join(REFERENCES_DIR, "ips", "seal", "qa-checklist.md");
     assertIncludes(requireFile(relativePath), relativePath, [
       "Sealos QA brand/canonical-image gate.",
       "Sealos QA uploaded-image identity gate.",
       "Sealos Seal recognizability is clear",
       "Sealos Seal performs the active Mascot action.",
       "Brand/canonical-image note is present in planning, generation, edit, and delivery context.",
-      "Delivery path uses `assets/<article-slug>-sealos/`.",
+      "Delivery path uses `assets/<article-slug>-seal/`.",
       "generic seal drift",
       "abstract logo creature drift",
       "logo-bearing mascot variants",
@@ -2604,7 +2636,7 @@ const checks = [
     ], "Ferris source headings, author/source markers, CC0 context, trademark boundary, status, and sample gate markers");
   }),
   defineCheck("SOURCE-SEALOS-001", "Sealos source record preserves Phase 16 brand and uploaded-image markers", () => {
-    const relativePath = path.join(REFERENCES_DIR, "ips", "sealos", "source.md");
+    const relativePath = path.join(REFERENCES_DIR, "ips", "seal", "source.md");
     assertIncludes(requireFile(relativePath), relativePath, [
       "Sealos Seal Brand and Canonical Image Record",
       "## Source",
@@ -2642,10 +2674,10 @@ const checks = [
   }),
   defineCheck("LOGO-SEALOS-001", "Sealos route keeps mascot logo-free", () => {
     const routeLocalFiles = [
-      path.join(REFERENCES_DIR, "ips", "sealos", "index.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "source.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md"),
-      path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "source.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "ips", "seal", "qa-checklist.md"),
     ];
     for (const relativePath of routeLocalFiles) {
       assertIncludes(requireFile(relativePath), relativePath, [
@@ -2660,7 +2692,7 @@ const checks = [
         "no text badge",
       ], "route-local no-logo mascot markers");
     }
-    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "source.md")), path.join(REFERENCES_DIR, "ips", "sealos", "source.md"), [
+    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "seal", "source.md")), path.join(REFERENCES_DIR, "ips", "seal", "source.md"), [
       "Logo-free identity",
       "No-logo rule",
       "No-logo geometry gate",
@@ -2677,7 +2709,7 @@ const checks = [
       "alternate wave mark",
       "simplified logo mark",
     ], "Sealos source no-logo markers");
-    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md")), path.join(REFERENCES_DIR, "ips", "sealos", "prompt-template.md"), [
+    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "seal", "prompt-template.md")), path.join(REFERENCES_DIR, "ips", "seal", "prompt-template.md"), [
       "No-logo note",
       "No-logo markers",
       "No-Logo Hoodie Cap Repair",
@@ -2699,7 +2731,7 @@ const checks = [
       "alternate wave mark",
       "simplified logo mark",
     ], "Sealos prompt no-logo generation and repair markers");
-    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md")), path.join(REFERENCES_DIR, "ips", "sealos", "qa-checklist.md"), [
+    assertIncludes(requireFile(path.join(REFERENCES_DIR, "ips", "seal", "qa-checklist.md")), path.join(REFERENCES_DIR, "ips", "seal", "qa-checklist.md"), [
       "Sealos QA no-logo failure",
       "No-Logo Hoodie Cap Repair",
       "no-logo delivery note",
@@ -2772,7 +2804,7 @@ const checks = [
     }
   }),
   defineCheck("DOC-PATHS-001", "README and examples expose raw and escaped output path tokens", () => {
-    const tokens = outputPathTokens();
+    const tokens = publicDocsOutputPathTokens();
     for (const [relativePath, text] of Object.entries(docsTexts())) {
       const pathName = relativePath === "readme" ? "README.md" : "examples/prompts.md";
       assertIncludes(text, pathName, [...tokens.raw, ...tokens.escaped], "raw and HTML-escaped route output path tokens");
@@ -2844,7 +2876,7 @@ const checks = [
     ], "Phase 16 Sealos route status, aliases, source record, routing link, output tokens, brand context, and drift markers");
   }),
   defineCheck("DOC-SEALOS-P19-001", "public docs expose Phase 19 Sealos release-surface markers", () => {
-    for (const relativePath of ["README.md", "examples/prompts.md", ROUTING_FILE, "RELEASE_CHECKLIST.md"]) {
+    for (const relativePath of ["README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"]) {
       assertIncludes(requireFile(relativePath), relativePath, [
         "Sealos Seal",
         "brand-owned",
@@ -3151,12 +3183,12 @@ const checks = [
       "Littlebox",
       "Tom",
       "Ferris",
-      "Sealos Seal",
+      "Seal",
       "illustrations",
       "littlebox",
       "tom",
       "ferris",
-      "sealos",
+      "seal",
     ], "five route display names and output suffix markers");
   }),
   defineCheck("REBRAND-COMPAT-001", "runtime metadata preserves legacy alias compatibility", () => {
@@ -3207,9 +3239,11 @@ const checks = [
     const tokens = outputPathTokens();
     const allTokens = [...tokens.raw, ...tokens.escaped];
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, allTokens, "SKILL raw and escaped route output path tokens");
-    assertIncludes(requireFile("README.md"), "README.md", allTokens, "README raw and escaped route output path tokens");
-    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", allTokens, "examples raw and escaped route output path tokens");
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, allTokens, "routing raw and escaped route output path tokens");
+    const publicTokens = publicDocsOutputPathTokens();
+    const allPublicTokens = [...publicTokens.raw, ...publicTokens.escaped];
+    assertIncludes(requireFile("README.md"), "README.md", allPublicTokens, "README raw and escaped route output path tokens");
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", allPublicTokens, "examples raw and escaped route output path tokens");
   }),
   defineCheck("REBRAND-EVIDENCE-001", "release checklist preserves Phase 24 evidence gates", () => {
     assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
@@ -3249,15 +3283,15 @@ const checks = [
       "active",
       "gated-authorized",
       "source-reviewed",
-      "brand-owned",
+      "active",
       "ian-xiaohei-illustrations/references/ips/tom/rights.md",
       "ian-xiaohei-illustrations/references/ips/ferris/source.md",
-      "ian-xiaohei-illustrations/references/ips/sealos/source.md",
+      "ian-xiaohei-illustrations/references/ips/seal/source.md",
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
       "assets/<article-slug>-tom/",
       "assets/<article-slug>-ferris/",
-      "assets/<article-slug>-sealos/",
+      "assets/<article-slug>-seal/",
     ], "canonical name, invocation aliases, install markers, route statuses, authority paths, and output paths");
   }),
   defineCheck("LANG-POLICY-001", "language policy names every English-default surface", () => {
@@ -3473,7 +3507,7 @@ const checks = [
         if (!relative.startsWith(`${PACKAGE_DIR}/references/`)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} under ${PACKAGE_DIR}/references/`);
         }
-        if (row.id === "sealos" && reference !== "references/ips/sealos/source.md") {
+        if (row.id === "seal" && reference !== "references/ips/seal/source.md") {
           continue;
         }
         if (!fileExists(relative)) {
@@ -3482,7 +3516,7 @@ const checks = [
       }
     }
 
-    const publicDocsText = combinedText(["README.md", "examples/prompts.md", ROUTING_FILE]);
+    const publicDocsText = combinedText(["README.md", "examples/prompts.md", SKILL_FILE, ROUTING_FILE]);
     const outputTokens = [...outputPathTokens().raw, ...outputPathTokens().escaped];
     const invalidTokens = outputTokens.filter((token) => !token.startsWith("assets/"));
     if (invalidTokens.length > 0) {
