@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-06-15)
 Phase: 32
 Plan: Not started
 Status: Complete
-Last activity: 2026-06-15 - Completed quick task 260615-o4y: English README example images replaced
+Last activity: 2026-06-15 - Completed quick task 260615-qbt: GitHub repository description updated
 
 ## Performance Metrics
 
@@ -267,6 +267,7 @@ Recent decisions affecting current work:
 | 260615-maz | Add README multilingual variant | 2026-06-15 | 48e51f7 | [260615-maz-readme-i18n-readme](./quick/260615-maz-readme-i18n-readme/) |
 | 260615-mpv | Add expanded README translations | 2026-06-15 | a69e198 | [260615-mpv-add-readme-translations-for-spanish-port](./quick/260615-mpv-add-readme-translations-for-spanish-port/) |
 | 260615-o4y | Replace English README example images with English-labeled Xiaohei examples | 2026-06-15 | 3dd2b77 | [260615-o4y-replace-english-readme-example-images-wi](./quick/260615-o4y-replace-english-readme-example-images-wi/) |
+| 260615-qbt | Rewrite GitHub repository description | 2026-06-15 | metadata-only | [260615-qbt-rewrite-github-repository-description](./quick/260615-qbt-rewrite-github-repository-description/) |
 
 ## Deferred Items
 
