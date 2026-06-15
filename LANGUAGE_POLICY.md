@@ -28,6 +28,7 @@ Approved multilingual content is limited to compatibility and user-output surfac
 - attribution/source names that must remain exact for source, rights, brand, copyright, trademark, or author records
 - compatibility smoke fixtures that prove legacy Chinese aliases and route behavior still work
 - Chinese article illustration examples that intentionally model Chinese article-body labels or user requests
+- README language selector labels that link localized README siblings
 
 ## Allowlist Entry Shape
 

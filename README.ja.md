@@ -1,0 +1,343 @@
+# Visual IP Illustrations
+
+> Visual IP Illustrations は、記事本文イラストのためのマルチビジュアル IP Codex Skill です。Xiaohei は暗黙のデフォルトルート、Littlebox は明示的で active なルート、Tom は `gated-authorized` 状態の明示的な protected-character ルート、Ferris は `source-reviewed` 状態の明示的な Rust-community mascot ルート、Seal は `active` 状態の明示的な product-neutral hoodie seal ルートです。
+>
+> 16:9 横長 | 複数ビジュアル IP | 記事本文イラスト | 標準呼び出し: `$visual-ip-illustrations`
+
+<!-- README-I18N:START -->
+
+[English](./README.md) | [Español](./README.es.md) | [Português](./README.pt.md) | [Deutsch](./README.de.md) | [Français](./README.fr.md) | [简体中文](./README.zh.md) | [繁體中文](./README.zh-Hant.md) | [한국어](./README.ko.md) | **日本語** | [العربية](./README.ar.md) | [Русский](./README.ru.md) | [Українська](./README.uk.md) | [Türkçe](./README.tr.md)
+
+<!-- README-I18N:END -->
+
+---
+
+## このリポジトリについて
+
+Visual IP Illustrations は、AI agent が記事、投稿、ブログ、Notion ドキュメント、方法論の文章向けに本文イラストを作成するためのガイドです。
+
+この skill は元テキストの認知アンカーを読み取り、判断、workflow、構造、状態、メタファーのいずれかを、記憶に残る 16:9 の手描き説明画像に変換します。
+
+現在のルート一覧:
+
+- **Xiaohei**: implicit default route。ユーザーが visual IP を省略すると、skill は Xiaohei を使い、白背景の手描き article illustration 体験を保持します。
+- **Littlebox**: explicit active route。`小盒`、`Littlebox`、`纸盒`、`paper-box`、`carton` を指定するリクエストは Littlebox route を使います。
+- **Tom**: explicit protected-character route。`Tom`、`Tom Cat`、`Tom and Jerry`、`汤姆`、`汤姆猫` を指定するリクエストは Tom route を使います。
+- **Ferris**: explicit Rust-community mascot route。`Ferris`、`Rust mascot`、`Rust crab`、`Rustacean`、`Rust 吉祥物`、`Rust 螃蟹` を指定するリクエストは Ferris route を使います。
+- **Seal**: explicit product-neutral hoodie seal route。`Seal`、`hoodie seal`、`white seal`、`blue hoodie seal`、`海豹`、`连帽衫海豹`、`白色海豹`、`蓝色连帽衫海豹` を指定するリクエストは Seal route を使います。
+
+中核価値: ユーザーはビジュアル IP を選び、その IP と一貫したキャラクター、スタイルルール、prompts、QA gates、保存出力、attribution、source context、brand boundary を持つ記事イラスト資産を受け取れます。
+
+Release 1.4 の公開名称は `Visual IP Illustrations`、ローカル checkout の canonical slug は `visual-ip-illustrations`、canonical invocation は `$visual-ip-illustrations` です。互換性面は安定しています: installable directory `ian-xiaohei-illustrations/`、legacy alias `$ian-xiaohei-illustrations`、既存 source path `ian-xiaohei-illustrations/`、route behavior、output directories、validator markers。
+
+---
+
+## 対象ユーザー
+
+- 記事コンセプトの本文イラストが必要なライター。
+- 明確な視覚メタファーを求めるプロダクト思考者と方法論の著者。
+- 再利用可能な visual language prompts が必要な AI workflow 著者。
+- 安定した multi-IP skill package を求める Codex ユーザー。
+
+## 出力
+
+- 記事用の 4-8 枚の shot list。
+- 各画像: placement、theme、core idea、structure type、character action、suggested visible labels。
+- 最終 PNG 画像。
+- Xiaohei outputs は workspace path `assets/<article-slug>-illustrations/` に保存されます。
+- Littlebox outputs は workspace path `assets/<article-slug>-littlebox/` に保存されます。
+- Tom outputs は workspace path `assets/<article-slug>-tom/` に保存されます。
+- Ferris outputs は workspace path `assets/<article-slug>-ferris/` に保存されます。
+- Seal outputs は workspace path `assets/<article-slug>-seal/` に保存されます。
+
+Docs validation は HTML escaped route markers も保持します: `assets/&lt;article-slug&gt;-illustrations/`、`assets/&lt;article-slug&gt;-littlebox/`、`assets/&lt;article-slug&gt;-tom/`、`assets/&lt;article-slug&gt;-ferris/`、`assets/&lt;article-slug&gt;-seal/`。
+
+---
+
+## ビジュアル IP ルート
+
+### Xiaohei
+
+Xiaohei はデフォルト route です。点の目、細い脚、中立的な表情を持つ黒いシルエットが、純白背景で奇妙だが読み取れる認知行動を実行します。判断、workflow、breakpoint、trap、handoff path、system local view に向いています。
+
+Alias: `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei`.
+
+### Littlebox
+
+Littlebox は明示 route です。閉じた紙箱キャラクターが粗い黒 marker line、淡い空色または淡いラベンダー背景、amber tape、控えめな coral accent を使います。認知行動を集める、梱包する、整理する、届ける、遮る、修理する行為に変換します。
+
+Alias: `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton`.
+
+### Tom
+
+Tom は明示 protected-character route です。よく知られた blue-gray cat が route の rights boundary 内で能動的なコミカルアクションにより記事コンセプトを運びます。chase logic、trap、failed shortcut、fragile plan、reversal、timing problem、cartoon-style cause-effect sequence に向いています。
+
+Alias: `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`.
+
+### Ferris
+
+Ferris は明示 Rust-community mascot route です。小さな orange crab mascot が丁寧に作る、整える、守る、持ち上げる、つなぐ、直すことで中心的な認知行動を行います。systems thinking、reliability、ownership、compile-like flow、tradeoff review、boundary check、low-tech Rust object metaphor に向いています。
+
+Alias: `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`.
+
+### Seal
+
+Seal は明示 product-neutral hoodie seal route です。丸い白いアザラシが plain navy cap と plain deep-blue hoodie を身につけ、記事の中心的な判断、sequence、handoff、comparison、repair を実行します。review、prioritization、source-history awareness、logo-free scene、low-tech article metaphor に向いています。
+
+Alias: `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹`.
+
+### ルート参照
+
+Maintainers は `ian-xiaohei-illustrations/references/routing.md` で route metadata fields を確認できます: `id`、`display_name`、`aliases`、`default`、`output_suffix`、`required_references`、`attribution_context`、`status`。
+
+Canonical packs:
+
+- Xiaohei: `ian-xiaohei-illustrations/references/ips/xiaohei/`
+- Littlebox: `ian-xiaohei-illustrations/references/ips/littlebox/`
+- Tom: `ian-xiaohei-illustrations/references/ips/tom/`, core entry `index.md`, rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
+- Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- Seal: `ian-xiaohei-illustrations/references/ips/seal/`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
+
+複数の visual IP を求めるリクエストでは、variant groups を分けて届け、それぞれを専用 output directory に書き込みます。
+
+Route operational data:
+
+- Tom: status `gated-authorized`; rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
+- Ferris: status `source-reviewed`; source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+- Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
+
+---
+
+## サンプルギャラリー
+
+これらの画像は Xiaohei style calibration examples です。line density、whitespace、color restraint、character participation を理解し、現在の記事に合わせた新しいメタファーを作ってください。
+
+### Two Breakpoints
+
+![Two Breakpoints](examples/images/01-two-breakpoints.png)
+
+### Sort by Purpose
+
+![Sort by Purpose](examples/images/02-sort-by-purpose.png)
+
+### One Fish, Many Uses
+
+![One Fish, Many Uses](examples/images/03-one-fish-many-uses.png)
+
+### Handoff Path
+
+![Handoff Path](examples/images/04-handoff-path.png)
+
+### Information Well
+
+![Information Well](examples/images/05-information-well.png)
+
+### Idea Press
+
+![Idea Press](examples/images/06-idea-press.png)
+
+### Content Fermentation
+
+![Content Fermentation](examples/images/07-content-fermentation.png)
+
+### Trust Bridge
+
+![Trust Bridge](examples/images/08-trust-bridge.png)
+
+---
+
+## インストール
+
+```bash
+git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations
+cd visual-ip-illustrations
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+インストール後、Codex では `$visual-ip-illustrations` を優先してください。
+
+Release 1.4 compatibility:
+
+- Canonical public invocation: `$visual-ip-illustrations`
+- Legacy compatibility alias: `$ian-xiaohei-illustrations`
+- Installable skill package directory: `ian-xiaohei-illustrations/`
+- Current live repository remote: `https://github.com/yangchuansheng/ian-xiaohei-illustrations.git`
+- Local checkout target directory: `visual-ip-illustrations`
+- Route behavior と output directories は両方の invocation surfaces で安定しています。
+
+---
+
+## クイック例
+
+`{visual IP}` は `Xiaohei`、`Littlebox`、`Tom`、`Ferris`、`Seal`、またはサポートされる別名です。省略すると Xiaohei が選択されます。
+
+### Shot list を計画する
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Use {visual IP} to create a 5-image article body illustration shot list for the article below.
+For each image, include placement, theme, core idea, structure type, character action, and suggested visible labels in the user's language.
+
+<paste article>
+```
+
+### 本文イラストを生成する
+
+```text
+Use $visual-ip-illustrations with {visual IP} to generate 4 article body illustrations for the article below.
+Each image should express one core idea, and the selected character must carry the action.
+Use the selected IP's route-local references, QA checklist, and output path.
+
+<paste article>
+```
+
+### 単一アイデア
+
+```text
+Use $visual-ip-illustrations with {visual IP} to generate one 16:9 article body illustration.
+Idea: trust is built by placing one piece of evidence after another.
+Requirements: hand-drawn, spacious, sparse visible labels in the user's language, and the character performing the central action.
+```
+
+### IP 比較
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Create separate Xiaohei, Littlebox, Tom, Ferris, and Seal shot-list groups from the same idea.
+Each group must keep its own IP, character action, visible labels, and output path.
+
+Idea: trust is built by placing one piece of evidence after another.
+```
+
+protected-character、source-reviewed、active source-history route は route status、source/rights note、release gate、specific output directory を自動的に含みます。
+
+コピー可能な例は [examples/prompts.md](examples/prompts.md) にさらにあります。
+
+---
+
+## ワークフロー
+
+1. article、Markdown、Notion content、screenshot、ユーザー提供 topic を読みます。
+2. visual IP を選択します: IP 省略は Xiaohei を選択します; explicit Littlebox は Littlebox を選択します; Tom aliases は Tom protected-character route を選択します; Ferris aliases は Ferris source-reviewed pack を選択します; Seal aliases は active Seal pack を選択します。
+3. core claims、cognitive turns、workflow structures、visualizable paragraphs を抽出します。
+4. まず shot list を作成します; 各画像は cognitive anchor を 1 つ受け取ります。
+5. 各画像に structure type を 1 つ選びます: Workflow、system local view、before/after、character state、concept metaphor、method layers、map route、comic panels。
+6. 選択した IP の canonical pack を読み込み、prompts を組み立て、画像を 1 枚ずつ生成します。Mixed-IP requests は separate route groups と output directories を作成し、Xiaohei、Littlebox、Tom、Ferris、Seal はそれぞれ route-local references を保持します。
+7. 選択した IP の QA checklist に照らして character identity、composition、background、labels、output path を確認します。Tom は `gated-authorized` と `ian-xiaohei-illustrations/references/ips/tom/rights.md` を保持します; Ferris は `source-reviewed`、source/trademark note、`ian-xiaohei-illustrations/references/ips/ferris/source.md` を保持します; Seal は `active`、source-history authority、hoodie seal identity note、logo-free note、`ian-xiaohei-illustrations/references/ips/seal/source.md` を保持します。
+8. 最終 PNG を保存し、purpose と path を報告します。
+
+---
+
+## ディレクトリ構成
+
+```text
+.
+├── README.md
+├── README.es.md
+├── README.pt.md
+├── README.de.md
+├── README.fr.md
+├── README.zh.md
+├── README.zh-Hant.md
+├── README.ko.md
+├── README.ja.md
+├── README.ar.md
+├── README.ru.md
+├── README.uk.md
+├── README.tr.md
+├── LICENSE
+├── NOTICE.md
+├── examples/
+│   ├── images/
+│   │   ├── 01-two-breakpoints.png
+│   │   ├── 02-sort-by-purpose.png
+│   │   └── ...
+│   └── prompts.md
+└── ian-xiaohei-illustrations/
+    ├── SKILL.md
+    ├── agents/
+    │   └── openai.yaml
+    ├── assets/
+    │   └── examples/
+    └── references/
+        ├── routing.md
+        ├── style-dna.md
+        ├── xiaohei-ip.md
+        ├── composition-patterns.md
+        ├── prompt-template.md
+        ├── qa-checklist.md
+        └── ips/
+            ├── xiaohei/
+            │   ├── index.md
+            │   ├── style-dna.md
+            │   ├── xiaohei-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── littlebox/
+            │   ├── index.md
+            │   ├── style-dna.md
+            │   ├── littlebox-ip.md
+            │   ├── composition-patterns.md
+            │   ├── language-and-labels.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── tom/
+            │   ├── index.md
+            │   ├── rights.md
+            │   ├── style-dna.md
+            │   ├── tom-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── ferris/
+            │   ├── index.md
+            │   ├── source.md
+            │   ├── style-dna.md
+            │   ├── ferris-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            └── seal/
+                ├── index.md
+                ├── source.md
+                ├── style-dna.md
+                ├── seal-ip.md
+                ├── composition-patterns.md
+                └── qa-checklist.md
+```
+
+Codex のインストール先はこのサブディレクトリです:
+
+```text
+ian-xiaohei-illustrations/
+```
+
+Root README、LICENSE、NOTICE、examples は GitHub distribution docs です。
+
+---
+
+## メンテナー向け検証
+
+```bash
+node scripts/validate-skill-package.mjs
+```
+
+Validation は skill package shape、route table、Xiaohei、Littlebox、Tom、Ferris、Seal canonical packs、legacy Xiaohei paths、public docs links、output path markers、NOTICE attribution、Tom `gated-authorized` route markers、Ferris `source-reviewed` route markers、Seal `active` route markers、source-history authority、hoodie seal identity note、logo-free note、Phase 32 full validator restoration evidence を対象にします。
+
+Maintainer 向けの現在の validation commands:
+
+```bash
+node scripts/validate-skill-package.mjs
+node --test scripts/validate-skill-package.test.mjs
+git diff --check
+```
+
+Pre-release checks は [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) にあります。
+
+---
+
+## ライセンス
+
+MIT License。[LICENSE](LICENSE) を参照してください。

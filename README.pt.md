@@ -1,0 +1,343 @@
+# Visual IP Illustrations
+
+> Visual IP Illustrations é uma Codex Skill multi-IP visual para ilustrações no corpo de artigos. Xiaohei é a rota padrão implícita; Littlebox é explícita e ativa; Tom é uma rota explícita de personagem protegido com status `gated-authorized`; Ferris é uma rota explícita de mascote da comunidade Rust com status `source-reviewed`; Seal é uma rota explícita de foca com moletom, neutra em relação a produto, com status `active`.
+>
+> 16:9 horizontal | múltiplas IPs visuais | ilustrações para corpo de artigo | Invocação canônica: `$visual-ip-illustrations`
+
+<!-- README-I18N:START -->
+
+[English](./README.md) | [Español](./README.es.md) | **Português** | [Deutsch](./README.de.md) | [Français](./README.fr.md) | [简体中文](./README.zh.md) | [繁體中文](./README.zh-Hant.md) | [한국어](./README.ko.md) | [日本語](./README.ja.md) | [العربية](./README.ar.md) | [Русский](./README.ru.md) | [Українська](./README.uk.md) | [Türkçe](./README.tr.md)
+
+<!-- README-I18N:END -->
+
+---
+
+## O que é este repositório
+
+Visual IP Illustrations orienta um agente de IA a criar ilustrações de corpo para artigos, posts, blogs, documentos Notion e escrita metodológica.
+
+A skill lê a âncora cognitiva no texto de origem e transforma um julgamento, workflow, estrutura, estado ou metáfora em uma imagem explicativa memorável, desenhada à mão em 16:9.
+
+Inventário atual de rotas:
+
+- **Xiaohei**: rota padrão implícita. Quando o usuário omite uma IP visual, a skill usa Xiaohei e preserva a experiência de ilustração desenhada à mão sobre fundo branco.
+- **Littlebox**: rota explícita ativa. Solicitações que citam `小盒`, `Littlebox`, `纸盒`, `paper-box` ou `carton` usam a rota Littlebox.
+- **Tom**: rota explícita de personagem protegido. Solicitações que citam `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆` ou `汤姆猫` usam a rota Tom.
+- **Ferris**: rota explícita de mascote da comunidade Rust. Solicitações que citam `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物` ou `Rust 螃蟹` usam a rota Ferris.
+- **Seal**: rota explícita de foca com moletom, neutra em relação a produto. Solicitações que citam `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹` ou `蓝色连帽衫海豹` usam a rota Seal.
+
+Valor central: usuários podem escolher uma IP visual e receber assets de ilustração de artigo cujos personagens, regras de estilo, prompts, gates de QA, saídas salvas, atribuição, contexto de origem e limite de marca permanecem consistentes com essa IP.
+
+A identidade pública da Release 1.4 usa `Visual IP Illustrations`, o slug canônico de checkout local `visual-ip-illustrations` e a invocação canônica `$visual-ip-illustrations`. As superfícies de compatibilidade seguem estáveis: diretório instalável `ian-xiaohei-illustrations/`, alias legacy `$ian-xiaohei-illustrations`, rotas fonte existentes `ian-xiaohei-illustrations/`, comportamento de rotas, diretórios de saída e marcadores do validador.
+
+---
+
+## Para quem é
+
+- Escritores que precisam de ilustrações de corpo para conceitos de artigos.
+- Pensadores de produto e autores de metodologia que querem metáforas visuais claras.
+- Autores de workflows de IA que precisam de prompts reutilizáveis de linguagem visual.
+- Usuários de Codex que querem um pacote skill multi-IP estável.
+
+## Saídas
+
+- Uma shot list de 4 a 8 imagens para um artigo.
+- Para cada imagem: posição, tema, ideia central, tipo de estrutura, ação do personagem e rótulos visíveis sugeridos.
+- Imagens PNG finais.
+- Xiaohei grava saídas em `assets/<article-slug>-illustrations/` no workspace.
+- Littlebox grava saídas em `assets/<article-slug>-littlebox/` no workspace.
+- Tom grava saídas em `assets/<article-slug>-tom/` no workspace.
+- Ferris grava saídas em `assets/<article-slug>-ferris/` no workspace.
+- Seal grava saídas em `assets/<article-slug>-seal/` no workspace.
+
+A validação de docs também preserva marcadores de rota escapados em HTML: `assets/&lt;article-slug&gt;-illustrations/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/&lt;article-slug&gt;-tom/`, `assets/&lt;article-slug&gt;-ferris/` e `assets/&lt;article-slug&gt;-seal/`.
+
+---
+
+## Rotas de IP visual
+
+### Xiaohei
+
+Xiaohei é a rota padrão: uma figura preta sólida com olhos de ponto, pernas finas e expressão neutra, realizando ativamente uma ação cognitiva estranha e legível sobre fundo branco puro. Funciona bem para julgamentos, workflows, pontos de ruptura, armadilhas, rotas de passagem e vistas locais de sistemas.
+
+Alias: `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei`.
+
+### Littlebox
+
+Littlebox é uma rota explícita: um personagem de caixa de papel fechada com linhas pretas ásperas de marcador, fundo azul-céu claro ou lavanda claro, fita âmbar e acentos coral esparsos. Traduz uma ação cognitiva em coletar, empacotar, ordenar, entregar, bloquear ou reparar.
+
+Alias: `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton`.
+
+### Tom
+
+Tom é uma rota explícita de personagem protegido: o conhecido gato azul-acinzentado carrega um conceito de artigo por meio de uma ação cômica ativa dentro do limite de direitos da rota. Funciona bem para lógica de perseguição, armadilhas, atalhos falhos, planos frágeis, reversões, problemas de timing e sequências de causa e efeito em estilo cartoon.
+
+Alias: `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`.
+
+### Ferris
+
+Ferris é uma rota explícita de mascote da comunidade Rust: um mascote compacto de caranguejo laranja realiza a ação cognitiva central construindo, ordenando, protegendo, levantando, conectando ou reparando com cuidado. Funciona bem para pensamento sistêmico, confiabilidade, ownership, fluxos tipo compilação, revisão de tradeoffs, checagens de limites e metáforas de objetos Rust de baixa tecnologia.
+
+Alias: `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`.
+
+### Seal
+
+Seal é uma rota explícita de foca com moletom, neutra em relação a produto: uma foca branca e arredondada com boné azul-marinho liso e moletom azul profundo liso realiza o julgamento, sequência, passagem, comparação ou reparo central do artigo. Funciona bem para revisão, priorização, consciência de histórico de origem, cenários sem logos e metáforas de artigo de baixa tecnologia.
+
+Alias: `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹`.
+
+### Referência de rotas
+
+Mantenedores podem revisar os campos de metadata de rota em `ian-xiaohei-illustrations/references/routing.md`: `id`, `display_name`, `aliases`, `default`, `output_suffix`, `required_references`, `attribution_context` e `status`.
+
+Packs canônicos:
+
+- Xiaohei: `ian-xiaohei-illustrations/references/ips/xiaohei/`
+- Littlebox: `ian-xiaohei-illustrations/references/ips/littlebox/`
+- Tom: `ian-xiaohei-illustrations/references/ips/tom/`, core entry `index.md`, rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
+- Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- Seal: `ian-xiaohei-illustrations/references/ips/seal/`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
+
+Quando uma solicitação pede múltiplas IPs visuais, entregue grupos de variantes separados e grave cada grupo em seu próprio diretório de saída.
+
+Dados operacionais da rota:
+
+- Tom: status `gated-authorized`; rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
+- Ferris: status `source-reviewed`; source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+- Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
+
+---
+
+## Galeria de exemplos
+
+Estas imagens são exemplos de calibração do estilo Xiaohei. Use-as para entender line density, whitespace, color restraint e character participation, depois invente uma metáfora nova para o artigo atual.
+
+### Two Breakpoints
+
+![Two Breakpoints](examples/images/01-two-breakpoints.png)
+
+### Sort by Purpose
+
+![Sort by Purpose](examples/images/02-sort-by-purpose.png)
+
+### One Fish, Many Uses
+
+![One Fish, Many Uses](examples/images/03-one-fish-many-uses.png)
+
+### Handoff Path
+
+![Handoff Path](examples/images/04-handoff-path.png)
+
+### Information Well
+
+![Information Well](examples/images/05-information-well.png)
+
+### Idea Press
+
+![Idea Press](examples/images/06-idea-press.png)
+
+### Content Fermentation
+
+![Content Fermentation](examples/images/07-content-fermentation.png)
+
+### Trust Bridge
+
+![Trust Bridge](examples/images/08-trust-bridge.png)
+
+---
+
+## Instalação
+
+```bash
+git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations
+cd visual-ip-illustrations
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+Após a instalação, prefira `$visual-ip-illustrations` no Codex.
+
+Compatibilidade da Release 1.4:
+
+- Invocação pública canônica: `$visual-ip-illustrations`
+- Alias legacy de compatibilidade: `$ian-xiaohei-illustrations`
+- Diretório instalável da skill: `ian-xiaohei-illustrations/`
+- Remote vivo atual do repositório: `https://github.com/yangchuansheng/ian-xiaohei-illustrations.git`
+- Diretório local de checkout: `visual-ip-illustrations`
+- O comportamento das rotas e os diretórios de saída permanecem estáveis nas duas superfícies de invocação.
+
+---
+
+## Exemplos rápidos
+
+`{visual IP}` pode ser `Xiaohei`, `Littlebox`, `Tom`, `Ferris`, `Seal` ou um alias compatível. IP visual omitido seleciona Xiaohei.
+
+### Planejar uma shot list
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Use {visual IP} to create a 5-image article body illustration shot list for the article below.
+For each image, include placement, theme, core idea, structure type, character action, and suggested visible labels in the user's language.
+
+<paste article>
+```
+
+### Gerar ilustrações de corpo
+
+```text
+Use $visual-ip-illustrations with {visual IP} to generate 4 article body illustrations for the article below.
+Each image should express one core idea, and the selected character must carry the action.
+Use the selected IP's route-local references, QA checklist, and output path.
+
+<paste article>
+```
+
+### Ideia única
+
+```text
+Use $visual-ip-illustrations with {visual IP} to generate one 16:9 article body illustration.
+Idea: trust is built by placing one piece of evidence after another.
+Requirements: hand-drawn, spacious, sparse visible labels in the user's language, and the character performing the central action.
+```
+
+### Comparação de IP
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Create separate Xiaohei, Littlebox, Tom, Ferris, and Seal shot-list groups from the same idea.
+Each group must keep its own IP, character action, visible labels, and output path.
+
+Idea: trust is built by placing one piece of evidence after another.
+```
+
+As rotas protected-character, source-reviewed e active source-history carregam automaticamente status de rota, nota de source/rights, release gate e diretório de saída específico.
+
+Há mais exemplos copiáveis em [examples/prompts.md](examples/prompts.md).
+
+---
+
+## Fluxo de trabalho
+
+1. Leia o artigo, Markdown, conteúdo do Notion, captura ou tópico fornecido pelo usuário.
+2. Selecione a IP visual: IP omitida seleciona Xiaohei; Littlebox explícito seleciona Littlebox; aliases Tom selecionam a rota protected-character de Tom; aliases Ferris selecionam o pack source-reviewed de Ferris; aliases Seal selecionam o pack ativo de Seal.
+3. Extraia afirmações centrais, viradas cognitivas, estruturas de workflow e parágrafos visualizáveis.
+4. Produza uma shot list primeiro; cada imagem recebe uma âncora cognitiva.
+5. Escolha um tipo de estrutura por imagem: Workflow, vista local de sistema, antes/depois, estado de personagem, metáfora conceitual, camadas de método, rota de mapa ou painéis de quadrinhos.
+6. Carregue o pack canônico da IP selecionada, monte prompts e gere imagens uma por uma. Solicitações multi-IP criam grupos de rota e diretórios de saída separados, com Xiaohei, Littlebox, Tom, Ferris e Seal mantendo referências locais de rota.
+7. Verifique identidade do personagem, composição, fundo, rótulos e caminho de saída com a checklist de QA da IP selecionada. Tom mantém `gated-authorized` e `ian-xiaohei-illustrations/references/ips/tom/rights.md`; Ferris mantém `source-reviewed`, nota de fonte/marca e `ian-xiaohei-illustrations/references/ips/ferris/source.md`; Seal mantém `active`, autoridade de source-history, nota de identidade hoodie seal, nota logo-free e `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+8. Salve os PNGs finais e reporte propósito mais caminho.
+
+---
+
+## Estrutura de diretórios
+
+```text
+.
+├── README.md
+├── README.es.md
+├── README.pt.md
+├── README.de.md
+├── README.fr.md
+├── README.zh.md
+├── README.zh-Hant.md
+├── README.ko.md
+├── README.ja.md
+├── README.ar.md
+├── README.ru.md
+├── README.uk.md
+├── README.tr.md
+├── LICENSE
+├── NOTICE.md
+├── examples/
+│   ├── images/
+│   │   ├── 01-two-breakpoints.png
+│   │   ├── 02-sort-by-purpose.png
+│   │   └── ...
+│   └── prompts.md
+└── ian-xiaohei-illustrations/
+    ├── SKILL.md
+    ├── agents/
+    │   └── openai.yaml
+    ├── assets/
+    │   └── examples/
+    └── references/
+        ├── routing.md
+        ├── style-dna.md
+        ├── xiaohei-ip.md
+        ├── composition-patterns.md
+        ├── prompt-template.md
+        ├── qa-checklist.md
+        └── ips/
+            ├── xiaohei/
+            │   ├── index.md
+            │   ├── style-dna.md
+            │   ├── xiaohei-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── littlebox/
+            │   ├── index.md
+            │   ├── style-dna.md
+            │   ├── littlebox-ip.md
+            │   ├── composition-patterns.md
+            │   ├── language-and-labels.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── tom/
+            │   ├── index.md
+            │   ├── rights.md
+            │   ├── style-dna.md
+            │   ├── tom-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── ferris/
+            │   ├── index.md
+            │   ├── source.md
+            │   ├── style-dna.md
+            │   ├── ferris-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            └── seal/
+                ├── index.md
+                ├── source.md
+                ├── style-dna.md
+                ├── seal-ip.md
+                ├── composition-patterns.md
+                └── qa-checklist.md
+```
+
+O destino de instalação do Codex é este subdiretório:
+
+```text
+ian-xiaohei-illustrations/
+```
+
+O README raiz, LICENSE, NOTICE e examples são docs de distribuição no GitHub.
+
+---
+
+## Validação para mantenedores
+
+```bash
+node scripts/validate-skill-package.mjs
+```
+
+A validação cobre skill package shape, route table, packs canônicos de Xiaohei, Littlebox, Tom, Ferris e Seal, legacy Xiaohei paths, public docs links, output path markers, NOTICE attribution, Tom `gated-authorized` route markers, Ferris `source-reviewed` route markers, Seal `active` route markers, source-history authority, hoodie seal identity note, logo-free note e Phase 32 full validator restoration evidence.
+
+Comandos atuais de validação para mantenedores:
+
+```bash
+node scripts/validate-skill-package.mjs
+node --test scripts/validate-skill-package.test.mjs
+git diff --check
+```
+
+As verificações pré-release estão em [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
+
+---
+
+## Licença
+
+MIT License. Consulte [LICENSE](LICENSE).

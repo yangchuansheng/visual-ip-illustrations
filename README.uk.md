@@ -1,0 +1,343 @@
+# Visual IP Illustrations
+
+> Visual IP Illustrations — це multi-visual-IP Codex Skill для ілюстрацій у тілі статей. Xiaohei є неявним маршрутом за замовчуванням; Littlebox явний і active; Tom явний protected-character маршрут зі статусом `gated-authorized`; Ferris явний Rust-community mascot маршрут зі статусом `source-reviewed`; Seal явний product-neutral hoodie seal маршрут зі статусом `active`.
+>
+> 16:9 горизонтально | кілька візуальних IP | ілюстрації для статей | Канонічний виклик: `$visual-ip-illustrations`
+
+<!-- README-I18N:START -->
+
+[English](./README.md) | [Español](./README.es.md) | [Português](./README.pt.md) | [Deutsch](./README.de.md) | [Français](./README.fr.md) | [简体中文](./README.zh.md) | [繁體中文](./README.zh-Hant.md) | [한국어](./README.ko.md) | [日本語](./README.ja.md) | [العربية](./README.ar.md) | [Русский](./README.ru.md) | **Українська** | [Türkçe](./README.tr.md)
+
+<!-- README-I18N:END -->
+
+---
+
+## Що це за репозиторій
+
+Visual IP Illustrations допомагає AI agent створювати ілюстрації для статей, постів, блогів, документів Notion і методологічних текстів.
+
+Skill читає когнітивний якір вихідного тексту і перетворює судження, workflow, структуру, стан або метафору на запам’ятовуване рукописне пояснювальне зображення 16:9.
+
+Поточний список маршрутів:
+
+- **Xiaohei**: implicit default route. Коли користувач пропускає visual IP, skill використовує Xiaohei і зберігає hand-drawn article illustration experience на білому фоні.
+- **Littlebox**: explicit active route. Запити з `小盒`, `Littlebox`, `纸盒`, `paper-box` або `carton` використовують route Littlebox.
+- **Tom**: explicit protected-character route. Запити з `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆` або `汤姆猫` використовують route Tom.
+- **Ferris**: explicit Rust-community mascot route. Запити з `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物` або `Rust 螃蟹` використовують route Ferris.
+- **Seal**: explicit product-neutral hoodie seal route. Запити з `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹` або `蓝色连帽衫海豹` використовують route Seal.
+
+Ключова цінність: користувачі можуть вибрати візуальний IP і отримати assets для ілюстрацій статей, де персонаж, правила стилю, prompts, QA gates, збережені outputs, attribution, source context і brand boundary узгоджені з цим IP.
+
+Публічна ідентичність Release 1.4 використовує `Visual IP Illustrations`, канонічний slug локального checkout `visual-ip-illustrations` і канонічний виклик `$visual-ip-illustrations`. Поверхні сумісності залишаються стабільними: встановлюваний каталог `ian-xiaohei-illustrations/`, legacy alias `$ian-xiaohei-illustrations`, наявні source paths `ian-xiaohei-illustrations/`, route behavior, output directories і validator markers.
+
+---
+
+## Для кого він
+
+- Автори, яким потрібні ілюстрації в тілі статті для концептів.
+- Продуктові мислителі й автори методик, яким потрібні зрозумілі візуальні метафори.
+- Автори AI workflows, яким потрібні reusable visual language prompts.
+- Користувачі Codex, яким потрібен стабільний multi-IP skill package.
+
+## Результати
+
+- Shot list із 4-8 зображень для статті.
+- Для кожного зображення: placement, theme, core idea, structure type, character action і suggested visible labels.
+- Фінальні PNG-зображення.
+- Xiaohei outputs зберігаються у workspace path `assets/<article-slug>-illustrations/`.
+- Littlebox outputs зберігаються у workspace path `assets/<article-slug>-littlebox/`.
+- Tom outputs зберігаються у workspace path `assets/<article-slug>-tom/`.
+- Ferris outputs зберігаються у workspace path `assets/<article-slug>-ferris/`.
+- Seal outputs зберігаються у workspace path `assets/<article-slug>-seal/`.
+
+Docs validation також зберігає HTML-escaped route markers: `assets/&lt;article-slug&gt;-illustrations/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/&lt;article-slug&gt;-tom/`, `assets/&lt;article-slug&gt;-ferris/` і `assets/&lt;article-slug&gt;-seal/`.
+
+---
+
+## Маршрути візуальних IP
+
+### Xiaohei
+
+Xiaohei — маршрут за замовчуванням: суцільна чорна фігура з очима-крапками, тонкими ногами й нейтральним виразом активно виконує дивну, але читабельну когнітивну дію на чистому білому фоні. Підходить для суджень, workflows, точок розриву, пасток, шляхів передачі й локальних видів систем.
+
+Alias: `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei`.
+
+### Littlebox
+
+Littlebox — явний маршрут: персонаж закритої паперової коробки з грубими чорними marker lines, блідо-блакитним або блідо-лавандовим фоном, бурштиновою стрічкою і рідкими coral accents. Перекладає когнітивну дію в збирання, пакування, сортування, доставку, блокування або ремонт.
+
+Alias: `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton`.
+
+### Tom
+
+Tom — явний protected-character route: відомий синьо-сірий кіт несе концепт статті через активну комічну дію в межах rights boundary маршруту. Підходить для логіки переслідування, пасток, невдалих shortcuts, крихких планів, розворотів, timing problems і cartoon-style cause-effect sequences.
+
+Alias: `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`.
+
+### Ferris
+
+Ferris — явний Rust-community mascot route: компактний помаранчевий crab mascot виконує центральну когнітивну дію, обережно будуючи, сортуючи, захищаючи, піднімаючи, з’єднуючи або ремонтуючи. Підходить для systems thinking, reliability, ownership, compile-like flows, tradeoff review, boundary checks і low-tech Rust object metaphors.
+
+Alias: `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`.
+
+### Seal
+
+Seal — явний product-neutral hoodie seal route: округлий білий тюлень у plain navy cap і plain deep-blue hoodie виконує центральне судження, sequence, handoff, comparison або repair статті. Підходить для review, prioritization, source-history awareness, logo-free scenes і low-tech article metaphors.
+
+Alias: `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹`.
+
+### Довідник маршрутів
+
+Maintainers можуть переглянути route metadata fields у `ian-xiaohei-illustrations/references/routing.md`: `id`, `display_name`, `aliases`, `default`, `output_suffix`, `required_references`, `attribution_context` і `status`.
+
+Канонічні packs:
+
+- Xiaohei: `ian-xiaohei-illustrations/references/ips/xiaohei/`
+- Littlebox: `ian-xiaohei-illustrations/references/ips/littlebox/`
+- Tom: `ian-xiaohei-illustrations/references/ips/tom/`, core entry `index.md`, rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
+- Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- Seal: `ian-xiaohei-illustrations/references/ips/seal/`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
+
+Коли запит просить кілька visual IPs, доставляйте окремі variant groups і записуйте кожну групу у власний output directory.
+
+Операційні дані маршруту:
+
+- Tom: status `gated-authorized`; rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
+- Ferris: status `source-reviewed`; source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+- Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
+
+---
+
+## Галерея прикладів
+
+Ці зображення є calibration examples для стилю Xiaohei. Використовуйте їх, щоб зрозуміти line density, whitespace, color restraint і character participation, потім створіть нову метафору для поточної статті.
+
+### Two Breakpoints
+
+![Two Breakpoints](examples/images/01-two-breakpoints.png)
+
+### Sort by Purpose
+
+![Sort by Purpose](examples/images/02-sort-by-purpose.png)
+
+### One Fish, Many Uses
+
+![One Fish, Many Uses](examples/images/03-one-fish-many-uses.png)
+
+### Handoff Path
+
+![Handoff Path](examples/images/04-handoff-path.png)
+
+### Information Well
+
+![Information Well](examples/images/05-information-well.png)
+
+### Idea Press
+
+![Idea Press](examples/images/06-idea-press.png)
+
+### Content Fermentation
+
+![Content Fermentation](examples/images/07-content-fermentation.png)
+
+### Trust Bridge
+
+![Trust Bridge](examples/images/08-trust-bridge.png)
+
+---
+
+## Встановлення
+
+```bash
+git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations
+cd visual-ip-illustrations
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+Після встановлення надавайте перевагу `$visual-ip-illustrations` у Codex.
+
+Сумісність Release 1.4:
+
+- Canonical public invocation: `$visual-ip-illustrations`
+- Legacy compatibility alias: `$ian-xiaohei-illustrations`
+- Installable skill package directory: `ian-xiaohei-illustrations/`
+- Current live repository remote: `https://github.com/yangchuansheng/ian-xiaohei-illustrations.git`
+- Local checkout target directory: `visual-ip-illustrations`
+- Route behavior і output directories залишаються стабільними на обох invocation surfaces.
+
+---
+
+## Швидкі приклади
+
+`{visual IP}` може бути `Xiaohei`, `Littlebox`, `Tom`, `Ferris`, `Seal` або підтримуваним alias. Якщо visual IP пропущено, вибирається Xiaohei.
+
+### Спланувати shot list
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Use {visual IP} to create a 5-image article body illustration shot list for the article below.
+For each image, include placement, theme, core idea, structure type, character action, and suggested visible labels in the user's language.
+
+<paste article>
+```
+
+### Згенерувати ілюстрації для тіла статті
+
+```text
+Use $visual-ip-illustrations with {visual IP} to generate 4 article body illustrations for the article below.
+Each image should express one core idea, and the selected character must carry the action.
+Use the selected IP's route-local references, QA checklist, and output path.
+
+<paste article>
+```
+
+### Одна ідея
+
+```text
+Use $visual-ip-illustrations with {visual IP} to generate one 16:9 article body illustration.
+Idea: trust is built by placing one piece of evidence after another.
+Requirements: hand-drawn, spacious, sparse visible labels in the user's language, and the character performing the central action.
+```
+
+### Порівняння IP
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Create separate Xiaohei, Littlebox, Tom, Ferris, and Seal shot-list groups from the same idea.
+Each group must keep its own IP, character action, visible labels, and output path.
+
+Idea: trust is built by placing one piece of evidence after another.
+```
+
+Маршрути protected-character, source-reviewed і active source-history автоматично несуть route status, source/rights note, release gate і specific output directory.
+
+Більше копійованих прикладів є в [examples/prompts.md](examples/prompts.md).
+
+---
+
+## Робочий процес
+
+1. Прочитайте article, Markdown, Notion content, screenshot або тему, надану користувачем.
+2. Виберіть visual IP: omitted IP selects Xiaohei; explicit Littlebox selects Littlebox; explicit Tom aliases select the Tom protected-character route; explicit Ferris aliases select the Ferris source-reviewed pack; explicit Seal aliases select the active Seal pack.
+3. Витягніть core claims, cognitive turns, workflow structures і visualizable paragraphs.
+4. Спершу створіть shot list; кожне зображення отримує один cognitive anchor.
+5. Виберіть один structure type для кожного зображення: Workflow, system local view, before/after, character state, concept metaphor, method layers, map route або comic panels.
+6. Завантажте canonical pack вибраної IP, зберіть prompts і генеруйте зображення по одному. Mixed-IP requests створюють окремі route groups і output directories, а Xiaohei, Littlebox, Tom, Ferris і Seal зберігають свої route-local references.
+7. Перевірте character identity, composition, background, labels і output path за QA checklist вибраної IP. Tom зберігає `gated-authorized` і `ian-xiaohei-illustrations/references/ips/tom/rights.md`; Ferris зберігає `source-reviewed`, source/trademark note і `ian-xiaohei-illustrations/references/ips/ferris/source.md`; Seal зберігає `active`, source-history authority, hoodie seal identity note, logo-free note і `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+8. Збережіть фінальні PNG і повідомте purpose plus path.
+
+---
+
+## Структура каталогів
+
+```text
+.
+├── README.md
+├── README.es.md
+├── README.pt.md
+├── README.de.md
+├── README.fr.md
+├── README.zh.md
+├── README.zh-Hant.md
+├── README.ko.md
+├── README.ja.md
+├── README.ar.md
+├── README.ru.md
+├── README.uk.md
+├── README.tr.md
+├── LICENSE
+├── NOTICE.md
+├── examples/
+│   ├── images/
+│   │   ├── 01-two-breakpoints.png
+│   │   ├── 02-sort-by-purpose.png
+│   │   └── ...
+│   └── prompts.md
+└── ian-xiaohei-illustrations/
+    ├── SKILL.md
+    ├── agents/
+    │   └── openai.yaml
+    ├── assets/
+    │   └── examples/
+    └── references/
+        ├── routing.md
+        ├── style-dna.md
+        ├── xiaohei-ip.md
+        ├── composition-patterns.md
+        ├── prompt-template.md
+        ├── qa-checklist.md
+        └── ips/
+            ├── xiaohei/
+            │   ├── index.md
+            │   ├── style-dna.md
+            │   ├── xiaohei-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── littlebox/
+            │   ├── index.md
+            │   ├── style-dna.md
+            │   ├── littlebox-ip.md
+            │   ├── composition-patterns.md
+            │   ├── language-and-labels.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── tom/
+            │   ├── index.md
+            │   ├── rights.md
+            │   ├── style-dna.md
+            │   ├── tom-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── ferris/
+            │   ├── index.md
+            │   ├── source.md
+            │   ├── style-dna.md
+            │   ├── ferris-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            └── seal/
+                ├── index.md
+                ├── source.md
+                ├── style-dna.md
+                ├── seal-ip.md
+                ├── composition-patterns.md
+                └── qa-checklist.md
+```
+
+Ціль встановлення Codex — цей підкаталог:
+
+```text
+ian-xiaohei-illustrations/
+```
+
+Root README, LICENSE, NOTICE і examples — це GitHub distribution docs.
+
+---
+
+## Перевірка для мейнтейнерів
+
+```bash
+node scripts/validate-skill-package.mjs
+```
+
+Validation покриває skill package shape, route table, canonical packs Xiaohei, Littlebox, Tom, Ferris і Seal, legacy Xiaohei paths, public docs links, output path markers, NOTICE attribution, Tom `gated-authorized` route markers, Ferris `source-reviewed` route markers, Seal `active` route markers, source-history authority, hoodie seal identity note, logo-free note і Phase 32 full validator restoration evidence.
+
+Поточні validation commands для maintainers:
+
+```bash
+node scripts/validate-skill-package.mjs
+node --test scripts/validate-skill-package.test.mjs
+git diff --check
+```
+
+Pre-release checks містяться в [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
+
+---
+
+## Ліцензія
+
+MIT License. Див. [LICENSE](LICENSE).

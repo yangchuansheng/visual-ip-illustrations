@@ -1,0 +1,343 @@
+# Visual IP Illustrations
+
+> Visual IP Illustrations, makale gövdesi illüstrasyonları için çoklu görsel IP Codex Skill paketidir. Xiaohei örtük varsayılan rotadır; Littlebox açık ve active rotadır; Tom `gated-authorized` durumuna sahip açık bir protected-character rotasıdır; Ferris `source-reviewed` durumuna sahip açık bir Rust-community mascot rotasıdır; Seal `active` durumuna sahip açık bir product-neutral hoodie seal rotasıdır.
+>
+> 16:9 yatay | çoklu görsel IP | makale gövdesi illüstrasyonları | Kanonik çağrı: `$visual-ip-illustrations`
+
+<!-- README-I18N:START -->
+
+[English](./README.md) | [Español](./README.es.md) | [Português](./README.pt.md) | [Deutsch](./README.de.md) | [Français](./README.fr.md) | [简体中文](./README.zh.md) | [繁體中文](./README.zh-Hant.md) | [한국어](./README.ko.md) | [日本語](./README.ja.md) | [العربية](./README.ar.md) | [Русский](./README.ru.md) | [Українська](./README.uk.md) | **Türkçe**
+
+<!-- README-I18N:END -->
+
+---
+
+## Bu depo nedir
+
+Visual IP Illustrations, bir AI agent’ın makaleler, gönderiler, bloglar, Notion belgeleri ve metodoloji yazıları için gövde illüstrasyonları oluşturmasını yönlendirir.
+
+Skill, kaynak metindeki bilişsel çıpayı okur ve bir yargıyı, workflow’u, yapıyı, durumu veya metaforu 16:9 elle çizilmiş akılda kalıcı bir açıklayıcı görsele dönüştürür.
+
+Mevcut rota envanteri:
+
+- **Xiaohei**: implicit default route. Kullanıcı visual IP belirtmediğinde skill Xiaohei kullanır ve beyaz fonda el çizimi article illustration deneyimini korur.
+- **Littlebox**: explicit active route. `小盒`, `Littlebox`, `纸盒`, `paper-box` veya `carton` geçen istekler Littlebox route kullanır.
+- **Tom**: explicit protected-character route. `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆` veya `汤姆猫` geçen istekler Tom route kullanır.
+- **Ferris**: explicit Rust-community mascot route. `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物` veya `Rust 螃蟹` geçen istekler Ferris route kullanır.
+- **Seal**: explicit product-neutral hoodie seal route. `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹` veya `蓝色连帽衫海豹` geçen istekler Seal route kullanır.
+
+Temel değer: kullanıcılar bir görsel IP seçebilir ve karakteri, stil kuralları, prompts, QA gates, kaydedilen outputs, attribution, source context ve brand boundary değerleri o IP ile tutarlı kalan makale illüstrasyon assets alır.
+
+Release 1.4 genel kimliği `Visual IP Illustrations`, yerel checkout için canonical slug `visual-ip-illustrations` ve canonical invocation `$visual-ip-illustrations` kullanır. Uyumluluk yüzeyleri sabit kalır: kurulabilir dizin `ian-xiaohei-illustrations/`, legacy alias `$ian-xiaohei-illustrations`, mevcut source paths `ian-xiaohei-illustrations/`, route behavior, output directories ve validator markers.
+
+---
+
+## Kimler için
+
+- Makale kavramları için gövde içi illüstrasyonlara ihtiyaç duyan yazarlar.
+- Net görsel metaforlar isteyen ürün düşünürleri ve metodoloji yazarları.
+- Yeniden kullanılabilir visual language prompts isteyen AI workflow yazarları.
+- Kararlı bir multi-IP skill package isteyen Codex kullanıcıları.
+
+## Çıktılar
+
+- Bir makale için 4-8 görsellik shot list.
+- Her görsel için: placement, theme, core idea, structure type, character action ve suggested visible labels.
+- Nihai PNG görselleri.
+- Xiaohei outputs workspace path `assets/<article-slug>-illustrations/` içine yazılır.
+- Littlebox outputs workspace path `assets/<article-slug>-littlebox/` içine yazılır.
+- Tom outputs workspace path `assets/<article-slug>-tom/` içine yazılır.
+- Ferris outputs workspace path `assets/<article-slug>-ferris/` içine yazılır.
+- Seal outputs workspace path `assets/<article-slug>-seal/` içine yazılır.
+
+Docs validation ayrıca HTML-escaped route markers öğelerini korur: `assets/&lt;article-slug&gt;-illustrations/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/&lt;article-slug&gt;-tom/`, `assets/&lt;article-slug&gt;-ferris/` ve `assets/&lt;article-slug&gt;-seal/`.
+
+---
+
+## Görsel IP rotaları
+
+### Xiaohei
+
+Xiaohei varsayılan route’tur: nokta gözlü, ince bacaklı ve nötr ifadeli siyah dolu figür, saf beyaz fonda garip ama okunabilir bir bilişsel eylemi aktif olarak gerçekleştirir. Yargılar, workflows, kırılma noktaları, tuzaklar, handoff paths ve system local views için uygundur.
+
+Alias: `小黑`, `Xiaohei`, `Ian`, `ian-xiaohei`.
+
+### Littlebox
+
+Littlebox açık bir route’tur: kaba siyah marker çizgileri, soluk gök mavisi veya soluk lavanta fonu, amber tape ve seyrek coral accents kullanan kapalı kâğıt kutu karakteridir. Bilişsel eylemi toplama, paketleme, sıralama, teslim etme, engelleme veya onarma davranışına çevirir.
+
+Alias: `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton`.
+
+### Tom
+
+Tom açık bir protected-character route’tur: tanınan mavi-gri kedi, route rights boundary içinde aktif komik eylemle makale kavramını taşır. Chase logic, traps, failed shortcuts, fragile plans, reversals, timing problems ve cartoon-style cause-effect sequences için uygundur.
+
+Alias: `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`.
+
+### Ferris
+
+Ferris açık bir Rust-community mascot route’tur: kompakt turuncu crab mascot, dikkatle inşa ederek, sıralayarak, koruyarak, kaldırarak, bağlayarak veya onararak merkezi bilişsel eylemi gerçekleştirir. Systems thinking, reliability, ownership, compile-like flows, tradeoff review, boundary checks ve low-tech Rust object metaphors için uygundur.
+
+Alias: `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`.
+
+### Seal
+
+Seal açık bir product-neutral hoodie seal route’tur: plain navy cap ve plain deep-blue hoodie kullanan yuvarlak beyaz fok, makalenin merkezi judgment, sequence, handoff, comparison veya repair eylemini gerçekleştirir. Review, prioritization, source-history awareness, logo-free scenes ve low-tech article metaphors için uygundur.
+
+Alias: `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹`.
+
+### Rota referansı
+
+Maintainers route metadata fields öğelerini `ian-xiaohei-illustrations/references/routing.md` içinde inceleyebilir: `id`, `display_name`, `aliases`, `default`, `output_suffix`, `required_references`, `attribution_context` ve `status`.
+
+Canonical packs:
+
+- Xiaohei: `ian-xiaohei-illustrations/references/ips/xiaohei/`
+- Littlebox: `ian-xiaohei-illustrations/references/ips/littlebox/`
+- Tom: `ian-xiaohei-illustrations/references/ips/tom/`, core entry `index.md`, rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
+- Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
+- Seal: `ian-xiaohei-illustrations/references/ips/seal/`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
+
+Bir istek birden fazla visual IP istediğinde ayrı variant groups teslim edin ve her grubu kendi output directory içine yazın.
+
+Route operational data:
+
+- Tom: status `gated-authorized`; rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
+- Ferris: status `source-reviewed`; source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+- Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
+
+---
+
+## Örnek galerisi
+
+Bu görseller Xiaohei style calibration examples örnekleridir. Line density, whitespace, color restraint ve character participation kavramlarını anlamak için kullanın, ardından mevcut makale için yeni bir metafor üretin.
+
+### Two Breakpoints
+
+![Two Breakpoints](examples/images/01-two-breakpoints.png)
+
+### Sort by Purpose
+
+![Sort by Purpose](examples/images/02-sort-by-purpose.png)
+
+### One Fish, Many Uses
+
+![One Fish, Many Uses](examples/images/03-one-fish-many-uses.png)
+
+### Handoff Path
+
+![Handoff Path](examples/images/04-handoff-path.png)
+
+### Information Well
+
+![Information Well](examples/images/05-information-well.png)
+
+### Idea Press
+
+![Idea Press](examples/images/06-idea-press.png)
+
+### Content Fermentation
+
+![Content Fermentation](examples/images/07-content-fermentation.png)
+
+### Trust Bridge
+
+![Trust Bridge](examples/images/08-trust-bridge.png)
+
+---
+
+## Kurulum
+
+```bash
+git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations
+cd visual-ip-illustrations
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+Kurulumdan sonra Codex içinde `$visual-ip-illustrations` tercih edin.
+
+Release 1.4 uyumluluğu:
+
+- Canonical public invocation: `$visual-ip-illustrations`
+- Legacy compatibility alias: `$ian-xiaohei-illustrations`
+- Installable skill package directory: `ian-xiaohei-illustrations/`
+- Current live repository remote: `https://github.com/yangchuansheng/ian-xiaohei-illustrations.git`
+- Local checkout target directory: `visual-ip-illustrations`
+- Route behavior ve output directories iki invocation surface üzerinde sabit kalır.
+
+---
+
+## Hızlı örnekler
+
+`{visual IP}` `Xiaohei`, `Littlebox`, `Tom`, `Ferris`, `Seal` veya desteklenen bir alias olabilir. Görsel IP atlanırsa Xiaohei seçilir.
+
+### Shot list planla
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Use {visual IP} to create a 5-image article body illustration shot list for the article below.
+For each image, include placement, theme, core idea, structure type, character action, and suggested visible labels in the user's language.
+
+<paste article>
+```
+
+### Gövde illüstrasyonları üret
+
+```text
+Use $visual-ip-illustrations with {visual IP} to generate 4 article body illustrations for the article below.
+Each image should express one core idea, and the selected character must carry the action.
+Use the selected IP's route-local references, QA checklist, and output path.
+
+<paste article>
+```
+
+### Tek fikir
+
+```text
+Use $visual-ip-illustrations with {visual IP} to generate one 16:9 article body illustration.
+Idea: trust is built by placing one piece of evidence after another.
+Requirements: hand-drawn, spacious, sparse visible labels in the user's language, and the character performing the central action.
+```
+
+### IP karşılaştırması
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Create separate Xiaohei, Littlebox, Tom, Ferris, and Seal shot-list groups from the same idea.
+Each group must keep its own IP, character action, visible labels, and output path.
+
+Idea: trust is built by placing one piece of evidence after another.
+```
+
+protected-character, source-reviewed ve active source-history routes otomatik olarak route status, source/rights note, release gate ve specific output directory taşır.
+
+Kopyalanabilir daha fazla örnek [examples/prompts.md](examples/prompts.md) içindedir.
+
+---
+
+## İş akışı
+
+1. Article, Markdown, Notion content, screenshot veya kullanıcı tarafından verilen topic içeriğini okuyun.
+2. Visual IP seçin: omitted IP selects Xiaohei; explicit Littlebox selects Littlebox; explicit Tom aliases select the Tom protected-character route; explicit Ferris aliases select the Ferris source-reviewed pack; explicit Seal aliases select the active Seal pack.
+3. Core claims, cognitive turns, workflow structures ve visualizable paragraphs çıkarın.
+4. Önce shot list üretin; her görsel bir cognitive anchor alır.
+5. Her görsel için bir structure type seçin: Workflow, system local view, before/after, character state, concept metaphor, method layers, map route veya comic panels.
+6. Seçilen IP’nin canonical pack dosyasını yükleyin, prompts oluşturun ve görselleri tek tek üretin. Mixed-IP requests ayrı route groups ve output directories oluşturur; Xiaohei, Littlebox, Tom, Ferris ve Seal route-local references öğelerini ayrı tutar.
+7. Seçilen IP’nin QA checklist dosyasına göre character identity, composition, background, labels ve output path kontrol edin. Tom `gated-authorized` ve `ian-xiaohei-illustrations/references/ips/tom/rights.md` tutar; Ferris `source-reviewed`, source/trademark note ve `ian-xiaohei-illustrations/references/ips/ferris/source.md` tutar; Seal `active`, source-history authority, hoodie seal identity note, logo-free note ve `ian-xiaohei-illustrations/references/ips/seal/source.md` tutar.
+8. Nihai PNG dosyalarını kaydedin ve purpose plus path raporlayın.
+
+---
+
+## Dizin yapısı
+
+```text
+.
+├── README.md
+├── README.es.md
+├── README.pt.md
+├── README.de.md
+├── README.fr.md
+├── README.zh.md
+├── README.zh-Hant.md
+├── README.ko.md
+├── README.ja.md
+├── README.ar.md
+├── README.ru.md
+├── README.uk.md
+├── README.tr.md
+├── LICENSE
+├── NOTICE.md
+├── examples/
+│   ├── images/
+│   │   ├── 01-two-breakpoints.png
+│   │   ├── 02-sort-by-purpose.png
+│   │   └── ...
+│   └── prompts.md
+└── ian-xiaohei-illustrations/
+    ├── SKILL.md
+    ├── agents/
+    │   └── openai.yaml
+    ├── assets/
+    │   └── examples/
+    └── references/
+        ├── routing.md
+        ├── style-dna.md
+        ├── xiaohei-ip.md
+        ├── composition-patterns.md
+        ├── prompt-template.md
+        ├── qa-checklist.md
+        └── ips/
+            ├── xiaohei/
+            │   ├── index.md
+            │   ├── style-dna.md
+            │   ├── xiaohei-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── littlebox/
+            │   ├── index.md
+            │   ├── style-dna.md
+            │   ├── littlebox-ip.md
+            │   ├── composition-patterns.md
+            │   ├── language-and-labels.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── tom/
+            │   ├── index.md
+            │   ├── rights.md
+            │   ├── style-dna.md
+            │   ├── tom-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            ├── ferris/
+            │   ├── index.md
+            │   ├── source.md
+            │   ├── style-dna.md
+            │   ├── ferris-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            └── seal/
+                ├── index.md
+                ├── source.md
+                ├── style-dna.md
+                ├── seal-ip.md
+                ├── composition-patterns.md
+                └── qa-checklist.md
+```
+
+Codex kurulum hedefi bu alt dizindir:
+
+```text
+ian-xiaohei-illustrations/
+```
+
+Root README, LICENSE, NOTICE ve examples GitHub distribution docs olarak kullanılır.
+
+---
+
+## Bakımcı doğrulaması
+
+```bash
+node scripts/validate-skill-package.mjs
+```
+
+Validation; skill package shape, route table, Xiaohei, Littlebox, Tom, Ferris ve Seal canonical packs, legacy Xiaohei paths, public docs links, output path markers, NOTICE attribution, Tom `gated-authorized` route markers, Ferris `source-reviewed` route markers, Seal `active` route markers, source-history authority, hoodie seal identity note, logo-free note ve Phase 32 full validator restoration evidence kapsamlarını denetler.
+
+Maintainers için mevcut validation commands:
+
+```bash
+node scripts/validate-skill-package.mjs
+node --test scripts/validate-skill-package.test.mjs
+git diff --check
+```
+
+Pre-release checks [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) içindedir.
+
+---
+
+## Lisans
+
+MIT License. [LICENSE](LICENSE) dosyasına bakın.

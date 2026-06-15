@@ -6,7 +6,7 @@
 
 <!-- README-I18N:START -->
 
-**English** | [Chinese](./README.zh.md)
+**English** | [Español](./README.es.md) | [Português](./README.pt.md) | [Deutsch](./README.de.md) | [Français](./README.fr.md) | [简体中文](./README.zh.md) | [繁體中文](./README.zh-Hant.md) | [한국어](./README.ko.md) | [日本語](./README.ja.md) | [العربية](./README.ar.md) | [Русский](./README.ru.md) | [Українська](./README.uk.md) | [Türkçe](./README.tr.md)
 
 <!-- README-I18N:END -->
 
@@ -234,7 +234,18 @@ More copyable examples are in [examples/prompts.md](examples/prompts.md).
 ```text
 .
 ├── README.md
+├── README.es.md
+├── README.pt.md
+├── README.de.md
+├── README.fr.md
 ├── README.zh.md
+├── README.zh-Hant.md
+├── README.ko.md
+├── README.ja.md
+├── README.ar.md
+├── README.ru.md
+├── README.uk.md
+├── README.tr.md
 ├── LICENSE
 ├── NOTICE.md
 ├── examples/

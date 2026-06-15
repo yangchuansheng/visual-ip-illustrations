@@ -32,8 +32,16 @@ const LANGUAGE_EXCEPTION_CATEGORIES = [
   "attribution/source names",
   "compatibility smoke fixtures",
   "Chinese article illustration examples",
+  "README language selector labels",
 ];
 const LANGUAGE_ALLOWLIST = [
+  ...["简体中文", "繁體中文", "日本語"].map((token) => ({
+    category: "README language selector labels",
+    paths: ["README.md"],
+    token,
+    rationale: "README language selector links localized README siblings with human-readable language labels.",
+    remediation: "Keep only inside the README-I18N selector while localized README variants exist.",
+  })),
   {
     category: "route aliases",
     paths: [LANGUAGE_POLICY_FILE, ROUTING_FILE, SKILL_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
