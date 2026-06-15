@@ -1,34 +1,33 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.5
-milestone_name: milestone
-status: complete
-stopped_at: Phase 28 complete; v1.5 milestone complete
-last_updated: "2026-06-14T19:25:56.013Z"
-last_activity: 2026-06-14 -- Phase 28 complete; v1.5 milestone complete
+milestone: v1.6
+milestone_name: Seal Route Debranding
+status: planning
+last_updated: "2026-06-15T02:49:10.157Z"
+last_activity: 2026-06-15
 progress:
   total_phases: 4
-  completed_phases: 4
-  total_plans: 7
-  completed_plans: 7
-  percent: 100
+  completed_phases: 0
+  total_plans: 5
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-06-14)
+See: .planning/PROJECT.md (updated 2026-06-15)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.5 English Default Language Migration complete
+**Current focus:** v1.6 Seal Route Debranding planning complete
 
 ## Current Position
 
-Phase: 28 (English-Default Validation and Release Evidence) — COMPLETE
-Plan: 28-01 complete
-Status: v1.5 milestone complete
-Last activity: 2026-06-14 -- Phase 28 complete; v1.5 milestone complete
+Phase: 29 (Seal Route Identity Migration) - Not started
+Plan: 29-01 pending
+Status: Ready for phase planning
+Last activity: 2026-06-15 -- Milestone v1.6 roadmap created
 
 ## Performance Metrics
 
@@ -64,11 +63,15 @@ Last activity: 2026-06-14 -- Phase 28 complete; v1.5 milestone complete
 | 26 | 4 | - | - |
 | 27 | 1 | - | - |
 | 28 | 1 | - | - |
+| 29 | 1 | - | - |
+| 30 | 2 | - | - |
+| 31 | 1 | - | - |
+| 32 | 1 | - | - |
 
 **Recent Trend:**
 
-- Last 5 plans: Phase 14 Plan 14-04 expanded release gates; Phase 15 Plan 15-01 hardened the validator; Phase 15 Plan 15-02 hardened Node tests; Phase 15 Plan 15-03 recorded final validation evidence; v1.3 roadmap initialized Phase 16-20 for Sealos Seal.
-- Trend: v1.2 Ferris integration is complete through Phase 15 verification and UAT; v1.3 starts with Sealos Seal brand and uploaded-image identity contract work.
+- Last 5 plans: Phase 27 migrated public documentation and examples; Phase 28 hardened English-default validation and release evidence; v1.5 completed with validator 98/98 and Node tests 66/66; v1.6 roadmap initialized Phase 29-32 for Seal Route Debranding.
+- Trend: v1.6 starts a route identity migration that turns the former Sealos Seal route into the product-neutral Seal route while preserving the hoodie seal visual identity.
 
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
@@ -211,6 +214,9 @@ Recent decisions affecting current work:
 - [Phase 25]: LANGUAGE_POLICY.md is the root English-default authority for docs and release surfaces.
 - [Phase 25]: Production residual Chinese scanning stays green in report mode during Phase 26/27 migration, while LANGUAGE_SCAN_ENFORCE=1 hard-fails stale prose in fixtures.
 - [Phase 25]: The language allowlist is executable, narrow, and limited to exact tokens or anchored patterns.
+- [Milestone v1.6]: Seal Route Debranding migrates the former Sealos Seal active route to display name Seal, route id seal, output suffix seal, and output directory assets/<article-slug>-seal/.
+- [Milestone v1.6]: The hoodie seal visual identity stays stable: white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- [Milestone v1.6]: Active route behavior removes Sealos product, brand, cloud platform, cloud OS, DevBox, Kubernetes, and advertising-adjacent wording while historical planning records can keep Sealos wording as source evidence.
 
 ### Pending Todos
 
@@ -253,5 +259,5 @@ Items acknowledged and carried forward from previous milestone close:
 ## Session Continuity
 
 Last session: 2026-06-14T19:25:56.013Z
-Stopped at: Phase 28 complete; v1.5 milestone complete
-Resume file: .planning/phases/28-english-default-validation-and-release-evidence/28-UAT.md
+Stopped at: v1.6 roadmap created
+Resume file: .planning/ROADMAP.md

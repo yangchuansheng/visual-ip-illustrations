@@ -4,23 +4,23 @@
 
 Visual IP Illustrations is a Codex Skill package for selectable visual-IP article illustrations. It turns article judgments, workflows, structures, states, and metaphors into 16:9 body illustrations while routing each image through the selected IP's character rules, prompt template, QA gates, output path, and source or brand boundary.
 
-The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal. The v1.5 milestone makes English the default repository, skill, reference, examples, release, and validation language while preserving route aliases, user-language visible labels, and existing image-generation behavior.
+The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, and the hoodie Seal route. The v1.6 milestone debrands the former Sealos Seal route into a product-neutral Seal visual IP while preserving the existing white seal, navy cap, deep-blue hoodie, face, flippers, compact legs, and tail identity.
 
 ## Core Value
 
 Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## Current Milestone: v1.5 English Default Language Migration
+## Current Milestone: v1.6 Seal Route Debranding
 
-**Goal:** Make English the default language across public docs, skill instructions, reference packs, examples, release materials, validation output, and maintainer-facing content while preserving required multilingual compatibility surfaces.
+**Goal:** Fully migrate the former Sealos Seal route to a product-neutral Seal route, removing Sealos product, brand, cloud platform, cloud OS, DevBox, Kubernetes, and advertising-adjacent wording while preserving the current hoodie seal visual identity.
 
 **Target features:**
 
-- Define a repository language policy that makes English the default and records explicit non-English exceptions.
-- Translate README, examples, `SKILL.md`, route references, IP packs, NOTICE, release checklist, and maintainer docs to English-default prose.
-- Preserve Chinese aliases, route ids, output paths, prompt variables, visible-label behavior, attribution names, source records, rights records, and brand records.
-- Add validation and Node test coverage for English-default surfaces, allowed exception handling, route stability, output path stability, and stale Chinese prose.
-- Record release evidence for validator output, Node tests, `git diff --check`, residual Chinese scan, docs consistency, and compatibility smoke coverage.
+- Rename the route identity from Sealos Seal to Seal across route metadata, display copy, aliases, docs, examples, prompts, QA, release gates, validator checks, and Node tests.
+- Migrate route id, output suffix, output directory, required-reference wording, and route-local file expectations from `sealos` to `seal`.
+- Remove product and brand context from the Seal route, including Sealos product name, brand-owned status, cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, and advertising-adjacent wording.
+- Preserve the existing hoodie seal visual markers: white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Update public docs, NOTICE, release checklist, skill metadata, examples, route-local references, validator fixtures, Node tests, and final release evidence for the Seal route migration.
 
 ## Requirements
 
@@ -48,25 +48,27 @@ Users can choose a visual IP and receive article illustrations whose character, 
 - Complete: Public docs, examples, skill metadata, agent metadata, release materials, validator checks, and Node tests lead with the Visual IP Illustrations identity - v1.4
 - Complete: Existing Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal route behavior, output paths, attribution/source/brand boundaries, and legacy invocation remain stable after the rebrand - v1.4
 - Complete: Rebrand validation evidence records validator 89/89, Node tests 51/51, and `git diff --check` success - v1.4
+- Complete: English is the default repository, skill, reference, examples, release, validation, and maintainer-facing language while documented multilingual compatibility exceptions remain covered by validator and Node tests - v1.5
+- Complete: Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal route-local references, public docs, examples, NOTICE, release checklist, and validation output use English-default prose with approved exceptions - v1.5
+- Complete: English-default validation evidence records validator 98/98, Node tests 66/66, residual Chinese scan success, docs consistency, compatibility smoke coverage, and `git diff --check` success - v1.5
 
 ### Active
 
-- [ ] Establish English as the default language across public docs, skill instructions, route references, IP packs, examples, release materials, validation output, and maintainer-facing repository content.
-- [ ] Document allowed non-English exceptions for route aliases, user-language visible labels, prompt placeholders, attribution/source names, compatibility smoke fixtures, and Chinese article illustration examples.
-- [ ] Translate README, examples, `SKILL.md`, `agents/openai.yaml`, NOTICE, release checklist, and route-local references while preserving route semantics and output contracts.
-- [ ] Preserve Xiaohei default behavior, explicit Littlebox/Tom/Ferris/Sealos Seal routes, canonical and legacy skill invocations, route ids, output suffixes, source/rights/brand records, and QA gates.
-- [ ] Extend validator and Node tests to enforce English-default surfaces with an allowlist for required multilingual compatibility tokens.
-- [ ] Record release evidence for validator output, Node tests, `git diff --check`, residual Chinese scan, docs consistency, and compatibility smoke coverage.
+- [ ] Rename the former Sealos Seal route to Seal across route id, display name, aliases, output suffix, output directory, route table, route-local references, skill routing, docs, examples, metadata, release surfaces, validator checks, and Node tests.
+- [ ] Remove Sealos product, brand, cloud platform, cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, and advertising-adjacent wording from active Seal route behavior and user-facing docs.
+- [ ] Preserve the hoodie seal visual identity while replacing cloud-developer metaphors with product-neutral article metaphors that suit a seal character.
+- [ ] Update NOTICE, source record, release checklist, and QA gates so the Seal route is product-neutral, logo-free, route-local, and free of brand ownership claims.
+- [ ] Add migration validation for stale `sealos` route references, route id/output suffix/path drift, prompt leakage, docs leakage, source/brand boundary cleanup, and old fixture names.
+- [ ] Record release evidence for validator output, Node tests, `git diff --check`, stale Sealos scan, docs consistency, and route migration smoke coverage.
 
 ### Out of Scope
 
-- Visual behavior redesign - v1.5 is a language-default migration milestone.
-- Adding a new visual IP route - route expansion resumes after the rebrand lands.
+- Visual character redesign - v1.6 preserves the existing hoodie seal identity.
+- Adding a new visual IP route - v1.6 migrates an existing route.
 - Changing Xiaohei default behavior - compatibility remains a core requirement.
-- Changing existing output directories for shipped routes - current user assets keep their path contracts.
-- Removing Chinese route aliases - alias compatibility remains part of the routing contract.
+- Changing Littlebox, Tom, or Ferris route behavior - v1.6 is Seal-route scoped.
+- Changing root package identity or legacy `$ian-xiaohei-illustrations` invocation - Visual IP Illustrations remains the product identity.
 - Forcing user-visible labels into English - labels continue to follow the user's requested language.
-- Removing the legacy `$ian-xiaohei-illustrations` invocation during v1.5 - compatibility remains covered by validation.
 - Creating a hosted app, UI, API, database, or build runtime - the package remains a lightweight Codex Skill.
 
 ## Context
@@ -81,21 +83,24 @@ v1.1 completed the Tom route: Tom remains explicit, gated-authorized, route-loca
 
 v1.2 completed the Ferris route: Ferris remains explicit, source-reviewed, Rust-trademark-boundary aware, and covered by docs, examples, metadata, release checklist, validator, and Node tests. The v1.2 completion evidence recorded validator 60/60, Node tests 31/31, and `git diff --check` success.
 
-v1.3 completed the Sealos Seal route: Sealos Seal remains explicit, brand-owned, route-local, uploaded-image-derived, logo-free after quick task 260614-k62, and covered by docs, examples, metadata, release checklist, validator, and Node tests. The latest validation evidence recorded validator 78/78 and Node tests 40/40.
+v1.3 completed the Sealos Seal route: Sealos Seal remained explicit, brand-owned, route-local, uploaded-image-derived, logo-free after quick task 260614-k62, and covered by docs, examples, metadata, release checklist, validator, and Node tests. The latest validation evidence recorded validator 78/78 and Node tests 40/40.
 
 v1.4 completed the Visual IP Illustrations rebrand: the canonical product, repository, install, and skill identity now lead the public and runtime surfaces while the legacy `$ian-xiaohei-illustrations` alias remains documented and tested. The latest validation evidence recorded validator 89/89, Node tests 51/51, and `git diff --check` success.
 
-The current codebase map calls out fragile areas that matter for this work: repeated naming instructions across docs, route metadata, examples, validator strings, install commands, skill frontmatter, and agent metadata. v1.5 treats English-default language behavior as a first-class compatibility surface, with explicit exception handling for route aliases, prompt variables, visible labels, and attribution/source names.
+v1.5 completed the English-default migration: public docs, skill instructions, route references, IP packs, examples, NOTICE, release checklist, validation output, and maintainer-facing content now use English-default prose with approved multilingual exceptions. The latest validation evidence recorded validator 98/98, Node tests 66/66, residual Chinese scan success, docs consistency, compatibility smoke coverage, and `git diff --check` success.
+
+The current codebase map calls out fragile areas that matter for this work: repeated naming instructions across docs, route metadata, examples, validator strings, install commands, skill frontmatter, and agent metadata. v1.6 treats route debranding as a compatibility-sensitive migration: active route surfaces move to Seal, while historical planning records and prior milestone evidence can still mention Sealos as source history.
 
 ## Constraints
 
 - **Runtime**: Preserve Codex Skill compatibility through Markdown `SKILL.md`, local reference files, and `agents/openai.yaml` metadata.
 - **Naming Compatibility**: Canonical identity becomes `Visual IP Illustrations` / `visual-ip-illustrations` / `$visual-ip-illustrations`, with `$ian-xiaohei-illustrations` preserved as a documented legacy alias during v1.4.
-- **Route Compatibility**: Existing Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal routing behavior, route ids, required references, output suffixes, and output directories remain stable.
-- **IP Isolation**: Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal rules remain separately readable, testable, and routable.
+- **Route Migration**: The former Sealos Seal active route becomes Seal, with route id `seal`, output suffix `seal`, and output directory `assets/<article-slug>-seal/`.
+- **Historical Evidence**: Prior planning, quick-task history, and commit history can retain Sealos wording as historical source evidence.
+- **IP Isolation**: Xiaohei, Littlebox, Tom, Ferris, and Seal rules remain separately readable, testable, and routable.
 - **Attribution**: Preserve MIT license notices and derived documentation attribution for Ian and okooo5km; preserve Ferris source attribution for Karen Rustad Tolva and rustacean.net.
 - **Trademark Boundary**: Ferris references record CC0/public-domain source context, while Rust word/logo usage follows the Rust Foundation trademark policy and avoids official-affiliation claims.
-- **Brand Boundary**: Sealos Seal references preserve brand lineage, uploaded-image identity markers, logo-free route constraints, and generic mascot drift checks.
+- **Seal Identity**: Seal references preserve the existing hoodie seal markers, logo-free route constraints, and generic mascot drift checks while removing product and brand claims from active route behavior.
 - **No Build Runtime**: The project stays usable as a lightweight skill package; validation can be script-based and dependency-free.
 - **Image Generation Dependency**: Final generation still depends on the host agent's `image_gen` capability.
 - **Documentation Language**: English is the default language for repository docs, skill instructions, reference docs, examples, release materials, validation output, code, scripts, comments, commit messages, and PR copy.
@@ -114,7 +119,8 @@ The current codebase map calls out fragile areas that matter for this work: repe
 | Add Sealos Seal through an uploaded-image-locked brand mascot milestone | The user selected the uploaded white seal in cap and hoodie as the Sealos mascot authority, so the route needs fixed visual markers, brand lineage, and drift checks | Good |
 | Rebrand the product to Visual IP Illustrations | The current capability is a routeable multi-IP illustration system, and the Xiaohei-centered repository name now undersells the product | Good |
 | Preserve `$ian-xiaohei-illustrations` as a legacy alias during v1.4 | Existing user prompts and local installs should continue working while canonical naming rolls out | Good |
-| Make English the default repository and skill language | The project is now a multi-IP skill package with public distribution and validator coverage, so English-default docs reduce ambiguity for broader users while compatibility exceptions preserve shipped behavior | Pending |
+| Make English the default repository and skill language | The project is now a multi-IP skill package with public distribution and validator coverage, so English-default docs reduce ambiguity for broader users while compatibility exceptions preserve shipped behavior | Good |
+| Debrand the Sealos Seal route into Seal | Sealos is a product name and can make a character route feel promotional; the useful IP is the seal character itself | Pending |
 
 ## Evolution
 
@@ -134,4 +140,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after starting v1.5 English Default Language Migration*
+*Last updated: 2026-06-15 after starting v1.6 Seal Route Debranding*
