@@ -64,9 +64,11 @@ Aliases: `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton`.
 
 ### Tom
 
-Tom is an explicit protected-character route with current route status `gated-authorized`. Users select the Tom route with Tom aliases. The route uses route-local Tom references, `output_suffix: tom`, Tom QA/edit gates, and its own output directory. The rights boundary is `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
+Tom is an explicit protected-character route with current route status `gated-authorized`: the familiar gray-blue cat character carries one article concept through an active comic action while staying inside the route rights boundary. It works well for chase logic, trap setup, failed shortcuts, fragile plans, reversals, timing problems, and cartoon-like cause-effect sequences.
 
 Aliases: `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`.
+
+Route-local Tom references, `output_suffix: tom`, Tom QA/edit gates, and its own output directory stay required. The rights boundary is `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
 
 Output path contract: `assets/<article-slug>-tom/`. Docs validation token: `assets/&lt;article-slug&gt;-tom/`. Output suffix: `tom`.
 
@@ -74,7 +76,7 @@ Public rendered Tom samples enter public sample directories only after the `RELE
 
 ### Ferris
 
-Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+Ferris is an explicit Rust-community mascot route with status `source-reviewed`: a compact orange crab mascot performs the central cognitive action through careful building, sorting, guarding, lifting, connecting, or repairing. It works well for systems thinking, reliability, ownership, compilation-like flows, tradeoff review, boundary checks, and low-tech Rust-themed object metaphors.
 
 Aliases: `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`.
 
@@ -90,7 +92,7 @@ Public rendered Ferris samples enter public sample directories only after the `R
 
 ### Seal
 
-Seal is an explicit product-neutral hoodie seal route with status `active`.
+Seal is an explicit product-neutral hoodie seal route with status `active`: a white rounded seal in a plain navy cap and plain deep-blue hoodie performs the article's central judgment, sequence, handoff, comparison, or repair action. It works well for review, prioritization, source-history awareness, logo-free product-neutral scenarios, and low-tech article metaphors.
 
 Aliases: `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹`.
 
