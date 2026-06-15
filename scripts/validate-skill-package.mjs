@@ -475,6 +475,24 @@ function sortedDirectoryEntries(relativePath) {
     .sort((a, b) => a.path.localeCompare(b.path, "en"));
 }
 
+function sortedFileEntriesRecursive(relativePath) {
+  const root = repoPath(relativePath);
+  if (!fs.existsSync(root)) {
+    return [];
+  }
+
+  const entries = [];
+  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+    const childPath = path.join(relativePath, entry.name);
+    if (entry.isDirectory()) {
+      entries.push(...sortedFileEntriesRecursive(childPath));
+    } else if (entry.isFile()) {
+      entries.push(toPosixPath(childPath));
+    }
+  }
+  return entries.sort((a, b) => a.localeCompare(b, "en"));
+}
+
 function stripWrappingTicks(value) {
   return value.trim().replace(/^`+|`+$/g, "").trim();
 }
@@ -717,9 +735,9 @@ function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
     .split("\n")
     .map((line) => line.trim())
     .find((line) =>
-      line.includes(
-        `Public rendered ${routeName} samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/:`,
-      ),
+      line.includes(`Public rendered ${routeName} samples approved for`) &&
+      line.includes("examples/images") &&
+      line.includes("ian-xiaohei-illustrations/assets/examples"),
     );
 
   if (!approvalLine) {
@@ -757,7 +775,7 @@ function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
     .map((directory) => directory.trim())
     .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
     .filter(Boolean);
-  const requiredDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const requiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
   const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
   const datePresent = isValidReviewDate(reviewDate);
   const approvalStatusPresent =
@@ -879,7 +897,7 @@ function parseSealApprovalLine(approvalLine, kind) {
   const releaseChannels = kind === "public" ? secondDirectoryOrChannels : releaseChannelsOrIdentity;
   const identityOutcome = kind === "public" ? releaseChannelsOrIdentity : identityOrNoLogo;
   const noLogoOutcome = kind === "public" ? identityOrNoLogo : noLogoOutcomeText;
-  const publicRequiredDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
   const generatedRequiredInternalDirectories = ["assets/<article-slug>-seal"];
   const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
   const legacyAllowedDirectories = firstDirectoryText
@@ -973,7 +991,7 @@ function parseFerrisApprovalLine(approvalLine, kind) {
       .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
       .filter(Boolean);
 
-  const publicRequiredDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
   const generatedRequiredInternalDirectories = ["assets/<article-slug>-ferris"];
   const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
   const allowedDirectories = kind === "public" ? parseDirectories(firstDirectoryText) : [];
@@ -1693,6 +1711,16 @@ function assertRebrandRouteTable() {
 }
 
 function imageAssetPaths() {
+  return [
+    ...sortedDirectoryEntries("examples/images").filter((entry) => entry.type === "file").map((entry) => entry.path),
+    ...sortedFileEntriesRecursive("examples/images-en"),
+    ...sortedDirectoryEntries(path.join(PACKAGE_DIR, "assets", "examples"))
+      .filter((entry) => entry.type === "file")
+      .map((entry) => entry.path),
+  ].sort((a, b) => a.localeCompare(b, "en"));
+}
+
+function legacyImageAssetPaths() {
   return [
     ...sortedDirectoryEntries("examples/images").filter((entry) => entry.type === "file").map((entry) => entry.path),
     ...sortedDirectoryEntries(path.join(PACKAGE_DIR, "assets", "examples"))
@@ -3199,7 +3227,7 @@ const checks = [
       "trademark and endorsement-safe wording outcome",
       "Phase 15 validator/test evidence",
       "PENDING / reviewer / date",
-      "allowed directories / release channels",
+      "examples/images-en",
     ], "Ferris release gate section, source record, trademark review, public asset policy, generated sample policy, and Phase 15 evidence marker");
   }),
   defineCheck("RELEASE-SEAL-001", "release checklist keeps Seal source-history, hoodie identity, and public sample gates", () => {
@@ -3471,7 +3499,7 @@ const checks = [
     assertPhase28ReleaseEvidenceMarkers();
   }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
-    const matches = imageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
+    const matches = legacyImageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
     if (matches.length > 0) {
       throw new Error(
         `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Littlebox import; observed ${matches.join(", ")}`,
@@ -3567,7 +3595,7 @@ const checks = [
     const matches = imageAssetPaths().filter((relativePath) => /tom|tom-cat|tom-and-jerry|汤姆|汤姆猫/i.test(relativePath));
     if (!approval.complete && matches.length > 0) {
       throw new Error(
-        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Tom assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}`,
+        `examples/images, examples/images-en, and ${PACKAGE_DIR}/assets/examples expected no rendered Tom assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}`,
       );
     }
   }),
@@ -3580,7 +3608,7 @@ const checks = [
     const matches = imageAssetPaths().filter((relativePath) => /ferris|rustacean|rust-crab|rust-mascot/i.test(relativePath));
     if (!approval.complete && matches.length > 0) {
       throw new Error(
-        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Ferris assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, trademark outcome=${approval.trademarkOutcomePresent ? "present" : "missing"}`,
+        `examples/images, examples/images-en, and ${PACKAGE_DIR}/assets/examples expected no rendered Ferris assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, trademark outcome=${approval.trademarkOutcomePresent ? "present" : "missing"}`,
       );
     }
   }),
@@ -3595,7 +3623,7 @@ const checks = [
     );
     if (!approval.complete && matches.length > 0) {
       throw new Error(
-        `examples/images and ${PACKAGE_DIR}/assets/examples expected no rendered Seal assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, hoodie seal identity outcome=${approval.identityOutcomePresent ? "present" : "missing"}, no-logo outcome=${approval.noLogoOutcomePresent ? "present" : "missing"}`,
+        `examples/images, examples/images-en, and ${PACKAGE_DIR}/assets/examples expected no rendered Seal assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, hoodie seal identity outcome=${approval.identityOutcomePresent ? "present" : "missing"}, no-logo outcome=${approval.noLogoOutcomePresent ? "present" : "missing"}`,
       );
     }
   }),

@@ -94,7 +94,7 @@ This section is the Tom maintainer release gate for authorization, route status,
 
 ### Public Asset Policy
 
-- [ ] Public rendered Tom samples approved for examples/images/ and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.
+- [x] Public rendered Tom samples approved for examples/images/, examples/images-en/, and ian-xiaohei-illustrations/assets/examples/: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README.
 - [ ] Public rendered Tom samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
 - [ ] Public asset policy changes require prior review of `ian-xiaohei-illustrations/references/ips/tom/rights.md` and a recorded maintainer decision.
 
@@ -138,7 +138,7 @@ This section is the Ferris maintainer release gate for source record review, Rus
 
 ### Ferris Public Asset Policy
 
-- [ ] Ferris public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / trademark and endorsement-safe wording outcome.
+- [x] Ferris public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / trademark and endorsement-safe wording approved.
 - [ ] Public rendered Ferris samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
 - [ ] Public rendered Ferris sample approval must cover Rust-logo-forward composition, bundled Rust marks, official-affiliation cues, endorsement wording, allowed directories, release channels, and source/trademark authority.
 
@@ -186,7 +186,7 @@ This section is the Seal maintainer release gate for source-history review, hood
 
 ### Seal Public Asset Policy
 
-- [ ] Seal public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / hoodie seal identity outcome / no-logo outcome.
+- [x] Seal public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / hoodie seal identity preserved / no-logo output approved.
 - [ ] Public rendered Seal samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
 - [ ] Public rendered Seal sample approval must cover hoodie seal identity, logo-free output, cap/hoodie preservation, product-neutral Seal wording, route isolation, article-metaphor quality, allowed directories, release channels, and drift markers.
 
