@@ -47,17 +47,46 @@ Save outputs under `assets/<article-slug>-littlebox/`; docs validation token: `a
 <paste article>
 ```
 
+### Seal: canonical planning
+
+```text
+Use $visual-ip-illustrations with the Seal route. Do not generate images yet.
+Create a 4-image Seal route shot list for the article below.
+Use route-local references from `ian-xiaohei-illustrations/references/ips/seal/` and source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+Keep route status `active`, hoodie seal identity note, and logo-free note.
+For each image, include Placement, Core idea, Structure type, Seal state, Seal action, Supporting objects, Visible labels, Output path, and Source-history note.
+Use product-neutral article metaphors such as maps, stepping stones, bridges, levers, knots, shelves, signposts, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, compasses, or small hand-built machines.
+Seal should inspect, repair, shield, bridge, sort, and mark the article idea.
+Save outputs under `assets/<article-slug>-seal/`; docs validation token: `assets/&lt;article-slug&gt;-seal/`.
+
+<paste article>
+```
+
+### Seal: canonical generation
+
+```text
+Use $visual-ip-illustrations with the Seal route to generate 2 article body illustrations for the article below.
+Generate each image separately and use `ian-xiaohei-illustrations/references/ips/seal/` route-local references.
+Keep route status `active` and source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+Seal is a product-neutral hoodie seal article character. Preserve white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+Keep cap, hoodie chest, mascot body, props, and scene logo-free.
+Use product-neutral article metaphors and make Seal inspect, repair, shield, bridge, sort, or mark the core idea.
+Save outputs under `assets/<article-slug>-seal/`; docs validation token: `assets/&lt;article-slug&gt;-seal/`.
+
+<paste article>
+```
+
 ### Multi-IP: canonical planning
 
 ```text
 Use $visual-ip-illustrations. Do not generate images yet.
-Use one shared core idea to produce separate Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal variant groups.
+Use one shared core idea to produce separate Xiaohei, Littlebox, Tom, Ferris, and Seal variant groups.
 Each group must use route-local references, route-local prompt template, route-local QA, and an independent output path.
 Xiaohei group uses `ian-xiaohei-illustrations/references/ips/xiaohei/` and `assets/<article-slug>-illustrations/`.
 Littlebox group uses `ian-xiaohei-illustrations/references/ips/littlebox/` and `assets/<article-slug>-littlebox/`.
 Tom group uses `ian-xiaohei-illustrations/references/ips/tom/`, route status `gated-authorized`, rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`, and `assets/<article-slug>-tom/`.
 Ferris group uses `ian-xiaohei-illustrations/references/ips/ferris/`, route status `source-reviewed`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`, and `assets/<article-slug>-ferris/`.
-Sealos Seal group uses `ian-xiaohei-illustrations/references/ips/sealos/`, route status `brand-owned`, brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`, uploaded-image-canonical, uploaded-image-locked, no-logo mascot identity, and `assets/<article-slug>-sealos/`.
+Seal group uses `ian-xiaohei-illustrations/references/ips/seal/`, route status `active`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, hoodie seal identity note, logo-free note, product-neutral article metaphors, and `assets/<article-slug>-seal/`.
 
 Core idea: trust is built by placing one piece of evidence after another.
 ```
@@ -269,88 +298,88 @@ Expected: planning fields include Placement, Core idea, Structure type, Ferris s
 Expected: generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 ```
 
-## Route Smoke: Explicit Sealos Seal
+## Route Smoke: Explicit Seal
 
-Sealos Seal is an explicit `brand-owned` Sealos brand mascot route based on the uploaded mascot image. The route-local pack and SKILL.md controller integration are complete; public rendered Sealos samples remain release-gated.
+Seal is an explicit `active` product-neutral hoodie seal route. The route-local pack and SKILL.md controller integration are complete; public rendered Seal samples remain release-gated.
 
-Explicit Sealos Seal aliases include Sealos Seal, Sealos mascot, Sealos 吉祥物, Sealos 海豹, white Sealos seal, and blue hoodie seal. Brand/canonical-image authority is `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
+Explicit Seal aliases include Seal, hoodie seal, white seal, blue hoodie seal, 海豹, 连帽衫海豹, 白色海豹, and 蓝色连帽衫海豹. Source-history authority is `ian-xiaohei-illustrations/references/ips/seal/source.md`.
 
-### Explicit Sealos Seal: planning only
+### Explicit Seal: planning only
 
 ```text
-Use $ian-xiaohei-illustrations with the Sealos Seal / Sealos mascot / Sealos 吉祥物 / Sealos 海豹 / white Sealos seal / blue hoodie seal route. Do not generate images yet.
-Create a 3-image Sealos Seal route shot list for the article below.
+Use $ian-xiaohei-illustrations with the Seal / hoodie seal / white seal / blue hoodie seal / 海豹 / 连帽衫海豹 / 白色海豹 / 蓝色连帽衫海豹 route. Do not generate images yet.
+Create a 3-image Seal route shot list for the article below.
 For each image, include:
 - Placement
 - Core idea
 - Structure type
-- Mascot state
-- Mascot action
+- Seal state
+- Seal action
 - Supporting objects
 - Visible labels
 - Output path
-- Brand/canonical-image note
-Keep route status `brand-owned`.
-Keep route-local reference directory `ian-xiaohei-illustrations/references/ips/sealos/`.
-Keep brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
-Save outputs under `assets/<article-slug>-sealos/`; docs validation token: `assets/&lt;article-slug&gt;-sealos/`.
-Brand/canonical-image note: Sealos Seal is a `brand-owned` route; preserve the uploaded mascot image as the v1.3 canonical mascot reference with `uploaded-image-canonical` and `uploaded-image-locked`.
+- Source-history note
+Keep route status `active`.
+Keep route-local reference directory `ian-xiaohei-illustrations/references/ips/seal/`.
+Keep source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+Save outputs under `assets/<article-slug>-seal/`; docs validation token: `assets/&lt;article-slug&gt;-seal/`.
+Source-history note: Seal is an `active` product-neutral hoodie seal route with a hoodie seal identity note and a logo-free note.
 
 <paste article>
 ```
 
-### Explicit Sealos Seal: direct generation
+### Explicit Seal: direct generation
 
 ```text
-Use $ian-xiaohei-illustrations with the Sealos Seal route to generate 2 article body illustrations for the article below.
-Sealos aliases include Sealos Seal, Sealos mascot, Sealos 吉祥物, Sealos 海豹, white Sealos seal, and blue hoodie seal.
-Generate each image separately and use `ian-xiaohei-illustrations/references/ips/sealos/` route-local references.
-Sealos Seal must carry the core idea's Mascot action.
-Use cloud-developer article metaphors, such as cloud OS tiles, deployment rails, DevBox workbenches, database cylinders, Kubernetes pods, app launch pads, traffic routes, incident cones, log slips, config keys, health checks, rollback handles, workflow gates, or service bridges.
-Keep route status `brand-owned`.
-Keep brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
-Keep `uploaded-image-canonical` and `uploaded-image-locked` in every image.
-Keep cap, chest, mascot body, props, and scene logo-free: plain navy cap with no logo, plain deep-blue hoodie chest with no logo, no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, no text badge.
-Save outputs under `assets/<article-slug>-sealos/`; docs validation token: `assets/&lt;article-slug&gt;-sealos/`.
-Delivery report keeps Brand/canonical-image note and states that public rendered Sealos samples are governed by RELEASE_CHECKLIST.md uploaded-image identity, no-logo mascot identity, and Sealos brand wording gates.
+Use $ian-xiaohei-illustrations with the Seal route to generate 2 article body illustrations for the article below.
+Seal aliases include Seal, hoodie seal, white seal, blue hoodie seal, 海豹, 连帽衫海豹, 白色海豹, and 蓝色连帽衫海豹.
+Generate each image separately and use `ian-xiaohei-illustrations/references/ips/seal/` route-local references.
+Seal must carry the core idea's Seal action.
+Use product-neutral article metaphors, such as maps, stepping stones, bridges, levers, knots, shelves, signposts, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, compasses, or small hand-built machines.
+Keep route status `active`.
+Keep source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+Keep hoodie seal identity note and logo-free note in every image.
+Seal should inspect, repair, shield, bridge, sort, and mark the article idea through sparse physical actions.
+Keep cap, hoodie chest, mascot body, props, and scene logo-free: plain navy cap, plain deep-blue hoodie chest, no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, no text badge.
+Save outputs under `assets/<article-slug>-seal/`; docs validation token: `assets/&lt;article-slug&gt;-seal/`.
+Delivery report keeps Source-history note and states that public rendered Seal samples are governed by RELEASE_CHECKLIST.md hoodie identity, logo-free output, route isolation, and article-metaphor quality gates.
 
 <paste article>
 ```
 
-### Explicit Sealos Seal: route smoke check
+### Explicit Seal: route smoke check
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Text-only maintainer route audit. Use the Sealos Seal / Sealos mascot / Sealos 吉祥物 / Sealos 海豹 / white Sealos seal / blue hoodie seal route to create 1 route smoke shot list for this idea:
-Idea: organize a cloud development environment from scattered entry points into one executable release path.
-Expected: selected IP is Sealos Seal.
-Expected: aliases include Sealos Seal, Sealos mascot, Sealos 吉祥物, Sealos 海豹, white Sealos seal, blue hoodie seal.
-Expected: route status is `brand-owned`.
-Expected: source authority is `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
-Expected: route-local reference directory is `ian-xiaohei-illustrations/references/ips/sealos/`.
-Expected: required references include `index.md`, `source.md`, `style-dna.md`, `sealos-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`.
-Expected: planning fields include Placement, Core idea, Structure type, Mascot state, Mascot action, Supporting objects, Visible labels, Output path, Brand/canonical-image note.
-Expected: output path is `assets/<article-slug>-sealos/`.
-Expected: docs validation token is `assets/&lt;article-slug&gt;-sealos/`.
-Expected: Brand/canonical-image note keeps uploaded-image-canonical, uploaded-image-locked, and uploaded-image identity markers.
-Expected: uploaded-image identity markers include white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, side-rear white tail.
+Text-only maintainer route audit. Use the Seal / hoodie seal / white seal / blue hoodie seal / 海豹 / 连帽衫海豹 / 白色海豹 / 蓝色连帽衫海豹 route to create 1 route smoke shot list for this idea:
+Idea: sort a tangled argument into a clear review path.
+Expected: selected IP is Seal.
+Expected: aliases include Seal, hoodie seal, white seal, blue hoodie seal, 海豹, 连帽衫海豹, 白色海豹, 蓝色连帽衫海豹.
+Expected: route status is `active`.
+Expected: source-history authority is `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+Expected: route-local reference directory is `ian-xiaohei-illustrations/references/ips/seal/`.
+Expected: required references include `index.md`, `source.md`, `style-dna.md`, `seal-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`.
+Expected: planning fields include Placement, Core idea, Structure type, Seal state, Seal action, Supporting objects, Visible labels, Output path, Source-history note.
+Expected: output path is `assets/<article-slug>-seal/`.
+Expected: docs validation token is `assets/&lt;article-slug&gt;-seal/`.
+Expected: hoodie seal identity markers include white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, side-rear white tail.
 Expected: no-logo markers include no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, no text badge.
-Expected: public sample review blocks generic seal, abstract logo creature, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, logo-like wave/cloud mark, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, missing side-rear tail, plain bald-head, prior exploration variant, and different selected mascot drift.
-Expected: public sample gate is controlled by RELEASE_CHECKLIST.md; public rendered Sealos samples require release review.
+Expected: Seal action vocabulary includes inspect, repair, shield, bridge, sort, and mark.
+Expected: public sample gate is controlled by RELEASE_CHECKLIST.md; public rendered Seal samples require release review.
 ```
 
 ## Route Notes: Mixed-IP Requests
 
-The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, and Sealos Seal group uses `assets/<article-slug>-sealos/`; each group loads its own references, prompt template, QA, and output path.
+The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, and Seal group uses `assets/<article-slug>-seal/`; each group loads its own references, prompt template, QA, and output path.
 
-Maintainer reference: Xiaohei canonical pack is at `ian-xiaohei-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `ian-xiaohei-illustrations/references/ips/littlebox/`, Tom canonical pack is at `ian-xiaohei-illustrations/references/ips/tom/`, Tom rights record is at `ian-xiaohei-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `ian-xiaohei-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `ian-xiaohei-illustrations/references/ips/ferris/source.md`, Sealos Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/sealos/`, Sealos brand/canonical-image authority is at `ian-xiaohei-illustrations/references/ips/sealos/source.md`, and route metadata is at `ian-xiaohei-illustrations/references/routing.md`.
+Maintainer reference: Xiaohei canonical pack is at `ian-xiaohei-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `ian-xiaohei-illustrations/references/ips/littlebox/`, Tom canonical pack is at `ian-xiaohei-illustrations/references/ips/tom/`, Tom rights record is at `ian-xiaohei-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `ian-xiaohei-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `ian-xiaohei-illustrations/references/ips/ferris/source.md`, Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`, Seal source-history authority is at `ian-xiaohei-illustrations/references/ips/seal/source.md`, and route metadata is at `ian-xiaohei-illustrations/references/routing.md`.
 
 ### Mixed IP: variant planning only
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Use one core idea to produce five separate variant groups: Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal.
-Each group must use its own route-local references, planning fields, QA gates, route-specific status, source/rights/brand note, and output directory.
+Use one core idea to produce five separate variant groups: Xiaohei, Littlebox, Tom, Ferris, and Seal.
+Each group must use its own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
 
 Xiaohei variant group:
 - Use `ian-xiaohei-illustrations/references/ips/xiaohei/`
@@ -381,16 +410,18 @@ Ferris variant group:
 - Public rendered Ferris samples are controlled by the RELEASE_CHECKLIST.md Rust trademark and endorsement-safe wording gate
 - Generated public Ferris samples require release review for Rust trademark and endorsement-safe wording
 
-Sealos Seal variant group:
-- Use `ian-xiaohei-illustrations/references/ips/sealos/`
-- Keep brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`
-- Keep route status `brand-owned`
-- Aliases include Sealos Seal, Sealos mascot, Sealos 吉祥物, Sealos 海豹, white Sealos seal, blue hoodie seal
-- Include Mascot state, Mascot action, Supporting objects, Visible labels, Output path, Brand/canonical-image note
-- Output to `assets/<article-slug>-sealos/`
-- Docs validation token is `assets/&lt;article-slug&gt;-sealos/`
-- Brand/canonical-image note keeps uploaded-image-canonical, uploaded-image-locked, and uploaded mascot image authority
-- Public rendered Sealos samples are controlled by the RELEASE_CHECKLIST.md uploaded-image identity, no-logo mascot identity, and Sealos brand wording gates
+Seal variant group:
+- Use `ian-xiaohei-illustrations/references/ips/seal/`
+- Keep source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
+- Keep route status `active`
+- Aliases include Seal, hoodie seal, white seal, blue hoodie seal, 海豹, 连帽衫海豹, 白色海豹, 蓝色连帽衫海豹
+- Include Seal state, Seal action, Supporting objects, Visible labels, Output path, Source-history note
+- Output to `assets/<article-slug>-seal/`
+- Docs validation token is `assets/&lt;article-slug&gt;-seal/`
+- Hoodie seal identity note preserves white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail
+- Logo-free note keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free
+- Seal actions should inspect, repair, shield, bridge, sort, and mark the core idea
+- Public rendered Seal samples are controlled by the RELEASE_CHECKLIST.md hoodie identity, logo-free output, route isolation, and article-metaphor quality gates
 
 <paste article or single idea>
 ```
@@ -398,7 +429,7 @@ Sealos Seal variant group:
 ### Mixed IP: generate five groups from one idea
 
 ```text
-Use $ian-xiaohei-illustrations to generate Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Sealos Seal variant group from the same core idea.
+Use $ian-xiaohei-illustrations to generate Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Seal variant group from the same core idea.
 
 Core idea: trust is built by placing one piece of evidence after another.
 
@@ -444,24 +475,25 @@ Ferris variant group:
 - Public rendered Ferris samples are controlled by the RELEASE_CHECKLIST.md Rust trademark and endorsement-safe wording gate
 - Generated public Ferris samples require release review for Rust trademark and endorsement-safe wording
 
-Sealos Seal variant group:
+Seal variant group:
 - Generate 2 images
-- Use `ian-xiaohei-illustrations/references/ips/sealos/`
-- Keep brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`
-- Sealos aliases include Sealos Seal, Sealos mascot, Sealos 吉祥物, Sealos 海豹, white Sealos seal, blue hoodie seal
-- Keep route status `brand-owned`
-- Sealos Seal must carry the same core idea's Mascot action
-- Use cloud-developer article metaphors for evidence, paths, release, rollback, diagnostics, or stable delivery
-- Include Mascot state, Mascot action, Supporting objects, Visible labels, Output path, Brand/canonical-image note
-- Output to `assets/<article-slug>-sealos/`
-- Docs validation token is `assets/&lt;article-slug&gt;-sealos/`
-- Public rendered Sealos samples are controlled by the RELEASE_CHECKLIST.md uploaded-image identity, no-logo mascot identity, and Sealos brand wording gates
+- Use `ian-xiaohei-illustrations/references/ips/seal/`
+- Keep source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
+- Seal aliases include Seal, hoodie seal, white seal, blue hoodie seal, 海豹, 连帽衫海豹, 白色海豹, 蓝色连帽衫海豹
+- Keep route status `active`
+- Seal must carry the same core idea's Seal action
+- Use product-neutral article metaphors for evidence, paths, review, handoff, trust, comparison, or conceptual repair
+- Include Seal state, Seal action, Supporting objects, Visible labels, Output path, Source-history note
+- Seal should inspect, repair, shield, bridge, sort, and mark the core idea through maps, bridges, knots, lamps, shields, stamps, trails, gates, scales, buckets, threads, lenses, or compasses
+- Output to `assets/<article-slug>-seal/`
+- Docs validation token is `assets/&lt;article-slug&gt;-seal/`
+- Public rendered Seal samples are controlled by the RELEASE_CHECKLIST.md hoodie identity, logo-free output, route isolation, and article-metaphor quality gates
 ```
 
 ## Maintainer Validation Smoke Prompts
 
 These prompts support manual route behavior checks; the full package validator is `node scripts/validate-skill-package.mjs`. Route source file: `ian-xiaohei-illustrations/references/routing.md`.
-Phase 20 owns Sealos validator/test expectation updates and green Node evidence for public docs, examples, metadata, NOTICE, release checklist, and route leakage checks.
+Phase 32 owns Seal migration validator check-id cleanup, stale leakage fixtures, Node test restoration, final evidence, and UAT.
 
 ### Smoke: default Xiaohei route
 
@@ -506,14 +538,14 @@ Purpose: text-only route audit; Phase 8 runtime selection behavior is verified, 
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Use one core idea to create Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Sealos Seal variant group:
+Use one core idea to create Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Seal variant group:
 Idea: a good workflow places the next action directly in someone's hand.
 Expected: Xiaohei variant group uses `ian-xiaohei-illustrations/references/ips/xiaohei/` and outputs to `assets/<article-slug>-illustrations/`.
 Expected: Littlebox variant group uses `ian-xiaohei-illustrations/references/ips/littlebox/` and outputs to `assets/<article-slug>-littlebox/`.
 Expected: Tom variant group uses `ian-xiaohei-illustrations/references/ips/tom/`, outputs to `assets/<article-slug>-tom/`, and keeps route status `gated-authorized` plus rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
 Expected: Ferris variant group uses `ian-xiaohei-illustrations/references/ips/ferris/`, outputs to `assets/<article-slug>-ferris/`, and keeps route status `source-reviewed` plus source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
-Expected: Sealos Seal variant group uses `ian-xiaohei-illustrations/references/ips/sealos/`, outputs to `assets/<article-slug>-sealos/`, and keeps route status `brand-owned`, brand/canonical-image authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`, Brand/canonical-image note, uploaded-image-canonical, and uploaded-image-locked.
-Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Sealos Seal variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/brand note, and output directory.
+Expected: Seal variant group uses `ian-xiaohei-illustrations/references/ips/seal/`, outputs to `assets/<article-slug>-seal/`, and keeps route status `active`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, hoodie seal identity note, logo-free note, and product-neutral article metaphors.
+Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Seal variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
 ```
 
 ## Planning Only
