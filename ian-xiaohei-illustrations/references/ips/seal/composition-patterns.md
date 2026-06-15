@@ -1,134 +1,141 @@
-# Sealos Seal Composition Patterns
+# Seal Composition Patterns
 
 Route id: `seal`.
-Route status: `brand-owned`.
+Route status: `active`.
 Output path: `assets/<article-slug>-seal/`.
-Brand/canonical-image authority: `source.md`.
-Canonical image status: `uploaded-image-canonical`.
-Drift boundary: `uploaded-image-locked`.
-Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
-Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
-Save accepted Sealos output under `assets/<article-slug>-seal/` with an ordered English slug filename such as `01-topic-name.png`.
+Source-history authority: `source.md`.
+hoodie seal identity note: preserve the product-neutral Seal character with white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+Logo-free note: cap, hoodie chest, mascot body, props, and scene stay plain and mark-free.
+Seal route block: generic seal drift, missing cap, missing hoodie, logo or mark artifacts, changed body color, passive placement, over-detailed toy drift, excessive text, route leakage, and copied composition all fail the route.
+Save accepted Seal output under `assets/<article-slug>-seal/` with an ordered English slug filename such as `01-topic-name.png`.
 
-Use one composition family per image. Keep one core idea, one physical cloud-developer metaphor, and one active Mascot action.
+Use one composition family per image. Keep one core idea, one physical product-neutral article metaphor, and one active Seal action.
 
-Sealos active-composition gate: Sealos Seal performs the cognitive action that explains the article concept. Removing Sealos Seal breaks the visual metaphor.
+Seal active-composition gate: Seal performs the cognitive action that explains the article concept. Removing Seal breaks the visual metaphor.
 
 ## Composition Families
 
 ### Workflow
 
-Use for cloud OS handoffs, AI deployment pipelines, app launch flows, service rollout, database backup loops, troubleshooting steps, and workflow automation.
+Use for input-to-output reasoning, editorial handoffs, review loops, learning sequences, decision paths, repair flows, and method steps.
 
-Draw a loose left-to-right or curved path. Sealos Seal operates the decisive handoff point: deploying along deployment rails, launching from an app launch pad, connecting service bridges, stamping a health check, or guiding workflow gates.
+Draw a loose left-to-right or curved path. Seal operates the decisive handoff point: guiding a trail, connecting stepping stones, stamping a checkpoint, repairing a bridge, sorting envelopes, or marking the useful turn.
 
 ### System Local View
 
-Use for cloud OS tiles, AI deployment nodes, DevBox workbenches, database cylinders, Kubernetes pods, hidden dependencies, routing layers, and resilience checks.
+Use for filters, decision points, hidden dependencies, evidence clusters, priority shelves, comparison layers, and resilience checks.
 
-Draw only 3-5 core parts. Sealos Seal works inside one decisive part: inspecting a health check, repairing a workflow gate, sorting config keys, shielding a database cylinder, or tuning a DevBox workbench.
+Draw only 3-5 core parts. Seal works inside one decisive part: inspecting a lens, untangling threads, weighing claims on scales, shielding a fragile idea, tuning a lamp, or repairing a lever.
 
 ### Before/After
 
-Use for manual-to-automated deployment, tangled-to-clear workflow, broken-to-healthy database state, fragile-to-resilient Kubernetes service, and unclear-to-launch-ready app paths.
+Use for vague-to-clear, tangled-to-readable, scattered-to-sorted, fragile-to-stable, overloaded-to-focused, and stuck-to-moving changes.
 
-Left side is unstable. Right side is calmer. Sealos Seal performs the transformation in the center with a rollback handle, service bridge, incident cone, deployment rail, cloud OS tile, or app launch pad.
+Left side is unstable. Right side is calmer. Seal performs the transformation in the center with a knot, bridge, map, gate, shelf, scale, stamp, or small hand-built machine.
 
 ### Character State
 
-Use for focused cloud review, steady launch confidence, overloaded DevBox setup, troubleshooting pressure, database guarding, and workflow readiness.
+Use for focused review, careful comparison, overloaded sorting, guarded judgment, stuck reasoning, and confident handoff.
 
-Show Sealos Seal in 2-4 compact states. Each state has one short label and one physical action: deploy, launch, connect, debug, route, lift, inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide.
+Show Seal in 2-4 compact states. Each state has one short label and one physical action: inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, guide, lift, connect, untangle, weigh, map, carry, compare, or mark.
 
 ### Concept Metaphor
 
-Use for cloud OS workbenches, launch pads, service bridges, rollback levers, health-check stamps, traffic routes, incident cones, workflow gates, and database shields.
+Use for judgment scales, trust bridges, decision gates, tangled threads, map routes, evidence shelves, review lamps, hidden keys, and small strange machines.
 
-Build one memorable low-tech object or small strange machine. Sealos Seal is the operator of that object, with flippers, body direction, cap, hoodie, and face orientation tied to the action.
+Build one memorable low-tech object or small hand-built machine. Seal is the operator of that object, with flippers, body direction, cap, hoodie, and face orientation tied to the action.
 
 ### Method Layers
 
-Use for cloud OS capability stacks, AI deployment layers, DevBox readiness layers, database reliability layers, Kubernetes coordination layers, launch readiness, and troubleshooting depth.
+Use for layered methods, capability stacks, reasoning ladders, evidence shelves, review depth, confidence building, and staged handoffs.
 
-Draw stacked boxes, shelves, steps, or loose construction layers. Sealos Seal carries, shields, stamps, sorts, tunes, repairs, or bridges one layer so the method becomes usable.
+Draw stacked boxes, shelves, steps, or loose construction layers. Seal carries, shields, stamps, sorts, tunes, repairs, weighs, or bridges one layer so the method becomes usable.
 
 ### Map Route
 
-Use for app launch paths, cloud migration paths, traffic routes, problem-resolution routes, database recovery routes, Kubernetes rollout paths, and workflow trails.
+Use for idea paths, reader journeys, publishing routes, migration paths, decision trails, and problem-resolution routes.
 
-Draw one curved route with a few nodes. Sealos Seal walks, guides, bridges, reroutes, repairs, stamps, or rolls back the decisive path segment.
+Draw one curved route with a few nodes. Seal walks, guides, bridges, reroutes, repairs, stamps, marks, compares, or rolls back the decisive path segment.
 
 ### Mini Comic
 
-Use for failure-to-fix sequences, repeated deployment mistakes, DevBox setup stories, troubleshooting loops, rollback lessons, and small cloud workflow stories.
+Use for failure-to-fix sequences, repeated reasoning mistakes, handoff stories, comparison lessons, and small process stories.
 
-Use 2-3 loose panels. Each panel shows one Sealos Seal action. Keep Sealos Seal consistent, active, brand-owned, and article-explanatory across panels.
+Use 2-3 loose panels. Each panel shows one Seal action. Keep Seal consistent, active, product-neutral, and article-explanatory across panels.
 
 ## Metaphor Invention Rule
 
-Sealos composition original-metaphor gate: invent the scene from the current article. The composition must be an original article metaphor, fresh from the article idea, brand-owned, and route-local.
+Seal composition original-metaphor gate: invent the scene from the current article. The composition must be an original article metaphor, fresh from the article idea, product-neutral, and route-local.
 
 Build every concept in three steps:
 
-1. Convert the abstract article idea into a physical Mascot action: deploy, launch, connect, debug, route, lift, inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide.
-2. Choose one or two low-tech cloud-developer supporting objects that make the action visible.
-3. Make Sealos Seal perform the action as the central operator.
+1. Convert the article idea into a physical Seal action: inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, guide, lift, connect, untangle, weigh, map, carry, compare, or mark.
+2. Choose one or two product-neutral supporting objects that make the action visible.
+3. Make Seal perform the decisive action as the central operator.
 
 Examples:
 
-- cloud OS handoff -> Sealos Seal connects two service bridges over cloud OS tiles.
-- AI deployment risk -> Sealos Seal shields deployment rails while inspecting a health check.
-- DevBox readiness -> Sealos Seal tunes a DevBox workbench before app launch.
-- database reliability -> Sealos Seal stamps a database cylinder after sorting config keys.
-- Kubernetes coordination -> Sealos Seal assembles Kubernetes pods behind workflow gates.
-- troubleshooting loop -> Sealos Seal repairs a route between incident cones and log slips.
-- rollback decision -> Sealos Seal pulls a rollback handle before traffic reaches a broken gate.
+- weak handoff -> Seal bridges two stepping stones while carrying an envelope.
+- hidden dependency -> Seal uses a lens to inspect threads behind a shelf.
+- overloaded choice -> Seal weighs two buckets on a scale and marks the stable path.
+- unclear process -> Seal maps a trail between signposts and repairs the broken gate.
+- fragile idea -> Seal shields a small lamp while sorting keys.
+- tangled argument -> Seal untangles knots before stamping a reviewed note.
+- risky reversal -> Seal rolls back a trail marker before the path reaches a bad gate.
 
 ## Supporting Objects
 
-Sealos support-object pool:
+Seal support-object pool:
 
-- cloud OS tiles
-- deployment rails
-- DevBox workbenches
-- database cylinders
-- Kubernetes pods
-- app launch pads
-- traffic routes
-- incident cones
-- log slips
-- config keys
-- health checks
-- rollback handles
-- workflow gates
-- service bridges
+- maps
+- stepping stones
+- bridges
+- levers
+- knots
+- shelves
+- signposts
+- lamps
+- shields
+- stamps
+- keys
+- trails
+- gates
+- scales
+- buckets
+- envelopes
+- threads
+- lenses
+- compasses
+- small hand-built machines
 
-Use one or two supporting objects for most images. Extra objects must make the Mascot action clearer.
+Use one or two supporting objects for most images. Extra objects must make Seal's action clearer.
 
-Use these objects to explain generic article concepts: cloud OS structure, AI deployment, DevBox readiness, database reliability, app launch, Kubernetes coordination, troubleshooting, workflow handoff, hidden coupling, failure mode, decision gate, and system resilience.
+Use these objects to explain article concepts: judgment, review, sequencing, prioritization, handoff, hidden coupling, failure mode, decision gate, framing, trust, comparison, and conceptual repair.
 
-## Mascot Action Pool
+## Seal Action Pool
 
-Use Sealos Seal to:
+Use Seal to:
 
-- deploy a service across rails
-- launch an app from a pad
-- connect service bridges
-- debug a log slip or incident cone
-- route traffic through a path
-- lift a cloud OS tile
-- inspect a health check
-- repair a workflow gate
-- shield a database cylinder
-- bridge a deployment gap
-- tune a DevBox workbench
-- roll back a risky release
-- stamp a deployment result
-- sort config keys
-- assemble Kubernetes pods
-- guide a workflow route
+- inspect a map, lens, thread, note, or gate
+- repair a broken bridge, knot, lever, trail, or small hand-built machine
+- shield a fragile idea, boundary, or decision
+- bridge two stepping stones, shelves, paths, or article sections
+- tune a scale, lamp, compass, or signal
+- roll back a risky path or misplaced step
+- stamp a reviewed idea, checkpoint, or handoff
+- sort envelopes, keys, buckets, cards, or labels
+- assemble a small machine, shelf, bridge, or route
+- guide a reader through a trail, map, gate, or set of signposts
+- lift a stuck concept, bucket, key, or bridge piece
+- connect threads, trails, shelves, or stepping stones
+- untangle knots, threads, routes, or competing claims
+- weigh two claims, tradeoffs, paths, or choices on scales
+- map a hidden path, relationship, or sequence
+- carry a key, envelope, lamp, stamp, or small bridge piece
+- compare two trails, gates, buckets, shelves, or labels
+- mark the useful turn, risky gap, or stable next step
 
-The action must serve the core idea. Sealos Seal's flippers, eyes, body direction, cap, hoodie, and tail placement should point toward the cognitive action.
+The action must serve the core idea. Seal's flippers, eyes, body direction, cap, hoodie, and tail placement should point toward the cognitive action.
 
 ## Visible Labels
 
@@ -136,29 +143,29 @@ The action must serve the core idea. Sealos Seal's flippers, eyes, body directio
 - Prefer 2-6 labels per image.
 - Copy labels exactly from the user's language.
 - Use nouns or short verb phrases.
-- Place labels near supporting objects, route nodes, paths, gates, warnings, health checks, or outputs.
-- Keep labels away from the mascot's face, cap, plain hoodie chest, flippers, and tail.
+- Place labels near supporting objects, route nodes, paths, gates, warnings, review points, or outputs.
+- Keep labels away from Seal's face, cap, plain hoodie chest, flippers, and tail.
 - Move explanation into the article text when the label set starts to crowd the canvas.
 
-## Brand and Identity Gates
+## Product-Neutral Identity Gates
 
 Apply these before generation and during prompt repair:
 
-- Sealos brand/canonical-image authority gate: use `source.md` for uploaded-image authority, brand context, fixed visual markers, public-sample policy, reviewer fields, and route status changes.
-- Uploaded-image identity gate: preserve white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- No-logo gate: cap, hoodie chest, mascot body, props, and scene contain no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
-- Mascot action gate: Sealos Seal must operate the metaphor with a physical action; decorative side placement fails.
-- Identity-first variation gate: change supporting objects and scene metaphors before changing uploaded-image identity markers.
-- Cloud-developer metaphor gate: Sealos cloud/OS puns can shape props, while the article concept remains the visual priority.
+- Seal source-history authority gate: use `source.md` for source-history authority, hoodie markers, sample policy, reviewer fields, and route status changes.
+- Hoodie identity gate: preserve white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Logo-free gate: cap, hoodie chest, mascot body, props, and scene contain no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
+- Seal action gate: Seal must operate the metaphor with a physical action; decorative side placement fails.
+- Identity-first variation gate: change supporting objects and scene metaphors before changing hoodie identity markers.
+- Article-metaphor gate: use product-neutral physical objects that explain the current article idea.
 - Excessive text gate: keep labels sparse and short; move explanation into the article text.
-- Route-leakage gate: preserve the `brand-owned` Sealos route status, keep Sealos rules route-local, and point uploaded-image-sensitive use to `source.md`.
+- Route-leakage gate: preserve the `active` Seal route status, keep Seal rules route-local, and point source-sensitive use to `source.md`.
 
 Composition vetoes include formal diagrams, dense PPT-like infographics, UI screenshots, IDE scenes, terminal scenes, code screenshots, poster layouts, top-left titles, copied prior route compositions, and route leakage.
 
-Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
+Seal route block: generic seal drift, missing cap, missing hoodie, logo or mark artifacts, changed body color, passive placement, over-detailed toy drift, excessive text, route leakage, and copied composition all fail the route.
 
 ## Anti-Repeat Rule
 
-Vary Sealos Seal's action across a set: deploy, launch, connect, debug, route, lift, inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide.
+Vary Seal's action across a set: inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, guide, lift, connect, untangle, weigh, map, carry, compare, or mark.
 
-Vary the low-tech object before changing uploaded-image identity markers. Keep Sealos Seal recognizable and active while inventing new article-specific metaphors.
+Vary the product-neutral object before changing hoodie identity markers. Keep Seal recognizable and active while inventing new article-specific metaphors.
