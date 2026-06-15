@@ -230,8 +230,6 @@ More copyable examples are in [examples/prompts.md](examples/prompts.md).
 ├── README.md
 ├── LICENSE
 ├── NOTICE.md
-├── assets/
-│   └── ian-wechat-qr.jpg
 ├── examples/
 │   ├── images/
 │   │   ├── 01-two-breakpoints.png
@@ -320,32 +318,6 @@ git diff --check
 ```
 
 Pre-release checks live in [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
-
----
-
-## Related Projects
-
-- [Ian Handdrawn PPT](https://github.com/helloianneo/ian-handdrawn-ppt) - hand-drawn technical PPT-style page generation Skill.
-- [Awesome Claude Code Skills](https://github.com/helloianneo/awesome-claude-code-skills) - curated Claude Code Skills, Agents, and Plugins.
-- [Obsidian + Claude AI Second Brain](https://github.com/helloianneo/obsidian-ai-second-brain) - guide for building an Obsidian and Claude AI personal knowledge base.
-
----
-
-## Author
-
-**Ian** - Product designer, one-person-company builder, AI Builder.
-
-Building a one-person company with an AI team.
-
-- GitHub: [helloianneo](https://github.com/helloianneo)
-- X/Twitter: [@ianneo_ai](https://x.com/ianneo_ai)
-- Website: [www.ianneo.xyz](https://www.ianneo.xyz)
-- WeChat: `ianneoxyz`
-- Email: hello.neoc@gmail.com
-
-<p>
-  <img src="assets/ian-wechat-qr.jpg" alt="Ian WeChat QR code" width="120">
-</p>
 
 ---
 
