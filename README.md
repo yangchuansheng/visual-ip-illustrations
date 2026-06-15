@@ -17,8 +17,8 @@ Current route inventory:
 - **Xiaohei**: implicit default route. When the user omits a visual IP, the skill uses Xiaohei and preserves the white-background hand-drawn article illustration experience.
 - **Littlebox**: explicit active route. Requests that name `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton` use the Littlebox route.
 - **Tom**: explicit protected-character route. Requests that name `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` use the Tom route.
-- **Ferris**: explicit Rust-community mascot route. Requests that name a Ferris alias use the Ferris route.
-- **Seal**: explicit product-neutral hoodie seal route. Requests that name a Seal alias use the Seal route.
+- **Ferris**: explicit Rust-community mascot route. Requests that name `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, or `Rust 螃蟹` use the Ferris route.
+- **Seal**: explicit product-neutral hoodie seal route. Requests that name `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, or `蓝色连帽衫海豹` use the Seal route.
 
 Core value: users can choose a visual IP and receive article illustration assets whose character, style rules, prompts, QA gates, saved outputs, attribution, source context, and brand boundary stay consistent with that IP.
 
@@ -40,9 +40,9 @@ Release 1.4 public identity uses `Visual IP Illustrations`, canonical local chec
 - Final PNG images.
 - Xiaohei outputs to workspace path `assets/<article-slug>-illustrations/`.
 - Littlebox outputs to workspace path `assets/<article-slug>-littlebox/`.
-- Tom route output path contract: `assets/<article-slug>-tom/`.
-- Ferris route output path contract: `assets/<article-slug>-ferris/`.
-- Seal route output path contract: `assets/<article-slug>-seal/`.
+- Tom outputs to workspace path `assets/<article-slug>-tom/`.
+- Ferris outputs to workspace path `assets/<article-slug>-ferris/`.
+- Seal outputs to workspace path `assets/<article-slug>-seal/`.
 
 Docs validation also keeps HTML-escaped path markers: `assets/&lt;article-slug&gt;-illustrations/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/&lt;article-slug&gt;-tom/`, `assets/&lt;article-slug&gt;-ferris/`, and `assets/&lt;article-slug&gt;-seal/`.
 
@@ -96,8 +96,8 @@ When one request asks for multiple visual IPs, deliver by separate variant group
 
 Operational route facts:
 
-- Tom: current status `gated-authorized`; rights path `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
-- Ferris: Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording. Source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate.
+- Tom: status `gated-authorized`; rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
+- Ferris: status `source-reviewed`; source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
 
 ---
@@ -218,7 +218,7 @@ More copyable examples are in [examples/prompts.md](examples/prompts.md).
 4. Produce a shot list first; each image receives one cognitive anchor.
 5. Choose one structure type for each image: Workflow, system local view, before/after, character state, concept metaphor, method layers, map route, or comic panels.
 6. Load the selected IP's canonical pack, assemble prompts, and generate images one by one. Mixed-IP requests create separate route groups and separate output directories, with Xiaohei, Littlebox, Tom, Ferris, and Seal each keeping route-local references.
-7. Check character identity, composition, background, labels, and output path against the selected IP's QA checklist. Tom keeps `gated-authorized` and `ian-xiaohei-illustrations/references/ips/tom/rights.md`; Ferris keeps `source-reviewed`, Source/trademark note, and `ian-xiaohei-illustrations/references/ips/ferris/source.md`; Seal keeps `active`, source-history authority, hoodie seal identity note, logo-free note, and `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+7. Check character identity, composition, background, labels, and output path against the selected IP's QA checklist. Tom keeps `gated-authorized` and `ian-xiaohei-illustrations/references/ips/tom/rights.md`; Ferris keeps `source-reviewed`, source/trademark note, and `ian-xiaohei-illustrations/references/ips/ferris/source.md`; Seal keeps `active`, source-history authority, hoodie seal identity note, logo-free note, and `ian-xiaohei-illustrations/references/ips/seal/source.md`.
 8. Save final PNGs and report purpose plus path.
 
 ---
