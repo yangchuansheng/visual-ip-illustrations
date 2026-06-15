@@ -42,24 +42,24 @@ Ferris source context records Ferris the Rustacean from `rustacean.net` and Kare
 
 Ferris attribution records source context. Rust and Cargo marks, logos, official-affiliation claims, and endorsement wording are governed by Rust Foundation trademark policy context and release review.
 
-## Sealos Seal Brand and Canonical Image Boundary
+## Seal Source-History Boundary
 
-Sealos Seal source context records the Sealos brand mascot route based on the user's uploaded mascot image for the `sealos` route.
+Seal source context records the product-neutral hoodie seal route for the `seal` route.
 
-- Route: Sealos Seal
-- Display name: `Sealos Seal`
-- Route id `sealos`
-- Route status: `brand-owned`
-- Uploaded-image authority: the user's uploaded mascot image, an uploaded white seal mascot, is the v1.3 canonical mascot reference.
-- Source record and operational authority: `ian-xiaohei-illustrations/references/ips/sealos/source.md`
-- Release-review references: `NOTICE.md`, `RELEASE_CHECKLIST.md`, `ian-xiaohei-illustrations/references/routing.md`, and `ian-xiaohei-illustrations/references/ips/sealos/source.md`
-- Brand context: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes.
+- Route: Seal
+- Display name: `Seal`
+- Route id: `seal`
+- Route status: `active`
+- Source-history authority: `ian-xiaohei-illustrations/references/ips/seal/source.md`
+- Release-review references: `NOTICE.md`, `RELEASE_CHECKLIST.md`, `ian-xiaohei-illustrations/references/routing.md`, and `ian-xiaohei-illustrations/references/ips/seal/source.md`
+- Hoodie seal identity: white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Logo-free route behavior: cap, hoodie chest, mascot body, props, and scene stay plain and mark-free.
 
-Prior Sealos mascot exploration supplies supporting brand context. The uploaded image remains the canonical mascot reference for v1.3 and controls body shape, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, facial markers, flippers, compact legs, and side-rear white tail. Sealos mascot imagery keeps cap, hoodie chest, mascot body, props, and scene free of cap logo, chest logo, mascot logos, logo patches, logo-like wave/cloud marks, emblems, and text badges.
+Seal is an active product-neutral hoodie seal article character. Its prompts, edit prompts, QA gates, delivery notes, and sample copy use product-neutral article-metaphor wording.
 
-Earlier Sealos exploration variants, generic seals, abstract logo creatures, blue-gradient cloud/seal explorations, and bald/plain-head variants are drift boundaries for this route. They are not canonical route options for Sealos Seal.
+Historical provenance: the active Seal route came from the previous Sealos Seal uploaded hoodie seal image. That previous uploaded hoodie seal image supplies source history for the white rounded seal body, cap, hoodie, face, flippers, compact legs, and side-rear white tail. Historical Sealos context remains provenance for this source record.
 
-Public rendered samples for Sealos Seal and Sealos brand wording remain gated until reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, no-logo mascot identity outcome, and brand wording outcome are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
+Public rendered Seal samples remain gated until reviewer, date, approval status, allowed directories, release channels, hoodie seal identity outcome, logo-free outcome, route isolation outcome, and article-metaphor quality outcome are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
 
 Author links:
 

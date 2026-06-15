@@ -26,7 +26,7 @@ Validator marker changes require `node scripts/validate-skill-package.mjs`, `nod
 
 Phase 15 owns Ferris validator/test expectation updates for the full seven-file Ferris route pack, route leakage checks, public asset gates, generated sample gates, and parser tests before v1.2 release evidence. Release evidence for Ferris requires the commands above plus Phase 15 validator/test evidence in the same release review record.
 
-Phase 20 owns Sealos validator/test expectation updates for the public docs, prompt examples, agent metadata, NOTICE, release checklist, route leakage checks, public asset gates, generated sample gates, and green Node evidence before v1.3 release evidence.
+Phase 32 owns Seal migration validator check-id cleanup, stale Sealos leakage fixtures, Node test restoration, final release evidence, and UAT before v1.6 release evidence.
 
 ## Release 1.5 English-Default Review
 
@@ -47,7 +47,7 @@ Phase 20 owns Sealos validator/test expectation updates for the public docs, pro
 - [ ] Confirm install guidance uses `git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations` and `cd visual-ip-illustrations`.
 - [ ] Confirm the installable package directory remains `ian-xiaohei-illustrations/`.
 - [ ] Scan README, examples, NOTICE, and release materials for stale old-name-only first-view public surfaces.
-- [ ] Confirm route behavior, route statuses, authority paths, raw output path tokens, and escaped output path tokens remain stable for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal.
+- [ ] Confirm route behavior, route statuses, authority paths, raw output path tokens, and escaped output path tokens remain stable for Xiaohei, Littlebox, Tom, Ferris, and Seal.
 
 ## Route Smoke Prompts
 
@@ -56,8 +56,8 @@ Phase 20 owns Sealos validator/test expectation updates for the public docs, pro
 - [ ] Explicit Littlebox smoke: request `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton` and confirm `Littlebox state: closed`, assigned background, and output path `assets/<article-slug>-littlebox/`.
 - [ ] Explicit Tom smoke: request `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` and confirm route status `gated-authorized`, rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`, and output path `assets/<article-slug>-tom/`.
 - [ ] Explicit Ferris smoke: request `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, or `Rust 螃蟹` and confirm route status `source-reviewed`, source record `ian-xiaohei-illustrations/references/ips/ferris/source.md`, and output path `assets/<article-slug>-ferris/`.
-- [ ] Explicit Sealos Seal smoke: request `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, or `blue hoodie seal` and confirm route status `brand-owned`, source authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`, route-local directory `ian-xiaohei-illustrations/references/ips/sealos/`, output path `assets/<article-slug>-sealos/`, and Brand/canonical-image note.
-- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal variant groups and confirm each group loads its own references and output path.
+- [ ] Explicit Seal smoke: request `Seal`, `hoodie seal`, `连帽衫海豹`, `海豹`, `white seal`, or `blue hoodie seal` and confirm route status `active`, source authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, route-local directory `ian-xiaohei-illustrations/references/ips/seal/`, output path `assets/<article-slug>-seal/`, and Source-history note.
+- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, Tom, Ferris, and Seal variant groups and confirm each group loads its own references and output path.
 
 Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 
@@ -65,7 +65,7 @@ Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 
 - [ ] Review `NOTICE.md` for Ian Xiaohei attribution.
 - [ ] Review `NOTICE.md` for Littlebox attribution: author `okooo5km`, source repository, MIT context, inspected commit `37cd93e`, and derived documentation notes.
-- [ ] Review `NOTICE.md` for Sealos Seal brand/canonical-image boundary: Sealos brand mascot route based on the user's uploaded mascot image, route id `sealos`, route status `brand-owned`, source authority `ian-xiaohei-illustrations/references/ips/sealos/source.md`, prior exploration boundary, and public sample review fields.
+- [ ] Review `NOTICE.md` for Seal source-history boundary: product-neutral hoodie seal route, route id `seal`, route status `active`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, hoodie identity note, logo-free route behavior, historical provenance note, and public sample review fields.
 - [ ] Confirm public docs and release notes keep attribution language aligned with `NOTICE.md`.
 
 ## Tom Rights and Public Sample Gate
@@ -154,70 +154,70 @@ This section is the Ferris maintainer release gate for source record review, Rus
 - [ ] Final Ferris release review confirms NOTICE consistency, README/examples/metadata parity, routing parity, route status `source-reviewed`, public asset approvals, generated sample approvals, and Phase 15 validator/test evidence before v1.2 release.
 - [ ] Final Ferris release review confirms public rendered assets in `examples/images/` and `ian-xiaohei-illustrations/assets/examples/` have recorded approval status, reviewer, date, allowed directories, release channels, and trademark/endorsement outcome.
 
-## Sealos Seal Brand, Uploaded Image, and Public Sample Gate
+## Seal Source-History, Hoodie Identity, and Public Sample Gate
 
-This section is the Sealos Seal maintainer release gate for source record review, uploaded-image identity, no-logo mascot identity, Sealos brand wording, prompt leakage, public assets, generated samples, validator evidence, release channels, and final brand review.
+This section is the Seal maintainer release gate for source-history review, hoodie seal identity, logo-free output, product-neutral Seal wording, prompt leakage, public assets, generated samples, validator evidence, release channels, and final Seal release review.
 
-### Sealos Source Record Review
+### Seal Source-History Review
 
-- [ ] Review `ian-xiaohei-illustrations/references/ips/sealos/source.md` for source, brand context, canonical image authority, fixed visual markers, prior exploration boundary, route status, allowed use, restricted use, distribution boundary, sample policy, drift boundary, and review owner.
-- [ ] Confirm route status remains `brand-owned`, canonical image status remains `uploaded-image-canonical`, and drift boundary remains `uploaded-image-locked`.
-- [ ] Confirm `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep Sealos Seal, route id `sealos`, `brand-owned`, `uploaded-image-canonical`, `uploaded-image-locked`, `assets/<article-slug>-sealos/`, `assets/&lt;article-slug&gt;-sealos/`, and `ian-xiaohei-illustrations/references/ips/sealos/source.md` aligned.
-- [ ] Record source review: PENDING / reviewer / date / approval status / source record / release channels / uploaded-image identity outcome / no-logo outcome.
+- [ ] Review `ian-xiaohei-illustrations/references/ips/seal/source.md` for source-history authority, product-neutral character authority, fixed hoodie visual markers, historical provenance boundary, route status, allowed use, restricted use, distribution boundary, sample policy, drift boundary, and review owner.
+- [ ] Confirm route status remains `active`, canonical image status remains `uploaded-image-canonical`, and drift boundary remains `uploaded-image-locked` as source-history provenance markers.
+- [ ] Confirm `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep Seal, route id `seal`, `active`, `source-history authority`, `hoodie seal identity note`, `logo-free note`, `assets/<article-slug>-seal/`, `assets/&lt;article-slug&gt;-seal/`, and `ian-xiaohei-illustrations/references/ips/seal/source.md` aligned.
+- [ ] Record source-history review: PENDING / reviewer / date / approval status / source record / release channels / hoodie seal identity outcome / logo-free outcome.
 
-### Uploaded-Image Identity Review
+### Hoodie Identity Review
 
-- [ ] Confirm the uploaded Sealos Seal image preserves these markers exactly: white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- [ ] Confirm the uploaded Seal image preserves these markers exactly: white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
 - [ ] Confirm no-logo review covers no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, no text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, and simplified logo mark across cap, hoodie chest, mascot body, props, and scene.
 - [ ] Confirm public review blocks generic seals, abstract logo creatures, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, logo-like wave/cloud mark, text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, and different selected mascot.
-- [ ] Confirm prior Sealos mascot exploration supplies supporting brand context while the uploaded image stays the v1.3 canonical mascot reference.
+- [ ] Confirm historical Sealos provenance stays bounded to source-history wording while active Seal behavior remains product-neutral.
 
-### Sealos Brand and No-Logo Wording Review
+### Seal Hoodie Identity and Logo-Free Wording Review
 
-- [ ] Review README, examples, routing docs, NOTICE, generated samples, and release notes for Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, Kubernetes, reliable cloud developer companion, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, and Sealos brand wording.
+- [ ] Review README, examples, routing docs, NOTICE, generated samples, and release notes for hoodie seal identity, logo-free route behavior, product-neutral article metaphors, and stale product/platform wording.
 - [ ] Confirm cap, hoodie chest, mascot body, props, and scene stay free of cap logo, chest logo, mascot logos, logo patches, logo-like wave/cloud marks, emblems, and text badges.
-- [ ] Confirm public rendered samples receive brand and no-logo review before publication.
+- [ ] Confirm public rendered samples receive hoodie identity, logo-free output, route isolation, and article-metaphor quality review before publication.
 
-### Sealos Prompt Leakage Scan
+### Seal Prompt Leakage Scan
 
-- [ ] Scan Sealos planning, generation, edit, smoke, README, examples, routing, release notes, and delivery text for generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, logo-like wave/cloud mark, text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, different selected mascot drift, excessive text, route leakage, and public sample claims without approval.
-- [ ] Confirm prompt leakage scan covers `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/SKILL.md`, `ian-xiaohei-illustrations/references/routing.md`, `ian-xiaohei-illustrations/references/ips/sealos/`, `NOTICE.md`, and release notes.
-- [ ] Confirm Sealos wording stays route-local and does not leak Sealos brand mascot rules into Xiaohei, Littlebox, Tom, or Ferris route contracts.
+- [ ] Scan Seal planning, generation, edit, smoke, README, examples, routing, release notes, and delivery text for generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, logo-like wave/cloud mark, text badge, generated logo approximation, generated logo tracing, redrawn logo, alternate wave mark, simplified logo mark, changed body color, missing side-rear tail, plain bald-head variants, prior exploration variants, different selected mascot drift, excessive text, route leakage, and public sample claims without approval.
+- [ ] Confirm prompt leakage scan covers `README.md`, `examples/prompts.md`, `ian-xiaohei-illustrations/SKILL.md`, `ian-xiaohei-illustrations/references/routing.md`, `ian-xiaohei-illustrations/references/ips/seal/`, `NOTICE.md`, and release notes.
+- [ ] Confirm Seal wording stays route-local and product-neutral so Seal rules do not leak into Xiaohei, Littlebox, Tom, or Ferris route contracts.
 
-### Sealos Public Asset Policy
+### Seal Public Asset Policy
 
-- [ ] Sealos public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / no-logo outcome.
-- [ ] Public rendered Sealos Seal samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
-- [ ] Public rendered Sealos sample approval must cover uploaded-image identity, no-logo mascot identity, cap/hoodie preservation, Sealos brand wording, allowed directories, release channels, and drift markers.
+- [ ] Seal public asset policy for `examples/images/` and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / hoodie seal identity outcome / no-logo outcome.
+- [ ] Public rendered Seal samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- [ ] Public rendered Seal sample approval must cover hoodie seal identity, logo-free output, cap/hoodie preservation, product-neutral Seal wording, route isolation, article-metaphor quality, allowed directories, release channels, and drift markers.
 
-### Sealos Generated Sample Policy
+### Seal Generated Sample Policy
 
-- [ ] Internal review samples under `assets/<article-slug>-sealos/` may be used when the source record and brand/canonical-image note stay attached.
-- [ ] Public rendered samples from `assets/<article-slug>-sealos/` require Sealos Public Asset Policy approval before release channels list or copy them into public sample directories.
-- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / no-logo outcome.
+- [ ] Internal review samples under `assets/<article-slug>-seal/` may be used when the source record and source-history note stay attached.
+- [ ] Public rendered samples from `assets/<article-slug>-seal/` require Seal Public Asset Policy approval before release channels list or copy them into public sample directories.
+- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / hoodie seal identity outcome / no-logo outcome.
 
-### Final Sealos Release Review
+### Final Seal Release Review
 
-- [ ] Final Sealos release review confirms `ian-xiaohei-illustrations/references/ips/sealos/source.md` is the authority for brand context, uploaded-image identity, distribution boundary, sample policy, and review owner.
-- [ ] Final Sealos release review confirms NOTICE consistency, README/examples/metadata parity, routing parity, route status `brand-owned`, public asset approvals, generated sample approvals, and Phase 20 validator/test evidence before v1.3 release.
-- [ ] Final Sealos release review confirms public rendered assets in `examples/images/` and `ian-xiaohei-illustrations/assets/examples/` have recorded approval status, reviewer, date, allowed directories, release channels, uploaded-image identity outcome, and no-logo outcome.
-- [ ] Final Sealos release review requires green evidence from `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`.
+- [ ] Final Seal release review confirms `ian-xiaohei-illustrations/references/ips/seal/source.md` is the authority for source-history context, hoodie seal identity, logo-free behavior, distribution boundary, sample policy, and review owner.
+- [ ] Final Seal release review confirms NOTICE consistency, README/examples/metadata parity, routing parity, route status `active`, public asset approvals, generated sample approvals, and Phase 32 validator/test evidence before v1.6 release.
+- [ ] Final Seal release review confirms public rendered assets in `examples/images/` and `ian-xiaohei-illustrations/assets/examples/` have recorded approval status, reviewer, date, allowed directories, release channels, hoodie seal identity outcome, and no-logo outcome.
+- [ ] Final Seal release review requires green evidence from `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`.
 
 ## Installable Package Boundary
 
 - [ ] Confirm the installable Codex Skill package is `ian-xiaohei-illustrations/`.
-- [ ] Confirm `ian-xiaohei-illustrations/` contains `SKILL.md`, `agents/openai.yaml`, `references/routing.md`, Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal canonical IP packs, legacy Xiaohei reference entry points, and skill-local assets.
+- [ ] Confirm `ian-xiaohei-illustrations/` contains `SKILL.md`, `agents/openai.yaml`, `references/routing.md`, Xiaohei, Littlebox, Tom, Ferris, and Seal canonical IP packs, legacy Xiaohei reference entry points, and skill-local assets.
 - [ ] Confirm root `README.md`, `examples/`, `NOTICE.md`, `LICENSE`, and `RELEASE_CHECKLIST.md` remain public distribution and maintainer docs.
 - [ ] Confirm generated article assets continue to save under route-specific workspace paths instead of inside the skill package.
-- [ ] Confirm Phase 20 owns Sealos validator/test expectation updates for public docs, metadata parity, release gates, route leakage checks, public asset gates, generated sample gates, parser tests, and green Node evidence.
+- [ ] Confirm Phase 32 owns Seal migration validator check-id cleanup, stale Sealos leakage fixtures, Node test restoration, full validator evidence, full Node evidence, and UAT.
 
 ## Public Docs and Path Markers
 
-- [ ] README documents Xiaohei as the default visual IP, Littlebox as an explicit active route, Tom as an explicit `gated-authorized` protected-character route, Ferris as an explicit `source-reviewed` Rust-community mascot route, and Sealos Seal as an explicit `brand-owned` Sealos brand mascot route.
+- [ ] README documents Xiaohei as the default visual IP, Littlebox as an explicit active route, Tom as an explicit `gated-authorized` protected-character route, Ferris as an explicit `source-reviewed` Rust-community mascot route, and Seal as an explicit `active` product-neutral hoodie seal route.
 - [ ] README, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep public Ferris source/trademark wording aligned.
-- [ ] README, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep public Sealos Seal brand/canonical-image wording aligned.
-- [ ] README and `examples/prompts.md` keep raw and escaped output markers for Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal: `assets/<article-slug>-illustrations/`, `assets/&lt;article-slug&gt;-illustrations/`, `assets/<article-slug>-littlebox/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/<article-slug>-tom/`, `assets/&lt;article-slug&gt;-tom/`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, `assets/<article-slug>-sealos/`, and `assets/&lt;article-slug&gt;-sealos/`.
+- [ ] README, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep public Seal source-history wording aligned.
+- [ ] README and `examples/prompts.md` keep raw and escaped output markers for Xiaohei, Littlebox, Tom, Ferris, and Seal: `assets/<article-slug>-illustrations/`, `assets/&lt;article-slug&gt;-illustrations/`, `assets/<article-slug>-littlebox/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/<article-slug>-tom/`, `assets/&lt;article-slug&gt;-tom/`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, `assets/<article-slug>-seal/`, and `assets/&lt;article-slug&gt;-seal/`.
 - [ ] README keeps route metadata link `ian-xiaohei-illustrations/references/routing.md`.
-- [ ] README, prompt docs, and release docs keep canonical pack paths for `ian-xiaohei-illustrations/references/ips/xiaohei/`, `ian-xiaohei-illustrations/references/ips/littlebox/`, `ian-xiaohei-illustrations/references/ips/tom/`, `ian-xiaohei-illustrations/references/ips/ferris/`, and `ian-xiaohei-illustrations/references/ips/sealos/`.
+- [ ] README, prompt docs, and release docs keep canonical pack paths for `ian-xiaohei-illustrations/references/ips/xiaohei/`, `ian-xiaohei-illustrations/references/ips/littlebox/`, `ian-xiaohei-illustrations/references/ips/tom/`, `ian-xiaohei-illustrations/references/ips/ferris/`, and `ian-xiaohei-illustrations/references/ips/seal/`.
 - [ ] Ferris public docs keep `ian-xiaohei-illustrations/references/ips/ferris/source.md`, `source-reviewed`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, public Ferris sample release-review wording, and the Phase 15 validator/test boundary visible before v1.2 release.
-- [ ] Sealos public docs keep `ian-xiaohei-illustrations/references/ips/sealos/source.md`, `brand-owned`, `uploaded-image-canonical`, `uploaded-image-locked`, `assets/<article-slug>-sealos/`, `assets/&lt;article-slug&gt;-sealos/`, public rendered Sealos sample release-review wording, and the Phase 20 validator/test boundary visible before v1.3 release.
+- [ ] Seal public docs keep `ian-xiaohei-illustrations/references/ips/seal/source.md`, `active`, source-history authority, hoodie seal identity note, logo-free note, `assets/<article-slug>-seal/`, `assets/&lt;article-slug&gt;-seal/`, public rendered Seal sample release-review wording, and the Phase 32 validator/test boundary visible before v1.6 release.
