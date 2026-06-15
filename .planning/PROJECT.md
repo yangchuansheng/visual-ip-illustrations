@@ -51,15 +51,16 @@ Users can choose a visual IP and receive article illustrations whose character, 
 - Complete: English is the default repository, skill, reference, examples, release, validation, and maintainer-facing language while documented multilingual compatibility exceptions remain covered by validator and Node tests - v1.5
 - Complete: Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal route-local references, public docs, examples, NOTICE, release checklist, and validation output use English-default prose with approved exceptions - v1.5
 - Complete: English-default validation evidence records validator 98/98, Node tests 66/66, residual Chinese scan success, docs consistency, compatibility smoke coverage, and `git diff --check` success - v1.5
+- Complete: The former Sealos Seal route is now the product-neutral Seal route across route id, display name, aliases, output suffix, output directory, route table, route-local references, skill routing, docs, examples, metadata, release surfaces, validator checks, and Node tests - v1.6
+- Complete: Active Seal route behavior and user-facing docs remove Sealos product, brand, cloud platform, cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, and advertising-adjacent wording - v1.6
+- Complete: The hoodie seal visual identity is preserved while cloud-developer metaphors are replaced with product-neutral article metaphors that suit a seal character - v1.6
+- Complete: NOTICE, source record, release checklist, and QA gates describe Seal as product-neutral, logo-free, route-local, and free of brand ownership claims - v1.6
+- Complete: Migration validation covers stale `sealos` route references, route id/output suffix/path drift, prompt leakage, docs leakage, source/brand boundary cleanup, and old fixture names - v1.6
+- Complete: Seal migration release evidence records validator 97/97, Node tests 66/66, `git diff --check`, stale Sealos scan, docs consistency, and route migration smoke success - v1.6
 
 ### Active
 
-- [ ] Rename the former Sealos Seal route to Seal across route id, display name, aliases, output suffix, output directory, route table, route-local references, skill routing, docs, examples, metadata, release surfaces, validator checks, and Node tests.
-- [ ] Remove Sealos product, brand, cloud platform, cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, and advertising-adjacent wording from active Seal route behavior and user-facing docs.
-- [ ] Preserve the hoodie seal visual identity while replacing cloud-developer metaphors with product-neutral article metaphors that suit a seal character.
-- [ ] Update NOTICE, source record, release checklist, and QA gates so the Seal route is product-neutral, logo-free, route-local, and free of brand ownership claims.
-- [ ] Add migration validation for stale `sealos` route references, route id/output suffix/path drift, prompt leakage, docs leakage, source/brand boundary cleanup, and old fixture names.
-- [ ] Record release evidence for validator output, Node tests, `git diff --check`, stale Sealos scan, docs consistency, and route migration smoke coverage.
+None.
 
 ### Out of Scope
 
@@ -120,7 +121,7 @@ The current codebase map calls out fragile areas that matter for this work: repe
 | Rebrand the product to Visual IP Illustrations | The current capability is a routeable multi-IP illustration system, and the Xiaohei-centered repository name now undersells the product | Good |
 | Preserve `$ian-xiaohei-illustrations` as a legacy alias during v1.4 | Existing user prompts and local installs should continue working while canonical naming rolls out | Good |
 | Make English the default repository and skill language | The project is now a multi-IP skill package with public distribution and validator coverage, so English-default docs reduce ambiguity for broader users while compatibility exceptions preserve shipped behavior | Good |
-| Debrand the Sealos Seal route into Seal | Sealos is a product name and can make a character route feel promotional; the useful IP is the seal character itself | Pending |
+| Debrand the Sealos Seal route into Seal | Sealos is a product name and can make a character route feel promotional; the useful IP is the seal character itself | Good |
 
 ## Evolution
 
@@ -140,4 +141,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-15 after starting v1.6 Seal Route Debranding*
+*Last updated: 2026-06-15 after completing v1.6 Seal Route Debranding*

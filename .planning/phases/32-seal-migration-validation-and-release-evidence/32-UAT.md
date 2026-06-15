@@ -1,6 +1,39 @@
+---
+status: complete
+phase: 32-seal-migration-validation-and-release-evidence
+source:
+  - .planning/phases/32-seal-migration-validation-and-release-evidence/32-01-SUMMARY.md
+started: 2026-06-15T06:19:10Z
+updated: 2026-06-15T06:28:06Z
+---
+
 # Phase 32 UAT Evidence
 
 Phase 32 UAT is text-route smoke based. It uses validator and documentation inspection only; no image generation command was run.
+
+## Current Test
+
+[testing complete]
+
+## Tests
+
+### 1. Seal Text Route Smoke
+
+expected: Maintainers can inspect the active Seal route and see route id `seal`, status `active`, output suffix `seal`, output path `assets/<article-slug>-seal/`, route-local references under `references/ips/seal/`, hoodie seal identity markers, logo-free guidance, and product-neutral route behavior without active product, brand, or cloud-platform cues.
+result: pass
+
+## Summary
+
+total: 1
+passed: 1
+issues: 0
+pending: 0
+skipped: 0
+blocked: 0
+
+## Gaps
+
+none
 
 ## Text Route Smoke
 
