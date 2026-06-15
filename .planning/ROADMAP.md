@@ -17,7 +17,7 @@ v1.6 fully migrates the former Sealos Seal route into a product-neutral Seal vis
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 29: Seal Route Identity Migration** - Users can select the active route as product-neutral Seal with route id `seal`, output suffix `seal`, output path `assets/<article-slug>-seal/`, and stable explicit routing. (pending)
+- [x] **Phase 29: Seal Route Identity Migration** - Users can select the active route as product-neutral Seal with route id `seal`, output suffix `seal`, output path `assets/<article-slug>-seal/`, and stable explicit routing. (pending) (completed 2026-06-15)
 - [ ] **Phase 30: Seal Pack Debranding** - Users can plan, prompt, edit, and QA hoodie Seal illustrations through product-neutral route-local references while the existing visual identity stays stable. (pending)
 - [ ] **Phase 31: Public Documentation and Release Surface Migration** - Users and maintainers can learn, invoke, review, and release the Seal route through product-neutral README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (pending)
 - [ ] **Phase 32: Seal Migration Validation and Release Evidence** - Maintainers can verify stale Sealos cleanup, route migration, output path stability, prompt leakage, docs consistency, and release readiness locally. (pending)
@@ -36,10 +36,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, and Seal remain explicit selectable routes.
   4. Mixed-IP routing creates separate route groups for Xiaohei, Littlebox, Tom, Ferris, and Seal with route-local references and output directories.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 Plans:
 
-- [ ] 29-01-PLAN.md - Migrate route metadata, route id, aliases, output suffix, output path, and skill routing from Sealos Seal to Seal.
+- [x] 29-01-PLAN.md - Migrate route metadata, route id, aliases, output suffix, output path, and skill routing from Sealos Seal to Seal.
 
 ### Phase 30: Seal Pack Debranding
 
@@ -101,7 +101,7 @@ Phases execute in numeric order: 29 -> 30 -> 31 -> 32
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 29. Seal Route Identity Migration | 0/1 | Pending | - |
+| 29. Seal Route Identity Migration | 1/1 | Complete   | 2026-06-15 |
 | 30. Seal Pack Debranding | 0/2 | Pending | - |
 | 31. Public Documentation and Release Surface Migration | 0/1 | Pending | - |
 | 32. Seal Migration Validation and Release Evidence | 0/1 | Pending | - |

@@ -7,10 +7,10 @@
 
 ### Route Identity
 
-- [ ] **ROUTE-01**: User can select the former Sealos Seal route through a product-neutral Seal route identity with display name `Seal`.
-- [ ] **ROUTE-02**: User can rely on route id `seal`, output suffix `seal`, and output directory `assets/<article-slug>-seal/` for new Seal outputs.
-- [ ] **ROUTE-03**: User can see Seal aliases that describe a seal character without Sealos product, brand, mascot, cloud platform, or advertising wording.
-- [ ] **ROUTE-04**: Maintainer can inspect routing metadata and see that Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, and Seal remain explicit selectable routes.
+- [x] **ROUTE-01**: User can select the former Sealos Seal route through a product-neutral Seal route identity with display name `Seal`.
+- [x] **ROUTE-02**: User can rely on route id `seal`, output suffix `seal`, and output directory `assets/<article-slug>-seal/` for new Seal outputs.
+- [x] **ROUTE-03**: User can see Seal aliases that describe a seal character without Sealos product, brand, mascot, cloud platform, or advertising wording.
+- [x] **ROUTE-04**: Maintainer can inspect routing metadata and see that Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, and Seal remain explicit selectable routes.
 
 ### Seal IP Pack
 
@@ -74,10 +74,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ROUTE-01 | Phase 29 | Pending |
-| ROUTE-02 | Phase 29 | Pending |
-| ROUTE-03 | Phase 29 | Pending |
-| ROUTE-04 | Phase 29 | Pending |
+| ROUTE-01 | Phase 29 | Complete |
+| ROUTE-02 | Phase 29 | Complete |
+| ROUTE-03 | Phase 29 | Complete |
+| ROUTE-04 | Phase 29 | Complete |
 | PACK-01 | Phase 30 | Pending |
 | PACK-02 | Phase 30 | Pending |
 | PACK-03 | Phase 30 | Pending |
