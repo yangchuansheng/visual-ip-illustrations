@@ -4,6 +4,12 @@
 >
 > 16:9 horizontal | multi visual IP | article body illustrations | Canonical invocation: `$visual-ip-illustrations`
 
+<!-- README-I18N:START -->
+
+**English** | [Chinese](./README.zh.md)
+
+<!-- README-I18N:END -->
+
 ---
 
 ## What This Repository Is
@@ -228,6 +234,7 @@ More copyable examples are in [examples/prompts.md](examples/prompts.md).
 ```text
 .
 ├── README.md
+├── README.zh.md
 ├── LICENSE
 ├── NOTICE.md
 ├── examples/
