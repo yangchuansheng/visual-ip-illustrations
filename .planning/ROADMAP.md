@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 29: Seal Route Identity Migration** - Users can select the active route as product-neutral Seal with route id `seal`, output suffix `seal`, output path `assets/<article-slug>-seal/`, and stable explicit routing. (pending) (completed 2026-06-15)
 - [x] **Phase 30: Seal Pack Debranding** - Users can plan, prompt, edit, and QA hoodie Seal illustrations through product-neutral route-local references while the existing visual identity stays stable. (pending) (completed 2026-06-15)
-- [ ] **Phase 31: Public Documentation and Release Surface Migration** - Users and maintainers can learn, invoke, review, and release the Seal route through product-neutral README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (pending)
+- [x] **Phase 31: Public Documentation and Release Surface Migration** - Users and maintainers can learn, invoke, review, and release the Seal route through product-neutral README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (pending) (completed 2026-06-15)
 - [ ] **Phase 32: Seal Migration Validation and Release Evidence** - Maintainers can verify stale Sealos cleanup, route migration, output path stability, prompt leakage, docs consistency, and release readiness locally. (pending)
 
 ## Phase Details
@@ -71,10 +71,10 @@ Plans:
   3. NOTICE and RELEASE_CHECKLIST describe Seal as product-neutral, logo-free, and free of Sealos brand wording for active route behavior.
   4. `SKILL.md` and `agents/openai.yaml` present Seal as the selectable route while Visual IP Illustrations and the legacy skill alias remain stable.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 Plans:
 
-- [ ] 31-01-PLAN.md - Migrate README, examples, NOTICE, release checklist, skill instructions, and agent metadata to Seal route wording.
+- [x] 31-01-PLAN.md - Migrate README, examples, NOTICE, release checklist, skill instructions, and agent metadata to Seal route wording.
 
 ### Phase 32: Seal Migration Validation and Release Evidence
 
@@ -103,5 +103,5 @@ Phases execute in numeric order: 29 -> 30 -> 31 -> 32
 |-------|----------------|--------|-----------|
 | 29. Seal Route Identity Migration | 1/1 | Complete   | 2026-06-15 |
 | 30. Seal Pack Debranding | 2/2 | Complete    | 2026-06-15 |
-| 31. Public Documentation and Release Surface Migration | 0/1 | Pending | - |
+| 31. Public Documentation and Release Surface Migration | 1/1 | Complete   | 2026-06-15 |
 | 32. Seal Migration Validation and Release Evidence | 0/1 | Pending | - |

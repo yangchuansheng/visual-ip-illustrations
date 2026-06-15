@@ -21,10 +21,10 @@
 
 ### Public Documentation and Release Surface
 
-- [ ] **DOC-01**: User can read README route selection, workflow, output path, and route descriptions with Seal as the active route name.
-- [ ] **DOC-02**: User can copy examples that request Seal outputs through product-neutral prompts and new `assets/<article-slug>-seal/` paths.
-- [ ] **DOC-03**: Maintainer can read NOTICE and release checklist entries that describe Seal as product-neutral, logo-free, and free of Sealos brand wording for active route behavior.
-- [ ] **DOC-04**: Agent metadata and skill instructions present Seal as the selectable route while preserving Visual IP Illustrations as the package identity and `$ian-xiaohei-illustrations` as the legacy skill alias.
+- [x] **DOC-01**: User can read README route selection, workflow, output path, and route descriptions with Seal as the active route name.
+- [x] **DOC-02**: User can copy examples that request Seal outputs through product-neutral prompts and new `assets/<article-slug>-seal/` paths.
+- [x] **DOC-03**: Maintainer can read NOTICE and release checklist entries that describe Seal as product-neutral, logo-free, and free of Sealos brand wording for active route behavior.
+- [x] **DOC-04**: Agent metadata and skill instructions present Seal as the selectable route while preserving Visual IP Illustrations as the package identity and `$ian-xiaohei-illustrations` as the legacy skill alias.
 
 ### Validation and Migration Evidence
 
@@ -82,10 +82,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PACK-02 | Phase 30 | Complete |
 | PACK-03 | Phase 30 | Complete |
 | PACK-04 | Phase 30 | Complete |
-| DOC-01 | Phase 31 | Pending |
-| DOC-02 | Phase 31 | Pending |
-| DOC-03 | Phase 31 | Pending |
-| DOC-04 | Phase 31 | Pending |
+| DOC-01 | Phase 31 | Complete |
+| DOC-02 | Phase 31 | Complete |
+| DOC-03 | Phase 31 | Complete |
+| DOC-04 | Phase 31 | Complete |
 | VAL-01 | Phase 32 | Pending |
 | VAL-02 | Phase 32 | Pending |
 | VAL-03 | Phase 32 | Pending |

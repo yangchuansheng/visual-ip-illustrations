@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.6
 milestone_name: milestone
 status: executing
-stopped_at: Phase 31 context gathered
-last_updated: "2026-06-15T05:02:17.078Z"
+stopped_at: Completed 31-01-PLAN.md
+last_updated: "2026-06-15T05:19:26.815Z"
 last_activity: 2026-06-15 -- Phase 31 planning complete
 progress:
   total_phases: 4
-  completed_phases: 2
-  total_plans: 3
-  completed_plans: 3
-  percent: 50
+  completed_phases: 3
+  total_plans: 4
+  completed_plans: 4
+  percent: 75
 ---
 
 # Project State
@@ -119,6 +119,7 @@ Last activity: 2026-06-15 -- Phase 31 planning complete
 | Phase 25 P01 | 7min51s | 3 tasks | 3 files |
 | Phase 29 P01 | 18min | 3 tasks | 11 files |
 | Phase 30 P02 | 8min | 2 tasks | 3 files |
+| Phase 31 P01 | 34min | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -222,6 +223,9 @@ Recent decisions affecting current work:
 - [Milestone v1.6]: Active route behavior removes Sealos product, brand, cloud platform, cloud OS, DevBox, Kubernetes, and advertising-adjacent wording while historical planning records can keep Sealos wording as source evidence.
 - [Phase 29]: 29-01 uses active route id `seal`, display name `Seal`, status `active`, and output suffix `seal`. — Phase 29 owns active routing; later phases own public docs and final cleanup.
 - [Phase 29]: 29-01 keeps public Sealos docs scoped to later planned migration phases while runtime surfaces use Seal. — This preserves deterministic checks while respecting the planned phase boundary.
+- [Phase 31]: Use Seal as the active product-neutral route name across public docs and runtime instructions. — Phase 31 migrates public surfaces from Sealos Seal to product-neutral Seal while preserving source-history attribution.
+- [Phase 31]: Use assets/<article-slug>-seal/ as the active Seal output path. — README, examples, and SKILL.md need a stable route path marker for copied prompts and generated delivery reports.
+- [Phase 31]: Keep validator check-id cleanup, stale leakage fixtures, Node restoration, final evidence, and UAT in Phase 32. — Phase 31 owns public documentation and runtime wording migration while Phase 32 owns validator hardening and final evidence.
 
 ### Pending Todos
 
@@ -263,6 +267,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-15T04:50:02.448Z
-Stopped at: Phase 31 context gathered
-Resume file: .planning/phases/31-public-documentation-and-release-surface-migration/31-CONTEXT.md
+Last session: 2026-06-15T05:19:26.811Z
+Stopped at: Completed 31-01-PLAN.md
+Resume file: None
