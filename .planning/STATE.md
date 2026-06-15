@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.6
 milestone_name: milestone
 status: executing
-stopped_at: Phase 32 planned
-last_updated: "2026-06-15T05:50:00.231Z"
+stopped_at: Completed 32-01-PLAN.md
+last_updated: "2026-06-15T06:22:05.985Z"
 last_activity: 2026-06-15 -- Phase 32 planning complete
 progress:
   total_phases: 4
-  completed_phases: 3
-  total_plans: 4
-  completed_plans: 4
-  percent: 75
+  completed_phases: 4
+  total_plans: 5
+  completed_plans: 5
+  percent: 100
 ---
 
 # Project State
@@ -120,6 +120,7 @@ Last activity: 2026-06-15 -- Phase 32 planning complete
 | Phase 29 P01 | 18min | 3 tasks | 11 files |
 | Phase 30 P02 | 8min | 2 tasks | 3 files |
 | Phase 31 P01 | 34min | 3 tasks | 6 files |
+| Phase 32 P01 | 24min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -226,6 +227,9 @@ Recent decisions affecting current work:
 - [Phase 31]: Use Seal as the active product-neutral route name across public docs and runtime instructions. — Phase 31 migrates public surfaces from Sealos Seal to product-neutral Seal while preserving source-history attribution.
 - [Phase 31]: Use assets/<article-slug>-seal/ as the active Seal output path. — README, examples, and SKILL.md need a stable route path marker for copied prompts and generated delivery reports.
 - [Phase 31]: Keep validator check-id cleanup, stale leakage fixtures, Node restoration, final evidence, and UAT in Phase 32. — Phase 31 owns public documentation and runtime wording migration while Phase 32 owns validator hardening and final evidence.
+- [Phase 32]: Phase 32 Seal active-route validation uses Seal check IDs while bounded historical Sealos provenance remains allowed.
+- [Phase 32]: Phase 32 migration scans expose deterministic PASS lines for stale-route, docs-consistency, and route-smoke evidence.
+- [Phase 32]: Phase 32 UAT uses text-route smoke evidence for release readiness without image generation.
 
 ### Pending Todos
 
@@ -267,6 +271,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-15T05:36:18.427Z
-Stopped at: Phase 32 planned
-Resume file: .planning/phases/32-seal-migration-validation-and-release-evidence/32-CONTEXT.md
+Last session: 2026-06-15T06:22:05.980Z
+Stopped at: Completed 32-01-PLAN.md
+Resume file: None

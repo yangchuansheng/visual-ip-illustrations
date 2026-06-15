@@ -28,10 +28,10 @@
 
 ### Validation and Migration Evidence
 
-- [ ] **VAL-01**: Validator fails when active route metadata, docs, prompts, QA, examples, release surfaces, or tests still use stale Sealos route identity for the Seal route.
-- [ ] **VAL-02**: Validator passes historical Sealos mentions only in prior milestone evidence, source-history notes, commit references, and explicit migration context.
-- [ ] **VAL-03**: Node tests cover Seal route parsing, route ordering, output path migration, stale Sealos leakage fixtures, prompt leakage fixtures, docs leakage fixtures, and full-pass output.
-- [ ] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, stale Sealos scan, docs consistency, and route migration smoke coverage.
+- [x] **VAL-01**: Validator fails when active route metadata, docs, prompts, QA, examples, release surfaces, or tests still use stale Sealos route identity for the Seal route.
+- [x] **VAL-02**: Validator passes historical Sealos mentions only in prior milestone evidence, source-history notes, commit references, and explicit migration context.
+- [x] **VAL-03**: Node tests cover Seal route parsing, route ordering, output path migration, stale Sealos leakage fixtures, prompt leakage fixtures, docs leakage fixtures, and full-pass output.
+- [x] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, stale Sealos scan, docs consistency, and route migration smoke coverage.
 
 ## Future Requirements
 
@@ -86,10 +86,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOC-02 | Phase 31 | Complete |
 | DOC-03 | Phase 31 | Complete |
 | DOC-04 | Phase 31 | Complete |
-| VAL-01 | Phase 32 | Pending |
-| VAL-02 | Phase 32 | Pending |
-| VAL-03 | Phase 32 | Pending |
-| VAL-04 | Phase 32 | Pending |
+| VAL-01 | Phase 32 | Complete |
+| VAL-02 | Phase 32 | Complete |
+| VAL-03 | Phase 32 | Complete |
+| VAL-04 | Phase 32 | Complete |
 | MASC-01 | Future | Future |
 | MASC-02 | Future | Future |
 | MASC-03 | Future | Future |
