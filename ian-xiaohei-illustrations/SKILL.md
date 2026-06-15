@@ -34,7 +34,7 @@ Tom is an explicit protected-character route: route id `tom`, display name `Tom`
 
 Ferris is an explicit Rust-community mascot route: route id `ferris`, display name `Ferris`, default=false, output_suffix: ferris, route status `source-reviewed`. Ferris source/trademark authority is `references/ips/ferris/source.md`, and planning, generation, QA, edit, and delivery surfaces keep the source/trademark note.
 
-Seal is an explicit route: route id `seal`, display name `Seal`, default=false, output_suffix: seal, route status `active`. Seal source-history authority is `references/ips/seal/source.md`, and planning, generation, QA, edit, and delivery surfaces keep the hoodie seal identity note.
+Seal is an explicit route: route id `seal`, display name `Seal`, default=false, output_suffix: seal, route status `active`. Seal is a product-neutral hoodie seal article character. Seal source-history authority is `references/ips/seal/source.md`, and planning, generation, QA, edit, and delivery surfaces keep the hoodie seal identity note, Logo-free note, and `assets/<article-slug>-seal/`.
 
 Seal imagery is logo-free: cap, hoodie chest, mascot body, props, and scene use no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
 
@@ -71,8 +71,8 @@ Read `references/routing.md` first, then load only the selected route's required
 - `references/ips/ferris/prompt-template.md`: Ferris planning fields, single-image prompt, edit gates, source/trademark note, and output reminder.
 - `references/ips/ferris/qa-checklist.md`: Ferris source-reviewed QA, failure categories, repair moves, and delivery judgment.
 - `references/ips/seal/index.md`: Seal canonical pack navigation, route status, source-history authority, output path, and reference list.
-- `references/ips/seal/source.md`: Seal source-history context, uploaded-image authority, fixed visual markers, public-sample policy, reviewer fields, and route-status authority.
-- `references/ips/seal/style-dna.md`: Seal sparse article-illustration style, uploaded-image identity markers, visual vetoes, and route gates.
+- `references/ips/seal/source.md`: Seal source-history authority, hoodie seal identity note, logo-free behavior, public-sample policy, reviewer fields, and route-status authority.
+- `references/ips/seal/style-dna.md`: Seal sparse article-illustration style, hoodie seal identity markers, product-neutral article metaphors, visual vetoes, and route gates.
 - `references/ips/seal/seal-ip.md`: Seal identity, hoodie seal visual markers, cognitive-action responsibility, recognition gates, and failure modes.
 - `references/ips/seal/composition-patterns.md`: Seal composition families, hoodie seal action patterns, supporting object pool, and original metaphor gates.
 - `references/ips/seal/prompt-template.md`: Seal planning fields, single-image prompt, edit gates, hoodie seal identity note, and output reminder.
@@ -171,15 +171,16 @@ Seal shot-list entries use `references/ips/seal/prompt-template.md` and include:
 - Placement
 - Core idea
 - Structure type
-- Mascot state
-- Mascot action
+- Seal state
+- Seal action
 - Supporting objects
 - Visible labels
 - Output path: `assets/<article-slug>-seal/`
-- Hoodie seal identity note: Seal is an active route; preserve the uploaded white seal character with plain navy cap with no logo, plain deep-blue hoodie chest with no logo, and fixed identity markers from source.md.
+- Hoodie seal identity note: Seal is an active product-neutral hoodie seal route; preserve white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+- Logo-free note: cap, hoodie chest, mascot body, props, and scene stay plain and mark-free.
 - No-logo note: cap, hoodie chest, mascot body, props, and scene use no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
 
-Seal planning prose can follow the user's language. Seal image-generation prompts stay English. Visible labels are copied exactly in the user's language. Seal performs the central cognitive action. Prefer one or two article-metaphor supporting objects, then assign a Mascot action such as inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide.
+Seal planning prose can follow the user's language. Seal image-generation prompts stay English. Visible labels are copied exactly in the user's language. Seal performs the central cognitive action. Prefer one or two product-neutral article-metaphor supporting objects, then assign a Seal action such as inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide.
 
 Mixed-IP shot lists first state the shared core idea, then split into independent selected route groups:
 
@@ -187,7 +188,7 @@ Mixed-IP shot lists first state the shared core idea, then split into independen
 - Littlebox variant group: `Littlebox state: closed`, visual metaphor, assigned background, suggested objects, short visible labels, `references/ips/littlebox/` QA, `assets/<article-slug>-littlebox/`
 - Tom variant group: Tom state, Tom action, supporting objects, visible labels, `references/ips/tom/` QA, `assets/<article-slug>-tom/`, rights-status note, `gated-authorized`, `references/ips/tom/rights.md`
 - Ferris variant group: Ferris state, Ferris action, supporting objects, visible labels, `references/ips/ferris/` QA, `assets/<article-slug>-ferris/`, source/trademark note, `source-reviewed`, `references/ips/ferris/source.md`
-- Seal variant group: Mascot state, Mascot action, supporting objects, visible labels, `references/ips/seal/` QA, `assets/<article-slug>-seal/`, hoodie seal identity note, `active`, `references/ips/seal/source.md`
+- Seal variant group: Seal state, Seal action, supporting objects, visible labels, `references/ips/seal/` QA, `assets/<article-slug>-seal/`, hoodie seal identity note, Logo-free note, `active`, `references/ips/seal/source.md`
 
 Default to 4-8 images. Short articles usually need 1-3. Long articles usually stay within 9 images.
 
@@ -252,7 +253,7 @@ Ferris loads only Ferris `required_references`, uses `references/ips/ferris/prom
 - save reminder: `assets/<article-slug>-ferris/`
 - Ferris route block: generic-crab drift, passive Ferris placement, Rust-logo misuse, official-affiliation cues, over-detailed mascot rendering, excessive text, source-asset tracing, and route leakage all fail the route
 
-Seal loads only Seal `required_references`, uses `references/ips/seal/prompt-template.md` plus `references/ips/seal/composition-patterns.md`, then checks output with `references/ips/seal/qa-checklist.md`. Seal generation context always keeps route status `active`, source-history authority `references/ips/seal/source.md`, canonical image status `uploaded-image-canonical`, drift boundary `uploaded-image-locked`, and output path `assets/<article-slug>-seal/`. Seal prompts keep:
+Seal loads only Seal `required_references`, uses `references/ips/seal/prompt-template.md` plus `references/ips/seal/composition-patterns.md`, then checks output with `references/ips/seal/qa-checklist.md`. Seal generation context always keeps route status `active`, source-history authority `references/ips/seal/source.md`, source-history provenance markers `uploaded-image-canonical` and `uploaded-image-locked`, hoodie seal identity note, Logo-free note, and output path `assets/<article-slug>-seal/`. Seal prompts keep:
 
 - one standalone 16:9 horizontal article illustration
 - original article metaphor
@@ -263,13 +264,14 @@ Seal loads only Seal `required_references`, uses `references/ips/seal/prompt-tem
 - Seal as the central cognitive action subject
 - route status note: `active`
 - source-history authority: `references/ips/seal/source.md`
-- canonical image note: `uploaded-image-canonical` and `uploaded-image-locked`
-- uploaded-image markers: white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail
+- source-history provenance markers: `uploaded-image-canonical` and `uploaded-image-locked`
+- hoodie seal identity note: white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail
 - no-logo markers: no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge
+- product-neutral article metaphor objects: maps, stepping stones, bridges, levers, knots, shelves, signposts, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, compasses, or small hand-built machines
 - save reminder: `assets/<article-slug>-seal/`
 - Seal route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, route leakage, missing hoodie seal identity note, and missing output path all fail the route
 
-Seal repair behavior uses the edit prompts in `references/ips/seal/prompt-template.md`: Stronger Mascot Participation, Uploaded-Image Identity Repair, No-Logo Hoodie Cap Repair, Title Removal, Text Reduction, and Preserve Unaffected Content. Every repair keeps `active`, `references/ips/seal/source.md`, `uploaded-image-canonical`, `uploaded-image-locked`, hoodie seal identity note, route-local QA context, and `assets/<article-slug>-seal/`.
+Seal repair behavior uses the edit prompts in `references/ips/seal/prompt-template.md`: Stronger Seal Participation, Hoodie Seal Identity Repair, Logo-Free Output Repair, Title Removal, Text Reduction, Route Leakage Repair, and Preserve Unaffected Content. Every repair keeps `active`, `references/ips/seal/source.md`, source-history provenance markers, hoodie seal identity note, Logo-free note, route-local QA context, and `assets/<article-slug>-seal/`.
 
 Mixed-IP generation uses the same shared core idea to generate separated selected route groups. Xiaohei loads only `references/ips/xiaohei/`; Littlebox loads only `references/ips/littlebox/`; Tom loads only `references/ips/tom/`; Ferris loads only `references/ips/ferris/`; Seal loads only `references/ips/seal/`. Each group calls its own prompt template, composition rules, language rules, qa-checklist, edit gates, output_suffix, and route note. `assets/examples/` only calibrates style density and character participation; current-article metaphors are invented fresh.
 
@@ -351,7 +353,7 @@ Seal high-risk failures:
 - missing hoodie seal identity note
 - missing output path
 
-When QA finds a failure, regenerate or edit through the selected IP's qa-checklist. Littlebox repairs prioritize closed lid, side-seam arms, single amber jagged seam tape, near-white body, rough linework, user's-language labels, balanced background, and active placement. Tom repairs use `references/ips/tom/prompt-template.md` edit gates: Tom edit participation repair gate, Tom off-model identity repair gate, Tom title removal edit gate, Tom text reduction edit gate, and Tom unaffected-content preservation gate; every repair keeps `gated-authorized`, `references/ips/tom/rights.md`, and route-local QA context. Ferris repairs use `references/ips/ferris/prompt-template.md` edit gates: participation, identity, trademark-boundary, title removal, text reduction, and unaffected-content preservation; every repair keeps `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, and route-local QA context. Seal repairs use `references/ips/seal/prompt-template.md` edit prompts; every repair keeps `active`, `references/ips/seal/source.md`, uploaded-image identity, hoodie seal identity note, plain cap and hoodie chest no-logo markers, route-local QA context, and `assets/<article-slug>-seal/`.
+When QA finds a failure, regenerate or edit through the selected IP's qa-checklist. Littlebox repairs prioritize closed lid, side-seam arms, single amber jagged seam tape, near-white body, rough linework, user's-language labels, balanced background, and active placement. Tom repairs use `references/ips/tom/prompt-template.md` edit gates: Tom edit participation repair gate, Tom off-model identity repair gate, Tom title removal edit gate, Tom text reduction edit gate, and Tom unaffected-content preservation gate; every repair keeps `gated-authorized`, `references/ips/tom/rights.md`, and route-local QA context. Ferris repairs use `references/ips/ferris/prompt-template.md` edit gates: participation, identity, trademark-boundary, title removal, text reduction, and unaffected-content preservation; every repair keeps `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, and route-local QA context. Seal repairs use `references/ips/seal/prompt-template.md` edit prompts; every repair keeps `active`, `references/ips/seal/source.md`, hoodie seal identity note, Logo-free note, product-neutral article metaphor context, route-local QA context, and `assets/<article-slug>-seal/`.
 
 ### 6. Save and Deliver
 
@@ -403,6 +405,6 @@ Mixed-IP delivery uses one block per IP:
 - Littlebox block: shared core idea, image purposes, save path `assets/<article-slug>-littlebox/`, assigned background, stability notes
 - Tom block: selected IP `Tom`, shared core idea, image purposes, save path `assets/<article-slug>-tom/`, route status `gated-authorized`, rights note `references/ips/tom/rights.md`, stability notes
 - Ferris block: selected IP `Ferris`, shared core idea, image purposes, save path `assets/<article-slug>-ferris/`, route status `source-reviewed`, source/trademark note, source pointer `references/ips/ferris/source.md`, stability notes
-- Seal block: selected IP: Seal, shared core idea, image purposes, save path `assets/<article-slug>-seal/`, route status `active`, hoodie seal identity note: preserve the uploaded white seal character with plain navy cap with no logo, plain deep-blue hoodie chest with no logo, and fixed identity markers from source.md., source pointer `references/ips/seal/source.md`, no-logo note: no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge, stability notes
+- Seal block: selected IP: Seal, shared core idea, image purposes, save path `assets/<article-slug>-seal/`, route status `active`, hoodie seal identity note: preserve white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail, source pointer `references/ips/seal/source.md`, Logo-free note: no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge, stability notes
 
-Before delivery, run the route-leakage delivery guard. Tom blocks keep `gated-authorized` and `references/ips/tom/rights.md`. Ferris blocks keep `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, route-local QA, and `assets/<article-slug>-ferris/`. Seal blocks keep `active`, `references/ips/seal/source.md`, hoodie seal identity note, route-local QA, `uploaded-image-canonical`, `uploaded-image-locked`, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, no-logo delivery note, and `assets/<article-slug>-seal/`. Xiaohei and Littlebox blocks keep their route-local wording, QA, and output directories.
+Before delivery, run the route-leakage delivery guard. Tom blocks keep `gated-authorized` and `references/ips/tom/rights.md`. Ferris blocks keep `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, route-local QA, and `assets/<article-slug>-ferris/`. Seal blocks keep `active`, `references/ips/seal/source.md`, hoodie seal identity note, route-local QA, source-history provenance markers, Logo-free note, product-neutral article-metaphor status, and `assets/<article-slug>-seal/`. Xiaohei and Littlebox blocks keep their route-local wording, QA, and output directories.
