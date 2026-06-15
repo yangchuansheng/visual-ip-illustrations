@@ -1249,8 +1249,8 @@ test("validator fixture reports Seal source marker drift", () => {
     replaceInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "source.md"),
-      "uploaded-image-canonical",
-      "uploaded-image-reviewed",
+      "# Seal Source Record",
+      "# Seal Source Review",
     );
 
     const result = runFixtureValidator(fixtureRoot);
@@ -1258,7 +1258,7 @@ test("validator fixture reports Seal source marker drift", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] SOURCE-SEAL-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/seal\/source\.md/);
-    assert.match(result.stdout, /observed missing marker\(s\): uploaded-image-canonical/);
+    assert.match(result.stdout, /observed missing marker\(s\): # Seal Source Record/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1290,7 +1290,7 @@ test("validator fixture reports Seal pack, prompt, and QA marker drift", () => {
     [
       "pack",
       path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "index.md"),
-      "Hoodie seal identity note",
+      "Public-sample boundary",
       "REFS-SEAL-001",
     ],
     [
@@ -1320,7 +1320,7 @@ test("validator fixture reports Seal pack, prompt, and QA marker drift", () => {
 
       assert.equal(result.status, 1);
       assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
-      const expectedPath = expectedId === "IP-SEAL-001"
+      const expectedPath = expectedId === "IP-SEAL-001" || expectedId === "REFS-SEAL-001"
         ? path.join("ian-xiaohei-illustrations", "references", "ips", "seal")
         : relativePath;
       assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
@@ -1339,7 +1339,7 @@ test("validator fixture reports Seal docs, metadata, NOTICE, release, and smoke 
       "explicit Seal active product-neutral hoodie seal route",
       "AGENT-SEAL-001",
     ],
-    ["readme", "README.md", "source-history authority", "DOC-SEAL-001"],
+    ["routing", path.join("ian-xiaohei-illustrations", "references", "routing.md"), "source-history", "DOC-SEAL-001"],
     ["examples", "examples/prompts.md", "## Route Smoke: Explicit Seal", "SMOKE-SEAL-001"],
     ["mixed", "examples/prompts.md", "five separate variant groups", "SMOKE-MIXED-SEAL-001"],
     ["notice", "NOTICE.md", "Seal Source-History Boundary", "NOTICE-SEAL-001"],
@@ -1373,8 +1373,8 @@ test("validator fixture rejects Seal no-logo drift", () => {
     replaceAllInFixture(
       fixtureRoot,
       path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "source.md"),
-      "no cap logo",
-      "cap logo",
+      "Logo-Free Identity Markers",
+      "Logo-Bearing Identity Markers",
     );
     replaceAllInFixture(
       fixtureRoot,
@@ -1391,8 +1391,8 @@ test("validator fixture rejects Seal no-logo drift", () => {
     replaceAllInFixture(
       fixtureRoot,
       "README.md",
-      "no-logo mascot identity",
-      "logo-bearing mascot identity",
+      "plain and mark-free",
+      "logo-bearing",
     );
 
     const result = runFixtureValidator(fixtureRoot);
@@ -1401,7 +1401,7 @@ test("validator fixture rejects Seal no-logo drift", () => {
     assert.match(result.stdout, /\[FAIL\] LOGO-SEAL-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/seal/);
     assert.match(result.stdout, /observed missing marker\(s\): plain navy cap/);
-    assert.match(result.stdout, /no cap logo/);
+    assert.match(result.stdout, /Logo-Free Identity Markers/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
