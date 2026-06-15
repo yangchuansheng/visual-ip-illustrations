@@ -15,8 +15,8 @@
 ### Seal IP Pack
 
 - [x] **PACK-01**: User can read Seal route-local references that preserve the existing white hoodie seal identity markers without Sealos product or brand context.
-- [ ] **PACK-02**: User can generate Seal prompts that use product-neutral article metaphors instead of cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, or Sealos platform props.
-- [ ] **PACK-03**: User can use Seal QA gates that test hoodie seal identity, logo-free output, product-neutral route isolation, active cognitive participation, sparse labels, and article-metaphor quality.
+- [x] **PACK-02**: User can generate Seal prompts that use product-neutral article metaphors instead of cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, or Sealos platform props.
+- [x] **PACK-03**: User can use Seal QA gates that test hoodie seal identity, logo-free output, product-neutral route isolation, active cognitive participation, sparse labels, and article-metaphor quality.
 - [x] **PACK-04**: Maintainer can inspect the Seal source record and see product-neutral character authority, visual markers, sample policy, and historical source notes without active brand-owned claims.
 
 ### Public Documentation and Release Surface
@@ -79,8 +79,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROUTE-03 | Phase 29 | Complete |
 | ROUTE-04 | Phase 29 | Complete |
 | PACK-01 | Phase 30 | Complete |
-| PACK-02 | Phase 30 | Pending |
-| PACK-03 | Phase 30 | Pending |
+| PACK-02 | Phase 30 | Complete |
+| PACK-03 | Phase 30 | Complete |
 | PACK-04 | Phase 30 | Complete |
 | DOC-01 | Phase 31 | Pending |
 | DOC-02 | Phase 31 | Pending |
