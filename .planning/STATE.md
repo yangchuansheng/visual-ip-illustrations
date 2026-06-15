@@ -4,7 +4,7 @@ milestone: v1.6
 milestone_name: milestone
 status: complete
 stopped_at: Phase 32 complete; v1.6 milestone complete
-last_updated: "2026-06-15T08:05:00.000Z"
+last_updated: "2026-06-15T08:30:00.000Z"
 last_activity: 2026-06-15
 progress:
   total_phases: 4
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-06-15)
 Phase: 32
 Plan: Not started
 Status: Complete
-Last activity: 2026-06-15 - Completed quick task 260615-maz: README multilingual variant added
+Last activity: 2026-06-15 - Completed quick task 260615-mpv: expanded README translations added
 
 ## Performance Metrics
 
@@ -230,6 +230,7 @@ Recent decisions affecting current work:
 - [Phase 32]: Phase 32 Seal active-route validation uses Seal check IDs while bounded historical Sealos provenance remains allowed.
 - [Phase 32]: Phase 32 migration scans expose deterministic PASS lines for stale-route, docs-consistency, and route-smoke evidence.
 - [Phase 32]: Phase 32 UAT uses text-route smoke evidence for release readiness without image generation.
+- [Quick 260615-mpv]: README now has 13 language variants with shared selectors, localized sibling links, and validator-approved selector-label exceptions. Validator coverage reports 97/97 and Node tests report 66/66.
 
 ### Pending Todos
 
@@ -264,6 +265,7 @@ Recent decisions affecting current work:
 | 260615-kuz | Align README Visual IP Routes and related route wording | 2026-06-15 | 806410c | [260615-kuz-readme-visual-ip-routes-tom-ferris-seal-](./quick/260615-kuz-readme-visual-ip-routes-tom-ferris-seal-/) |
 | 260615-lo9 | Remove README fork author and related project sections | 2026-06-15 | 07fe963 | [260615-lo9-readme-fork-author-related-projects](./quick/260615-lo9-readme-fork-author-related-projects/) |
 | 260615-maz | Add README multilingual variant | 2026-06-15 | 48e51f7 | [260615-maz-readme-i18n-readme](./quick/260615-maz-readme-i18n-readme/) |
+| 260615-mpv | Add expanded README translations | 2026-06-15 | a69e198 | [260615-mpv-add-readme-translations-for-spanish-port](./quick/260615-mpv-add-readme-translations-for-spanish-port/) |
 
 ## Deferred Items
 
