@@ -983,7 +983,7 @@ test("parser helpers expose current package contract primitives", async () => {
 
   const links = validators.parseMarkdownLinks(readmeText);
   assert.ok(links.some((link) => link.target === "examples/prompts.md"));
-  assert.ok(links.some((link) => link.target === "examples/images/01-two-breakpoints.png"));
+  assert.ok(links.some((link) => link.target === "examples/images-en/01-two-breakpoints.png"));
 
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-illustrations/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-tom/"));

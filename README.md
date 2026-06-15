@@ -114,35 +114,35 @@ These images are Xiaohei style calibration examples. Use them to understand line
 
 ### Two Breakpoints
 
-![Two Breakpoints](examples/images/01-two-breakpoints.png)
+![Two Breakpoints](examples/images-en/01-two-breakpoints.png)
 
 ### Sort by Purpose
 
-![Sort by Purpose](examples/images/02-sort-by-purpose.png)
+![Sort by Purpose](examples/images-en/02-sort-by-purpose.png)
 
 ### One Fish, Many Uses
 
-![One Fish, Many Uses](examples/images/03-one-fish-many-uses.png)
+![One Fish, Many Uses](examples/images-en/03-one-fish-many-uses.png)
 
 ### Handoff Path
 
-![Handoff Path](examples/images/04-handoff-path.png)
+![Handoff Path](examples/images-en/04-handoff-path.png)
 
 ### Information Well
 
-![Information Well](examples/images/05-information-well.png)
+![Information Well](examples/images-en/05-information-well.png)
 
 ### Idea Press
 
-![Idea Press](examples/images/06-idea-press.png)
+![Idea Press](examples/images-en/06-idea-press.png)
 
 ### Content Fermentation
 
-![Content Fermentation](examples/images/07-content-fermentation.png)
+![Content Fermentation](examples/images-en/07-content-fermentation.png)
 
 ### Trust Bridge
 
-![Trust Bridge](examples/images/08-trust-bridge.png)
+![Trust Bridge](examples/images-en/08-trust-bridge.png)
 
 ---
 
@@ -250,6 +250,10 @@ More copyable examples are in [examples/prompts.md](examples/prompts.md).
 ├── NOTICE.md
 ├── examples/
 │   ├── images/
+│   │   ├── 01-two-breakpoints.png
+│   │   ├── 02-sort-by-purpose.png
+│   │   └── ...
+│   ├── images-en/
 │   │   ├── 01-two-breakpoints.png
 │   │   ├── 02-sort-by-purpose.png
 │   │   └── ...
