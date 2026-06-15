@@ -16,9 +16,9 @@ Current route inventory:
 
 - **Xiaohei**: implicit default route. When the user omits a visual IP, the skill uses Xiaohei and preserves the white-background hand-drawn article illustration experience.
 - **Littlebox**: explicit active route. Requests that name `小盒`, `Littlebox`, `纸盒`, `paper-box`, or `carton` use the Littlebox route.
-- **Tom**: explicit protected-character route. Requests that name `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` use the Tom route. Current status is `gated-authorized`, and the rights boundary lives at `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
-- **Ferris**: Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
-- **Seal**: explicit product-neutral hoodie seal route. Route id `seal`, default=false, output suffix `seal`, current status `active`. The route-local reference directory is `ian-xiaohei-illustrations/references/ips/seal/`, and source-history authority lives at `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+- **Tom**: explicit protected-character route. Requests that name `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` use the Tom route.
+- **Ferris**: explicit Rust-community mascot route. Requests that name a Ferris alias use the Ferris route.
+- **Seal**: explicit product-neutral hoodie seal route. Requests that name a Seal alias use the Seal route.
 
 Core value: users can choose a visual IP and receive article illustration assets whose character, style rules, prompts, QA gates, saved outputs, attribution, source context, and brand boundary stay consistent with that IP.
 
@@ -64,49 +64,21 @@ Aliases: `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton`.
 
 ### Tom
 
-Tom is an explicit protected-character route with current route status `gated-authorized`: the familiar gray-blue cat character carries one article concept through an active comic action while staying inside the route rights boundary. It works well for chase logic, trap setup, failed shortcuts, fragile plans, reversals, timing problems, and cartoon-like cause-effect sequences.
+Tom is an explicit protected-character route: the familiar gray-blue cat character carries one article concept through an active comic action while staying inside the route rights boundary. It works well for chase logic, trap setup, failed shortcuts, fragile plans, reversals, timing problems, and cartoon-like cause-effect sequences.
 
 Aliases: `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`.
 
-Route-local Tom references, `output_suffix: tom`, Tom QA/edit gates, and its own output directory stay required. The rights boundary is `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
-
-Output path contract: `assets/<article-slug>-tom/`. Docs validation token: `assets/&lt;article-slug&gt;-tom/`. Output suffix: `tom`.
-
-Public rendered Tom samples enter public sample directories only after the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approve them.
-
 ### Ferris
 
-Ferris is an explicit Rust-community mascot route with status `source-reviewed`: a compact orange crab mascot performs the central cognitive action through careful building, sorting, guarding, lifting, connecting, or repairing. It works well for systems thinking, reliability, ownership, compilation-like flows, tradeoff review, boundary checks, and low-tech Rust-themed object metaphors.
+Ferris is an explicit Rust-community mascot route: a compact orange crab mascot performs the central cognitive action through careful building, sorting, guarding, lifting, connecting, or repairing. It works well for systems thinking, reliability, ownership, compilation-like flows, tradeoff review, boundary checks, and low-tech Rust-themed object metaphors.
 
 Aliases: `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`.
 
-Route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
-
-Source/trademark authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
-
-Output path contract: `assets/<article-slug>-ferris/`. Docs validation token: `assets/&lt;article-slug&gt;-ferris/`. Output suffix: `ferris`.
-
-Planning fields: Placement, Core idea, Structure type, Ferris state, Ferris action, Supporting objects, Visible labels, Output path, Source/trademark note.
-
-Public rendered Ferris samples enter public sample directories only after the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate approves them.
-
 ### Seal
 
-Seal is an explicit product-neutral hoodie seal route with status `active`: a white rounded seal in a plain navy cap and plain deep-blue hoodie performs the article's central judgment, sequence, handoff, comparison, or repair action. It works well for review, prioritization, source-history awareness, logo-free product-neutral scenarios, and low-tech article metaphors.
+Seal is an explicit product-neutral hoodie seal route: a white rounded seal in a plain navy cap and plain deep-blue hoodie performs the article's central judgment, sequence, handoff, comparison, or repair action. It works well for review, prioritization, source-history awareness, logo-free product-neutral scenarios, and low-tech article metaphors.
 
 Aliases: `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹`.
-
-Route id: `seal`. Default: `false`. Output suffix: `seal`.
-
-Route-local reference directory: `ian-xiaohei-illustrations/references/ips/seal/`.
-
-Source-history authority: `ian-xiaohei-illustrations/references/ips/seal/source.md`. Route metadata: `ian-xiaohei-illustrations/references/routing.md`.
-
-Route behavior: product-neutral hoodie seal article character for judgment, review, sequencing, prioritization, handoff, comparison, and conceptual repair. Seal uses low-tech article metaphors such as maps, stepping stones, bridges, levers, knots, shelves, signposts, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, compasses, and small hand-built machines.
-
-Logo-free boundary: Seal outputs preserve the hoodie seal identity: white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail. Cap, hoodie chest, mascot body, props, and scene stay plain and mark-free. Public rendered Seal samples require release review for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality. Release review is governed by `RELEASE_CHECKLIST.md`.
-
-Output path contract: `assets/<article-slug>-seal/`. Docs validation token: `assets/&lt;article-slug&gt;-seal/`. Output suffix: `seal`.
 
 ### Route Reference
 
@@ -121,6 +93,12 @@ Canonical packs:
 - Seal: `ian-xiaohei-illustrations/references/ips/seal/`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
 
 When one request asks for multiple visual IPs, deliver by separate variant group and write each group into its own output directory. Xiaohei is the implicit default route; Littlebox is an explicit active route; Tom is an explicit protected-character route with status `gated-authorized`; Ferris is an explicit Rust-community mascot route with status `source-reviewed`; Seal is an explicit product-neutral hoodie seal route with status `active`.
+
+Operational route facts:
+
+- Tom: current status `gated-authorized`; rights path `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
+- Ferris: Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording. Source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate.
+- Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
 
 ---
 
