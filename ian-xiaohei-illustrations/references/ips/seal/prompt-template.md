@@ -1,16 +1,16 @@
 # Sealos Seal Prompt Template
 
-Use this file after selecting the `sealos` route. Planning and delivery notes follow the user's language. Image-generation prompts stay English for model consistency. Visible labels are copied exactly in the user's language.
+Use this file after selecting the `seal` route. Planning and delivery notes follow the user's language. Image-generation prompts stay English for model consistency. Visible labels are copied exactly in the user's language.
 
-Route id: `sealos`.
+Route id: `seal`.
 Route status: `brand-owned`.
-Output path: `assets/<article-slug>-sealos/`.
+Output path: `assets/<article-slug>-seal/`.
 Brand/canonical-image authority: `source.md`.
 Canonical image status: `uploaded-image-canonical`.
 Drift boundary: `uploaded-image-locked`.
 Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
 Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
-Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`.
+Save accepted Sealos output under `assets/<article-slug>-seal/` with an ordered English slug filename such as `01-topic-name.png`.
 No-logo markers: plain navy cap with no logo, plain deep-blue hoodie chest with no logo, no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
 
 ## Planning Output Format
@@ -27,7 +27,7 @@ Use this format for Sealos Seal shot lists:
    Mascot action: [the physical cognitive action Sealos Seal performs]
    Supporting objects: [1-2 cloud-developer low-tech objects: cloud OS tiles, deployment rails, DevBox workbenches, database cylinders, Kubernetes pods, app launch pads, traffic routes, incident cones, log slips, config keys, health checks, rollback handles, workflow gates, or service bridges]
    Visible labels: ["short label 1", "short label 2", "short label 3" copied exactly in the user's language]
-   Output path: assets/<article-slug>-sealos/
+   Output path: assets/<article-slug>-seal/
    Brand/canonical-image note: Sealos Seal is a brand-owned route; preserve the uploaded white seal mascot with plain navy cap with no logo, plain deep-blue hoodie chest with no logo, and fixed identity markers from source.md.
    No-logo note: keep cap, hoodie chest, mascot body, props, and scene free of cap logo, chest logo, mascot logos, logo patches, logo-like wave/cloud marks, emblems, and text badges.
 ```
@@ -69,7 +69,7 @@ Cloud-developer article metaphor: use cloud OS, AI deployment, DevBox, database,
 
 Visible handwritten labels, copied exactly in the user's language: [quoted labels]. Keep labels concise, sparse, legible, and drawn as rough handwritten text. For non-Latin scripts, copy the label text exactly, preserve the script, and do not translate it.
 
-Save reminder: save accepted output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`. Delivery must report that cap, hoodie chest, mascot body, props, and scene contain no logo.
+Save reminder: save accepted output under `assets/<article-slug>-seal/` with an ordered English slug filename such as `01-topic-name.png`. Delivery must report that cap, hoodie chest, mascot body, props, and scene contain no logo.
 
 Constraints: one image explains one core idea. Keep Sealos Seal as the central cognitive action subject. Use no generic seal drift, no abstract logo creature drift, no logo-bearing mascot variants, no missing cap, no missing hoodie, no cap logo, no chest logo, no mascot logo, no logo patches, no logo-like wave/cloud mark, no emblem, no text badge, no generated logo approximation, no generated logo tracing, no redrawn logo, no alternate wave mark, no simplified logo mark, no changed body color, no passive mascot placement, no over-detailed 3D toy drift, no excessive text, no route leakage, no missing side-rear tail, no missing glossy dark eyes, no missing black nose, no missing whisker dots, no missing small smile, no missing short rounded flippers, no missing compact legs, no prior exploration variant drift, no bald/plain-head seal drift, no formal diagrams, no dense PPT-like infographics, no UI screenshots, no IDE scenes, no terminal scenes, no code screenshots, no poster layouts, no top-left titles, no clean digital font labels, no crowded nodes, and no copied prior composition.
 

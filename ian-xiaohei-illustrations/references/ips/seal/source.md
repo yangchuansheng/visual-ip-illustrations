@@ -5,7 +5,7 @@
 - Character route: Sealos Seal.
 - Source context: Sealos brand mascot route based on the user's uploaded mascot image.
 - Route status: `brand-owned`.
-- Canonical route record: `references/ips/sealos/source.md`.
+- Canonical route record: `references/ips/seal/source.md`.
 - Canonical Sealos Seal reference for v1.3: the user's uploaded mascot image.
 
 ## Brand Context
@@ -84,7 +84,7 @@ The Sealos Seal route must preserve these uploaded-image markers:
 ## Sample Policy
 
 - Public rendered Sealos Seal samples: pending explicit release approval.
-- Internal review samples: allowed under `assets/<article-slug>-sealos/` when this source record and the brand/canonical-image note stay attached.
+- Internal review samples: allowed under `assets/<article-slug>-seal/` when this source record and the brand/canonical-image note stay attached.
 - Sample approval record: reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, and no-logo outcome must be recorded before public sample publication.
 
 ## Drift Boundary

@@ -9,15 +9,15 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 - `小盒`, `Littlebox`, `纸盒`, `paper-box`, and `carton` select the same `littlebox` route.
 - `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫` select the same `tom` route and keep route status `gated-authorized`.
 - `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹` select the same `ferris` route and keep route status `source-reviewed`.
-- `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, and `blue hoodie seal` select the same `sealos` route and keep route status `brand-owned`.
-- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, and Sealos Seal create separate route groups. Compatibility marker: 每个 route group 只加载自己的 `required_references`; each group writes to its own output directory.
+- `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, and `蓝色连帽衫海豹` select the same `seal` route and keep route status `active`.
+- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, and Seal create separate route groups. Compatibility marker: 每个 route group 只加载自己的 `required_references`; each group writes to its own output directory.
 - Routes store only selection, references, output suffixes, and attribution context. Style, character identity, prompt wording, and QA rules live in the selected IP's reference files.
 - Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Ferris route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
 - Ferris source/trademark authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
-- Sealos Seal is an explicit brand mascot route with status brand-owned; generated public Sealos samples require release review for uploaded-image identity, no-logo mascot identity, and Sealos brand wording.
-- Sealos Seal route-local reference directory: `ian-xiaohei-illustrations/references/ips/sealos/`.
-- Sealos Seal brand/canonical-image authority: `ian-xiaohei-illustrations/references/ips/sealos/source.md`.
+- Seal is an explicit hoodie seal route with status active; generated public Seal samples require release review for hoodie seal identity and no-logo mascot identity.
+- Seal route-local reference directory: `ian-xiaohei-illustrations/references/ips/seal/`.
+- Seal source-history authority: `ian-xiaohei-illustrations/references/ips/seal/source.md`.
 
 ## IP Routes
 
@@ -27,16 +27,16 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 | `littlebox` | Littlebox | `小盒`, `Littlebox`, `纸盒`, `paper-box`, `carton` | `false` | `littlebox` | `references/ips/littlebox/style-dna.md`; `references/ips/littlebox/littlebox-ip.md`; `references/ips/littlebox/composition-patterns.md`; `references/ips/littlebox/language-and-labels.md`; `references/ips/littlebox/prompt-template.md`; `references/ips/littlebox/qa-checklist.md` | 5km Littlebox Illustrations by okooo5km; source https://github.com/okooo5km/5km-littlebox-illustrations; MIT; inspected commit 37cd93e | `active` |
 | `tom` | Tom | `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫` | `false` | `tom` | `references/ips/tom/index.md`; `references/ips/tom/rights.md`; `references/ips/tom/style-dna.md`; `references/ips/tom/tom-ip.md`; `references/ips/tom/composition-patterns.md`; `references/ips/tom/prompt-template.md`; `references/ips/tom/qa-checklist.md` | Tom and Jerry / Tom source context; attribution records source identity while permission remains authorization-scope specific through `references/ips/tom/rights.md` | `gated-authorized` |
 | `ferris` | Ferris | `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹` | `false` | `ferris` | `references/ips/ferris/index.md`; `references/ips/ferris/source.md`; `references/ips/ferris/style-dna.md`; `references/ips/ferris/ferris-ip.md`; `references/ips/ferris/composition-patterns.md`; `references/ips/ferris/prompt-template.md`; `references/ips/ferris/qa-checklist.md` | Ferris source context from `rustacean.net` and Karen Rustad Tolva; attribution records source context while Rust trademark boundary is governed through `references/ips/ferris/source.md` | `source-reviewed` |
-| `sealos` | Sealos Seal | `Sealos Seal`, `Sealos mascot`, `Sealos 吉祥物`, `Sealos 海豹`, `white Sealos seal`, `blue hoodie seal` | `false` | `sealos` | `references/ips/sealos/index.md`; `references/ips/sealos/source.md`; `references/ips/sealos/style-dna.md`; `references/ips/sealos/sealos-ip.md`; `references/ips/sealos/composition-patterns.md`; `references/ips/sealos/prompt-template.md`; `references/ips/sealos/qa-checklist.md` | Sealos uploaded mascot image; attribution records uploaded-image authority, no-logo mascot identity, and brand/canonical-image boundary through `references/ips/sealos/source.md` | `brand-owned` |
+| `seal` | Seal | `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹` | `false` | `seal` | `references/ips/seal/index.md`; `references/ips/seal/source.md`; `references/ips/seal/style-dna.md`; `references/ips/seal/seal-ip.md`; `references/ips/seal/composition-patterns.md`; `references/ips/seal/prompt-template.md`; `references/ips/seal/qa-checklist.md` | Historical Sealos uploaded mascot image source context; attribution records hoodie seal identity, no-logo mascot identity, and source-history boundary through `references/ips/seal/source.md` | `active` |
 
-## Sealos Seal Metadata
+## Seal Metadata
 
-- `brand_context`: reliable cloud developer companion tied to Sealos cloud OS, AI-native deployment, DevBox, databases, app deployment, and Kubernetes
+- `source_history`: former Sealos Seal route identity migrated to product-neutral Seal
 - `canonical_image_status`: uploaded-image-canonical
 - `drift_boundary`: uploaded-image-locked
 - Fixed visual markers: white rounded seal body, plain navy cap with no logo, plain deep-blue hoodie chest with no logo, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
 - No-logo markers: no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
-- Authority boundary: the uploaded mascot image is the v1.3 shape authority; prior Sealos mascot exploration supplies supporting brand context.
+- Authority boundary: the uploaded mascot image is the v1.3 shape authority; prior Sealos context remains historical source evidence.
 
 ## Legacy Path Availability
 
@@ -58,9 +58,9 @@ Root Xiaohei reference paths remain available during migration and point to cano
 - `tom` filenames use ordered English slugs such as `01-topic-name.png`.
 - `ferris` output directory is `assets/<article-slug>-ferris/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-ferris/`.
 - `ferris` filenames use ordered English slugs such as `01-topic-name.png`.
-- `sealos` output directory is `assets/<article-slug>-sealos/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-sealos/`.
-- `sealos` filenames use ordered English slugs such as `01-topic-name.png`.
-- Mixed-IP requests split by IP into separate route groups: `xiaohei` 写入 `assets/<article-slug>-illustrations/`, `littlebox` 写入 `assets/<article-slug>-littlebox/`, `tom` 写入 `assets/<article-slug>-tom/`, `ferris` 写入 `assets/<article-slug>-ferris/`, and `sealos` writes to `assets/<article-slug>-sealos/`.
+- `seal` output directory is `assets/<article-slug>-seal/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-seal/`.
+- `seal` filenames use ordered English slugs such as `01-topic-name.png`.
+- Mixed-IP requests split by IP into separate route groups: `xiaohei` 写入 `assets/<article-slug>-illustrations/`, `littlebox` 写入 `assets/<article-slug>-littlebox/`, `tom` 写入 `assets/<article-slug>-tom/`, `ferris` 写入 `assets/<article-slug>-ferris/`, and `seal` writes to `assets/<article-slug>-seal/`.
 - Before output, inspect the target directory and choose a new filename to preserve historical results.
 
 ## Delivery Report Fields

@@ -1,14 +1,14 @@
 # Sealos Seal IP
 
-Route id: `sealos`.
+Route id: `seal`.
 Route status: `brand-owned`.
-Output path: `assets/<article-slug>-sealos/`.
+Output path: `assets/<article-slug>-seal/`.
 Brand/canonical-image authority: `source.md`.
 Canonical image status: `uploaded-image-canonical`.
 Drift boundary: `uploaded-image-locked`.
 Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
 Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
-Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`.
+Save accepted Sealos output under `assets/<article-slug>-seal/` with an ordered English slug filename such as `01-topic-name.png`.
 
 ## Core Identity
 

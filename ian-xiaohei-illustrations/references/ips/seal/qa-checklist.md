@@ -2,15 +2,15 @@
 
 Use this gate before delivering, regenerating, or editing a Sealos-route output.
 
-Route id: `sealos`.
+Route id: `seal`.
 Route status: `brand-owned`.
-Output path: `assets/<article-slug>-sealos/`.
+Output path: `assets/<article-slug>-seal/`.
 Brand/canonical-image authority: `source.md`.
 Canonical image status: `uploaded-image-canonical`.
 Drift boundary: `uploaded-image-locked`.
 Public rendered Sealos samples remain gated by `RELEASE_CHECKLIST.md`.
 Sealos route block: generic seal drift, abstract logo creature drift, logo-bearing mascot variants, missing cap, missing hoodie, cap logo, chest logo, mascot logo, logo patch, changed body color, passive mascot placement, over-detailed 3D toy drift, excessive text, and route leakage all fail the route.
-Save accepted Sealos output under `assets/<article-slug>-sealos/` with an ordered English slug filename such as `01-topic-name.png`.
+Save accepted Sealos output under `assets/<article-slug>-seal/` with an ordered English slug filename such as `01-topic-name.png`.
 No-logo markers: plain navy cap with no logo, plain deep-blue hoodie chest with no logo, no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
 
 Sealos QA brand/canonical-image gate.
@@ -29,7 +29,7 @@ Sealos QA uploaded-image identity gate.
 - Brand/canonical-image note is present in planning, generation, edit, and delivery context.
 - Visible labels are sparse labels, readable, short, and copied exactly in the user's language.
 - The composition preserves route isolation for Sealos and keeps Xiaohei, Littlebox, Tom, and Ferris identities outside the Sealos route.
-- Delivery path uses `assets/<article-slug>-sealos/`.
+- Delivery path uses `assets/<article-slug>-seal/`.
 
 ## Uploaded-Image Identity Checks
 
@@ -92,7 +92,7 @@ Regenerate or edit when:
 - The image has excessive text, full-sentence annotations, bilingual clutter, clean digital typography, or labels crowding the mascot's face, cap, plain hoodie chest, flippers, or tail.
 - The image becomes formal diagrams, dense PPT-like infographics, UI screenshots, IDE or terminal scenes, code screenshots, poster layouts, top-left title artifacts, dense text blocks, or clean digital labels.
 - The scene uses copied prior route compositions, previous pack examples, source image pose copying, or a reused route metaphor instead of a fresh article metaphor.
-- The output lacks Brand/canonical-image note or path reminder for `assets/<article-slug>-sealos/`.
+- The output lacks Brand/canonical-image note or path reminder for `assets/<article-slug>-seal/`.
 - The output lacks active Mascot action or route isolation.
 - The visual metaphor still works after removing Sealos Seal from the scene.
 
@@ -111,4 +111,4 @@ Sealos QA unaffected-content preservation gate: edit only the named failure and 
 
 ## Delivery Judgment
 
-Accepted Sealos images keep Sealos Seal as the action subject, preserve uploaded-image identity markers, keep cap, hoodie chest, mascot body, props, and scene logo-free, explain one article idea through an original article metaphor, carry the Brand/canonical-image note, point uploaded-image-sensitive use to `source.md`, preserve route isolation, report no-logo delivery status, and report the saved output path under `assets/<article-slug>-sealos/`.
+Accepted Sealos images keep Sealos Seal as the action subject, preserve uploaded-image identity markers, keep cap, hoodie chest, mascot body, props, and scene logo-free, explain one article idea through an original article metaphor, carry the Brand/canonical-image note, point uploaded-image-sensitive use to `source.md`, preserve route isolation, report no-logo delivery status, and report the saved output path under `assets/<article-slug>-seal/`.
