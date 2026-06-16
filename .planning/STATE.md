@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.8
 milestone_name: Go Gopher Visual IP Integration
 status: executing
-stopped_at: Milestone v1.8 Go Gopher Visual IP Integration initialized
-last_updated: "2026-06-16T18:09:02.346Z"
+stopped_at: Completed 38-01-PLAN.md
+last_updated: "2026-06-16T18:22:04.694Z"
 last_activity: 2026-06-16 — Milestone v1.8 roadmap created
 progress:
   total_phases: 5
   completed_phases: 0
-  total_plans: 5
-  completed_plans: 0
+  total_plans: 2
+  completed_plans: 1
   percent: 0
 ---
 
@@ -126,6 +126,7 @@ Last activity: 2026-06-16 — Milestone v1.8 roadmap created
 | Phase 30 P02 | 8min | 2 tasks | 3 files |
 | Phase 31 P01 | 34min | 3 tasks | 6 files |
 | Phase 32 P01 | 24min | 3 tasks | 5 files |
+| Phase 38 P38-01 | 12 min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -244,6 +245,8 @@ Recent decisions affecting current work:
 - [Milestone v1.8]: Go Gopher Visual IP Integration adds a new explicit source-reviewed route with route id gopher, display name Go Gopher, output suffix gopher, and output directory assets/<article-slug>-gopher/.
 - [Milestone v1.8]: Local `gopher.png` is the visual authority for the Go Gopher route, while source records cite Go project page context, Renee French attribution, and Creative Commons Attribution 4.0.
 - [Milestone v1.8]: Planned phases 38-42 cover source and route contract, canonical pack, skill controller integration, public documentation and release surface, validation hardening, and release evidence.
+- [Phase 38]: Go Gopher is an explicit source-reviewed route with id gopher, display name Go Gopher, output suffix gopher, and default=false; Xiaohei remains the omitted-IP default. — Phase 38 delivers only the source and route contract while later phases expand pack, controller, docs, and validation.
+- [Phase 38]: Root gopher.png remains the local visual authority input for Phase 38 and stays untracked per plan scope. — The source record references the root image directly while asset relocation and canonical pack expansion stay in later phases.
 
 ### Pending Todos
 
@@ -294,6 +297,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-16T17:43:12Z
-Stopped at: Milestone v1.8 Go Gopher Visual IP Integration initialized
+Last session: 2026-06-16T18:20:45.007Z
+Stopped at: Completed 38-01-PLAN.md
 Resume file: None

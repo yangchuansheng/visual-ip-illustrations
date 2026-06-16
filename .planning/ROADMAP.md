@@ -17,7 +17,7 @@ v1.8 adds Go Gopher as an explicit source-reviewed mascot route. The milestone p
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 38: Go Gopher Source and Route Contract** - Users can select Go Gopher through an explicit source-reviewed route with stable aliases, `default=false`, route id `gopher`, output suffix `gopher`, output path `assets/<article-slug>-gopher/`, source/license authority, and local `gopher.png` visual authority.
+- [x] **Phase 38: Go Gopher Source and Route Contract** - Users can select Go Gopher through an explicit source-reviewed route with stable aliases, `default=false`, route id `gopher`, output suffix `gopher`, output path `assets/<article-slug>-gopher/`, source/license authority, and local `gopher.png` visual authority. (completed 2026-06-16)
 - [ ] **Phase 39: Go Gopher Canonical Pack** - Users can plan, prompt, edit, and QA Go Gopher article illustrations through route-local references that preserve the local `gopher.png` mascot identity.
 - [ ] **Phase 40: Go Gopher Skill Controller Integration** - Users can invoke Go Gopher through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable.
 - [ ] **Phase 41: Public Documentation and Release Surface** - Users and maintainers can learn, invoke, review, and release Go Gopher through README, examples, NOTICE, release checklist, skill instructions, and agent metadata.
@@ -41,7 +41,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 1 plan
 
 Plans:
-- [ ] 38-01-PLAN.md — Go Gopher source and route contract
+
+- [x] 38-01-PLAN.md — Go Gopher source and route contract
 
 ### Phase 39: Go Gopher Canonical Pack
 
@@ -110,7 +111,7 @@ Phases execute in numeric order: 38 -> 39 -> 40 -> 41 -> 42
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 38. Go Gopher Source and Route Contract | 0/1 | Not started | - |
+| 38. Go Gopher Source and Route Contract | 1/1 | Complete   | 2026-06-16 |
 | 39. Go Gopher Canonical Pack | 0/1 | Not started | - |
 | 40. Go Gopher Skill Controller Integration | 0/1 | Not started | - |
 | 41. Public Documentation and Release Surface | 0/1 | Not started | - |

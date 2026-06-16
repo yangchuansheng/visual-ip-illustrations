@@ -7,11 +7,11 @@
 
 ### Route and Source
 
-- [ ] **ROUTE-01**: User can select Go Gopher as an explicit visual IP route through clear Go Gopher aliases while Xiaohei remains the omitted-IP default.
-- [ ] **ROUTE-02**: User can rely on route id `gopher`, display name `Go Gopher`, output suffix `gopher`, and output directory `assets/<article-slug>-gopher/`.
-- [ ] **ROUTE-03**: Maintainer can inspect Go Gopher routing metadata and see all required references, attribution context, route status `source-reviewed`, source authority, and `default=false`.
-- [ ] **SRC-01**: Maintainer can inspect `references/ips/gopher/source.md` and see the Go project source pages, Renee French attribution, Creative Commons Attribution 4.0 license boundary, `gopher.png` visual authority, public sample policy, review owner, and route status.
-- [ ] **SRC-02**: User and maintainer can see that local `gopher.png` is the route visual authority, with stable markers for the Go Gopher character shape, blue body, rounded head, simple eyes, small ears, buck teeth, compact limbs, and friendly standing posture.
+- [x] **ROUTE-01**: User can select Go Gopher as an explicit visual IP route through clear Go Gopher aliases while Xiaohei remains the omitted-IP default.
+- [x] **ROUTE-02**: User can rely on route id `gopher`, display name `Go Gopher`, output suffix `gopher`, and output directory `assets/<article-slug>-gopher/`.
+- [x] **ROUTE-03**: Maintainer can inspect Go Gopher routing metadata and see all required references, attribution context, route status `source-reviewed`, source authority, and `default=false`.
+- [x] **SRC-01**: Maintainer can inspect `references/ips/gopher/source.md` and see the Go project source pages, Renee French attribution, Creative Commons Attribution 4.0 license boundary, `gopher.png` visual authority, public sample policy, review owner, and route status.
+- [x] **SRC-02**: User and maintainer can see that local `gopher.png` is the route visual authority, with stable markers for the Go Gopher character shape, blue body, rounded head, simple eyes, small ears, buck teeth, compact limbs, and friendly standing posture.
 
 ### Go Gopher IP Pack
 
@@ -85,11 +85,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ROUTE-01 | Phase 38 | Pending |
-| ROUTE-02 | Phase 38 | Pending |
-| ROUTE-03 | Phase 38 | Pending |
-| SRC-01 | Phase 38 | Pending |
-| SRC-02 | Phase 38 | Pending |
+| ROUTE-01 | Phase 38 | Complete |
+| ROUTE-02 | Phase 38 | Complete |
+| ROUTE-03 | Phase 38 | Complete |
+| SRC-01 | Phase 38 | Complete |
+| SRC-02 | Phase 38 | Complete |
 | PACK-01 | Phase 39 | Pending |
 | PACK-02 | Phase 39 | Pending |
 | PACK-03 | Phase 39 | Pending |
