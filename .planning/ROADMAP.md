@@ -17,7 +17,7 @@ v1.7 adds OpenClaw as an explicit source-reviewed logo-mascot route. The milesto
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 33: OpenClaw Source and Route Contract** - Users can select OpenClaw through an explicit source-reviewed route with stable aliases, `default=false`, route id `openclaw`, output suffix `openclaw`, output path `assets/<article-slug>-openclaw/`, source/license authority, and uploaded-logo visual authority. (pending)
+- [x] **Phase 33: OpenClaw Source and Route Contract** - Users can select OpenClaw through an explicit source-reviewed route with stable aliases, `default=false`, route id `openclaw`, output suffix `openclaw`, output path `assets/<article-slug>-openclaw/`, source/license authority, and uploaded-logo visual authority. (pending) (completed 2026-06-16)
 - [ ] **Phase 34: OpenClaw Canonical Pack** - Users can plan, prompt, edit, and QA OpenClaw article illustrations through route-local references that preserve the uploaded red logo-mascot identity. (pending)
 - [ ] **Phase 35: OpenClaw Skill Controller Integration** - Users can invoke OpenClaw through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable. (pending)
 - [ ] **Phase 36: Public Documentation and Release Surface** - Users and maintainers can learn, invoke, review, and release OpenClaw through README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (pending)
@@ -38,10 +38,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Source and route metadata name the stable uploaded-logo markers: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
   5. Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, Seal, and OpenClaw remain explicit selectable routes.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 Plans:
 
-- [ ] 33-01-PLAN.md - Add OpenClaw source record, route metadata, aliases, output suffix, output path, and source/license authority.
+- [x] 33-01-PLAN.md - Add OpenClaw source record, route metadata, aliases, output suffix, output path, and source/license authority.
 
 ### Phase 34: OpenClaw Canonical Pack
 
@@ -121,7 +121,7 @@ Phases execute in numeric order: 33 -> 34 -> 35 -> 36 -> 37
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 33. OpenClaw Source and Route Contract | 0/1 | Pending | - |
+| 33. OpenClaw Source and Route Contract | 1/1 | Complete    | 2026-06-16 |
 | 34. OpenClaw Canonical Pack | 0/1 | Pending | - |
 | 35. OpenClaw Skill Controller Integration | 0/1 | Pending | - |
 | 36. Public Documentation and Release Surface | 0/1 | Pending | - |

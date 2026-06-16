@@ -7,11 +7,11 @@
 
 ### Route and Source
 
-- [ ] **ROUTE-01**: User can select OpenClaw as an explicit visual IP route through clear OpenClaw aliases while Xiaohei remains the omitted-IP default.
-- [ ] **ROUTE-02**: User can rely on route id `openclaw`, display name `OpenClaw`, output suffix `openclaw`, and output directory `assets/<article-slug>-openclaw/`.
-- [ ] **ROUTE-03**: Maintainer can inspect OpenClaw routing metadata and see all required references, attribution context, route status, source authority, and `default=false`.
-- [ ] **SRC-01**: Maintainer can inspect `references/ips/openclaw/source.md` and see the official OpenClaw repository, MIT license, OpenClaw Foundation copyright notice, uploaded-logo authority, sample policy, review owner, and route status.
-- [ ] **SRC-02**: User and maintainer can see that the uploaded red OpenClaw logo is the visual authority for the route, with stable markers for red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+- [x] **ROUTE-01**: User can select OpenClaw as an explicit visual IP route through clear OpenClaw aliases while Xiaohei remains the omitted-IP default.
+- [x] **ROUTE-02**: User can rely on route id `openclaw`, display name `OpenClaw`, output suffix `openclaw`, and output directory `assets/<article-slug>-openclaw/`.
+- [x] **ROUTE-03**: Maintainer can inspect OpenClaw routing metadata and see all required references, attribution context, route status, source authority, and `default=false`.
+- [x] **SRC-01**: Maintainer can inspect `references/ips/openclaw/source.md` and see the official OpenClaw repository, MIT license, OpenClaw Foundation copyright notice, uploaded-logo authority, sample policy, review owner, and route status.
+- [x] **SRC-02**: User and maintainer can see that the uploaded red OpenClaw logo is the visual authority for the route, with stable markers for red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
 
 ### OpenClaw IP Pack
 
@@ -77,11 +77,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ROUTE-01 | Phase 33 | Pending |
-| ROUTE-02 | Phase 33 | Pending |
-| ROUTE-03 | Phase 33 | Pending |
-| SRC-01 | Phase 33 | Pending |
-| SRC-02 | Phase 33 | Pending |
+| ROUTE-01 | Phase 33 | Complete |
+| ROUTE-02 | Phase 33 | Complete |
+| ROUTE-03 | Phase 33 | Complete |
+| SRC-01 | Phase 33 | Complete |
+| SRC-02 | Phase 33 | Complete |
 | PACK-01 | Phase 34 | Pending |
 | PACK-02 | Phase 34 | Pending |
 | PACK-03 | Phase 34 | Pending |
