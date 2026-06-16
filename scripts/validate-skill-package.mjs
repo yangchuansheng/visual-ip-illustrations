@@ -140,6 +140,13 @@ const LANGUAGE_ALLOWLIST = [
     rationale: "OpenClaw Chinese route alias compatibility.",
     remediation: "Keep the exact route alias in the Phase 33 route contract.",
   })),
+  ...["Go 吉祥物", "Gopher 吉祥物"].map((token) => ({
+    category: "route aliases",
+    paths: [ROUTING_FILE, "README.md", "examples/prompts.md", "RELEASE_CHECKLIST.md"],
+    token,
+    rationale: "Go Gopher Chinese route alias compatibility.",
+    remediation: "Keep the exact Go Gopher route alias in route-compatible public surfaces.",
+  })),
   {
     category: "prompt placeholders",
     paths: [
@@ -663,6 +670,7 @@ export function outputPathTokens() {
       "assets/<article-slug>-ferris/",
       "assets/<article-slug>-seal/",
       "assets/<article-slug>-openclaw/",
+      "assets/<article-slug>-gopher/",
     ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
@@ -671,6 +679,7 @@ export function outputPathTokens() {
       "assets/&lt;article-slug&gt;-ferris/",
       "assets/&lt;article-slug&gt;-seal/",
       "assets/&lt;article-slug&gt;-openclaw/",
+      "assets/&lt;article-slug&gt;-gopher/",
     ],
   };
 }
@@ -685,6 +694,7 @@ function publicDocsOutputPathTokens() {
       "assets/<article-slug>-ferris/",
       "assets/<article-slug>-seal/",
       "assets/<article-slug>-openclaw/",
+      "assets/<article-slug>-gopher/",
     ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
@@ -693,6 +703,7 @@ function publicDocsOutputPathTokens() {
       "assets/&lt;article-slug&gt;-ferris/",
       "assets/&lt;article-slug&gt;-seal/",
       "assets/&lt;article-slug&gt;-openclaw/",
+      "assets/&lt;article-slug&gt;-gopher/",
     ],
   };
 }
@@ -728,6 +739,15 @@ export function parsePublicOpenClawSampleApproval(releaseChecklistText) {
   return parseOpenClawApprovalLine(approvalLine, "public");
 }
 
+export function parsePublicGopherSampleApproval(releaseChecklistText) {
+  const approvalLine = releaseChecklistText
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("Go Gopher public asset policy for"));
+
+  return parseGopherApprovalLine(approvalLine, "public");
+}
+
 export function parseGeneratedFerrisSampleApproval(releaseChecklistText) {
   const ferrisSection = releaseChecklistText
     .split("## Ferris Source, Trademark, and Public Sample Gate")[1]
@@ -761,6 +781,18 @@ export function parseGeneratedOpenClawSampleApproval(releaseChecklistText) {
     .find((line) => line.includes("Record generated sample review:"));
 
   return parseOpenClawApprovalLine(approvalLine, "generated");
+}
+
+export function parseGeneratedGopherSampleApproval(releaseChecklistText) {
+  const gopherSection = releaseChecklistText
+    .split("## Go Gopher Source, License, and Public Sample Gate")[1]
+    ?.split("## Installable Package Boundary")[0] ?? "";
+  const approvalLine = gopherSection
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("Record generated sample review:"));
+
+  return parseGopherApprovalLine(approvalLine, "generated");
 }
 
 function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
@@ -925,6 +957,47 @@ function emptyOpenClawApproval() {
     sourceLicenseOutcomePresent: false,
     routeIsolationOutcomePresent: false,
     articleMetaphorOutcomePresent: false,
+    complete: false,
+  };
+}
+
+function emptyGopherApproval() {
+  return {
+    found: false,
+    checked: false,
+    status: "",
+    reviewer: "",
+    reviewDate: "",
+    approvalStatus: "",
+    allowedDirectories: [],
+    internalReviewDirectories: [],
+    publicDirectories: [],
+    releaseChannels: "",
+    sourceOutcome: "",
+    attributionOutcome: "",
+    licenseOutcome: "",
+    visualOutcome: "",
+    routeIsolationOutcome: "",
+    logoBoundaryOutcome: "",
+    endorsementBoundaryOutcome: "",
+    articleMetaphorOutcome: "",
+    publicSampleOutcome: "",
+    reviewerPresent: false,
+    datePresent: false,
+    approvalStatusPresent: false,
+    allowedDirectoriesPresent: false,
+    internalReviewDirectoriesPresent: false,
+    publicDirectoriesPresent: false,
+    releaseChannelsPresent: false,
+    sourceOutcomePresent: false,
+    attributionOutcomePresent: false,
+    licenseOutcomePresent: false,
+    visualOutcomePresent: false,
+    routeIsolationOutcomePresent: false,
+    logoBoundaryOutcomePresent: false,
+    endorsementBoundaryOutcomePresent: false,
+    articleMetaphorOutcomePresent: false,
+    publicSampleOutcomePresent: false,
     complete: false,
   };
 }
@@ -1135,6 +1208,151 @@ function parseOpenClawApprovalLine(approvalLine, kind) {
     sourceLicenseOutcomePresent,
     routeIsolationOutcomePresent,
     articleMetaphorOutcomePresent,
+    complete,
+  };
+}
+
+function parseGopherApprovalLine(approvalLine, kind) {
+  if (!approvalLine) {
+    return emptyGopherApproval();
+  }
+
+  const checked = /^\-\s+\[[xX]\]/.test(approvalLine);
+  const recordMatch = approvalLine.match(/:\s*(.+?)(?:\.)?$/);
+  const approvalRecord = recordMatch?.[1] ?? "";
+  const fields = approvalRecord.split(/\s+\/(?=\s)/).map((field) => field.trim().replace(/\.$/, ""));
+  const [
+    status = "",
+    reviewer = "",
+    reviewDate = "",
+    approvalStatus = "",
+    firstDirectoryText = "",
+    secondDirectoryOrChannels = "",
+    releaseChannelsOrSource = "",
+    sourceOrAttribution = "",
+    attributionOrLicense = "",
+    licenseOrVisual = "",
+    visualOrRoute = "",
+    routeOrLogo = "",
+    logoOrEndorsement = "",
+    endorsementOrArticle = "",
+    articleOrPublic = "",
+    publicSampleOutcomeText = "",
+  ] = fields;
+
+  const parseDirectories = (value) =>
+    value
+      .split(/,|;|\band\b/)
+      .map((directory) => directory.trim())
+      .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
+      .filter(Boolean);
+
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
+  const generatedRequiredInternalDirectories = ["assets/<article-slug>-gopher"];
+  const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const allowedDirectories = kind === "public" ? parseDirectories(firstDirectoryText) : [];
+  const internalReviewDirectories = kind === "generated" ? parseDirectories(firstDirectoryText) : [];
+  const publicDirectories = kind === "generated" ? parseDirectories(secondDirectoryOrChannels) : [];
+  const releaseChannels = kind === "public" ? secondDirectoryOrChannels : releaseChannelsOrSource;
+  const sourceOutcome = kind === "public" ? releaseChannelsOrSource : "generated sample uses source record";
+  const attributionOutcome = kind === "public" ? sourceOrAttribution : sourceOrAttribution;
+  const licenseOutcome = kind === "public" ? attributionOrLicense : attributionOrLicense;
+  const visualOutcome = kind === "public" ? licenseOrVisual : licenseOrVisual;
+  const routeIsolationOutcome = kind === "public" ? visualOrRoute : visualOrRoute;
+  const logoBoundaryOutcome = kind === "public" ? routeOrLogo : routeOrLogo;
+  const endorsementBoundaryOutcome = kind === "public" ? logoOrEndorsement : logoOrEndorsement;
+  const articleMetaphorOutcome = kind === "public" ? endorsementOrArticle : endorsementOrArticle;
+  const publicSampleOutcome = kind === "public" ? articleOrPublic || publicSampleOutcomeText : "generated sample gated";
+  const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
+  const datePresent = isValidReviewDate(reviewDate);
+  const approvalStatusPresent =
+    Boolean(approvalStatus) &&
+    !/^approval status$/i.test(approvalStatus) &&
+    /(approved|complete|granted)/i.test(approvalStatus);
+  const allowedDirectoriesPresent =
+    kind === "public" && publicRequiredDirectories.every((directory) => allowedDirectories.includes(directory));
+  const internalReviewDirectoriesPresent =
+    kind === "generated" &&
+    generatedRequiredInternalDirectories.every((directory) => internalReviewDirectories.includes(directory));
+  const publicDirectoriesPresent =
+    kind === "generated" &&
+    generatedRequiredPublicDirectories.every((directory) => publicDirectories.includes(directory));
+  const releaseChannelsPresent = Boolean(releaseChannels) && !/^release channels\.?$/i.test(releaseChannels);
+  const sourceOutcomePresent = Boolean(sourceOutcome) && !/^Go blog source outcome\.?$/i.test(sourceOutcome);
+  const attributionOutcomePresent =
+    Boolean(attributionOutcome) && !/^Renee French attribution outcome\.?$/i.test(attributionOutcome);
+  const licenseOutcomePresent =
+    Boolean(licenseOutcome) && !/^Creative Commons Attribution 4\.0 outcome\.?$/i.test(licenseOutcome);
+  const visualOutcomePresent = Boolean(visualOutcome) && !/^local visual marker outcome\.?$/i.test(visualOutcome);
+  const routeIsolationOutcomePresent =
+    Boolean(routeIsolationOutcome) && !/^route-isolation outcome\.?$/i.test(routeIsolationOutcome);
+  const logoBoundaryOutcomePresent =
+    Boolean(logoBoundaryOutcome) && !/^Go logo boundary outcome\.?$/i.test(logoBoundaryOutcome);
+  const endorsementBoundaryOutcomePresent =
+    Boolean(endorsementBoundaryOutcome) && !/^official endorsement boundary outcome\.?$/i.test(endorsementBoundaryOutcome);
+  const articleMetaphorOutcomePresent =
+    Boolean(articleMetaphorOutcome) && !/^article-metaphor quality outcome\.?$/i.test(articleMetaphorOutcome);
+  const publicSampleOutcomePresent =
+    Boolean(publicSampleOutcome) && !/^public-sample decision\.?$/i.test(publicSampleOutcome);
+  const directoryFieldsPresent =
+    kind === "public" ? allowedDirectoriesPresent : internalReviewDirectoriesPresent && publicDirectoriesPresent;
+  const sharedOutcomesPresent =
+    attributionOutcomePresent &&
+    licenseOutcomePresent &&
+    visualOutcomePresent &&
+    routeIsolationOutcomePresent &&
+    logoBoundaryOutcomePresent &&
+    endorsementBoundaryOutcomePresent &&
+    articleMetaphorOutcomePresent;
+  const complete =
+    checked &&
+    /(approved|complete|granted)/i.test(status) &&
+    !/pending/i.test(status) &&
+    reviewerPresent &&
+    datePresent &&
+    approvalStatusPresent &&
+    !/pending/i.test(approvalStatus) &&
+    directoryFieldsPresent &&
+    releaseChannelsPresent &&
+    sharedOutcomesPresent &&
+    (kind === "public" ? sourceOutcomePresent && publicSampleOutcomePresent : true);
+
+  return {
+    found: true,
+    checked,
+    status,
+    reviewer,
+    reviewDate,
+    approvalStatus,
+    allowedDirectories,
+    internalReviewDirectories,
+    publicDirectories,
+    releaseChannels,
+    sourceOutcome,
+    attributionOutcome,
+    licenseOutcome,
+    visualOutcome,
+    routeIsolationOutcome,
+    logoBoundaryOutcome,
+    endorsementBoundaryOutcome,
+    articleMetaphorOutcome,
+    publicSampleOutcome,
+    reviewerPresent,
+    datePresent,
+    approvalStatusPresent,
+    allowedDirectoriesPresent,
+    internalReviewDirectoriesPresent,
+    publicDirectoriesPresent,
+    releaseChannelsPresent,
+    sourceOutcomePresent,
+    attributionOutcomePresent,
+    licenseOutcomePresent,
+    visualOutcomePresent,
+    routeIsolationOutcomePresent,
+    logoBoundaryOutcomePresent,
+    endorsementBoundaryOutcomePresent,
+    articleMetaphorOutcomePresent,
+    publicSampleOutcomePresent,
     complete,
   };
 }
@@ -1477,6 +1695,9 @@ function requiredPackageFiles() {
     path.join(REFERENCES_DIR, "ips", "ferris", "index.md"),
     path.join(REFERENCES_DIR, "ips", "ferris", "source.md"),
     ...ferrisOperationalRefs(),
+    ...sealOperationalRefs(),
+    ...openclawOperationalRefs(),
+    ...gopherOperationalRefs(),
     ...legacyXiaoheiRefs().map((item) => item.root),
     "README.md",
     "examples/prompts.md",
@@ -1701,6 +1922,18 @@ function assertPhase28CompatibilitySurface() {
     "连帽衫海豹",
     "白色海豹",
     "蓝色连帽衫海豹",
+    "OpenClaw",
+    "openclaw",
+    "OpenClaw logo",
+    "OpenClaw mascot",
+    "OpenClaw 助手",
+    "OpenClaw 吉祥物",
+    "Go Gopher",
+    "Gopher",
+    "golang gopher",
+    "Go mascot",
+    "Go 吉祥物",
+    "Gopher 吉祥物",
   ], "canonical and legacy invocations, Chinese aliases, and visible-label behavior");
 
   const routingText = requireFile(ROUTING_FILE);
@@ -1800,6 +2033,22 @@ function openclawOperationalRefs() {
   return openclawPlannedReferences().map((item) => path.join(PACKAGE_DIR, item));
 }
 
+function gopherPlannedReferences() {
+  return [
+    "references/ips/gopher/index.md",
+    "references/ips/gopher/source.md",
+    "references/ips/gopher/style-dna.md",
+    "references/ips/gopher/gopher-ip.md",
+    "references/ips/gopher/composition-patterns.md",
+    "references/ips/gopher/prompt-template.md",
+    "references/ips/gopher/qa-checklist.md",
+  ];
+}
+
+function gopherOperationalRefs() {
+  return gopherPlannedReferences().map((item) => path.join(PACKAGE_DIR, item));
+}
+
 function sealDriftMarkers() {
   return [
     "generic seals",
@@ -1875,6 +2124,14 @@ function rebrandRouteExpectations() {
       default: "false",
       status: "source-reviewed",
       outputSuffix: "openclaw",
+      referenceCount: 7,
+    },
+    {
+      id: "gopher",
+      aliases: ["Go Gopher", "Gopher", "golang gopher", "Go mascot", "Go 吉祥物", "Gopher 吉祥物"],
+      default: "false",
+      status: "source-reviewed",
+      outputSuffix: "gopher",
       referenceCount: 7,
     },
   ];
@@ -2237,6 +2494,18 @@ const checks = [
       "allow_implicit_invocation: true",
     ], "OpenClaw discovery metadata, source-reviewed route status, and default Xiaohei preservation");
   }),
+  defineCheck("AGENT-GOPHER-001", "openai.yaml exposes Go Gopher source-reviewed route metadata markers", () => {
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "Visual IP Illustrations",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+      "default Xiaohei",
+      "Go Gopher",
+      "explicit Go Gopher article-mascot route (source-reviewed)",
+      "source-reviewed article-mascot route",
+      "allow_implicit_invocation: true",
+    ], "Go Gopher discovery metadata, source-reviewed route status, and default Xiaohei preservation");
+  }),
   defineCheck("ROUTE-TABLE-001", "routing.md exposes the required route metadata columns and rows", () => {
     const text = requireFile(ROUTING_FILE);
     const columns = markdownTableHeader(text, "IP Routes");
@@ -2257,6 +2526,7 @@ const checks = [
       "ferris",
       "seal",
       "openclaw",
+      "gopher",
     ], ROUTING_FILE, "route ids");
   }),
   defineCheck("ROUTE-XH-001", "routing.md preserves the Xiaohei active route contract", () => {
@@ -2431,6 +2701,39 @@ const checks = [
       "assets/&lt;article-slug&gt;-seal/",
     ], "Seal image status, drift boundary, and path tokens");
   }),
+  defineCheck("ROUTE-GOPHER-001", "routing.md preserves the Go Gopher source-reviewed route contract", () => {
+    const row = routeById("gopher");
+    const references = routeReferencePaths(row);
+    assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
+      "Go Gopher",
+      "Gopher",
+      "golang gopher",
+      "Go mascot",
+      "Go 吉祥物",
+      "Gopher 吉祥物",
+      "gopher",
+      "source-reviewed",
+      "https://go.dev/blog/gopher",
+      "Renee French",
+      "Creative Commons Attribution 4.0",
+      "root `gopher.png`",
+      "Go logo identity",
+      "official Go project affiliation",
+      "references/ips/gopher/source.md",
+    ], "Go Gopher display name, aliases, suffix, source/license authority, local visual authority, source record, and status");
+    if (row.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected gopher default=false; observed ${row.default || "missing"}`);
+    }
+    if (row.output_suffix !== "gopher") {
+      throw new Error(`${ROUTING_FILE} expected gopher output_suffix=gopher; observed ${row.output_suffix || "missing"}`);
+    }
+    if (references.join("\n") !== gopherPlannedReferences().join("\n")) {
+      throw new Error(
+        `${ROUTING_FILE} expected gopher required_references=${gopherPlannedReferences().join(", ")}; observed ${references.join(", ") || "none"}`,
+      );
+    }
+    assertExistingFiles(gopherPlannedReferences().map((reference) => path.join(PACKAGE_DIR, reference)), ROUTING_FILE, "Phase 42 Go Gopher seven-file pack existence");
+  }),
   defineCheck("ROUTE-DEFAULT-001", "routing.md keeps Xiaohei as the only default active route", () => {
     const rows = routeRows();
     const defaults = rows.filter((row) => row.default === "true").map((row) => row.id);
@@ -2457,11 +2760,15 @@ const checks = [
     if (openclaw.default !== "false") {
       throw new Error(`${ROUTING_FILE} expected openclaw default=false; observed ${openclaw.default || "missing"}`);
     }
+    const gopher = routeById("gopher");
+    if (gopher.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected gopher default=false; observed ${gopher.default || "missing"}`);
+    }
   }),
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7, openclaw: 7 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7, openclaw: 7, gopher: 7 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -2500,6 +2807,14 @@ const checks = [
             throw new Error(`${ROUTING_FILE} expected openclaw reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/openclaw/`);
           }
         }
+        if (row.id === "gopher") {
+          if (!reference.startsWith("references/ips/gopher/")) {
+            throw new Error(`${ROUTING_FILE} expected gopher reference ${reference} under references/ips/gopher/`);
+          }
+          if (!displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/gopher/`)) {
+            throw new Error(`${ROUTING_FILE} expected gopher reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/gopher/`);
+          }
+        }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
         }
@@ -2513,6 +2828,7 @@ const checks = [
     const ferris = routeById("ferris");
     const seal = routeById("seal");
     const openclaw = routeById("openclaw");
+    const gopher = routeById("gopher");
     if (xiaohei.output_suffix !== "illustrations") {
       throw new Error(`${ROUTING_FILE} expected xiaohei output_suffix=illustrations; observed ${xiaohei.output_suffix}`);
     }
@@ -2531,6 +2847,9 @@ const checks = [
     if (openclaw.output_suffix !== "openclaw") {
       throw new Error(`${ROUTING_FILE} expected openclaw output_suffix=openclaw; observed ${openclaw.output_suffix}`);
     }
+    if (gopher.output_suffix !== "gopher") {
+      throw new Error(`${ROUTING_FILE} expected gopher output_suffix=gopher; observed ${gopher.output_suffix}`);
+    }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
@@ -2542,6 +2861,8 @@ const checks = [
       "assets/&lt;article-slug&gt;-seal/",
       "assets/<article-slug>-openclaw/",
       "assets/&lt;article-slug&gt;-openclaw/",
+      "assets/<article-slug>-gopher/",
+      "assets/&lt;article-slug&gt;-gopher/",
     ], "output suffix to output directory mapping");
   }),
   defineCheck("ROUTE-MIXED-001", "routing.md preserves mixed-IP separate route group wording", () => {
@@ -2554,6 +2875,7 @@ const checks = [
       "`ferris` 写入 `assets/<article-slug>-ferris/`",
       "`seal` writes to `assets/<article-slug>-seal/`",
       "`openclaw` writes to `assets/<article-slug>-openclaw/`",
+      "`gopher` writes to `assets/<article-slug>-gopher/`",
     ], "mixed-IP isolated reference and output-directory wording");
   }),
   defineCheck("REFS-XH-001", "Xiaohei canonical operational references and index exist", () => {
@@ -2677,6 +2999,43 @@ const checks = [
       "route leakage",
       "copied composition",
     ], "OpenClaw route-local shared sample gate and route block markers");
+  }),
+  defineCheck("REFS-GOPHER-001", "Go Gopher canonical route references and shared markers exist", () => {
+    const gopherFiles = gopherOperationalRefs();
+    assertReadableFiles(gopherFiles, path.join(REFERENCES_DIR, "ips", "gopher"), "Go Gopher seven-file pack");
+    for (const relativePath of gopherFiles) {
+      const sharedMarkers = [
+        "gopher",
+        "source.md",
+        "source-reviewed",
+        "assets/<article-slug>-gopher/",
+        "root `gopher.png`",
+        "Renee French",
+        "Creative Commons Attribution 4.0",
+      ];
+      assertIncludes(requireFile(relativePath), relativePath, sharedMarkers, "Go Gopher route-local shared operational markers");
+    }
+    assertIncludes(combinedText([
+      path.join(REFERENCES_DIR, "ips", "gopher", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "gopher", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "ips", "gopher", "qa-checklist.md"),
+    ]), path.join(REFERENCES_DIR, "ips", "gopher"), [
+      "Go Gopher route block",
+      "Public-sample boundary",
+      "generic blue mascot drift",
+      "realistic animal drift",
+      "missing ears",
+      "missing large simple eyes",
+      "missing buck teeth",
+      "missing beige muzzle/paws",
+      "missing black outline",
+      "missing white sticker-like border",
+      "Go logo confusion",
+      "official endorsement claims",
+      "passive placement",
+      "route leakage",
+      "copied composition",
+    ], "Go Gopher route-local sample gate, route block, and drift markers");
   }),
   defineCheck("LEGACY-XH-001", "root Xiaohei compatibility files expose the current contract heading", () => {
     for (const item of legacyXiaoheiRefs()) {
@@ -2841,6 +3200,32 @@ const checks = [
       "OpenClaw route block",
     ], "OpenClaw planning fields, generation prompt, source/license note, save reminder, and edit prompt families");
   }),
+  defineCheck("PROMPT-GOPHER-001", "Go Gopher prompt template preserves planning, generation, edit, and source markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "gopher", "prompt-template.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Go Gopher planning fields gate",
+      "Placement",
+      "Core idea",
+      "Structure type",
+      "Gopher state",
+      "Gopher action",
+      "Supporting objects",
+      "Visible labels",
+      "Output path: `assets/<article-slug>-gopher/`",
+      "root `gopher.png` local visual authority",
+      "Source/license note",
+      "Go Gopher one-image generation gate",
+      "Go Gopher must perform the central cognitive article action",
+      "Accepted Go Gopher images are saved under `assets/<article-slug>-gopher/`",
+      "Stronger Go Gopher Participation",
+      "gopher.png Identity Repair",
+      "Title Removal",
+      "Text Reduction",
+      "Route Leakage Repair",
+      "Unaffected-Content Preservation",
+      "Go Gopher route block",
+    ], "Go Gopher planning fields, generation prompt, source/license note, save reminder, and edit prompt families");
+  }),
   defineCheck("IP-XH-001", "Xiaohei canonical pack preserves objective IP markers", () => {
     const text = combinedText([
       path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
@@ -3002,6 +3387,45 @@ const checks = [
       "generic robot drift",
     ], "OpenClaw source authority, uploaded-logo identity cues, cognitive action gates, article metaphors, drift markers, and output path");
   }),
+  defineCheck("IP-GOPHER-001", "Go Gopher canonical pack preserves local visual identity and action gates", () => {
+    const text = combinedText([
+      path.join(REFERENCES_DIR, "ips", "gopher", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "gopher", "source.md"),
+      path.join(REFERENCES_DIR, "ips", "gopher", "style-dna.md"),
+      path.join(REFERENCES_DIR, "ips", "gopher", "gopher-ip.md"),
+      path.join(REFERENCES_DIR, "ips", "gopher", "composition-patterns.md"),
+    ]);
+    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "gopher"), [
+      "source-reviewed",
+      "source/license authority",
+      "Local visual authority",
+      "root `gopher.png`",
+      "Renee French",
+      "Creative Commons Attribution 4.0",
+      "Go Gopher cognitive-action participation gate",
+      "Go Gopher must perform the central cognitive article action",
+      "article metaphors",
+      "source.md",
+      "blue rounded upright body",
+      "rounded head/body silhouette",
+      "small rounded ears",
+      "large simple eyes",
+      "black nose",
+      "buck teeth",
+      "beige muzzle and paws",
+      "compact limbs",
+      "friendly standing posture",
+      "black outline",
+      "white sticker-like border",
+      "generic blue mascot drift",
+      "realistic animal drift",
+      "Go logo confusion",
+      "official endorsement claims",
+      "passive placement",
+      "route leakage",
+      "copied composition",
+    ], "Go Gopher source authority, local visual identity cues, cognitive action gates, article metaphors, drift markers, and output path");
+  }),
   defineCheck("QA-TOM-001", "Tom QA checklist preserves protected-route pass, fail, repair, and delivery markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "qa-checklist.md");
     assertIncludes(requireFile(relativePath), relativePath, [
@@ -3130,6 +3554,43 @@ const checks = [
       "Accepted OpenClaw images keep OpenClaw as the action subject",
     ], "OpenClaw QA pass criteria, source/license failures, route leakage failure, repair gates, and delivery judgment");
   }),
+  defineCheck("QA-GOPHER-001", "Go Gopher QA checklist preserves source-reviewed pass, fail, repair, and delivery markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "gopher", "qa-checklist.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Go Gopher QA source-reviewed gate.",
+      "Go Gopher QA `gopher.png` identity gate.",
+      "Go Gopher QA source/license note gate.",
+      "Go Gopher QA article-metaphor gate.",
+      "Go Gopher QA route isolation gate.",
+      "Go Gopher performs active cognitive participation.",
+      "Source/license boundary",
+      "Delivery path uses `assets/<article-slug>-gopher/`.",
+      "generic blue mascot drift",
+      "realistic animal drift",
+      "missing ears",
+      "missing large simple eyes",
+      "missing buck teeth",
+      "missing beige muzzle/paws",
+      "missing black outline",
+      "missing white sticker-like border",
+      "Go logo confusion",
+      "official endorsement claims",
+      "passive placement",
+      "excessive text",
+      "route leakage",
+      "copied composition",
+      "Go Gopher QA generic blue mascot drift failure",
+      "Go Gopher QA passive placement failure",
+      "Go Gopher QA route leakage failure",
+      "Stronger Go Gopher Participation",
+      "gopher.png Identity Repair",
+      "Title Removal",
+      "Text Reduction",
+      "Unaffected-content preservation",
+      "Go Gopher QA unaffected-content preservation gate",
+      "Accepted Go Gopher images keep Go Gopher as the action subject",
+    ], "Go Gopher QA pass criteria, source/license failures, route leakage failure, repair gates, and delivery judgment");
+  }),
   defineCheck("RIGHTS-TOM-001", "Tom rights record preserves required Phase 6 rights markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "rights.md");
     assertIncludes(requireFile(relativePath), relativePath, [
@@ -3229,6 +3690,48 @@ const checks = [
       "route-isolation outcome",
       "article-metaphor quality outcome",
     ], "OpenClaw source headings, official repository, snapshot, MIT license, copyright, uploaded-logo markers, route status, output path, and sample gate");
+  }),
+  defineCheck("SOURCE-GOPHER-001", "Go Gopher source record preserves source, license, local visual, and sample gate markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "gopher", "source.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "# Go Gopher Source Record",
+      "## Source",
+      "## Character Authority",
+      "## Local Gopher Visual Markers",
+      "## Sample Policy",
+      "## Route Status",
+      "## Allowed Use",
+      "## Restricted Use",
+      "## Distribution Boundary",
+      "## Review Owner",
+      "https://go.dev/blog/gopher",
+      "Renee French",
+      "Creative Commons Attribution 4.0",
+      "root `gopher.png`",
+      "source-reviewed",
+      "blue rounded upright body",
+      "rounded head/body silhouette",
+      "small rounded ears",
+      "large simple eyes",
+      "black nose",
+      "buck teeth",
+      "beige muzzle and paws",
+      "compact limbs",
+      "friendly standing posture",
+      "black outline",
+      "white sticker-like border",
+      "assets/<article-slug>-gopher/",
+      "references/ips/gopher/source.md",
+      "Public generated Go Gopher samples require release review",
+      "Go blog source outcome",
+      "Renee French attribution outcome",
+      "Creative Commons Attribution 4.0 outcome",
+      "local visual marker outcome",
+      "route-isolation outcome",
+      "Go logo boundary outcome",
+      "official affiliation/approval/sponsorship/endorsement outcome",
+      "article-metaphor quality outcome",
+    ], "Go Gopher source headings, Go blog source, attribution, license, root visual authority, route status, output path, and sample gate");
   }),
   defineCheck("LOGO-SEAL-001", "Seal route keeps mascot logo-free", () => {
     const routeLocalFiles = [
@@ -3358,9 +3861,12 @@ const checks = [
       "ian-xiaohei-illustrations/references/ips/seal/",
       "ian-xiaohei-illustrations/references/ips/openclaw/",
       "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+      "ian-xiaohei-illustrations/references/ips/gopher/",
+      "ian-xiaohei-illustrations/references/ips/gopher/source.md",
       "Xiaohei",
       "Littlebox",
       "OpenClaw",
+      "Go Gopher",
     ], "public route docs, canonical pack paths, and route names");
   }),
   defineCheck("DOC-TOM-001", "public docs expose Tom gated route markers", () => {
@@ -3496,6 +4002,62 @@ const checks = [
       "OpenClaw docs, metadata, source/license authority, path-token consistency, public sample policy, and validator ownership markers",
     );
   }),
+  defineCheck("DOC-GOPHER-001", "public docs expose Go Gopher source-reviewed route and source/license markers", () => {
+    for (const relativePath of readmeVariantFiles()) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "Go Gopher",
+        "source-reviewed",
+        "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+        "assets/<article-slug>-gopher/",
+        "assets/&lt;article-slug&gt;-gopher/",
+      ], "Go Gopher README variant route status, source/license authority, and path markers");
+    }
+    for (const relativePath of [
+      "README.md",
+      "examples/prompts.md",
+      "RELEASE_CHECKLIST.md",
+      ROUTING_FILE,
+    ]) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "Go Gopher",
+        "source-reviewed",
+        "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+        "assets/<article-slug>-gopher/",
+        "assets/&lt;article-slug&gt;-gopher/",
+      ], "Go Gopher route status, source/license authority, and path markers");
+    }
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Go Gopher Source Attribution and Public Sample Gate",
+      "https://go.dev/blog/gopher",
+      "Renee French",
+      "Creative Commons Attribution 4.0",
+      "Source/license authority: `ian-xiaohei-illustrations/references/ips/gopher/source.md`",
+      "Local visual authority: root `gopher.png`",
+    ], "Go Gopher NOTICE source/license and local visual authority wording");
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "Go Gopher",
+      "source-reviewed",
+      "article-mascot route",
+    ], "Go Gopher agent metadata route status wording");
+    assertIncludes(
+      combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE, OPENAI_AGENT_FILE]),
+      "README.md + examples/prompts.md + NOTICE.md + RELEASE_CHECKLIST.md + routing.md + openai.yaml",
+      [
+        "ian-xiaohei-illustrations/references/ips/gopher/",
+        "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+        "Go Gopher Source and License Review",
+        "Go Gopher Public Asset Policy",
+        "Go Gopher Generated Sample Policy",
+        "root `gopher.png` local visual authority",
+        "source/license authority",
+        "public rendered Go Gopher samples",
+        "Go logo boundary",
+        "official endorsement boundary",
+        "Phase 42",
+      ],
+      "Go Gopher docs, metadata, source/license authority, path-token consistency, public sample policy, and validator ownership markers",
+    );
+  }),
   defineCheck("NOTICE-IAN-001", "NOTICE keeps Ian Xiaohei attribution markers", () => {
     assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
       "Ian Xiaohei Illustrations",
@@ -3577,6 +4139,25 @@ const checks = [
       "Public rendered OpenClaw samples remain gated",
       "public-sample decision",
     ], "OpenClaw NOTICE source/license, uploaded-logo authority, attribution context, and public sample gate");
+  }),
+  defineCheck("NOTICE-GOPHER-001", "NOTICE keeps Go Gopher source attribution and public sample gate markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Go Gopher Source Attribution and Public Sample Gate",
+      "source-reviewed article-mascot route",
+      "Route: Go Gopher",
+      "Route id: `gopher`",
+      "Route status: `source-reviewed`",
+      "Official Go blog source: <https://go.dev/blog/gopher>",
+      "Attribution: Renee French",
+      "License boundary: Creative Commons Attribution 4.0",
+      "Source/license authority: `ian-xiaohei-illustrations/references/ips/gopher/source.md`",
+      "Local visual authority: root `gopher.png`",
+      "Attribution context: Go Gopher source, Renee French attribution, Creative Commons Attribution 4.0 boundary, local `gopher.png` visual authority, route metadata, documentation, and release review",
+      "Public rendered Go Gopher samples remain gated",
+      "public-sample decision",
+      "Go logo boundary outcome",
+      "official endorsement boundary outcome",
+    ], "Go Gopher NOTICE source/license, local visual authority, attribution context, and public sample gate");
   }),
   defineCheck("SMOKE-DEFAULT-001", "examples prompts cover omitted-IP default Xiaohei smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
@@ -3680,6 +4261,25 @@ const checks = [
       "### Smoke: OpenClaw source-reviewed route status",
     ], "text-only explicit OpenClaw route smoke, planning, generation, edit, path, source/license, identity, and public-sample gate prompts");
   }),
+  defineCheck("SMOKE-GOPHER-001", "examples prompts cover explicit Go Gopher route smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "### Smoke: Go Gopher source-reviewed route status",
+      "Text-only maintainer route audit. Use the Go Gopher route",
+      "route status `source-reviewed`",
+      "source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`",
+      "route-local reference directory is `ian-xiaohei-illustrations/references/ips/gopher/`",
+      "planning fields include Placement, Core idea, Structure type, Gopher state, Gopher action, Supporting objects, Visible labels, Output path, Source/license note",
+      "assets/<article-slug>-gopher/",
+      "assets/&lt;article-slug&gt;-gopher/",
+      "root `gopher.png`",
+      "Renee French attribution",
+      "Creative Commons Attribution 4.0 boundary",
+      "Go logo boundary",
+      "official endorsement boundary",
+      "### Explicit Go Gopher: edit existing image",
+      "### Smoke: Go Gopher source-reviewed route status",
+    ], "text-only explicit Go Gopher route smoke, planning, generation, edit, path, source/license, identity, and public-sample gate prompts");
+  }),
   defineCheck("SMOKE-MIXED-001", "examples prompts cover mixed-IP variant smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
       "## Route Notes: Mixed-IP Requests",
@@ -3723,6 +4323,27 @@ const checks = [
       "Expected: OpenClaw variant group uses `ian-xiaohei-illustrations/references/ips/openclaw/`",
       "OpenClaw variant group each use their own route-local references",
     ], "six-route mixed prompt separation, OpenClaw route-local pack, source/license authority, output path, uploaded-logo identity, and public-sample gate");
+  }),
+  defineCheck("SMOKE-MIXED-GOPHER-001", "examples prompts cover seven-route mixed-IP Go Gopher variant behavior", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "seven separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher",
+      "Xiaohei variant group",
+      "Littlebox variant group",
+      "Tom variant group",
+      "Ferris variant group",
+      "Seal variant group",
+      "OpenClaw variant group",
+      "Go Gopher variant group",
+      "Go Gopher canonical pack is at `ian-xiaohei-illustrations/references/ips/gopher/`",
+      "Go Gopher source/license authority is at `ian-xiaohei-illustrations/references/ips/gopher/source.md`",
+      "Go Gopher variant group uses `ian-xiaohei-illustrations/references/ips/gopher/`",
+      "outputs to `assets/<article-slug>-gopher/`",
+      "keeps docs validation token `assets/&lt;article-slug&gt;-gopher/`",
+      "root `gopher.png` local visual authority",
+      "public sample gate",
+      "Expected: Go Gopher variant group uses `ian-xiaohei-illustrations/references/ips/gopher/`",
+      "Go Gopher variant group each use their own route-local references",
+    ], "seven-route mixed prompt separation, Go Gopher route-local pack, source/license authority, output path, root visual identity, and public-sample gate");
   }),
   defineCheck("RELEASE-TOM-001", "release checklist keeps Tom rights and public sample gate markers", () => {
     assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
@@ -3844,6 +4465,37 @@ const checks = [
       "git diff --check",
     ], "OpenClaw release checklist source/license, uploaded-logo identity, leakage, public asset, generated sample, validator, and final review markers");
   }),
+  defineCheck("RELEASE-GOPHER-001", "release checklist keeps Go Gopher source, license, and public sample gates", () => {
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "## Go Gopher Source, License, and Public Sample Gate",
+      "Go Gopher Source and License Review",
+      "Go Gopher Prompt Leakage Scan",
+      "Go Gopher Public Asset Policy",
+      "Go Gopher Generated Sample Policy",
+      "Final Go Gopher Release Review",
+      "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+      "source-reviewed",
+      "https://go.dev/blog/gopher",
+      "Renee French",
+      "Creative Commons Attribution 4.0",
+      "root `gopher.png` local visual authority",
+      "public-sample decision",
+      "Go Gopher public asset policy for",
+      "Record generated sample review",
+      "allowed directories / release channels",
+      "Renee French attribution outcome",
+      "Creative Commons Attribution 4.0 outcome",
+      "local visual marker outcome",
+      "route-isolation outcome",
+      "Go logo boundary outcome",
+      "official endorsement boundary outcome",
+      "article-metaphor quality outcome",
+      "assets/<article-slug>-gopher/",
+      "node scripts/validate-skill-package.mjs",
+      "node --test scripts/validate-skill-package.test.mjs",
+      "git diff --check",
+    ], "Go Gopher release checklist source/license, local visual identity, leakage, public asset, generated sample, validator, and final review markers");
+  }),
   defineCheck("REBRAND-CANON-001", "runtime metadata preserves Visual IP Illustrations canonical identity", () => {
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
       "Visual IP Illustrations",
@@ -3885,7 +4537,7 @@ const checks = [
       "Visual IP Illustrations",
     ], "release checklist rebrand review and alias markers");
   }),
-  defineCheck("REBRAND-CANON-004", "routing docs preserve five stable Visual IP routes", () => {
+  defineCheck("REBRAND-CANON-004", "routing docs preserve stable Visual IP routes", () => {
     assertRebrandRouteTable();
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "Xiaohei",
@@ -3893,12 +4545,16 @@ const checks = [
       "Tom",
       "Ferris",
       "Seal",
+      "OpenClaw",
+      "Go Gopher",
       "illustrations",
       "littlebox",
       "tom",
       "ferris",
       "seal",
-    ], "five route display names and output suffix markers");
+      "openclaw",
+      "gopher",
+    ], "stable route display names and output suffix markers");
   }),
   defineCheck("REBRAND-COMPAT-001", "runtime metadata preserves legacy alias compatibility", () => {
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
@@ -3996,11 +4652,15 @@ const checks = [
       "ian-xiaohei-illustrations/references/ips/tom/rights.md",
       "ian-xiaohei-illustrations/references/ips/ferris/source.md",
       "ian-xiaohei-illustrations/references/ips/seal/source.md",
+      "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+      "ian-xiaohei-illustrations/references/ips/gopher/source.md",
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
       "assets/<article-slug>-tom/",
       "assets/<article-slug>-ferris/",
       "assets/<article-slug>-seal/",
+      "assets/<article-slug>-openclaw/",
+      "assets/<article-slug>-gopher/",
     ], "canonical name, invocation aliases, install markers, route statuses, authority paths, and output paths");
   }),
   defineCheck("LANG-POLICY-001", "language policy names every English-default surface", () => {
@@ -4081,6 +4741,37 @@ const checks = [
       "VAL-04",
       "VAL-05",
     ], "Phase 37 exact command summaries, smoke coverage, docs consistency, leakage, sample gates, and requirement traceability");
+  }),
+  defineCheck("VAL-GOPHER-EVIDENCE-001", "Phase 42 records Go Gopher validation and release evidence", () => {
+    const evidencePath = path.join(
+      ".planning",
+      "phases",
+      "42-go-gopher-validation-and-release-evidence",
+      "42-RELEASE-EVIDENCE.md",
+    );
+    assertIncludes(requireFile(evidencePath), evidencePath, [
+      "# Phase 42 Release Evidence: Go Gopher Validation",
+      "node scripts/validate-skill-package.mjs",
+      "Summary: total=128 passed=128 failed=0 skipped=0",
+      "node --test scripts/validate-skill-package.test.mjs",
+      "tests 96",
+      "pass 96",
+      "fail 0",
+      "git diff --check",
+      "Go Gopher route smoke",
+      "source/license smoke",
+      "docs consistency",
+      "BOUNDARY-GOPHER-LEAK-001",
+      "BOUNDARY-GOPHER-IMG-001",
+      "BOUNDARY-GOPHER-GEN-001",
+      "public rendered Go Gopher samples remain gated",
+      "VAL-01",
+      "VAL-02",
+      "VAL-03",
+      "VAL-04",
+      "VAL-05",
+      "gopher.png remains untracked",
+    ], "Phase 42 exact command summaries, smoke coverage, docs consistency, leakage, sample gates, and requirement traceability");
   }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = legacyImageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
@@ -4201,6 +4892,41 @@ const checks = [
       assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no OpenClaw route text leakage");
     }
   }),
+  defineCheck("BOUNDARY-GOPHER-LEAK-001", "non-Go-Gopher route references keep Go Gopher source-reviewed markers isolated", () => {
+    const leakMarkers = [
+      "Go Gopher",
+      "Gopher mascot",
+      "Go mascot",
+      "Go 吉祥物",
+      "Gopher 吉祥物",
+      "gopher.png",
+      "Renee French",
+      "Creative Commons Attribution 4.0",
+      "Go blog source",
+      "Go logo boundary",
+      "official endorsement boundary",
+      "references/ips/gopher",
+      "assets/<article-slug>-gopher/",
+      "assets/&lt;article-slug&gt;-gopher/",
+    ];
+    const scannedPaths = [
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
+      ...xiaoheiOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
+      ...littleboxOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "tom", "index.md"),
+      ...tomOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "ferris", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "ferris", "source.md"),
+      ...ferrisOperationalRefs(),
+      ...sealOperationalRefs(),
+      ...openclawOperationalRefs(),
+      ...legacyXiaoheiRefs().map((item) => item.root),
+    ];
+    for (const relativePath of scannedPaths) {
+      assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no Go Gopher route text leakage");
+    }
+  }),
   defineCheck("BOUNDARY-TOM-IMG-001", "example asset directories keep Tom rendered assets behind release approval", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parsePublicTomSampleApproval(releaseChecklist);
@@ -4255,6 +4981,19 @@ const checks = [
       );
     }
   }),
+  defineCheck("BOUNDARY-GOPHER-IMG-001", "example asset directories keep Go Gopher rendered assets behind release approval", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parsePublicGopherSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected Go Gopher public asset policy approval record; observed missing line");
+    }
+    const matches = imageAssetPaths().filter((relativePath) => /gopher|go-gopher/i.test(relativePath));
+    if (!approval.complete && matches.length > 0) {
+      throw new Error(
+        `examples/images, examples/images-en, and ${PACKAGE_DIR}/assets/examples expected no rendered Go Gopher assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, Go blog source outcome=${approval.sourceOutcomePresent ? "present" : "missing"}, Renee French attribution outcome=${approval.attributionOutcomePresent ? "present" : "missing"}, Creative Commons Attribution 4.0 outcome=${approval.licenseOutcomePresent ? "present" : "missing"}, local visual marker outcome=${approval.visualOutcomePresent ? "present" : "missing"}, route-isolation outcome=${approval.routeIsolationOutcomePresent ? "present" : "missing"}, Go logo boundary outcome=${approval.logoBoundaryOutcomePresent ? "present" : "missing"}, official endorsement boundary outcome=${approval.endorsementBoundaryOutcomePresent ? "present" : "missing"}, article-metaphor quality outcome=${approval.articleMetaphorOutcomePresent ? "present" : "missing"}, public-sample decision=${approval.publicSampleOutcomePresent ? "present" : "missing"}`,
+      );
+    }
+  }),
   defineCheck("BOUNDARY-FERRIS-GEN-001", "Ferris generated samples stay distinct from public rendered sample release gates", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parseGeneratedFerrisSampleApproval(releaseChecklist);
@@ -4290,6 +5029,18 @@ const checks = [
       "Public rendered samples from `assets/<article-slug>-openclaw/` require OpenClaw Public Asset Policy approval",
       "Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome",
     ], "OpenClaw generated sample workspace and public release distinction");
+  }),
+  defineCheck("BOUNDARY-GOPHER-GEN-001", "Go Gopher generated samples stay distinct from public rendered sample release gates", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parseGeneratedGopherSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected Go Gopher generated sample review record; observed missing line");
+    }
+    assertIncludes(releaseChecklist, "RELEASE_CHECKLIST.md", [
+      "Internal review samples under `assets/<article-slug>-gopher/` may be used",
+      "Public rendered samples from `assets/<article-slug>-gopher/` require Go Gopher Public Asset Policy approval",
+      "Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome",
+    ], "Go Gopher generated sample workspace and public release distinction");
   }),
   defineCheck("BOUNDARY-P5-001", "validator enforces live package and workspace output boundaries", () => {
     for (const row of routeRows()) {

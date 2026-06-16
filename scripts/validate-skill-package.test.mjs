@@ -1646,7 +1646,7 @@ test("validator fixture rejects Seal route metadata drift", () => {
     assert.match(result.stdout, /\[FAIL\] ROUTE-SEAL-001 /);
     assert.match(result.stdout, /\[FAIL\] ROUTE-PATHS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
-    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw; observed xiaohei, littlebox, tom, ferris, sealos, openclaw/);
+    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw, gopher; observed xiaohei, littlebox, tom, ferris, sealos, openclaw, gopher/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2038,7 +2038,7 @@ test("validator fixture reports Go Gopher smoke drift", () => {
   assertGopherSurfaceDrift(
     "smoke",
     "examples/prompts.md",
-    "## Route Smoke: Explicit Go Gopher",
+    "### Smoke: Go Gopher source-reviewed route status",
     "SMOKE-GOPHER-001",
   );
 });
