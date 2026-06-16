@@ -15,11 +15,11 @@
 
 ### OpenClaw IP Pack
 
-- [ ] **PACK-01**: User can read an OpenClaw route-local pack that isolates style, identity, composition, prompt, QA, source, sample policy, and output behavior from other IP routes.
-- [ ] **PACK-02**: User can plan OpenClaw shots with route-specific fields for OpenClaw state, OpenClaw action, core article idea, structure type, objects, labels, and output path.
-- [ ] **PACK-03**: User can generate OpenClaw prompts where the red logo-mascot performs the central cognitive article action in a sparse 16:9 illustration.
-- [ ] **PACK-04**: User can apply OpenClaw edit prompts for stronger participation, uploaded-logo identity repair, title removal, text reduction, and unaffected-content preservation.
-- [ ] **PACK-05**: User can use OpenClaw QA gates that reject generic red mascot drift, missing claws, missing antennae, missing cyan pupils, product-poster drift, passive placement, route leakage, excessive text, and copied composition.
+- [x] **PACK-01**: User can read an OpenClaw route-local pack that isolates style, identity, composition, prompt, QA, source, sample policy, and output behavior from other IP routes.
+- [x] **PACK-02**: User can plan OpenClaw shots with route-specific fields for OpenClaw state, OpenClaw action, core article idea, structure type, objects, labels, and output path.
+- [x] **PACK-03**: User can generate OpenClaw prompts where the red logo-mascot performs the central cognitive article action in a sparse 16:9 illustration.
+- [x] **PACK-04**: User can apply OpenClaw edit prompts for stronger participation, uploaded-logo identity repair, title removal, text reduction, and unaffected-content preservation.
+- [x] **PACK-05**: User can use OpenClaw QA gates that reject generic red mascot drift, missing claws, missing antennae, missing cyan pupils, product-poster drift, passive placement, route leakage, excessive text, and copied composition.
 
 ### Runtime and Public Surface
 
@@ -82,11 +82,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROUTE-03 | Phase 33 | Complete |
 | SRC-01 | Phase 33 | Complete |
 | SRC-02 | Phase 33 | Complete |
-| PACK-01 | Phase 34 | Pending |
-| PACK-02 | Phase 34 | Pending |
-| PACK-03 | Phase 34 | Pending |
-| PACK-04 | Phase 34 | Pending |
-| PACK-05 | Phase 34 | Pending |
+| PACK-01 | Phase 34 | Complete |
+| PACK-02 | Phase 34 | Complete |
+| PACK-03 | Phase 34 | Complete |
+| PACK-04 | Phase 34 | Complete |
+| PACK-05 | Phase 34 | Complete |
 | DOC-01 | Phase 36 | Pending |
 | DOC-02 | Phase 36 | Pending |
 | DOC-03 | Phase 36 | Pending |

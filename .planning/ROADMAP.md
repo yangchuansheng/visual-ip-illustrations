@@ -18,7 +18,7 @@ v1.7 adds OpenClaw as an explicit source-reviewed logo-mascot route. The milesto
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 33: OpenClaw Source and Route Contract** - Users can select OpenClaw through an explicit source-reviewed route with stable aliases, `default=false`, route id `openclaw`, output suffix `openclaw`, output path `assets/<article-slug>-openclaw/`, source/license authority, and uploaded-logo visual authority. (pending) (completed 2026-06-16)
-- [ ] **Phase 34: OpenClaw Canonical Pack** - Users can plan, prompt, edit, and QA OpenClaw article illustrations through route-local references that preserve the uploaded red logo-mascot identity. (pending)
+- [x] **Phase 34: OpenClaw Canonical Pack** - Users can plan, prompt, edit, and QA OpenClaw article illustrations through route-local references that preserve the uploaded red logo-mascot identity. (pending) (completed 2026-06-16)
 - [ ] **Phase 35: OpenClaw Skill Controller Integration** - Users can invoke OpenClaw through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable. (pending)
 - [ ] **Phase 36: Public Documentation and Release Surface** - Users and maintainers can learn, invoke, review, and release OpenClaw through README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (pending)
 - [ ] **Phase 37: OpenClaw Validation and Release Evidence** - Maintainers can verify OpenClaw route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release readiness locally. (pending)
@@ -56,10 +56,10 @@ Plans:
   4. Edit prompts cover stronger participation, uploaded-logo identity repair, title removal, text reduction, and unaffected-content preservation.
   5. QA rejects generic red mascot drift, missing claws, missing antennae, missing cyan pupils, product-poster drift, passive placement, route leakage, excessive text, and copied composition.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 Plans:
 
-- [ ] 34-01-PLAN.md - Create OpenClaw route-local identity, style, composition, prompt, edit, QA, and sample-policy references.
+- [x] 34-01-PLAN.md - Create OpenClaw route-local identity, style, composition, prompt, edit, QA, and sample-policy references.
 
 ### Phase 35: OpenClaw Skill Controller Integration
 
@@ -122,7 +122,7 @@ Phases execute in numeric order: 33 -> 34 -> 35 -> 36 -> 37
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 33. OpenClaw Source and Route Contract | 1/1 | Complete    | 2026-06-16 |
-| 34. OpenClaw Canonical Pack | 0/1 | Pending | - |
+| 34. OpenClaw Canonical Pack | 1/1 | Complete    | 2026-06-16 |
 | 35. OpenClaw Skill Controller Integration | 0/1 | Pending | - |
 | 36. Public Documentation and Release Surface | 0/1 | Pending | - |
 | 37. OpenClaw Validation and Release Evidence | 0/1 | Pending | - |
