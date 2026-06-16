@@ -15,11 +15,11 @@
 
 ### Go Gopher IP Pack
 
-- [ ] **PACK-01**: User can read a Go Gopher route-local pack that isolates style, identity, composition, prompt, QA, source, sample policy, and output behavior from other IP routes.
-- [ ] **PACK-02**: User can plan Go Gopher shots with route-specific fields for Gopher state, Gopher action, core article idea, structure type, objects, labels, and output path.
-- [ ] **PACK-03**: User can generate Go Gopher prompts where the mascot performs the central cognitive article action in a sparse 16:9 illustration.
-- [ ] **PACK-04**: User can apply Go Gopher edit prompts for stronger participation, `gopher.png` identity repair, title removal, text reduction, and unaffected-content preservation.
-- [ ] **PACK-05**: User can use Go Gopher QA gates that reject generic blue mascot drift, realistic animal drift, missing Gopher markers, Go logo confusion, official-endorsement claims, passive placement, route leakage, excessive text, and copied composition.
+- [x] **PACK-01**: User can read a Go Gopher route-local pack that isolates style, identity, composition, prompt, QA, source, sample policy, and output behavior from other IP routes.
+- [x] **PACK-02**: User can plan Go Gopher shots with route-specific fields for Gopher state, Gopher action, core article idea, structure type, objects, labels, and output path.
+- [x] **PACK-03**: User can generate Go Gopher prompts where the mascot performs the central cognitive article action in a sparse 16:9 illustration.
+- [x] **PACK-04**: User can apply Go Gopher edit prompts for stronger participation, `gopher.png` identity repair, title removal, text reduction, and unaffected-content preservation.
+- [x] **PACK-05**: User can use Go Gopher QA gates that reject generic blue mascot drift, realistic animal drift, missing Gopher markers, Go logo confusion, official-endorsement claims, passive placement, route leakage, excessive text, and copied composition.
 
 ### Runtime Integration
 
@@ -90,11 +90,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROUTE-03 | Phase 38 | Complete |
 | SRC-01 | Phase 38 | Complete |
 | SRC-02 | Phase 38 | Complete |
-| PACK-01 | Phase 39 | Pending |
-| PACK-02 | Phase 39 | Pending |
-| PACK-03 | Phase 39 | Pending |
-| PACK-04 | Phase 39 | Pending |
-| PACK-05 | Phase 39 | Pending |
+| PACK-01 | Phase 39 | Complete |
+| PACK-02 | Phase 39 | Complete |
+| PACK-03 | Phase 39 | Complete |
+| PACK-04 | Phase 39 | Complete |
+| PACK-05 | Phase 39 | Complete |
 | RUN-01 | Phase 40 | Pending |
 | RUN-02 | Phase 40 | Pending |
 | RUN-03 | Phase 40 | Pending |
