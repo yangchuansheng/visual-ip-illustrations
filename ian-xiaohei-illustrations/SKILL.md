@@ -1,6 +1,6 @@
 ---
 name: visual-ip-illustrations
-description: Visual IP Illustrations generates selectable visual-IP article-body illustrations for Chinese articles, posts, blogs, Notion docs, workflow docs, methods, processes, structures, states, metaphors, opinions, shot lists, title-removal edits, and image repair. The omitted visual IP default is Xiaohei, with route alias 小黑 preserved; Littlebox, Tom, Ferris, and Seal are explicit selectable routes.
+description: Visual IP Illustrations generates selectable visual-IP article-body illustrations for Chinese articles, posts, blogs, Notion docs, workflow docs, methods, processes, structures, states, metaphors, opinions, shot lists, title-removal edits, and image repair. The omitted visual IP default is Xiaohei, with route alias 小黑 preserved; Littlebox, Tom, Ferris, Seal, and OpenClaw are explicit selectable routes.
 ---
 
 # Visual IP Illustrations
@@ -37,6 +37,10 @@ Ferris is an explicit Rust-community mascot route: route id `ferris`, display na
 Seal is an explicit route: route id `seal`, display name `Seal`, default=false, output_suffix: seal, route status `active`. Seal is a product-neutral hoodie seal article character. Seal source-history authority is `references/ips/seal/source.md`, and planning, generation, QA, edit, and delivery surfaces keep the hoodie seal identity note, Logo-free note, and `assets/<article-slug>-seal/`.
 
 Seal imagery is logo-free: cap, hoodie chest, mascot body, props, and scene use no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge.
+
+OpenClaw is an explicit source-reviewed logo-mascot route: route id `openclaw`, display name `OpenClaw`, default=false, output_suffix: openclaw, route status `source-reviewed`. OpenClaw source/license authority is `references/ips/openclaw/source.md`, and planning, generation, QA, edit, and delivery surfaces keep the uploaded-logo identity note, source/license note, and `assets/<article-slug>-openclaw/`.
+
+OpenClaw imagery preserves the red logo-derived mascot identity: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
 
 ## Reference Loading
 
@@ -77,6 +81,13 @@ Read `references/routing.md` first, then load only the selected route's required
 - `references/ips/seal/composition-patterns.md`: Seal composition families, hoodie seal action patterns, supporting object pool, and original metaphor gates.
 - `references/ips/seal/prompt-template.md`: Seal planning fields, single-image prompt, edit gates, hoodie seal identity note, and output reminder.
 - `references/ips/seal/qa-checklist.md`: Seal QA, failure categories, repair moves, and delivery judgment.
+- `references/ips/openclaw/index.md`: OpenClaw canonical pack navigation, route status, source/license authority, uploaded-logo identity note, output path, and reference list.
+- `references/ips/openclaw/source.md`: OpenClaw source/license authority, official repository, MIT License, OpenClaw Foundation copyright, uploaded-logo authority, public-sample policy, reviewer fields, and route-status authority.
+- `references/ips/openclaw/style-dna.md`: OpenClaw sparse article-illustration style, uploaded-logo identity markers, visual vetoes, and route gates.
+- `references/ips/openclaw/openclaw-ip.md`: OpenClaw identity, recognition rules, cognitive-action responsibility, route boundary, and failure modes.
+- `references/ips/openclaw/composition-patterns.md`: OpenClaw composition families, article-metaphor invention rules, OpenClaw action patterns, supporting object pool, and anti-repeat rules.
+- `references/ips/openclaw/prompt-template.md`: OpenClaw planning fields, one-image generation prompt, edit gates, uploaded-logo identity note, source/license note, and output reminder.
+- `references/ips/openclaw/qa-checklist.md`: OpenClaw QA gates, uploaded-logo identity checks, failure signals, iteration moves, and delivery judgment.
 - `references/style-dna.md`, `references/xiaohei-ip.md`, `references/composition-patterns.md`, `references/prompt-template.md`, `references/qa-checklist.md`: legacy root compatibility entry points for existing prompts and docs; current Xiaohei behavior reads the canonical `references/ips/xiaohei/` files.
 - `assets/examples/`: low-frequency visual calibration only. Use them for density and participation calibration, then create a fresh metaphor for the current article.
 
@@ -92,17 +103,20 @@ Read `references/routing.md` first and choose the route for the current task.
 - `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫` select the same Tom route: route id `tom`, display name `Tom`, default=false, output_suffix: tom, route status `gated-authorized`, rights pointer `references/ips/tom/rights.md`.
 - `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹` select the same Ferris route: route id `ferris`, display name `Ferris`, default=false, output_suffix: ferris, route status `source-reviewed`, source/trademark pointer `references/ips/ferris/source.md`.
 - `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, and `蓝色连帽衫海豹` select the same Seal route: route id `seal`, display name `Seal`, default=false, output_suffix: seal, route status `active`, source pointer `references/ips/seal/source.md`.
-- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, and Seal first identify one shared core idea, then create separate route groups. Each selected variant group uses its own route id, required_references, prompt template, composition rules, QA, edit repairs, output_suffix, route note, and output directory.
+- `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, and the OpenClaw aliases listed in `references/routing.md` select the same OpenClaw route: route id `openclaw`, display name `OpenClaw`, default=false, output_suffix: openclaw, route status `source-reviewed`, source/license pointer `references/ips/openclaw/source.md`.
+- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw first identify one shared core idea, then create separate route groups. Each selected variant group uses its own route id, required_references, prompt template, composition rules, QA, edit repairs, output_suffix, route note, and output directory.
 - Xiaohei keeps the `$ian-xiaohei-illustrations` compatibility behavior and `assets/<article-slug>-illustrations/` output path; canonical invocation is `$visual-ip-illustrations`.
 - Littlebox uses `assets/<article-slug>-littlebox/`.
 - Tom uses `assets/<article-slug>-tom/` and keeps `gated-authorized` plus `references/ips/tom/rights.md` in planning, generation, QA, edit, and delivery.
 - Ferris uses `assets/<article-slug>-ferris/` and keeps `source-reviewed` plus `references/ips/ferris/source.md` in planning, generation, QA, edit, and delivery.
 - Seal uses `assets/<article-slug>-seal/` and keeps `active` plus `references/ips/seal/source.md` in planning, generation, QA, edit, and delivery.
+- OpenClaw uses `assets/<article-slug>-openclaw/` and keeps `source-reviewed` plus `references/ips/openclaw/source.md` in planning, generation, QA, edit, and delivery.
 - Xiaohei `required_references` point to the canonical `references/ips/xiaohei/` pack; root paths remain compatibility entry points.
 - Littlebox `required_references` point to `references/ips/littlebox/`: `style-dna.md`, `littlebox-ip.md`, `composition-patterns.md`, `language-and-labels.md`, `prompt-template.md`, and `qa-checklist.md`.
 - Tom `required_references` point to `references/ips/tom/`: `index.md`, `rights.md`, `style-dna.md`, `tom-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 - Ferris `required_references` point to `references/ips/ferris/`: `index.md`, `source.md`, `style-dna.md`, `ferris-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 - Seal `required_references` point to `references/ips/seal/`: `index.md`, `source.md`, `style-dna.md`, `seal-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
+- OpenClaw `required_references` point to `references/ips/openclaw/`: `index.md`, `source.md`, `style-dna.md`, `openclaw-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 - Each variant group loads only its own `required_references` and uses its own action library, metaphor rules, background rules, labels, QA, and output path.
 - The shared workflow handles article comprehension, cognitive-anchor selection, shot planning, one-image generation, QA handoff, asset preservation, and delivery reporting.
 - Visual style, character identity, prompt wording, and QA details come from the selected IP's reference files.
@@ -182,6 +196,21 @@ Seal shot-list entries use `references/ips/seal/prompt-template.md` and include:
 
 Seal planning prose can follow the user's language. Seal image-generation prompts stay English. Visible labels are copied exactly in the user's language. Seal performs the central cognitive action. Prefer one or two product-neutral article-metaphor supporting objects, then assign a Seal action such as inspect, repair, shield, bridge, tune, roll back, stamp, sort, assemble, or guide.
 
+OpenClaw shot-list entries use `references/ips/openclaw/prompt-template.md` and include:
+
+- Placement
+- Core idea
+- Structure type
+- OpenClaw state
+- OpenClaw action
+- Supporting objects
+- Visible labels
+- Output path: `assets/<article-slug>-openclaw/`
+- Uploaded-logo identity note: preserve red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+- Source/license note: OpenClaw is a `source-reviewed` logo-mascot route; check `references/ips/openclaw/source.md` for the official repository, MIT License, OpenClaw Foundation copyright, uploaded-logo authority, and public-sample policy.
+
+OpenClaw planning prose can follow the user's language. OpenClaw image-generation prompts stay English. Visible labels are copied exactly in the user's language. OpenClaw performs the central cognitive action. Prefer sparse article-metaphor objects such as maps, bridges, knots, compasses, shelves, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, hooks, claws, or small hand-built machines, then assign an OpenClaw action such as inspect, grip, sort, bridge, tune, stamp, carry, map, connect, shield, compare, mark, untangle, weigh, guide, assemble, or repair.
+
 Mixed-IP shot lists first state the shared core idea, then split into independent selected route groups:
 
 - Xiaohei variant group: Xiaohei action, white-background hand-drawn metaphor, suggested labels, `references/ips/xiaohei/` QA, `assets/<article-slug>-illustrations/`
@@ -189,6 +218,7 @@ Mixed-IP shot lists first state the shared core idea, then split into independen
 - Tom variant group: Tom state, Tom action, supporting objects, visible labels, `references/ips/tom/` QA, `assets/<article-slug>-tom/`, rights-status note, `gated-authorized`, `references/ips/tom/rights.md`
 - Ferris variant group: Ferris state, Ferris action, supporting objects, visible labels, `references/ips/ferris/` QA, `assets/<article-slug>-ferris/`, source/trademark note, `source-reviewed`, `references/ips/ferris/source.md`
 - Seal variant group: Seal state, Seal action, supporting objects, visible labels, `references/ips/seal/` QA, `assets/<article-slug>-seal/`, hoodie seal identity note, Logo-free note, `active`, `references/ips/seal/source.md`
+- OpenClaw variant group: OpenClaw state, OpenClaw action, supporting objects, visible labels, `references/ips/openclaw/` QA, `assets/<article-slug>-openclaw/`, uploaded-logo identity note, source/license note, `source-reviewed`, `references/ips/openclaw/source.md`
 
 Default to 4-8 images. Short articles usually need 1-3. Long articles usually stay within 9 images.
 
@@ -273,11 +303,30 @@ Seal loads only Seal `required_references`, uses `references/ips/seal/prompt-tem
 
 Seal repair behavior uses the edit prompts in `references/ips/seal/prompt-template.md`: Stronger Seal Participation, Hoodie Seal Identity Repair, Logo-Free Output Repair, Title Removal, Text Reduction, Route Leakage Repair, and Preserve Unaffected Content. Every repair keeps `active`, `references/ips/seal/source.md`, source-history provenance markers, hoodie seal identity note, Logo-free note, route-local QA context, and `assets/<article-slug>-seal/`.
 
-Mixed-IP generation uses the same shared core idea to generate separated selected route groups. Xiaohei loads only `references/ips/xiaohei/`; Littlebox loads only `references/ips/littlebox/`; Tom loads only `references/ips/tom/`; Ferris loads only `references/ips/ferris/`; Seal loads only `references/ips/seal/`. Each group calls its own prompt template, composition rules, language rules, qa-checklist, edit gates, output_suffix, and route note. `assets/examples/` only calibrates style density and character participation; current-article metaphors are invented fresh.
+OpenClaw loads only OpenClaw `required_references`, uses `references/ips/openclaw/prompt-template.md` plus `references/ips/openclaw/composition-patterns.md`, then checks output with `references/ips/openclaw/qa-checklist.md`. OpenClaw generation context always keeps route status `source-reviewed`, source/license authority `references/ips/openclaw/source.md`, uploaded-logo identity note, and output path `assets/<article-slug>-openclaw/`. OpenClaw prompts keep:
+
+- one standalone 16:9 horizontal article illustration
+- original article metaphor
+- sparse hand-drawn article style on clean white or near-white background
+- loose black linework with generous whitespace
+- restrained red tied to OpenClaw's body
+- restrained cyan tied to the pupils or one small action emphasis
+- sparse visible labels copied exactly in the user's language
+- OpenClaw as the central cognitive action subject
+- route status note: `source-reviewed`
+- source/license authority: `references/ips/openclaw/source.md`
+- uploaded-logo identity note: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs
+- article-metaphor objects: maps, bridges, knots, compasses, shelves, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, hooks, claws, or small hand-built machines
+- save reminder: `assets/<article-slug>-openclaw/`
+- OpenClaw route block: generic red mascot drift, missing claws, missing antennae, missing cyan pupils, product-poster drift, passive placement, excessive text, route leakage, copied composition, formal diagrams, UI screenshots, IDE or terminal scenes, code screenshots, poster layouts, top-left title artifacts, and clean digital labels all fail the route
+
+OpenClaw repair behavior uses the edit prompts in `references/ips/openclaw/prompt-template.md`: Stronger OpenClaw Participation, Uploaded-Logo Identity Repair, Title Removal, Text Reduction, Route Leakage Repair, and Unaffected-Content Preservation. Every repair keeps `source-reviewed`, `references/ips/openclaw/source.md`, uploaded-logo identity note, source/license note, route-local QA context, and `assets/<article-slug>-openclaw/`.
+
+Mixed-IP generation uses the same shared core idea to generate separated selected route groups. Xiaohei loads only `references/ips/xiaohei/`; Littlebox loads only `references/ips/littlebox/`; Tom loads only `references/ips/tom/`; Ferris loads only `references/ips/ferris/`; Seal loads only `references/ips/seal/`; OpenClaw loads only `references/ips/openclaw/`. Each group calls its own prompt template, composition rules, language rules, qa-checklist, edit gates, output_suffix, and route note. `assets/examples/` only calibrates style density and character participation; current-article metaphors are invented fresh.
 
 ### 5. QA and Iteration
 
-After generation, check the selected IP's QA reference. Xiaohei uses `references/ips/xiaohei/qa-checklist.md`; Littlebox uses `references/ips/littlebox/qa-checklist.md`; Tom uses `references/ips/tom/qa-checklist.md`; Ferris uses `references/ips/ferris/qa-checklist.md`; Seal uses `references/ips/seal/qa-checklist.md`; `references/qa-checklist.md` remains the legacy root compatibility entry point.
+After generation, check the selected IP's QA reference. Xiaohei uses `references/ips/xiaohei/qa-checklist.md`; Littlebox uses `references/ips/littlebox/qa-checklist.md`; Tom uses `references/ips/tom/qa-checklist.md`; Ferris uses `references/ips/ferris/qa-checklist.md`; Seal uses `references/ips/seal/qa-checklist.md`; OpenClaw uses `references/ips/openclaw/qa-checklist.md`; `references/qa-checklist.md` remains the legacy root compatibility entry point.
 
 Xiaohei high-risk failures:
 
@@ -353,7 +402,34 @@ Seal high-risk failures:
 - missing hoodie seal identity note
 - missing output path
 
-When QA finds a failure, regenerate or edit through the selected IP's qa-checklist. Littlebox repairs prioritize closed lid, side-seam arms, single amber jagged seam tape, near-white body, rough linework, user's-language labels, balanced background, and active placement. Tom repairs use `references/ips/tom/prompt-template.md` edit gates: Tom edit participation repair gate, Tom off-model identity repair gate, Tom title removal edit gate, Tom text reduction edit gate, and Tom unaffected-content preservation gate; every repair keeps `gated-authorized`, `references/ips/tom/rights.md`, and route-local QA context. Ferris repairs use `references/ips/ferris/prompt-template.md` edit gates: participation, identity, trademark-boundary, title removal, text reduction, and unaffected-content preservation; every repair keeps `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, and route-local QA context. Seal repairs use `references/ips/seal/prompt-template.md` edit prompts; every repair keeps `active`, `references/ips/seal/source.md`, hoodie seal identity note, Logo-free note, product-neutral article metaphor context, route-local QA context, and `assets/<article-slug>-seal/`.
+OpenClaw high-risk failures:
+
+- generic red mascot drift
+- missing claws
+- missing antennae
+- missing cyan pupils
+- missing red round body
+- missing black eyes
+- missing short legs
+- generic robot drift
+- product-poster drift
+- passive placement
+- excessive text
+- route leakage
+- copied composition
+- missing uploaded-logo identity note
+- missing source/license note
+- missing output path
+- formal diagrams
+- dense PPT-like infographics
+- UI screenshots
+- IDE or terminal scenes
+- code screenshots
+- poster layouts
+- top-left title artifacts
+- clean digital labels
+
+When QA finds a failure, regenerate or edit through the selected IP's qa-checklist. Littlebox repairs prioritize closed lid, side-seam arms, single amber jagged seam tape, near-white body, rough linework, user's-language labels, balanced background, and active placement. Tom repairs use `references/ips/tom/prompt-template.md` edit gates: Tom edit participation repair gate, Tom off-model identity repair gate, Tom title removal edit gate, Tom text reduction edit gate, and Tom unaffected-content preservation gate; every repair keeps `gated-authorized`, `references/ips/tom/rights.md`, and route-local QA context. Ferris repairs use `references/ips/ferris/prompt-template.md` edit gates: participation, identity, trademark-boundary, title removal, text reduction, and unaffected-content preservation; every repair keeps `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, and route-local QA context. Seal repairs use `references/ips/seal/prompt-template.md` edit prompts; every repair keeps `active`, `references/ips/seal/source.md`, hoodie seal identity note, Logo-free note, product-neutral article metaphor context, route-local QA context, and `assets/<article-slug>-seal/`. OpenClaw repairs use `references/ips/openclaw/prompt-template.md` edit prompts; every repair keeps `source-reviewed`, `references/ips/openclaw/source.md`, uploaded-logo identity note, source/license note, original article-metaphor context, route-local QA context, and `assets/<article-slug>-openclaw/`.
 
 ### 6. Save and Deliver
 
@@ -367,6 +443,7 @@ assets/<article-slug>-littlebox/
 assets/<article-slug>-tom/
 assets/<article-slug>-ferris/
 assets/<article-slug>-seal/
+assets/<article-slug>-openclaw/
 ```
 
 The save path comes from `references/routing.md` `output_suffix`:
@@ -376,7 +453,8 @@ The save path comes from `references/routing.md` `output_suffix`:
 - Tom `output_suffix: tom` -> `assets/<article-slug>-tom/`
 - Ferris `output_suffix: ferris` -> `assets/<article-slug>-ferris/`
 - Seal `output_suffix: seal` -> `assets/<article-slug>-seal/`
-- Validation markers: Xiaohei `assets/&lt;article-slug&gt;-illustrations/`; Littlebox `assets/&lt;article-slug&gt;-littlebox/`; Tom `assets/&lt;article-slug&gt;-tom/`; Ferris `assets/&lt;article-slug&gt;-ferris/`; Seal `assets/&lt;article-slug&gt;-seal/`
+- OpenClaw `output_suffix: openclaw` -> `assets/<article-slug>-openclaw/`
+- Validation markers: Xiaohei `assets/&lt;article-slug&gt;-illustrations/`; Littlebox `assets/&lt;article-slug&gt;-littlebox/`; Tom `assets/&lt;article-slug&gt;-tom/`; Ferris `assets/&lt;article-slug&gt;-ferris/`; Seal `assets/&lt;article-slug&gt;-seal/`; OpenClaw `assets/&lt;article-slug&gt;-openclaw/`
 
 Use ordered English slug filenames:
 
@@ -385,7 +463,7 @@ Use ordered English slug filenames:
 02-topic-name.png
 ```
 
-Seal accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Mixed-IP requests write each separate route group to its own output directory: Xiaohei to `assets/<article-slug>-illustrations/`, Littlebox to `assets/<article-slug>-littlebox/`, Tom to `assets/<article-slug>-tom/`, Ferris to `assets/<article-slug>-ferris/`, and Seal to `assets/<article-slug>-seal/`. Each variant group keeps its own file sequence and purpose notes.
+Seal accepted outputs use ordered English slug filenames such as `01-topic-name.png`. OpenClaw accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Mixed-IP requests write each separate route group to its own output directory: Xiaohei to `assets/<article-slug>-illustrations/`, Littlebox to `assets/<article-slug>-littlebox/`, Tom to `assets/<article-slug>-tom/`, Ferris to `assets/<article-slug>-ferris/`, Seal to `assets/<article-slug>-seal/`, and OpenClaw to `assets/<article-slug>-openclaw/`. Each variant group keeps its own file sequence and purpose notes.
 
 Compatibility marker: 保留原始生成文件. Preserve original generated files and choose new filenames for new accepted outputs.
 
@@ -406,5 +484,6 @@ Mixed-IP delivery uses one block per IP:
 - Tom block: selected IP `Tom`, shared core idea, image purposes, save path `assets/<article-slug>-tom/`, route status `gated-authorized`, rights note `references/ips/tom/rights.md`, stability notes
 - Ferris block: selected IP `Ferris`, shared core idea, image purposes, save path `assets/<article-slug>-ferris/`, route status `source-reviewed`, source/trademark note, source pointer `references/ips/ferris/source.md`, stability notes
 - Seal block: selected IP: Seal, shared core idea, image purposes, save path `assets/<article-slug>-seal/`, route status `active`, hoodie seal identity note: preserve white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail, source pointer `references/ips/seal/source.md`, Logo-free note: no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge, stability notes
+- OpenClaw block: selected IP: OpenClaw, shared core idea, image purposes, save path `assets/<article-slug>-openclaw/`, route status `source-reviewed`, source/license note, source pointer `references/ips/openclaw/source.md`, uploaded-logo identity note: preserve red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs, route isolation status, stability notes
 
-Before delivery, run the route-leakage delivery guard. Tom blocks keep `gated-authorized` and `references/ips/tom/rights.md`. Ferris blocks keep `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, route-local QA, and `assets/<article-slug>-ferris/`. Seal blocks keep `active`, `references/ips/seal/source.md`, hoodie seal identity note, route-local QA, source-history provenance markers, Logo-free note, product-neutral article-metaphor status, and `assets/<article-slug>-seal/`. Xiaohei and Littlebox blocks keep their route-local wording, QA, and output directories.
+Before delivery, run the route-leakage delivery guard. Tom blocks keep `gated-authorized` and `references/ips/tom/rights.md`. Ferris blocks keep `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, route-local QA, and `assets/<article-slug>-ferris/`. Seal blocks keep `active`, `references/ips/seal/source.md`, hoodie seal identity note, route-local QA, source-history provenance markers, Logo-free note, product-neutral article-metaphor status, and `assets/<article-slug>-seal/`. OpenClaw blocks keep `source-reviewed`, `references/ips/openclaw/source.md`, source/license note, uploaded-logo identity note, route-local QA, original article-metaphor status, route isolation status, and `assets/<article-slug>-openclaw/`. Xiaohei and Littlebox blocks keep their route-local wording, QA, and output directories.
