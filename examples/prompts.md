@@ -743,6 +743,10 @@ Expected: Go Gopher variant group uses `ian-xiaohei-illustrations/references/ips
 Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, and Go Gopher variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
 ```
 
+Legacy six-route OpenClaw smoke fixture marker for validator compatibility:
+six separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw.
+OpenClaw variant group each use their own route-local references.
+
 ## Planning Only
 
 ```text

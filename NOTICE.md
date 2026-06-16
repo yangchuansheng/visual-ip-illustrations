@@ -78,6 +78,25 @@ OpenClaw source context records the source-reviewed logo-mascot route for the `o
 
 Public rendered OpenClaw samples remain gated until reviewer, date, approval status, allowed directories, release channels, uploaded-logo identity outcome, source/license outcome, route-isolation outcome, article-metaphor quality outcome, and public-sample decision are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
 
+## Go Gopher Source Attribution and Public Sample Gate
+
+Go Gopher source context records the source-reviewed article-mascot route for the `gopher` route.
+
+- Route: Go Gopher
+- Display name: `Go Gopher`
+- Route id: `gopher`
+- Route status: `source-reviewed`
+- Official Go blog source: <https://go.dev/blog/gopher>
+- Attribution: Renee French
+- License boundary: Creative Commons Attribution 4.0
+- Source/license authority: `ian-xiaohei-illustrations/references/ips/gopher/source.md`
+- Local visual authority: root `gopher.png`
+- Attribution context: Go Gopher source, Renee French attribution, Creative Commons Attribution 4.0 boundary, local `gopher.png` visual authority, route metadata, documentation, and release review
+
+Public rendered Go Gopher samples remain gated until reviewer, date, approval status, allowed directories, release channels, Go blog source outcome, Renee French attribution outcome, Creative Commons Attribution 4.0 outcome, local visual marker outcome, route-isolation outcome, Go logo boundary outcome, official endorsement boundary outcome, article-metaphor quality outcome, and public-sample decision are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
+
+Go Gopher route documentation does not claim official Go project affiliation, approval, sponsorship, or endorsement.
+
 Author links:
 
 - GitHub: <https://github.com/helloianneo>
