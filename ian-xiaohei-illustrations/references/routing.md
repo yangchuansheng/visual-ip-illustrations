@@ -10,7 +10,8 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 - `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫` select the same `tom` route and keep route status `gated-authorized`.
 - `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹` select the same `ferris` route and keep route status `source-reviewed`.
 - `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, and `蓝色连帽衫海豹` select the same `seal` route and keep route status `active`.
-- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, and Seal create separate route groups. Compatibility marker: 每个 route group 只加载自己的 `required_references`; each group writes to its own output directory.
+- `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, `OpenClaw 助手`, and `OpenClaw 吉祥物` select the same `openclaw` route and keep route status `source-reviewed`.
+- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw create separate route groups. Compatibility marker: 每个 route group 只加载自己的 `required_references`; each group writes to its own output directory.
 - Routes store only selection, references, output suffixes, and attribution context. Style, character identity, prompt wording, and QA rules live in the selected IP's reference files.
 - Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Ferris route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
@@ -18,6 +19,9 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 - Seal is an explicit hoodie seal route with status active; generated public Seal samples require release review for hoodie seal identity and no-logo mascot identity.
 - Seal route-local reference directory: `ian-xiaohei-illustrations/references/ips/seal/`.
 - Seal source-history authority: `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+- OpenClaw is an explicit source-reviewed logo-mascot route; generated public OpenClaw samples require release review for uploaded-logo identity and source/license authority.
+- OpenClaw route-local reference directory: `ian-xiaohei-illustrations/references/ips/openclaw/`.
+- OpenClaw source and uploaded-logo authority: `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
 
 ## IP Routes
 
@@ -28,6 +32,16 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 | `tom` | Tom | `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫` | `false` | `tom` | `references/ips/tom/index.md`; `references/ips/tom/rights.md`; `references/ips/tom/style-dna.md`; `references/ips/tom/tom-ip.md`; `references/ips/tom/composition-patterns.md`; `references/ips/tom/prompt-template.md`; `references/ips/tom/qa-checklist.md` | Tom and Jerry / Tom source context; attribution records source identity while permission remains authorization-scope specific through `references/ips/tom/rights.md` | `gated-authorized` |
 | `ferris` | Ferris | `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹` | `false` | `ferris` | `references/ips/ferris/index.md`; `references/ips/ferris/source.md`; `references/ips/ferris/style-dna.md`; `references/ips/ferris/ferris-ip.md`; `references/ips/ferris/composition-patterns.md`; `references/ips/ferris/prompt-template.md`; `references/ips/ferris/qa-checklist.md` | Ferris source context from `rustacean.net` and Karen Rustad Tolva; attribution records source context while Rust trademark boundary is governed through `references/ips/ferris/source.md` | `source-reviewed` |
 | `seal` | Seal | `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹` | `false` | `seal` | `references/ips/seal/index.md`; `references/ips/seal/source.md`; `references/ips/seal/style-dna.md`; `references/ips/seal/seal-ip.md`; `references/ips/seal/composition-patterns.md`; `references/ips/seal/prompt-template.md`; `references/ips/seal/qa-checklist.md` | Historical Sealos uploaded mascot image source context; attribution records hoodie seal identity, no-logo mascot identity, and source-history boundary through `references/ips/seal/source.md` | `active` |
+| `openclaw` | OpenClaw | `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, `OpenClaw 助手`, `OpenClaw 吉祥物` | `false` | `openclaw` | `references/ips/openclaw/source.md` | Official OpenClaw repository https://github.com/openclaw/openclaw; MIT License; Copyright (c) 2026 OpenClaw Foundation; uploaded red OpenClaw logo visual authority; source-reviewed route status through `references/ips/openclaw/source.md` | `source-reviewed` |
+
+## OpenClaw Metadata
+
+- Route id: `openclaw`.
+- Source authority: official OpenClaw repository, MIT License, and OpenClaw Foundation copyright.
+- Uploaded-logo authority: the uploaded red OpenClaw logo is the route visual authority.
+- Fixed uploaded-logo markers: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+- Route status: `source-reviewed`.
+- Output path: `assets/<article-slug>-openclaw/`; escaped marker `assets/&lt;article-slug&gt;-openclaw/`.
 
 ## Seal Metadata
 
@@ -60,7 +74,9 @@ Root Xiaohei reference paths remain available during migration and point to cano
 - `ferris` filenames use ordered English slugs such as `01-topic-name.png`.
 - `seal` output directory is `assets/<article-slug>-seal/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-seal/`.
 - `seal` filenames use ordered English slugs such as `01-topic-name.png`.
-- Mixed-IP requests split by IP into separate route groups: `xiaohei` 写入 `assets/<article-slug>-illustrations/`, `littlebox` 写入 `assets/<article-slug>-littlebox/`, `tom` 写入 `assets/<article-slug>-tom/`, `ferris` 写入 `assets/<article-slug>-ferris/`, and `seal` writes to `assets/<article-slug>-seal/`.
+- `openclaw` output directory is `assets/<article-slug>-openclaw/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-openclaw/`.
+- `openclaw` filenames use ordered English slugs such as `01-topic-name.png`.
+- Mixed-IP requests split by IP into separate route groups: `xiaohei` 写入 `assets/<article-slug>-illustrations/`, `littlebox` 写入 `assets/<article-slug>-littlebox/`, `tom` 写入 `assets/<article-slug>-tom/`, `ferris` 写入 `assets/<article-slug>-ferris/`, `seal` writes to `assets/<article-slug>-seal/`, and `openclaw` writes to `assets/<article-slug>-openclaw/`.
 - Before output, inspect the target directory and choose a new filename to preserve historical results.
 
 ## Delivery Report Fields
