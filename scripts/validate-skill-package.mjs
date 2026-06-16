@@ -10,8 +10,26 @@ const SKILL_FILE = path.join(PACKAGE_DIR, "SKILL.md");
 const OPENAI_AGENT_FILE = path.join(PACKAGE_DIR, "agents", "openai.yaml");
 const ROUTING_FILE = path.join(REFERENCES_DIR, "routing.md");
 const README_FILE = "README.md";
+const README_ZH_FILE = "README.zh.md";
 const LANGUAGE_POLICY_FILE = "LANGUAGE_POLICY.md";
 const HAN_CHARACTER_PATTERN = /\p{Script=Han}/u;
+const CHINESE_GALLERY_SLUGS = [
+  "01-two-breakpoints.png",
+  "02-sort-by-purpose.png",
+  "03-one-fish-many-uses.png",
+  "04-handoff-path.png",
+  "05-information-well.png",
+  "06-idea-press.png",
+  "07-content-fermentation.png",
+  "08-trust-bridge.png",
+];
+const CHINESE_GALLERY_ROUTES = [
+  { id: "xiaohei", pathPrefix: "examples/images" },
+  { id: "littlebox", pathPrefix: "examples/images/littlebox" },
+  { id: "tom", pathPrefix: "examples/images/tom" },
+  { id: "ferris", pathPrefix: "examples/images/ferris" },
+  { id: "seal", pathPrefix: "examples/images/seal" },
+];
 const LANGUAGE_DEFAULT_SURFACES = [
   "repository docs",
   "skill instructions",
@@ -438,6 +456,17 @@ function readUtf8(relativePath) {
 
 function fileExists(relativePath) {
   return fs.existsSync(repoPath(relativePath)) && fs.statSync(repoPath(relativePath)).isFile();
+}
+
+function pngDimensions(relativePath) {
+  const data = fs.readFileSync(repoPath(relativePath));
+  if (data.length < 24 || data.toString("ascii", 1, 4) !== "PNG") {
+    throw new Error(`${relativePath} expected PNG file signature`);
+  }
+  return {
+    width: data.readUInt32BE(16),
+    height: data.readUInt32BE(20),
+  };
 }
 
 function requireFile(relativePath) {
@@ -1712,7 +1741,7 @@ function assertRebrandRouteTable() {
 
 function imageAssetPaths() {
   return [
-    ...sortedDirectoryEntries("examples/images").filter((entry) => entry.type === "file").map((entry) => entry.path),
+    ...sortedFileEntriesRecursive("examples/images"),
     ...sortedFileEntriesRecursive("examples/images-en"),
     ...sortedDirectoryEntries(path.join(PACKAGE_DIR, "assets", "examples"))
       .filter((entry) => entry.type === "file")
@@ -1727,6 +1756,44 @@ function legacyImageAssetPaths() {
       .filter((entry) => entry.type === "file")
       .map((entry) => entry.path),
   ].sort((a, b) => a.localeCompare(b, "en"));
+}
+
+function chineseGalleryImagePaths() {
+  return CHINESE_GALLERY_SLUGS.flatMap((slug) =>
+    CHINESE_GALLERY_ROUTES.map((route) => `${route.pathPrefix}/${slug}`),
+  );
+}
+
+function assertChineseReadmeGallery() {
+  const text = requireFile(README_ZH_FILE);
+  const links = parseMarkdownLinks(text).filter((link) => !link.external && link.target.startsWith("examples/images/"));
+  const imageTargets = links.map((link) => link.target.split("#")[0]);
+  const expected = chineseGalleryImagePaths();
+  const missing = expected.filter((target) => !imageTargets.includes(target));
+  const unexpected = imageTargets.filter((target) => target.startsWith("examples/images/") && !expected.includes(target));
+  if (missing.length > 0 || unexpected.length > 0) {
+    throw new Error(
+      `${README_ZH_FILE} expected exact Chinese multi-IP gallery image set; missing=${missing.join(", ") || "none"} unexpected=${unexpected.join(", ") || "none"}`,
+    );
+  }
+
+  for (const relativePath of expected) {
+    if (!fileExists(relativePath)) {
+      throw new Error(`${README_ZH_FILE} expected linked gallery image to exist; observed missing ${relativePath}`);
+    }
+    const dimensions = pngDimensions(relativePath);
+    if (dimensions.width !== 1672 || dimensions.height !== 941) {
+      throw new Error(
+        `${relativePath} expected 1672x941 PNG for Chinese gallery; observed ${dimensions.width}x${dimensions.height}`,
+      );
+    }
+  }
+
+  for (const route of CHINESE_GALLERY_ROUTES) {
+    assertIncludes(text, README_ZH_FILE, [
+      `| ${route.id === "xiaohei" ? "Xiaohei" : route.id === "littlebox" ? "Littlebox" : route.id === "tom" ? "Tom" : route.id === "ferris" ? "Ferris" : "Seal"}`,
+    ], `${route.id} Chinese gallery column`);
+  }
 }
 
 function assertExistingFiles(relativePaths, checkPath, relation) {
@@ -2928,6 +2995,9 @@ const checks = [
         throw new Error(`${link.source} expected local link ${link.target} to exist; observed missing ${resolved}`);
       }
     }
+  }),
+  defineCheck("DOC-ZH-GALLERY-001", "README.zh.md exposes the complete Chinese multi-IP example gallery", () => {
+    assertChineseReadmeGallery();
   }),
   defineCheck("DOC-PATHS-001", "README and examples expose raw and escaped output path tokens", () => {
     const tokens = publicDocsOutputPathTokens();

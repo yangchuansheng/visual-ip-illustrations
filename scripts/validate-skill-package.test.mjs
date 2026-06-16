@@ -54,6 +54,7 @@ const requiredCheckIds = [
   "SOURCE-SEAL-001",
   "LOGO-SEAL-001",
   "DOC-LINKS-001",
+  "DOC-ZH-GALLERY-001",
   "DOC-PATHS-001",
   "DOC-ROUTES-001",
   "DOC-TOM-001",
@@ -228,7 +229,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -419,7 +420,7 @@ test("validator emits the full Phase 28 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -517,7 +518,7 @@ test("validator fixture reports approved multilingual tokens in enforce mode", (
 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+    assert.match(result.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1832,7 +1833,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1917,7 +1918,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1965,7 +1966,7 @@ test("validator fixture enforces public Seal sample approval parsing", async () 
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEAL-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=98 passed=98 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
