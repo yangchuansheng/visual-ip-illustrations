@@ -57,7 +57,11 @@ Plans:
   4. User can apply Go Gopher edit prompts for stronger mascot participation, `gopher.png` identity repair, title removal, text reduction, and unaffected-content preservation.
   5. User can apply QA gates that catch generic blue mascot drift, realistic animal drift, missing Gopher markers, Go logo confusion, official-endorsement claims, passive placement, route leakage, excessive text, and copied composition.
 
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+
+- [ ] 39-01-PLAN.md — Go Gopher canonical pack
 
 ### Phase 40: Go Gopher Skill Controller Integration
 
