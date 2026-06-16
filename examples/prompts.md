@@ -487,6 +487,18 @@ Keep uploaded-logo identity markers stable: red round body, side claw-like arms,
 Keep short visible labels in the user's language and save under `assets/<article-slug>-openclaw/`.
 ```
 
+### Explicit Go Gopher: edit existing image
+
+```text
+Use $visual-ip-illustrations with the Go Gopher route to edit this image.
+Preserve the selected Go Gopher route, route status `source-reviewed`, Source/license note, output path, aspect ratio, article meaning, and preservation of unaffected content.
+Use route-local references from `ian-xiaohei-illustrations/references/ips/gopher/` and source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
+Keep root `gopher.png` local visual authority, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample gate, Go logo boundary, and official endorsement boundary attached to the delivery report.
+Edit only the named issue: [participation / gopher.png identity / title / text density / label typo / route leakage / Go logo boundary / official endorsement boundary].
+Preserve successful Go Gopher action, root `gopher.png` identity cues, existing composition, visible labels that remain correct, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality.
+Save outputs under `assets/<article-slug>-gopher/`; docs validation token: `assets/&lt;article-slug&gt;-gopher/`.
+```
+
 ### Explicit OpenClaw: route smoke check
 
 ```text
