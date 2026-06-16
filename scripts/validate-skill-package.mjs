@@ -662,6 +662,7 @@ export function outputPathTokens() {
       "assets/<article-slug>-tom/",
       "assets/<article-slug>-ferris/",
       "assets/<article-slug>-seal/",
+      "assets/<article-slug>-openclaw/",
     ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
@@ -669,10 +670,12 @@ export function outputPathTokens() {
       "assets/&lt;article-slug&gt;-tom/",
       "assets/&lt;article-slug&gt;-ferris/",
       "assets/&lt;article-slug&gt;-seal/",
+      "assets/&lt;article-slug&gt;-openclaw/",
     ],
   };
 }
 
+// Public docs currently expose only published public route output examples.
 function publicDocsOutputPathTokens() {
   return {
     raw: [
@@ -2974,7 +2977,12 @@ const checks = [
     const tokens = publicDocsOutputPathTokens();
     for (const [relativePath, text] of Object.entries(docsTexts())) {
       const pathName = relativePath === "readme" ? "README.md" : "examples/prompts.md";
-      assertIncludes(text, pathName, [...tokens.raw, ...tokens.escaped], "raw and HTML-escaped route output path tokens");
+      assertIncludes(
+        text,
+        pathName,
+        [...tokens.raw, ...tokens.escaped],
+        "raw and HTML-escaped published public route output path tokens",
+      );
     }
   }),
   defineCheck("DOC-ROUTES-001", "public docs expose route metadata and canonical pack paths", () => {
@@ -3434,12 +3442,12 @@ const checks = [
   defineCheck("REBRAND-PATH-001", "runtime and docs preserve rebrand output path tokens", () => {
     const tokens = outputPathTokens();
     const allTokens = [...tokens.raw, ...tokens.escaped];
-    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, allTokens, "SKILL raw and escaped route output path tokens");
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, allTokens, "routing raw and escaped route output path tokens");
     const publicTokens = publicDocsOutputPathTokens();
     const allPublicTokens = [...publicTokens.raw, ...publicTokens.escaped];
-    assertIncludes(requireFile("README.md"), "README.md", allPublicTokens, "README raw and escaped route output path tokens");
-    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", allPublicTokens, "examples raw and escaped route output path tokens");
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, allPublicTokens, "SKILL raw and escaped published public route output path tokens");
+    assertIncludes(requireFile("README.md"), "README.md", allPublicTokens, "README raw and escaped published public route output path tokens");
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", allPublicTokens, "examples raw and escaped published public route output path tokens");
   }),
   defineCheck("REBRAND-EVIDENCE-001", "release checklist preserves Phase 24 evidence gates", () => {
     assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [

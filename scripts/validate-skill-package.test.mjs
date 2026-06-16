@@ -762,9 +762,10 @@ test("validator fixture locks rebrand output path stability", () => {
     const result = runFixtureValidator(fixtureRoot);
 
     assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-PATHS-001 /);
     assert.match(result.stdout, /\[FAIL\] REBRAND-PATH-001 /);
     assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/SKILL\.md/);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): assets\/&lt;article-slug&gt;-seal\//);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -1005,10 +1006,12 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-tom/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-ferris/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-seal/"));
+  assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-openclaw/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-littlebox/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-tom/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-ferris/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-seal/"));
+  assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-openclaw/"));
 });
 
 test("approval parser helpers expose current release primitives", async () => {
