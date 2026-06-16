@@ -17,11 +17,11 @@ v1.7 adds OpenClaw as an explicit source-reviewed logo-mascot route. The milesto
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [x] **Phase 33: OpenClaw Source and Route Contract** - Users can select OpenClaw through an explicit source-reviewed route with stable aliases, `default=false`, route id `openclaw`, output suffix `openclaw`, output path `assets/<article-slug>-openclaw/`, source/license authority, and uploaded-logo visual authority. (pending) (completed 2026-06-16)
-- [x] **Phase 34: OpenClaw Canonical Pack** - Users can plan, prompt, edit, and QA OpenClaw article illustrations through route-local references that preserve the uploaded red logo-mascot identity. (pending) (completed 2026-06-16)
-- [x] **Phase 35: OpenClaw Skill Controller Integration** - Users can invoke OpenClaw through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable. (pending) (completed 2026-06-16)
-- [x] **Phase 36: Public Documentation and Release Surface** - Users and maintainers can learn, invoke, review, and release OpenClaw through README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (pending) (completed 2026-06-16)
-- [ ] **Phase 37: OpenClaw Validation and Release Evidence** - Maintainers can verify OpenClaw route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release readiness locally. (pending)
+- [x] **Phase 33: OpenClaw Source and Route Contract** - Users can select OpenClaw through an explicit source-reviewed route with stable aliases, `default=false`, route id `openclaw`, output suffix `openclaw`, output path `assets/<article-slug>-openclaw/`, source/license authority, and uploaded-logo visual authority. (completed 2026-06-16)
+- [x] **Phase 34: OpenClaw Canonical Pack** - Users can plan, prompt, edit, and QA OpenClaw article illustrations through route-local references that preserve the uploaded red logo-mascot identity. (completed 2026-06-16)
+- [x] **Phase 35: OpenClaw Skill Controller Integration** - Users can invoke OpenClaw through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable. (completed 2026-06-16)
+- [x] **Phase 36: Public Documentation and Release Surface** - Users and maintainers can learn, invoke, review, and release OpenClaw through README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (completed 2026-06-16)
+- [x] **Phase 37: OpenClaw Validation and Release Evidence** - Maintainers can verify OpenClaw route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release readiness locally. (completed 2026-06-16)
 
 ## Phase Details
 
@@ -109,10 +109,10 @@ Plans:
   4. Node tests cover OpenClaw route parsing, route ordering, default preservation, output path markers, source/license markers, smoke prompts, leakage fixtures, public asset gates, and full-pass output.
   5. Final evidence records validator output, Node test output, `git diff --check`, OpenClaw route smoke, source/license smoke, docs consistency, leakage scan, and public sample gate status.
 
-**Plans:** 0/1 plans complete
+**Plans:** 1/1 plans complete
 Plans:
 
-- [ ] 37-01-PLAN.md - Harden OpenClaw validation, Node regression tests, leakage scans, public sample gates, and release evidence.
+- [x] 37-01-PLAN.md - Harden OpenClaw validation, Node regression tests, leakage scans, public sample gates, and release evidence.
 
 ## Progress
 
@@ -125,4 +125,4 @@ Phases execute in numeric order: 33 -> 34 -> 35 -> 36 -> 37
 | 34. OpenClaw Canonical Pack | 1/1 | Complete    | 2026-06-16 |
 | 35. OpenClaw Skill Controller Integration | 1/1 | Complete    | 2026-06-16 |
 | 36. Public Documentation and Release Surface | 1/1 | Complete    | 2026-06-16 |
-| 37. OpenClaw Validation and Release Evidence | 0/1 | Pending | - |
+| 37. OpenClaw Validation and Release Evidence | 1/1 | Complete    | 2026-06-16 |
