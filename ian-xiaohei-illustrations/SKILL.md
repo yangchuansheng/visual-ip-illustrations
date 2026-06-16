@@ -518,6 +518,7 @@ assets/<article-slug>-tom/
 assets/<article-slug>-ferris/
 assets/<article-slug>-seal/
 assets/<article-slug>-openclaw/
+assets/<article-slug>-gopher/
 ```
 
 The save path comes from `references/routing.md` `output_suffix`:
@@ -528,7 +529,8 @@ The save path comes from `references/routing.md` `output_suffix`:
 - Ferris `output_suffix: ferris` -> `assets/<article-slug>-ferris/`
 - Seal `output_suffix: seal` -> `assets/<article-slug>-seal/`
 - OpenClaw `output_suffix: openclaw` -> `assets/<article-slug>-openclaw/`
-- Validation markers: Xiaohei `assets/&lt;article-slug&gt;-illustrations/`; Littlebox `assets/&lt;article-slug&gt;-littlebox/`; Tom `assets/&lt;article-slug&gt;-tom/`; Ferris `assets/&lt;article-slug&gt;-ferris/`; Seal `assets/&lt;article-slug&gt;-seal/`; OpenClaw `assets/&lt;article-slug&gt;-openclaw/`
+- Go Gopher `output_suffix: gopher` -> `assets/<article-slug>-gopher/`
+- Validation markers: Xiaohei `assets/&lt;article-slug&gt;-illustrations/`; Littlebox `assets/&lt;article-slug&gt;-littlebox/`; Tom `assets/&lt;article-slug&gt;-tom/`; Ferris `assets/&lt;article-slug&gt;-ferris/`; Seal `assets/&lt;article-slug&gt;-seal/`; OpenClaw `assets/&lt;article-slug&gt;-openclaw/`; Go Gopher `assets/&lt;article-slug&gt;-gopher/`
 
 Use ordered English slug filenames:
 
@@ -537,7 +539,7 @@ Use ordered English slug filenames:
 02-topic-name.png
 ```
 
-Seal accepted outputs use ordered English slug filenames such as `01-topic-name.png`. OpenClaw accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Mixed-IP requests write each separate route group to its own output directory: Xiaohei to `assets/<article-slug>-illustrations/`, Littlebox to `assets/<article-slug>-littlebox/`, Tom to `assets/<article-slug>-tom/`, Ferris to `assets/<article-slug>-ferris/`, Seal to `assets/<article-slug>-seal/`, and OpenClaw to `assets/<article-slug>-openclaw/`. Each variant group keeps its own file sequence and purpose notes.
+Seal accepted outputs use ordered English slug filenames such as `01-topic-name.png`. OpenClaw accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Go Gopher accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Mixed-IP requests write each separate route group to its own output directory: Xiaohei to `assets/<article-slug>-illustrations/`, Littlebox to `assets/<article-slug>-littlebox/`, Tom to `assets/<article-slug>-tom/`, Ferris to `assets/<article-slug>-ferris/`, Seal to `assets/<article-slug>-seal/`, OpenClaw to `assets/<article-slug>-openclaw/`, and Go Gopher variants to `assets/<article-slug>-gopher/`. Each variant group keeps its own file sequence and purpose notes.
 
 Compatibility marker: 保留原始生成文件. Preserve original generated files and choose new filenames for new accepted outputs.
 
@@ -559,5 +561,6 @@ Mixed-IP delivery uses one block per IP:
 - Ferris block: selected IP `Ferris`, shared core idea, image purposes, save path `assets/<article-slug>-ferris/`, route status `source-reviewed`, source/trademark note, source pointer `references/ips/ferris/source.md`, stability notes
 - Seal block: selected IP: Seal, shared core idea, image purposes, save path `assets/<article-slug>-seal/`, route status `active`, hoodie seal identity note: preserve white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail, source pointer `references/ips/seal/source.md`, Logo-free note: no cap logo, no chest logo, no mascot logos, no logo patches, no logo-like wave/cloud mark, no emblem, and no text badge, stability notes
 - OpenClaw block: selected IP: OpenClaw, shared core idea, image purposes, save path `assets/<article-slug>-openclaw/`, route status `source-reviewed`, source/license note, source pointer `references/ips/openclaw/source.md`, uploaded-logo identity note: preserve red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs, route isolation status, stability notes
+- Go Gopher block: selected IP `Go Gopher`, shared core idea, image purposes, save path `assets/<article-slug>-gopher/`, route status `source-reviewed`, source/license note, source pointer `references/ips/gopher/source.md`, root `gopher.png` identity status, public sample review boundary when relevant, route isolation status, stability notes
 
-Before delivery, run the route-leakage delivery guard. Tom blocks keep `gated-authorized` and `references/ips/tom/rights.md`. Ferris blocks keep `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, route-local QA, and `assets/<article-slug>-ferris/`. Seal blocks keep `active`, `references/ips/seal/source.md`, hoodie seal identity note, route-local QA, source-history provenance markers, Logo-free note, product-neutral article-metaphor status, and `assets/<article-slug>-seal/`. OpenClaw blocks keep `source-reviewed`, `references/ips/openclaw/source.md`, source/license note, uploaded-logo identity note, route-local QA, original article-metaphor status, route isolation status, and `assets/<article-slug>-openclaw/`. Xiaohei and Littlebox blocks keep their route-local wording, QA, and output directories.
+Before delivery, run the route-leakage delivery guard. Tom blocks keep `gated-authorized` and `references/ips/tom/rights.md`. Ferris blocks keep `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, route-local QA, and `assets/<article-slug>-ferris/`. Seal blocks keep `active`, `references/ips/seal/source.md`, hoodie seal identity note, route-local QA, source-history provenance markers, Logo-free note, product-neutral article-metaphor status, and `assets/<article-slug>-seal/`. OpenClaw blocks keep `source-reviewed`, `references/ips/openclaw/source.md`, source/license note, uploaded-logo identity note, route-local QA, original article-metaphor status, route isolation status, and `assets/<article-slug>-openclaw/`. Go Gopher blocks keep `source-reviewed`, `references/ips/gopher/source.md`, source/license note, root `gopher.png` identity status, route-local QA, original article-metaphor status, public sample review boundary, route isolation status, and `assets/<article-slug>-gopher/`. Xiaohei and Littlebox blocks keep their route-local wording, QA, and output directories.
