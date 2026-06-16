@@ -76,7 +76,11 @@ Plans:
   4. User can still use existing omitted-IP Xiaohei behavior plus explicit Littlebox, Tom, Ferris, Seal, and OpenClaw behavior after Go Gopher is wired in.
   5. Agent metadata and skill instructions present Go Gopher as a selectable route while Visual IP Illustrations and legacy `$ian-xiaohei-illustrations` invocation remain available.
 
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+
+- [ ] 40-01-PLAN.md — Go Gopher skill controller integration
 
 ### Phase 41: Public Documentation and Release Surface
 
@@ -117,6 +121,6 @@ Phases execute in numeric order: 38 -> 39 -> 40 -> 41 -> 42
 |-------|----------------|--------|-----------|
 | 38. Go Gopher Source and Route Contract | 1/1 | Complete   | 2026-06-16 |
 | 39. Go Gopher Canonical Pack | 1/1 | Complete   | 2026-06-16 |
-| 40. Go Gopher Skill Controller Integration | 0/1 | Not started | - |
+| 40. Go Gopher Skill Controller Integration | 0/1 | Planned | - |
 | 41. Public Documentation and Release Surface | 0/1 | Not started | - |
 | 42. Go Gopher Validation and Release Evidence | 0/1 | Not started | - |
