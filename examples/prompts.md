@@ -477,8 +477,6 @@ Expected: public sample gate is controlled by RELEASE_CHECKLIST.md; public rende
 
 The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, Seal group uses `assets/<article-slug>-seal/`, and OpenClaw group uses `assets/<article-slug>-openclaw/`; each group loads its own references, prompt template, QA, and output path.
 
-Compatibility marker: `five separate variant groups` names the historical Seal mixed-IP validator anchor for Xiaohei, Littlebox, Tom, Ferris, and Seal; current six-route prompts add OpenClaw as an additional group.
-
 Maintainer reference: Xiaohei canonical pack is at `ian-xiaohei-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `ian-xiaohei-illustrations/references/ips/littlebox/`, Tom canonical pack is at `ian-xiaohei-illustrations/references/ips/tom/`, Tom rights record is at `ian-xiaohei-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `ian-xiaohei-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `ian-xiaohei-illustrations/references/ips/ferris/source.md`, Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`, Seal source-history authority is at `ian-xiaohei-illustrations/references/ips/seal/source.md`, OpenClaw canonical pack is at `ian-xiaohei-illustrations/references/ips/openclaw/`, OpenClaw source/license authority is at `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, and route metadata is at `ian-xiaohei-illustrations/references/routing.md`.
 
 ### Mixed IP: variant planning only

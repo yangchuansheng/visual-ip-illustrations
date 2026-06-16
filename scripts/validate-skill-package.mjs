@@ -684,6 +684,7 @@ function publicDocsOutputPathTokens() {
       "assets/<article-slug>-tom/",
       "assets/<article-slug>-ferris/",
       "assets/<article-slug>-seal/",
+      "assets/<article-slug>-openclaw/",
     ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
@@ -691,6 +692,7 @@ function publicDocsOutputPathTokens() {
       "assets/&lt;article-slug&gt;-tom/",
       "assets/&lt;article-slug&gt;-ferris/",
       "assets/&lt;article-slug&gt;-seal/",
+      "assets/&lt;article-slug&gt;-openclaw/",
     ],
   };
 }
@@ -2216,6 +2218,18 @@ const checks = [
       "allow_implicit_invocation: true",
     ], "Seal discovery metadata and default Xiaohei preservation");
   }),
+  defineCheck("AGENT-OPENCLAW-001", "openai.yaml exposes OpenClaw source-reviewed route metadata markers", () => {
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "Visual IP Illustrations",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+      "default Xiaohei",
+      "OpenClaw",
+      "explicit OpenClaw logo-mascot route (source-reviewed)",
+      "source-reviewed logo-mascot route",
+      "allow_implicit_invocation: true",
+    ], "OpenClaw discovery metadata, source-reviewed route status, and default Xiaohei preservation");
+  }),
   defineCheck("ROUTE-TABLE-001", "routing.md exposes the required route metadata columns and rows", () => {
     const text = requireFile(ROUTING_FILE);
     const columns = markdownTableHeader(text, "IP Routes");
@@ -3332,8 +3346,14 @@ const checks = [
       "ian-xiaohei-illustrations/references/routing.md",
       "ian-xiaohei-illustrations/references/ips/xiaohei/",
       "ian-xiaohei-illustrations/references/ips/littlebox/",
+      "ian-xiaohei-illustrations/references/ips/tom/",
+      "ian-xiaohei-illustrations/references/ips/ferris/",
+      "ian-xiaohei-illustrations/references/ips/seal/",
+      "ian-xiaohei-illustrations/references/ips/openclaw/",
+      "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
       "Xiaohei",
       "Littlebox",
+      "OpenClaw",
     ], "public route docs, canonical pack paths, and route names");
   }),
   defineCheck("DOC-TOM-001", "public docs expose Tom gated route markers", () => {
@@ -3414,6 +3434,52 @@ const checks = [
       "Seal docs, metadata, source authority, path-token consistency, public sample policy, and validator ownership markers",
     );
   }),
+  defineCheck("DOC-OPENCLAW-001", "public docs expose OpenClaw source-reviewed route and source/license markers", () => {
+    for (const relativePath of [
+      "README.md",
+      "examples/prompts.md",
+      "RELEASE_CHECKLIST.md",
+      ROUTING_FILE,
+    ]) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "OpenClaw",
+        "source-reviewed",
+        "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+        "assets/<article-slug>-openclaw/",
+        "assets/&lt;article-slug&gt;-openclaw/",
+      ], "OpenClaw route status, source/license authority, and path markers");
+    }
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "OpenClaw Source Attribution and Public Sample Gate",
+      "https://github.com/openclaw/openclaw",
+      "MIT License",
+      "Copyright (c) 2026 OpenClaw Foundation",
+      "Source/license authority: `ian-xiaohei-illustrations/references/ips/openclaw/source.md`",
+      "Uploaded-logo authority",
+    ], "OpenClaw NOTICE source/license and uploaded-logo authority wording");
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "OpenClaw",
+      "source-reviewed",
+      "logo-mascot route",
+    ], "OpenClaw agent metadata route status wording");
+    assertIncludes(
+      combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE, OPENAI_AGENT_FILE]),
+      "README.md + examples/prompts.md + NOTICE.md + RELEASE_CHECKLIST.md + routing.md + openai.yaml",
+      [
+        "ian-xiaohei-illustrations/references/ips/openclaw/",
+        "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+        "OpenClaw Source and License Review",
+        "OpenClaw Public Asset Policy",
+        "OpenClaw Generated Sample Policy",
+        "uploaded-logo identity",
+        "uploaded-logo authority",
+        "source/license authority",
+        "public rendered OpenClaw samples",
+        "Phase 37",
+      ],
+      "OpenClaw docs, metadata, source/license authority, path-token consistency, public sample policy, and validator ownership markers",
+    );
+  }),
   defineCheck("NOTICE-IAN-001", "NOTICE keeps Ian Xiaohei attribution markers", () => {
     assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
       "Ian Xiaohei Illustrations",
@@ -3478,6 +3544,23 @@ const checks = [
       "previous Sealos Seal uploaded hoodie seal image",
       "Public rendered Seal samples",
     ], "Seal NOTICE source-history authority, hoodie identity, historical provenance, and public sample review");
+  }),
+  defineCheck("NOTICE-OPENCLAW-001", "NOTICE keeps OpenClaw source attribution and public sample gate markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "OpenClaw Source Attribution and Public Sample Gate",
+      "source-reviewed logo-mascot route",
+      "Route: OpenClaw",
+      "Route id: `openclaw`",
+      "Route status: `source-reviewed`",
+      "Official repository: <https://github.com/openclaw/openclaw>",
+      "License: `MIT License`",
+      "Source copyright: `Copyright (c) 2026 OpenClaw Foundation`",
+      "Source/license authority: `ian-xiaohei-illustrations/references/ips/openclaw/source.md`",
+      "Uploaded-logo authority",
+      "Attribution context: OpenClaw source, license, copyright, uploaded-logo authority, route metadata, documentation, and release review",
+      "Public rendered OpenClaw samples remain gated",
+      "public-sample decision",
+    ], "OpenClaw NOTICE source/license, uploaded-logo authority, attribution context, and public sample gate");
   }),
   defineCheck("SMOKE-DEFAULT-001", "examples prompts cover omitted-IP default Xiaohei smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
@@ -3561,6 +3644,26 @@ const checks = [
       "public rendered Seal samples require release review",
     ], "text-only explicit Seal route smoke, planning, generation, path, identity, and public-sample gate prompts");
   }),
+  defineCheck("SMOKE-OPENCLAW-001", "examples prompts cover explicit OpenClaw route smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## Route Smoke: Explicit OpenClaw",
+      "OpenClaw is an explicit `source-reviewed` logo-mascot route",
+      "Explicit OpenClaw aliases include OpenClaw, openclaw, OpenClaw logo, OpenClaw mascot",
+      "Use $ian-xiaohei-illustrations with the OpenClaw route",
+      "route status `source-reviewed`",
+      "source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`",
+      "route-local reference directory `ian-xiaohei-illustrations/references/ips/openclaw/`",
+      "required references include `index.md`, `source.md`, `style-dna.md`, `openclaw-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`",
+      "planning fields include Placement, Core idea, Structure type, OpenClaw state, OpenClaw action, Supporting objects, Visible labels, Output path, Source/license note",
+      "assets/<article-slug>-openclaw/",
+      "assets/&lt;article-slug&gt;-openclaw/",
+      "uploaded-logo identity markers include red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs",
+      "OpenClaw action vocabulary includes inspect, hold, bridge, sort, lift, connect, and signal",
+      "public rendered OpenClaw samples require release review",
+      "### Explicit OpenClaw: edit existing image",
+      "### Smoke: OpenClaw source-reviewed route status",
+    ], "text-only explicit OpenClaw route smoke, planning, generation, edit, path, source/license, identity, and public-sample gate prompts");
+  }),
   defineCheck("SMOKE-MIXED-001", "examples prompts cover mixed-IP variant smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
       "## Route Notes: Mixed-IP Requests",
@@ -3571,20 +3674,39 @@ const checks = [
       "assets/<article-slug>-littlebox/",
     ], "text-only mixed-IP variant group smoke prompt");
   }),
-  defineCheck("SMOKE-MIXED-SEAL-001", "examples prompts cover five-route mixed-IP Seal variant behavior", () => {
+  defineCheck("SMOKE-MIXED-SEAL-001", "examples prompts preserve Seal mixed-IP route behavior", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
       "Xiaohei variant group",
       "Littlebox variant group",
       "Tom variant group",
       "Ferris variant group",
       "Seal variant group",
-      "five separate variant groups",
       "each group loads its own references",
       "Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`",
       "Seal source-history authority is at `ian-xiaohei-illustrations/references/ips/seal/source.md`",
       "Seal group uses `assets/<article-slug>-seal/`",
       "Hoodie seal identity note",
-    ], "five-route mixed prompt separation, Seal route-local pack, source authority, output path, and source-history note");
+    ], "mixed prompt separation, Seal route-local pack, source authority, output path, and source-history note");
+  }),
+  defineCheck("SMOKE-MIXED-OPENCLAW-001", "examples prompts cover six-route mixed-IP OpenClaw variant behavior", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "six separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw",
+      "Xiaohei variant group",
+      "Littlebox variant group",
+      "Tom variant group",
+      "Ferris variant group",
+      "Seal variant group",
+      "OpenClaw variant group",
+      "OpenClaw canonical pack is at `ian-xiaohei-illustrations/references/ips/openclaw/`",
+      "OpenClaw source/license authority is at `ian-xiaohei-illustrations/references/ips/openclaw/source.md`",
+      "OpenClaw variant group uses `ian-xiaohei-illustrations/references/ips/openclaw/`",
+      "Output to `assets/<article-slug>-openclaw/`",
+      "Docs validation token is `assets/&lt;article-slug&gt;-openclaw/`",
+      "uploaded-logo identity markers",
+      "Public rendered OpenClaw samples are controlled by the RELEASE_CHECKLIST.md public-sample and final evidence gates",
+      "Expected: OpenClaw variant group uses `ian-xiaohei-illustrations/references/ips/openclaw/`",
+      "OpenClaw variant group each use their own route-local references",
+    ], "six-route mixed prompt separation, OpenClaw route-local pack, source/license authority, output path, uploaded-logo identity, and public-sample gate");
   }),
   defineCheck("RELEASE-TOM-001", "release checklist keeps Tom rights and public sample gate markers", () => {
     assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
@@ -3913,6 +4035,36 @@ const checks = [
   }),
   defineCheck("VAL-RELEASE-001", "Phase 28 validates Release 1.5 English-default evidence markers", () => {
     assertPhase28ReleaseEvidenceMarkers();
+  }),
+  defineCheck("VAL-OPENCLAW-EVIDENCE-001", "Phase 37 records OpenClaw validation and release evidence", () => {
+    const evidencePath = path.join(
+      ".planning",
+      "phases",
+      "37-openclaw-validation-and-release-evidence",
+      "37-RELEASE-EVIDENCE.md",
+    );
+    assertIncludes(requireFile(evidencePath), evidencePath, [
+      "# Phase 37 Release Evidence: OpenClaw Validation",
+      "node scripts/validate-skill-package.mjs",
+      "Summary: total=112 passed=112 failed=0 skipped=0",
+      "node --test scripts/validate-skill-package.test.mjs",
+      "tests 79",
+      "pass 79",
+      "fail 0",
+      "git diff --check",
+      "OpenClaw route smoke",
+      "source/license smoke",
+      "docs consistency",
+      "BOUNDARY-OPENCLAW-LEAK-001",
+      "BOUNDARY-OPENCLAW-IMG-001",
+      "BOUNDARY-OPENCLAW-GEN-001",
+      "public rendered OpenClaw samples remain gated",
+      "VAL-01",
+      "VAL-02",
+      "VAL-03",
+      "VAL-04",
+      "VAL-05",
+    ], "Phase 37 exact command summaries, smoke coverage, docs consistency, leakage, sample gates, and requirement traceability");
   }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = legacyImageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
