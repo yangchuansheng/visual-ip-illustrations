@@ -225,6 +225,20 @@ OpenClaw shot-list entries use `references/ips/openclaw/prompt-template.md` and 
 
 OpenClaw planning prose can follow the user's language. OpenClaw image-generation prompts stay English. Visible labels are copied exactly in the user's language. OpenClaw performs the central cognitive action. Prefer sparse article-metaphor objects such as maps, bridges, knots, compasses, shelves, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, hooks, claws, or small hand-built machines, then assign an OpenClaw action such as inspect, grip, sort, bridge, tune, stamp, carry, map, connect, shield, compare, mark, untangle, weigh, guide, assemble, or repair.
 
+Go Gopher shot-list entries use `references/ips/gopher/prompt-template.md` and include:
+
+- Placement
+- Core idea
+- Structure type
+- Gopher state
+- Gopher action
+- Supporting objects
+- Visible labels
+- Output path: `assets/<article-slug>-gopher/`
+- Source/license note: Go Gopher is a `source-reviewed` article-illustration mascot route; check `references/ips/gopher/source.md` for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, and public sample review boundary.
+
+Go Gopher planning prose can follow the user's language. Go Gopher image-generation prompts stay English. Visible labels are copied exactly in the user's requested language. Go Gopher performs the central cognitive action. Prefer sparse article-metaphor objects such as maps, bridges, knots, compasses, shelves, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, hooks, stepping stones, signposts, levers, or small hand-built machines, then assign a Go Gopher action such as inspect, point, carry, sort, bridge, repair, guide, stamp, mark, tune, shield, weigh, connect, untangle, map, compare, lift, assemble, or route.
+
 Mixed-IP shot lists first state the shared core idea, then split into independent selected route groups:
 
 - Xiaohei variant group: Xiaohei action, white-background hand-drawn metaphor, suggested labels, `references/ips/xiaohei/` QA, `assets/<article-slug>-illustrations/`
@@ -233,6 +247,7 @@ Mixed-IP shot lists first state the shared core idea, then split into independen
 - Ferris variant group: Ferris state, Ferris action, supporting objects, visible labels, `references/ips/ferris/` QA, `assets/<article-slug>-ferris/`, source/trademark note, `source-reviewed`, `references/ips/ferris/source.md`
 - Seal variant group: Seal state, Seal action, supporting objects, visible labels, `references/ips/seal/` QA, `assets/<article-slug>-seal/`, hoodie seal identity note, Logo-free note, `active`, `references/ips/seal/source.md`
 - OpenClaw variant group: OpenClaw state, OpenClaw action, supporting objects, visible labels, `references/ips/openclaw/` QA, `assets/<article-slug>-openclaw/`, uploaded-logo identity note, source/license note, `source-reviewed`, `references/ips/openclaw/source.md`
+- Go Gopher variant group: Gopher state, Gopher action, supporting objects, visible labels, `references/ips/gopher/` QA, `assets/<article-slug>-gopher/`, route status `source-reviewed`, source pointer `references/ips/gopher/source.md`, root `gopher.png` identity note, source/license note, public sample review boundary, route isolation status
 
 Default to 4-8 images. Short articles usually need 1-3. Long articles usually stay within 9 images.
 
@@ -336,11 +351,31 @@ OpenClaw loads only OpenClaw `required_references`, uses `references/ips/opencla
 
 OpenClaw repair behavior uses the edit prompts in `references/ips/openclaw/prompt-template.md`: Stronger OpenClaw Participation, Uploaded-Logo Identity Repair, Title Removal, Text Reduction, Route Leakage Repair, and Unaffected-Content Preservation. Every repair keeps `source-reviewed`, `references/ips/openclaw/source.md`, uploaded-logo identity note, source/license note, route-local QA context, and `assets/<article-slug>-openclaw/`.
 
-Mixed-IP generation uses the same shared core idea to generate separated selected route groups. Xiaohei loads only `references/ips/xiaohei/`; Littlebox loads only `references/ips/littlebox/`; Tom loads only `references/ips/tom/`; Ferris loads only `references/ips/ferris/`; Seal loads only `references/ips/seal/`; OpenClaw loads only `references/ips/openclaw/`. Each group calls its own prompt template, composition rules, language rules, qa-checklist, edit gates, output_suffix, and route note. `assets/examples/` only calibrates style density and character participation; current-article metaphors are invented fresh.
+Go Gopher loads only Go Gopher `required_references`, uses `references/ips/gopher/prompt-template.md` plus `references/ips/gopher/composition-patterns.md`, then checks output with `references/ips/gopher/qa-checklist.md`. Go Gopher generation context always keeps route status `source-reviewed`, source/license authority `references/ips/gopher/source.md`, root `gopher.png` local visual authority, Renee French attribution, Creative Commons Attribution 4.0 boundary, local visual identity markers, public sample review boundary, Go logo boundary, official endorsement boundary, and output path `assets/<article-slug>-gopher/`. Go Gopher prompts keep:
+
+- one standalone sparse 16:9 article illustration
+- white or very light background
+- rough black hand-drawn outlines with generous whitespace
+- Go Gopher as the central cognitive action subject
+- Go Gopher blue body
+- beige muzzle and paws
+- restrained action accents
+- sparse visible labels copied exactly in the user's language
+- original article metaphor objects
+- locked marker set: blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border
+- route status note: `source-reviewed`
+- source/license authority: `references/ips/gopher/source.md`
+- source/license note covering Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png`, public sample review boundary, Go logo boundary, and official endorsement boundary
+- save reminder: `assets/<article-slug>-gopher/`
+- Go Gopher route block: generic blue mascot drift, realistic animal drift, missing ears, missing large simple eyes, missing buck teeth, missing beige muzzle/paws, missing black outline, missing white sticker-like border, Go logo confusion, official endorsement claims, passive placement, route leakage, excessive text, copied composition, formal diagrams, UI screenshots, IDE scenes, terminal scenes, code screenshots, poster layouts, top-left title artifacts, and clean digital labels all fail the route
+
+Go Gopher repair behavior uses the edit prompts in `references/ips/gopher/prompt-template.md`: Stronger Go Gopher Participation, `gopher.png` Identity Repair, Title Removal, Text Reduction, Route Leakage Repair, and Unaffected-Content Preservation. Every repair preserves successful composition, labels, style, aspect ratio, unaffected objects, route-local QA context, source/license note, root `gopher.png` identity note, and `assets/<article-slug>-gopher/`.
+
+Mixed-IP generation uses the same shared core idea to generate separated selected route groups. Xiaohei loads only `references/ips/xiaohei/`; Littlebox loads only `references/ips/littlebox/`; Tom loads only `references/ips/tom/`; Ferris loads only `references/ips/ferris/`; Seal loads only `references/ips/seal/`; OpenClaw loads only `references/ips/openclaw/`; Go Gopher loads only `references/ips/gopher/`. Each group calls its own prompt template, composition rules, language rules, qa-checklist, edit gates, output_suffix, and route note. Go Gopher uses its own prompt template, composition rules, QA checklist, edit gates, output suffix, route note, and `assets/<article-slug>-gopher/`. `assets/examples/` only calibrates style density and character participation; current-article metaphors are invented fresh.
 
 ### 5. QA and Iteration
 
-After generation, check the selected IP's QA reference. Xiaohei uses `references/ips/xiaohei/qa-checklist.md`; Littlebox uses `references/ips/littlebox/qa-checklist.md`; Tom uses `references/ips/tom/qa-checklist.md`; Ferris uses `references/ips/ferris/qa-checklist.md`; Seal uses `references/ips/seal/qa-checklist.md`; OpenClaw uses `references/ips/openclaw/qa-checklist.md`; `references/qa-checklist.md` remains the legacy root compatibility entry point.
+After generation, check the selected IP's QA reference. Xiaohei uses `references/ips/xiaohei/qa-checklist.md`; Littlebox uses `references/ips/littlebox/qa-checklist.md`; Tom uses `references/ips/tom/qa-checklist.md`; Ferris uses `references/ips/ferris/qa-checklist.md`; Seal uses `references/ips/seal/qa-checklist.md`; OpenClaw uses `references/ips/openclaw/qa-checklist.md`; Go Gopher uses `references/ips/gopher/qa-checklist.md`; `references/qa-checklist.md` remains the legacy root compatibility entry point.
 
 Xiaohei high-risk failures:
 
@@ -443,7 +478,32 @@ OpenClaw high-risk failures:
 - top-left title artifacts
 - clean digital labels
 
-When QA finds a failure, regenerate or edit through the selected IP's qa-checklist. Littlebox repairs prioritize closed lid, side-seam arms, single amber jagged seam tape, near-white body, rough linework, user's-language labels, balanced background, and active placement. Tom repairs use `references/ips/tom/prompt-template.md` edit gates: Tom edit participation repair gate, Tom off-model identity repair gate, Tom title removal edit gate, Tom text reduction edit gate, and Tom unaffected-content preservation gate; every repair keeps `gated-authorized`, `references/ips/tom/rights.md`, and route-local QA context. Ferris repairs use `references/ips/ferris/prompt-template.md` edit gates: participation, identity, trademark-boundary, title removal, text reduction, and unaffected-content preservation; every repair keeps `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, and route-local QA context. Seal repairs use `references/ips/seal/prompt-template.md` edit prompts; every repair keeps `active`, `references/ips/seal/source.md`, hoodie seal identity note, Logo-free note, product-neutral article metaphor context, route-local QA context, and `assets/<article-slug>-seal/`. OpenClaw repairs use `references/ips/openclaw/prompt-template.md` edit prompts; every repair keeps `source-reviewed`, `references/ips/openclaw/source.md`, uploaded-logo identity note, source/license note, original article-metaphor context, route-local QA context, and `assets/<article-slug>-openclaw/`.
+Go Gopher high-risk failures:
+
+- generic blue mascot drift
+- realistic animal drift
+- missing ears
+- missing large simple eyes
+- missing buck teeth
+- missing beige muzzle/paws
+- missing black outline
+- missing white sticker-like border
+- Go logo confusion
+- official endorsement claims
+- passive placement
+- route leakage
+- excessive text
+- copied composition
+- formal diagrams
+- UI screenshots
+- IDE scenes
+- terminal scenes
+- code screenshots
+- poster layouts
+- top-left title artifacts
+- clean digital labels
+
+When QA finds a failure, regenerate or edit through the selected IP's qa-checklist. Littlebox repairs prioritize closed lid, side-seam arms, single amber jagged seam tape, near-white body, rough linework, user's-language labels, balanced background, and active placement. Tom repairs use `references/ips/tom/prompt-template.md` edit gates: Tom edit participation repair gate, Tom off-model identity repair gate, Tom title removal edit gate, Tom text reduction edit gate, and Tom unaffected-content preservation gate; every repair keeps `gated-authorized`, `references/ips/tom/rights.md`, and route-local QA context. Ferris repairs use `references/ips/ferris/prompt-template.md` edit gates: participation, identity, trademark-boundary, title removal, text reduction, and unaffected-content preservation; every repair keeps `source-reviewed`, `references/ips/ferris/source.md`, source/trademark note, and route-local QA context. Seal repairs use `references/ips/seal/prompt-template.md` edit prompts; every repair keeps `active`, `references/ips/seal/source.md`, hoodie seal identity note, Logo-free note, product-neutral article metaphor context, route-local QA context, and `assets/<article-slug>-seal/`. OpenClaw repairs use `references/ips/openclaw/prompt-template.md` edit prompts; every repair keeps `source-reviewed`, `references/ips/openclaw/source.md`, uploaded-logo identity note, source/license note, original article-metaphor context, route-local QA context, and `assets/<article-slug>-openclaw/`. Go Gopher repairs use `references/ips/gopher/prompt-template.md` edit prompts; every repair keeps `source-reviewed`, `references/ips/gopher/source.md`, root `gopher.png` identity note, source/license note, original article-metaphor context, route-local QA context, public sample review boundary, route isolation status, and `assets/<article-slug>-gopher/`.
 
 ### 6. Save and Deliver
 
