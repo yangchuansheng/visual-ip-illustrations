@@ -4,23 +4,23 @@
 
 Visual IP Illustrations is a Codex Skill package for selectable visual-IP article illustrations. It turns article judgments, workflows, structures, states, and metaphors into 16:9 body illustrations while routing each image through the selected IP's character rules, prompt template, QA gates, output path, and source or brand boundary.
 
-The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, and the hoodie Seal route. The v1.7 milestone adds OpenClaw as an explicit source-reviewed logo-mascot route using the uploaded red OpenClaw logo as the visual authority.
+The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, the hoodie Seal route, and OpenClaw. The v1.8 milestone adds Go Gopher as an explicit source-reviewed mascot route using local `gopher.png` as the visual authority.
 
 ## Core Value
 
 Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## Current Milestone: v1.7 OpenClaw Logo IP Integration
+## Current Milestone: v1.8 Go Gopher Visual IP Integration
 
-**Goal:** Add OpenClaw as a selectable visual IP route whose source record, logo-derived identity, prompts, QA gates, docs, output path, and validation coverage preserve the uploaded red OpenClaw logo as the route authority.
+**Goal:** Add Go Gopher as a selectable visual IP route whose source record, Renee French attribution, Creative Commons Attribution 4.0 boundary, prompts, QA gates, docs, output path, and validation coverage preserve local `gopher.png` as the route visual authority.
 
 **Target features:**
 
-- Add the explicit `openclaw` route with display name `OpenClaw`, route-specific aliases, `default=false`, output suffix `openclaw`, and output directory `assets/<article-slug>-openclaw/`.
-- Add an OpenClaw source record that cites the official OpenClaw repository, MIT license, OpenClaw Foundation copyright notice, and the uploaded logo as route visual authority.
-- Create an isolated OpenClaw route pack for style, identity, composition, prompt, edit, QA, source, and public sample policy.
-- Wire OpenClaw into the skill controller, agent metadata, public docs, prompt examples, NOTICE, release checklist, and mixed-IP route grouping.
-- Extend validator and Node tests for OpenClaw route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release evidence.
+- Add the explicit `gopher` route with display name `Go Gopher`, route-specific aliases, `default=false`, output suffix `gopher`, and output directory `assets/<article-slug>-gopher/`.
+- Add a Go Gopher source record that cites Go project pages, Renee French as designer, Creative Commons Attribution 4.0 license boundary, and local `gopher.png` as route visual authority.
+- Create an isolated Go Gopher route pack for style, identity, composition, prompt, edit, QA, source, and public sample policy.
+- Wire Go Gopher into the skill controller, agent metadata, public docs, prompt examples, NOTICE, release checklist, and mixed-IP route grouping.
+- Extend validator and Node tests for Go Gopher route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release evidence.
 
 ## Requirements
 
@@ -57,24 +57,30 @@ Users can choose a visual IP and receive article illustrations whose character, 
 - Complete: NOTICE, source record, release checklist, and QA gates describe Seal as product-neutral, logo-free, route-local, and free of brand ownership claims - v1.6
 - Complete: Migration validation covers stale `sealos` route references, route id/output suffix/path drift, prompt leakage, docs leakage, source/brand boundary cleanup, and old fixture names - v1.6
 - Complete: Seal migration release evidence records validator 97/97, Node tests 66/66, `git diff --check`, stale Sealos scan, docs consistency, and route migration smoke success - v1.6
+- Complete: OpenClaw can be selected as an explicit source-reviewed route with route id `openclaw`, display name `OpenClaw`, output suffix `openclaw`, output directory `assets/<article-slug>-openclaw/`, and uploaded red logo visual authority - v1.7
+- Complete: OpenClaw ships with an isolated route-local pack, source record, docs, examples, metadata, NOTICE, release checklist, validator checks, and Node tests - v1.7
+- Complete: OpenClaw validation evidence records validator 112/112, Node tests 80/80, README variant parity, docs consistency, and local release evidence after quick task 260616-t6d - v1.7
 
 ### Active
 
-- OpenClaw can be selected as an explicit source-reviewed route without changing Xiaohei's omitted-IP default behavior.
-- OpenClaw route references preserve the uploaded red logo identity: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
-- OpenClaw prompts and QA treat the mascot as the cognitive action subject in sparse 16:9 article illustrations.
-- OpenClaw docs, NOTICE, release checklist, examples, and metadata expose the source/license boundary and `assets/<article-slug>-openclaw/` output path.
-- OpenClaw validation covers route contract, source record, route-local pack, docs, smoke prompts, public asset gates, and route leakage.
+- Go Gopher can be selected as an explicit source-reviewed route without changing Xiaohei's omitted-IP default behavior.
+- Go Gopher route references preserve local `gopher.png` as the route visual authority.
+- Go Gopher source records expose Renee French attribution and the Creative Commons Attribution 4.0 boundary described by Go project pages.
+- Go Gopher prompts and QA treat the mascot as the cognitive action subject in sparse 16:9 article illustrations.
+- Go Gopher docs, NOTICE, release checklist, examples, and metadata expose the source/license boundary and `assets/<article-slug>-gopher/` output path.
+- Go Gopher validation covers route contract, source record, route-local pack, docs, smoke prompts, public asset gates, and route leakage.
 
 ### Out of Scope
 
-- Making OpenClaw the default visual IP - Xiaohei remains the omitted-IP default.
-- Generic custom-IP import or marketplace behavior - v1.7 adds one concrete OpenClaw route.
-- Public generated OpenClaw sample gallery before release review - public assets require sample approval.
-- Replacing the uploaded OpenClaw logo identity with a generic red mascot, crab, lobster, robot, or blob.
-- Turning OpenClaw route outputs into OpenClaw product advertisements - images stay article illustrations.
+- Making Go Gopher the default visual IP - Xiaohei remains the omitted-IP default.
+- Generic custom-IP import or marketplace behavior - v1.8 adds one concrete Go Gopher route.
+- Public generated Go Gopher sample gallery before release review - public assets require sample approval.
+- Replacing local `gopher.png` visual authority with a different Gopher source image.
+- Using the Go logo as the route identity - the route is the Go Gopher character route.
+- Creating official Go project affiliation or endorsement claims - source records preserve attribution and license boundary only.
+- Turning Go Gopher route outputs into Go language advertisements - images stay article illustrations.
 - Changing Xiaohei default behavior - compatibility remains a core requirement.
-- Changing Littlebox, Tom, Ferris, or Seal route behavior - v1.7 is OpenClaw-route scoped.
+- Changing Littlebox, Tom, Ferris, Seal, or OpenClaw route behavior - v1.8 is Go Gopher-route scoped.
 - Changing root package identity or legacy `$ian-xiaohei-illustrations` invocation - Visual IP Illustrations remains the product identity.
 - Forcing user-visible labels into English - labels continue to follow the user's requested language.
 - Creating a hosted app, UI, API, database, or build runtime - the package remains a lightweight Codex Skill.
@@ -99,7 +105,9 @@ v1.5 completed the English-default migration: public docs, skill instructions, r
 
 The current codebase map calls out fragile areas that matter for this work: repeated naming instructions across docs, route metadata, examples, validator strings, install commands, skill frontmatter, and agent metadata. v1.6 treats route debranding as a compatibility-sensitive migration: active route surfaces move to Seal, while historical planning records and prior milestone evidence can still mention Sealos as source history.
 
-v1.7 starts the OpenClaw route milestone. Research confirmed OpenClaw is described by its official repository as a personal AI assistant, the official repository carries an MIT license with OpenClaw Foundation copyright, and the user-provided `openclaw-color.png` logo is the route visual authority for the new red logo-mascot IP.
+v1.7 completed the OpenClaw route milestone. OpenClaw is an explicit source-reviewed logo-mascot route with route id `openclaw`, route-local source/license records, uploaded red logo authority, public documentation, release gates, validator coverage, Node tests, and README variant parity.
+
+v1.8 starts the Go Gopher route milestone. Go project pages describe the Go Gopher as Renee French's creation and describe Gopher images under Creative Commons Attribution 4.0; local `gopher.png` is the route visual authority for the new source-reviewed Go Gopher visual IP.
 
 ## Constraints
 
@@ -107,12 +115,15 @@ v1.7 starts the OpenClaw route milestone. Research confirmed OpenClaw is describ
 - **Naming Compatibility**: Canonical identity becomes `Visual IP Illustrations` / `visual-ip-illustrations` / `$visual-ip-illustrations`, with `$ian-xiaohei-illustrations` preserved as a documented legacy alias during v1.4.
 - **Route Migration**: The former Sealos Seal active route becomes Seal, with route id `seal`, output suffix `seal`, and output directory `assets/<article-slug>-seal/`.
 - **Historical Evidence**: Prior planning, quick-task history, and commit history can retain Sealos wording as historical source evidence.
-- **IP Isolation**: Xiaohei, Littlebox, Tom, Ferris, and Seal rules remain separately readable, testable, and routable.
+- **IP Isolation**: Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw rules remain separately readable, testable, and routable.
 - **Attribution**: Preserve MIT license notices and derived documentation attribution for Ian and okooo5km; preserve Ferris source attribution for Karen Rustad Tolva and rustacean.net.
 - **Trademark Boundary**: Ferris references record CC0/public-domain source context, while Rust word/logo usage follows the Rust Foundation trademark policy and avoids official-affiliation claims.
 - **Seal Identity**: Seal references preserve the existing hoodie seal markers, logo-free route constraints, and generic mascot drift checks while removing product and brand claims from active route behavior.
 - **OpenClaw Source**: OpenClaw route references preserve the official repository, MIT license, and uploaded-logo authority through a route-local source record.
 - **OpenClaw Identity**: OpenClaw route outputs preserve the uploaded red logo markers: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+- **Go Gopher Source**: Go Gopher route references preserve Go project page context, Renee French attribution, Creative Commons Attribution 4.0 boundary, local `gopher.png` visual authority, and source-reviewed route status through a route-local source record.
+- **Go Gopher Identity**: Go Gopher route outputs preserve the local `gopher.png` markers: blue body, rounded head, simple eyes, small ears, buck teeth, compact limbs, and friendly standing posture.
+- **Default Route**: Xiaohei remains the omitted-IP default; Go Gopher is explicit with `default=false`.
 - **No Build Runtime**: The project stays usable as a lightweight skill package; validation can be script-based and dependency-free.
 - **Image Generation Dependency**: Final generation still depends on the host agent's `image_gen` capability.
 - **Documentation Language**: English is the default language for repository docs, skill instructions, reference docs, examples, release materials, validation output, code, scripts, comments, commit messages, and PR copy.
@@ -133,7 +144,8 @@ v1.7 starts the OpenClaw route milestone. Research confirmed OpenClaw is describ
 | Preserve `$ian-xiaohei-illustrations` as a legacy alias during v1.4 | Existing user prompts and local installs should continue working while canonical naming rolls out | Good |
 | Make English the default repository and skill language | The project is now a multi-IP skill package with public distribution and validator coverage, so English-default docs reduce ambiguity for broader users while compatibility exceptions preserve shipped behavior | Good |
 | Debrand the Sealos Seal route into Seal | Sealos is a product name and can make a character route feel promotional; the useful IP is the seal character itself | Good |
-| Add OpenClaw as a source-reviewed logo-mascot route | The user selected the uploaded red OpenClaw logo as a new IP authority, and the official OpenClaw repository provides MIT source context | Pending |
+| Add OpenClaw as a source-reviewed logo-mascot route | The user selected the uploaded red OpenClaw logo as a new IP authority, and the official OpenClaw repository provides MIT source context | Good |
+| Add Go Gopher as a source-reviewed mascot route | The user selected local `gopher.png` as the route visual authority, and Go project pages provide Renee French attribution plus Creative Commons Attribution 4.0 context | Pending |
 
 ## Evolution
 
@@ -153,4 +165,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-16 after starting v1.7 OpenClaw Logo IP Integration*
+*Last updated: 2026-06-16 after starting v1.8 Go Gopher Visual IP Integration*

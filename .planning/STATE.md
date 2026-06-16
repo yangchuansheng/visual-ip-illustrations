@@ -1,17 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.7
-milestone_name: OpenClaw Logo IP Integration
-status: Complete
-stopped_at: Phase 37 completed; v1.7 milestone complete
-last_updated: "2026-06-16T13:35:00.000Z"
+milestone: v1.8
+milestone_name: Go Gopher Visual IP Integration
+status: planning
+last_updated: "2026-06-16T17:43:12.052Z"
 last_activity: 2026-06-16
 progress:
   total_phases: 5
-  completed_phases: 5
+  completed_phases: 0
   total_plans: 5
-  completed_plans: 5
-  percent: 100
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -21,14 +20,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-16)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.7 complete — OpenClaw Logo IP Integration
+**Current focus:** v1.8 planning — Go Gopher Visual IP Integration
 
 ## Current Position
 
-Phase: 37 (OpenClaw Validation and Release Evidence)
-Plan: 37-01 complete
-Status: Complete
-Last activity: 2026-06-16
+Phase: 38 (Go Gopher Source and Route Contract)
+Plan: —
+Status: Ready to plan
+Last activity: 2026-06-16 — Milestone v1.8 roadmap created
 
 ## Performance Metrics
 
@@ -76,8 +75,8 @@ Last activity: 2026-06-16
 
 **Recent Trend:**
 
-- Last 5 plans: Phase 34 added the canonical pack; Phase 35 wired controller behavior; Phase 36 updated public release surfaces; Phase 37 hardened validation and release evidence; Quick 260616-t6d synchronized every README variant with OpenClaw.
-- Trend: v1.7 adds a new explicit OpenClaw source-reviewed logo-mascot route and now keeps every localized README in validator-enforced parity with the English source README.
+- Last 5 plans: Phase 34 added the OpenClaw canonical pack; Phase 35 wired controller behavior; Phase 36 updated public release surfaces; Phase 37 hardened validation and release evidence; Quick 260616-t6d synchronized every README variant with OpenClaw.
+- Trend: v1.8 starts a new explicit Go Gopher source-reviewed mascot route using local `gopher.png` as the visual authority and preserving Xiaohei as the omitted-IP default.
 
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
@@ -241,6 +240,9 @@ Recent decisions affecting current work:
 - [Milestone v1.7]: The official OpenClaw repository and MIT license provide source and attribution context; route-local source.md records this alongside uploaded-logo authority.
 - [Milestone v1.7]: Planned phases 33-37 cover source and route contract, canonical pack, skill controller integration, public documentation and release surface, validation hardening, and release evidence.
 - [Quick 260616-t6d]: OpenClaw v1.7 documentation now covers every root README variant. `DOC-OPENCLAW-001` discovers all `README*.md` files and Node tests include a localized README drift fixture. Validator coverage reports 112/112 and Node tests report 80/80.
+- [Milestone v1.8]: Go Gopher Visual IP Integration adds a new explicit source-reviewed route with route id gopher, display name Go Gopher, output suffix gopher, and output directory assets/<article-slug>-gopher/.
+- [Milestone v1.8]: Local `gopher.png` is the visual authority for the Go Gopher route, while source records cite Go project page context, Renee French attribution, and Creative Commons Attribution 4.0.
+- [Milestone v1.8]: Planned phases 38-42 cover source and route contract, canonical pack, skill controller integration, public documentation and release surface, validation hardening, and release evidence.
 
 ### Pending Todos
 
@@ -291,6 +293,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-16T07:05:18Z
-Stopped at: Milestone v1.7 OpenClaw Logo IP Integration initialized
+Last session: 2026-06-16T17:43:12Z
+Stopped at: Milestone v1.8 Go Gopher Visual IP Integration initialized
 Resume file: None
