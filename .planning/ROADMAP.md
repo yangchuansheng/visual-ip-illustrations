@@ -95,7 +95,11 @@ Plans:
   4. User and maintainer can see Go Gopher docs preserve default-route behavior, route isolation, source-reviewed status, and official-endorsement boundaries.
   5. Public release surfaces stay consistent across README variants, prompt examples, agent metadata, NOTICE, and release checklist.
 
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+
+- [ ] 41-01-PLAN.md — Go Gopher public documentation and release surface
 
 ### Phase 42: Go Gopher Validation and Release Evidence
 
@@ -122,5 +126,5 @@ Phases execute in numeric order: 38 -> 39 -> 40 -> 41 -> 42
 | 38. Go Gopher Source and Route Contract | 1/1 | Complete   | 2026-06-16 |
 | 39. Go Gopher Canonical Pack | 1/1 | Complete   | 2026-06-16 |
 | 40. Go Gopher Skill Controller Integration | 1/1 | Complete   | 2026-06-16 |
-| 41. Public Documentation and Release Surface | 0/1 | Not started | - |
+| 41. Public Documentation and Release Surface | 0/1 | Planned | - |
 | 42. Go Gopher Validation and Release Evidence | 0/1 | Not started | - |
