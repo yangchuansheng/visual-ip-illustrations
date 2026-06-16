@@ -1,57 +1,59 @@
-# Requirements: Seal Route Debranding
+# Requirements: OpenClaw Logo IP Integration
 
-**Defined:** 2026-06-15
+**Defined:** 2026-06-16
 **Core Value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## v1.6 Requirements
+## v1.7 Requirements
 
-### Route Identity
+### Route and Source
 
-- [x] **ROUTE-01**: User can select the former Sealos Seal route through a product-neutral Seal route identity with display name `Seal`.
-- [x] **ROUTE-02**: User can rely on route id `seal`, output suffix `seal`, and output directory `assets/<article-slug>-seal/` for new Seal outputs.
-- [x] **ROUTE-03**: User can see Seal aliases that describe a seal character without Sealos product, brand, mascot, cloud platform, or advertising wording.
-- [x] **ROUTE-04**: Maintainer can inspect routing metadata and see that Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, and Seal remain explicit selectable routes.
+- [ ] **ROUTE-01**: User can select OpenClaw as an explicit visual IP route through clear OpenClaw aliases while Xiaohei remains the omitted-IP default.
+- [ ] **ROUTE-02**: User can rely on route id `openclaw`, display name `OpenClaw`, output suffix `openclaw`, and output directory `assets/<article-slug>-openclaw/`.
+- [ ] **ROUTE-03**: Maintainer can inspect OpenClaw routing metadata and see all required references, attribution context, route status, source authority, and `default=false`.
+- [ ] **SRC-01**: Maintainer can inspect `references/ips/openclaw/source.md` and see the official OpenClaw repository, MIT license, OpenClaw Foundation copyright notice, uploaded-logo authority, sample policy, review owner, and route status.
+- [ ] **SRC-02**: User and maintainer can see that the uploaded red OpenClaw logo is the visual authority for the route, with stable markers for red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
 
-### Seal IP Pack
+### OpenClaw IP Pack
 
-- [x] **PACK-01**: User can read Seal route-local references that preserve the existing white hoodie seal identity markers without Sealos product or brand context.
-- [x] **PACK-02**: User can generate Seal prompts that use product-neutral article metaphors instead of cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, or Sealos platform props.
-- [x] **PACK-03**: User can use Seal QA gates that test hoodie seal identity, logo-free output, product-neutral route isolation, active cognitive participation, sparse labels, and article-metaphor quality.
-- [x] **PACK-04**: Maintainer can inspect the Seal source record and see product-neutral character authority, visual markers, sample policy, and historical source notes without active brand-owned claims.
+- [ ] **PACK-01**: User can read an OpenClaw route-local pack that isolates style, identity, composition, prompt, QA, source, sample policy, and output behavior from other IP routes.
+- [ ] **PACK-02**: User can plan OpenClaw shots with route-specific fields for OpenClaw state, OpenClaw action, core article idea, structure type, objects, labels, and output path.
+- [ ] **PACK-03**: User can generate OpenClaw prompts where the red logo-mascot performs the central cognitive article action in a sparse 16:9 illustration.
+- [ ] **PACK-04**: User can apply OpenClaw edit prompts for stronger participation, uploaded-logo identity repair, title removal, text reduction, and unaffected-content preservation.
+- [ ] **PACK-05**: User can use OpenClaw QA gates that reject generic red mascot drift, missing claws, missing antennae, missing cyan pupils, product-poster drift, passive placement, route leakage, excessive text, and copied composition.
 
-### Public Documentation and Release Surface
+### Runtime and Public Surface
 
-- [x] **DOC-01**: User can read README route selection, workflow, output path, and route descriptions with Seal as the active route name.
-- [x] **DOC-02**: User can copy examples that request Seal outputs through product-neutral prompts and new `assets/<article-slug>-seal/` paths.
-- [x] **DOC-03**: Maintainer can read NOTICE and release checklist entries that describe Seal as product-neutral, logo-free, and free of Sealos brand wording for active route behavior.
-- [x] **DOC-04**: Agent metadata and skill instructions present Seal as the selectable route while preserving Visual IP Illustrations as the package identity and `$ian-xiaohei-illustrations` as the legacy skill alias.
+- [ ] **DOC-01**: User can read README route selection, workflow, output path, and route descriptions with OpenClaw as an explicit source-reviewed route.
+- [ ] **DOC-02**: User can copy examples for OpenClaw planning, generation, editing, and mixed-IP variants with `assets/<article-slug>-openclaw/` paths.
+- [ ] **DOC-03**: Maintainer can read NOTICE and release checklist entries that include OpenClaw source, MIT attribution, uploaded-logo visual authority, public sample policy, and release review gates.
+- [ ] **DOC-04**: Agent metadata and skill instructions present OpenClaw as a selectable route while preserving Visual IP Illustrations identity and the legacy `$ian-xiaohei-illustrations` alias.
+- [ ] **DOC-05**: Mixed-IP workflow creates separate route groups for OpenClaw and all existing routes without blended references, prompts, QA rules, or output paths.
 
-### Validation and Migration Evidence
+### Validation and Release Evidence
 
-- [x] **VAL-01**: Validator fails when active route metadata, docs, prompts, QA, examples, release surfaces, or tests still use stale Sealos route identity for the Seal route.
-- [x] **VAL-02**: Validator passes historical Sealos mentions only in prior milestone evidence, source-history notes, commit references, and explicit migration context.
-- [x] **VAL-03**: Node tests cover Seal route parsing, route ordering, output path migration, stale Sealos leakage fixtures, prompt leakage fixtures, docs leakage fixtures, and full-pass output.
-- [x] **VAL-04**: Final release evidence records validator output, Node test output, `git diff --check`, stale Sealos scan, docs consistency, and route migration smoke coverage.
+- [ ] **VAL-01**: Validator fails when OpenClaw route metadata, source record, required references, output paths, docs, examples, NOTICE, release checklist, or agent metadata drift from the v1.7 contract.
+- [ ] **VAL-02**: Validator fails when OpenClaw identity markers leak into Xiaohei, Littlebox, Tom, Ferris, or Seal route-local packs.
+- [ ] **VAL-03**: Validator fails when public generated OpenClaw samples appear without explicit release checklist approval.
+- [ ] **VAL-04**: Node tests cover OpenClaw route parsing, route ordering, default preservation, output path markers, source/license markers, smoke prompts, leakage fixtures, public asset gates, and full-pass output.
+- [ ] **VAL-05**: Final release evidence records validator output, Node test output, `git diff --check`, OpenClaw route smoke, source/license smoke, docs consistency, leakage scan, and public sample gate status.
 
 ## Future Requirements
 
-### Broader Mascot and IP Support
+### Route Manifests
 
-- **MASC-01**: Maintainer can add another open-source mascot route by reusing the Ferris source-and-trademark-boundary pattern.
-- **MASC-02**: Maintainer can add another product-neutral mascot route by reusing the Seal debranding pattern.
-- **MASC-03**: Maintainer can track source, license, trademark, brand, endorsement, canonical image, and debranding records through a machine-readable visual-IP manifest.
-- **MASC-04**: User can request approved mascot comparison sheets across active route groups.
+- **MNF-01**: Maintainer can track all route source, license, trademark, uploaded-image, public-sample, output-path, and validation metadata through a machine-readable visual-IP manifest.
+- **MNF-02**: Maintainer can generate route tables and validator expectations from the manifest.
 
 ### Assets
 
-- **AST-01**: Maintainer can manage a machine-readable asset manifest with title, path, hash, composition family, IP route, source status, rights status, brand status, and anti-repeat notes.
-- **AST-02**: User can generate a contact sheet or visual comparison board across approved IP routes.
-- **AST-03**: Maintainer can run automated visual regression checks against calibration outputs.
+- **AST-01**: Maintainer can store and hash canonical uploaded source images for every uploaded-image route.
+- **AST-02**: User can generate a public-approved comparison sheet across active routes after sample review.
+- **AST-03**: Maintainer can run automated visual regression checks against approved calibration images.
 
 ### Distribution
 
-- **DIST-01**: Maintainer can package the installable skill directory through a release script.
-- **DIST-02**: User can install selected IP variants through a CLI-level selector.
+- **DIST-01**: Maintainer can package selected IP variants through a release script.
+- **DIST-02**: User can install selected IP routes through a CLI-level selector.
 
 ## Out of Scope
 
@@ -59,10 +61,11 @@ Explicitly excluded. Documented to prevent scope creep.
 
 | Feature | Reason |
 |---------|--------|
-| Redesigning the hoodie seal character | v1.6 preserves the existing visual identity. |
-| Adding another IP route | v1.6 migrates an existing route. |
-| Changing Xiaohei default behavior | Xiaohei remains the compatibility baseline and omitted-IP default. |
-| Changing Littlebox, Tom, or Ferris behavior | The milestone is scoped to the former Sealos Seal route. |
+| Making OpenClaw the default IP | Xiaohei remains the compatibility baseline and omitted-IP default. |
+| Generic custom-IP import | v1.7 adds one concrete OpenClaw route. |
+| Redesigning the uploaded OpenClaw logo | The uploaded logo is the visual authority for this milestone. |
+| Public generated OpenClaw gallery before approval | Public samples require release review. |
+| Changing Xiaohei, Littlebox, Tom, Ferris, or Seal behavior | The milestone is scoped to OpenClaw. |
 | Renaming the whole package | Visual IP Illustrations remains the product identity. |
 | Removing legacy skill invocation | `$ian-xiaohei-illustrations` remains a validated compatibility alias. |
 | Forcing visible labels into English | Visible labels continue to follow the user's requested language. |
@@ -74,26 +77,28 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ROUTE-01 | Phase 29 | Complete |
-| ROUTE-02 | Phase 29 | Complete |
-| ROUTE-03 | Phase 29 | Complete |
-| ROUTE-04 | Phase 29 | Complete |
-| PACK-01 | Phase 30 | Complete |
-| PACK-02 | Phase 30 | Complete |
-| PACK-03 | Phase 30 | Complete |
-| PACK-04 | Phase 30 | Complete |
-| DOC-01 | Phase 31 | Complete |
-| DOC-02 | Phase 31 | Complete |
-| DOC-03 | Phase 31 | Complete |
-| DOC-04 | Phase 31 | Complete |
-| VAL-01 | Phase 32 | Complete |
-| VAL-02 | Phase 32 | Complete |
-| VAL-03 | Phase 32 | Complete |
-| VAL-04 | Phase 32 | Complete |
-| MASC-01 | Future | Future |
-| MASC-02 | Future | Future |
-| MASC-03 | Future | Future |
-| MASC-04 | Future | Future |
+| ROUTE-01 | Phase 33 | Pending |
+| ROUTE-02 | Phase 33 | Pending |
+| ROUTE-03 | Phase 33 | Pending |
+| SRC-01 | Phase 33 | Pending |
+| SRC-02 | Phase 33 | Pending |
+| PACK-01 | Phase 34 | Pending |
+| PACK-02 | Phase 34 | Pending |
+| PACK-03 | Phase 34 | Pending |
+| PACK-04 | Phase 34 | Pending |
+| PACK-05 | Phase 34 | Pending |
+| DOC-01 | Phase 36 | Pending |
+| DOC-02 | Phase 36 | Pending |
+| DOC-03 | Phase 36 | Pending |
+| DOC-04 | Phase 35, Phase 36 | Pending |
+| DOC-05 | Phase 35 | Pending |
+| VAL-01 | Phase 37 | Pending |
+| VAL-02 | Phase 37 | Pending |
+| VAL-03 | Phase 37 | Pending |
+| VAL-04 | Phase 37 | Pending |
+| VAL-05 | Phase 37 | Pending |
+| MNF-01 | Future | Future |
+| MNF-02 | Future | Future |
 | AST-01 | Future | Future |
 | AST-02 | Future | Future |
 | AST-03 | Future | Future |
@@ -102,10 +107,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 **Coverage:**
 
-- v1.6 requirements: 16 total
-- Mapped to phases: 16
+- v1.7 requirements: 20 total
+- Mapped to phases: 20
 - Unmapped: 0
 
 ---
-*Requirements defined: 2026-06-15*
-*Last updated: 2026-06-15 after starting v1.6 Seal Route Debranding*
+*Requirements defined: 2026-06-16*
+*Last updated: 2026-06-16 after starting v1.7 OpenClaw Logo IP Integration*

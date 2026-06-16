@@ -1,107 +1,83 @@
-# Stack Research: Authorized Tom IP Integration
+# Stack Research: OpenClaw Logo IP Integration
 
 **Research type:** Project Research - Stack dimension
-**Project:** Multi-IP Article Illustration Skills
-**Researched:** 2026-06-13
-**Scope:** Add Tom from Tom and Jerry as a third selectable visual IP while preserving the existing lightweight Codex Skill package, Xiaohei default route, Littlebox explicit route, and local Node validator.
+**Project:** Visual IP Illustrations
+**Milestone:** v1.7 OpenClaw Logo IP Integration
+**Researched:** 2026-06-16
+**Scope:** Add OpenClaw as a selectable visual IP route using the uploaded red OpenClaw logo as the visual authority.
 
 ## Recommendation
 
-Keep the stack unchanged: Markdown reference packs, YAML agent metadata, static assets, and dependency-free Node validation. Tom should be added as another canonical IP pack under `ian-xiaohei-illustrations/references/ips/tom/`, with routing metadata in `references/routing.md` and validation coverage in `scripts/validate-skill-package.mjs`.
+Keep the stack unchanged: Markdown route references, YAML agent metadata, static assets, host-provided `image_gen`, and dependency-free Node validation. OpenClaw should be added as another isolated route under `ian-xiaohei-illustrations/references/ips/openclaw/`, with metadata in `references/routing.md`, public documentation, NOTICE attribution, release gates, validator checks, and Node regression tests.
 
-The key stack addition is rights-boundary metadata and validation. Tom is a protected commercial character, so the route needs source, rights holder, allowed-use assumption, attribution wording, and public-release boundary markers in `NOTICE.md`, `README.md`, `RELEASE_CHECKLIST.md`, and the validator.
+The new stack concern is source-image handling. The user-provided logo is the route visual authority, while the official OpenClaw repository and MIT license provide source and attribution context. The implementation phase should store a repo-visible source asset or source record so future prompts and validators can reference the exact red round mascot logo.
+
+## OpenClaw Facts
+
+| Fact | Evidence |
+|------|----------|
+| OpenClaw is a personal AI assistant. | Official README: `OpenClaw is a personal AI assistant you run on your own devices.` |
+| The official repository uses MIT license. | Official `LICENSE`: MIT License, Copyright (c) 2026 OpenClaw Foundation. |
+| The official repository contains OpenClaw logo assets. | Official README references `docs/assets/openclaw-logo-text.svg`; the SVG contains red OpenClaw mascot/logotype paths. |
+| The requested route authority is the uploaded logo. | User request provides `openclaw-color.png`, showing a red round mascot/logo with side claws, antennae, black eyes, cyan pupils, and short legs. |
 
 ## Stack Additions
 
 | Layer | Addition | Rationale |
-|---|---|---|
-| IP references | Add `ian-xiaohei-illustrations/references/ips/tom/` canonical pack | Matches the existing Xiaohei and Littlebox isolation model. |
-| Routing | Add `tom` row to `ian-xiaohei-illustrations/references/routing.md` | Keeps IP id, aliases, default flag, output suffix, references, attribution context, and status in the existing route table. |
-| Skill runtime docs | Extend `ian-xiaohei-illustrations/SKILL.md` route selection, shot-list, generation, QA, and delivery sections | The runtime remains prose-driven and route-first. |
-| Agent metadata | Update `ian-xiaohei-illustrations/agents/openai.yaml` display copy | Installed skill surfaces Xiaohei, Littlebox, and Tom selection. |
-| Public docs | Update `README.md`, `examples/prompts.md`, `NOTICE.md`, and `RELEASE_CHECKLIST.md` | Users and maintainers need Tom prompts, output paths, release checks, and rights context. |
-| Validation | Extend `scripts/validate-skill-package.mjs` and `scripts/validate-skill-package.test.mjs` | Existing checks are hard-coded for Xiaohei and Littlebox; Tom needs the same package, route, docs, prompt, output, smoke, and boundary coverage. |
+|-------|----------|-----------|
+| Source record | `references/ips/openclaw/source.md` | Records official source links, MIT license, uploaded-logo authority, sample policy, and review owner. |
+| IP pack | `references/ips/openclaw/` | Keeps OpenClaw identity, style, composition, prompt, QA, and source boundaries route-local. |
+| Routing | `references/routing.md` row for `openclaw` | Adds deterministic aliases, output suffix, required references, attribution context, and status. |
+| Skill runtime | `SKILL.md` route selection and dispatch updates | Lets users select OpenClaw without affecting Xiaohei default behavior. |
+| Public docs | README, prompt examples, NOTICE, release checklist, agent metadata | Exposes the route, output path, source/license context, and public sample gates. |
+| Validation | `scripts/validate-skill-package.mjs` and tests | Makes route, source, docs, output path, leakage, and release gates deterministic. |
 
-## Tom Canonical Pack
-
-Recommended files:
+## Recommended Pack Shape
 
 ```text
-ian-xiaohei-illustrations/references/ips/tom/
+ian-xiaohei-illustrations/references/ips/openclaw/
 ├── index.md
+├── source.md
 ├── style-dna.md
-├── tom-ip.md
+├── openclaw-ip.md
 ├── composition-patterns.md
-├── language-and-labels.md
 ├── prompt-template.md
 └── qa-checklist.md
 ```
 
-Use the Littlebox pack shape because Tom also needs IP-specific identity, label policy, prompt constraints, QA failures, and attribution boundaries. Keep file names lowercase kebab-case and keep `tom-ip.md` parallel to `xiaohei-ip.md` and `littlebox-ip.md`.
+Use the Ferris and Seal pack shape because OpenClaw needs both source/license records and uploaded-image visual authority. Keep route files in English and keep visible labels in the user's requested language.
 
 ## Routing Contract
 
-Add a third active route with these expected fields:
-
 | Field | Recommended value |
-|---|---|
-| `id` | `tom` |
-| `display_name` | `Tom` |
-| `aliases` | `Tom`, `汤姆`, `Tom Cat`, `Tom and Jerry`, `tom-and-jerry` |
+|-------|-------------------|
+| `id` | `openclaw` |
+| `display_name` | `OpenClaw` |
+| `aliases` | `OpenClaw`, `openclaw`, `OpenClaw mascot`, `OpenClaw logo`, `OpenClaw crab`, `OpenClaw red mascot` |
 | `default` | `false` |
-| `output_suffix` | `tom` |
-| `required_references` | all Tom canonical pack operational files |
-| `attribution_context` | Tom and Jerry / Tom Cat source, rights holder, allowed-use assumption, public distribution boundary |
-| `status` | `active` only after rights-boundary docs and validator markers land |
+| `output_suffix` | `openclaw` |
+| `required_references` | all seven OpenClaw route-local files |
+| `attribution_context` | OpenClaw official repository, MIT license, uploaded logo authority, source record |
+| `status` | `source-reviewed` during implementation; `active` after route, docs, validator, release evidence, and sample policy pass |
 
 Output path:
 
 ```text
-assets/<article-slug>-tom/
-assets/&lt;article-slug&gt;-tom/
+assets/<article-slug>-openclaw/
+assets/&lt;article-slug&gt;-openclaw/
 ```
 
-Mixed-IP behavior should generalize from two variant groups to route groups for Xiaohei, Littlebox, and Tom. Each group loads only its own `required_references` and writes to its own output suffix.
+## What Not To Add
 
-## Files to Modify
-
-| File | Change |
-|---|---|
-| `ian-xiaohei-illustrations/references/ips/tom/index.md` | Pack navigation, responsibilities, output path, rights-boundary pointer. |
-| `ian-xiaohei-illustrations/references/ips/tom/style-dna.md` | Tom-specific article-illustration visual rules and style limits. |
-| `ian-xiaohei-illustrations/references/ips/tom/tom-ip.md` | Character identity, allowed poses/actions, likeness constraints, failure modes. |
-| `ian-xiaohei-illustrations/references/ips/tom/composition-patterns.md` | Tom-appropriate cognitive-action metaphors and anti-repeat rules. |
-| `ian-xiaohei-illustrations/references/ips/tom/language-and-labels.md` | Prompt language, visible-label language, and delivery wording. |
-| `ian-xiaohei-illustrations/references/ips/tom/prompt-template.md` | Shot-list fields, generation prompt, and edit prompts. |
-| `ian-xiaohei-illustrations/references/ips/tom/qa-checklist.md` | Tom identity, action, text, background, density, and rights-boundary checks. |
-| `ian-xiaohei-illustrations/references/routing.md` | Add Tom route row, aliases, suffix, required references, mixed route wording, output path. |
-| `ian-xiaohei-illustrations/SKILL.md` | Add Tom to reference loading, route selection, planning fields, generation rules, QA risks, save paths, and delivery blocks. |
-| `ian-xiaohei-illustrations/agents/openai.yaml` | Mention selectable Xiaohei, Littlebox, or Tom while preserving Xiaohei as default. |
-| `README.md` | Add Tom route overview, aliases, output path, canonical pack path, sample prompt, and rights boundary note. |
-| `examples/prompts.md` | Add explicit Tom route smoke prompts and mixed-IP examples that include Tom. |
-| `NOTICE.md` | Add Tom source, rights holder, allowed-use assumption, attribution wording, and distribution boundary. |
-| `RELEASE_CHECKLIST.md` | Add Tom automated gate, smoke prompt, attribution review, package boundary, and release-boundary checks. |
-| `scripts/validate-skill-package.mjs` | Add Tom file lists, route checks, prompt markers, docs markers, output tokens, smoke checks, and rights-boundary checks. |
-| `scripts/validate-skill-package.test.mjs` | Extend parser and marker tests around three-route behavior if existing tests assert fixed two-route fixtures. |
-
-## Validator Changes
-
-Extend existing helpers instead of adding a framework. Recommended changes:
-
-- Add `tomOperationalRefs()` parallel to `xiaoheiOperationalRefs()` and `littleboxOperationalRefs()`.
-- Add Tom files to `requiredPackageFiles()`.
-- Add `assets/<article-slug>-tom/` and escaped token to `outputPathTokens()`.
-- Update `ROUTE-TABLE-001` to require `xiaohei`, `littlebox`, and `tom`.
-- Add `ROUTE-TOM-001` for display name, aliases, suffix, attribution markers, and status.
-- Update `ROUTE-DEFAULT-001` so Xiaohei remains the only default route and Tom has `default=false`.
-- Update `ROUTE-REFS-001` to handle Tom reference count.
-- Add `REFS-TOM-001`, `PROMPT-TOM-001`, `IP-TOM-001`, `NOTICE-TOM-001`, and `SMOKE-TOM-001`.
-- Update mixed-IP checks so wording covers route groups across all active routes.
-- Add a boundary check that public examples do not import rendered Tom images before rights-boundary review clears them.
+| Avoid | Reason |
+|-------|--------|
+| New app runtime, build system, package manager, database, or service | The project remains a lightweight Codex Skill package. |
+| Generic custom-IP importer | The milestone target is one OpenClaw route with a concrete source image. |
+| Prompt-only logo matching without a source record | The uploaded logo is the visual authority and needs durable provenance. |
+| Blended OpenClaw and Seal mascot rules | Route isolation keeps each IP testable and visually stable. |
+| Public generated OpenClaw gallery before release review | Public sample assets need source/license and visual-identity approval. |
 
 ## Validation Commands
-
-Use the existing commands:
 
 ```bash
 node scripts/validate-skill-package.mjs
@@ -109,43 +85,9 @@ node --test scripts/validate-skill-package.test.mjs
 git diff --check
 ```
 
-Useful inspection commands during implementation:
+## Sources
 
-```bash
-find ian-xiaohei-illustrations/references/ips -maxdepth 3 -type f | sort
-sed -n '1,220p' ian-xiaohei-illustrations/references/routing.md
-```
-
-Manual smoke prompts should cover:
-
-1. Omitted visual IP selects Xiaohei.
-2. Explicit Xiaohei selects `assets/<article-slug>-illustrations/`.
-3. Explicit Littlebox selects `assets/<article-slug>-littlebox/`.
-4. Explicit Tom selects `assets/<article-slug>-tom/`.
-5. Mixed Xiaohei/Littlebox/Tom request produces isolated route groups.
-
-## What Not To Add
-
-| Avoid | Reason |
-|---|---|
-| Web app, UI, API service, database, worker, or server runtime | The product is an installable Codex Skill package. |
-| `package.json`, npm dependencies, bundler, formatter, or lint stack | The current validator runs with Node built-ins and the repository has no build pipeline. |
-| New manifest format | `references/routing.md` is already the canonical machine-checkable route table. |
-| Generic custom-IP marketplace or import schema | v1.1 scope is one authorized Tom route. |
-| Public rendered Tom example assets before review | Tom needs rights-boundary clearance before public example distribution. |
-| Shared prompt template for all IPs | Xiaohei, Littlebox, and Tom need isolated identity, prompt, QA, and output rules. |
-| Moving legacy Xiaohei root references | Existing Xiaohei compatibility depends on those paths. |
-
-## Confidence
-
-| Area | Level | Reason |
-|---|---|---|
-| Stack shape | HIGH | Current repository already uses Markdown/YAML/static assets plus dependency-free Node validation. |
-| Integration points | HIGH | `SKILL.md`, `routing.md`, docs, agent metadata, notice, release checklist, and validator are established route integration files. |
-| Validator direction | HIGH | Current validator hard-codes package files, routes, prompt markers, docs markers, and output tokens, so Tom can be added by extending the same pattern. |
-| Tom visual rule details | MEDIUM | This stack research identifies where Tom rules live; exact style and likeness constraints belong in the Tom IP pack research and implementation. |
-| Rights-boundary wording | MEDIUM | The project requires source, rights holder, allowed-use assumption, attribution wording, and distribution boundary; final wording needs maintainer/legal review before broad release. |
-
-## Roadmap Implication
-
-Implement Tom as a vertical route slice: canonical pack first, routing second, runtime/docs third, validator fourth, release-boundary review last. This ordering keeps the package lightweight and gives maintainers a local gate before Tom appears as a normal bundled route.
+- OpenClaw official repository README: https://github.com/openclaw/openclaw
+- OpenClaw MIT license: https://github.com/openclaw/openclaw/blob/main/LICENSE
+- OpenClaw official logo asset reference: https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.svg
+- User-provided uploaded logo: `openclaw-color.png` attached in the request.

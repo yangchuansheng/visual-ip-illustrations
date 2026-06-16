@@ -4,23 +4,23 @@
 
 Visual IP Illustrations is a Codex Skill package for selectable visual-IP article illustrations. It turns article judgments, workflows, structures, states, and metaphors into 16:9 body illustrations while routing each image through the selected IP's character rules, prompt template, QA gates, output path, and source or brand boundary.
 
-The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, and the hoodie Seal route. The v1.6 milestone debrands the former Sealos Seal route into a product-neutral Seal visual IP while preserving the existing white seal, navy cap, deep-blue hoodie, face, flippers, compact legs, and tail identity.
+The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, and the hoodie Seal route. The v1.7 milestone adds OpenClaw as an explicit source-reviewed logo-mascot route using the uploaded red OpenClaw logo as the visual authority.
 
 ## Core Value
 
 Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## Current Milestone: v1.6 Seal Route Debranding
+## Current Milestone: v1.7 OpenClaw Logo IP Integration
 
-**Goal:** Fully migrate the former Sealos Seal route to a product-neutral Seal route, removing Sealos product, brand, cloud platform, cloud OS, DevBox, Kubernetes, and advertising-adjacent wording while preserving the current hoodie seal visual identity.
+**Goal:** Add OpenClaw as a selectable visual IP route whose source record, logo-derived identity, prompts, QA gates, docs, output path, and validation coverage preserve the uploaded red OpenClaw logo as the route authority.
 
 **Target features:**
 
-- Rename the route identity from Sealos Seal to Seal across route metadata, display copy, aliases, docs, examples, prompts, QA, release gates, validator checks, and Node tests.
-- Migrate route id, output suffix, output directory, required-reference wording, and route-local file expectations from `sealos` to `seal`.
-- Remove product and brand context from the Seal route, including Sealos product name, brand-owned status, cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, and advertising-adjacent wording.
-- Preserve the existing hoodie seal visual markers: white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
-- Update public docs, NOTICE, release checklist, skill metadata, examples, route-local references, validator fixtures, Node tests, and final release evidence for the Seal route migration.
+- Add the explicit `openclaw` route with display name `OpenClaw`, route-specific aliases, `default=false`, output suffix `openclaw`, and output directory `assets/<article-slug>-openclaw/`.
+- Add an OpenClaw source record that cites the official OpenClaw repository, MIT license, OpenClaw Foundation copyright notice, and the uploaded logo as route visual authority.
+- Create an isolated OpenClaw route pack for style, identity, composition, prompt, edit, QA, source, and public sample policy.
+- Wire OpenClaw into the skill controller, agent metadata, public docs, prompt examples, NOTICE, release checklist, and mixed-IP route grouping.
+- Extend validator and Node tests for OpenClaw route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release evidence.
 
 ## Requirements
 
@@ -60,14 +60,21 @@ Users can choose a visual IP and receive article illustrations whose character, 
 
 ### Active
 
-None.
+- OpenClaw can be selected as an explicit source-reviewed route without changing Xiaohei's omitted-IP default behavior.
+- OpenClaw route references preserve the uploaded red logo identity: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+- OpenClaw prompts and QA treat the mascot as the cognitive action subject in sparse 16:9 article illustrations.
+- OpenClaw docs, NOTICE, release checklist, examples, and metadata expose the source/license boundary and `assets/<article-slug>-openclaw/` output path.
+- OpenClaw validation covers route contract, source record, route-local pack, docs, smoke prompts, public asset gates, and route leakage.
 
 ### Out of Scope
 
-- Visual character redesign - v1.6 preserves the existing hoodie seal identity.
-- Adding a new visual IP route - v1.6 migrates an existing route.
+- Making OpenClaw the default visual IP - Xiaohei remains the omitted-IP default.
+- Generic custom-IP import or marketplace behavior - v1.7 adds one concrete OpenClaw route.
+- Public generated OpenClaw sample gallery before release review - public assets require sample approval.
+- Replacing the uploaded OpenClaw logo identity with a generic red mascot, crab, lobster, robot, or blob.
+- Turning OpenClaw route outputs into OpenClaw product advertisements - images stay article illustrations.
 - Changing Xiaohei default behavior - compatibility remains a core requirement.
-- Changing Littlebox, Tom, or Ferris route behavior - v1.6 is Seal-route scoped.
+- Changing Littlebox, Tom, Ferris, or Seal route behavior - v1.7 is OpenClaw-route scoped.
 - Changing root package identity or legacy `$ian-xiaohei-illustrations` invocation - Visual IP Illustrations remains the product identity.
 - Forcing user-visible labels into English - labels continue to follow the user's requested language.
 - Creating a hosted app, UI, API, database, or build runtime - the package remains a lightweight Codex Skill.
@@ -92,6 +99,8 @@ v1.5 completed the English-default migration: public docs, skill instructions, r
 
 The current codebase map calls out fragile areas that matter for this work: repeated naming instructions across docs, route metadata, examples, validator strings, install commands, skill frontmatter, and agent metadata. v1.6 treats route debranding as a compatibility-sensitive migration: active route surfaces move to Seal, while historical planning records and prior milestone evidence can still mention Sealos as source history.
 
+v1.7 starts the OpenClaw route milestone. Research confirmed OpenClaw is described by its official repository as a personal AI assistant, the official repository carries an MIT license with OpenClaw Foundation copyright, and the user-provided `openclaw-color.png` logo is the route visual authority for the new red logo-mascot IP.
+
 ## Constraints
 
 - **Runtime**: Preserve Codex Skill compatibility through Markdown `SKILL.md`, local reference files, and `agents/openai.yaml` metadata.
@@ -102,6 +111,8 @@ The current codebase map calls out fragile areas that matter for this work: repe
 - **Attribution**: Preserve MIT license notices and derived documentation attribution for Ian and okooo5km; preserve Ferris source attribution for Karen Rustad Tolva and rustacean.net.
 - **Trademark Boundary**: Ferris references record CC0/public-domain source context, while Rust word/logo usage follows the Rust Foundation trademark policy and avoids official-affiliation claims.
 - **Seal Identity**: Seal references preserve the existing hoodie seal markers, logo-free route constraints, and generic mascot drift checks while removing product and brand claims from active route behavior.
+- **OpenClaw Source**: OpenClaw route references preserve the official repository, MIT license, and uploaded-logo authority through a route-local source record.
+- **OpenClaw Identity**: OpenClaw route outputs preserve the uploaded red logo markers: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
 - **No Build Runtime**: The project stays usable as a lightweight skill package; validation can be script-based and dependency-free.
 - **Image Generation Dependency**: Final generation still depends on the host agent's `image_gen` capability.
 - **Documentation Language**: English is the default language for repository docs, skill instructions, reference docs, examples, release materials, validation output, code, scripts, comments, commit messages, and PR copy.
@@ -122,6 +133,7 @@ The current codebase map calls out fragile areas that matter for this work: repe
 | Preserve `$ian-xiaohei-illustrations` as a legacy alias during v1.4 | Existing user prompts and local installs should continue working while canonical naming rolls out | Good |
 | Make English the default repository and skill language | The project is now a multi-IP skill package with public distribution and validator coverage, so English-default docs reduce ambiguity for broader users while compatibility exceptions preserve shipped behavior | Good |
 | Debrand the Sealos Seal route into Seal | Sealos is a product name and can make a character route feel promotional; the useful IP is the seal character itself | Good |
+| Add OpenClaw as a source-reviewed logo-mascot route | The user selected the uploaded red OpenClaw logo as a new IP authority, and the official OpenClaw repository provides MIT source context | Pending |
 
 ## Evolution
 
@@ -141,4 +153,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-15 after completing v1.6 Seal Route Debranding*
+*Last updated: 2026-06-16 after starting v1.7 OpenClaw Logo IP Integration*

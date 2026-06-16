@@ -1,34 +1,33 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.6
-milestone_name: milestone
-status: complete
-stopped_at: Phase 32 complete; v1.6 milestone complete
-last_updated: "2026-06-15T17:53:05.000Z"
-last_activity: 2026-06-15
+milestone: v1.7
+milestone_name: OpenClaw Logo IP Integration
+status: planning
+last_updated: "2026-06-16T07:05:18.372Z"
+last_activity: 2026-06-16
 progress:
-  total_phases: 4
-  completed_phases: 4
-  total_plans: 5
-  completed_plans: 5
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-06-15)
+See: .planning/PROJECT.md (updated 2026-06-16)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.6 milestone complete
+**Current focus:** v1.7 OpenClaw Logo IP Integration
 
 ## Current Position
 
-Phase: 32
-Plan: Not started
-Status: Complete
-Last activity: 2026-06-15 - Completed quick task 260616-13w: multi-IP English example gallery added
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-06-16 — Milestone v1.7 started
 
 ## Performance Metrics
 
@@ -71,8 +70,8 @@ Last activity: 2026-06-15 - Completed quick task 260616-13w: multi-IP English ex
 
 **Recent Trend:**
 
-- Last 5 plans: Phase 27 migrated public documentation and examples; Phase 28 hardened English-default validation and release evidence; v1.5 completed with validator 98/98 and Node tests 66/66; v1.6 roadmap initialized Phase 29-32 for Seal Route Debranding.
-- Trend: v1.6 starts a route identity migration that turns the former Sealos Seal route into the product-neutral Seal route while preserving the hoodie seal visual identity.
+- Last 5 plans: Phase 29 migrated Seal route identity; Phase 30 debranded the Seal pack; Phase 31 migrated public documentation and release surfaces; Phase 32 hardened Seal migration validation and evidence; v1.7 roadmap initializes Phase 33-37 for OpenClaw Logo IP Integration.
+- Trend: v1.7 adds a new explicit OpenClaw source-reviewed logo-mascot route while preserving the existing route-isolated package architecture.
 
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
@@ -231,6 +230,10 @@ Recent decisions affecting current work:
 - [Phase 32]: Phase 32 migration scans expose deterministic PASS lines for stale-route, docs-consistency, and route-smoke evidence.
 - [Phase 32]: Phase 32 UAT uses text-route smoke evidence for release readiness without image generation.
 - [Quick 260615-mpv]: README now has 13 language variants with shared selectors, localized sibling links, and validator-approved selector-label exceptions. Validator coverage reports 97/97 and Node tests report 66/66.
+- [Milestone v1.7]: OpenClaw Logo IP Integration adds a new explicit route with route id openclaw, display name OpenClaw, output suffix openclaw, and output directory assets/<article-slug>-openclaw/.
+- [Milestone v1.7]: The user-provided uploaded OpenClaw logo is the route visual authority, with stable markers red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+- [Milestone v1.7]: The official OpenClaw repository and MIT license provide source and attribution context; route-local source.md records this alongside uploaded-logo authority.
+- [Milestone v1.7]: Planned phases 33-37 cover source and route contract, canonical pack, skill controller integration, public documentation and release surface, validation hardening, and release evidence.
 
 ### Pending Todos
 
@@ -280,6 +283,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-06-15T06:28:06Z
-Stopped at: Phase 32 complete; v1.6 milestone complete
+Last session: 2026-06-16T07:05:18Z
+Stopped at: Milestone v1.7 OpenClaw Logo IP Integration initialized
 Resume file: None

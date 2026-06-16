@@ -2,10 +2,10 @@
 
 ## Overview
 
-v1.6 fully migrates the former Sealos Seal route into a product-neutral Seal visual IP. The milestone removes Sealos product, brand, cloud platform, cloud OS, DevBox, Kubernetes, and advertising-adjacent wording from active route behavior while preserving the existing hoodie seal character: white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail.
+v1.7 adds OpenClaw as an explicit source-reviewed logo-mascot route. The milestone preserves all existing route behavior while adding the `openclaw` route, output suffix `openclaw`, output path `assets/<article-slug>-openclaw/`, source/license record, uploaded-logo visual authority, route-local references, public docs, release gates, validator checks, Node tests, and final release evidence.
 
-**Current Milestone:** v1.6 Seal Route Debranding
-**Phase Range:** 29-32
+**Current Milestone:** v1.7 OpenClaw Logo IP Integration
+**Phase Range:** 33-37
 **Granularity:** coarse
 
 ## Phases
@@ -17,91 +17,112 @@ v1.6 fully migrates the former Sealos Seal route into a product-neutral Seal vis
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [x] **Phase 29: Seal Route Identity Migration** - Users can select the active route as product-neutral Seal with route id `seal`, output suffix `seal`, output path `assets/<article-slug>-seal/`, and stable explicit routing. (pending) (completed 2026-06-15)
-- [x] **Phase 30: Seal Pack Debranding** - Users can plan, prompt, edit, and QA hoodie Seal illustrations through product-neutral route-local references while the existing visual identity stays stable. (pending) (completed 2026-06-15)
-- [x] **Phase 31: Public Documentation and Release Surface Migration** - Users and maintainers can learn, invoke, review, and release the Seal route through product-neutral README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (pending) (completed 2026-06-15)
-- [x] **Phase 32: Seal Migration Validation and Release Evidence** - Maintainers can verify stale Sealos cleanup, route migration, output path stability, prompt leakage, docs consistency, and release readiness locally. (pending) (completed 2026-06-15)
+- [ ] **Phase 33: OpenClaw Source and Route Contract** - Users can select OpenClaw through an explicit source-reviewed route with stable aliases, `default=false`, route id `openclaw`, output suffix `openclaw`, output path `assets/<article-slug>-openclaw/`, source/license authority, and uploaded-logo visual authority. (pending)
+- [ ] **Phase 34: OpenClaw Canonical Pack** - Users can plan, prompt, edit, and QA OpenClaw article illustrations through route-local references that preserve the uploaded red logo-mascot identity. (pending)
+- [ ] **Phase 35: OpenClaw Skill Controller Integration** - Users can invoke OpenClaw through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable. (pending)
+- [ ] **Phase 36: Public Documentation and Release Surface** - Users and maintainers can learn, invoke, review, and release OpenClaw through README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (pending)
+- [ ] **Phase 37: OpenClaw Validation and Release Evidence** - Maintainers can verify OpenClaw route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release readiness locally. (pending)
 
 ## Phase Details
 
-### Phase 29: Seal Route Identity Migration
+### Phase 33: OpenClaw Source and Route Contract
 
-**Goal**: Users can select the former Sealos Seal route through a product-neutral Seal route identity.
-**Depends on**: Phase 28
-**Requirements**: ROUTE-01, ROUTE-02, ROUTE-03, ROUTE-04
+**Goal**: Users can select OpenClaw through an explicit route with source/license and uploaded-logo authority.
+**Depends on**: Phase 32
+**Requirements**: ROUTE-01, ROUTE-02, ROUTE-03, SRC-01, SRC-02
 **Success Criteria** (what must be TRUE):
 
-  1. Route metadata uses display name `Seal`, route id `seal`, output suffix `seal`, and output directory `assets/<article-slug>-seal/`.
-  2. Seal aliases describe a seal character and avoid Sealos product, brand, mascot, cloud platform, and advertising wording.
-  3. Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, and Seal remain explicit selectable routes.
-  4. Mixed-IP routing creates separate route groups for Xiaohei, Littlebox, Tom, Ferris, and Seal with route-local references and output directories.
+  1. `references/routing.md` includes route id `openclaw`, display name `OpenClaw`, `default=false`, output suffix `openclaw`, and output path `assets/<article-slug>-openclaw/`.
+  2. OpenClaw aliases are explicit and avoid generic aliases such as `assistant`, `red mascot`, `crab`, or `logo`.
+  3. `references/ips/openclaw/source.md` records the official OpenClaw repository, MIT license, OpenClaw Foundation copyright notice, uploaded-logo authority, public sample policy, review owner, and route status.
+  4. Source and route metadata name the stable uploaded-logo markers: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+  5. Xiaohei remains the omitted-IP default while Littlebox, Tom, Ferris, Seal, and OpenClaw remain explicit selectable routes.
 
-**Plans:** 1/1 plans complete
+**Plans:** 0/1 plans complete
 Plans:
 
-- [x] 29-01-PLAN.md - Migrate route metadata, route id, aliases, output suffix, output path, and skill routing from Sealos Seal to Seal.
+- [ ] 33-01-PLAN.md - Add OpenClaw source record, route metadata, aliases, output suffix, output path, and source/license authority.
 
-### Phase 30: Seal Pack Debranding
+### Phase 34: OpenClaw Canonical Pack
 
-**Goal**: Users can generate hoodie Seal article illustrations without product or brand context leaking into route-local behavior.
-**Depends on**: Phase 29
-**Requirements**: PACK-01, PACK-02, PACK-03, PACK-04
+**Goal**: Users can generate OpenClaw article illustrations through route-local references that preserve the uploaded logo identity.
+**Depends on**: Phase 33
+**Requirements**: PACK-01, PACK-02, PACK-03, PACK-04, PACK-05
 **Success Criteria** (what must be TRUE):
 
-  1. Seal route-local references preserve the hoodie seal identity markers without active Sealos product or brand context.
-  2. Prompt and composition guidance use product-neutral article metaphors instead of cloud OS, AI-native deployment, DevBox, database hosting, app deployment, Kubernetes, or Sealos platform props.
-  3. QA gates check hoodie seal identity, logo-free output, product-neutral route isolation, active cognitive participation, sparse labels, and article-metaphor quality.
-  4. The Seal source record contains product-neutral character authority, visual markers, sample policy, and historical source notes without active brand-owned claims.
+  1. OpenClaw route-local files exist for index, source, style DNA, identity, composition patterns, prompt template, and QA checklist.
+  2. Planning fields include OpenClaw state, OpenClaw action, core article idea, structure type, suggested objects, visible labels, and output path.
+  3. Generation prompts make the red OpenClaw mascot perform the central cognitive article action in a sparse 16:9 illustration.
+  4. Edit prompts cover stronger participation, uploaded-logo identity repair, title removal, text reduction, and unaffected-content preservation.
+  5. QA rejects generic red mascot drift, missing claws, missing antennae, missing cyan pupils, product-poster drift, passive placement, route leakage, excessive text, and copied composition.
 
-**Plans:** 2/2 plans complete
+**Plans:** 0/1 plans complete
 Plans:
 
-- [x] 30-01-PLAN.md - Rename and debrand route-local Seal source, identity, style, and composition references.
-- [x] 30-02-PLAN.md - Rewrite Seal prompt, edit, QA, and delivery rules around product-neutral article metaphors and hoodie seal identity.
+- [ ] 34-01-PLAN.md - Create OpenClaw route-local identity, style, composition, prompt, edit, QA, and sample-policy references.
 
-### Phase 31: Public Documentation and Release Surface Migration
+### Phase 35: OpenClaw Skill Controller Integration
 
-**Goal**: Users and maintainers can use the Seal route through public and runtime-facing docs that avoid Sealos product promotion.
-**Depends on**: Phase 30
+**Goal**: Users can invoke OpenClaw through runtime skill behavior while mixed-IP route isolation stays intact.
+**Depends on**: Phase 34
+**Requirements**: DOC-04, DOC-05
+**Success Criteria** (what must be TRUE):
+
+  1. `SKILL.md` includes OpenClaw route selection, progressive reference loading, planning fields, generation dispatch, edit routing, QA dispatch, and delivery report behavior.
+  2. Mixed-IP requests create separate route groups for Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw.
+  3. OpenClaw route behavior loads only OpenClaw required references.
+  4. Existing omitted-IP Xiaohei behavior and explicit Littlebox, Tom, Ferris, and Seal behavior remain stable.
+
+**Plans:** 0/1 plans complete
+Plans:
+
+- [ ] 35-01-PLAN.md - Wire OpenClaw into skill runtime routing, reference loading, mixed-IP grouping, generation/edit/QA dispatch, and delivery reporting.
+
+### Phase 36: Public Documentation and Release Surface
+
+**Goal**: Users and maintainers can use OpenClaw through public and runtime-facing docs with source/license and sample-policy clarity.
+**Depends on**: Phase 35
 **Requirements**: DOC-01, DOC-02, DOC-03, DOC-04
 **Success Criteria** (what must be TRUE):
 
-  1. README route selection, workflow, output path, and route descriptions present Seal as the active route name.
-  2. `examples/prompts.md` includes product-neutral Seal prompts and new `assets/<article-slug>-seal/` output path examples.
-  3. NOTICE and RELEASE_CHECKLIST describe Seal as product-neutral, logo-free, and free of Sealos brand wording for active route behavior.
-  4. `SKILL.md` and `agents/openai.yaml` present Seal as the selectable route while Visual IP Illustrations and the legacy skill alias remain stable.
+  1. README route selection, workflow, output path, and route descriptions present OpenClaw as an explicit source-reviewed route.
+  2. `examples/prompts.md` includes OpenClaw planning, generation, editing, and mixed-IP examples with `assets/<article-slug>-openclaw/` output paths.
+  3. NOTICE records OpenClaw source and MIT attribution.
+  4. RELEASE_CHECKLIST records source/license review, uploaded-logo visual authority, public sample policy, validator evidence, Node test evidence, and final release gates.
+  5. `agents/openai.yaml` and broad skill metadata mention OpenClaw while preserving Visual IP Illustrations and the legacy skill alias.
 
-**Plans:** 1/1 plans complete
+**Plans:** 0/1 plans complete
 Plans:
 
-- [x] 31-01-PLAN.md - Migrate README, examples, NOTICE, release checklist, skill instructions, and agent metadata to Seal route wording.
+- [ ] 36-01-PLAN.md - Update public docs, prompt examples, NOTICE, release checklist, skill instructions, and agent metadata for OpenClaw.
 
-### Phase 32: Seal Migration Validation and Release Evidence
+### Phase 37: OpenClaw Validation and Release Evidence
 
-**Goal**: Maintainers can verify the Seal migration locally and release it with deterministic evidence.
-**Depends on**: Phase 31
-**Requirements**: VAL-01, VAL-02, VAL-03, VAL-04
+**Goal**: Maintainers can verify the OpenClaw route locally and release it with deterministic evidence.
+**Depends on**: Phase 36
+**Requirements**: VAL-01, VAL-02, VAL-03, VAL-04, VAL-05
 **Success Criteria** (what must be TRUE):
 
-  1. Validator fails on stale Sealos route identity in active route metadata, docs, prompts, QA, examples, release surfaces, or tests.
-  2. Validator allows historical Sealos mentions only in prior milestone evidence, source-history notes, commit references, and explicit migration context.
-  3. Node tests cover Seal route parsing, route ordering, output path migration, stale Sealos leakage fixtures, prompt leakage fixtures, docs leakage fixtures, and full-pass output.
-  4. Final evidence records validator output, Node test output, `git diff --check`, stale Sealos scan, docs consistency, and route migration smoke coverage.
-  5. UAT confirms Seal outputs keep the hoodie seal identity while product, brand, and cloud-platform cues are absent from active route behavior.
+  1. Validator fails on OpenClaw route metadata, source record, route-local pack, output path, docs, examples, NOTICE, release checklist, or agent metadata drift.
+  2. Validator fails when OpenClaw identity markers leak into non-OpenClaw route packs.
+  3. Validator fails when public generated OpenClaw samples appear without release checklist approval.
+  4. Node tests cover OpenClaw route parsing, route ordering, default preservation, output path markers, source/license markers, smoke prompts, leakage fixtures, public asset gates, and full-pass output.
+  5. Final evidence records validator output, Node test output, `git diff --check`, OpenClaw route smoke, source/license smoke, docs consistency, leakage scan, and public sample gate status.
 
-**Plans:** 1/1 plans complete
+**Plans:** 0/1 plans complete
 Plans:
 
-- [x] 32-01-PLAN.md - Harden Seal migration validation, Node regression tests, stale Sealos scans, and release evidence.
+- [ ] 37-01-PLAN.md - Harden OpenClaw validation, Node regression tests, leakage scans, public sample gates, and release evidence.
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 29 -> 30 -> 31 -> 32
+Phases execute in numeric order: 33 -> 34 -> 35 -> 36 -> 37
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 29. Seal Route Identity Migration | 1/1 | Complete   | 2026-06-15 |
-| 30. Seal Pack Debranding | 2/2 | Complete    | 2026-06-15 |
-| 31. Public Documentation and Release Surface Migration | 1/1 | Complete   | 2026-06-15 |
-| 32. Seal Migration Validation and Release Evidence | 1/1 | Complete    | 2026-06-15 |
+| 33. OpenClaw Source and Route Contract | 0/1 | Pending | - |
+| 34. OpenClaw Canonical Pack | 0/1 | Pending | - |
+| 35. OpenClaw Skill Controller Integration | 0/1 | Pending | - |
+| 36. Public Documentation and Release Surface | 0/1 | Pending | - |
+| 37. OpenClaw Validation and Release Evidence | 0/1 | Pending | - |
