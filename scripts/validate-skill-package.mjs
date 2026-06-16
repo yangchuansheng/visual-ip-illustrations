@@ -1775,6 +1775,22 @@ function sealPlannedReferences() {
   ];
 }
 
+function openclawPlannedReferences() {
+  return [
+    "references/ips/openclaw/index.md",
+    "references/ips/openclaw/source.md",
+    "references/ips/openclaw/style-dna.md",
+    "references/ips/openclaw/openclaw-ip.md",
+    "references/ips/openclaw/composition-patterns.md",
+    "references/ips/openclaw/prompt-template.md",
+    "references/ips/openclaw/qa-checklist.md",
+  ];
+}
+
+function openclawOperationalRefs() {
+  return openclawPlannedReferences().map((item) => path.join(PACKAGE_DIR, item));
+}
+
 function sealDriftMarkers() {
   return [
     "generic seals",
@@ -1850,7 +1866,7 @@ function rebrandRouteExpectations() {
       default: "false",
       status: "source-reviewed",
       outputSuffix: "openclaw",
-      referenceCount: 1,
+      referenceCount: 7,
     },
   ];
 }
@@ -2424,7 +2440,7 @@ const checks = [
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7, openclaw: 1 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7, openclaw: 7 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -2456,8 +2472,8 @@ const checks = [
           if (reference !== "references/ips/seal/source.md") continue;
         }
         if (row.id === "openclaw") {
-          if (reference !== "references/ips/openclaw/source.md") {
-            throw new Error(`${ROUTING_FILE} expected openclaw reference ${reference} to be references/ips/openclaw/source.md`);
+          if (!reference.startsWith("references/ips/openclaw/")) {
+            throw new Error(`${ROUTING_FILE} expected openclaw reference ${reference} under references/ips/openclaw/`);
           }
           if (!displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/openclaw/`)) {
             throw new Error(`${ROUTING_FILE} expected openclaw reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/openclaw/`);
@@ -2605,6 +2621,42 @@ const checks = [
       "no logo patches",
     ], "Seal route-local shared sample gate, no-logo markers, and route block markers");
   }),
+  defineCheck("REFS-OPENCLAW-001", "OpenClaw canonical route references and shared markers exist", () => {
+    const openclawFiles = openclawOperationalRefs();
+    assertReadableFiles(openclawFiles, path.join(REFERENCES_DIR, "ips", "openclaw"), "OpenClaw seven-file pack");
+    for (const relativePath of openclawFiles) {
+      const sharedMarkers = [
+        "openclaw",
+        "source.md",
+        "source-reviewed",
+        "assets/<article-slug>-openclaw/",
+      ];
+      const authorityMarkers = relativePath.endsWith("source.md")
+        ? ["Source authority", "Uploaded logo authority"]
+        : ["Source/license authority", "Uploaded-logo identity note"];
+      assertIncludes(requireFile(relativePath), relativePath, [
+        ...sharedMarkers,
+        ...authorityMarkers,
+      ], "OpenClaw route-local shared operational markers");
+    }
+    assertIncludes(combinedText([
+      path.join(REFERENCES_DIR, "ips", "openclaw", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "openclaw", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "ips", "openclaw", "qa-checklist.md"),
+    ]), path.join(REFERENCES_DIR, "ips", "openclaw"), [
+      "Public-sample boundary",
+      "OpenClaw route block",
+      "generic red mascot drift",
+      "missing claws",
+      "missing antennae",
+      "missing cyan pupils",
+      "product-poster drift",
+      "passive placement",
+      "excessive text",
+      "route leakage",
+      "copied composition",
+    ], "OpenClaw route-local shared sample gate and route block markers");
+  }),
   defineCheck("LEGACY-XH-001", "root Xiaohei compatibility files expose the current contract heading", () => {
     for (const item of legacyXiaoheiRefs()) {
       const body = bodyAfterHeading(requireFile(item.root), "Current Xiaohei Contract");
@@ -2742,6 +2794,32 @@ const checks = [
       "Unaffected-Content Preservation",
     ], "Seal planning fields, generation prompt, source-history note, save reminder, and edit prompt families");
   }),
+  defineCheck("PROMPT-OPENCLAW-001", "OpenClaw prompt template preserves planning, generation, edit, and source markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "openclaw", "prompt-template.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "OpenClaw planning fields gate",
+      "Placement",
+      "Core idea",
+      "Structure type",
+      "OpenClaw state",
+      "OpenClaw action",
+      "Supporting objects",
+      "Visible labels",
+      "Output path: `assets/<article-slug>-openclaw/`",
+      "Uploaded-logo identity note",
+      "Source/license note",
+      "OpenClaw one-image generation gate",
+      "OpenClaw must perform the central cognitive action",
+      "Save accepted output under `assets/<article-slug>-openclaw/`",
+      "Stronger OpenClaw Participation",
+      "Uploaded-Logo Identity Repair",
+      "Title Removal",
+      "Text Reduction",
+      "Route Leakage Repair",
+      "Unaffected-Content Preservation",
+      "OpenClaw route block",
+    ], "OpenClaw planning fields, generation prompt, source/license note, save reminder, and edit prompt families");
+  }),
   defineCheck("IP-XH-001", "Xiaohei canonical pack preserves objective IP markers", () => {
     const text = combinedText([
       path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
@@ -2869,6 +2947,40 @@ const checks = [
       "different mascot selection",
     ], "Seal route status, source-history markers, cognitive action gates, product-neutral context, drift markers, and source authority");
   }),
+  defineCheck("IP-OPENCLAW-001", "OpenClaw canonical pack preserves uploaded-logo identity and action gates", () => {
+    const text = combinedText([
+      path.join(REFERENCES_DIR, "ips", "openclaw", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "openclaw", "source.md"),
+      path.join(REFERENCES_DIR, "ips", "openclaw", "style-dna.md"),
+      path.join(REFERENCES_DIR, "ips", "openclaw", "openclaw-ip.md"),
+      path.join(REFERENCES_DIR, "ips", "openclaw", "composition-patterns.md"),
+    ]);
+    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "openclaw"), [
+      "source-reviewed",
+      "source/license authority",
+      "uploaded-logo authority",
+      "OpenClaw cognitive-action participation gate",
+      "OpenClaw must perform the central cognitive action",
+      "article metaphors",
+      "source.md",
+      "red round body",
+      "side claw-like arms",
+      "two antennae",
+      "black eyes",
+      "cyan pupils",
+      "short legs",
+      "generic red mascot drift",
+      "missing claws",
+      "missing antennae",
+      "missing cyan pupils",
+      "product-poster drift",
+      "passive placement",
+      "excessive text",
+      "route leakage",
+      "copied composition",
+      "generic robot drift",
+    ], "OpenClaw source authority, uploaded-logo identity cues, cognitive action gates, article metaphors, drift markers, and output path");
+  }),
   defineCheck("QA-TOM-001", "Tom QA checklist preserves protected-route pass, fail, repair, and delivery markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "qa-checklist.md");
     assertIncludes(requireFile(relativePath), relativePath, [
@@ -2963,6 +3075,39 @@ const checks = [
       "Seal QA unaffected-content preservation gate",
       "Accepted Seal images keep Seal as the action subject",
     ], "Seal QA pass criteria, source-history failures, route leakage failure, repair gates, and delivery judgment");
+  }),
+  defineCheck("QA-OPENCLAW-001", "OpenClaw QA checklist preserves source-reviewed pass, fail, repair, and delivery markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "openclaw", "qa-checklist.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "OpenClaw QA source-reviewed gate.",
+      "OpenClaw QA uploaded-logo identity gate.",
+      "OpenClaw QA source/license note gate.",
+      "OpenClaw QA article-metaphor gate.",
+      "OpenClaw QA route isolation gate.",
+      "OpenClaw performs the active cognitive participation.",
+      "Source/license boundary",
+      "Delivery path uses `assets/<article-slug>-openclaw/`.",
+      "generic red mascot drift",
+      "missing claws",
+      "missing antennae",
+      "missing cyan pupils",
+      "product-poster drift",
+      "passive placement",
+      "excessive text",
+      "route leakage",
+      "copied composition",
+      "OpenClaw QA generic red mascot drift failure",
+      "OpenClaw QA passive placement failure",
+      "OpenClaw QA route leakage failure",
+      "OpenClaw QA product-poster failure",
+      "Stronger OpenClaw Participation",
+      "Uploaded-Logo Identity Repair",
+      "Title Removal",
+      "Text Reduction",
+      "Unaffected-content preservation",
+      "OpenClaw QA unaffected-content preservation gate",
+      "Accepted OpenClaw images keep OpenClaw as the action subject",
+    ], "OpenClaw QA pass criteria, source/license failures, route leakage failure, repair gates, and delivery judgment");
   }),
   defineCheck("RIGHTS-TOM-001", "Tom rights record preserves required Phase 6 rights markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "rights.md");

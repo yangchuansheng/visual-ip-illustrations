@@ -33,6 +33,7 @@ const requiredCheckIds = [
   "REFS-TOM-001",
   "REFS-FERRIS-001",
   "REFS-SEAL-001",
+  "REFS-OPENCLAW-001",
   "LEGACY-XH-001",
   "LEGACY-XH-002",
   "PROMPT-XH-001",
@@ -41,14 +42,17 @@ const requiredCheckIds = [
   "PROMPT-TOM-001",
   "PROMPT-FERRIS-001",
   "PROMPT-SEAL-001",
+  "PROMPT-OPENCLAW-001",
   "IP-XH-001",
   "IP-LB-001",
   "IP-TOM-001",
   "IP-FERRIS-001",
   "IP-SEAL-001",
+  "IP-OPENCLAW-001",
   "QA-TOM-001",
   "QA-FERRIS-001",
   "QA-SEAL-001",
+  "QA-OPENCLAW-001",
   "RIGHTS-TOM-001",
   "SOURCE-FERRIS-001",
   "SOURCE-SEAL-001",
@@ -261,7 +265,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=106 passed=106 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -452,7 +456,7 @@ test("validator emits the full Phase 28 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=106 passed=106 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -550,7 +554,7 @@ test("validator fixture reports approved multilingual tokens in enforce mode", (
 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
+    assert.match(result.stdout, /Summary: total=106 passed=106 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1028,6 +1032,15 @@ test("parser helpers expose current package contract primitives", async () => {
     "references/ips/seal/prompt-template.md",
     "references/ips/seal/qa-checklist.md",
   ]);
+  assert.deepEqual(validators.splitRouteCell(routes[5].required_references), [
+    "references/ips/openclaw/index.md",
+    "references/ips/openclaw/source.md",
+    "references/ips/openclaw/style-dna.md",
+    "references/ips/openclaw/openclaw-ip.md",
+    "references/ips/openclaw/composition-patterns.md",
+    "references/ips/openclaw/prompt-template.md",
+    "references/ips/openclaw/qa-checklist.md",
+  ]);
   assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
 
   const links = validators.parseMarkdownLinks(readmeText);
@@ -1504,6 +1517,52 @@ test("validator fixture reports Seal pack, prompt, and QA marker drift", () => {
       assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
       const expectedPath = expectedId === "IP-SEAL-001" || expectedId === "REFS-SEAL-001"
         ? path.join("ian-xiaohei-illustrations", "references", "ips", "seal")
+        : relativePath;
+      assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, /observed missing marker\(s\)/);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
+test("validator fixture reports OpenClaw pack, prompt, and QA marker drift", () => {
+  for (const [name, relativePath, searchValue, expectedId] of [
+    [
+      "pack",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "index.md"),
+      "Public-sample boundary",
+      "REFS-OPENCLAW-001",
+    ],
+    [
+      "prompt",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "prompt-template.md"),
+      "OpenClaw planning fields gate",
+      "PROMPT-OPENCLAW-001",
+    ],
+    [
+      "qa",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "qa-checklist.md"),
+      "OpenClaw QA route leakage failure",
+      "QA-OPENCLAW-001",
+    ],
+    [
+      "identity",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "openclaw-ip.md"),
+      "OpenClaw must perform the central cognitive action",
+      "IP-OPENCLAW-001",
+    ],
+  ]) {
+    const fixtureRoot = copyFixture(`openclaw-${name}-drift`);
+    try {
+      replaceAllInFixture(fixtureRoot, relativePath, searchValue, `removed ${name} marker`);
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
+      const expectedPath = expectedId === "IP-OPENCLAW-001" || expectedId === "REFS-OPENCLAW-001"
+        ? path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw")
         : relativePath;
       assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
       assert.match(result.stdout, /observed missing marker\(s\)/);
@@ -2010,7 +2069,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=106 passed=106 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2095,7 +2154,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=106 passed=106 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2143,7 +2202,7 @@ test("validator fixture enforces public Seal sample approval parsing", async () 
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEAL-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=106 passed=106 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2189,7 +2248,7 @@ test("validator fixture enforces public OpenClaw sample approval parsing", async
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-OPENCLAW-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=106 passed=106 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
