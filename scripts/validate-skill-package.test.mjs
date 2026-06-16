@@ -942,8 +942,8 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(frontmatter.data.description.includes("小黑"));
 
   const routes = validators.parseMarkdownTable(routingText, "IP Routes");
-  assert.equal(routes.length, 5);
-  assert.deepEqual(routes.map((route) => route.id), ["xiaohei", "littlebox", "tom", "ferris", "seal"]);
+  assert.equal(routes.length, 6);
+  assert.deepEqual(routes.map((route) => route.id), ["xiaohei", "littlebox", "tom", "ferris", "seal", "openclaw"]);
   assert.equal(routes[0].output_suffix, "illustrations");
   assert.equal(routes[0].default, "true");
   assert.equal(routes[1].output_suffix, "littlebox");
@@ -958,6 +958,9 @@ test("parser helpers expose current package contract primitives", async () => {
     routes[4].aliases,
     "Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹",
   );
+  assert.equal(routes[5].aliases, "OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, `OpenClaw 助手`, `OpenClaw 吉祥物");
+  assert.equal(routes[5].output_suffix, "openclaw");
+  assert.equal(routes[5].default, "false");
   assert.equal(routes[4].output_suffix, "seal");
   assert.equal(routes[4].default, "false");
   assert.equal(routes[4].status, "active");
@@ -1344,7 +1347,7 @@ test("validator fixture rejects Seal route metadata drift", () => {
     assert.match(result.stdout, /\[FAIL\] ROUTE-SEAL-001 /);
     assert.match(result.stdout, /\[FAIL\] ROUTE-PATHS-001 /);
     assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
-    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal; observed xiaohei, littlebox, tom, ferris, sealos/);
+    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw; observed xiaohei, littlebox, tom, ferris, sealos, openclaw/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

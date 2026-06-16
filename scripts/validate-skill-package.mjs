@@ -133,6 +133,13 @@ const LANGUAGE_ALLOWLIST = [
     rationale: "Seal Chinese route alias compatibility.",
     remediation: "Keep the exact route alias and translate surrounding prose in the planned public-docs migration phase.",
   })),
+  ...["OpenClaw 助手", "OpenClaw 吉祥物"].map((token) => ({
+    category: "route aliases",
+    paths: [ROUTING_FILE],
+    token,
+    rationale: "OpenClaw Chinese route alias compatibility.",
+    remediation: "Keep the exact route alias in the Phase 33 route contract.",
+  })),
   {
     category: "prompt placeholders",
     paths: [
@@ -1671,6 +1678,14 @@ function rebrandRouteExpectations() {
       outputSuffix: "seal",
       referenceCount: 7,
     },
+    {
+      id: "openclaw",
+      aliases: ["OpenClaw", "openclaw", "OpenClaw logo", "OpenClaw mascot", "OpenClaw 助手", "OpenClaw 吉祥物"],
+      default: "false",
+      status: "source-reviewed",
+      outputSuffix: "openclaw",
+      referenceCount: 1,
+    },
   ];
 }
 
@@ -2032,7 +2047,14 @@ const checks = [
       "attribution_context",
       "status",
     ], ROUTING_FILE, "IP Routes table columns");
-    assertArrayIncludes(routeRows().map((row) => row.id), ["xiaohei", "littlebox", "tom", "ferris", "seal"], ROUTING_FILE, "route ids");
+    assertArrayIncludes(routeRows().map((row) => row.id), [
+      "xiaohei",
+      "littlebox",
+      "tom",
+      "ferris",
+      "seal",
+      "openclaw",
+    ], ROUTING_FILE, "route ids");
   }),
   defineCheck("ROUTE-XH-001", "routing.md preserves the Xiaohei active route contract", () => {
     const row = routeById("xiaohei");
@@ -2228,11 +2250,15 @@ const checks = [
     if (seal.default !== "false") {
       throw new Error(`${ROUTING_FILE} expected seal default=false; observed ${seal.default || "missing"}`);
     }
+    const openclaw = routeById("openclaw");
+    if (openclaw.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected openclaw default=false; observed ${openclaw.default || "missing"}`);
+    }
   }),
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7, openclaw: 1 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -2263,6 +2289,14 @@ const checks = [
           }
           if (reference !== "references/ips/seal/source.md") continue;
         }
+        if (row.id === "openclaw") {
+          if (reference !== "references/ips/openclaw/source.md") {
+            throw new Error(`${ROUTING_FILE} expected openclaw reference ${reference} to be references/ips/openclaw/source.md`);
+          }
+          if (!displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/openclaw/`)) {
+            throw new Error(`${ROUTING_FILE} expected openclaw reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/openclaw/`);
+          }
+        }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
         }
@@ -2275,6 +2309,7 @@ const checks = [
     const tom = routeById("tom");
     const ferris = routeById("ferris");
     const seal = routeById("seal");
+    const openclaw = routeById("openclaw");
     if (xiaohei.output_suffix !== "illustrations") {
       throw new Error(`${ROUTING_FILE} expected xiaohei output_suffix=illustrations; observed ${xiaohei.output_suffix}`);
     }
@@ -2290,6 +2325,9 @@ const checks = [
     if (seal.output_suffix !== "seal") {
       throw new Error(`${ROUTING_FILE} expected seal output_suffix=seal; observed ${seal.output_suffix}`);
     }
+    if (openclaw.output_suffix !== "openclaw") {
+      throw new Error(`${ROUTING_FILE} expected openclaw output_suffix=openclaw; observed ${openclaw.output_suffix}`);
+    }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
@@ -2299,6 +2337,8 @@ const checks = [
       "assets/&lt;article-slug&gt;-ferris/",
       "assets/<article-slug>-seal/",
       "assets/&lt;article-slug&gt;-seal/",
+      "assets/<article-slug>-openclaw/",
+      "assets/&lt;article-slug&gt;-openclaw/",
     ], "output suffix to output directory mapping");
   }),
   defineCheck("ROUTE-MIXED-001", "routing.md preserves mixed-IP separate route group wording", () => {
@@ -2310,6 +2350,7 @@ const checks = [
       "`tom` 写入 `assets/<article-slug>-tom/`",
       "`ferris` 写入 `assets/<article-slug>-ferris/`",
       "`seal` writes to `assets/<article-slug>-seal/`",
+      "`openclaw` writes to `assets/<article-slug>-openclaw/`",
     ], "mixed-IP isolated reference and output-directory wording");
   }),
   defineCheck("REFS-XH-001", "Xiaohei canonical operational references and index exist", () => {
