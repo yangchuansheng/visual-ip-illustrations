@@ -37,8 +37,8 @@ node scripts/validate-skill-package.mjs
 
 ```bash
 node --test scripts/validate-skill-package.test.mjs
-# tests 79
-# pass 79
+# tests 80
+# pass 80
 # fail 0
 ```
 

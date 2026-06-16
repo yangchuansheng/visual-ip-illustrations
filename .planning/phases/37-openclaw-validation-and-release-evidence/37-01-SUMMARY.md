@@ -24,7 +24,7 @@ Phase 37 now has deterministic validation coverage for OpenClaw public docs, age
 - Added `AGENT-OPENCLAW-001`, `DOC-OPENCLAW-001`, `NOTICE-OPENCLAW-001`, `SMOKE-OPENCLAW-001`, `SMOKE-MIXED-OPENCLAW-001`, and `VAL-OPENCLAW-EVIDENCE-001` to `scripts/validate-skill-package.mjs`.
 - Extended public output-path validation to include raw and escaped OpenClaw output markers.
 - Replaced the legacy Seal mixed-IP compatibility anchor in `examples/prompts.md` with six-route OpenClaw mixed-IP validator coverage.
-- Extended `scripts/validate-skill-package.test.mjs` with required check IDs, stable summary totals, OpenClaw drift fixtures, and release evidence drift coverage.
+- Extended `scripts/validate-skill-package.test.mjs` with required check IDs, stable summary totals, OpenClaw drift fixtures, localized README drift coverage, and release evidence drift coverage.
 - Added `.planning/phases/37-openclaw-validation-and-release-evidence/37-RELEASE-EVIDENCE.md`.
 
 ## Verification
@@ -36,8 +36,8 @@ node scripts/validate-skill-package.mjs
 
 ```bash
 node --test scripts/validate-skill-package.test.mjs
-# tests 79
-# pass 79
+# tests 80
+# pass 80
 # fail 0
 ```
 
@@ -53,5 +53,5 @@ git diff --check
 | VAL-01 | New OpenClaw metadata, docs, NOTICE, smoke, mixed-IP, and evidence checks fail on marker drift. |
 | VAL-02 | `BOUNDARY-OPENCLAW-LEAK-001` keeps OpenClaw markers isolated from non-OpenClaw route references. |
 | VAL-03 | `BOUNDARY-OPENCLAW-IMG-001` keeps public rendered OpenClaw sample assets gated by release approval. |
-| VAL-04 | Node tests cover the new validator checks, OpenClaw gate parsing, public sample placeholders, generated sample separation, and all-pass output. |
+| VAL-04 | Node tests cover the new validator checks, localized README drift, OpenClaw gate parsing, public sample placeholders, generated sample separation, and all-pass output. |
 | VAL-05 | `37-RELEASE-EVIDENCE.md` records validator, Node test, diff check, route smoke, source/license smoke, docs consistency, leakage scan, and public sample gate status. |

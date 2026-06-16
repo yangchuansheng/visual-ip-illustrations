@@ -1139,6 +1139,13 @@ function parseOpenClawApprovalLine(approvalLine, kind) {
   };
 }
 
+function readmeVariantFiles() {
+  return fs
+    .readdirSync(REPO_ROOT)
+    .filter((fileName) => /^README(?:\.[^.]+)?\.md$/u.test(fileName))
+    .sort();
+}
+
 function parseFerrisApprovalLine(approvalLine, kind) {
   if (!approvalLine) {
     return emptyFerrisApproval();
@@ -3435,6 +3442,15 @@ const checks = [
     );
   }),
   defineCheck("DOC-OPENCLAW-001", "public docs expose OpenClaw source-reviewed route and source/license markers", () => {
+    for (const relativePath of readmeVariantFiles()) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "OpenClaw",
+        "source-reviewed",
+        "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+        "assets/<article-slug>-openclaw/",
+        "assets/&lt;article-slug&gt;-openclaw/",
+      ], "OpenClaw README variant route status, source/license authority, and path markers");
+    }
     for (const relativePath of [
       "README.md",
       "examples/prompts.md",
@@ -4048,8 +4064,8 @@ const checks = [
       "node scripts/validate-skill-package.mjs",
       "Summary: total=112 passed=112 failed=0 skipped=0",
       "node --test scripts/validate-skill-package.test.mjs",
-      "tests 79",
-      "pass 79",
+      "tests 80",
+      "pass 80",
       "fail 0",
       "git diff --check",
       "OpenClaw route smoke",

@@ -26,7 +26,7 @@ result: passed
 
 ### 2. Regression Test Matrix
 
-expected: `node --test scripts/validate-skill-package.test.mjs` reports `tests 79`, `pass 79`, and `fail 0`.
+expected: `node --test scripts/validate-skill-package.test.mjs` reports `tests 80`, `pass 80`, and `fail 0`.
 result: passed
 
 ### 3. OpenClaw Surface Drift Coverage

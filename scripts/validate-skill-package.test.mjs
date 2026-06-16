@@ -1689,6 +1689,15 @@ test("validator fixture reports OpenClaw docs drift", () => {
   );
 });
 
+test("validator fixture reports localized OpenClaw README drift", () => {
+  assertOpenClawSurfaceDrift(
+    "localized-readme",
+    "README.zh.md",
+    "assets/&lt;article-slug&gt;-openclaw/",
+    "DOC-OPENCLAW-001",
+  );
+});
+
 test("validator fixture reports OpenClaw NOTICE drift", () => {
   assertOpenClawSurfaceDrift(
     "notice",

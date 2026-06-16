@@ -1,6 +1,6 @@
 # Visual IP Illustrations
 
-> Visual IP Illustrations ist eine Multi-Visual-IP Codex Skill für Artikelillustrationen im Fließtext. Xiaohei ist die implizite Standardroute; Littlebox ist explizit und active; Tom ist eine explizite Protected-Character-Route mit Status `gated-authorized`; Ferris ist eine explizite Rust-Community-Mascot-Route mit Status `source-reviewed`; Seal ist eine explizite produktneutrale Hoodie-Seal-Route mit Status `active`.
+> Visual IP Illustrations ist eine Multi-Visual-IP Codex Skill für Artikelillustrationen im Fließtext. Xiaohei ist die implizite Standardroute; Littlebox ist explizit und active; Tom ist eine explizite Protected-Character-Route mit Status `gated-authorized`; Ferris ist eine explizite Rust-Community-Mascot-Route mit Status `source-reviewed`; Seal ist eine explizite produktneutrale Hoodie-Seal-Route mit Status `active`; OpenClaw ist eine explizite Logo-Mascot-Route mit Status `source-reviewed`.
 >
 > 16:9 horizontal | mehrere visuelle IPs | Artikelillustrationen | Kanonische Invocation: `$visual-ip-illustrations`
 
@@ -25,6 +25,7 @@ Aktuelles Routeninventar:
 - **Tom**: explizite Protected-Character-Route. Anfragen mit `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆` oder `汤姆猫` verwenden die Tom-Route.
 - **Ferris**: explizite Rust-Community-Mascot-Route. Anfragen mit `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物` oder `Rust 螃蟹` verwenden die Ferris-Route.
 - **Seal**: explizite produktneutrale Hoodie-Seal-Route. Anfragen mit `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹` oder `蓝色连帽衫海豹` verwenden die Seal-Route.
+- **OpenClaw**: explizite Logo-Mascot-Route mit Status `source-reviewed`. Anfragen mit `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot` oder den OpenClaw-Aliasen in `ian-xiaohei-illustrations/references/routing.md` verwenden die OpenClaw-Route.
 
 Kernwert: Nutzer können eine visuelle IP wählen und Artikelillustrations-Assets erhalten, deren Charakter, Stilregeln, Prompts, QA-Gates, gespeicherte Ausgaben, Attribution, Quellkontext und Markengrenze zu dieser IP konsistent bleiben.
 
@@ -49,8 +50,9 @@ Die öffentliche Identität von Release 1.4 verwendet `Visual IP Illustrations`,
 - Tom schreibt Ausgaben in den Workspace-Pfad `assets/<article-slug>-tom/`.
 - Ferris schreibt Ausgaben in den Workspace-Pfad `assets/<article-slug>-ferris/`.
 - Seal schreibt Ausgaben in den Workspace-Pfad `assets/<article-slug>-seal/`.
+- OpenClaw schreibt Ausgaben in den Workspace-Pfad `assets/<article-slug>-openclaw/`.
 
-Die Dokumentvalidierung bewahrt auch HTML-escaped Routenmarker: `assets/&lt;article-slug&gt;-illustrations/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/&lt;article-slug&gt;-tom/`, `assets/&lt;article-slug&gt;-ferris/` und `assets/&lt;article-slug&gt;-seal/`.
+Die Dokumentvalidierung bewahrt auch HTML-escaped Routenmarker: `assets/&lt;article-slug&gt;-illustrations/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/&lt;article-slug&gt;-tom/`, `assets/&lt;article-slug&gt;-ferris/`, `assets/&lt;article-slug&gt;-seal/` und `assets/&lt;article-slug&gt;-openclaw/`.
 
 ---
 
@@ -86,6 +88,12 @@ Seal ist eine explizite produktneutrale Hoodie-Seal-Route: eine runde weiße Rob
 
 Alias: `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹`.
 
+### OpenClaw
+
+OpenClaw ist eine explizite Logo-Mascot-Route: Die offizielle rote runde OpenClaw-Logofigur trägt ein Artikelkonzept durch freundliches Prüfen, Halten, Brückenbauen, Sortieren, Anheben oder Signalisieren. Sie eignet sich für Workflow-Klarheit, Kompatibilitätsprüfungen, Modell-/Tool-Koordination, Review-Gates und source-reviewed Projektmetaphern.
+
+Alias: `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot` sowie die OpenClaw-Aliase in `ian-xiaohei-illustrations/references/routing.md`.
+
 ### Routenreferenz
 
 Maintainer können Routenmetadaten in `ian-xiaohei-illustrations/references/routing.md` prüfen: `id`, `display_name`, `aliases`, `default`, `output_suffix`, `required_references`, `attribution_context` und `status`.
@@ -97,14 +105,16 @@ Kanonische Packs:
 - Tom: `ian-xiaohei-illustrations/references/ips/tom/`, core entry `index.md`, rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
 - Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
 - Seal: `ian-xiaohei-illustrations/references/ips/seal/`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
+- OpenClaw: `ian-xiaohei-illustrations/references/ips/openclaw/`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`
 
-Wenn eine Anfrage mehrere visuelle IPs verlangt, liefere getrennte Variantengruppen und schreibe jede Gruppe in ihr eigenes Ausgabeverzeichnis.
+Wenn eine Anfrage mehrere visuelle IPs verlangt, liefere getrennte Variantengruppen und schreibe jede Gruppe in ihr eigenes Ausgabeverzeichnis. OpenClaw behält eine eigene Routengruppe, route-lokale Referenzen und ein eigenes Ausgabeverzeichnis.
 
 Operative Routendaten:
 
 - Tom: status `gated-authorized`; rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
 - Ferris: status `source-reviewed`; source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
+- OpenClaw: route id `openclaw`; default=false; status `source-reviewed`; source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`; output path `assets/<article-slug>-openclaw/`; docs validation token `assets/&lt;article-slug&gt;-openclaw/`; output suffix `openclaw`; uploaded-logo identity uses a red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and final OpenClaw release evidence.
 
 ---
 
@@ -170,7 +180,7 @@ Release-1.4-Kompatibilität:
 
 ## Schnellbeispiele
 
-`{visual IP}` kann `Xiaohei`, `Littlebox`, `Tom`, `Ferris`, `Seal` oder ein unterstützter Alias sein. Eine ausgelassene visuelle IP wählt Xiaohei.
+`{visual IP}` kann `Xiaohei`, `Littlebox`, `Tom`, `Ferris`, `Seal`, `OpenClaw` oder ein unterstützter Alias sein. Eine ausgelassene visuelle IP wählt Xiaohei.
 
 ### Shot List planen
 
@@ -204,13 +214,13 @@ Requirements: hand-drawn, spacious, sparse visible labels in the user's language
 
 ```text
 Use $visual-ip-illustrations. Do not generate images yet.
-Create separate Xiaohei, Littlebox, Tom, Ferris, and Seal shot-list groups from the same idea.
+Create separate Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw shot-list groups from the same idea.
 Each group must keep its own IP, character action, visible labels, and output path.
 
 Idea: trust is built by placing one piece of evidence after another.
 ```
 
-Die Routen protected-character, source-reviewed und active source-history tragen automatisch Routenstatus, source/rights-Notiz, Release-Gate und spezifisches Ausgabeverzeichnis.
+Die Routen protected-character, source-reviewed und active source-history tragen automatisch Routenstatus, source/rights-Notiz, Release-Gate und spezifisches Ausgabeverzeichnis; OpenClaw trägt source/license authority, uploaded-logo identity, public-sample gate und `assets/<article-slug>-openclaw/`.
 
 Weitere kopierbare Beispiele stehen in [examples/prompts.md](examples/prompts.md).
 
@@ -219,12 +229,12 @@ Weitere kopierbare Beispiele stehen in [examples/prompts.md](examples/prompts.md
 ## Workflow
 
 1. Lies den Artikel, Markdown, Notion-Inhalt, Screenshot oder das vom Nutzer bereitgestellte Thema.
-2. Wähle die visuelle IP: ausgelassene IP wählt Xiaohei; explizite Littlebox wählt Littlebox; Tom-Aliase wählen die Tom-Protected-Character-Route; Ferris-Aliase wählen das source-reviewed Ferris-Pack; Seal-Aliase wählen das aktive Seal-Pack.
+2. Wähle die visuelle IP: ausgelassene IP wählt Xiaohei; explizite Littlebox wählt Littlebox; Tom-Aliase wählen die Tom-Protected-Character-Route; Ferris-Aliase wählen das source-reviewed Ferris-Pack; Seal-Aliase wählen das aktive Seal-Pack; OpenClaw-Aliase wählen das source-reviewed OpenClaw-Pack.
 3. Extrahiere Kernbehauptungen, kognitive Wendungen, Workflow-Strukturen und visualisierbare Absätze.
 4. Erstelle zuerst eine Shot List; jedes Bild erhält einen kognitiven Anker.
 5. Wähle pro Bild einen Strukturtyp: Workflow, lokale Systemansicht, Vorher/Nachher, Charakterzustand, Konzeptmetapher, Methodenschichten, Kartenroute oder Comic-Panels.
-6. Lade das kanonische Pack der ausgewählten IP, baue Prompts und generiere Bilder einzeln. Multi-IP-Anfragen erzeugen getrennte Routengruppen und getrennte Ausgabeverzeichnisse, wobei Xiaohei, Littlebox, Tom, Ferris und Seal jeweils route-lokale Referenzen behalten.
-7. Prüfe Charakteridentität, Komposition, Hintergrund, Labels und Ausgabepfad gegen die QA-Checkliste der ausgewählten IP. Tom behält `gated-authorized` und `ian-xiaohei-illustrations/references/ips/tom/rights.md`; Ferris behält `source-reviewed`, Source/Trademark-Notiz und `ian-xiaohei-illustrations/references/ips/ferris/source.md`; Seal behält `active`, source-history authority, hoodie seal identity note, logo-free note und `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+6. Lade das kanonische Pack der ausgewählten IP, baue Prompts und generiere Bilder einzeln. Multi-IP-Anfragen erzeugen getrennte Routengruppen und getrennte Ausgabeverzeichnisse, wobei Xiaohei, Littlebox, Tom, Ferris und Seal jeweils route-lokale Referenzen behalten; OpenClaw behält ebenfalls route-lokale Referenzen.
+7. Prüfe Charakteridentität, Komposition, Hintergrund, Labels und Ausgabepfad gegen die QA-Checkliste der ausgewählten IP. Tom behält `gated-authorized` und `ian-xiaohei-illustrations/references/ips/tom/rights.md`; Ferris behält `source-reviewed`, Source/Trademark-Notiz und `ian-xiaohei-illustrations/references/ips/ferris/source.md`; Seal behält `active`, source-history authority, hoodie seal identity note, logo-free note und `ian-xiaohei-illustrations/references/ips/seal/source.md`; OpenClaw behält `source-reviewed`, source/license authority, uploaded-logo identity, public-sample gate und `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
 8. Speichere finale PNGs und melde Zweck plus Pfad.
 
 ---
@@ -299,12 +309,21 @@ Weitere kopierbare Beispiele stehen in [examples/prompts.md](examples/prompts.md
             │   ├── composition-patterns.md
             │   ├── prompt-template.md
             │   └── qa-checklist.md
-            └── seal/
+            ├── seal/
+            │   ├── index.md
+            │   ├── source.md
+            │   ├── style-dna.md
+            │   ├── seal-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            └── openclaw/
                 ├── index.md
                 ├── source.md
                 ├── style-dna.md
-                ├── seal-ip.md
+                ├── openclaw-ip.md
                 ├── composition-patterns.md
+                ├── prompt-template.md
                 └── qa-checklist.md
 ```
 
@@ -325,6 +344,8 @@ node scripts/validate-skill-package.mjs
 ```
 
 Die Validierung deckt skill package shape, route table, kanonische Packs von Xiaohei, Littlebox, Tom, Ferris und Seal, legacy Xiaohei paths, public docs links, output path markers, NOTICE attribution, Tom `gated-authorized` route markers, Ferris `source-reviewed` route markers, Seal `active` route markers, source-history authority, hoodie seal identity note, logo-free note und Phase 32 full validator restoration evidence ab.
+
+Die Validierung deckt außerdem OpenClaw canonical pack markers, OpenClaw `source-reviewed` route markers, source/license authority, uploaded-logo identity note und Phase 37 final release evidence ab.
 
 Aktuelle Validierungsbefehle für Maintainer:
 
