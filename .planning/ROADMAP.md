@@ -114,7 +114,10 @@ Plans:
   4. Maintainer can run Node tests that cover Go Gopher route parsing, route ordering, default preservation, output path markers, source/license markers, smoke prompts, leakage fixtures, public asset gates, and full-pass output.
   5. Maintainer can inspect final evidence for validator output, Node test output, `git diff --check`, Go Gopher route smoke, source/license smoke, docs consistency, leakage scan, and public sample gate status.
 
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+
+- [ ] 42-01-PLAN.md — Go Gopher validation hardening and release evidence
 
 ## Progress
 
@@ -127,4 +130,4 @@ Phases execute in numeric order: 38 -> 39 -> 40 -> 41 -> 42
 | 39. Go Gopher Canonical Pack | 1/1 | Complete   | 2026-06-16 |
 | 40. Go Gopher Skill Controller Integration | 1/1 | Complete   | 2026-06-16 |
 | 41. Public Documentation and Release Surface | 1/1 | Complete   | 2026-06-16 |
-| 42. Go Gopher Validation and Release Evidence | 0/1 | Not started | - |
+| 42. Go Gopher Validation and Release Evidence | 0/1 | Planned | - |
