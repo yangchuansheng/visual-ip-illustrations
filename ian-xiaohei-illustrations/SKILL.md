@@ -1,6 +1,6 @@
 ---
 name: visual-ip-illustrations
-description: Visual IP Illustrations generates selectable visual-IP article-body illustrations for Chinese articles, posts, blogs, Notion docs, workflow docs, methods, processes, structures, states, metaphors, opinions, shot lists, title-removal edits, and image repair. The omitted visual IP default is Xiaohei, with route alias 小黑 preserved; Littlebox, Tom, Ferris, Seal, and OpenClaw are explicit selectable routes.
+description: Visual IP Illustrations generates selectable visual-IP article-body illustrations for Chinese articles, posts, blogs, Notion docs, workflow docs, methods, processes, structures, states, metaphors, opinions, shot lists, title-removal edits, and image repair. The omitted visual IP default is Xiaohei, with route alias 小黑 preserved; Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher are explicit selectable routes.
 ---
 
 # Visual IP Illustrations
@@ -41,6 +41,10 @@ Seal imagery is logo-free: cap, hoodie chest, mascot body, props, and scene use 
 OpenClaw is an explicit source-reviewed logo-mascot route: route id `openclaw`, display name `OpenClaw`, default=false, output_suffix: openclaw, route status `source-reviewed`. OpenClaw source/license authority is `references/ips/openclaw/source.md`, and planning, generation, QA, edit, and delivery surfaces keep the uploaded-logo identity note, source/license note, and `assets/<article-slug>-openclaw/`.
 
 OpenClaw imagery preserves the red logo-derived mascot identity: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+
+Go Gopher is an explicit source-reviewed article-illustration mascot route: route id `gopher`, display name `Go Gopher`, default=false, output_suffix: gopher, route status `source-reviewed`. Go Gopher source/license authority is `references/ips/gopher/source.md`, local visual authority is root `gopher.png`, and planning, generation, QA, edit, and delivery surfaces keep the root `gopher.png` identity note, source/license note, public sample review boundary, Go logo boundary, official endorsement boundary, and `assets/<article-slug>-gopher/`.
+
+Go Gopher imagery preserves the source-reviewed mascot identity: blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border. Go Gopher attribution stays attached through Renee French and the Creative Commons Attribution 4.0 boundary.
 
 ## Reference Loading
 
@@ -88,6 +92,13 @@ Read `references/routing.md` first, then load only the selected route's required
 - `references/ips/openclaw/composition-patterns.md`: OpenClaw composition families, article-metaphor invention rules, OpenClaw action patterns, supporting object pool, and anti-repeat rules.
 - `references/ips/openclaw/prompt-template.md`: OpenClaw planning fields, one-image generation prompt, edit gates, uploaded-logo identity note, source/license note, and output reminder.
 - `references/ips/openclaw/qa-checklist.md`: OpenClaw QA gates, uploaded-logo identity checks, failure signals, iteration moves, and delivery judgment.
+- `references/ips/gopher/index.md`: Go Gopher pack navigation, route status, source/license authority, output path, shared failure categories, operational coherence, and scope boundary.
+- `references/ips/gopher/source.md`: Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, sample policy, review owner, and route status changes.
+- `references/ips/gopher/style-dna.md`: sparse Go Gopher article-illustration style, visual marker preservation, visual vetoes, sample boundary, and route isolation.
+- `references/ips/gopher/gopher-ip.md`: Go Gopher identity, recognition rules, cognitive-action responsibility, route boundary, and failure modes.
+- `references/ips/gopher/composition-patterns.md`: composition families, article-metaphor invention, Go Gopher action patterns, supporting object pool, and anti-repeat rules.
+- `references/ips/gopher/prompt-template.md`: planning fields, one-image prompt template, edit prompts, local visual authority note, source/license note, and output reminder.
+- `references/ips/gopher/qa-checklist.md`: pass/fail gates, Go Gopher identity checks, iteration moves, route leakage repair, public sample boundary, and delivery judgment.
 - `references/style-dna.md`, `references/xiaohei-ip.md`, `references/composition-patterns.md`, `references/prompt-template.md`, `references/qa-checklist.md`: legacy root compatibility entry points for existing prompts and docs; current Xiaohei behavior reads the canonical `references/ips/xiaohei/` files.
 - `assets/examples/`: low-frequency visual calibration only. Use them for density and participation calibration, then create a fresh metaphor for the current article.
 
@@ -104,19 +115,22 @@ Read `references/routing.md` first and choose the route for the current task.
 - `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹` select the same Ferris route: route id `ferris`, display name `Ferris`, default=false, output_suffix: ferris, route status `source-reviewed`, source/trademark pointer `references/ips/ferris/source.md`.
 - `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, and `蓝色连帽衫海豹` select the same Seal route: route id `seal`, display name `Seal`, default=false, output_suffix: seal, route status `active`, source pointer `references/ips/seal/source.md`.
 - `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, and the OpenClaw aliases listed in `references/routing.md` select the same OpenClaw route: route id `openclaw`, display name `OpenClaw`, default=false, output_suffix: openclaw, route status `source-reviewed`, source/license pointer `references/ips/openclaw/source.md`.
-- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw first identify one shared core idea, then create separate route groups. Each selected variant group uses its own route id, required_references, prompt template, composition rules, QA, edit repairs, output_suffix, route note, and output directory.
+- `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, and Go Gopher-qualified route phrases select the same Go Gopher route: route id `gopher`, display name `Go Gopher`, default=false, output_suffix: gopher, route status `source-reviewed`, source/license pointer `references/ips/gopher/source.md`, and root `gopher.png` local visual authority. Generic route phrases stay governed by `references/routing.md` and remain outside Go Gopher selection.
+- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher first identify one shared core idea, then create separate route groups. Each selected variant group uses its own route id, required_references, prompt template, composition rules, QA, edit repairs, output_suffix, route note, and output directory.
 - Xiaohei keeps the `$ian-xiaohei-illustrations` compatibility behavior and `assets/<article-slug>-illustrations/` output path; canonical invocation is `$visual-ip-illustrations`.
 - Littlebox uses `assets/<article-slug>-littlebox/`.
 - Tom uses `assets/<article-slug>-tom/` and keeps `gated-authorized` plus `references/ips/tom/rights.md` in planning, generation, QA, edit, and delivery.
 - Ferris uses `assets/<article-slug>-ferris/` and keeps `source-reviewed` plus `references/ips/ferris/source.md` in planning, generation, QA, edit, and delivery.
 - Seal uses `assets/<article-slug>-seal/` and keeps `active` plus `references/ips/seal/source.md` in planning, generation, QA, edit, and delivery.
 - OpenClaw uses `assets/<article-slug>-openclaw/` and keeps `source-reviewed` plus `references/ips/openclaw/source.md` in planning, generation, QA, edit, and delivery.
+- Go Gopher uses `assets/<article-slug>-gopher/` and keeps `source-reviewed`, `references/ips/gopher/source.md`, root `gopher.png`, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample review boundary, Go logo boundary, and official endorsement boundary in planning, generation, QA, edit, and delivery.
 - Xiaohei `required_references` point to the canonical `references/ips/xiaohei/` pack; root paths remain compatibility entry points.
 - Littlebox `required_references` point to `references/ips/littlebox/`: `style-dna.md`, `littlebox-ip.md`, `composition-patterns.md`, `language-and-labels.md`, `prompt-template.md`, and `qa-checklist.md`.
 - Tom `required_references` point to `references/ips/tom/`: `index.md`, `rights.md`, `style-dna.md`, `tom-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 - Ferris `required_references` point to `references/ips/ferris/`: `index.md`, `source.md`, `style-dna.md`, `ferris-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 - Seal `required_references` point to `references/ips/seal/`: `index.md`, `source.md`, `style-dna.md`, `seal-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 - OpenClaw `required_references` point to `references/ips/openclaw/`: `index.md`, `source.md`, `style-dna.md`, `openclaw-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
+- Go Gopher `required_references` point to `references/ips/gopher/`: `index.md`, `source.md`, `style-dna.md`, `gopher-ip.md`, `composition-patterns.md`, `prompt-template.md`, and `qa-checklist.md`.
 - Each variant group loads only its own `required_references` and uses its own action library, metaphor rules, background rules, labels, QA, and output path.
 - The shared workflow handles article comprehension, cognitive-anchor selection, shot planning, one-image generation, QA handoff, asset preservation, and delivery reporting.
 - Visual style, character identity, prompt wording, and QA details come from the selected IP's reference files.
