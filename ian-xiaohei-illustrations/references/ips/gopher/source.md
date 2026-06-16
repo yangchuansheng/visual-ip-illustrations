@@ -51,8 +51,17 @@ Preserve these root `gopher.png` visual markers together:
 
 - Current status: `source-reviewed`.
 - Status meaning: Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 license boundary, root `gopher.png` local visual authority, public-sample review boundary, Go logo boundary, and official affiliation/approval/sponsorship/endorsement boundary are documented for route metadata and maintainer review.
-- Current Phase 38 route-local record: only this source record exists under `references/ips/gopher/`.
-- Pending later phases: Go Gopher style, identity, composition, prompt, edit, QA, controller behavior, public docs expansion, validator hardening, Node tests, and release evidence.
+- Current route-local pack: this source record is part of the Go Gopher canonical pack under `references/ips/gopher/`.
+- Pending later phases: Go Gopher controller behavior, public docs expansion, validator hardening, Node tests, and release evidence.
+
+## Pack Navigation
+
+- `index.md`: pack navigation, route status, source/license authority, output path, shared failure categories, operational coherence, and scope boundary.
+- `style-dna.md`: sparse Go Gopher article-illustration style, visual marker preservation, visual vetoes, sample boundary, and route isolation.
+- `gopher-ip.md`: Go Gopher identity, recognition rules, cognitive-action responsibility, route boundary, and failure modes.
+- `composition-patterns.md`: composition families, article-metaphor invention, Go Gopher action patterns, supporting object pool, and anti-repeat rules.
+- `prompt-template.md`: planning fields, one-image prompt template, edit prompts, local visual authority note, source/license note, and output reminder.
+- `qa-checklist.md`: pass/fail gates, Go Gopher identity checks, iteration moves, route leakage repair, public sample boundary, and delivery judgment.
 
 ## Allowed Use
 
@@ -66,7 +75,7 @@ Preserve these root `gopher.png` visual markers together:
 - Public generated Go Gopher samples require release approval before publication.
 - Go logo identity, logo-forward compositions, official Go project affiliation claims, approval claims, sponsorship claims, and endorsement claims require release review and stay outside positive route identity.
 - Generic blue mascot drift, realistic animal drift, route leakage into other IPs, and broad public claims require release review.
-- Go Gopher identity, style, prompt, composition, edit, and QA rules belong to later Go Gopher canonical pack phases.
+- Go Gopher identity, style, prompt, composition, edit, and QA rules are governed by the route-local pack files listed in Pack Navigation.
 - Image asset relocation for root `gopher.png` belongs outside Phase 38.
 
 ## Distribution Boundary
