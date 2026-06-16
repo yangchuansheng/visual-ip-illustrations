@@ -38,7 +38,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. User and maintainer can identify the route as `source-reviewed` and can see local `gopher.png` treated as the visual reference for Go Gopher identity.
   5. Maintainer can confirm Xiaohei remains the only omitted-IP default while Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher remain explicit selectable routes.
 
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 38-01-PLAN.md — Go Gopher source and route contract
 
 ### Phase 39: Go Gopher Canonical Pack
 
