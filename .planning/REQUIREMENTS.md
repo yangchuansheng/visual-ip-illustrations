@@ -30,11 +30,11 @@
 
 ### Public Documentation
 
-- [ ] **DOC-01**: User can read README route selection, workflow, output path, and route descriptions with Go Gopher as an explicit source-reviewed route.
-- [ ] **DOC-02**: User can copy examples for Go Gopher planning, generation, editing, and mixed-IP variants with `assets/<article-slug>-gopher/` paths.
-- [ ] **DOC-03**: Maintainer can read NOTICE and release checklist entries that include Renee French attribution, Creative Commons Attribution 4.0 license boundary, `gopher.png` visual authority, public sample policy, and release review gates.
-- [ ] **DOC-04**: User and maintainer can see Go Gopher docs preserve default-route behavior, route isolation, source-reviewed status, and no official endorsement claims.
-- [ ] **DOC-05**: Public release surfaces stay consistent across README variants, prompt examples, agent metadata, NOTICE, and release checklist when Go Gopher is introduced.
+- [x] **DOC-01**: User can read README route selection, workflow, output path, and route descriptions with Go Gopher as an explicit source-reviewed route.
+- [x] **DOC-02**: User can copy examples for Go Gopher planning, generation, editing, and mixed-IP variants with `assets/<article-slug>-gopher/` paths.
+- [x] **DOC-03**: Maintainer can read NOTICE and release checklist entries that include Renee French attribution, Creative Commons Attribution 4.0 license boundary, `gopher.png` visual authority, public sample policy, and release review gates.
+- [x] **DOC-04**: User and maintainer can see Go Gopher docs preserve default-route behavior, route isolation, source-reviewed status, and no official endorsement claims.
+- [x] **DOC-05**: Public release surfaces stay consistent across README variants, prompt examples, agent metadata, NOTICE, and release checklist when Go Gopher is introduced.
 
 ### Validation and Release Evidence
 
@@ -99,11 +99,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RUN-02 | Phase 40 | Complete |
 | RUN-03 | Phase 40 | Complete |
 | RUN-04 | Phase 40 | Complete |
-| DOC-01 | Phase 41 | Pending |
-| DOC-02 | Phase 41 | Pending |
-| DOC-03 | Phase 41 | Pending |
-| DOC-04 | Phase 41 | Pending |
-| DOC-05 | Phase 41 | Pending |
+| DOC-01 | Phase 41 | Complete |
+| DOC-02 | Phase 41 | Complete |
+| DOC-03 | Phase 41 | Complete |
+| DOC-04 | Phase 41 | Complete |
+| DOC-05 | Phase 41 | Complete |
 | VAL-01 | Phase 42 | Pending |
 | VAL-02 | Phase 42 | Pending |
 | VAL-03 | Phase 42 | Pending |
