@@ -18,6 +18,7 @@ const requiredCheckIds = [
   "AGENT-TOM-001",
   "AGENT-SEAL-001",
   "AGENT-OPENCLAW-001",
+  "AGENT-GOPHER-001",
   "ROUTE-TABLE-001",
   "ROUTE-XH-001",
   "ROUTE-LB-001",
@@ -25,6 +26,7 @@ const requiredCheckIds = [
   "ROUTE-FERRIS-001",
   "ROUTE-SEAL-001",
   "ROUTE-SEAL-002",
+  "ROUTE-GOPHER-001",
   "ROUTE-DEFAULT-001",
   "ROUTE-REFS-001",
   "ROUTE-PATHS-001",
@@ -35,6 +37,7 @@ const requiredCheckIds = [
   "REFS-FERRIS-001",
   "REFS-SEAL-001",
   "REFS-OPENCLAW-001",
+  "REFS-GOPHER-001",
   "LEGACY-XH-001",
   "LEGACY-XH-002",
   "PROMPT-XH-001",
@@ -44,20 +47,24 @@ const requiredCheckIds = [
   "PROMPT-FERRIS-001",
   "PROMPT-SEAL-001",
   "PROMPT-OPENCLAW-001",
+  "PROMPT-GOPHER-001",
   "IP-XH-001",
   "IP-LB-001",
   "IP-TOM-001",
   "IP-FERRIS-001",
   "IP-SEAL-001",
   "IP-OPENCLAW-001",
+  "IP-GOPHER-001",
   "QA-TOM-001",
   "QA-FERRIS-001",
   "QA-SEAL-001",
   "QA-OPENCLAW-001",
+  "QA-GOPHER-001",
   "RIGHTS-TOM-001",
   "SOURCE-FERRIS-001",
   "SOURCE-SEAL-001",
   "SOURCE-OPENCLAW-001",
+  "SOURCE-GOPHER-001",
   "LOGO-SEAL-001",
   "DOC-LINKS-001",
   "DOC-PATHS-001",
@@ -66,12 +73,14 @@ const requiredCheckIds = [
   "DOC-FERRIS-001",
   "DOC-SEAL-001",
   "DOC-OPENCLAW-001",
+  "DOC-GOPHER-001",
   "NOTICE-IAN-001",
   "NOTICE-LB-001",
   "NOTICE-TOM-001",
   "NOTICE-FERRIS-001",
   "NOTICE-SEAL-001",
   "NOTICE-OPENCLAW-001",
+  "NOTICE-GOPHER-001",
   "SMOKE-DEFAULT-001",
   "SMOKE-XH-001",
   "SMOKE-LB-001",
@@ -79,13 +88,16 @@ const requiredCheckIds = [
   "SMOKE-FERRIS-001",
   "SMOKE-SEAL-001",
   "SMOKE-OPENCLAW-001",
+  "SMOKE-GOPHER-001",
   "SMOKE-MIXED-001",
   "SMOKE-MIXED-SEAL-001",
   "SMOKE-MIXED-OPENCLAW-001",
+  "SMOKE-MIXED-GOPHER-001",
   "RELEASE-TOM-001",
   "RELEASE-FERRIS-001",
   "RELEASE-SEAL-001",
   "RELEASE-OPENCLAW-001",
+  "RELEASE-GOPHER-001",
   "REBRAND-CANON-001",
   "REBRAND-CANON-002",
   "REBRAND-CANON-003",
@@ -107,18 +119,22 @@ const requiredCheckIds = [
   "VAL-COMPAT-001",
   "VAL-RELEASE-001",
   "VAL-OPENCLAW-EVIDENCE-001",
+  "VAL-GOPHER-EVIDENCE-001",
   "BOUNDARY-IMG-001",
   "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-FERRIS-LEAK-001",
   "BOUNDARY-SEAL-LEAK-001",
   "BOUNDARY-OPENCLAW-LEAK-001",
+  "BOUNDARY-GOPHER-LEAK-001",
   "BOUNDARY-TOM-IMG-001",
   "BOUNDARY-FERRIS-IMG-001",
   "BOUNDARY-SEAL-IMG-001",
   "BOUNDARY-OPENCLAW-IMG-001",
+  "BOUNDARY-GOPHER-IMG-001",
   "BOUNDARY-FERRIS-GEN-001",
   "BOUNDARY-SEAL-GEN-001",
   "BOUNDARY-OPENCLAW-GEN-001",
+  "BOUNDARY-GOPHER-GEN-001",
   "BOUNDARY-P5-001",
 ];
 
@@ -259,6 +275,42 @@ function completeGeneratedOpenClawSampleLine(
   return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-openclaw / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
 }
 
+function pendingGopherPublicAssetApprovalLine() {
+  return "- [ ] Go Gopher public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / Go blog source outcome / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome / public-sample decision.";
+}
+
+function completeGopherPublicAssetApprovalLine(
+  reviewDate = "2026-06-13",
+  sourceOutcome = "Go blog source approved",
+  attributionOutcome = "Renee French attribution approved",
+  licenseOutcome = "Creative Commons Attribution 4.0 approved",
+  visualOutcome = "local visual markers approved",
+  routeIsolationOutcome = "route isolation approved",
+  logoBoundaryOutcome = "Go logo boundary approved",
+  endorsementBoundaryOutcome = "official endorsement boundary approved",
+  articleMetaphorOutcome = "article-metaphor quality approved",
+  publicSampleOutcome = "public-sample decision approved",
+) {
+  return `- [x] Go Gopher public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes / ${sourceOutcome} / ${attributionOutcome} / ${licenseOutcome} / ${visualOutcome} / ${routeIsolationOutcome} / ${logoBoundaryOutcome} / ${endorsementBoundaryOutcome} / ${articleMetaphorOutcome} / ${publicSampleOutcome}.`;
+}
+
+function pendingGeneratedGopherSampleLine() {
+  return "- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome.";
+}
+
+function completeGeneratedGopherSampleLine(
+  reviewDate = "2026-06-13",
+  attributionOutcome = "Renee French attribution approved",
+  licenseOutcome = "Creative Commons Attribution 4.0 approved",
+  visualOutcome = "local visual markers approved",
+  routeIsolationOutcome = "route isolation approved",
+  logoBoundaryOutcome = "Go logo boundary approved",
+  endorsementBoundaryOutcome = "official endorsement boundary approved",
+  articleMetaphorOutcome = "article-metaphor quality approved",
+) {
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-gopher / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${attributionOutcome} / ${licenseOutcome} / ${visualOutcome} / ${routeIsolationOutcome} / ${logoBoundaryOutcome} / ${endorsementBoundaryOutcome} / ${articleMetaphorOutcome}.`;
+}
+
 test("validator command prints deterministic harness smoke logs", () => {
   const result = runValidator();
 
@@ -271,7 +323,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=112 passed=112 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=128 passed=128 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -451,7 +503,7 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
   assert.match(result.stdout, /observed missing marker/);
 });
 
-test("validator emits the full Phase 28 matrix with zero failures", () => {
+test("validator emits the full Phase 42 matrix with zero failures", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -462,7 +514,7 @@ test("validator emits the full Phase 28 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=112 passed=112 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=128 passed=128 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -493,7 +545,7 @@ test("validator reports Phase 24 rebrand checks in stable order", () => {
   }
 });
 
-test("validator reports Phase 28 validation checks in stable order", () => {
+test("validator reports Phase 42 validation checks in stable order", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -507,7 +559,7 @@ test("validator reports Phase 28 validation checks in stable order", () => {
   ];
 
   let lastIndex = result.stdout.indexOf("[PASS] LANG-SCAN-002 ");
-  assert.ok(lastIndex >= 0, "Phase 28 validation checks should follow language scan checks");
+  assert.ok(lastIndex >= 0, "Phase 42 validation checks should follow language scan checks");
   for (const id of expectedIds) {
     const index = result.stdout.indexOf(`[PASS] ${id} `);
     assert.ok(index > lastIndex, `${id} should appear after the previous Phase 28 validation check`);
@@ -561,7 +613,7 @@ test("validator fixture reports approved multilingual tokens in enforce mode", (
 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /Summary: total=112 passed=112 failed=0 skipped=0/);
+    assert.match(result.stdout, /Summary: total=128 passed=128 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -987,8 +1039,16 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(frontmatter.data.description.includes("小黑"));
 
   const routes = validators.parseMarkdownTable(routingText, "IP Routes");
-  assert.equal(routes.length, 6);
-  assert.deepEqual(routes.map((route) => route.id), ["xiaohei", "littlebox", "tom", "ferris", "seal", "openclaw"]);
+  assert.equal(routes.length, 7);
+  assert.deepEqual(routes.map((route) => route.id), [
+    "xiaohei",
+    "littlebox",
+    "tom",
+    "ferris",
+    "seal",
+    "openclaw",
+    "gopher",
+  ]);
   assert.equal(routes[0].output_suffix, "illustrations");
   assert.equal(routes[0].default, "true");
   assert.equal(routes[1].output_suffix, "littlebox");
@@ -1026,6 +1086,17 @@ test("parser helpers expose current package contract primitives", async () => {
   ]);
   assert.equal(routes[5].output_suffix, "openclaw");
   assert.equal(routes[5].default, "false");
+  assert.deepEqual(validators.splitRouteAliases(routes[6].aliases), [
+    "Go Gopher",
+    "Gopher",
+    "golang gopher",
+    "Go mascot",
+    "Go 吉祥物",
+    "Gopher 吉祥物",
+  ]);
+  assert.equal(routes[6].output_suffix, "gopher");
+  assert.equal(routes[6].default, "false");
+  assert.equal(routes[6].status, "source-reviewed");
   assert.equal(routes[4].output_suffix, "seal");
   assert.equal(routes[4].default, "false");
   assert.equal(routes[4].status, "active");
@@ -1068,6 +1139,15 @@ test("parser helpers expose current package contract primitives", async () => {
     "references/ips/openclaw/prompt-template.md",
     "references/ips/openclaw/qa-checklist.md",
   ]);
+  assert.deepEqual(validators.splitRouteCell(routes[6].required_references), [
+    "references/ips/gopher/index.md",
+    "references/ips/gopher/source.md",
+    "references/ips/gopher/style-dna.md",
+    "references/ips/gopher/gopher-ip.md",
+    "references/ips/gopher/composition-patterns.md",
+    "references/ips/gopher/prompt-template.md",
+    "references/ips/gopher/qa-checklist.md",
+  ]);
   assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
 
   const links = validators.parseMarkdownLinks(readmeText);
@@ -1080,11 +1160,13 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-ferris/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-seal/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-openclaw/"));
+  assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-gopher/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-littlebox/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-tom/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-ferris/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-seal/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-openclaw/"));
+  assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-gopher/"));
 });
 
 test("approval parser helpers expose current release primitives", async () => {
@@ -1276,6 +1358,49 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingGeneratedOpenClawApproval.internalReviewDirectoriesPresent, false);
   assert.equal(pendingGeneratedOpenClawApproval.publicDirectoriesPresent, false);
 
+  const pendingGopherApproval = validators.parsePublicGopherSampleApproval(releaseChecklistText);
+  assert.equal(pendingGopherApproval.found, true);
+  assert.equal(pendingGopherApproval.checked, false);
+  assert.equal(pendingGopherApproval.complete, false);
+  assert.equal(pendingGopherApproval.allowedDirectoriesPresent, false);
+  assert.equal(pendingGopherApproval.sourceOutcomePresent, false);
+  assert.equal(pendingGopherApproval.attributionOutcomePresent, false);
+  assert.equal(pendingGopherApproval.licenseOutcomePresent, false);
+  assert.equal(pendingGopherApproval.visualOutcomePresent, false);
+  assert.equal(pendingGopherApproval.routeIsolationOutcomePresent, false);
+  assert.equal(pendingGopherApproval.logoBoundaryOutcomePresent, false);
+  assert.equal(pendingGopherApproval.endorsementBoundaryOutcomePresent, false);
+  assert.equal(pendingGopherApproval.articleMetaphorOutcomePresent, false);
+  assert.equal(pendingGopherApproval.publicSampleOutcomePresent, false);
+
+  const approvedGopherText = releaseChecklistText.replace(
+    pendingGopherPublicAssetApprovalLine(),
+    completeGopherPublicAssetApprovalLine(),
+  );
+  const approvedGopher = validators.parsePublicGopherSampleApproval(approvedGopherText);
+  assert.equal(approvedGopher.complete, true);
+  assert.deepEqual(approvedGopher.allowedDirectories, [
+    "examples/images",
+    "examples/images-en",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
+  assert.equal(approvedGopher.sourceOutcomePresent, true);
+  assert.equal(approvedGopher.attributionOutcomePresent, true);
+  assert.equal(approvedGopher.licenseOutcomePresent, true);
+  assert.equal(approvedGopher.visualOutcomePresent, true);
+  assert.equal(approvedGopher.routeIsolationOutcomePresent, true);
+  assert.equal(approvedGopher.logoBoundaryOutcomePresent, true);
+  assert.equal(approvedGopher.endorsementBoundaryOutcomePresent, true);
+  assert.equal(approvedGopher.articleMetaphorOutcomePresent, true);
+  assert.equal(approvedGopher.publicSampleOutcomePresent, true);
+
+  const pendingGeneratedGopherApproval = validators.parseGeneratedGopherSampleApproval(releaseChecklistText);
+  assert.equal(pendingGeneratedGopherApproval.found, true);
+  assert.equal(pendingGeneratedGopherApproval.checked, false);
+  assert.equal(pendingGeneratedGopherApproval.complete, false);
+  assert.equal(pendingGeneratedGopherApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingGeneratedGopherApproval.publicDirectoriesPresent, false);
+
   const completeGeneratedText = releaseChecklistText.replace(
     pendingGeneratedFerrisSampleLine(),
     completeGeneratedFerrisSampleLine(),
@@ -1328,6 +1453,26 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(completeGeneratedOpenClawApproval.sourceLicenseOutcomePresent, true);
   assert.equal(completeGeneratedOpenClawApproval.routeIsolationOutcomePresent, true);
   assert.equal(completeGeneratedOpenClawApproval.articleMetaphorOutcomePresent, true);
+
+  const completeGeneratedGopherText = releaseChecklistText.replace(
+    pendingGeneratedGopherSampleLine(),
+    completeGeneratedGopherSampleLine(),
+  );
+  const completeGeneratedGopherApproval =
+    validators.parseGeneratedGopherSampleApproval(completeGeneratedGopherText);
+  assert.equal(completeGeneratedGopherApproval.complete, true);
+  assert.deepEqual(completeGeneratedGopherApproval.internalReviewDirectories, ["assets/<article-slug>-gopher"]);
+  assert.deepEqual(completeGeneratedGopherApproval.publicDirectories, [
+    "examples/images",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
+  assert.equal(completeGeneratedGopherApproval.attributionOutcomePresent, true);
+  assert.equal(completeGeneratedGopherApproval.licenseOutcomePresent, true);
+  assert.equal(completeGeneratedGopherApproval.visualOutcomePresent, true);
+  assert.equal(completeGeneratedGopherApproval.routeIsolationOutcomePresent, true);
+  assert.equal(completeGeneratedGopherApproval.logoBoundaryOutcomePresent, true);
+  assert.equal(completeGeneratedGopherApproval.endorsementBoundaryOutcomePresent, true);
+  assert.equal(completeGeneratedGopherApproval.articleMetaphorOutcomePresent, true);
 });
 
 test("validator fixture rejects Tom route metadata drift", () => {
@@ -1723,6 +1868,222 @@ test("validator fixture reports OpenClaw mixed-IP drift", () => {
     "six separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw",
     "SMOKE-MIXED-OPENCLAW-001",
   );
+});
+
+function assertGopherSurfaceDrift(name, relativePath, searchValue, expectedId) {
+  const fixtureRoot = copyFixture(`gopher-${name}-parity-drift`);
+  try {
+    replaceAllInFixture(fixtureRoot, relativePath, searchValue, `removed ${name} marker`);
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
+    assert.match(result.stdout, new RegExp(relativePath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+    assert.match(result.stdout, /observed missing marker\(s\)/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+}
+
+test("validator fixture rejects Go Gopher route metadata drift", () => {
+  const fixtureRoot = copyFixture("gopher-route");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      "`Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, `Go 吉祥物`, `Gopher 吉祥物`",
+      "`Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-GOPHER-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Go 吉祥物, Gopher 吉祥物/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects stale six-route assumptions", () => {
+  const fixtureRoot = copyFixture("gopher-route-count");
+  try {
+    const routingPath = path.join("ian-xiaohei-illustrations", "references", "routing.md");
+    replaceAllInFixture(fixtureRoot, routingPath, "| `gopher` | Go Gopher |", "| `go-gopher` | Go Gopher |");
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-TABLE-001 /);
+    assert.match(result.stdout, /\[FAIL\] REBRAND-ROUTE-001 /);
+    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw, gopher/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Go Gopher source marker drift", () => {
+  const fixtureRoot = copyFixture("gopher-source");
+  try {
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "source.md"),
+      "Renee French",
+      "source artist",
+    );
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "source.md"),
+      "Creative Commons Attribution 4.0",
+      "CC BY",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] SOURCE-GOPHER-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/gopher\/source\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): Renee French/);
+    assert.match(result.stdout, /Creative Commons Attribution 4\.0/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Go Gopher pack, prompt, and QA marker drift", () => {
+  for (const [name, relativePath, searchValue, expectedId] of [
+    [
+      "pack",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "index.md"),
+      "Public-sample boundary",
+      "REFS-GOPHER-001",
+    ],
+    [
+      "prompt",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "prompt-template.md"),
+      "Go Gopher planning fields gate",
+      "PROMPT-GOPHER-001",
+    ],
+    [
+      "qa",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "qa-checklist.md"),
+      "Go Gopher QA route leakage failure",
+      "QA-GOPHER-001",
+    ],
+    [
+      "identity",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "gopher-ip.md"),
+      "Go Gopher must perform the central cognitive article action",
+      "IP-GOPHER-001",
+    ],
+  ]) {
+    const fixtureRoot = copyFixture(`gopher-${name}-drift`);
+    try {
+      replaceAllInFixture(fixtureRoot, relativePath, searchValue, `removed ${name} marker`);
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
+      const expectedPath = expectedId === "IP-GOPHER-001" || expectedId === "REFS-GOPHER-001"
+        ? path.join("ian-xiaohei-illustrations", "references", "ips", "gopher")
+        : relativePath;
+      assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, /observed missing marker\(s\)/);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
+test("validator fixture reports Go Gopher metadata drift", () => {
+  assertGopherSurfaceDrift(
+    "agent",
+    path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+    "explicit Go Gopher article-mascot route (source-reviewed)",
+    "AGENT-GOPHER-001",
+  );
+});
+
+test("validator fixture reports Go Gopher docs drift", () => {
+  assertGopherSurfaceDrift(
+    "docs",
+    "README.md",
+    "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+    "DOC-GOPHER-001",
+  );
+});
+
+test("validator fixture reports localized Go Gopher README drift", () => {
+  assertGopherSurfaceDrift(
+    "localized-readme",
+    "README.zh.md",
+    "assets/&lt;article-slug&gt;-gopher/",
+    "DOC-GOPHER-001",
+  );
+});
+
+test("validator fixture reports Go Gopher NOTICE drift", () => {
+  assertGopherSurfaceDrift(
+    "notice",
+    "NOTICE.md",
+    "Go Gopher Source Attribution and Public Sample Gate",
+    "NOTICE-GOPHER-001",
+  );
+});
+
+test("validator fixture reports Go Gopher smoke drift", () => {
+  assertGopherSurfaceDrift(
+    "smoke",
+    "examples/prompts.md",
+    "## Route Smoke: Explicit Go Gopher",
+    "SMOKE-GOPHER-001",
+  );
+});
+
+test("validator fixture reports Go Gopher mixed-IP drift", () => {
+  assertGopherSurfaceDrift(
+    "mixed",
+    "examples/prompts.md",
+    "seven separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher",
+    "SMOKE-MIXED-GOPHER-001",
+  );
+});
+
+test("validator fixture reports Go Gopher release gate drift", () => {
+  assertGopherSurfaceDrift(
+    "release",
+    "RELEASE_CHECKLIST.md",
+    "Go Gopher Source and License Review",
+    "RELEASE-GOPHER-001",
+  );
+});
+
+test("validator fixture reports Go Gopher release evidence drift", () => {
+  const fixtureRoot = copyFixture("gopher-release-evidence");
+  const evidencePath = path.join(
+    fixtureRoot,
+    ".planning",
+    "phases",
+    "42-go-gopher-validation-and-release-evidence",
+    "42-RELEASE-EVIDENCE.md",
+  );
+  try {
+    rmSync(evidencePath, { force: true });
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] VAL-GOPHER-EVIDENCE-001 /);
+    assert.match(
+      result.stdout,
+      /\.planning\/phases\/42-go-gopher-validation-and-release-evidence\/42-RELEASE-EVIDENCE\.md/,
+    );
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
 });
 
 test("validator fixture reports OpenClaw release evidence drift", () => {
@@ -2158,6 +2519,51 @@ test("validator fixture reports OpenClaw leakage in non-OpenClaw packs", () => {
   }
 });
 
+test("validator fixture reports Go Gopher leakage in non-Go-Gopher packs", () => {
+  for (const [name, relativePath, marker] of [
+    [
+      "xiaohei",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
+      "Go Gopher",
+    ],
+    [
+      "littlebox",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      "gopher.png",
+    ],
+    ["tom", path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "tom-ip.md"), "Renee French"],
+    [
+      "ferris",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      "Creative Commons Attribution 4.0",
+    ],
+    ["seal", path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "seal-ip.md"), "Go logo boundary"],
+    [
+      "openclaw",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "openclaw-ip.md"),
+      "references/ips/gopher",
+    ],
+  ]) {
+    const fixtureRoot = copyFixture(`gopher-leak-${name}`);
+    try {
+      writeFileSync(
+        path.join(fixtureRoot, relativePath),
+        `${readFileSync(path.join(fixtureRoot, relativePath), "utf8")}\n\nLeaked route marker: ${marker}\n`,
+        "utf8",
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-GOPHER-LEAK-001 /);
+      assert.match(result.stdout, new RegExp(relativePath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, new RegExp(`observed forbidden marker\\(s\\): .*${marker}`));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
 test("validator fixture enforces public Tom asset approval parsing", async () => {
   const validators = await import(`${scriptPath}?approval=${Date.now()}`);
   const fixtureRoot = copyFixture("tom-public-asset");
@@ -2196,7 +2602,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=112 passed=112 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=128 passed=128 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2281,7 +2687,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=112 passed=112 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=128 passed=128 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2329,7 +2735,7 @@ test("validator fixture enforces public Seal sample approval parsing", async () 
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEAL-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=112 passed=112 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=128 passed=128 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2375,7 +2781,63 @@ test("validator fixture enforces public OpenClaw sample approval parsing", async
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-OPENCLAW-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=112 passed=112 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=128 passed=128 failed=0 skipped=0/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture enforces public Go Gopher sample approval parsing", async () => {
+  const validators = await import(`${scriptPath}?gopherApproval=${Date.now()}`);
+  const fixtureRoot = copyFixture("gopher-public-asset");
+  try {
+    writeFileSync(path.join(fixtureRoot, "examples", "images", "99-gopher-test.png"), "fixture", "utf8");
+
+    const pendingResult = runFixtureValidator(fixtureRoot);
+
+    assert.equal(pendingResult.status, 1);
+    assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-GOPHER-IMG-001 /);
+    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images\/99-gopher-test\.png/);
+    assert.match(pendingResult.stdout, /approval status=PENDING/);
+    assert.match(pendingResult.stdout, /reviewer=missing/);
+    assert.match(pendingResult.stdout, /allowed directories=missing/);
+    assert.match(pendingResult.stdout, /Go blog source outcome=missing/);
+    assert.match(pendingResult.stdout, /Renee French attribution outcome=missing/);
+    assert.match(pendingResult.stdout, /Creative Commons Attribution 4\.0 outcome=missing/);
+    assert.match(pendingResult.stdout, /local visual marker outcome=missing/);
+    assert.match(pendingResult.stdout, /route-isolation outcome=missing/);
+    assert.match(pendingResult.stdout, /Go logo boundary outcome=missing/);
+    assert.match(pendingResult.stdout, /official endorsement boundary outcome=missing/);
+    assert.match(pendingResult.stdout, /article-metaphor quality outcome=missing/);
+    assert.match(pendingResult.stdout, /public-sample decision=missing/);
+
+    const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
+    const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
+      pendingGopherPublicAssetApprovalLine(),
+      completeGopherPublicAssetApprovalLine(),
+    );
+    writeFileSync(releaseChecklistPath, approvedText, "utf8");
+
+    const approval = validators.parsePublicGopherSampleApproval(approvedText);
+    assert.equal(approval.complete, true);
+    assert.equal(approval.reviewerPresent, true);
+    assert.equal(approval.datePresent, true);
+    assert.equal(approval.allowedDirectoriesPresent, true);
+    assert.equal(approval.sourceOutcomePresent, true);
+    assert.equal(approval.attributionOutcomePresent, true);
+    assert.equal(approval.licenseOutcomePresent, true);
+    assert.equal(approval.visualOutcomePresent, true);
+    assert.equal(approval.routeIsolationOutcomePresent, true);
+    assert.equal(approval.logoBoundaryOutcomePresent, true);
+    assert.equal(approval.endorsementBoundaryOutcomePresent, true);
+    assert.equal(approval.articleMetaphorOutcomePresent, true);
+    assert.equal(approval.publicSampleOutcomePresent, true);
+
+    const approvedResult = runFixtureValidator(fixtureRoot);
+    assert.equal(approvedResult.status, 0);
+    assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-GOPHER-IMG-001 /);
+    assert.match(approvedResult.stdout, /Summary: total=128 passed=128 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2532,6 +2994,147 @@ test("validator fixture rejects OpenClaw public sample placeholder approvals", a
       assert.equal(result.status, 1);
       assert.match(result.stdout, /\[FAIL\] BOUNDARY-OPENCLAW-IMG-001 /);
       assert.match(result.stdout, /examples\/images\/99-openclaw-test\.png/);
+      assert.match(result.stdout, new RegExp(expectedField));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
+test("validator fixture rejects Go Gopher public sample placeholder approvals", async () => {
+  const validators = await import(`${scriptPath}?gopherPlaceholderApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  for (const [name, approvalLine, expectedField] of [
+    ["date", completeGopherPublicAssetApprovalLine("TBD"), "date=missing"],
+    [
+      "source",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source outcome",
+      ),
+      "Go blog source outcome=missing",
+    ],
+    [
+      "attribution",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source approved",
+        "Renee French attribution outcome",
+      ),
+      "Renee French attribution outcome=missing",
+    ],
+    [
+      "license",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source approved",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 outcome",
+      ),
+      "Creative Commons Attribution 4\\.0 outcome=missing",
+    ],
+    [
+      "visual",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source approved",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual marker outcome",
+      ),
+      "local visual marker outcome=missing",
+    ],
+    [
+      "route-isolation",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source approved",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route-isolation outcome",
+      ),
+      "route-isolation outcome=missing",
+    ],
+    [
+      "logo-boundary",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source approved",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary outcome",
+      ),
+      "Go logo boundary outcome=missing",
+    ],
+    [
+      "endorsement",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source approved",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary approved",
+        "official endorsement boundary outcome",
+      ),
+      "official endorsement boundary outcome=missing",
+    ],
+    [
+      "article-metaphor",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source approved",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary approved",
+        "official endorsement boundary approved",
+        "article-metaphor quality outcome",
+      ),
+      "article-metaphor quality outcome=missing",
+    ],
+    [
+      "public-sample",
+      completeGopherPublicAssetApprovalLine(
+        "2026-06-13",
+        "Go blog source approved",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary approved",
+        "official endorsement boundary approved",
+        "article-metaphor quality approved",
+        "public-sample decision",
+      ),
+      "public-sample decision=missing",
+    ],
+  ]) {
+    const approvalText = releaseChecklistText.replace(pendingGopherPublicAssetApprovalLine(), approvalLine);
+    const approval = validators.parsePublicGopherSampleApproval(approvalText);
+    assert.equal(approval.complete, false);
+
+    const fixtureRoot = copyFixture(`gopher-placeholder-${name}`);
+    try {
+      writeFileSync(path.join(fixtureRoot, "examples", "images", "99-gopher-test.png"), "fixture", "utf8");
+      replaceInFixture(
+        fixtureRoot,
+        "RELEASE_CHECKLIST.md",
+        pendingGopherPublicAssetApprovalLine(),
+        approvalLine,
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-GOPHER-IMG-001 /);
+      assert.match(result.stdout, /examples\/images\/99-gopher-test\.png/);
       assert.match(result.stdout, new RegExp(expectedField));
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2740,6 +3343,156 @@ test("validator fixture distinguishes Generated Sample OpenClaw review outputs f
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] BOUNDARY-OPENCLAW-GEN-001 /);
     assert.match(result.stdout, /\[PASS\] BOUNDARY-OPENCLAW-IMG-001 /);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture distinguishes Generated Sample Go Gopher review outputs from public samples", async () => {
+  const validators = await import(`${scriptPath}?generatedGopherApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  const pendingApproval = validators.parseGeneratedGopherSampleApproval(releaseChecklistText);
+  assert.equal(pendingApproval.found, true);
+  assert.equal(pendingApproval.checked, false);
+  assert.equal(pendingApproval.complete, false);
+  assert.equal(pendingApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingApproval.publicDirectoriesPresent, false);
+
+  const completeText = releaseChecklistText.replace(
+    pendingGeneratedGopherSampleLine(),
+    completeGeneratedGopherSampleLine(),
+  );
+  const completeApproval = validators.parseGeneratedGopherSampleApproval(completeText);
+  assert.equal(completeApproval.complete, true);
+  assert.equal(completeApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(completeApproval.publicDirectoriesPresent, true);
+  assert.equal(completeApproval.attributionOutcomePresent, true);
+  assert.equal(completeApproval.licenseOutcomePresent, true);
+  assert.equal(completeApproval.visualOutcomePresent, true);
+  assert.equal(completeApproval.routeIsolationOutcomePresent, true);
+  assert.equal(completeApproval.logoBoundaryOutcomePresent, true);
+  assert.equal(completeApproval.endorsementBoundaryOutcomePresent, true);
+  assert.equal(completeApproval.articleMetaphorOutcomePresent, true);
+
+  for (const [name, approvalLine, expectedFlag] of [
+    ["date", completeGeneratedGopherSampleLine("TBD"), "datePresent"],
+    [
+      "attribution",
+      completeGeneratedGopherSampleLine(
+        "2026-06-13",
+        "Renee French attribution outcome",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary approved",
+        "official endorsement boundary approved",
+        "article-metaphor quality approved",
+      ),
+      "attributionOutcomePresent",
+    ],
+    [
+      "license",
+      completeGeneratedGopherSampleLine(
+        "2026-06-13",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 outcome",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary approved",
+        "official endorsement boundary approved",
+        "article-metaphor quality approved",
+      ),
+      "licenseOutcomePresent",
+    ],
+    [
+      "visual",
+      completeGeneratedGopherSampleLine(
+        "2026-06-13",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual marker outcome",
+        "route isolation approved",
+        "Go logo boundary approved",
+        "official endorsement boundary approved",
+        "article-metaphor quality approved",
+      ),
+      "visualOutcomePresent",
+    ],
+    [
+      "route-isolation",
+      completeGeneratedGopherSampleLine(
+        "2026-06-13",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route-isolation outcome",
+        "Go logo boundary approved",
+        "official endorsement boundary approved",
+        "article-metaphor quality approved",
+      ),
+      "routeIsolationOutcomePresent",
+    ],
+    [
+      "logo-boundary",
+      completeGeneratedGopherSampleLine(
+        "2026-06-13",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary outcome",
+        "official endorsement boundary approved",
+        "article-metaphor quality approved",
+      ),
+      "logoBoundaryOutcomePresent",
+    ],
+    [
+      "endorsement",
+      completeGeneratedGopherSampleLine(
+        "2026-06-13",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary approved",
+        "official endorsement boundary outcome",
+        "article-metaphor quality approved",
+      ),
+      "endorsementBoundaryOutcomePresent",
+    ],
+    [
+      "article-metaphor",
+      completeGeneratedGopherSampleLine(
+        "2026-06-13",
+        "Renee French attribution approved",
+        "Creative Commons Attribution 4.0 approved",
+        "local visual markers approved",
+        "route isolation approved",
+        "Go logo boundary approved",
+        "official endorsement boundary approved",
+        "article-metaphor quality outcome",
+      ),
+      "articleMetaphorOutcomePresent",
+    ],
+  ]) {
+    const placeholderText = releaseChecklistText.replace(pendingGeneratedGopherSampleLine(), approvalLine);
+    const placeholderApproval = validators.parseGeneratedGopherSampleApproval(placeholderText);
+    assert.equal(placeholderApproval.checked, true);
+    assert.equal(placeholderApproval.complete, false);
+    assert.equal(placeholderApproval[expectedFlag], false);
+  }
+
+  const fixtureRoot = copyFixture("gopher-generated-sample");
+  try {
+    const workspaceOutputDir = path.join(fixtureRoot, "assets", "article-gopher");
+    mkdirSync(workspaceOutputDir, { recursive: true });
+    writeFileSync(path.join(workspaceOutputDir, "99-gopher-test.png"), "fixture", "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+    assert.equal(result.status, 0);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-GOPHER-GEN-001 /);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-GOPHER-IMG-001 /);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
