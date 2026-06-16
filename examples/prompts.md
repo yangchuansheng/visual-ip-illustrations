@@ -104,11 +104,44 @@ Delivery report keeps Source/license note and states that public rendered OpenCl
 <paste article>
 ```
 
+
+### Go Gopher: canonical planning
+
+```text
+Use $visual-ip-illustrations with the Go Gopher route. Do not generate images yet.
+Create a 4-image Go Gopher route shot list for the article below.
+Use route-local references from `ian-xiaohei-illustrations/references/ips/gopher/` and source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
+Keep route status `source-reviewed`, root `gopher.png` local visual authority, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample gate, Go logo boundary, and official endorsement boundary.
+For each image, include Placement, Core idea, Structure type, Gopher state, Gopher action, Supporting objects, Visible labels, Output path, and Source/license note.
+Use article metaphors such as maps, bridges, knots, compasses, shelves, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, hooks, stepping stones, signposts, levers, or small hand-built machines.
+Gopher actions should inspect, point, carry, sort, bridge, repair, guide, stamp, mark, tune, shield, weigh, connect, untangle, map, compare, lift, assemble, and route the core idea.
+Visible labels are copied exactly in the user's requested language.
+Save outputs under `assets/<article-slug>-gopher/`; docs validation token: `assets/&lt;article-slug&gt;-gopher/`.
+
+<paste article>
+```
+
+### Go Gopher: canonical generation
+
+```text
+Use $visual-ip-illustrations with the Go Gopher route to generate 2 article body illustrations for the article below.
+Generate each image separately and use `ian-xiaohei-illustrations/references/ips/gopher/` route-local references.
+Keep route status `source-reviewed` and source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
+Go Gopher is a source-reviewed article-illustration mascot route. Preserve root `gopher.png` local visual authority: blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
+Keep Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample gate, Go logo boundary, and official endorsement boundary attached to the delivery report.
+Make Go Gopher inspect, point, carry, sort, bridge, repair, guide, stamp, mark, tune, shield, weigh, connect, untangle, map, compare, lift, assemble, or route the core idea through sparse physical article metaphors.
+Visible labels are copied exactly in the user's requested language.
+Use no Go logo identity, no official Go project affiliation, no approval claims, no sponsorship claims, no endorsement wording, no generic blue mascot drift, and no realistic animal drift.
+Save outputs under `assets/<article-slug>-gopher/`; docs validation token: `assets/&lt;article-slug&gt;-gopher/`.
+
+<paste article>
+```
+
 ### Multi-IP: canonical planning
 
 ```text
 Use $visual-ip-illustrations. Do not generate images yet.
-Use one shared core idea to produce separate Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw variant groups.
+Use one shared core idea to produce seven separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher.
 Each group must use route-local references, route-local prompt template, route-local QA, and an independent output path.
 Xiaohei group uses `ian-xiaohei-illustrations/references/ips/xiaohei/` and `assets/<article-slug>-illustrations/`.
 Littlebox group uses `ian-xiaohei-illustrations/references/ips/littlebox/` and `assets/<article-slug>-littlebox/`.
@@ -116,6 +149,7 @@ Tom group uses `ian-xiaohei-illustrations/references/ips/tom/`, route status `ga
 Ferris group uses `ian-xiaohei-illustrations/references/ips/ferris/`, route status `source-reviewed`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`, and `assets/<article-slug>-ferris/`.
 Seal group uses `ian-xiaohei-illustrations/references/ips/seal/`, route status `active`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, hoodie seal identity note, logo-free note, product-neutral article metaphors, and `assets/<article-slug>-seal/`.
 OpenClaw group uses `ian-xiaohei-illustrations/references/ips/openclaw/`, route status `source-reviewed`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, uploaded-logo identity markers, public-sample gate, and `assets/<article-slug>-openclaw/`.
+Go Gopher group uses `ian-xiaohei-illustrations/references/ips/gopher/`, route status `source-reviewed`, source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`, root `gopher.png` local visual authority, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample gate, and `assets/<article-slug>-gopher/`.
 
 Core idea: trust is built by placing one piece of evidence after another.
 ```
@@ -475,15 +509,15 @@ Expected: public sample gate is controlled by RELEASE_CHECKLIST.md; public rende
 
 ## Route Notes: Mixed-IP Requests
 
-The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, Seal group uses `assets/<article-slug>-seal/`, and OpenClaw group uses `assets/<article-slug>-openclaw/`; each group loads its own references, prompt template, QA, and output path.
+The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, Seal group uses `assets/<article-slug>-seal/`, OpenClaw group uses `assets/<article-slug>-openclaw/`, and Go Gopher group uses `assets/<article-slug>-gopher/`; each group loads its own references, prompt template, QA, and output path.
 
-Maintainer reference: Xiaohei canonical pack is at `ian-xiaohei-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `ian-xiaohei-illustrations/references/ips/littlebox/`, Tom canonical pack is at `ian-xiaohei-illustrations/references/ips/tom/`, Tom rights record is at `ian-xiaohei-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `ian-xiaohei-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `ian-xiaohei-illustrations/references/ips/ferris/source.md`, Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`, Seal source-history authority is at `ian-xiaohei-illustrations/references/ips/seal/source.md`, OpenClaw canonical pack is at `ian-xiaohei-illustrations/references/ips/openclaw/`, OpenClaw source/license authority is at `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, and route metadata is at `ian-xiaohei-illustrations/references/routing.md`.
+Maintainer reference: Xiaohei canonical pack is at `ian-xiaohei-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `ian-xiaohei-illustrations/references/ips/littlebox/`, Tom canonical pack is at `ian-xiaohei-illustrations/references/ips/tom/`, Tom rights record is at `ian-xiaohei-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `ian-xiaohei-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `ian-xiaohei-illustrations/references/ips/ferris/source.md`, Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`, Seal source-history authority is at `ian-xiaohei-illustrations/references/ips/seal/source.md`, OpenClaw canonical pack is at `ian-xiaohei-illustrations/references/ips/openclaw/`, OpenClaw source/license authority is at `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, Go Gopher canonical pack is at `ian-xiaohei-illustrations/references/ips/gopher/`, Go Gopher source/license authority is at `ian-xiaohei-illustrations/references/ips/gopher/source.md`, root `gopher.png` is local visual authority, and route metadata is at `ian-xiaohei-illustrations/references/routing.md`.
 
 ### Mixed IP: variant planning only
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Use one core idea to produce six separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw.
+Use one core idea to produce seven separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher.
 Each group must use its own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
 
 Xiaohei variant group:
@@ -543,10 +577,10 @@ OpenClaw variant group:
 <paste article or single idea>
 ```
 
-### Mixed IP: generate six groups from one idea
+### Mixed IP: generate seven groups from one idea
 
 ```text
-Use $ian-xiaohei-illustrations to generate Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, and OpenClaw variant group from the same core idea.
+Use $ian-xiaohei-illustrations to generate seven separate variant groups: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, and Go Gopher variant group from the same core idea.
 
 Core idea: trust is built by placing one piece of evidence after another.
 
@@ -623,6 +657,8 @@ OpenClaw variant group:
 
 ## Maintainer Validation Smoke Prompts
 
+Phase 42 owns Go Gopher validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation.
+
 These prompts support manual route behavior checks; the full package validator is `node scripts/validate-skill-package.mjs`. Route source file: `ian-xiaohei-illustrations/references/routing.md`.
 Phase 32 owns Seal migration validator check-id cleanup, stale leakage fixtures, Node test restoration, final evidence, and UAT.
 
@@ -677,11 +713,25 @@ Expected: output path contract is `assets/<article-slug>-openclaw/`; docs valida
 Purpose: text-only route audit; Phase 35 runtime selection behavior is verified, and Phase 36 examples keep the public-sample gate.
 ```
 
+
+### Smoke: Go Gopher source-reviewed route status
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Text-only maintainer route audit. Use the Go Gopher route to create 1 route-status shot list for this idea:
+Idea: separate signal from noise before a release decision.
+Expected: selected IP is Go Gopher, route status is `source-reviewed`, source/license authority is `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
+Expected: route-local reference directory is `ian-xiaohei-illustrations/references/ips/gopher/`.
+Expected: root `gopher.png`, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample gate, Go logo boundary, and official endorsement boundary are attached.
+Expected: output path is `assets/<article-slug>-gopher/`; docs validation token is `assets/&lt;article-slug&gt;-gopher/`.
+Expected: planning fields include Placement, Core idea, Structure type, Gopher state, Gopher action, Supporting objects, Visible labels, Output path, Source/license note.
+```
+
 ### Smoke: mixed-IP variant groups
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Use one core idea to create Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, and OpenClaw variant group:
+Use one core idea to create seven separate variant groups: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, and Go Gopher variant group:
 Idea: a good workflow places the next action directly in someone's hand.
 Expected: Xiaohei variant group uses `ian-xiaohei-illustrations/references/ips/xiaohei/` and outputs to `assets/<article-slug>-illustrations/`.
 Expected: Littlebox variant group uses `ian-xiaohei-illustrations/references/ips/littlebox/` and outputs to `assets/<article-slug>-littlebox/`.
@@ -689,7 +739,8 @@ Expected: Tom variant group uses `ian-xiaohei-illustrations/references/ips/tom/`
 Expected: Ferris variant group uses `ian-xiaohei-illustrations/references/ips/ferris/`, outputs to `assets/<article-slug>-ferris/`, and keeps route status `source-reviewed` plus source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
 Expected: Seal variant group uses `ian-xiaohei-illustrations/references/ips/seal/`, outputs to `assets/<article-slug>-seal/`, and keeps route status `active`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, hoodie seal identity note, logo-free note, and product-neutral article metaphors.
 Expected: OpenClaw variant group uses `ian-xiaohei-illustrations/references/ips/openclaw/`, outputs to `assets/<article-slug>-openclaw/`, and keeps route status `source-reviewed`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, uploaded-logo identity markers, and public-sample gate.
-Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, and OpenClaw variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
+Expected: Go Gopher variant group uses `ian-xiaohei-illustrations/references/ips/gopher/`, outputs to `assets/<article-slug>-gopher/`, keeps docs validation token `assets/&lt;article-slug&gt;-gopher/`, route status `source-reviewed`, source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`, root `gopher.png` local visual authority, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample gate, and Source/license note.
+Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, and Go Gopher variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
 ```
 
 ## Planning Only
