@@ -23,10 +23,10 @@
 
 ### Runtime Integration
 
-- [ ] **RUN-01**: User can invoke Go Gopher through the skill controller, route selection rules, progressive reference loading, planning fields, generation dispatch, edit routing, QA dispatch, and delivery reports.
-- [ ] **RUN-02**: User can request mixed-IP output where Go Gopher and all existing routes create separate route groups with their own references, prompts, QA rules, and output paths.
-- [ ] **RUN-03**: User receives Go Gopher delivery reports with selected visual IP, image count, purpose per image, saved path under `assets/<article-slug>-gopher/`, and route stability notes.
-- [ ] **RUN-04**: Agent metadata and skill instructions present Go Gopher as a selectable route while preserving Visual IP Illustrations identity and the legacy `$ian-xiaohei-illustrations` alias.
+- [x] **RUN-01**: User can invoke Go Gopher through the skill controller, route selection rules, progressive reference loading, planning fields, generation dispatch, edit routing, QA dispatch, and delivery reports.
+- [x] **RUN-02**: User can request mixed-IP output where Go Gopher and all existing routes create separate route groups with their own references, prompts, QA rules, and output paths.
+- [x] **RUN-03**: User receives Go Gopher delivery reports with selected visual IP, image count, purpose per image, saved path under `assets/<article-slug>-gopher/`, and route stability notes.
+- [x] **RUN-04**: Agent metadata and skill instructions present Go Gopher as a selectable route while preserving Visual IP Illustrations identity and the legacy `$ian-xiaohei-illustrations` alias.
 
 ### Public Documentation
 
@@ -95,10 +95,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PACK-03 | Phase 39 | Complete |
 | PACK-04 | Phase 39 | Complete |
 | PACK-05 | Phase 39 | Complete |
-| RUN-01 | Phase 40 | Pending |
-| RUN-02 | Phase 40 | Pending |
-| RUN-03 | Phase 40 | Pending |
-| RUN-04 | Phase 40 | Pending |
+| RUN-01 | Phase 40 | Complete |
+| RUN-02 | Phase 40 | Complete |
+| RUN-03 | Phase 40 | Complete |
+| RUN-04 | Phase 40 | Complete |
 | DOC-01 | Phase 41 | Pending |
 | DOC-02 | Phase 41 | Pending |
 | DOC-03 | Phase 41 | Pending |

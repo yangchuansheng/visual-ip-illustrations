@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 38: Go Gopher Source and Route Contract** - Users can select Go Gopher through an explicit source-reviewed route with stable aliases, `default=false`, route id `gopher`, output suffix `gopher`, output path `assets/<article-slug>-gopher/`, source/license authority, and local `gopher.png` visual authority. (completed 2026-06-16)
 - [x] **Phase 39: Go Gopher Canonical Pack** - Users can plan, prompt, edit, and QA Go Gopher article illustrations through route-local references that preserve the local `gopher.png` mascot identity. (completed 2026-06-16)
-- [ ] **Phase 40: Go Gopher Skill Controller Integration** - Users can invoke Go Gopher through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable.
+- [x] **Phase 40: Go Gopher Skill Controller Integration** - Users can invoke Go Gopher through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable. (completed 2026-06-16)
 - [ ] **Phase 41: Public Documentation and Release Surface** - Users and maintainers can learn, invoke, review, and release Go Gopher through README, examples, NOTICE, release checklist, skill instructions, and agent metadata.
 - [ ] **Phase 42: Go Gopher Validation and Release Evidence** - Maintainers can verify Go Gopher route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release readiness locally.
 
@@ -80,7 +80,7 @@ Plans:
 
 Plans:
 
-- [ ] 40-01-PLAN.md — Go Gopher skill controller integration
+- [x] 40-01-PLAN.md — Go Gopher skill controller integration
 
 ### Phase 41: Public Documentation and Release Surface
 
@@ -121,6 +121,6 @@ Phases execute in numeric order: 38 -> 39 -> 40 -> 41 -> 42
 |-------|----------------|--------|-----------|
 | 38. Go Gopher Source and Route Contract | 1/1 | Complete   | 2026-06-16 |
 | 39. Go Gopher Canonical Pack | 1/1 | Complete   | 2026-06-16 |
-| 40. Go Gopher Skill Controller Integration | 0/1 | Planned | - |
+| 40. Go Gopher Skill Controller Integration | 1/1 | Complete   | 2026-06-16 |
 | 41. Public Documentation and Release Surface | 0/1 | Not started | - |
 | 42. Go Gopher Validation and Release Evidence | 0/1 | Not started | - |
