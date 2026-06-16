@@ -4,7 +4,7 @@ milestone: v1.7
 milestone_name: OpenClaw Logo IP Integration
 status: Complete
 stopped_at: Phase 37 completed; v1.7 milestone complete
-last_updated: "2026-06-16T12:50:29.621Z"
+last_updated: "2026-06-16T13:35:00.000Z"
 last_activity: 2026-06-16
 progress:
   total_phases: 5
@@ -34,7 +34,7 @@ Last activity: 2026-06-16
 
 **Velocity:**
 
-- Total plans completed: 64
+- Total plans completed: 65
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -76,8 +76,8 @@ Last activity: 2026-06-16
 
 **Recent Trend:**
 
-- Last 5 plans: Phase 33 added the OpenClaw route contract; Phase 34 added the canonical pack; Phase 35 wired controller behavior; Phase 36 updated public release surfaces; Phase 37 hardened validation and release evidence.
-- Trend: v1.7 adds a new explicit OpenClaw source-reviewed logo-mascot route while preserving the existing route-isolated package architecture.
+- Last 5 plans: Phase 34 added the canonical pack; Phase 35 wired controller behavior; Phase 36 updated public release surfaces; Phase 37 hardened validation and release evidence; Quick 260616-t6d synchronized every README variant with OpenClaw.
+- Trend: v1.7 adds a new explicit OpenClaw source-reviewed logo-mascot route and now keeps every localized README in validator-enforced parity with the English source README.
 
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
@@ -240,6 +240,7 @@ Recent decisions affecting current work:
 - [Milestone v1.7]: The user-provided uploaded OpenClaw logo is the route visual authority, with stable markers red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
 - [Milestone v1.7]: The official OpenClaw repository and MIT license provide source and attribution context; route-local source.md records this alongside uploaded-logo authority.
 - [Milestone v1.7]: Planned phases 33-37 cover source and route contract, canonical pack, skill controller integration, public documentation and release surface, validation hardening, and release evidence.
+- [Quick 260616-t6d]: OpenClaw v1.7 documentation now covers every root README variant. `DOC-OPENCLAW-001` discovers all `README*.md` files and Node tests include a localized README drift fixture. Validator coverage reports 112/112 and Node tests report 80/80.
 
 ### Pending Todos
 
@@ -264,6 +265,7 @@ Recent decisions affecting current work:
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
+| 260616-t6d | Sync OpenClaw v1.7 details across every README translation | 2026-06-16 | 8476c48 | [260616-t6d-sync-openclaw-v1-7-details-across-every-](./quick/260616-t6d-sync-openclaw-v1-7-details-across-every-/) |
 | 260614-f7o | Tighten Sealos Seal cap and chest logo to official uploaded logo shape | 2026-06-14 | 94fe2e8 | [260614-f7o-tighten-sealos-seal-cap-and-chest-logo-t](./quick/260614-f7o-tighten-sealos-seal-cap-and-chest-logo-t/) |
 | 260614-fow | Make Sealos cap and chest logo exactly match uploaded logo | 2026-06-14 | b537fdc | [260614-fow-make-sealos-cap-and-chest-logo-exactly-m](./quick/260614-fow-make-sealos-cap-and-chest-logo-exactly-m/) |
 | 260614-izu | Require uploaded Sealos logo source overlay | 2026-06-14 | 870fe0b | [260614-izu-require-uploaded-sealos-logo-source-over](./quick/260614-izu-require-uploaded-sealos-logo-source-over/) |
