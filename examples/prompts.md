@@ -76,17 +76,46 @@ Save outputs under `assets/<article-slug>-seal/`; docs validation token: `assets
 <paste article>
 ```
 
+### OpenClaw: canonical planning
+
+```text
+Use $visual-ip-illustrations with the OpenClaw route. Do not generate images yet.
+Create a 4-image OpenClaw route shot list for the article below.
+Use route-local references from `ian-xiaohei-illustrations/references/ips/openclaw/` and source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
+Keep route status `source-reviewed` and uploaded-logo identity markers: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+For each image, include Placement, Core idea, Structure type, OpenClaw state, OpenClaw action, Supporting objects, Visible labels, Output path, and Source/license note.
+Use project-neutral article metaphors such as gates, adapters, bridges, checklists, routing signs, tool benches, test lamps, handoff rails, compasses, shelves, stamps, connectors, or review shields.
+Save outputs under `assets/<article-slug>-openclaw/`; docs validation token: `assets/&lt;article-slug&gt;-openclaw/`.
+
+<paste article>
+```
+
+### OpenClaw: canonical generation
+
+```text
+Use $visual-ip-illustrations with the OpenClaw route to generate 2 article body illustrations for the article below.
+Generate each image separately and use `ian-xiaohei-illustrations/references/ips/openclaw/` route-local references.
+Keep route status `source-reviewed` and source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
+OpenClaw is a friendly logo-mascot article character. Preserve the uploaded-logo identity: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+Use project-neutral article metaphors and make OpenClaw inspect, hold, bridge, sort, lift, connect, or signal the core idea.
+Save outputs under `assets/<article-slug>-openclaw/`; docs validation token: `assets/&lt;article-slug&gt;-openclaw/`.
+Delivery report keeps Source/license note and states that public rendered OpenClaw samples are governed by RELEASE_CHECKLIST.md public-sample and final evidence gates.
+
+<paste article>
+```
+
 ### Multi-IP: canonical planning
 
 ```text
 Use $visual-ip-illustrations. Do not generate images yet.
-Use one shared core idea to produce separate Xiaohei, Littlebox, Tom, Ferris, and Seal variant groups.
+Use one shared core idea to produce separate Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw variant groups.
 Each group must use route-local references, route-local prompt template, route-local QA, and an independent output path.
 Xiaohei group uses `ian-xiaohei-illustrations/references/ips/xiaohei/` and `assets/<article-slug>-illustrations/`.
 Littlebox group uses `ian-xiaohei-illustrations/references/ips/littlebox/` and `assets/<article-slug>-littlebox/`.
 Tom group uses `ian-xiaohei-illustrations/references/ips/tom/`, route status `gated-authorized`, rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`, and `assets/<article-slug>-tom/`.
 Ferris group uses `ian-xiaohei-illustrations/references/ips/ferris/`, route status `source-reviewed`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`, and `assets/<article-slug>-ferris/`.
 Seal group uses `ian-xiaohei-illustrations/references/ips/seal/`, route status `active`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, hoodie seal identity note, logo-free note, product-neutral article metaphors, and `assets/<article-slug>-seal/`.
+OpenClaw group uses `ian-xiaohei-illustrations/references/ips/openclaw/`, route status `source-reviewed`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, uploaded-logo identity markers, public-sample gate, and `assets/<article-slug>-openclaw/`.
 
 Core idea: trust is built by placing one piece of evidence after another.
 ```
@@ -368,17 +397,95 @@ Expected: Seal action vocabulary includes inspect, repair, shield, bridge, sort,
 Expected: public sample gate is controlled by RELEASE_CHECKLIST.md; public rendered Seal samples require release review.
 ```
 
+## Route Smoke: Explicit OpenClaw
+
+OpenClaw is an explicit `source-reviewed` logo-mascot route. The route-local pack and SKILL.md controller integration are complete; public rendered OpenClaw samples remain release-gated.
+
+Explicit OpenClaw aliases include OpenClaw, openclaw, OpenClaw logo, OpenClaw mascot, and the OpenClaw aliases listed in `ian-xiaohei-illustrations/references/routing.md`. Source/license authority is `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
+
+### Explicit OpenClaw: planning only
+
+```text
+Use $ian-xiaohei-illustrations with the OpenClaw route. Do not generate images yet.
+Create a 3-image OpenClaw route shot list for the article below.
+For each image, include:
+- Placement
+- Core idea
+- Structure type
+- OpenClaw state
+- OpenClaw action
+- Supporting objects
+- Visible labels
+- Output path
+- Source/license note
+Keep route status `source-reviewed`.
+Keep route-local reference directory `ian-xiaohei-illustrations/references/ips/openclaw/`.
+Keep source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
+Save outputs under `assets/<article-slug>-openclaw/`; docs validation token: `assets/&lt;article-slug&gt;-openclaw/`.
+Source/license note: OpenClaw is a `source-reviewed` logo-mascot route with uploaded-logo authority and MIT License attribution.
+
+<paste article>
+```
+
+### Explicit OpenClaw: direct generation
+
+```text
+Use $ian-xiaohei-illustrations with the OpenClaw route to generate 2 article body illustrations for the article below.
+OpenClaw aliases include OpenClaw, openclaw, OpenClaw logo, OpenClaw mascot, and the OpenClaw aliases listed in `ian-xiaohei-illustrations/references/routing.md`.
+Generate each image separately and use `ian-xiaohei-illustrations/references/ips/openclaw/` route-local references.
+OpenClaw must carry the core idea's cognitive action through uploaded-logo identity markers: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+Use project-neutral article metaphors for checks, routing, compatibility, handoffs, review, or conceptual repair.
+Keep route status `source-reviewed`.
+Keep source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
+Report Source/license note for every image and save outputs under `assets/<article-slug>-openclaw/`; docs validation token: `assets/&lt;article-slug&gt;-openclaw/`.
+Public rendered OpenClaw samples are governed by RELEASE_CHECKLIST.md public-sample and final evidence gates.
+
+<paste article>
+```
+
+### Explicit OpenClaw: edit existing image
+
+```text
+Use $ian-xiaohei-illustrations with the OpenClaw route to edit this image.
+Preserve the selected OpenClaw route, source/license note, output path, aspect ratio, and article meaning.
+Strengthen OpenClaw participation so the red logo-mascot character actively inspects, holds, bridges, sorts, lifts, connects, or signals the central idea.
+Keep uploaded-logo identity markers stable: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+Keep short visible labels in the user's language and save under `assets/<article-slug>-openclaw/`.
+```
+
+### Explicit OpenClaw: route smoke check
+
+```text
+Use $ian-xiaohei-illustrations. Do not generate images yet.
+Text-only maintainer route audit. Use the OpenClaw route to create 1 route smoke shot list for this idea:
+Idea: route a tool workflow through a reliable compatibility gate.
+Expected: selected IP is OpenClaw.
+Expected: aliases include OpenClaw, openclaw, OpenClaw logo, OpenClaw mascot, and the OpenClaw aliases listed in routing.md.
+Expected: route status is `source-reviewed`.
+Expected: source/license authority is `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
+Expected: route-local reference directory is `ian-xiaohei-illustrations/references/ips/openclaw/`.
+Expected: required references include `index.md`, `source.md`, `style-dna.md`, `openclaw-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`.
+Expected: planning fields include Placement, Core idea, Structure type, OpenClaw state, OpenClaw action, Supporting objects, Visible labels, Output path, Source/license note.
+Expected: output path is `assets/<article-slug>-openclaw/`.
+Expected: docs validation token is `assets/&lt;article-slug&gt;-openclaw/`.
+Expected: uploaded-logo identity markers include red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+Expected: OpenClaw action vocabulary includes inspect, hold, bridge, sort, lift, connect, and signal.
+Expected: public sample gate is controlled by RELEASE_CHECKLIST.md; public rendered OpenClaw samples require release review.
+```
+
 ## Route Notes: Mixed-IP Requests
 
-The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, and Seal group uses `assets/<article-slug>-seal/`; each group loads its own references, prompt template, QA, and output path.
+The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, Seal group uses `assets/<article-slug>-seal/`, and OpenClaw group uses `assets/<article-slug>-openclaw/`; each group loads its own references, prompt template, QA, and output path.
 
-Maintainer reference: Xiaohei canonical pack is at `ian-xiaohei-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `ian-xiaohei-illustrations/references/ips/littlebox/`, Tom canonical pack is at `ian-xiaohei-illustrations/references/ips/tom/`, Tom rights record is at `ian-xiaohei-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `ian-xiaohei-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `ian-xiaohei-illustrations/references/ips/ferris/source.md`, Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`, Seal source-history authority is at `ian-xiaohei-illustrations/references/ips/seal/source.md`, and route metadata is at `ian-xiaohei-illustrations/references/routing.md`.
+Compatibility marker: `five separate variant groups` names the historical Seal mixed-IP validator anchor for Xiaohei, Littlebox, Tom, Ferris, and Seal; current six-route prompts add OpenClaw as an additional group.
+
+Maintainer reference: Xiaohei canonical pack is at `ian-xiaohei-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `ian-xiaohei-illustrations/references/ips/littlebox/`, Tom canonical pack is at `ian-xiaohei-illustrations/references/ips/tom/`, Tom rights record is at `ian-xiaohei-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `ian-xiaohei-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `ian-xiaohei-illustrations/references/ips/ferris/source.md`, Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`, Seal source-history authority is at `ian-xiaohei-illustrations/references/ips/seal/source.md`, OpenClaw canonical pack is at `ian-xiaohei-illustrations/references/ips/openclaw/`, OpenClaw source/license authority is at `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, and route metadata is at `ian-xiaohei-illustrations/references/routing.md`.
 
 ### Mixed IP: variant planning only
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Use one core idea to produce five separate variant groups: Xiaohei, Littlebox, Tom, Ferris, and Seal.
+Use one core idea to produce six separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw.
 Each group must use its own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
 
 Xiaohei variant group:
@@ -423,13 +530,25 @@ Seal variant group:
 - Seal actions should inspect, repair, shield, bridge, sort, and mark the core idea
 - Public rendered Seal samples are controlled by the RELEASE_CHECKLIST.md hoodie identity, logo-free output, route isolation, and article-metaphor quality gates
 
+OpenClaw variant group:
+- Use `ian-xiaohei-illustrations/references/ips/openclaw/`
+- Keep source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`
+- Keep route status `source-reviewed`
+- Aliases include OpenClaw, openclaw, OpenClaw logo, OpenClaw mascot, and the OpenClaw aliases listed in routing.md
+- Include OpenClaw state, OpenClaw action, Supporting objects, Visible labels, Output path, Source/license note
+- Output to `assets/<article-slug>-openclaw/`
+- Docs validation token is `assets/&lt;article-slug&gt;-openclaw/`
+- Uploaded-logo identity markers include red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs
+- OpenClaw actions should inspect, hold, bridge, sort, lift, connect, and signal the core idea
+- Public rendered OpenClaw samples are controlled by the RELEASE_CHECKLIST.md public-sample and final evidence gates
+
 <paste article or single idea>
 ```
 
-### Mixed IP: generate five groups from one idea
+### Mixed IP: generate six groups from one idea
 
 ```text
-Use $ian-xiaohei-illustrations to generate Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Seal variant group from the same core idea.
+Use $ian-xiaohei-illustrations to generate Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, and OpenClaw variant group from the same core idea.
 
 Core idea: trust is built by placing one piece of evidence after another.
 
@@ -488,6 +607,20 @@ Seal variant group:
 - Output to `assets/<article-slug>-seal/`
 - Docs validation token is `assets/&lt;article-slug&gt;-seal/`
 - Public rendered Seal samples are controlled by the RELEASE_CHECKLIST.md hoodie identity, logo-free output, route isolation, and article-metaphor quality gates
+
+OpenClaw variant group:
+- Generate 2 images
+- Use `ian-xiaohei-illustrations/references/ips/openclaw/`
+- Keep source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`
+- OpenClaw aliases include OpenClaw, openclaw, OpenClaw logo, OpenClaw mascot, and the OpenClaw aliases listed in routing.md
+- Keep route status `source-reviewed`
+- OpenClaw must carry the same core idea's cognitive action
+- Use project-neutral article metaphors for evidence, routing, compatibility checks, handoffs, review, or conceptual repair
+- Include OpenClaw state, OpenClaw action, Supporting objects, Visible labels, Output path, Source/license note
+- Preserve uploaded-logo identity markers: red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs
+- Output to `assets/<article-slug>-openclaw/`
+- Docs validation token is `assets/&lt;article-slug&gt;-openclaw/`
+- Public rendered OpenClaw samples are controlled by the RELEASE_CHECKLIST.md public-sample and final evidence gates
 ```
 
 ## Maintainer Validation Smoke Prompts
@@ -534,18 +667,31 @@ Expected: output path contract is `assets/<article-slug>-tom/`; docs validation 
 Purpose: text-only route audit; Phase 8 runtime selection behavior is verified, and Phase 9 examples keep the public-sample gate.
 ```
 
+### Smoke: OpenClaw source-reviewed route status
+
+```text
+Use $ian-xiaohei-illustrations. Do not generate images yet.
+Text-only maintainer route audit. Use the OpenClaw route to create 1 route-status shot list for this idea:
+Idea: route a tool workflow through a reliable compatibility gate.
+Expected: selected IP is OpenClaw, route status is `source-reviewed`, source/license authority is `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
+Expected: load `ian-xiaohei-illustrations/references/ips/openclaw/` route-local references.
+Expected: output path contract is `assets/<article-slug>-openclaw/`; docs validation token is `assets/&lt;article-slug&gt;-openclaw/`.
+Purpose: text-only route audit; Phase 35 runtime selection behavior is verified, and Phase 36 examples keep the public-sample gate.
+```
+
 ### Smoke: mixed-IP variant groups
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Use one core idea to create Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Seal variant group:
+Use one core idea to create Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, and OpenClaw variant group:
 Idea: a good workflow places the next action directly in someone's hand.
 Expected: Xiaohei variant group uses `ian-xiaohei-illustrations/references/ips/xiaohei/` and outputs to `assets/<article-slug>-illustrations/`.
 Expected: Littlebox variant group uses `ian-xiaohei-illustrations/references/ips/littlebox/` and outputs to `assets/<article-slug>-littlebox/`.
 Expected: Tom variant group uses `ian-xiaohei-illustrations/references/ips/tom/`, outputs to `assets/<article-slug>-tom/`, and keeps route status `gated-authorized` plus rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`.
 Expected: Ferris variant group uses `ian-xiaohei-illustrations/references/ips/ferris/`, outputs to `assets/<article-slug>-ferris/`, and keeps route status `source-reviewed` plus source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
 Expected: Seal variant group uses `ian-xiaohei-illustrations/references/ips/seal/`, outputs to `assets/<article-slug>-seal/`, and keeps route status `active`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, hoodie seal identity note, logo-free note, and product-neutral article metaphors.
-Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, and Seal variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
+Expected: OpenClaw variant group uses `ian-xiaohei-illustrations/references/ips/openclaw/`, outputs to `assets/<article-slug>-openclaw/`, and keeps route status `source-reviewed`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, uploaded-logo identity markers, and public-sample gate.
+Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, and OpenClaw variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
 ```
 
 ## Planning Only

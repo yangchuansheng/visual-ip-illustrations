@@ -61,6 +61,23 @@ Historical provenance: the active Seal route came from the previous Sealos Seal 
 
 Public rendered Seal samples remain gated until reviewer, date, approval status, allowed directories, release channels, hoodie seal identity outcome, logo-free outcome, route isolation outcome, and article-metaphor quality outcome are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
 
+## OpenClaw Source Attribution and Public Sample Gate
+
+OpenClaw source context records the source-reviewed logo-mascot route for the `openclaw` route.
+
+- Route: OpenClaw
+- Display name: `OpenClaw`
+- Route id: `openclaw`
+- Route status: `source-reviewed`
+- Official repository: <https://github.com/openclaw/openclaw>
+- License: `MIT License`
+- Source copyright: `Copyright (c) 2026 OpenClaw Foundation`
+- Source/license authority: `ian-xiaohei-illustrations/references/ips/openclaw/source.md`
+- Uploaded-logo authority: the uploaded red OpenClaw logo is the visual authority for this route.
+- Attribution context: OpenClaw source, license, copyright, uploaded-logo authority, route metadata, documentation, and release review
+
+Public rendered OpenClaw samples remain gated until reviewer, date, approval status, allowed directories, release channels, uploaded-logo identity outcome, source/license outcome, route-isolation outcome, article-metaphor quality outcome, and public-sample decision are recorded for `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, or release materials.
+
 Author links:
 
 - GitHub: <https://github.com/helloianneo>

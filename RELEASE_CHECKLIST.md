@@ -28,6 +28,8 @@ Phase 15 owns Ferris validator/test expectation updates for the full seven-file 
 
 Phase 32 owns Seal migration validator check-id cleanup, stale Sealos leakage fixtures, Node test restoration, final release evidence, and UAT before v1.6 release evidence.
 
+Phase 37 owns OpenClaw validator parity, final release evidence, public docs/path marker confirmation, and public rendered sample review before OpenClaw public sample release evidence.
+
 ## Release 1.5 English-Default Review
 
 - [ ] Confirm English-default coverage across README, examples, `LANGUAGE_POLICY.md`, `SKILL.md`, `openai.yaml`, routing, route-local references, NOTICE, and this release checklist.
@@ -47,7 +49,7 @@ Phase 32 owns Seal migration validator check-id cleanup, stale Sealos leakage fi
 - [ ] Confirm install guidance uses `git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations` and `cd visual-ip-illustrations`.
 - [ ] Confirm the installable package directory remains `ian-xiaohei-illustrations/`.
 - [ ] Scan README, examples, NOTICE, and release materials for stale old-name-only first-view public surfaces.
-- [ ] Confirm route behavior, route statuses, authority paths, raw output path tokens, and escaped output path tokens remain stable for Xiaohei, Littlebox, Tom, Ferris, and Seal.
+- [ ] Confirm route behavior, route statuses, authority paths, raw output path tokens, and escaped output path tokens remain stable for Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw.
 
 ## Route Smoke Prompts
 
@@ -57,7 +59,8 @@ Phase 32 owns Seal migration validator check-id cleanup, stale Sealos leakage fi
 - [ ] Explicit Tom smoke: request `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` and confirm route status `gated-authorized`, rights record `ian-xiaohei-illustrations/references/ips/tom/rights.md`, and output path `assets/<article-slug>-tom/`.
 - [ ] Explicit Ferris smoke: request `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, or `Rust 螃蟹` and confirm route status `source-reviewed`, source record `ian-xiaohei-illustrations/references/ips/ferris/source.md`, and output path `assets/<article-slug>-ferris/`.
 - [ ] Explicit Seal smoke: request `Seal`, `hoodie seal`, `连帽衫海豹`, `海豹`, `white seal`, or `blue hoodie seal` and confirm route status `active`, source authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, route-local directory `ian-xiaohei-illustrations/references/ips/seal/`, output path `assets/<article-slug>-seal/`, and Source-history note.
-- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, Tom, Ferris, and Seal variant groups and confirm each group loads its own references and output path.
+- [ ] Explicit OpenClaw smoke: request `OpenClaw` or `openclaw` and confirm route status `source-reviewed`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, route-local directory `ian-xiaohei-illustrations/references/ips/openclaw/`, output path `assets/<article-slug>-openclaw/`, uploaded-logo authority, and public sample gate.
+- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw variant groups and confirm each group loads its own references and output path.
 
 Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 
@@ -66,6 +69,7 @@ Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 - [ ] Review `NOTICE.md` for Ian Xiaohei attribution.
 - [ ] Review `NOTICE.md` for Littlebox attribution: author `okooo5km`, source repository, MIT context, inspected commit `37cd93e`, and derived documentation notes.
 - [ ] Review `NOTICE.md` for Seal source-history boundary: product-neutral hoodie seal route, route id `seal`, route status `active`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`, hoodie identity note, logo-free route behavior, historical provenance note, and public sample review fields.
+- [ ] Review `NOTICE.md` for OpenClaw source/license attribution: official repository `https://github.com/openclaw/openclaw`, `MIT License`, `Copyright (c) 2026 OpenClaw Foundation`, route id `openclaw`, route status `source-reviewed`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, uploaded-logo authority, and public sample review fields.
 - [ ] Confirm public docs and release notes keep attribution language aligned with `NOTICE.md`.
 
 ## Tom Rights and Public Sample Gate
@@ -233,24 +237,27 @@ This section is the OpenClaw maintainer release gate for source/license review, 
 ### Final OpenClaw Release Review
 
 - [ ] Final OpenClaw release review confirms `ian-xiaohei-illustrations/references/ips/openclaw/source.md` is the authority for source/license context, uploaded-logo identity, distribution boundary, sample policy, and review owner.
-- [ ] Final OpenClaw release review confirms route status `source-reviewed`, public asset approvals, generated sample approvals, and Phase 33 validator/test evidence before public rendered sample release.
+- [ ] Final OpenClaw release review confirms route status `source-reviewed`, NOTICE consistency, README/examples/metadata parity, routing parity, public asset approvals, generated sample approvals, and Phase 37 validator/test evidence before public rendered sample release.
 - [ ] Final OpenClaw release review requires green evidence from `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`.
 
 ## Installable Package Boundary
 
 - [ ] Confirm the installable Codex Skill package is `ian-xiaohei-illustrations/`.
-- [ ] Confirm `ian-xiaohei-illustrations/` contains `SKILL.md`, `agents/openai.yaml`, `references/routing.md`, Xiaohei, Littlebox, Tom, Ferris, and Seal canonical IP packs, legacy Xiaohei reference entry points, and skill-local assets.
+- [ ] Confirm `ian-xiaohei-illustrations/` contains `SKILL.md`, `agents/openai.yaml`, `references/routing.md`, Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw canonical IP packs, legacy Xiaohei reference entry points, and skill-local assets.
 - [ ] Confirm root `README.md`, `examples/`, `NOTICE.md`, `LICENSE`, and `RELEASE_CHECKLIST.md` remain public distribution and maintainer docs.
 - [ ] Confirm generated article assets continue to save under route-specific workspace paths instead of inside the skill package.
 - [ ] Confirm Phase 32 owns Seal migration validator check-id cleanup, stale Sealos leakage fixtures, Node test restoration, full validator evidence, full Node evidence, and UAT.
+- [ ] Confirm Phase 37 owns OpenClaw validator parity, final release evidence, public docs/path marker confirmation, and public rendered sample review.
 
 ## Public Docs and Path Markers
 
-- [ ] README documents Xiaohei as the default visual IP, Littlebox as an explicit active route, Tom as an explicit `gated-authorized` protected-character route, Ferris as an explicit `source-reviewed` Rust-community mascot route, and Seal as an explicit `active` product-neutral hoodie seal route.
+- [ ] README documents Xiaohei as the default visual IP, Littlebox as an explicit active route, Tom as an explicit `gated-authorized` protected-character route, Ferris as an explicit `source-reviewed` Rust-community mascot route, Seal as an explicit `active` product-neutral hoodie seal route, and OpenClaw as an explicit `source-reviewed` logo-mascot route.
 - [ ] README, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep public Ferris source/trademark wording aligned.
 - [ ] README, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep public Seal source-history wording aligned.
-- [ ] README and `examples/prompts.md` keep raw and escaped output markers for Xiaohei, Littlebox, Tom, Ferris, and Seal: `assets/<article-slug>-illustrations/`, `assets/&lt;article-slug&gt;-illustrations/`, `assets/<article-slug>-littlebox/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/<article-slug>-tom/`, `assets/&lt;article-slug&gt;-tom/`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, `assets/<article-slug>-seal/`, and `assets/&lt;article-slug&gt;-seal/`.
+- [ ] README, `examples/prompts.md`, `ian-xiaohei-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `ian-xiaohei-illustrations/references/routing.md` keep public OpenClaw source/license wording aligned.
+- [ ] README and `examples/prompts.md` keep raw and escaped output markers for Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw: `assets/<article-slug>-illustrations/`, `assets/&lt;article-slug&gt;-illustrations/`, `assets/<article-slug>-littlebox/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/<article-slug>-tom/`, `assets/&lt;article-slug&gt;-tom/`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, `assets/<article-slug>-seal/`, `assets/&lt;article-slug&gt;-seal/`, `assets/<article-slug>-openclaw/`, and `assets/&lt;article-slug&gt;-openclaw/`.
 - [ ] README keeps route metadata link `ian-xiaohei-illustrations/references/routing.md`.
-- [ ] README, prompt docs, and release docs keep canonical pack paths for `ian-xiaohei-illustrations/references/ips/xiaohei/`, `ian-xiaohei-illustrations/references/ips/littlebox/`, `ian-xiaohei-illustrations/references/ips/tom/`, `ian-xiaohei-illustrations/references/ips/ferris/`, and `ian-xiaohei-illustrations/references/ips/seal/`.
+- [ ] README, prompt docs, and release docs keep canonical pack paths for `ian-xiaohei-illustrations/references/ips/xiaohei/`, `ian-xiaohei-illustrations/references/ips/littlebox/`, `ian-xiaohei-illustrations/references/ips/tom/`, `ian-xiaohei-illustrations/references/ips/ferris/`, `ian-xiaohei-illustrations/references/ips/seal/`, and `ian-xiaohei-illustrations/references/ips/openclaw/`.
 - [ ] Ferris public docs keep `ian-xiaohei-illustrations/references/ips/ferris/source.md`, `source-reviewed`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, public Ferris sample release-review wording, and the Phase 15 validator/test boundary visible before v1.2 release.
 - [ ] Seal public docs keep `ian-xiaohei-illustrations/references/ips/seal/source.md`, `active`, source-history authority, hoodie seal identity note, logo-free note, `assets/<article-slug>-seal/`, `assets/&lt;article-slug&gt;-seal/`, public rendered Seal sample release-review wording, and the Phase 32 validator/test boundary visible before v1.6 release.
+- [ ] OpenClaw public docs keep `ian-xiaohei-illustrations/references/ips/openclaw/source.md`, `source-reviewed`, official repository `https://github.com/openclaw/openclaw`, `MIT License`, `Copyright (c) 2026 OpenClaw Foundation`, uploaded-logo authority, `assets/<article-slug>-openclaw/`, `assets/&lt;article-slug&gt;-openclaw/`, public rendered OpenClaw sample release-review wording, and the Phase 37 validator/test boundary visible before public sample release.
