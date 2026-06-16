@@ -26,8 +26,8 @@
 - [ ] **DOC-01**: User can read README route selection, workflow, output path, and route descriptions with OpenClaw as an explicit source-reviewed route.
 - [ ] **DOC-02**: User can copy examples for OpenClaw planning, generation, editing, and mixed-IP variants with `assets/<article-slug>-openclaw/` paths.
 - [ ] **DOC-03**: Maintainer can read NOTICE and release checklist entries that include OpenClaw source, MIT attribution, uploaded-logo visual authority, public sample policy, and release review gates.
-- [ ] **DOC-04**: Agent metadata and skill instructions present OpenClaw as a selectable route while preserving Visual IP Illustrations identity and the legacy `$ian-xiaohei-illustrations` alias.
-- [ ] **DOC-05**: Mixed-IP workflow creates separate route groups for OpenClaw and all existing routes without blended references, prompts, QA rules, or output paths.
+- [x] **DOC-04**: Agent metadata and skill instructions present OpenClaw as a selectable route while preserving Visual IP Illustrations identity and the legacy `$ian-xiaohei-illustrations` alias.
+- [x] **DOC-05**: Mixed-IP workflow creates separate route groups for OpenClaw and all existing routes without blended references, prompts, QA rules, or output paths.
 
 ### Validation and Release Evidence
 
@@ -90,8 +90,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOC-01 | Phase 36 | Pending |
 | DOC-02 | Phase 36 | Pending |
 | DOC-03 | Phase 36 | Pending |
-| DOC-04 | Phase 35, Phase 36 | Pending |
-| DOC-05 | Phase 35 | Pending |
+| DOC-04 | Phase 35, Phase 36 | Complete |
+| DOC-05 | Phase 35 | Complete |
 | VAL-01 | Phase 37 | Pending |
 | VAL-02 | Phase 37 | Pending |
 | VAL-03 | Phase 37 | Pending |

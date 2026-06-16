@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.7
 milestone_name: OpenClaw Logo IP Integration
-status: executing
-stopped_at: Phase 34 completed; Phase 35 ready
-last_updated: "2026-06-16T11:25:26.205Z"
+status: Ready for Phase 36 discussion
+stopped_at: Phase 35 completed; Phase 36 ready
+last_updated: "2026-06-16T11:51:23.146Z"
 last_activity: 2026-06-16
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
   percent: 40
 ---
 
@@ -21,20 +21,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-16)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** Phase 35 — OpenClaw Skill Controller Integration
+**Current focus:** Phase 36 — Public Documentation and Release Surface
 
 ## Current Position
 
-Phase: 35 (OpenClaw Skill Controller Integration)
+Phase: 36 (Public Documentation and Release Surface)
 Plan: Not started
-Status: Ready for Phase 35 discussion
+Status: Ready for Phase 36 discussion
 Last activity: 2026-06-16
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 61
+- Total plans completed: 62
 - Average duration: -
 - Total execution time: 0.1 hours
 
@@ -70,6 +70,7 @@ Last activity: 2026-06-16
 | 32 | 1 | - | - |
 | 33 | 1 | - | - |
 | 34 | 1 | - | - |
+| 35 | 1 | - | - |
 
 **Recent Trend:**
 
