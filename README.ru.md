@@ -1,6 +1,6 @@
 # Visual IP Illustrations
 
-> Visual IP Illustrations — это multi-visual-IP Codex Skill для иллюстраций внутри статей. Xiaohei — неявный маршрут по умолчанию; Littlebox — явный и active; Tom — явный protected-character маршрут со статусом `gated-authorized`; Ferris — явный Rust-community mascot маршрут со статусом `source-reviewed`; Seal — явный product-neutral hoodie seal маршрут со статусом `active`; OpenClaw — явный logo-mascot маршрут со статусом `source-reviewed`.
+> Visual IP Illustrations — это multi-visual-IP Codex Skill для иллюстраций внутри статей. Xiaohei — неявный маршрут по умолчанию; Littlebox — явный и active; Tom — явный protected-character маршрут со статусом `gated-authorized`; Ferris — явный Rust-community mascot маршрут со статусом `source-reviewed`; Seal — явный product-neutral hoodie seal маршрут со статусом `active`; OpenClaw — явный logo-mascot маршрут со статусом `source-reviewed`. Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.
 >
 > 16:9 горизонтально | несколько визуальных IP | иллюстрации для статей | Канонический вызов: `$visual-ip-illustrations`
 
@@ -26,6 +26,7 @@ Skill читает когнитивный якорь исходного текс
 - **Ferris**: explicit Rust-community mascot route. Запросы с `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物` или `Rust 螃蟹` используют route Ferris.
 - **Seal**: explicit product-neutral hoodie seal route. Запросы с `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹` или `蓝色连帽衫海豹` используют route Seal.
 - **OpenClaw**: explicit logo-mascot route with status `source-reviewed`. Requests that name `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, or the OpenClaw aliases listed in `ian-xiaohei-illustrations/references/routing.md` use the OpenClaw route.
+- **Go Gopher**: explicit source-reviewed article-illustration mascot route. Requests that name `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, `Go 吉祥物`, `Gopher 吉祥物`, or Go Gopher aliases listed in `ian-xiaohei-illustrations/references/routing.md` use the Go Gopher route.
 
 Ключевая ценность: пользователи могут выбрать визуальный IP и получить иллюстрационные assets, где персонаж, правила стиля, prompts, QA gates, сохраненные outputs, attribution, source context и brand boundary остаются согласованными с этим IP.
 
@@ -358,6 +359,62 @@ git diff --check
 Pre-release checks находятся в [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
 
 ---
+
+---
+
+## Go Gopher Route Surface
+
+Go Gopher is an explicit source-reviewed article-illustration mascot route. It preserves Xiaohei as the omitted-IP default route and keeps Go Gopher selectable through explicit aliases only.
+
+Aliases: `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, `Go 吉祥物`, `Gopher 吉祥物`, plus Go Gopher aliases listed in `ian-xiaohei-illustrations/references/routing.md`.
+
+Output markers:
+
+- Raw output path: `assets/<article-slug>-gopher/`.
+- Escaped docs marker: `assets/&lt;article-slug&gt;-gopher/`.
+- Output suffix: `gopher`.
+
+Route reference:
+
+- Go Gopher: `ian-xiaohei-illustrations/references/ips/gopher/`, source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
+
+Operational route facts:
+
+- Route id: `gopher`.
+- Default marker: default=false.
+- Status: `source-reviewed`.
+- Source/license authority: `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
+- Local visual authority: root `gopher.png`.
+- Attribution: Renee French.
+- License boundary: Creative Commons Attribution 4.0.
+- Go logo boundary: Go logo identity stays outside the Go Gopher route contract.
+- Official endorsement boundary: Go Gopher docs avoid official Go project affiliation, approval, sponsorship, and endorsement claims.
+- Public rendered Go Gopher samples remain gated by `RELEASE_CHECKLIST.md`; no Go Gopher public sample assets are added under `examples/images/` or `ian-xiaohei-illustrations/assets/examples/` in Phase 41.
+
+Mixed-IP and workflow markers:
+
+- Mixed-IP requests use seven separate route groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher.
+- Go Gopher keeps independent route-local references, QA, output suffix `gopher`, route status `source-reviewed`, source/license note, root `gopher.png` identity note, and output directory `assets/<article-slug>-gopher/`.
+- Quick examples can use `Go Gopher` as `{visual IP}`; omitted visual IP still selects Xiaohei.
+- Route-specific delivery reports include Go Gopher selected IP, purpose, saved path, source/license note, public sample gate, and route stability notes.
+
+Directory marker:
+
+```text
+ian-xiaohei-illustrations/references/ips/gopher/
+├── index.md
+├── source.md
+├── style-dna.md
+├── gopher-ip.md
+├── composition-patterns.md
+├── prompt-template.md
+└── qa-checklist.md
+```
+
+Maintainer validation marker:
+
+- Phase 42 owns validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation for Go Gopher.
+- Current Phase 41 maintainer checks use targeted `rg` checks and `git diff --check` against README variants, examples, NOTICE, release checklist, and agent metadata.
 
 ## Лицензия
 
