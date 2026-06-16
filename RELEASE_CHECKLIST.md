@@ -203,6 +203,39 @@ This section is the Seal maintainer release gate for source-history review, hood
 - [ ] Final Seal release review confirms public rendered assets in `examples/images/` and `ian-xiaohei-illustrations/assets/examples/` have recorded approval status, reviewer, date, allowed directories, release channels, hoodie seal identity outcome, and no-logo outcome.
 - [ ] Final Seal release review requires green evidence from `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`.
 
+## OpenClaw Source, License, and Public Sample Gate
+
+This section is the OpenClaw maintainer release gate for source/license review, uploaded-logo identity, route leakage, public assets, generated samples, validator evidence, release channels, and final OpenClaw release review.
+
+### OpenClaw Source and License Review
+
+- [ ] Review `ian-xiaohei-illustrations/references/ips/openclaw/source.md` for official repository, inspected snapshot, MIT License, OpenClaw Foundation copyright, uploaded-logo authority, route status, allowed use, restricted use, distribution boundary, sample policy, and review owner.
+- [ ] Confirm route status remains `source-reviewed`, official repository remains `https://github.com/openclaw/openclaw`, inspected snapshot remains `c14793d35a10936ddea833e7808083fe57930616`, license remains `MIT License`, and copyright remains `Copyright (c) 2026 OpenClaw Foundation`.
+- [ ] Confirm uploaded-logo identity keeps red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs.
+
+### OpenClaw Prompt Leakage Scan
+
+- [ ] Scan Xiaohei, Littlebox, Tom, Ferris, and Seal route-local references for OpenClaw, openclaw, OpenClaw logo, OpenClaw mascot, OpenClaw Chinese route aliases, uploaded red OpenClaw logo, uploaded-logo authority, source/license authority, `references/ips/openclaw`, and `assets/<article-slug>-openclaw/`.
+- [ ] Confirm OpenClaw wording stays route-local and source-reviewed so OpenClaw rules do not leak into Xiaohei, Littlebox, Tom, Ferris, or Seal route contracts.
+
+### OpenClaw Public Asset Policy
+
+- [ ] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.
+- [ ] Public rendered OpenClaw samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- [ ] Public rendered OpenClaw sample approval must cover uploaded-logo identity, source/license authority, route isolation, article-metaphor quality, allowed directories, release channels, and public-sample decision.
+
+### OpenClaw Generated Sample Policy
+
+- [ ] Internal review samples under `assets/<article-slug>-openclaw/` may be used when the source record and uploaded-logo authority stay attached.
+- [ ] Public rendered samples from `assets/<article-slug>-openclaw/` require OpenClaw Public Asset Policy approval before release channels list or copy them into public sample directories.
+- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.
+
+### Final OpenClaw Release Review
+
+- [ ] Final OpenClaw release review confirms `ian-xiaohei-illustrations/references/ips/openclaw/source.md` is the authority for source/license context, uploaded-logo identity, distribution boundary, sample policy, and review owner.
+- [ ] Final OpenClaw release review confirms route status `source-reviewed`, public asset approvals, generated sample approvals, and Phase 33 validator/test evidence before public rendered sample release.
+- [ ] Final OpenClaw release review requires green evidence from `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`.
+
 ## Installable Package Boundary
 
 - [ ] Confirm the installable Codex Skill package is `ian-xiaohei-illustrations/`.

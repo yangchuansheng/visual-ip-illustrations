@@ -52,6 +52,7 @@ const requiredCheckIds = [
   "RIGHTS-TOM-001",
   "SOURCE-FERRIS-001",
   "SOURCE-SEAL-001",
+  "SOURCE-OPENCLAW-001",
   "LOGO-SEAL-001",
   "DOC-LINKS-001",
   "DOC-PATHS-001",
@@ -75,6 +76,7 @@ const requiredCheckIds = [
   "RELEASE-TOM-001",
   "RELEASE-FERRIS-001",
   "RELEASE-SEAL-001",
+  "RELEASE-OPENCLAW-001",
   "REBRAND-CANON-001",
   "REBRAND-CANON-002",
   "REBRAND-CANON-003",
@@ -99,11 +101,14 @@ const requiredCheckIds = [
   "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-FERRIS-LEAK-001",
   "BOUNDARY-SEAL-LEAK-001",
+  "BOUNDARY-OPENCLAW-LEAK-001",
   "BOUNDARY-TOM-IMG-001",
   "BOUNDARY-FERRIS-IMG-001",
   "BOUNDARY-SEAL-IMG-001",
+  "BOUNDARY-OPENCLAW-IMG-001",
   "BOUNDARY-FERRIS-GEN-001",
   "BOUNDARY-SEAL-GEN-001",
+  "BOUNDARY-OPENCLAW-GEN-001",
   "BOUNDARY-P5-001",
 ];
 
@@ -216,6 +221,34 @@ function completeGeneratedSealSampleLine(
   return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-seal / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${noLogoOutcome}.`;
 }
 
+function pendingOpenClawPublicAssetApprovalLine() {
+  return "- [ ] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.";
+}
+
+function completeOpenClawPublicAssetApprovalLine(
+  reviewDate = "2026-06-13",
+  uploadedLogoIdentityOutcome = "uploaded-logo identity preserved",
+  sourceLicenseOutcome = "source/license approved",
+  routeIsolationOutcome = "route isolation approved",
+  articleMetaphorOutcome = "article-metaphor quality approved",
+) {
+  return `- [x] OpenClaw public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
+}
+
+function pendingGeneratedOpenClawSampleLine() {
+  return "- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.";
+}
+
+function completeGeneratedOpenClawSampleLine(
+  reviewDate = "2026-06-13",
+  uploadedLogoIdentityOutcome = "uploaded-logo identity preserved",
+  sourceLicenseOutcome = "source/license approved",
+  routeIsolationOutcome = "route isolation approved",
+  articleMetaphorOutcome = "article-metaphor quality approved",
+) {
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-openclaw / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
+}
+
 test("validator command prints deterministic harness smoke logs", () => {
   const result = runValidator();
 
@@ -228,7 +261,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -419,7 +452,7 @@ test("validator emits the full Phase 28 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -441,7 +474,7 @@ test("validator reports Phase 24 rebrand checks in stable order", () => {
     "REBRAND-DOCS-001",
   ];
 
-  let lastIndex = result.stdout.indexOf("[PASS] RELEASE-SEAL-001 ");
+  let lastIndex = result.stdout.indexOf("[PASS] RELEASE-OPENCLAW-001 ");
   assert.ok(lastIndex >= 0, "Phase 24 rebrand checks should follow release checks");
   for (const id of expectedIds) {
     const index = result.stdout.indexOf(`[PASS] ${id} `);
@@ -517,7 +550,7 @@ test("validator fixture reports approved multilingual tokens in enforce mode", (
 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+    assert.match(result.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1170,6 +1203,39 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingGeneratedSealosApproval.internalReviewDirectoriesPresent, false);
   assert.equal(pendingGeneratedSealosApproval.publicDirectoriesPresent, false);
 
+  const pendingOpenClawApproval = validators.parsePublicOpenClawSampleApproval(releaseChecklistText);
+  assert.equal(pendingOpenClawApproval.found, true);
+  assert.equal(pendingOpenClawApproval.checked, false);
+  assert.equal(pendingOpenClawApproval.complete, false);
+  assert.equal(pendingOpenClawApproval.allowedDirectoriesPresent, false);
+  assert.equal(pendingOpenClawApproval.uploadedLogoIdentityOutcomePresent, false);
+  assert.equal(pendingOpenClawApproval.sourceLicenseOutcomePresent, false);
+  assert.equal(pendingOpenClawApproval.routeIsolationOutcomePresent, false);
+  assert.equal(pendingOpenClawApproval.articleMetaphorOutcomePresent, false);
+
+  const approvedOpenClawText = releaseChecklistText.replace(
+    pendingOpenClawPublicAssetApprovalLine(),
+    completeOpenClawPublicAssetApprovalLine(),
+  );
+  const approvedOpenClaw = validators.parsePublicOpenClawSampleApproval(approvedOpenClawText);
+  assert.equal(approvedOpenClaw.complete, true);
+  assert.deepEqual(approvedOpenClaw.allowedDirectories, [
+    "examples/images",
+    "examples/images-en",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
+  assert.equal(approvedOpenClaw.uploadedLogoIdentityOutcomePresent, true);
+  assert.equal(approvedOpenClaw.sourceLicenseOutcomePresent, true);
+  assert.equal(approvedOpenClaw.routeIsolationOutcomePresent, true);
+  assert.equal(approvedOpenClaw.articleMetaphorOutcomePresent, true);
+
+  const pendingGeneratedOpenClawApproval = validators.parseGeneratedOpenClawSampleApproval(releaseChecklistText);
+  assert.equal(pendingGeneratedOpenClawApproval.found, true);
+  assert.equal(pendingGeneratedOpenClawApproval.checked, false);
+  assert.equal(pendingGeneratedOpenClawApproval.complete, false);
+  assert.equal(pendingGeneratedOpenClawApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingGeneratedOpenClawApproval.publicDirectoriesPresent, false);
+
   const completeGeneratedText = releaseChecklistText.replace(
     pendingGeneratedFerrisSampleLine(),
     completeGeneratedFerrisSampleLine(),
@@ -1205,6 +1271,23 @@ test("approval parser helpers expose current release primitives", async () => {
     "examples/images",
     "ian-xiaohei-illustrations/assets/examples",
   ]);
+
+  const completeGeneratedOpenClawText = releaseChecklistText.replace(
+    pendingGeneratedOpenClawSampleLine(),
+    completeGeneratedOpenClawSampleLine(),
+  );
+  const completeGeneratedOpenClawApproval =
+    validators.parseGeneratedOpenClawSampleApproval(completeGeneratedOpenClawText);
+  assert.equal(completeGeneratedOpenClawApproval.complete, true);
+  assert.deepEqual(completeGeneratedOpenClawApproval.internalReviewDirectories, ["assets/<article-slug>-openclaw"]);
+  assert.deepEqual(completeGeneratedOpenClawApproval.publicDirectories, [
+    "examples/images",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
+  assert.equal(completeGeneratedOpenClawApproval.uploadedLogoIdentityOutcomePresent, true);
+  assert.equal(completeGeneratedOpenClawApproval.sourceLicenseOutcomePresent, true);
+  assert.equal(completeGeneratedOpenClawApproval.routeIsolationOutcomePresent, true);
+  assert.equal(completeGeneratedOpenClawApproval.articleMetaphorOutcomePresent, true);
 });
 
 test("validator fixture rejects Tom route metadata drift", () => {
@@ -1335,6 +1418,34 @@ test("validator fixture reports Seal source marker drift", () => {
   }
 });
 
+test("validator fixture reports OpenClaw source marker drift", () => {
+  const fixtureRoot = copyFixture("openclaw-source");
+  try {
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "source.md"),
+      "MIT License",
+      "permissive license",
+    );
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "source.md"),
+      "red round body",
+      "round body",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] SOURCE-OPENCLAW-001 /);
+    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/openclaw\/source\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): MIT License/);
+    assert.match(result.stdout, /red round body/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
 test("validator fixture rejects Seal route metadata drift", () => {
   const fixtureRoot = copyFixture("seal-route");
   try {
@@ -1429,6 +1540,27 @@ test("validator fixture reports Seal docs, metadata, NOTICE, release, and smoke 
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true });
     }
+  }
+});
+
+test("validator fixture reports OpenClaw release gate drift", () => {
+  const fixtureRoot = copyFixture("openclaw-release");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      "RELEASE_CHECKLIST.md",
+      "OpenClaw Source and License Review",
+      "OpenClaw Source Review",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] RELEASE-OPENCLAW-001 /);
+    assert.match(result.stdout, /RELEASE_CHECKLIST\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): OpenClaw Source and License Review/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
   }
 });
 
@@ -1800,6 +1932,46 @@ test("validator fixture reports Sealos leakage in non-Sealos packs", () => {
   }
 });
 
+test("validator fixture reports OpenClaw leakage in non-OpenClaw packs", () => {
+  for (const [name, relativePath, marker] of [
+    [
+      "xiaohei",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
+      "OpenClaw logo",
+    ],
+    [
+      "littlebox",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      "uploaded-logo authority",
+    ],
+    ["tom", path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "tom-ip.md"), "OpenClaw mascot"],
+    [
+      "ferris",
+      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      "references/ips/openclaw",
+    ],
+    ["seal", path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "seal-ip.md"), "OpenClaw 吉祥物"],
+  ]) {
+    const fixtureRoot = copyFixture(`openclaw-leak-${name}`);
+    try {
+      writeFileSync(
+        path.join(fixtureRoot, relativePath),
+        `${readFileSync(path.join(fixtureRoot, relativePath), "utf8")}\n\nLeaked route marker: ${marker}\n`,
+        "utf8",
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-OPENCLAW-LEAK-001 /);
+      assert.match(result.stdout, new RegExp(relativePath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, new RegExp(`observed forbidden marker\\(s\\): .*${marker}`));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
 test("validator fixture enforces public Tom asset approval parsing", async () => {
   const validators = await import(`${scriptPath}?approval=${Date.now()}`);
   const fixtureRoot = copyFixture("tom-public-asset");
@@ -1838,7 +2010,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1923,7 +2095,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1971,7 +2143,53 @@ test("validator fixture enforces public Seal sample approval parsing", async () 
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEAL-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=97 passed=97 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture enforces public OpenClaw sample approval parsing", async () => {
+  const validators = await import(`${scriptPath}?openClawApproval=${Date.now()}`);
+  const fixtureRoot = copyFixture("openclaw-public-asset");
+  try {
+    writeFileSync(path.join(fixtureRoot, "examples", "images", "99-openclaw-test.png"), "fixture", "utf8");
+
+    const pendingResult = runFixtureValidator(fixtureRoot);
+
+    assert.equal(pendingResult.status, 1);
+    assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-OPENCLAW-IMG-001 /);
+    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images\/99-openclaw-test\.png/);
+    assert.match(pendingResult.stdout, /approval status=PENDING/);
+    assert.match(pendingResult.stdout, /reviewer=missing/);
+    assert.match(pendingResult.stdout, /allowed directories=missing/);
+    assert.match(pendingResult.stdout, /uploaded-logo identity outcome=missing/);
+    assert.match(pendingResult.stdout, /source\/license outcome=missing/);
+    assert.match(pendingResult.stdout, /route-isolation outcome=missing/);
+    assert.match(pendingResult.stdout, /article-metaphor quality outcome=missing/);
+
+    const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
+    const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
+      pendingOpenClawPublicAssetApprovalLine(),
+      completeOpenClawPublicAssetApprovalLine(),
+    );
+    writeFileSync(releaseChecklistPath, approvedText, "utf8");
+
+    const approval = validators.parsePublicOpenClawSampleApproval(approvedText);
+    assert.equal(approval.complete, true);
+    assert.equal(approval.reviewerPresent, true);
+    assert.equal(approval.datePresent, true);
+    assert.equal(approval.allowedDirectoriesPresent, true);
+    assert.equal(approval.uploadedLogoIdentityOutcomePresent, true);
+    assert.equal(approval.sourceLicenseOutcomePresent, true);
+    assert.equal(approval.routeIsolationOutcomePresent, true);
+    assert.equal(approval.articleMetaphorOutcomePresent, true);
+
+    const approvedResult = runFixtureValidator(fixtureRoot);
+    assert.equal(approvedResult.status, 0);
+    assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-OPENCLAW-IMG-001 /);
+    assert.match(approvedResult.stdout, /Summary: total=102 passed=102 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2051,6 +2269,83 @@ test("validator fixture rejects Seal public sample placeholder approvals", async
       assert.equal(result.status, 1);
       assert.match(result.stdout, /\[FAIL\] BOUNDARY-SEAL-IMG-001 /);
       assert.match(result.stdout, /examples\/images\/99-seal-test\.png/);
+      assert.match(result.stdout, new RegExp(expectedField));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
+test("validator fixture rejects OpenClaw public sample placeholder approvals", async () => {
+  const validators = await import(`${scriptPath}?openClawPlaceholderApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  for (const [name, approvalLine, expectedField] of [
+    ["date", completeOpenClawPublicAssetApprovalLine("TBD"), "date=missing"],
+    [
+      "uploaded-logo",
+      completeOpenClawPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-logo identity outcome",
+        "source/license approved",
+        "route isolation approved",
+        "article-metaphor quality approved",
+      ),
+      "uploaded-logo identity outcome=missing",
+    ],
+    [
+      "source-license",
+      completeOpenClawPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-logo identity preserved",
+        "source/license outcome",
+        "route isolation approved",
+        "article-metaphor quality approved",
+      ),
+      "source\\/license outcome=missing",
+    ],
+    [
+      "route-isolation",
+      completeOpenClawPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-logo identity preserved",
+        "source/license approved",
+        "route-isolation outcome",
+        "article-metaphor quality approved",
+      ),
+      "route-isolation outcome=missing",
+    ],
+    [
+      "article-metaphor",
+      completeOpenClawPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-logo identity preserved",
+        "source/license approved",
+        "route isolation approved",
+        "article-metaphor quality outcome",
+      ),
+      "article-metaphor quality outcome=missing",
+    ],
+  ]) {
+    const approvalText = releaseChecklistText.replace(pendingOpenClawPublicAssetApprovalLine(), approvalLine);
+    const approval = validators.parsePublicOpenClawSampleApproval(approvalText);
+    assert.equal(approval.complete, false);
+
+    const fixtureRoot = copyFixture(`openclaw-placeholder-${name}`);
+    try {
+      writeFileSync(path.join(fixtureRoot, "examples", "images", "99-openclaw-test.png"), "fixture", "utf8");
+      replaceInFixture(
+        fixtureRoot,
+        "RELEASE_CHECKLIST.md",
+        pendingOpenClawPublicAssetApprovalLine(),
+        approvalLine,
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-OPENCLAW-IMG-001 /);
+      assert.match(result.stdout, /examples\/images\/99-openclaw-test\.png/);
       assert.match(result.stdout, new RegExp(expectedField));
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2166,6 +2461,99 @@ test("validator fixture distinguishes Generated Sample Seal review outputs from 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] BOUNDARY-SEAL-GEN-001 /);
     assert.match(result.stdout, /\[PASS\] BOUNDARY-SEAL-IMG-001 /);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture distinguishes Generated Sample OpenClaw review outputs from public samples", async () => {
+  const validators = await import(`${scriptPath}?generatedOpenClawApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  const pendingApproval = validators.parseGeneratedOpenClawSampleApproval(releaseChecklistText);
+  assert.equal(pendingApproval.found, true);
+  assert.equal(pendingApproval.checked, false);
+  assert.equal(pendingApproval.complete, false);
+  assert.equal(pendingApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingApproval.publicDirectoriesPresent, false);
+
+  const completeText = releaseChecklistText.replace(
+    pendingGeneratedOpenClawSampleLine(),
+    completeGeneratedOpenClawSampleLine(),
+  );
+  const completeApproval = validators.parseGeneratedOpenClawSampleApproval(completeText);
+  assert.equal(completeApproval.complete, true);
+  assert.equal(completeApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(completeApproval.publicDirectoriesPresent, true);
+  assert.equal(completeApproval.uploadedLogoIdentityOutcomePresent, true);
+  assert.equal(completeApproval.sourceLicenseOutcomePresent, true);
+  assert.equal(completeApproval.routeIsolationOutcomePresent, true);
+  assert.equal(completeApproval.articleMetaphorOutcomePresent, true);
+
+  for (const [name, approvalLine, expectedFlag] of [
+    ["date", completeGeneratedOpenClawSampleLine("TBD"), "datePresent"],
+    [
+      "uploaded-logo",
+      completeGeneratedOpenClawSampleLine(
+        "2026-06-13",
+        "uploaded-logo identity outcome",
+        "source/license approved",
+        "route isolation approved",
+        "article-metaphor quality approved",
+      ),
+      "uploadedLogoIdentityOutcomePresent",
+    ],
+    [
+      "source-license",
+      completeGeneratedOpenClawSampleLine(
+        "2026-06-13",
+        "uploaded-logo identity preserved",
+        "source/license outcome",
+        "route isolation approved",
+        "article-metaphor quality approved",
+      ),
+      "sourceLicenseOutcomePresent",
+    ],
+    [
+      "route-isolation",
+      completeGeneratedOpenClawSampleLine(
+        "2026-06-13",
+        "uploaded-logo identity preserved",
+        "source/license approved",
+        "route-isolation outcome",
+        "article-metaphor quality approved",
+      ),
+      "routeIsolationOutcomePresent",
+    ],
+    [
+      "article-metaphor",
+      completeGeneratedOpenClawSampleLine(
+        "2026-06-13",
+        "uploaded-logo identity preserved",
+        "source/license approved",
+        "route isolation approved",
+        "article-metaphor quality outcome",
+      ),
+      "articleMetaphorOutcomePresent",
+    ],
+  ]) {
+    const placeholderText = releaseChecklistText.replace(pendingGeneratedOpenClawSampleLine(), approvalLine);
+    const placeholderApproval = validators.parseGeneratedOpenClawSampleApproval(placeholderText);
+    assert.equal(placeholderApproval.checked, true);
+    assert.equal(placeholderApproval.complete, false);
+    assert.equal(placeholderApproval[expectedFlag], false);
+  }
+
+  const fixtureRoot = copyFixture("openclaw-generated-sample");
+  try {
+    const workspaceOutputDir = path.join(fixtureRoot, "assets", "article-openclaw");
+    mkdirSync(workspaceOutputDir, { recursive: true });
+    writeFileSync(path.join(workspaceOutputDir, "99-openclaw-test.png"), "fixture", "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+    assert.equal(result.status, 0);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-OPENCLAW-GEN-001 /);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-OPENCLAW-IMG-001 /);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

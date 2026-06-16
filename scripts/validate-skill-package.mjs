@@ -717,6 +717,15 @@ export function parsePublicSealSampleApproval(releaseChecklistText) {
   return parseSealApprovalLine(approvalLine, "public");
 }
 
+export function parsePublicOpenClawSampleApproval(releaseChecklistText) {
+  const approvalLine = releaseChecklistText
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("OpenClaw public asset policy for"));
+
+  return parseOpenClawApprovalLine(approvalLine, "public");
+}
+
 export function parseGeneratedFerrisSampleApproval(releaseChecklistText) {
   const ferrisSection = releaseChecklistText
     .split("## Ferris Source, Trademark, and Public Sample Gate")[1]
@@ -738,6 +747,18 @@ export function parseGeneratedSealSampleApproval(releaseChecklistText) {
     .find((line) => line.includes("Record generated sample review:"));
 
   return parseSealApprovalLine(approvalLine, "generated");
+}
+
+export function parseGeneratedOpenClawSampleApproval(releaseChecklistText) {
+  const openClawSection = releaseChecklistText
+    .split("## OpenClaw Source, License, and Public Sample Gate")[1]
+    ?.split("## Installable Package Boundary")[0] ?? "";
+  const approvalLine = openClawSection
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("Record generated sample review:"));
+
+  return parseOpenClawApprovalLine(approvalLine, "generated");
 }
 
 function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
@@ -875,6 +896,37 @@ function emptySealApproval() {
   };
 }
 
+function emptyOpenClawApproval() {
+  return {
+    found: false,
+    checked: false,
+    status: "",
+    reviewer: "",
+    reviewDate: "",
+    approvalStatus: "",
+    allowedDirectories: [],
+    internalReviewDirectories: [],
+    publicDirectories: [],
+    releaseChannels: "",
+    uploadedLogoIdentityOutcome: "",
+    sourceLicenseOutcome: "",
+    routeIsolationOutcome: "",
+    articleMetaphorOutcome: "",
+    reviewerPresent: false,
+    datePresent: false,
+    approvalStatusPresent: false,
+    allowedDirectoriesPresent: false,
+    internalReviewDirectoriesPresent: false,
+    publicDirectoriesPresent: false,
+    releaseChannelsPresent: false,
+    uploadedLogoIdentityOutcomePresent: false,
+    sourceLicenseOutcomePresent: false,
+    routeIsolationOutcomePresent: false,
+    articleMetaphorOutcomePresent: false,
+    complete: false,
+  };
+}
+
 function parseSealApprovalLine(approvalLine, kind) {
   if (!approvalLine) {
     return emptySealApproval();
@@ -970,6 +1022,117 @@ function parseSealApprovalLine(approvalLine, kind) {
     releaseChannelsPresent,
     identityOutcomePresent,
     noLogoOutcomePresent,
+    complete,
+  };
+}
+
+function parseOpenClawApprovalLine(approvalLine, kind) {
+  if (!approvalLine) {
+    return emptyOpenClawApproval();
+  }
+
+  const checked = /^\-\s+\[[xX]\]/.test(approvalLine);
+  const recordMatch = approvalLine.match(/:\s*(.+?)(?:\.)?$/);
+  const approvalRecord = recordMatch?.[1] ?? "";
+  const fields = approvalRecord.split(/\s+\/(?=\s)/).map((field) => field.trim().replace(/\.$/, ""));
+  const [
+    status = "",
+    reviewer = "",
+    reviewDate = "",
+    approvalStatus = "",
+    firstDirectoryText = "",
+    secondDirectoryOrChannels = "",
+    releaseChannelsOrUploadedLogo = "",
+    uploadedLogoOrSource = "",
+    sourceOrRoute = "",
+    routeOrArticle = "",
+    articleMetaphorOutcomeText = "",
+  ] = fields;
+
+  const parseDirectories = (value) =>
+    value
+      .split(/,|;|\band\b/)
+      .map((directory) => directory.trim())
+      .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
+      .filter(Boolean);
+
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
+  const generatedRequiredInternalDirectories = ["assets/<article-slug>-openclaw"];
+  const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const allowedDirectories = kind === "public" ? parseDirectories(firstDirectoryText) : [];
+  const internalReviewDirectories = kind === "generated" ? parseDirectories(firstDirectoryText) : [];
+  const publicDirectories = kind === "generated" ? parseDirectories(secondDirectoryOrChannels) : [];
+  const releaseChannels = kind === "public" ? secondDirectoryOrChannels : releaseChannelsOrUploadedLogo;
+  const uploadedLogoIdentityOutcome = kind === "public" ? releaseChannelsOrUploadedLogo : uploadedLogoOrSource;
+  const sourceLicenseOutcome = kind === "public" ? uploadedLogoOrSource : sourceOrRoute;
+  const routeIsolationOutcome = kind === "public" ? sourceOrRoute : routeOrArticle;
+  const articleMetaphorOutcome = kind === "public" ? routeOrArticle : articleMetaphorOutcomeText;
+  const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
+  const datePresent = isValidReviewDate(reviewDate);
+  const approvalStatusPresent =
+    Boolean(approvalStatus) &&
+    !/^approval status$/i.test(approvalStatus) &&
+    /(approved|complete|granted)/i.test(approvalStatus);
+  const allowedDirectoriesPresent =
+    kind === "public" && publicRequiredDirectories.every((directory) => allowedDirectories.includes(directory));
+  const internalReviewDirectoriesPresent =
+    kind === "generated" &&
+    generatedRequiredInternalDirectories.every((directory) => internalReviewDirectories.includes(directory));
+  const publicDirectoriesPresent =
+    kind === "generated" &&
+    generatedRequiredPublicDirectories.every((directory) => publicDirectories.includes(directory));
+  const releaseChannelsPresent = Boolean(releaseChannels) && !/^release channels\.?$/i.test(releaseChannels);
+  const uploadedLogoIdentityOutcomePresent =
+    Boolean(uploadedLogoIdentityOutcome) && !/^uploaded-logo identity outcome\.?$/i.test(uploadedLogoIdentityOutcome);
+  const sourceLicenseOutcomePresent =
+    Boolean(sourceLicenseOutcome) && !/^source\/license outcome\.?$/i.test(sourceLicenseOutcome);
+  const routeIsolationOutcomePresent =
+    Boolean(routeIsolationOutcome) && !/^route-isolation outcome\.?$/i.test(routeIsolationOutcome);
+  const articleMetaphorOutcomePresent =
+    Boolean(articleMetaphorOutcome) && !/^article-metaphor quality outcome\.?$/i.test(articleMetaphorOutcome);
+  const directoryFieldsPresent =
+    kind === "public" ? allowedDirectoriesPresent : internalReviewDirectoriesPresent && publicDirectoriesPresent;
+  const complete =
+    checked &&
+    /(approved|complete|granted)/i.test(status) &&
+    !/pending/i.test(status) &&
+    reviewerPresent &&
+    datePresent &&
+    approvalStatusPresent &&
+    !/pending/i.test(approvalStatus) &&
+    directoryFieldsPresent &&
+    releaseChannelsPresent &&
+    uploadedLogoIdentityOutcomePresent &&
+    sourceLicenseOutcomePresent &&
+    routeIsolationOutcomePresent &&
+    articleMetaphorOutcomePresent;
+
+  return {
+    found: true,
+    checked,
+    status,
+    reviewer,
+    reviewDate,
+    approvalStatus,
+    allowedDirectories,
+    internalReviewDirectories,
+    publicDirectories,
+    releaseChannels,
+    uploadedLogoIdentityOutcome,
+    sourceLicenseOutcome,
+    routeIsolationOutcome,
+    articleMetaphorOutcome,
+    reviewerPresent,
+    datePresent,
+    approvalStatusPresent,
+    allowedDirectoriesPresent,
+    internalReviewDirectoriesPresent,
+    publicDirectoriesPresent,
+    releaseChannelsPresent,
+    uploadedLogoIdentityOutcomePresent,
+    sourceLicenseOutcomePresent,
+    routeIsolationOutcomePresent,
+    articleMetaphorOutcomePresent,
     complete,
   };
 }
@@ -2868,6 +3031,39 @@ const checks = [
       ...sealFixedMarkers(),
     ], "Seal source headings, source-history authority, fixed markers, product-neutral context, sample policy, and drift boundary");
   }),
+  defineCheck("SOURCE-OPENCLAW-001", "OpenClaw source record preserves source, license, and uploaded-logo markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "openclaw", "source.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "# OpenClaw Source Record",
+      "## Source",
+      "## Character Authority",
+      "## Uploaded Logo Visual Markers",
+      "## Sample Policy",
+      "## Route Status",
+      "## Allowed Use",
+      "## Restricted Use",
+      "## Distribution Boundary",
+      "## Review Owner",
+      "https://github.com/openclaw/openclaw",
+      "c14793d35a10936ddea833e7808083fe57930616",
+      "MIT License",
+      "Copyright (c) 2026 OpenClaw Foundation",
+      "source-reviewed",
+      "Uploaded logo authority",
+      "red round body",
+      "side claw-like arms",
+      "two antennae",
+      "black eyes",
+      "cyan pupils",
+      "short legs",
+      "assets/<article-slug>-openclaw/",
+      "references/ips/openclaw/source.md",
+      "Public rendered OpenClaw samples require release review",
+      "source/license outcome",
+      "route-isolation outcome",
+      "article-metaphor quality outcome",
+    ], "OpenClaw source headings, official repository, snapshot, MIT license, copyright, uploaded-logo markers, route status, output path, and sample gate");
+  }),
   defineCheck("LOGO-SEAL-001", "Seal route keeps mascot logo-free", () => {
     const routeLocalFiles = [
       path.join(REFERENCES_DIR, "ips", "seal", "index.md"),
@@ -3339,6 +3535,32 @@ const checks = [
       "different selected mascot",
     ], "Seal release checklist source-history, hoodie identity, leakage, public asset, generated sample, validator, and final review markers");
   }),
+  defineCheck("RELEASE-OPENCLAW-001", "release checklist keeps OpenClaw source, license, and public sample gates", () => {
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "## OpenClaw Source, License, and Public Sample Gate",
+      "OpenClaw Source and License Review",
+      "OpenClaw Prompt Leakage Scan",
+      "OpenClaw Public Asset Policy",
+      "OpenClaw Generated Sample Policy",
+      "Final OpenClaw Release Review",
+      "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+      "source-reviewed",
+      "https://github.com/openclaw/openclaw",
+      "c14793d35a10936ddea833e7808083fe57930616",
+      "MIT License",
+      "Copyright (c) 2026 OpenClaw Foundation",
+      "uploaded-logo identity",
+      "source/license outcome",
+      "route-isolation outcome",
+      "article-metaphor quality outcome",
+      "OpenClaw public asset policy for",
+      "Record generated sample review",
+      "assets/<article-slug>-openclaw/",
+      "node scripts/validate-skill-package.mjs",
+      "node --test scripts/validate-skill-package.test.mjs",
+      "git diff --check",
+    ], "OpenClaw release checklist source/license, uploaded-logo identity, leakage, public asset, generated sample, validator, and final review markers");
+  }),
   defineCheck("REBRAND-CANON-001", "runtime metadata preserves Visual IP Illustrations canonical identity", () => {
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
       "Visual IP Illustrations",
@@ -3635,6 +3857,37 @@ const checks = [
       assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no Seal route text leakage");
     }
   }),
+  defineCheck("BOUNDARY-OPENCLAW-LEAK-001", "non-OpenClaw route references keep OpenClaw source-reviewed markers isolated", () => {
+    const leakMarkers = [
+      "OpenClaw",
+      "openclaw",
+      "OpenClaw logo",
+      "OpenClaw mascot",
+      "OpenClaw 助手",
+      "OpenClaw 吉祥物",
+      "uploaded red OpenClaw logo",
+      "uploaded-logo authority",
+      "source/license authority",
+      "references/ips/openclaw",
+      "assets/<article-slug>-openclaw/",
+    ];
+    const scannedPaths = [
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
+      ...xiaoheiOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
+      ...littleboxOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "tom", "index.md"),
+      ...tomOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "ferris", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "ferris", "source.md"),
+      ...ferrisOperationalRefs(),
+      ...sealOperationalRefs(),
+      ...legacyXiaoheiRefs().map((item) => item.root),
+    ];
+    for (const relativePath of scannedPaths) {
+      assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no OpenClaw route text leakage");
+    }
+  }),
   defineCheck("BOUNDARY-TOM-IMG-001", "example asset directories keep Tom rendered assets behind release approval", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parsePublicTomSampleApproval(releaseChecklist);
@@ -3676,6 +3929,19 @@ const checks = [
       );
     }
   }),
+  defineCheck("BOUNDARY-OPENCLAW-IMG-001", "example asset directories keep OpenClaw rendered assets behind release approval", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parsePublicOpenClawSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected OpenClaw public asset policy approval record; observed missing line");
+    }
+    const matches = imageAssetPaths().filter((relativePath) => /openclaw|open-claw/i.test(relativePath));
+    if (!approval.complete && matches.length > 0) {
+      throw new Error(
+        `examples/images, examples/images-en, and ${PACKAGE_DIR}/assets/examples expected no rendered OpenClaw assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, uploaded-logo identity outcome=${approval.uploadedLogoIdentityOutcomePresent ? "present" : "missing"}, source/license outcome=${approval.sourceLicenseOutcomePresent ? "present" : "missing"}, route-isolation outcome=${approval.routeIsolationOutcomePresent ? "present" : "missing"}, article-metaphor quality outcome=${approval.articleMetaphorOutcomePresent ? "present" : "missing"}`,
+      );
+    }
+  }),
   defineCheck("BOUNDARY-FERRIS-GEN-001", "Ferris generated samples stay distinct from public rendered sample release gates", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parseGeneratedFerrisSampleApproval(releaseChecklist);
@@ -3699,6 +3965,18 @@ const checks = [
       "Public rendered samples from `assets/<article-slug>-seal/` require Seal Public Asset Policy approval",
       "Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / hoodie seal identity outcome / no-logo outcome",
     ], "Seal generated sample workspace and public release distinction");
+  }),
+  defineCheck("BOUNDARY-OPENCLAW-GEN-001", "OpenClaw generated samples stay distinct from public rendered sample release gates", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parseGeneratedOpenClawSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected OpenClaw generated sample review record; observed missing line");
+    }
+    assertIncludes(releaseChecklist, "RELEASE_CHECKLIST.md", [
+      "Internal review samples under `assets/<article-slug>-openclaw/` may be used",
+      "Public rendered samples from `assets/<article-slug>-openclaw/` require OpenClaw Public Asset Policy approval",
+      "Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome",
+    ], "OpenClaw generated sample workspace and public release distinction");
   }),
   defineCheck("BOUNDARY-P5-001", "validator enforces live package and workspace output boundaries", () => {
     for (const row of routeRows()) {
