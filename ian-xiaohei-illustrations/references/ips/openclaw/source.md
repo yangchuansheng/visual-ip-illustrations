@@ -11,7 +11,7 @@
 - Inspected Phase 33 snapshot: `c14793d35a10936ddea833e7808083fe57930616`.
 - License: `MIT License`.
 - Copyright: `Copyright (c) 2026 OpenClaw Foundation`.
-- Source authority for this package: this Phase 33 record at `references/ips/openclaw/source.md`.
+- Source authority for this package: this record at `references/ips/openclaw/source.md`.
 - Uploaded logo authority: the uploaded red OpenClaw logo is the visual authority for this route.
 
 ## Character Authority
@@ -44,24 +44,25 @@ Preserve these uploaded OpenClaw logo markers together:
 
 - Current status: `source-reviewed`.
 - Status meaning: official repository, MIT License, OpenClaw Foundation copyright, uploaded-logo authority, and public-sample review boundary are documented for route metadata and maintainer review.
-- Pending later phases: OpenClaw style, identity, composition, prompt, edit, QA, runtime controller behavior, public docs expansion, validator hardening, and release evidence.
+- Current route-local pack: OpenClaw style, identity, composition, prompt, edit, QA, source, output, and sample-policy references live under `references/ips/openclaw/`.
+- Pending later phases: runtime controller behavior, public docs expansion, release surfaces, final validator hardening, and release evidence.
 
 ## Allowed Use
 
-- Document OpenClaw route metadata, source/license authority, uploaded-logo marker authority, internal review, and later OpenClaw pack planning.
-- Reference this source record from `references/routing.md`, release review, NOTICE, later OpenClaw pack files, and validator evidence.
+- Document OpenClaw route metadata, source/license authority, uploaded-logo marker authority, route-local pack behavior, and internal review.
+- Reference this source record from `references/routing.md`, release review, NOTICE, OpenClaw pack files, and validator evidence.
 - Use `source-reviewed` in route metadata while this source/license and uploaded-logo authority remains the active contract.
 
 ## Restricted Use
 
 - Public generated OpenClaw samples require release approval before publication.
 - Generic mascot drift, product-poster framing, OpenClaw identity leakage into other routes, and broad public claims require release review.
-- OpenClaw identity, style, prompt, composition, edit, and QA rules belong to the later OpenClaw canonical pack phase.
+- OpenClaw identity, style, prompt, composition, edit, and QA rules belong to the current OpenClaw canonical pack.
 - Broad public route availability claims require release checklist approval and current source/license review.
 
 ## Distribution Boundary
 
-- This record supports repository documentation, maintainer review, route metadata, uploaded-logo marker authority, internal review, and later OpenClaw pack planning.
+- This record supports repository documentation, maintainer review, route metadata, uploaded-logo marker authority, internal review, and the current OpenClaw pack.
 - Public package distribution must preserve this source record, MIT attribution, uploaded-logo authority, sample policy, and `source-reviewed` route status until release review records a different approved status.
 - Public generated OpenClaw examples stay behind the public-sample gate recorded by release review.
 

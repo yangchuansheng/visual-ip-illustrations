@@ -986,17 +986,37 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.equal(routes[0].default, "true");
   assert.equal(routes[1].output_suffix, "littlebox");
   assert.equal(routes[1].default, "false");
-  assert.equal(routes[2].aliases, "Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫");
+  assert.deepEqual(validators.splitRouteAliases(routes[2].aliases), ["Tom", "Tom Cat", "Tom and Jerry", "汤姆", "汤姆猫"]);
   assert.equal(routes[2].output_suffix, "tom");
   assert.equal(routes[2].default, "false");
-  assert.equal(routes[3].aliases, "Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹");
+  assert.deepEqual(validators.splitRouteAliases(routes[3].aliases), [
+    "Ferris",
+    "Rust mascot",
+    "Rust crab",
+    "Rustacean",
+    "Rust 吉祥物",
+    "Rust 螃蟹",
+  ]);
   assert.equal(routes[3].output_suffix, "ferris");
   assert.equal(routes[3].default, "false");
-  assert.equal(
-    routes[4].aliases,
-    "Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹",
-  );
-  assert.equal(routes[5].aliases, "OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, `OpenClaw 助手`, `OpenClaw 吉祥物");
+  assert.deepEqual(validators.splitRouteAliases(routes[4].aliases), [
+    "Seal",
+    "hoodie seal",
+    "white seal",
+    "blue hoodie seal",
+    "海豹",
+    "连帽衫海豹",
+    "白色海豹",
+    "蓝色连帽衫海豹",
+  ]);
+  assert.deepEqual(validators.splitRouteAliases(routes[5].aliases), [
+    "OpenClaw",
+    "openclaw",
+    "OpenClaw logo",
+    "OpenClaw mascot",
+    "OpenClaw 助手",
+    "OpenClaw 吉祥物",
+  ]);
   assert.equal(routes[5].output_suffix, "openclaw");
   assert.equal(routes[5].default, "false");
   assert.equal(routes[4].output_suffix, "seal");

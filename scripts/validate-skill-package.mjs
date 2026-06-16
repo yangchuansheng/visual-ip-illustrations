@@ -4215,4 +4215,5 @@ export {
   safeReferencePath,
   sortedDirectoryEntries,
   splitRouteCell,
+  splitRouteAliases,
 };
