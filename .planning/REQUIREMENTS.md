@@ -38,11 +38,11 @@
 
 ### Validation and Release Evidence
 
-- [ ] **VAL-01**: Validator fails when Go Gopher route metadata, source record, required references, output paths, docs, examples, NOTICE, release checklist, or agent metadata drift from the v1.8 contract.
-- [ ] **VAL-02**: Validator fails when Go Gopher identity markers leak into Xiaohei, Littlebox, Tom, Ferris, Seal, or OpenClaw route-local packs.
-- [ ] **VAL-03**: Validator fails when public generated Go Gopher samples appear without explicit release checklist approval.
-- [ ] **VAL-04**: Node tests cover Go Gopher route parsing, route ordering, default preservation, output path markers, source/license markers, smoke prompts, leakage fixtures, public asset gates, and full-pass output.
-- [ ] **VAL-05**: Final release evidence records validator output, Node test output, `git diff --check`, Go Gopher route smoke, source/license smoke, docs consistency, leakage scan, and public sample gate status.
+- [x] **VAL-01**: Validator fails when Go Gopher route metadata, source record, required references, output paths, docs, examples, NOTICE, release checklist, or agent metadata drift from the v1.8 contract.
+- [x] **VAL-02**: Validator fails when Go Gopher identity markers leak into Xiaohei, Littlebox, Tom, Ferris, Seal, or OpenClaw route-local packs.
+- [x] **VAL-03**: Validator fails when public generated Go Gopher samples appear without explicit release checklist approval.
+- [x] **VAL-04**: Node tests cover Go Gopher route parsing, route ordering, default preservation, output path markers, source/license markers, smoke prompts, leakage fixtures, public asset gates, and full-pass output.
+- [x] **VAL-05**: Final release evidence records validator output, Node test output, `git diff --check`, Go Gopher route smoke, source/license smoke, docs consistency, leakage scan, and public sample gate status.
 
 ## Future Requirements
 
@@ -104,11 +104,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOC-03 | Phase 41 | Complete |
 | DOC-04 | Phase 41 | Complete |
 | DOC-05 | Phase 41 | Complete |
-| VAL-01 | Phase 42 | Pending |
-| VAL-02 | Phase 42 | Pending |
-| VAL-03 | Phase 42 | Pending |
-| VAL-04 | Phase 42 | Pending |
-| VAL-05 | Phase 42 | Pending |
+| VAL-01 | Phase 42 | Complete |
+| VAL-02 | Phase 42 | Complete |
+| VAL-03 | Phase 42 | Complete |
+| VAL-04 | Phase 42 | Complete |
+| VAL-05 | Phase 42 | Complete |
 | MNF-01 | Future | Future |
 | MNF-02 | Future | Future |
 | AST-01 | Future | Future |

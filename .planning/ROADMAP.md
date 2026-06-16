@@ -21,7 +21,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 39: Go Gopher Canonical Pack** - Users can plan, prompt, edit, and QA Go Gopher article illustrations through route-local references that preserve the local `gopher.png` mascot identity. (completed 2026-06-16)
 - [x] **Phase 40: Go Gopher Skill Controller Integration** - Users can invoke Go Gopher through the skill controller, mixed-IP workflows, generation/edit dispatch, QA routing, and delivery reports while all existing routes remain stable. (completed 2026-06-16)
 - [x] **Phase 41: Public Documentation and Release Surface** - Users and maintainers can learn, invoke, review, and release Go Gopher through README, examples, NOTICE, release checklist, skill instructions, and agent metadata. (completed 2026-06-16)
-- [ ] **Phase 42: Go Gopher Validation and Release Evidence** - Maintainers can verify Go Gopher route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release readiness locally.
+- [x] **Phase 42: Go Gopher Validation and Release Evidence** - Maintainers can verify Go Gopher route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release readiness locally. (completed 2026-06-16)
 
 ## Phase Details
 
@@ -117,7 +117,7 @@ Plans:
 **Plans**: 1 plan
 Plans:
 
-- [ ] 42-01-PLAN.md — Go Gopher validation hardening and release evidence
+- [x] 42-01-PLAN.md — Go Gopher validation hardening and release evidence
 
 ## Progress
 
@@ -130,4 +130,4 @@ Phases execute in numeric order: 38 -> 39 -> 40 -> 41 -> 42
 | 39. Go Gopher Canonical Pack | 1/1 | Complete   | 2026-06-16 |
 | 40. Go Gopher Skill Controller Integration | 1/1 | Complete   | 2026-06-16 |
 | 41. Public Documentation and Release Surface | 1/1 | Complete   | 2026-06-16 |
-| 42. Go Gopher Validation and Release Evidence | 0/1 | Planned | - |
+| 42. Go Gopher Validation and Release Evidence | 1/1 | Complete   | 2026-06-16 |
