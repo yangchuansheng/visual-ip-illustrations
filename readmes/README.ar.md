@@ -2,6 +2,8 @@
 
 # Visual IP Illustrations
 
+![Visual IP Illustrations character lineup](../assets/readme-hero/01-visual-ip-lineup.png)
+
 [![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
 
 > Visual IP Illustrations هي Codex Skill متعددة IP مرئية لرسوم متن المقالات. Xiaohei هو المسار الافتراضي الضمني؛ Littlebox مسار صريح و active؛ Tom مسار protected-character صريح بحالة `gated-authorized`؛ Ferris مسار Rust-community mascot صريح بحالة `source-reviewed`؛ Seal مسار product-neutral hoodie seal صريح بحالة `active`؛ OpenClaw مسار logo-mascot صريح بحالة `source-reviewed`. Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.

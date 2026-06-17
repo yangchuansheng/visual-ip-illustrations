@@ -1,5 +1,7 @@
 # Visual IP Illustrations
 
+![Visual IP Illustrations character lineup](../assets/readme-hero/01-visual-ip-lineup.png)
+
 [![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
 
 > Visual IP Illustrations 是一個用於文章正文配圖的多視覺 IP Codex Skill。Xiaohei 是隱式預設路線；Littlebox 是顯式且 active 的路線；Tom 是顯式 protected-character 路線，狀態為 `gated-authorized`；Ferris 是顯式 Rust-community mascot 路線，狀態為 `source-reviewed`；Seal 是顯式 product-neutral hoodie seal 路線，狀態為 `active`；OpenClaw 是顯式 logo-mascot 路線，狀態為 `source-reviewed`。 Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.
