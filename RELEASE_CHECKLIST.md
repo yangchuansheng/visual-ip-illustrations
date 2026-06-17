@@ -228,14 +228,16 @@ This section is the OpenClaw maintainer release gate for source/license review, 
 
 ### OpenClaw Public Asset Policy
 
-- [ ] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.
-- [ ] Public rendered OpenClaw samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- [x] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-17 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / uploaded-logo identity preserved / source/license approved / route-isolation approved / article-metaphor quality approved.
+- [ ] OpenClaw public asset policy template for future reviews: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.
+- [x] Public rendered OpenClaw samples approved for publication in `examples/images-en/openclaw/`.
 - [ ] Public rendered OpenClaw sample approval must cover uploaded-logo identity, source/license authority, route isolation, article-metaphor quality, allowed directories, release channels, and public-sample decision.
 
 ### OpenClaw Generated Sample Policy
 
 - [ ] Internal review samples under `assets/<article-slug>-openclaw/` may be used when the source record and uploaded-logo authority stay attached.
 - [ ] Public rendered samples from `assets/<article-slug>-openclaw/` require OpenClaw Public Asset Policy approval before release channels list or copy them into public sample directories.
+- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-openclaw / examples/images, ian-xiaohei-illustrations/assets/examples / GitHub README / uploaded-logo identity preserved / source/license approved / route-isolation approved / article-metaphor quality approved.
 - [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.
 
 ### Final OpenClaw Release Review
@@ -269,14 +271,16 @@ This section is the Go Gopher maintainer release gate for source/license review,
 
 ### Go Gopher Public Asset Policy
 
-- [ ] Go Gopher public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / Go blog source outcome / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome / public-sample decision.
-- [ ] Public rendered Go Gopher samples require explicit approval before publication in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- [x] Go Gopher public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-17 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / Go blog source approved / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved / public-sample decision approved.
+- [ ] Go Gopher public asset policy template for future reviews: PENDING / reviewer / date / approval status / allowed directories / release channels / Go blog source outcome / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome / public-sample decision.
+- [x] Public rendered Go Gopher samples approved for publication in `examples/images-en/gopher/`.
 - [ ] Public rendered Go Gopher sample approval must cover source/license authority, root `gopher.png` local visual authority, route isolation, article-metaphor quality, allowed directories, release channels, Go logo boundary, official endorsement boundary, and public-sample decision.
 
 ### Go Gopher Generated Sample Policy
 
 - [ ] Internal review samples under `assets/<article-slug>-gopher/` may be used when the source record and root `gopher.png` local visual authority stay attached.
 - [ ] Public rendered samples from `assets/<article-slug>-gopher/` require Go Gopher Public Asset Policy approval before release channels list or copy them into public sample directories.
+- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-gopher / examples/images, ian-xiaohei-illustrations/assets/examples / GitHub README / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved.
 - [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome.
 
 ### Final Go Gopher Release Review

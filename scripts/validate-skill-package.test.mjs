@@ -255,10 +255,14 @@ function completeOpenClawPublicAssetApprovalLine(
   reviewDate = "2026-06-13",
   uploadedLogoIdentityOutcome = "uploaded-logo identity preserved",
   sourceLicenseOutcome = "source/license approved",
-  routeIsolationOutcome = "route isolation approved",
+  routeIsolationOutcome = "route-isolation approved",
   articleMetaphorOutcome = "article-metaphor quality approved",
 ) {
   return `- [x] OpenClaw public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
+}
+
+function currentOpenClawPublicAssetApprovalLine() {
+  return "- [x] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-17 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / uploaded-logo identity preserved / source/license approved / route-isolation approved / article-metaphor quality approved.";
 }
 
 function pendingGeneratedOpenClawSampleLine() {
@@ -269,10 +273,14 @@ function completeGeneratedOpenClawSampleLine(
   reviewDate = "2026-06-13",
   uploadedLogoIdentityOutcome = "uploaded-logo identity preserved",
   sourceLicenseOutcome = "source/license approved",
-  routeIsolationOutcome = "route isolation approved",
+  routeIsolationOutcome = "route-isolation approved",
   articleMetaphorOutcome = "article-metaphor quality approved",
 ) {
   return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-openclaw / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
+}
+
+function currentGeneratedOpenClawSampleLine() {
+  return "- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-openclaw / examples/images, ian-xiaohei-illustrations/assets/examples / GitHub README / uploaded-logo identity preserved / source/license approved / route-isolation approved / article-metaphor quality approved.";
 }
 
 function pendingGopherPublicAssetApprovalLine() {
@@ -284,14 +292,18 @@ function completeGopherPublicAssetApprovalLine(
   sourceOutcome = "Go blog source approved",
   attributionOutcome = "Renee French attribution approved",
   licenseOutcome = "Creative Commons Attribution 4.0 approved",
-  visualOutcome = "local visual markers approved",
-  routeIsolationOutcome = "route isolation approved",
+  visualOutcome = "local visual marker approved",
+  routeIsolationOutcome = "route-isolation approved",
   logoBoundaryOutcome = "Go logo boundary approved",
   endorsementBoundaryOutcome = "official endorsement boundary approved",
   articleMetaphorOutcome = "article-metaphor quality approved",
   publicSampleOutcome = "public-sample decision approved",
 ) {
   return `- [x] Go Gopher public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes / ${sourceOutcome} / ${attributionOutcome} / ${licenseOutcome} / ${visualOutcome} / ${routeIsolationOutcome} / ${logoBoundaryOutcome} / ${endorsementBoundaryOutcome} / ${articleMetaphorOutcome} / ${publicSampleOutcome}.`;
+}
+
+function currentGopherPublicAssetApprovalLine() {
+  return "- [x] Go Gopher public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-17 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / Go blog source approved / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved / public-sample decision approved.";
 }
 
 function pendingGeneratedGopherSampleLine() {
@@ -302,13 +314,17 @@ function completeGeneratedGopherSampleLine(
   reviewDate = "2026-06-13",
   attributionOutcome = "Renee French attribution approved",
   licenseOutcome = "Creative Commons Attribution 4.0 approved",
-  visualOutcome = "local visual markers approved",
-  routeIsolationOutcome = "route isolation approved",
+  visualOutcome = "local visual marker approved",
+  routeIsolationOutcome = "route-isolation approved",
   logoBoundaryOutcome = "Go logo boundary approved",
   endorsementBoundaryOutcome = "official endorsement boundary approved",
   articleMetaphorOutcome = "article-metaphor quality approved",
 ) {
   return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-gopher / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${attributionOutcome} / ${licenseOutcome} / ${visualOutcome} / ${routeIsolationOutcome} / ${logoBoundaryOutcome} / ${endorsementBoundaryOutcome} / ${articleMetaphorOutcome}.`;
+}
+
+function currentGeneratedGopherSampleLine() {
+  return "- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-gopher / examples/images, ian-xiaohei-illustrations/assets/examples / GitHub README / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved.";
 }
 
 test("validator command prints deterministic harness smoke logs", () => {
@@ -1325,7 +1341,26 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingGeneratedSealosApproval.internalReviewDirectoriesPresent, false);
   assert.equal(pendingGeneratedSealosApproval.publicDirectoriesPresent, false);
 
-  const pendingOpenClawApproval = validators.parsePublicOpenClawSampleApproval(releaseChecklistText);
+  const currentOpenClawApproval = validators.parsePublicOpenClawSampleApproval(releaseChecklistText);
+  assert.equal(currentOpenClawApproval.found, true);
+  assert.equal(currentOpenClawApproval.checked, true);
+  assert.equal(currentOpenClawApproval.complete, true);
+  assert.equal(currentOpenClawApproval.allowedDirectoriesPresent, true);
+  assert.equal(currentOpenClawApproval.uploadedLogoIdentityOutcomePresent, true);
+  assert.equal(currentOpenClawApproval.sourceLicenseOutcomePresent, true);
+  assert.equal(currentOpenClawApproval.routeIsolationOutcomePresent, true);
+  assert.equal(currentOpenClawApproval.articleMetaphorOutcomePresent, true);
+  assert.deepEqual(currentOpenClawApproval.allowedDirectories, [
+    "examples/images",
+    "examples/images-en",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
+
+  const pendingOpenClawText = releaseChecklistText.replace(
+    currentOpenClawPublicAssetApprovalLine(),
+    pendingOpenClawPublicAssetApprovalLine(),
+  );
+  const pendingOpenClawApproval = validators.parsePublicOpenClawSampleApproval(pendingOpenClawText);
   assert.equal(pendingOpenClawApproval.found, true);
   assert.equal(pendingOpenClawApproval.checked, false);
   assert.equal(pendingOpenClawApproval.complete, false);
@@ -1336,7 +1371,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingOpenClawApproval.articleMetaphorOutcomePresent, false);
 
   const approvedOpenClawText = releaseChecklistText.replace(
-    pendingOpenClawPublicAssetApprovalLine(),
+    currentOpenClawPublicAssetApprovalLine(),
     completeOpenClawPublicAssetApprovalLine(),
   );
   const approvedOpenClaw = validators.parsePublicOpenClawSampleApproval(approvedOpenClawText);
@@ -1351,14 +1386,54 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(approvedOpenClaw.routeIsolationOutcomePresent, true);
   assert.equal(approvedOpenClaw.articleMetaphorOutcomePresent, true);
 
-  const pendingGeneratedOpenClawApproval = validators.parseGeneratedOpenClawSampleApproval(releaseChecklistText);
+  const currentGeneratedOpenClawApproval = validators.parseGeneratedOpenClawSampleApproval(releaseChecklistText);
+  assert.equal(currentGeneratedOpenClawApproval.found, true);
+  assert.equal(currentGeneratedOpenClawApproval.checked, true);
+  assert.equal(currentGeneratedOpenClawApproval.complete, true);
+  assert.equal(currentGeneratedOpenClawApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(currentGeneratedOpenClawApproval.publicDirectoriesPresent, true);
+  assert.equal(currentGeneratedOpenClawApproval.uploadedLogoIdentityOutcomePresent, true);
+  assert.equal(currentGeneratedOpenClawApproval.sourceLicenseOutcomePresent, true);
+  assert.equal(currentGeneratedOpenClawApproval.routeIsolationOutcomePresent, true);
+  assert.equal(currentGeneratedOpenClawApproval.articleMetaphorOutcomePresent, true);
+
+  const pendingGeneratedOpenClawText = releaseChecklistText.replace(
+    currentGeneratedOpenClawSampleLine(),
+    pendingGeneratedOpenClawSampleLine(),
+  );
+  const pendingGeneratedOpenClawApproval =
+    validators.parseGeneratedOpenClawSampleApproval(pendingGeneratedOpenClawText);
   assert.equal(pendingGeneratedOpenClawApproval.found, true);
   assert.equal(pendingGeneratedOpenClawApproval.checked, false);
   assert.equal(pendingGeneratedOpenClawApproval.complete, false);
   assert.equal(pendingGeneratedOpenClawApproval.internalReviewDirectoriesPresent, false);
   assert.equal(pendingGeneratedOpenClawApproval.publicDirectoriesPresent, false);
 
-  const pendingGopherApproval = validators.parsePublicGopherSampleApproval(releaseChecklistText);
+  const currentGopherApproval = validators.parsePublicGopherSampleApproval(releaseChecklistText);
+  assert.equal(currentGopherApproval.found, true);
+  assert.equal(currentGopherApproval.checked, true);
+  assert.equal(currentGopherApproval.complete, true);
+  assert.equal(currentGopherApproval.allowedDirectoriesPresent, true);
+  assert.equal(currentGopherApproval.sourceOutcomePresent, true);
+  assert.equal(currentGopherApproval.attributionOutcomePresent, true);
+  assert.equal(currentGopherApproval.licenseOutcomePresent, true);
+  assert.equal(currentGopherApproval.visualOutcomePresent, true);
+  assert.equal(currentGopherApproval.routeIsolationOutcomePresent, true);
+  assert.equal(currentGopherApproval.logoBoundaryOutcomePresent, true);
+  assert.equal(currentGopherApproval.endorsementBoundaryOutcomePresent, true);
+  assert.equal(currentGopherApproval.articleMetaphorOutcomePresent, true);
+  assert.equal(currentGopherApproval.publicSampleOutcomePresent, true);
+  assert.deepEqual(currentGopherApproval.allowedDirectories, [
+    "examples/images",
+    "examples/images-en",
+    "ian-xiaohei-illustrations/assets/examples",
+  ]);
+
+  const pendingGopherText = releaseChecklistText.replace(
+    currentGopherPublicAssetApprovalLine(),
+    pendingGopherPublicAssetApprovalLine(),
+  );
+  const pendingGopherApproval = validators.parsePublicGopherSampleApproval(pendingGopherText);
   assert.equal(pendingGopherApproval.found, true);
   assert.equal(pendingGopherApproval.checked, false);
   assert.equal(pendingGopherApproval.complete, false);
@@ -1374,7 +1449,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingGopherApproval.publicSampleOutcomePresent, false);
 
   const approvedGopherText = releaseChecklistText.replace(
-    pendingGopherPublicAssetApprovalLine(),
+    currentGopherPublicAssetApprovalLine(),
     completeGopherPublicAssetApprovalLine(),
   );
   const approvedGopher = validators.parsePublicGopherSampleApproval(approvedGopherText);
@@ -1394,7 +1469,26 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(approvedGopher.articleMetaphorOutcomePresent, true);
   assert.equal(approvedGopher.publicSampleOutcomePresent, true);
 
-  const pendingGeneratedGopherApproval = validators.parseGeneratedGopherSampleApproval(releaseChecklistText);
+  const currentGeneratedGopherApproval = validators.parseGeneratedGopherSampleApproval(releaseChecklistText);
+  assert.equal(currentGeneratedGopherApproval.found, true);
+  assert.equal(currentGeneratedGopherApproval.checked, true);
+  assert.equal(currentGeneratedGopherApproval.complete, true);
+  assert.equal(currentGeneratedGopherApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(currentGeneratedGopherApproval.publicDirectoriesPresent, true);
+  assert.equal(currentGeneratedGopherApproval.attributionOutcomePresent, true);
+  assert.equal(currentGeneratedGopherApproval.licenseOutcomePresent, true);
+  assert.equal(currentGeneratedGopherApproval.visualOutcomePresent, true);
+  assert.equal(currentGeneratedGopherApproval.routeIsolationOutcomePresent, true);
+  assert.equal(currentGeneratedGopherApproval.logoBoundaryOutcomePresent, true);
+  assert.equal(currentGeneratedGopherApproval.endorsementBoundaryOutcomePresent, true);
+  assert.equal(currentGeneratedGopherApproval.articleMetaphorOutcomePresent, true);
+
+  const pendingGeneratedGopherText = releaseChecklistText.replace(
+    currentGeneratedGopherSampleLine(),
+    pendingGeneratedGopherSampleLine(),
+  );
+  const pendingGeneratedGopherApproval =
+    validators.parseGeneratedGopherSampleApproval(pendingGeneratedGopherText);
   assert.equal(pendingGeneratedGopherApproval.found, true);
   assert.equal(pendingGeneratedGopherApproval.checked, false);
   assert.equal(pendingGeneratedGopherApproval.complete, false);
@@ -1438,7 +1532,7 @@ test("approval parser helpers expose current release primitives", async () => {
   ]);
 
   const completeGeneratedOpenClawText = releaseChecklistText.replace(
-    pendingGeneratedOpenClawSampleLine(),
+    currentGeneratedOpenClawSampleLine(),
     completeGeneratedOpenClawSampleLine(),
   );
   const completeGeneratedOpenClawApproval =
@@ -1455,7 +1549,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(completeGeneratedOpenClawApproval.articleMetaphorOutcomePresent, true);
 
   const completeGeneratedGopherText = releaseChecklistText.replace(
-    pendingGeneratedGopherSampleLine(),
+    currentGeneratedGopherSampleLine(),
     completeGeneratedGopherSampleLine(),
   );
   const completeGeneratedGopherApproval =
@@ -2745,6 +2839,12 @@ test("validator fixture enforces public OpenClaw sample approval parsing", async
   const validators = await import(`${scriptPath}?openClawApproval=${Date.now()}`);
   const fixtureRoot = copyFixture("openclaw-public-asset");
   try {
+    replaceInFixture(
+      fixtureRoot,
+      "RELEASE_CHECKLIST.md",
+      currentOpenClawPublicAssetApprovalLine(),
+      pendingOpenClawPublicAssetApprovalLine(),
+    );
     writeFileSync(path.join(fixtureRoot, "examples", "images", "99-openclaw-test.png"), "fixture", "utf8");
 
     const pendingResult = runFixtureValidator(fixtureRoot);
@@ -2791,6 +2891,12 @@ test("validator fixture enforces public Go Gopher sample approval parsing", asyn
   const validators = await import(`${scriptPath}?gopherApproval=${Date.now()}`);
   const fixtureRoot = copyFixture("gopher-public-asset");
   try {
+    replaceInFixture(
+      fixtureRoot,
+      "RELEASE_CHECKLIST.md",
+      currentGopherPublicAssetApprovalLine(),
+      pendingGopherPublicAssetApprovalLine(),
+    );
     writeFileSync(path.join(fixtureRoot, "examples", "images", "99-gopher-test.png"), "fixture", "utf8");
 
     const pendingResult = runFixtureValidator(fixtureRoot);
@@ -2936,7 +3042,7 @@ test("validator fixture rejects OpenClaw public sample placeholder approvals", a
         "2026-06-13",
         "uploaded-logo identity outcome",
         "source/license approved",
-        "route isolation approved",
+        "route-isolation approved",
         "article-metaphor quality approved",
       ),
       "uploaded-logo identity outcome=missing",
@@ -2947,7 +3053,7 @@ test("validator fixture rejects OpenClaw public sample placeholder approvals", a
         "2026-06-13",
         "uploaded-logo identity preserved",
         "source/license outcome",
-        "route isolation approved",
+        "route-isolation approved",
         "article-metaphor quality approved",
       ),
       "source\\/license outcome=missing",
@@ -2969,13 +3075,13 @@ test("validator fixture rejects OpenClaw public sample placeholder approvals", a
         "2026-06-13",
         "uploaded-logo identity preserved",
         "source/license approved",
-        "route isolation approved",
+        "route-isolation approved",
         "article-metaphor quality outcome",
       ),
       "article-metaphor quality outcome=missing",
     ],
   ]) {
-    const approvalText = releaseChecklistText.replace(pendingOpenClawPublicAssetApprovalLine(), approvalLine);
+    const approvalText = releaseChecklistText.replace(currentOpenClawPublicAssetApprovalLine(), approvalLine);
     const approval = validators.parsePublicOpenClawSampleApproval(approvalText);
     assert.equal(approval.complete, false);
 
@@ -2985,7 +3091,7 @@ test("validator fixture rejects OpenClaw public sample placeholder approvals", a
       replaceInFixture(
         fixtureRoot,
         "RELEASE_CHECKLIST.md",
-        pendingOpenClawPublicAssetApprovalLine(),
+        currentOpenClawPublicAssetApprovalLine(),
         approvalLine,
       );
 
@@ -3052,7 +3158,7 @@ test("validator fixture rejects Go Gopher public sample placeholder approvals", 
         "Go blog source approved",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
+        "local visual marker approved",
         "route-isolation outcome",
       ),
       "route-isolation outcome=missing",
@@ -3064,8 +3170,8 @@ test("validator fixture rejects Go Gopher public sample placeholder approvals", 
         "Go blog source approved",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary outcome",
       ),
       "Go logo boundary outcome=missing",
@@ -3077,8 +3183,8 @@ test("validator fixture rejects Go Gopher public sample placeholder approvals", 
         "Go blog source approved",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary approved",
         "official endorsement boundary outcome",
       ),
@@ -3091,8 +3197,8 @@ test("validator fixture rejects Go Gopher public sample placeholder approvals", 
         "Go blog source approved",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary approved",
         "official endorsement boundary approved",
         "article-metaphor quality outcome",
@@ -3106,8 +3212,8 @@ test("validator fixture rejects Go Gopher public sample placeholder approvals", 
         "Go blog source approved",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary approved",
         "official endorsement boundary approved",
         "article-metaphor quality approved",
@@ -3116,7 +3222,7 @@ test("validator fixture rejects Go Gopher public sample placeholder approvals", 
       "public-sample decision=missing",
     ],
   ]) {
-    const approvalText = releaseChecklistText.replace(pendingGopherPublicAssetApprovalLine(), approvalLine);
+    const approvalText = releaseChecklistText.replace(currentGopherPublicAssetApprovalLine(), approvalLine);
     const approval = validators.parsePublicGopherSampleApproval(approvalText);
     assert.equal(approval.complete, false);
 
@@ -3126,7 +3232,7 @@ test("validator fixture rejects Go Gopher public sample placeholder approvals", 
       replaceInFixture(
         fixtureRoot,
         "RELEASE_CHECKLIST.md",
-        pendingGopherPublicAssetApprovalLine(),
+        currentGopherPublicAssetApprovalLine(),
         approvalLine,
       );
 
@@ -3259,7 +3365,22 @@ test("validator fixture distinguishes Generated Sample OpenClaw review outputs f
   const validators = await import(`${scriptPath}?generatedOpenClawApproval=${Date.now()}`);
   const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
 
-  const pendingApproval = validators.parseGeneratedOpenClawSampleApproval(releaseChecklistText);
+  const currentApproval = validators.parseGeneratedOpenClawSampleApproval(releaseChecklistText);
+  assert.equal(currentApproval.found, true);
+  assert.equal(currentApproval.checked, true);
+  assert.equal(currentApproval.complete, true);
+  assert.equal(currentApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(currentApproval.publicDirectoriesPresent, true);
+  assert.equal(currentApproval.uploadedLogoIdentityOutcomePresent, true);
+  assert.equal(currentApproval.sourceLicenseOutcomePresent, true);
+  assert.equal(currentApproval.routeIsolationOutcomePresent, true);
+  assert.equal(currentApproval.articleMetaphorOutcomePresent, true);
+
+  const pendingText = releaseChecklistText.replace(
+    currentGeneratedOpenClawSampleLine(),
+    pendingGeneratedOpenClawSampleLine(),
+  );
+  const pendingApproval = validators.parseGeneratedOpenClawSampleApproval(pendingText);
   assert.equal(pendingApproval.found, true);
   assert.equal(pendingApproval.checked, false);
   assert.equal(pendingApproval.complete, false);
@@ -3267,7 +3388,7 @@ test("validator fixture distinguishes Generated Sample OpenClaw review outputs f
   assert.equal(pendingApproval.publicDirectoriesPresent, false);
 
   const completeText = releaseChecklistText.replace(
-    pendingGeneratedOpenClawSampleLine(),
+    currentGeneratedOpenClawSampleLine(),
     completeGeneratedOpenClawSampleLine(),
   );
   const completeApproval = validators.parseGeneratedOpenClawSampleApproval(completeText);
@@ -3287,7 +3408,7 @@ test("validator fixture distinguishes Generated Sample OpenClaw review outputs f
         "2026-06-13",
         "uploaded-logo identity outcome",
         "source/license approved",
-        "route isolation approved",
+        "route-isolation approved",
         "article-metaphor quality approved",
       ),
       "uploadedLogoIdentityOutcomePresent",
@@ -3298,7 +3419,7 @@ test("validator fixture distinguishes Generated Sample OpenClaw review outputs f
         "2026-06-13",
         "uploaded-logo identity preserved",
         "source/license outcome",
-        "route isolation approved",
+        "route-isolation approved",
         "article-metaphor quality approved",
       ),
       "sourceLicenseOutcomePresent",
@@ -3320,13 +3441,13 @@ test("validator fixture distinguishes Generated Sample OpenClaw review outputs f
         "2026-06-13",
         "uploaded-logo identity preserved",
         "source/license approved",
-        "route isolation approved",
+        "route-isolation approved",
         "article-metaphor quality outcome",
       ),
       "articleMetaphorOutcomePresent",
     ],
   ]) {
-    const placeholderText = releaseChecklistText.replace(pendingGeneratedOpenClawSampleLine(), approvalLine);
+    const placeholderText = releaseChecklistText.replace(currentGeneratedOpenClawSampleLine(), approvalLine);
     const placeholderApproval = validators.parseGeneratedOpenClawSampleApproval(placeholderText);
     assert.equal(placeholderApproval.checked, true);
     assert.equal(placeholderApproval.complete, false);
@@ -3352,7 +3473,25 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
   const validators = await import(`${scriptPath}?generatedGopherApproval=${Date.now()}`);
   const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
 
-  const pendingApproval = validators.parseGeneratedGopherSampleApproval(releaseChecklistText);
+  const currentApproval = validators.parseGeneratedGopherSampleApproval(releaseChecklistText);
+  assert.equal(currentApproval.found, true);
+  assert.equal(currentApproval.checked, true);
+  assert.equal(currentApproval.complete, true);
+  assert.equal(currentApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(currentApproval.publicDirectoriesPresent, true);
+  assert.equal(currentApproval.attributionOutcomePresent, true);
+  assert.equal(currentApproval.licenseOutcomePresent, true);
+  assert.equal(currentApproval.visualOutcomePresent, true);
+  assert.equal(currentApproval.routeIsolationOutcomePresent, true);
+  assert.equal(currentApproval.logoBoundaryOutcomePresent, true);
+  assert.equal(currentApproval.endorsementBoundaryOutcomePresent, true);
+  assert.equal(currentApproval.articleMetaphorOutcomePresent, true);
+
+  const pendingText = releaseChecklistText.replace(
+    currentGeneratedGopherSampleLine(),
+    pendingGeneratedGopherSampleLine(),
+  );
+  const pendingApproval = validators.parseGeneratedGopherSampleApproval(pendingText);
   assert.equal(pendingApproval.found, true);
   assert.equal(pendingApproval.checked, false);
   assert.equal(pendingApproval.complete, false);
@@ -3360,7 +3499,7 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
   assert.equal(pendingApproval.publicDirectoriesPresent, false);
 
   const completeText = releaseChecklistText.replace(
-    pendingGeneratedGopherSampleLine(),
+    currentGeneratedGopherSampleLine(),
     completeGeneratedGopherSampleLine(),
   );
   const completeApproval = validators.parseGeneratedGopherSampleApproval(completeText);
@@ -3383,8 +3522,8 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
         "2026-06-13",
         "Renee French attribution outcome",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary approved",
         "official endorsement boundary approved",
         "article-metaphor quality approved",
@@ -3397,8 +3536,8 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
         "2026-06-13",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 outcome",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary approved",
         "official endorsement boundary approved",
         "article-metaphor quality approved",
@@ -3412,7 +3551,7 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
         "local visual marker outcome",
-        "route isolation approved",
+        "route-isolation approved",
         "Go logo boundary approved",
         "official endorsement boundary approved",
         "article-metaphor quality approved",
@@ -3425,7 +3564,7 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
         "2026-06-13",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
+        "local visual marker approved",
         "route-isolation outcome",
         "Go logo boundary approved",
         "official endorsement boundary approved",
@@ -3439,8 +3578,8 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
         "2026-06-13",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary outcome",
         "official endorsement boundary approved",
         "article-metaphor quality approved",
@@ -3453,8 +3592,8 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
         "2026-06-13",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary approved",
         "official endorsement boundary outcome",
         "article-metaphor quality approved",
@@ -3467,8 +3606,8 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
         "2026-06-13",
         "Renee French attribution approved",
         "Creative Commons Attribution 4.0 approved",
-        "local visual markers approved",
-        "route isolation approved",
+        "local visual marker approved",
+        "route-isolation approved",
         "Go logo boundary approved",
         "official endorsement boundary approved",
         "article-metaphor quality outcome",
@@ -3476,7 +3615,7 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
       "articleMetaphorOutcomePresent",
     ],
   ]) {
-    const placeholderText = releaseChecklistText.replace(pendingGeneratedGopherSampleLine(), approvalLine);
+    const placeholderText = releaseChecklistText.replace(currentGeneratedGopherSampleLine(), approvalLine);
     const placeholderApproval = validators.parseGeneratedGopherSampleApproval(placeholderText);
     assert.equal(placeholderApproval.checked, true);
     assert.equal(placeholderApproval.complete, false);
