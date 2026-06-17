@@ -1,5 +1,7 @@
 # Visual IP Illustrations
 
+[![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
+
 > Visual IP Illustrations ist eine Multi-Visual-IP Codex Skill für Artikelillustrationen im Fließtext. Xiaohei ist die implizite Standardroute; Littlebox ist explizit und active; Tom ist eine explizite Protected-Character-Route mit Status `gated-authorized`; Ferris ist eine explizite Rust-Community-Mascot-Route mit Status `source-reviewed`; Seal ist eine explizite produktneutrale Hoodie-Seal-Route mit Status `active`; OpenClaw ist eine explizite Logo-Mascot-Route mit Status `source-reviewed`. Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.
 >
 > 16:9 horizontal | mehrere visuelle IPs | Artikelillustrationen | Kanonische Invocation: `$visual-ip-illustrations`
@@ -184,6 +186,14 @@ These images are approved public English calibration examples for the current vi
 ---
 
 ## Installation
+
+Mit der skills CLI installieren:
+
+```bash
+npx skills add yangchuansheng/visual-ip-illustrations --skill visual-ip-illustrations
+```
+
+Manuelle Codex-Installation:
 
 ```bash
 git clone https://github.com/yangchuansheng/visual-ip-illustrations.git visual-ip-illustrations

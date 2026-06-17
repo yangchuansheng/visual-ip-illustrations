@@ -1,5 +1,7 @@
 # Visual IP Illustrations
 
+[![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
+
 > Visual IP Illustrations, makale gövdesi illüstrasyonları için çoklu görsel IP Codex Skill paketidir. Xiaohei örtük varsayılan rotadır; Littlebox açık ve active rotadır; Tom `gated-authorized` durumuna sahip açık bir protected-character rotasıdır; Ferris `source-reviewed` durumuna sahip açık bir Rust-community mascot rotasıdır; Seal `active` durumuna sahip açık bir product-neutral hoodie seal rotasıdır. OpenClaw `source-reviewed` durumuna sahip açık bir logo-mascot rotasıdır. Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.
 >
 > 16:9 yatay | çoklu görsel IP | makale gövdesi illüstrasyonları | Kanonik çağrı: `$visual-ip-illustrations`
@@ -184,6 +186,14 @@ These images are approved public English calibration examples for the current vi
 ---
 
 ## Kurulum
+
+skills CLI ile kurun:
+
+```bash
+npx skills add yangchuansheng/visual-ip-illustrations --skill visual-ip-illustrations
+```
+
+Manuel Codex kurulumu:
 
 ```bash
 git clone https://github.com/yangchuansheng/visual-ip-illustrations.git visual-ip-illustrations

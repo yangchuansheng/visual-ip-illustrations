@@ -1,5 +1,7 @@
 # Visual IP Illustrations
 
+[![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
+
 > Visual IP Illustrations 是一个用于文章正文配图的多视觉 IP Codex Skill。Xiaohei 是隐式默认路线；Littlebox 是显式且 active 的路线；Tom 是显式 protected-character 路线，状态为 `gated-authorized`；Ferris 是显式 Rust-community mascot 路线，状态为 `source-reviewed`；Seal 是显式 product-neutral hoodie seal 路线，状态为 `active`；OpenClaw 是显式 logo-mascot 路线，状态为 `source-reviewed`。 Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.
 >
 > 16:9 横图 | 多视觉 IP | 文章正文配图 | 标准调用方式：`$visual-ip-illustrations`
@@ -184,6 +186,14 @@ Go Gopher 是显式 source-reviewed 文章插图吉祥物路线：根目录 `gop
 ---
 
 ## 安装
+
+使用 skills CLI 安装：
+
+```bash
+npx skills add yangchuansheng/visual-ip-illustrations --skill visual-ip-illustrations
+```
+
+手动 Codex 安装：
 
 ```bash
 git clone https://github.com/yangchuansheng/visual-ip-illustrations.git visual-ip-illustrations

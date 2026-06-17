@@ -2,6 +2,8 @@
 
 # Visual IP Illustrations
 
+[![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
+
 > Visual IP Illustrations هي Codex Skill متعددة IP مرئية لرسوم متن المقالات. Xiaohei هو المسار الافتراضي الضمني؛ Littlebox مسار صريح و active؛ Tom مسار protected-character صريح بحالة `gated-authorized`؛ Ferris مسار Rust-community mascot صريح بحالة `source-reviewed`؛ Seal مسار product-neutral hoodie seal صريح بحالة `active`؛ OpenClaw مسار logo-mascot صريح بحالة `source-reviewed`. Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.
 >
 > أفقي 16:9 | عدة IP مرئية | رسوم متن المقالات | الاستدعاء القياسي: `$visual-ip-illustrations`
@@ -186,6 +188,14 @@ These images are approved public English calibration examples for the current vi
 ---
 
 ## التثبيت
+
+ثبّت باستخدام skills CLI:
+
+```bash
+npx skills add yangchuansheng/visual-ip-illustrations --skill visual-ip-illustrations
+```
+
+تثبيت Codex اليدوي:
 
 ```bash
 git clone https://github.com/yangchuansheng/visual-ip-illustrations.git visual-ip-illustrations

@@ -4667,13 +4667,15 @@ const checks = [
       "$visual-ip-illustrations",
       "$ian-xiaohei-illustrations",
     ], "live remote, canonical checkout slug, package directory, canonical invocation, and compatibility alias");
-    assertIncludes(requireFile("README.md"), "README.md", [
-      "[![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)]",
-      "npx skills add yangchuansheng/visual-ip-illustrations --skill visual-ip-illustrations",
-      "git clone https://github.com/yangchuansheng/visual-ip-illustrations.git visual-ip-illustrations",
-      "cd visual-ip-illustrations",
-      "cp -R ./skills/visual-ip-illustrations",
-    ], "README install migration commands");
+    for (const relativePath of readmeVariantFiles()) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "[![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)]",
+        "npx skills add yangchuansheng/visual-ip-illustrations --skill visual-ip-illustrations",
+        "git clone https://github.com/yangchuansheng/visual-ip-illustrations.git visual-ip-illustrations",
+        "cd visual-ip-illustrations",
+        "cp -R ./skills/visual-ip-illustrations",
+      ], "README variant install migration commands");
+    }
   }),
   defineCheck("REBRAND-ROUTE-001", "routing table preserves rebrand route contract", () => {
     assertRebrandRouteTable();
