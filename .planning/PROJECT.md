@@ -4,23 +4,22 @@
 
 Visual IP Illustrations is a Codex Skill package for selectable visual-IP article illustrations. It turns article judgments, workflows, structures, states, and metaphors into 16:9 body illustrations while routing each image through the selected IP's character rules, prompt template, QA gates, output path, and source or brand boundary.
 
-The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, the hoodie Seal route, and OpenClaw. The v1.8 milestone adds Go Gopher as an explicit source-reviewed mascot route using local `gopher.png` as the visual authority.
+The shipped baseline supports Xiaohei, Littlebox, Tom, Ferris, the hoodie Seal route, OpenClaw, and Go Gopher. The v1.9 milestone removes language-specific scope drift from the runtime skill copy and Xiaohei pack so article-illustration behavior stays language-neutral while preserving user-language labels and legacy Chinese compatibility markers.
 
 ## Core Value
 
 Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
 
-## Current Milestone: v1.8 Go Gopher Visual IP Integration
+## Current Milestone: v1.9 Language-Neutral Skill Cleanup
 
-**Goal:** Add Go Gopher as a selectable visual IP route whose source record, Renee French attribution, Creative Commons Attribution 4.0 boundary, prompts, QA gates, docs, output path, and validation coverage preserve local `gopher.png` as the route visual authority.
+**Goal:** Remove stale Chinese-only scope wording from the runtime skill, Xiaohei canonical pack, language policy, release checklist, NOTICE, and validation coverage while preserving route aliases, prompt placeholders, user-language labels, and legacy smoke behavior.
 
 **Target features:**
 
-- Add the explicit `gopher` route with display name `Go Gopher`, route-specific aliases, `default=false`, output suffix `gopher`, and output directory `assets/<article-slug>-gopher/`.
-- Add a Go Gopher source record that cites Go project pages, Renee French as designer, Creative Commons Attribution 4.0 license boundary, and local `gopher.png` as route visual authority.
-- Create an isolated Go Gopher route pack for style, identity, composition, prompt, edit, QA, source, and public sample policy.
-- Wire Go Gopher into the skill controller, agent metadata, public docs, prompt examples, NOTICE, release checklist, and mixed-IP route grouping.
-- Extend validator and Node tests for Go Gopher route metadata, source/license markers, output paths, docs, smoke prompts, leakage checks, public sample gates, and release evidence.
+- Rewrite the `SKILL.md` frontmatter and Xiaohei runtime bullets from Chinese-article wording to language-neutral article-illustration wording.
+- Update Xiaohei canonical references and legacy root compatibility references so labels follow the user's language while approved Chinese placeholders and compatibility markers remain.
+- Update NOTICE, LANGUAGE_POLICY, and RELEASE_CHECKLIST wording so approved multilingual exceptions describe localized examples and compatibility behavior without making the skill sound Chinese-only.
+- Add validator and Node test coverage that fails if the skill frontmatter regresses to a Chinese-only article scope.
 
 ## Requirements
 
@@ -60,15 +59,14 @@ Users can choose a visual IP and receive article illustrations whose character, 
 - Complete: OpenClaw can be selected as an explicit source-reviewed route with route id `openclaw`, display name `OpenClaw`, output suffix `openclaw`, output directory `assets/<article-slug>-openclaw/`, and uploaded red logo visual authority - v1.7
 - Complete: OpenClaw ships with an isolated route-local pack, source record, docs, examples, metadata, NOTICE, release checklist, validator checks, and Node tests - v1.7
 - Complete: OpenClaw validation evidence records validator 112/112, Node tests 80/80, README variant parity, docs consistency, and local release evidence after quick task 260616-t6d - v1.7
+- Complete: Go Gopher can be selected as an explicit source-reviewed route with source/license records, route-local `gopher.png` authority, route-local pack, controller routing, public docs, release checklist, validator checks, Node tests, and README gallery coverage - v1.8
 
 ### Active
 
-- Go Gopher can be selected as an explicit source-reviewed route without changing Xiaohei's omitted-IP default behavior.
-- Go Gopher route references preserve local `gopher.png` as the route visual authority.
-- Go Gopher source records expose Renee French attribution and the Creative Commons Attribution 4.0 boundary described by Go project pages.
-- Go Gopher prompts and QA treat the mascot as the cognitive action subject in sparse 16:9 article illustrations.
-- Go Gopher docs, NOTICE, release checklist, examples, and metadata expose the source/license boundary and `assets/<article-slug>-gopher/` output path.
-- Go Gopher validation covers route contract, source record, route-local pack, docs, smoke prompts, public asset gates, and route leakage.
+- Runtime skill discovery describes article illustrations in language-neutral terms across frontmatter, route workflow, and Xiaohei generation markers.
+- Xiaohei canonical and legacy compatibility references use user-language labels while preserving approved Chinese placeholders and compatibility smoke markers.
+- Language policy, NOTICE, and release checklist classify localized examples and compatibility markers accurately.
+- Validator and Node tests prevent regression to Chinese-only skill scope wording.
 
 ### Out of Scope
 
@@ -83,6 +81,7 @@ Users can choose a visual IP and receive article illustrations whose character, 
 - Changing Littlebox, Tom, Ferris, Seal, or OpenClaw route behavior - v1.8 is Go Gopher-route scoped.
 - Changing root package identity or legacy `$ian-xiaohei-illustrations` invocation - Visual IP Illustrations remains the product identity.
 - Forcing user-visible labels into English - labels continue to follow the user's requested language.
+- Removing Chinese aliases, approved Chinese prompt placeholders, or legacy compatibility markers - these are intentional compatibility surfaces.
 - Creating a hosted app, UI, API, database, or build runtime - the package remains a lightweight Codex Skill.
 
 ## Context
@@ -109,6 +108,8 @@ v1.7 completed the OpenClaw route milestone. OpenClaw is an explicit source-revi
 
 v1.8 starts the Go Gopher route milestone. Go project pages describe the Go Gopher as Renee French's creation and describe Gopher images under Creative Commons Attribution 4.0; local `gopher.png` is the route visual authority for the new source-reviewed Go Gopher visual IP.
 
+v1.9 starts the language-neutral skill cleanup milestone. The motivating issue is stale copy that frames the skill as Chinese article illustration instead of article illustration broadly. The cleanup preserves user-language labels, Chinese aliases, approved placeholder tokens, and compatibility smoke markers while removing Chinese-only scope from runtime descriptions and Xiaohei behavior rules.
+
 ## Constraints
 
 - **Runtime**: Preserve Codex Skill compatibility through Markdown `SKILL.md`, local reference files, and `agents/openai.yaml` metadata.
@@ -128,6 +129,7 @@ v1.8 starts the Go Gopher route milestone. Go project pages describe the Go Goph
 - **Image Generation Dependency**: Final generation still depends on the host agent's `image_gen` capability.
 - **Documentation Language**: English is the default language for repository docs, skill instructions, reference docs, examples, release materials, validation output, code, scripts, comments, commit messages, and PR copy.
 - **Multilingual Compatibility**: Chinese aliases, user-language visible labels, prompt placeholders, exact attribution/source names, and compatibility smoke fixtures remain allowed through documented exceptions.
+- **Language-Neutral Scope**: Skill descriptions and route behavior describe article illustrations broadly; specific languages appear only as aliases, placeholders, visible-label examples, source names, localized docs, and compatibility fixtures.
 
 ## Key Decisions
 
@@ -146,6 +148,7 @@ v1.8 starts the Go Gopher route milestone. Go project pages describe the Go Goph
 | Debrand the Sealos Seal route into Seal | Sealos is a product name and can make a character route feel promotional; the useful IP is the seal character itself | Good |
 | Add OpenClaw as a source-reviewed logo-mascot route | The user selected the uploaded red OpenClaw logo as a new IP authority, and the official OpenClaw repository provides MIT source context | Good |
 | Add Go Gopher as a source-reviewed mascot route | The user selected local `gopher.png` as the route visual authority, and Go project pages provide Renee French attribution plus Creative Commons Attribution 4.0 context | Pending |
+| Keep runtime skill scope language-neutral | The product serves article illustration across user languages while preserving route aliases, localized labels, and compatibility fixtures | Pending |
 
 ## Evolution
 
@@ -165,4 +168,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-16 after starting v1.8 Go Gopher Visual IP Integration*
+*Last updated: 2026-06-17 after starting v1.9 Language-Neutral Skill Cleanup*

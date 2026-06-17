@@ -50,7 +50,7 @@ const LANGUAGE_EXCEPTION_CATEGORIES = [
   "prompt placeholders",
   "attribution/source names",
   "compatibility smoke fixtures",
-  "Chinese article illustration examples",
+  "localized article illustration examples",
   "README language selector labels",
 ];
 const LANGUAGE_ALLOWLIST = [
@@ -174,7 +174,7 @@ const LANGUAGE_ALLOWLIST = [
       path.join(REFERENCES_DIR, "prompt-template.md"),
     ],
     token: "{正文配图主题}",
-    rationale: "Chinese article illustration prompt placeholder compatibility.",
+    rationale: "Localized article illustration prompt placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   },
   {
@@ -185,7 +185,7 @@ const LANGUAGE_ALLOWLIST = [
       path.join(REFERENCES_DIR, "prompt-template.md"),
     ],
     token: "{结构类型：Workflow / 系统局部 / 前后对比 / 角色状态 / 概念隐喻 / 方法分层 / 地图路线 / 小漫画分镜}",
-    rationale: "Chinese article illustration structure placeholder compatibility.",
+    rationale: "Localized article illustration structure placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   },
   {
@@ -195,7 +195,7 @@ const LANGUAGE_ALLOWLIST = [
       path.join(REFERENCES_DIR, "prompt-template.md"),
     ],
     token: "{这张图要表达的核心意思}",
-    rationale: "Chinese article illustration prompt placeholder compatibility.",
+    rationale: "Localized article illustration prompt placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   },
   {
@@ -205,7 +205,7 @@ const LANGUAGE_ALLOWLIST = [
       path.join(REFERENCES_DIR, "prompt-template.md"),
     ],
     token: "{要删除的文字}",
-    rationale: "Chinese title-removal edit prompt placeholder compatibility.",
+    rationale: "Localized title-removal edit prompt placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   },
   {
@@ -215,7 +215,7 @@ const LANGUAGE_ALLOWLIST = [
       path.join(REFERENCES_DIR, "prompt-template.md"),
     ],
     token: "{具体画面：小黑在哪里、正在做什么、主要物件是什么、信息如何流动}",
-    rationale: "Chinese article illustration prompt placeholder compatibility.",
+    rationale: "Localized article illustration prompt placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   },
   {
@@ -225,7 +225,7 @@ const LANGUAGE_ALLOWLIST = [
       path.join(REFERENCES_DIR, "prompt-template.md"),
     ],
     token: "{元素1}",
-    rationale: "Chinese article illustration prompt placeholder compatibility.",
+    rationale: "Localized article illustration prompt placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   },
   {
@@ -236,7 +236,7 @@ const LANGUAGE_ALLOWLIST = [
       path.join(REFERENCES_DIR, "prompt-template.md"),
     ],
     token: "{标注词1}",
-    rationale: "Chinese label placeholder compatibility.",
+    rationale: "Localized label placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   },
   ...[
@@ -254,7 +254,7 @@ const LANGUAGE_ALLOWLIST = [
       path.join(REFERENCES_DIR, "prompt-template.md"),
     ],
     token,
-    rationale: "Chinese article illustration prompt placeholder compatibility.",
+    rationale: "Localized article illustration prompt placeholder compatibility.",
     remediation: "Keep the placeholder token and translate surrounding prose in Phase 26.",
   })),
   {
@@ -289,10 +289,10 @@ const LANGUAGE_ALLOWLIST = [
     remediation: "Keep intentional label examples and translate surrounding prose in Phase 26 or Phase 27.",
   },
   {
-    category: "Chinese article illustration examples",
+    category: "localized article illustration examples",
     paths: ["examples/prompts.md"],
     pattern: /^Use \$ian-xiaohei-illustrations .*[\p{Script=Han}]/u,
-    rationale: "Legacy smoke examples intentionally model Chinese article illustration requests.",
+    rationale: "Legacy smoke examples intentionally model localized article illustration requests.",
     remediation: "Keep compatibility smoke intent and translate surrounding guidance in Phase 27.",
   },
   {
@@ -313,8 +313,8 @@ const LANGUAGE_ALLOWLIST = [
     category: "compatibility smoke fixtures",
     paths: [SKILL_FILE],
     token: "每张单独生成; 不要把多张图拼在一张里",
-    rationale: "Runtime compatibility marker for Chinese generation requests that require one image per call.",
-    remediation: "Keep until a future compatibility milestone removes the Chinese generation smoke marker.",
+    rationale: "Runtime compatibility marker for localized generation requests that require one image per call.",
+    remediation: "Keep until a future compatibility milestone removes the localized generation smoke marker.",
   },
   {
     category: "user-language visible labels",
@@ -342,41 +342,41 @@ const LANGUAGE_ALLOWLIST = [
     paths: [SKILL_FILE],
     token: "保留原始生成文件",
     rationale: "Runtime compatibility marker for preserving original generated files.",
-    remediation: "Keep until a future compatibility milestone removes the Chinese preservation smoke marker.",
+    remediation: "Keep until a future compatibility milestone removes the localized preservation smoke marker.",
   },
   {
     category: "compatibility smoke fixtures",
     paths: [SKILL_FILE],
     token: "选中的视觉 IP",
-    rationale: "Runtime output-contract field label preserved for Chinese article illustration delivery compatibility.",
+    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
     remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
   },
   {
     category: "compatibility smoke fixtures",
     paths: [SKILL_FILE],
     token: "生成了几张",
-    rationale: "Runtime output-contract field label preserved for Chinese article illustration delivery compatibility.",
+    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
     remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
   },
   {
     category: "compatibility smoke fixtures",
     paths: [SKILL_FILE],
     token: "每张图的用途",
-    rationale: "Runtime output-contract field label preserved for Chinese article illustration delivery compatibility.",
+    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
     remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
   },
   {
     category: "compatibility smoke fixtures",
     paths: [SKILL_FILE],
     token: "保存路径",
-    rationale: "Runtime output-contract field label preserved for Chinese article illustration delivery compatibility.",
+    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
     remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
   },
   {
     category: "compatibility smoke fixtures",
     paths: [SKILL_FILE],
     token: "哪些图最稳，哪些图是可选",
-    rationale: "Runtime output-contract field label preserved for Chinese article illustration delivery compatibility.",
+    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
     remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
   },
   {
@@ -384,14 +384,14 @@ const LANGUAGE_ALLOWLIST = [
     paths: [ROUTING_FILE],
     token: "每个 route group 只加载自己的 `required_references`",
     rationale: "Route isolation compatibility marker preserved from the Phase 26 routing migration.",
-    remediation: "Keep until a future compatibility milestone removes Chinese route-isolation smoke markers.",
+    remediation: "Keep until a future compatibility milestone removes localized route-isolation smoke markers.",
   },
   {
     category: "compatibility smoke fixtures",
     paths: [ROUTING_FILE],
     token: "写入 `assets/<article-slug>-",
     rationale: "Route output compatibility marker preserved from the Phase 26 routing migration.",
-    remediation: "Keep until a future compatibility milestone removes Chinese route-output smoke markers.",
+    remediation: "Keep until a future compatibility milestone removes localized route-output smoke markers.",
   },
   {
     category: "compatibility smoke fixtures",
@@ -2010,7 +2010,7 @@ function assertPhase28ReleaseEvidenceMarkers() {
     "$visual-ip-illustrations",
     "$ian-xiaohei-illustrations",
     "Chinese route aliases",
-    "Chinese article workflow compatibility",
+    "localized article workflow compatibility",
     "visible-label behavior",
     "route/output path stability",
   ], "Release 1.5 English-default evidence markers");
@@ -2485,6 +2485,17 @@ const checks = [
       "ian-xiaohei-illustrations",
     ], "canonical Visual IP Illustrations runtime identity, canonical invocation, compatibility alias, and local migration markers");
   }),
+  defineCheck("SKILL-LANG-001", "SKILL.md frontmatter keeps article scope language-neutral", () => {
+    const description = parseFrontmatter(requireFile(SKILL_FILE)).data.description ?? "";
+    if (/Chinese articles|Chinese article-body illustrations|Chinese article illustrations/u.test(description)) {
+      throw new Error(`${SKILL_FILE} frontmatter description must use language-neutral article scope; observed ${description}`);
+    }
+    assertIncludes(description, `${SKILL_FILE} frontmatter description`, [
+      "article-body illustrations",
+      "articles, posts, blogs",
+      "小黑",
+    ], "language-neutral skill discovery scope and preserved route alias");
+  }),
   defineCheck("SKILL-ROUTE-001", "SKILL.md routes requests through routing.md and selected IP behavior", () => {
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
       "references/routing.md",
@@ -2544,6 +2555,17 @@ const checks = [
         `${OPENAI_AGENT_FILE} expected policy.allow_implicit_invocation=true; observed ${yaml.policy?.allow_implicit_invocation ?? "missing"}`,
       );
     }
+  }),
+  defineCheck("AGENT-LANG-001", "openai.yaml keeps article scope language-neutral", () => {
+    const yaml = parseSimpleYamlShape(requireFile(OPENAI_AGENT_FILE));
+    const metadataText = [yaml.interface?.short_description ?? "", yaml.interface?.default_prompt ?? ""].join("\n");
+    if (/Chinese articles|Chinese article-body illustrations|Chinese article illustrations|this Chinese article/u.test(metadataText)) {
+      throw new Error(`${OPENAI_AGENT_FILE} metadata must use language-neutral article scope; observed ${metadataText}`);
+    }
+    assertIncludes(metadataText, `${OPENAI_AGENT_FILE} metadata`, [
+      "article-body illustration assets for articles",
+      "for this article",
+    ], "language-neutral agent discovery scope");
   }),
   defineCheck("AGENT-TOM-001", "openai.yaml exposes Tom gated route metadata markers", () => {
     assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [

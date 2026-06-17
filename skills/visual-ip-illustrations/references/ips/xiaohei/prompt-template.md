@@ -2,13 +2,13 @@
 
 Generate each image separately. Replace variables from the article context. Keep one generated image per prompt.
 
-Visible labels follow the user's language for the article. The Xiaohei Chinese article prompt keeps the approved Chinese placeholders exactly.
+Visible labels follow the user's language for the article. The Xiaohei prompt keeps the approved Chinese placeholders exactly for compatibility.
 
 ```text
-Generate one standalone 16:9 horizontal Chinese article illustration.
+Generate one standalone 16:9 horizontal article illustration.
 
 Visual DNA:
-Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines. Lots of empty white space. Sparse red/orange/blue handwritten Chinese annotations. Clean absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex background, no commercial vector style, no PPT infographic look, no cute mascot poster, no children's illustration, no realistic UI.
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines. Lots of empty white space. Sparse red/orange/blue handwritten labels copied exactly in the user's language. Clean absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex background, no commercial vector style, no PPT infographic look, no cute mascot poster, no children's illustration, no realistic UI.
 
 Recurring IP character required:
 小黑, a small solid-black absurd creature with white dot eyes, tiny thin legs, blank serious expression, slightly uneven hand-drawn body shape. 小黑 must perform the core conceptual action, not decorate the scene. Make 小黑 serious, deadpan, and slightly bizarre, not cute.
@@ -28,14 +28,14 @@ Composition:
 Suggested elements:
 {元素1} / {元素2} / {元素3} / {元素4}
 
-Chinese handwritten labels:
+Handwritten visible labels:
 {标注词1} / {标注词2} / {标注词3} / {标注词4} / {可选标注词5}
 
 Color use:
 Black for main line art and 小黑. Orange for main flow/path/arrows. Red only for key warnings/problems/results. Blue only for secondary notes or feedback/system state.
 
 Constraints:
-One image explains only one core structure. Keep the main subject around 40%-60% of the canvas. Preserve at least 35% blank white space. Use at most 5-8 short handwritten Chinese labels. Do not write a title in the top-left corner. Do not write the structure type on the image. Do not make it a formal diagram, course slide, or dense explainer. Do not copy prior examples or reuse known case compositions unless explicitly requested; invent a fresh visual metaphor for this specific article. It should be clear but not instructional, interesting but not childish, strange but clean.
+One image explains only one core structure. Keep the main subject around 40%-60% of the canvas. Preserve at least 35% blank white space. Use at most 5-8 short handwritten labels copied exactly in the user's language. Do not write a title in the top-left corner. Do not write the structure type on the image. Do not make it a formal diagram, course slide, or dense explainer. Do not copy prior examples or reuse known case compositions unless explicitly requested; invent a fresh visual metaphor for this specific article. It should be clear but not instructional, interesting but not childish, strange but clean.
 ```
 
 ## Image Edit Prompts

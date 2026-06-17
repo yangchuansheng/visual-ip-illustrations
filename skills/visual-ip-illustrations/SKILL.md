@@ -1,6 +1,6 @@
 ---
 name: visual-ip-illustrations
-description: Visual IP Illustrations generates selectable visual-IP article-body illustrations for Chinese articles, posts, blogs, Notion docs, workflow docs, methods, processes, structures, states, metaphors, opinions, shot lists, title-removal edits, and image repair. The omitted visual IP default is Xiaohei, with route alias 小黑 preserved; Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher are explicit selectable routes.
+description: Visual IP Illustrations generates selectable visual-IP article-body illustrations for articles, posts, blogs, Notion docs, workflow docs, methods, processes, structures, states, metaphors, opinions, shot lists, title-removal edits, and image repair. The omitted visual IP default is Xiaohei, with route alias 小黑 preserved; Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher are explicit selectable routes.
 ---
 
 # Visual IP Illustrations
@@ -259,10 +259,10 @@ Each image explains one core structure. Load the selected route's `required_refe
 
 Xiaohei continues to use the canonical references: `references/ips/xiaohei/style-dna.md`, `references/ips/xiaohei/xiaohei-ip.md`, `references/ips/xiaohei/composition-patterns.md`, `references/ips/xiaohei/prompt-template.md`, and `references/ips/xiaohei/qa-checklist.md`. Legacy root paths `references/style-dna.md`, `references/xiaohei-ip.md`, `references/composition-patterns.md`, `references/prompt-template.md`, and `references/qa-checklist.md` remain legacy compatibility entry points. Xiaohei prompts keep these markers:
 
-- 16:9 horizontal Chinese article-body illustration
+- 16:9 horizontal article-body illustration
 - clean white background
 - black hand-drawn linework
-- sparse red/orange/blue Chinese handwritten annotations
+- sparse red/orange/blue handwritten labels in the user's language
 - generous whitespace
 - Xiaohei as the central action subject
 - block PPT style, commercial illustration style, childish cute style, complex architecture, and top-left type titles
@@ -382,7 +382,7 @@ Xiaohei high-risk failures:
 - Xiaohei as decoration
 - crowded composition
 - flowchart/PPT feel
-- excessive or severely wrong Chinese text
+- excessive or severely wrong visible text
 - top-left titles such as `常见坑`, `流程图`, or `系统架构图`
 - overly cute, childish, or stiff style
 - background drift away from clean white

@@ -10,11 +10,13 @@ const scriptPath = path.join(repoRoot, "scripts", "validate-skill-package.mjs");
 const requiredCheckIds = [
   "PKG-SHAPE-001",
   "SKILL-FM-001",
+  "SKILL-LANG-001",
   "SKILL-ROUTE-001",
   "SKILL-REFS-001",
   "SKILL-OUTPUT-001",
   "SKILL-GEN-001",
   "AGENT-SHAPE-001",
+  "AGENT-LANG-001",
   "AGENT-TOM-001",
   "AGENT-SEAL-001",
   "AGENT-OPENCLAW-001",
@@ -340,7 +342,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=129 passed=129 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -441,6 +443,52 @@ test("validator collects failures and exits nonzero after Task 1 checks run", ()
   assert.match(result.stdout, /Summary: total=\d+ passed=\d+ failed=\d+ skipped=0/);
 });
 
+test("validator fixture rejects Chinese-only SKILL frontmatter scope", () => {
+  const fixtureRoot = copyFixture("skill-frontmatter-language-scope");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("skills", "visual-ip-illustrations", "SKILL.md"),
+      "Visual IP Illustrations generates selectable visual-IP article-body illustrations for articles, posts, blogs",
+      "Visual IP Illustrations generates selectable visual-IP article-body illustrations for Chinese articles, posts, blogs",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] SKILL-LANG-001 /);
+    assert.match(result.stdout, /language-neutral article scope/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects Chinese-only agent metadata scope", () => {
+  const fixtureRoot = copyFixture("agent-metadata-language-scope");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
+      "Visual IP Illustrations generates selectable visual-IP article-body illustration assets for articles.",
+      "Visual IP Illustrations generates selectable visual-IP article-body illustration assets for Chinese articles.",
+    );
+    replaceInFixture(
+      fixtureRoot,
+      path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
+      "article-body illustrations for this article.",
+      "article-body illustrations for this Chinese article.",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] AGENT-LANG-001 /);
+    assert.match(result.stdout, /language-neutral article scope/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
 test("validator failure messages include actionable Task 2 check IDs and paths", () => {
   const fixtureRoot = path.join(tmpdir(), `xiaohei-validator-task2-${process.pid}-${Date.now()}`);
   cpSync(repoRoot, fixtureRoot, {
@@ -533,7 +581,7 @@ test("validator emits the full Phase 42 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=129 passed=129 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -632,7 +680,7 @@ test("validator fixture reports approved multilingual tokens in enforce mode", (
 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /Summary: total=129 passed=129 failed=0 skipped=0/);
+    assert.match(result.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1056,6 +1104,7 @@ test("parser helpers expose current package contract primitives", async () => {
   const frontmatter = validators.parseFrontmatter(skillText);
   assert.equal(frontmatter.data.name, "visual-ip-illustrations");
   assert.ok(frontmatter.data.description.includes("小黑"));
+  assert.ok(!frontmatter.data.description.includes("Chinese articles"));
 
   const routes = validators.parseMarkdownTable(routingText, "IP Routes");
   assert.equal(routes.length, 7);
@@ -2699,7 +2748,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=129 passed=129 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2784,7 +2833,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=129 passed=129 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2832,7 +2881,7 @@ test("validator fixture enforces public Seal sample approval parsing", async () 
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEAL-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=129 passed=129 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2884,7 +2933,7 @@ test("validator fixture enforces public OpenClaw sample approval parsing", async
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-OPENCLAW-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=129 passed=129 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2946,7 +2995,7 @@ test("validator fixture enforces public Go Gopher sample approval parsing", asyn
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-GOPHER-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=129 passed=129 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

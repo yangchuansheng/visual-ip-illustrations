@@ -1,34 +1,33 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.8
-milestone_name: Go Gopher Visual IP Integration
-status: executing
-stopped_at: Completed 42-01-PLAN.md
-last_updated: "2026-06-17T10:32:22.000Z"
-last_activity: 2026-06-17 — Completed quick task 260617-pk4: Remove root gopher image and unused assets
+milestone: v1.9
+milestone_name: Language-Neutral Skill Cleanup
+status: complete
+last_updated: "2026-06-17T12:42:00.000Z"
+last_activity: 2026-06-17 — Completed v1.9 language-neutral skill cleanup with validator 131/131 and Node tests 98/98
 progress:
-  total_phases: 5
-  completed_phases: 0
-  total_plans: 10
-  completed_plans: 5
-  percent: 50
+  total_phases: 2
+  completed_phases: 2
+  total_plans: 2
+  completed_plans: 2
+  percent: 100
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-06-16)
+See: .planning/PROJECT.md (updated 2026-06-17)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.8 execution — Go Gopher Visual IP Integration
+**Current focus:** v1.9 complete — Language-Neutral Skill Cleanup
 
 ## Current Position
 
-Phase: 42 (Go Gopher Validation and Release Evidence)
-Plan: 42-01 complete
-Status: Phase 42 complete
-Last activity: 2026-06-17 - Completed quick task 260617-pk4: Remove root gopher image and unused assets
+Phase: 44 (Language Policy and Validation Hardening)
+Plan: 44-01 complete
+Status: v1.9 complete
+Last activity: 2026-06-17 - Completed language-neutral skill cleanup with validator 131/131, enforce validator 131/131, Node tests 98/98, and git diff --check clean
 
 ## Performance Metrics
 
@@ -76,8 +75,8 @@ Last activity: 2026-06-17 - Completed quick task 260617-pk4: Remove root gopher 
 
 **Recent Trend:**
 
-- Last 5 plans: Phase 37 hardened OpenClaw validation and release evidence; Phase 38 added the Go Gopher route/source contract; Phase 39 added the Go Gopher canonical pack; Phase 40 wired Go Gopher controller behavior; Phase 41 updated Go Gopher public release surfaces.
-- Trend: v1.8 now has Go Gopher source, route-local pack, runtime controller integration, and public docs complete; Phase 42 owns validator parity, Node tests, release evidence, leakage scan, and sample gates.
+- Last 5 plans: Phase 40 wired Go Gopher controller behavior; Phase 41 updated Go Gopher public release surfaces; Phase 42 hardened Go Gopher validation and release evidence; Phase 43 cleaned runtime and Xiaohei language scope; Phase 44 hardened policy, attribution, agent metadata, validator, and tests.
+- Trend: v1.9 completed language-neutral scope cleanup across skill runtime, agent metadata, Xiaohei references, policy, NOTICE, release checklist, validator, and Node tests.
 
 *Updated after each plan completion*
 | Phase 06 P01 | 3min | 2 tasks | 3 files |
@@ -258,6 +257,9 @@ Recent decisions affecting current work:
 - [Quick 260617-efv]: Root README variants now integrate Go Gopher in Outputs, escaped path markers, Visual IP Routes, Route Reference, operational route facts, Quick Examples, Workflow, Directory Structure, and Maintainer Validation. The trailing Go Gopher route-surface addendum was removed. Validator coverage reports 128/128 and Node tests report 96/96.
 - [Quick 260617-ewb]: Root README Example Gallery tables now cover Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher across all 13 README variants, backed by public OpenClaw and Go Gopher sample assets plus release approvals. Validator coverage reports 129/129 and Node tests report 96/96 after merging the Chinese gallery check.
 - [Quick 260617-pk4]: Go Gopher visual authority moved to `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`; root `gopher.png` and stale README hero assets were removed. Validator coverage reports 129/129 and Node tests report 96/96.
+- [Milestone v1.9]: Language-neutral skill cleanup removes stale Chinese-only scope wording from runtime skill discovery and Xiaohei route references while preserving Chinese aliases, approved prompt placeholders, user-language labels, localized examples, and compatibility smoke markers.
+- [Phase 43]: Runtime and Xiaohei canonical pack now describe article illustrations broadly, use user-language labels, and keep approved Chinese placeholders plus legacy markers. Legacy root Xiaohei compatibility references match the updated canonical pack.
+- [Phase 44]: Language policy, release checklist, NOTICE, and OpenAI agent metadata now avoid Chinese-only scope wording. Validator adds `SKILL-LANG-001` and `AGENT-LANG-001`; Node tests include both negative fixtures. Final evidence: validator 131/131, enforce validator 131/131, Node tests 98/98, and `git diff --check` clean.
 
 ### Pending Todos
 

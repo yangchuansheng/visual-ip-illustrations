@@ -27,7 +27,7 @@ Approved multilingual content is limited to compatibility and user-output surfac
 - prompt placeholders such as `{正文配图主题}`, `{结构类型：Workflow / 系统局部 / 前后对比 / 角色状态 / 概念隐喻 / 方法分层 / 地图路线 / 小漫画分镜}`, and `{标注词1}`
 - attribution/source names that must remain exact for source, rights, brand, copyright, trademark, or author records
 - compatibility smoke fixtures that prove legacy Chinese aliases and route behavior still work
-- Chinese article illustration examples that intentionally model Chinese article-body labels or user requests
+- localized article illustration examples that intentionally model user-language labels or user requests
 - README language selector labels that link localized README siblings
 
 ## Allowlist Entry Shape
