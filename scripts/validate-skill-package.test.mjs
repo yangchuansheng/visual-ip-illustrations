@@ -11,6 +11,7 @@ const requiredCheckIds = [
   "PKG-SHAPE-001",
   "SKILL-FM-001",
   "SKILL-LANG-001",
+  "SKILL-LANG-002",
   "SKILL-ROUTE-001",
   "SKILL-REFS-001",
   "SKILL-OUTPUT-001",
@@ -342,7 +343,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -353,6 +354,8 @@ test("validator reports Task 1 contract checks in stable order", () => {
   const expectedIds = [
     "PKG-SHAPE-001",
     "SKILL-FM-001",
+    "SKILL-LANG-001",
+    "SKILL-LANG-002",
     "SKILL-ROUTE-001",
     "SKILL-REFS-001",
     "SKILL-OUTPUT-001",
@@ -458,6 +461,27 @@ test("validator fixture rejects Chinese-only SKILL frontmatter scope", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] SKILL-LANG-001 /);
     assert.match(result.stdout, /language-neutral article scope/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects Han title examples in SKILL runtime text", () => {
+  const fixtureRoot = copyFixture("skill-runtime-han-title-examples");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("skills", "visual-ip-illustrations", "SKILL.md"),
+      "top-left titles such as `Common Pitfalls`, `Flowchart`, or `System Architecture`",
+      "top-left titles such as `常见坑`, `流程图`, or `系统架构图`",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] SKILL-LANG-002 /);
+    assert.match(result.stdout, /expected no Han characters in runtime entrypoint/);
+    assert.match(result.stdout, /常见坑/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -581,7 +605,7 @@ test("validator emits the full Phase 42 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -680,7 +704,7 @@ test("validator fixture reports approved multilingual tokens in enforce mode", (
 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
+    assert.match(result.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1103,7 +1127,7 @@ test("parser helpers expose current package contract primitives", async () => {
 
   const frontmatter = validators.parseFrontmatter(skillText);
   assert.equal(frontmatter.data.name, "visual-ip-illustrations");
-  assert.ok(frontmatter.data.description.includes("小黑"));
+  assert.ok(frontmatter.data.description.includes("localized route aliases preserved in references/routing.md"));
   assert.ok(!frontmatter.data.description.includes("Chinese articles"));
 
   const routes = validators.parseMarkdownTable(routingText, "IP Routes");
@@ -2748,7 +2772,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2833,7 +2857,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2881,7 +2905,7 @@ test("validator fixture enforces public Seal sample approval parsing", async () 
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEAL-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2933,7 +2957,7 @@ test("validator fixture enforces public OpenClaw sample approval parsing", async
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-OPENCLAW-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2995,7 +3019,7 @@ test("validator fixture enforces public Go Gopher sample approval parsing", asyn
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-GOPHER-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=131 passed=131 failed=0 skipped=0/);
+    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

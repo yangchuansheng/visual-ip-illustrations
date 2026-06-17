@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.9
 milestone_name: Language-Neutral Skill Cleanup
 status: shipped
-last_updated: "2026-06-17T15:18:57.000Z"
-last_activity: 2026-06-17 — Shipped v1.9 Language-Neutral Skill Cleanup in PR #2
+last_updated: "2026-06-17T16:42:30.000Z"
+last_activity: 2026-06-18 — Completed quick task 260618-0ti: Convert residual Chinese runtime QA examples in SKILL.md to English
 progress:
   total_phases: 2
   completed_phases: 2
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-06-17)
 Phase: 44 (Language Policy and Validation Hardening)
 Plan: 44-01 complete
 Status: v1.9 shipped — PR #2
-Last activity: 2026-06-17 - Shipped language-neutral skill cleanup to GitHub PR #2 after validator 131/131, enforce validator 131/131, Node tests 98/98, and git diff --check clean
+Last activity: 2026-06-18 - Completed quick task 260618-0ti: converted residual Chinese runtime QA examples in SKILL.md to English, added SKILL-LANG-002, and verified validator 132/132 plus Node tests 99/99
 
 ## Performance Metrics
 
@@ -285,6 +285,7 @@ Recent decisions affecting current work:
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
+| 260618-0ti | Convert residual Chinese runtime QA examples in SKILL.md to English | 2026-06-18 | this commit | [260618-0ti-convert-residual-chinese-runtime-qa-exam](./quick/260618-0ti-convert-residual-chinese-runtime-qa-exam/) |
 | 260617-pk4 | Remove root gopher image and unused assets | 2026-06-17 | this commit | [260617-pk4-remove-root-gopher-image-and-unused-asse](./quick/260617-pk4-remove-root-gopher-image-and-unused-asse/) |
 | 260617-pbq | Replace the lead image in every README with Downloads/20260617-181124.gif | 2026-06-17 | this commit | [260617-pbq-replace-the-lead-image-in-every-readme-w](./quick/260617-pbq-replace-the-lead-image-in-every-readme-w/) |
 | 260617-mwq | Create a HyperFrames animation from the README hero lineup | 2026-06-17 | this commit | [260617-mwq-create-a-hyperframes-animation-from-the-](./quick/260617-mwq-create-a-hyperframes-animation-from-the-/) |

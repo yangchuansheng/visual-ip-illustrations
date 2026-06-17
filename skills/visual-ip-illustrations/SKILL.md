@@ -1,6 +1,6 @@
 ---
 name: visual-ip-illustrations
-description: Visual IP Illustrations generates selectable visual-IP article-body illustrations for articles, posts, blogs, Notion docs, workflow docs, methods, processes, structures, states, metaphors, opinions, shot lists, title-removal edits, and image repair. The omitted visual IP default is Xiaohei, with route alias 小黑 preserved; Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher are explicit selectable routes.
+description: Visual IP Illustrations generates selectable visual-IP article-body illustrations for articles, posts, blogs, Notion docs, workflow docs, methods, processes, structures, states, metaphors, opinions, shot lists, title-removal edits, and image repair. The omitted visual IP default is Xiaohei, with localized route aliases preserved in references/routing.md; Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher are explicit selectable routes.
 ---
 
 # Visual IP Illustrations
@@ -11,7 +11,7 @@ Visual IP Illustrations designs and generates 16:9 horizontal article-body illus
 
 Canonical invocation: `$visual-ip-illustrations`.
 
-Compatibility marker: `$ian-xiaohei-illustrations 是 v1.4 compatibility alias`; existing prompts can continue using `$ian-xiaohei-illustrations` during the v1.4 local migration window.
+Compatibility marker: `$ian-xiaohei-illustrations` remains the v1.4 compatibility alias; existing prompts can continue using `$ian-xiaohei-illustrations` during the v1.4 local migration window.
 
 ## 1.4 Runtime Identity and Local Migration
 
@@ -24,7 +24,7 @@ Compatibility marker: `$ian-xiaohei-illustrations 是 v1.4 compatibility alias`;
 
 ## Visual IP Routes
 
-The omitted visual IP default is Xiaohei. Compatibility marker: 用户省略视觉 IP 时，默认选择小黑路由. Omitted visual IP selects only the Xiaohei route.
+The omitted visual IP default is Xiaohei. Compatibility marker: omitted visual IP selects the Xiaohei route. Omitted visual IP selects only the Xiaohei route.
 
 Xiaohei is a black solid-bodied character with white dot eyes, thin legs, and a blank expression. Xiaohei performs one serious, absurd, conceptually valid action and carries the central cognitive action in the image.
 
@@ -109,11 +109,11 @@ Read `references/routing.md` first, then load only the selected route's required
 Read `references/routing.md` first and choose the route for the current task.
 
 - Omitted visual IP selects `xiaohei`.
-- `小黑`, `Xiaohei`, `Ian`, and `ian-xiaohei` select the same Xiaohei route.
-- `小盒`, `Littlebox`, `纸盒`, `paper-box`, and `carton` select the same Littlebox route.
-- `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, and `汤姆猫` select the same Tom route: route id `tom`, display name `Tom`, default=false, output_suffix: tom, route status `gated-authorized`, rights pointer `references/ips/tom/rights.md`.
-- `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, and `Rust 螃蟹` select the same Ferris route: route id `ferris`, display name `Ferris`, default=false, output_suffix: ferris, route status `source-reviewed`, source/trademark pointer `references/ips/ferris/source.md`.
-- `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, and `蓝色连帽衫海豹` select the same Seal route: route id `seal`, display name `Seal`, default=false, output_suffix: seal, route status `active`, source pointer `references/ips/seal/source.md`.
+- Xiaohei aliases listed in `references/routing.md` select the same Xiaohei route.
+- Littlebox aliases listed in `references/routing.md` select the same Littlebox route.
+- Tom aliases listed in `references/routing.md` select the same Tom route: route id `tom`, display name `Tom`, default=false, output_suffix: tom, route status `gated-authorized`, rights pointer `references/ips/tom/rights.md`.
+- Ferris aliases listed in `references/routing.md` select the same Ferris route: route id `ferris`, display name `Ferris`, default=false, output_suffix: ferris, route status `source-reviewed`, source/trademark pointer `references/ips/ferris/source.md`.
+- Seal aliases listed in `references/routing.md` select the same Seal route: route id `seal`, display name `Seal`, default=false, output_suffix: seal, route status `active`, source pointer `references/ips/seal/source.md`.
 - `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, and the OpenClaw aliases listed in `references/routing.md` select the same OpenClaw route: route id `openclaw`, display name `OpenClaw`, default=false, output_suffix: openclaw, route status `source-reviewed`, source/license pointer `references/ips/openclaw/source.md`.
 - `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, and Go Gopher-qualified route phrases select the same Go Gopher route: route id `gopher`, display name `Go Gopher`, default=false, output_suffix: gopher, route status `source-reviewed`, source/license pointer `references/ips/gopher/source.md`, and route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority. Generic route phrases stay governed by `references/routing.md` and remain outside Go Gopher selection.
 - Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher first identify one shared core idea, then create separate route groups. Each selected variant group uses its own route id, required_references, prompt template, composition rules, QA, edit repairs, output_suffix, route note, and output directory.
@@ -253,7 +253,7 @@ Default to 4-8 images. Short articles usually need 1-3. Long articles usually st
 
 ### 4. Generate One Image at a Time
 
-When the user explicitly asks to generate, output, make, or create images, call the host-provided `image_gen` capability directly. Compatibility markers: 每张单独生成; 不要把多张图拼在一张里. Use one image-generation call per image.
+When the user explicitly asks to generate, output, make, or create images, call the host-provided `image_gen` capability directly. Compatibility markers: generate each image separately; keep each image on its own canvas. Use one image-generation call per image.
 
 Each image explains one core structure. Load the selected route's `required_references`, then assemble the prompt with that IP's template, character rules, composition rules, and QA references.
 
@@ -383,7 +383,7 @@ Xiaohei high-risk failures:
 - crowded composition
 - flowchart/PPT feel
 - excessive or severely wrong visible text
-- top-left titles such as `常见坑`, `流程图`, or `系统架构图`
+- top-left titles such as `Common Pitfalls`, `Flowchart`, or `System Architecture`
 - overly cute, childish, or stiff style
 - background drift away from clean white
 
@@ -541,17 +541,17 @@ Use ordered English slug filenames:
 
 Seal accepted outputs use ordered English slug filenames such as `01-topic-name.png`. OpenClaw accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Go Gopher accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Mixed-IP requests write each separate route group to its own output directory: Xiaohei to `assets/<article-slug>-illustrations/`, Littlebox to `assets/<article-slug>-littlebox/`, Tom to `assets/<article-slug>-tom/`, Ferris to `assets/<article-slug>-ferris/`, Seal to `assets/<article-slug>-seal/`, OpenClaw to `assets/<article-slug>-openclaw/`, and Go Gopher variants to `assets/<article-slug>-gopher/`. Each variant group keeps its own file sequence and purpose notes.
 
-Compatibility marker: 保留原始生成文件. Preserve original generated files and choose new filenames for new accepted outputs.
+Compatibility marker: preserve original generated files. Preserve original generated files and choose new filenames for new accepted outputs.
 
 ## Output Contract
 
 Pre-generation strategy output should be short and precise. Post-generation delivery includes:
 
-- selected visual IP / 选中的视觉 IP
-- image count / 生成了几张
-- purpose per image / 每张图的用途
-- saved path / 保存路径
-- stability notes / 哪些图最稳，哪些图是可选
+- selected visual IP
+- image count
+- purpose per image
+- saved path
+- stability notes
 
 Mixed-IP delivery uses one block per IP:
 

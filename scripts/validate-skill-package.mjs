@@ -297,90 +297,6 @@ const LANGUAGE_ALLOWLIST = [
   },
   {
     category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "$ian-xiaohei-illustrations 是 v1.4 compatibility alias",
-    rationale: "Runtime compatibility marker preserved from the Phase 26 skill migration.",
-    remediation: "Keep until a future compatibility milestone removes the v1.4 legacy alias marker.",
-  },
-  {
-    category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "用户省略视觉 IP 时，默认选择小黑路由",
-    rationale: "Runtime compatibility marker proving omitted-IP Chinese prompt behavior.",
-    remediation: "Keep until a future compatibility milestone removes the Chinese omitted-IP smoke marker.",
-  },
-  {
-    category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "每张单独生成; 不要把多张图拼在一张里",
-    rationale: "Runtime compatibility marker for localized generation requests that require one image per call.",
-    remediation: "Keep until a future compatibility milestone removes the localized generation smoke marker.",
-  },
-  {
-    category: "user-language visible labels",
-    paths: [SKILL_FILE],
-    token: "常见坑",
-    rationale: "Example visible title artifact in user language for Xiaohei QA rejection.",
-    remediation: "Keep as a bounded visible-text artifact example.",
-  },
-  {
-    category: "user-language visible labels",
-    paths: [SKILL_FILE],
-    token: "流程图",
-    rationale: "Example visible title artifact in user language for Xiaohei QA rejection.",
-    remediation: "Keep as a bounded visible-text artifact example.",
-  },
-  {
-    category: "user-language visible labels",
-    paths: [SKILL_FILE],
-    token: "系统架构图",
-    rationale: "Example visible title artifact in user language for Xiaohei QA rejection.",
-    remediation: "Keep as a bounded visible-text artifact example.",
-  },
-  {
-    category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "保留原始生成文件",
-    rationale: "Runtime compatibility marker for preserving original generated files.",
-    remediation: "Keep until a future compatibility milestone removes the localized preservation smoke marker.",
-  },
-  {
-    category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "选中的视觉 IP",
-    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
-    remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
-  },
-  {
-    category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "生成了几张",
-    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
-    remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
-  },
-  {
-    category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "每张图的用途",
-    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
-    remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
-  },
-  {
-    category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "保存路径",
-    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
-    remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
-  },
-  {
-    category: "compatibility smoke fixtures",
-    paths: [SKILL_FILE],
-    token: "哪些图最稳，哪些图是可选",
-    rationale: "Runtime output-contract field label preserved for localized article illustration delivery compatibility.",
-    remediation: "Keep until a future compatibility milestone removes bilingual delivery fields.",
-  },
-  {
-    category: "compatibility smoke fixtures",
     paths: [ROUTING_FILE],
     token: "每个 route group 只加载自己的 `required_references`",
     rationale: "Route isolation compatibility marker preserved from the Phase 26 routing migration.",
@@ -1704,6 +1620,15 @@ function languageScanReport({ enforce = true } = {}) {
   };
 }
 
+function skillHanFindings() {
+  return requireFile(SKILL_FILE)
+    .split("\n")
+    .flatMap((line, index) =>
+      classifyLanguageLine(SKILL_FILE, index + 1, line)
+        .filter((finding) => finding.status === "approved" || finding.status === "stale"),
+    );
+}
+
 function markdownTableHeader(text, headingText) {
   const body = bodyAfterHeading(text, headingText);
   const line = body
@@ -2493,13 +2418,30 @@ const checks = [
     assertIncludes(description, `${SKILL_FILE} frontmatter description`, [
       "article-body illustrations",
       "articles, posts, blogs",
-      "小黑",
+      "localized route aliases preserved in references/routing.md",
     ], "language-neutral skill discovery scope and preserved route alias");
+  }),
+  defineCheck("SKILL-LANG-002", "SKILL.md runtime text stays English except approved routing references", () => {
+    const findings = skillHanFindings();
+    if (findings.length > 0) {
+      throw new Error(
+        `${SKILL_FILE} expected no Han characters in runtime entrypoint; observed ${findings.map(formatLanguageFinding).join(" | ")}`,
+      );
+    }
+    assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
+      "Common Pitfalls",
+      "Flowchart",
+      "System Architecture",
+      "generate each image separately",
+      "preserve original generated files",
+      "selected visual IP",
+      "image count",
+    ], "English runtime QA examples, generation markers, and output contract labels");
   }),
   defineCheck("SKILL-ROUTE-001", "SKILL.md routes requests through routing.md and selected IP behavior", () => {
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
       "references/routing.md",
-      "用户省略视觉 IP 时，默认选择小黑路由",
+      "omitted visual IP selects the Xiaohei route",
       "Littlebox",
       "variant group",
       "shared core idea",
@@ -2534,9 +2476,9 @@ const checks = [
   defineCheck("SKILL-GEN-001", "SKILL.md preserves host image generation runtime boundary", () => {
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
       "image_gen",
-      "每张单独生成",
-      "不要把多张图拼在一张里",
-      "保留原始生成文件",
+      "generate each image separately",
+      "keep each image on its own canvas",
+      "preserve original generated files",
     ], "host image_gen, one-image-per-call, and asset preservation markers");
   }),
   defineCheck("AGENT-SHAPE-001", "openai.yaml exposes expected nested metadata keys", () => {
