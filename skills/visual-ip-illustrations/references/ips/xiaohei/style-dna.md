@@ -2,7 +2,7 @@
 
 ## One-Line Direction
 
-Use a pure-white, minimalist, hand-drawn, sparse, restrained, absurd product-sketch style with handwritten Chinese labels and a clear structure that still feels like a quick explanatory sketch.
+Use a pure-white, minimalist, hand-drawn, sparse, restrained, absurd product-sketch style with handwritten labels in the user's language and a clear structure that still feels like a quick explanatory sketch.
 
 The image should feel like a person who works in AI, product, design, and developer tools drew one explanatory sketch on a blank white sheet.
 
@@ -14,7 +14,7 @@ Legacy compatibility marker: `纯白背景`.
 - Pure white background: avoid beige, warm gray, paper texture, gradients, shadows, noise, and vintage paper effects.
 - Mostly black hand-drawn line art: thin lines, slight wobble, organic shape, no mechanical vector finish, and no heavy outlines.
 - Generous whitespace: the main subject covers about 40%-60% of the canvas, with at least 35% blank space and ideally one quiet open area.
-- Sparse handwritten Chinese annotations: at most 5-8 labels, usually 2-8 Chinese characters each.
+- Sparse handwritten labels: at most 5-8 labels, copied in the user's language and kept short.
 - One image explains one core action, structure, state, or metaphor.
 - Express the structure through the scene itself. Do not write the structure type on the image.
 

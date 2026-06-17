@@ -13,7 +13,7 @@ Canonical Xiaohei character rules live at `references/ips/xiaohei/xiaohei-ip.md`
 
 ## Character Definition
 
-Xiaohei is the fixed visual IP for Ian-style Chinese article-body illustrations.
+Xiaohei is the fixed visual IP for Ian-style article-body illustrations.
 
 Xiaohei appears by default in each Xiaohei image. Xiaohei is a serious absurd worker participating in the system's operation.
 

@@ -10,7 +10,7 @@
 - The image feels absurd, inventive, and interesting.
 - The layout is clean, with the main subject covering no more than about 60% of the canvas.
 - One image explains one core structure.
-- Chinese labels are sparse, short, and readable.
+- Visible labels are sparse, short, readable, and copied in the user's language.
 - Orange is used only for the main path or arrows.
 - Red is used only for emphasis, problems, reminders, or results.
 - Blue is used only for supporting notes, feedback, or system state.
@@ -26,7 +26,7 @@ Regenerate or locally edit when any of these appear:
 - Long explanatory text blocks.
 - Paper texture, shadow, gradient, beige tint, or noise in the background.
 - Real UI screenshot or tech-interface look.
-- Severe Chinese typos or unreadable labels.
+- Severe label typos or unreadable labels.
 - Stiff image with no absurd metaphor.
 - Composition too similar to old cases in `assets/examples/`.
 

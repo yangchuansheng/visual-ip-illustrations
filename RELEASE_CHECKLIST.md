@@ -39,9 +39,9 @@ Phase 42 owns Go Gopher validator parity, Node tests, final release evidence, do
 - [ ] Record explicit enforce-mode evidence by running `LANGUAGE_SCAN_ENFORCE=1 node scripts/validate-skill-package.mjs`.
 - [ ] Record Node regression evidence by running `node --test scripts/validate-skill-package.test.mjs`.
 - [ ] Record whitespace evidence by running `git diff --check`.
-- [ ] Record residual Han classification and confirm every finding maps to route aliases, user-language visible labels, prompt placeholders, attribution/source names, compatibility smoke fixtures, or Chinese article illustration examples.
+- [ ] Record residual Han classification and confirm every finding maps to route aliases, user-language visible labels, prompt placeholders, attribution/source names, compatibility smoke fixtures, or localized article illustration examples.
 - [ ] Confirm docs consistency across public docs, runtime docs, route metadata, NOTICE, and release materials.
-- [ ] Confirm compatibility smoke coverage for canonical invocation `$visual-ip-illustrations`, legacy invocation `$ian-xiaohei-illustrations`, Chinese route aliases, Chinese article workflow compatibility, visible-label behavior, route/output path stability, route ids, route statuses, and output suffixes.
+- [ ] Confirm compatibility smoke coverage for canonical invocation `$visual-ip-illustrations`, legacy invocation `$ian-xiaohei-illustrations`, Chinese route aliases, localized article workflow compatibility, visible-label behavior, route/output path stability, route ids, route statuses, and output suffixes.
 
 ## Release 1.4 Rebrand Review
 
