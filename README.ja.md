@@ -52,8 +52,10 @@ Release 1.4 の公開名称は `Visual IP Illustrations`、ローカル checkout
 - Ferris outputs は workspace path `assets/<article-slug>-ferris/` に保存されます。
 - Seal outputs は workspace path `assets/<article-slug>-seal/` に保存されます。
 - OpenClaw は workspace path `assets/<article-slug>-openclaw/` に出力します。
+- Go Gopher outputs to workspace path `assets/<article-slug>-gopher/`.
 
 Docs validation は HTML escaped route markers も保持します: `assets/&lt;article-slug&gt;-illustrations/`、`assets/&lt;article-slug&gt;-littlebox/`、`assets/&lt;article-slug&gt;-tom/`、`assets/&lt;article-slug&gt;-ferris/`、`assets/&lt;article-slug&gt;-seal/`、`assets/&lt;article-slug&gt;-openclaw/`。
+Docs validation also keeps Go Gopher escaped marker: `assets/&lt;article-slug&gt;-gopher/`.
 
 ---
 
@@ -95,6 +97,12 @@ OpenClaw は明示的な logo-mascot ルートです。公式の赤い丸い Ope
 
 Alias: `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`、および `ian-xiaohei-illustrations/references/routing.md` に listed された OpenClaw aliases。
 
+### Go Gopher
+
+Go Gopher is an explicit source-reviewed article-illustration mascot route: the Go language mascot from root `gopher.png` carries one article concept through sparse, hand-drawn cognitive actions while preserving the Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, Go logo boundary, official endorsement boundary, and public sample gate.
+
+Aliases: `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, plus Go Gopher aliases listed in `ian-xiaohei-illustrations/references/routing.md`.
+
 ### ルート参照
 
 Maintainers は `ian-xiaohei-illustrations/references/routing.md` で route metadata fields を確認できます: `id`、`display_name`、`aliases`、`default`、`output_suffix`、`required_references`、`attribution_context`、`status`。
@@ -107,6 +115,7 @@ Canonical packs:
 - Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
 - Seal: `ian-xiaohei-illustrations/references/ips/seal/`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
 - OpenClaw: `ian-xiaohei-illustrations/references/ips/openclaw/`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`
+- Go Gopher: `ian-xiaohei-illustrations/references/ips/gopher/`, source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`
 
 複数の visual IP を求めるリクエストでは、variant groups を分けて届け、それぞれを専用 output directory に書き込みます。
 
@@ -116,10 +125,13 @@ Route operational data:
 - Ferris: status `source-reviewed`; source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
 - OpenClaw: route id `openclaw`; default=false; status `source-reviewed`; source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`; output path `assets/<article-slug>-openclaw/`; docs validation token `assets/&lt;article-slug&gt;-openclaw/`; output suffix `openclaw`; uploaded-logo identity uses a red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and final OpenClaw release evidence.
+- Go Gopher: route id `gopher`; default=false; status `source-reviewed`; source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`; output path `assets/<article-slug>-gopher/`; docs validation token `assets/&lt;article-slug&gt;-gopher/`; output suffix `gopher`; local visual authority root `gopher.png`; attribution Renee French; license boundary Creative Commons Attribution 4.0; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Phase 42 Go Gopher release evidence; Go logo boundary and official endorsement boundary stay attached.
 
 ---
 
 ## サンプルギャラリー
+
+Go Gopher public rendered samples remain gated by `RELEASE_CHECKLIST.md`; no Go Gopher gallery assets are published until release approval is recorded.
 
 これらの画像は Xiaohei style calibration examples です。line density、whitespace、color restraint、character participation を理解し、現在の記事に合わせた新しいメタファーを作ってください。
 
@@ -215,7 +227,7 @@ Requirements: hand-drawn, spacious, sparse visible labels in the user's language
 
 ```text
 Use $visual-ip-illustrations. Do not generate images yet.
-Create separate Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw shot-list groups from the same idea.
+Create separate Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher shot-list groups from the same idea.
 Each group must keep its own IP, character action, visible labels, and output path.
 
 Idea: trust is built by placing one piece of evidence after another.
@@ -230,12 +242,12 @@ protected-character、source-reviewed、active source-history route は route st
 ## ワークフロー
 
 1. article、Markdown、Notion content、screenshot、ユーザー提供 topic を読みます。
-2. visual IP を選択します: IP 省略は Xiaohei を選択します; explicit Littlebox は Littlebox を選択します; Tom aliases は Tom protected-character route を選択します; Ferris aliases は Ferris source-reviewed pack を選択します; Seal aliases は active Seal pack を選択します; explicit OpenClaw aliases は OpenClaw source-reviewed pack を選択します。
+2. visual IP を選択します: IP 省略は Xiaohei を選択します; explicit Littlebox は Littlebox を選択します; Tom aliases は Tom protected-character route を選択します; Ferris aliases は Ferris source-reviewed pack を選択します; Seal aliases は active Seal pack を選択します; explicit OpenClaw aliases は OpenClaw source-reviewed pack を選択します。 Explicit Go Gopher aliases select the Go Gopher source-reviewed pack.
 3. core claims、cognitive turns、workflow structures、visualizable paragraphs を抽出します。
 4. まず shot list を作成します; 各画像は cognitive anchor を 1 つ受け取ります。
 5. 各画像に structure type を 1 つ選びます: Workflow、system local view、before/after、character state、concept metaphor、method layers、map route、comic panels。
-6. 選択した IP の canonical pack を読み込み、prompts を組み立て、画像を 1 枚ずつ生成します。Mixed-IP requests は separate route groups と output directories を作成し、Xiaohei、Littlebox、Tom、Ferris、Seal はそれぞれ route-local references を保持します; OpenClaw も route-local references を保持します。
-7. 選択した IP の QA checklist に照らして character identity、composition、background、labels、output path を確認します。Tom は `gated-authorized` と `ian-xiaohei-illustrations/references/ips/tom/rights.md` を保持します; Ferris は `source-reviewed`、source/trademark note、`ian-xiaohei-illustrations/references/ips/ferris/source.md` を保持します; Seal は `active`、source-history authority、hoodie seal identity note、logo-free note、`ian-xiaohei-illustrations/references/ips/seal/source.md` を保持します; OpenClaw は `source-reviewed`、source/license authority、uploaded-logo identity、public-sample gate、`ian-xiaohei-illustrations/references/ips/openclaw/source.md` を保持します。
+6. 選択した IP の canonical pack を読み込み、prompts を組み立て、画像を 1 枚ずつ生成します。Mixed-IP requests は separate route groups と output directories を作成し、Xiaohei、Littlebox、Tom、Ferris、Seal はそれぞれ route-local references を保持します; OpenClaw も route-local references を保持します。 Go Gopher plans keep the Go language mascot action-centered and route-local.
+7. 選択した IP の QA checklist に照らして character identity、composition、background、labels、output path を確認します。Tom は `gated-authorized` と `ian-xiaohei-illustrations/references/ips/tom/rights.md` を保持します; Ferris は `source-reviewed`、source/trademark note、`ian-xiaohei-illustrations/references/ips/ferris/source.md` を保持します; Seal は `active`、source-history authority、hoodie seal identity note、logo-free note、`ian-xiaohei-illustrations/references/ips/seal/source.md` を保持します; OpenClaw は `source-reviewed`、source/license authority、uploaded-logo identity、public-sample gate、`ian-xiaohei-illustrations/references/ips/openclaw/source.md` を保持します。 Go Gopher keeps `source-reviewed`, source/license authority, root `gopher.png`, public-sample gate, and `references/ips/gopher/source.md` in the delivery notes.
 8. 最終 PNG を保存し、purpose と path を報告します。
 
 ---
@@ -318,11 +330,19 @@ protected-character、source-reviewed、active source-history route は route st
             │   ├── composition-patterns.md
             │   ├── prompt-template.md
             │   └── qa-checklist.md
-            └── openclaw/
+            ├── openclaw/
+            │   ├── index.md
+            │   ├── source.md
+            │   ├── style-dna.md
+            │   ├── openclaw-ip.md
+            │   ├── composition-patterns.md
+            │   ├── prompt-template.md
+            │   └── qa-checklist.md
+            └── gopher/
                 ├── index.md
                 ├── source.md
                 ├── style-dna.md
-                ├── openclaw-ip.md
+                ├── gopher-ip.md
                 ├── composition-patterns.md
                 ├── prompt-template.md
                 └── qa-checklist.md
@@ -347,6 +367,7 @@ node scripts/validate-skill-package.mjs
 Validation は skill package shape、route table、Xiaohei、Littlebox、Tom、Ferris、Seal canonical packs、legacy Xiaohei paths、public docs links、output path markers、NOTICE attribution、Tom `gated-authorized` route markers、Ferris `source-reviewed` route markers、Seal `active` route markers、source-history authority、hoodie seal identity note、logo-free note、Phase 32 full validator restoration evidence を対象にします。
 
 Validation は OpenClaw canonical pack markers、OpenClaw `source-reviewed` route markers、source/license authority、uploaded-logo identity note、Phase 37 final release evidence も対象にします。
+Validation also covers Go Gopher canonical pack markers, Go Gopher `source-reviewed` route markers, source/license authority, root `gopher.png`, public sample gate, Phase 42 final release evidence, and Go Gopher validator checks.
 
 Maintainer 向けの現在の validation commands:
 
@@ -361,60 +382,6 @@ Pre-release checks は [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) にありま
 ---
 
 ---
-
-## Go Gopher Route Surface
-
-Go Gopher is an explicit source-reviewed article-illustration mascot route. It preserves Xiaohei as the omitted-IP default route and keeps Go Gopher selectable through explicit aliases only.
-
-Aliases: `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, `Go 吉祥物`, `Gopher 吉祥物`, plus Go Gopher aliases listed in `ian-xiaohei-illustrations/references/routing.md`.
-
-Output markers:
-
-- Raw output path: `assets/<article-slug>-gopher/`.
-- Escaped docs marker: `assets/&lt;article-slug&gt;-gopher/`.
-- Output suffix: `gopher`.
-
-Route reference:
-
-- Go Gopher: `ian-xiaohei-illustrations/references/ips/gopher/`, source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
-
-Operational route facts:
-
-- Route id: `gopher`.
-- Default marker: default=false.
-- Status: `source-reviewed`.
-- Source/license authority: `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
-- Local visual authority: root `gopher.png`.
-- Attribution: Renee French.
-- License boundary: Creative Commons Attribution 4.0.
-- Go logo boundary: Go logo identity stays outside the Go Gopher route contract.
-- Official endorsement boundary: Go Gopher docs avoid official Go project affiliation, approval, sponsorship, and endorsement claims.
-- Public rendered Go Gopher samples remain gated by `RELEASE_CHECKLIST.md`; no Go Gopher public sample assets are added under `examples/images/` or `ian-xiaohei-illustrations/assets/examples/` in Phase 41.
-
-Mixed-IP and workflow markers:
-
-- Mixed-IP requests use seven separate route groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher.
-- Go Gopher keeps independent route-local references, QA, output suffix `gopher`, route status `source-reviewed`, source/license note, root `gopher.png` identity note, and output directory `assets/<article-slug>-gopher/`.
-- Quick examples can use `Go Gopher` as `{visual IP}`; omitted visual IP still selects Xiaohei.
-- Route-specific delivery reports include Go Gopher selected IP, purpose, saved path, source/license note, public sample gate, and route stability notes.
-
-Directory marker:
-
-```text
-ian-xiaohei-illustrations/references/ips/gopher/
-├── index.md
-├── source.md
-├── style-dna.md
-├── gopher-ip.md
-├── composition-patterns.md
-├── prompt-template.md
-└── qa-checklist.md
-```
-
-Maintainer validation marker:
-
-- Phase 42 owns validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation for Go Gopher.
-- Current Phase 41 maintainer checks use targeted `rg` checks and `git diff --check` against README variants, examples, NOTICE, release checklist, and agent metadata.
 
 ## ライセンス
 

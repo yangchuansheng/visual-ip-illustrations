@@ -255,6 +255,7 @@ Recent decisions affecting current work:
 - [Phase 40]: Current validator and Node failures remain Phase 42-deferred seventh-route baseline failures; targeted Phase 40 route, controller, route-table, diff, and untracked `gopher.png` checks passed.
 - [Phase 41]: Phase 41 kept Go Gopher as an explicit source-reviewed route while preserving Xiaohei as the omitted-IP default.
 - [Phase 42]: Phase 42 keeps Go Gopher validation in the dependency-free Node validator and records public sample approval through release evidence.
+- [Quick 260617-efv]: Root README variants now integrate Go Gopher in Outputs, escaped path markers, Visual IP Routes, Route Reference, operational route facts, Quick Examples, Workflow, Directory Structure, and Maintainer Validation. The trailing Go Gopher route-surface addendum was removed. Validator coverage reports 128/128 and Node tests report 96/96.
 
 ### Pending Todos
 
@@ -280,6 +281,7 @@ Recent decisions affecting current work:
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
+| 260617-efv | Complete Go Gopher README coverage across every README variant | 2026-06-17 | this commit | [260617-efv-readme-gopher-readme-gopher](./quick/260617-efv-readme-gopher-readme-gopher/) |
 | 260616-t6d | Sync OpenClaw v1.7 details across every README translation | 2026-06-16 | 8476c48 | [260616-t6d-sync-openclaw-v1-7-details-across-every-](./quick/260616-t6d-sync-openclaw-v1-7-details-across-every-/) |
 | 260614-f7o | Tighten Sealos Seal cap and chest logo to official uploaded logo shape | 2026-06-14 | 94fe2e8 | [260614-f7o-tighten-sealos-seal-cap-and-chest-logo-t](./quick/260614-f7o-tighten-sealos-seal-cap-and-chest-logo-t/) |
 | 260614-fow | Make Sealos cap and chest logo exactly match uploaded logo | 2026-06-14 | b537fdc | [260614-fow-make-sealos-cap-and-chest-logo-exactly-m](./quick/260614-fow-make-sealos-cap-and-chest-logo-exactly-m/) |
