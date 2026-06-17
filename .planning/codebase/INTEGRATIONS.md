@@ -8,13 +8,13 @@
 - Host-provided image generation/editing service - Used to generate standalone 16:9 article illustrations and edit images.
   - SDK/Client: Built-in agent capability `image_gen`
   - Auth: Managed by the Codex host environment; no repository env var detected
-  - Implementation: `ian-xiaohei-illustrations/SKILL.md` directs direct generation calls; `ian-xiaohei-illustrations/references/prompt-template.md` provides generation and edit prompts.
+  - Implementation: `skills/visual-ip-illustrations/SKILL.md` directs direct generation calls; `skills/visual-ip-illustrations/references/prompt-template.md` provides generation and edit prompts.
 
 **Codex Skill Runtime:**
 - Codex local skills system - Used to load the skill by name and route image-planning/image-generation requests.
   - SDK/Client: Codex Skills loader
   - Auth: Managed by the local Codex environment
-  - Implementation: `ian-xiaohei-illustrations/SKILL.md` and `ian-xiaohei-illustrations/agents/openai.yaml`
+  - Implementation: `skills/visual-ip-illustrations/SKILL.md` and `skills/visual-ip-illustrations/agents/openai.yaml`
 
 **Repository Hosting and Public Links:**
 - GitHub - Used for source distribution and related project links.
@@ -37,8 +37,8 @@
 
 **File Storage:**
 - Local workspace filesystem.
-  - Generated image output path: `assets/<article-slug>-illustrations/`, defined in `ian-xiaohei-illustrations/SKILL.md`.
-  - Static repository assets: `examples/images/*.png`, `assets/ian-wechat-qr.jpg`, and `ian-xiaohei-illustrations/assets/examples/`.
+  - Generated image output path: `assets/<article-slug>-illustrations/`, defined in `skills/visual-ip-illustrations/SKILL.md`.
+  - Static repository assets: `examples/images/*.png`, `assets/ian-wechat-qr.jpg`, and `skills/visual-ip-illustrations/assets/examples/`.
 
 **Caching:**
 - None detected.
@@ -48,7 +48,7 @@
 **Auth Provider:**
 - Host-managed Codex authentication.
   - Implementation: The repository contains no auth code, login flow, token storage, or env-based credentials.
-  - Skill metadata: `ian-xiaohei-illustrations/agents/openai.yaml` allows implicit invocation through `policy.allow_implicit_invocation`.
+  - Skill metadata: `skills/visual-ip-illustrations/agents/openai.yaml` allows implicit invocation through `policy.allow_implicit_invocation`.
 
 ## Monitoring & Observability
 
@@ -57,7 +57,7 @@
 
 **Logs:**
 - No logging implementation detected.
-- Quality feedback is manual and checklist-driven through `ian-xiaohei-illustrations/references/qa-checklist.md`.
+- Quality feedback is manual and checklist-driven through `skills/visual-ip-illustrations/references/qa-checklist.md`.
 
 ## CI/CD & Deployment
 

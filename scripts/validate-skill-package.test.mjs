@@ -189,27 +189,27 @@ function replaceAllInFixture(fixtureRoot, relativePath, searchValue, replaceValu
 }
 
 function pendingPublicApprovalLine(routeName) {
-  return `- [ ] Public rendered ${routeName} samples approved for examples/images/, examples/images-en/, and ian-xiaohei-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.`;
+  return `- [ ] Public rendered ${routeName} samples approved for examples/images/, examples/images-en/, and skills/visual-ip-illustrations/assets/examples/: PENDING / reviewer / date / approval status / allowed directories / release channels.`;
 }
 
 function completePublicApprovalLine(routeName, reviewDate = "2026-06-13") {
-  return `- [x] Public rendered ${routeName} samples approved for examples/images/, examples/images-en/, and ian-xiaohei-illustrations/assets/examples/: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes.`;
+  return `- [x] Public rendered ${routeName} samples approved for examples/images/, examples/images-en/, and skills/visual-ip-illustrations/assets/examples/: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / release notes.`;
 }
 
 function currentTomPublicApprovalLine() {
-  return "- [x] Public rendered Tom samples approved for examples/images/, examples/images-en/, and ian-xiaohei-illustrations/assets/examples/: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README.";
+  return "- [x] Public rendered Tom samples approved for examples/images/, examples/images-en/, and skills/visual-ip-illustrations/assets/examples/: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / GitHub README.";
 }
 
 function pendingFerrisPublicAssetApprovalLine() {
-  return "- [ ] Ferris public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / trademark and endorsement-safe wording outcome.";
+  return "- [ ] Ferris public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / trademark and endorsement-safe wording outcome.";
 }
 
 function completeFerrisPublicAssetApprovalLine(reviewDate = "2026-06-13", trademarkOutcome = "trademark safe") {
-  return `- [x] Ferris public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes / ${trademarkOutcome}.`;
+  return `- [x] Ferris public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`skills/visual-ip-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / release notes / ${trademarkOutcome}.`;
 }
 
 function currentFerrisPublicAssetApprovalLine() {
-  return "- [x] Ferris public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / trademark and endorsement-safe wording approved.";
+  return "- [x] Ferris public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / GitHub README / trademark and endorsement-safe wording approved.";
 }
 
 function pendingGeneratedFerrisSampleLine() {
@@ -217,11 +217,11 @@ function pendingGeneratedFerrisSampleLine() {
 }
 
 function completeGeneratedFerrisSampleLine(reviewDate = "2026-06-13", trademarkOutcome = "trademark safe") {
-  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-ferris / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${trademarkOutcome}.`;
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-ferris / examples/images, skills/visual-ip-illustrations/assets/examples / release notes / ${trademarkOutcome}.`;
 }
 
 function pendingSealPublicAssetApprovalLine() {
-  return "- [ ] Seal public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / hoodie seal identity outcome / no-logo outcome.";
+  return "- [ ] Seal public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / hoodie seal identity outcome / no-logo outcome.";
 }
 
 function completeSealPublicAssetApprovalLine(
@@ -229,11 +229,11 @@ function completeSealPublicAssetApprovalLine(
   identityOutcome = "hoodie seal identity preserved",
   noLogoOutcome = "no-logo output approved",
 ) {
-  return `- [x] Seal public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${noLogoOutcome}.`;
+  return `- [x] Seal public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`skills/visual-ip-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / release notes / ${identityOutcome} / ${noLogoOutcome}.`;
 }
 
 function currentSealPublicAssetApprovalLine() {
-  return "- [x] Seal public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / hoodie seal identity preserved / no-logo output approved.";
+  return "- [x] Seal public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-15 / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / GitHub README / hoodie seal identity preserved / no-logo output approved.";
 }
 
 function pendingGeneratedSealSampleLine() {
@@ -245,11 +245,11 @@ function completeGeneratedSealSampleLine(
   identityOutcome = "hoodie seal identity preserved",
   noLogoOutcome = "no-logo output approved",
 ) {
-  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-seal / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${identityOutcome} / ${noLogoOutcome}.`;
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-seal / examples/images, skills/visual-ip-illustrations/assets/examples / release notes / ${identityOutcome} / ${noLogoOutcome}.`;
 }
 
 function pendingOpenClawPublicAssetApprovalLine() {
-  return "- [ ] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.";
+  return "- [ ] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-logo identity outcome / source/license outcome / route-isolation outcome / article-metaphor quality outcome.";
 }
 
 function completeOpenClawPublicAssetApprovalLine(
@@ -259,11 +259,11 @@ function completeOpenClawPublicAssetApprovalLine(
   routeIsolationOutcome = "route-isolation approved",
   articleMetaphorOutcome = "article-metaphor quality approved",
 ) {
-  return `- [x] OpenClaw public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
+  return `- [x] OpenClaw public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`skills/visual-ip-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
 }
 
 function currentOpenClawPublicAssetApprovalLine() {
-  return "- [x] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-17 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / uploaded-logo identity preserved / source/license approved / route-isolation approved / article-metaphor quality approved.";
+  return "- [x] OpenClaw public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-17 / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / GitHub README / uploaded-logo identity preserved / source/license approved / route-isolation approved / article-metaphor quality approved.";
 }
 
 function pendingGeneratedOpenClawSampleLine() {
@@ -277,15 +277,15 @@ function completeGeneratedOpenClawSampleLine(
   routeIsolationOutcome = "route-isolation approved",
   articleMetaphorOutcome = "article-metaphor quality approved",
 ) {
-  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-openclaw / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-openclaw / examples/images, skills/visual-ip-illustrations/assets/examples / release notes / ${uploadedLogoIdentityOutcome} / ${sourceLicenseOutcome} / ${routeIsolationOutcome} / ${articleMetaphorOutcome}.`;
 }
 
 function currentGeneratedOpenClawSampleLine() {
-  return "- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-openclaw / examples/images, ian-xiaohei-illustrations/assets/examples / GitHub README / uploaded-logo identity preserved / source/license approved / route-isolation approved / article-metaphor quality approved.";
+  return "- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-openclaw / examples/images, skills/visual-ip-illustrations/assets/examples / GitHub README / uploaded-logo identity preserved / source/license approved / route-isolation approved / article-metaphor quality approved.";
 }
 
 function pendingGopherPublicAssetApprovalLine() {
-  return "- [ ] Go Gopher public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / Go blog source outcome / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome / public-sample decision.";
+  return "- [ ] Go Gopher public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / Go blog source outcome / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome / public-sample decision.";
 }
 
 function completeGopherPublicAssetApprovalLine(
@@ -300,11 +300,11 @@ function completeGopherPublicAssetApprovalLine(
   articleMetaphorOutcome = "article-metaphor quality approved",
   publicSampleOutcome = "public-sample decision approved",
 ) {
-  return `- [x] Go Gopher public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`ian-xiaohei-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / release notes / ${sourceOutcome} / ${attributionOutcome} / ${licenseOutcome} / ${visualOutcome} / ${routeIsolationOutcome} / ${logoBoundaryOutcome} / ${endorsementBoundaryOutcome} / ${articleMetaphorOutcome} / ${publicSampleOutcome}.`;
+  return `- [x] Go Gopher public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`skills/visual-ip-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / release notes / ${sourceOutcome} / ${attributionOutcome} / ${licenseOutcome} / ${visualOutcome} / ${routeIsolationOutcome} / ${logoBoundaryOutcome} / ${endorsementBoundaryOutcome} / ${articleMetaphorOutcome} / ${publicSampleOutcome}.`;
 }
 
 function currentGopherPublicAssetApprovalLine() {
-  return "- [x] Go Gopher public asset policy for `examples/images/`, `examples/images-en/`, and `ian-xiaohei-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-17 / approved / examples/images, examples/images-en, ian-xiaohei-illustrations/assets/examples / GitHub README / Go blog source approved / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved / public-sample decision approved.";
+  return "- [x] Go Gopher public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-17 / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / GitHub README / Go blog source approved / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved / public-sample decision approved.";
 }
 
 function pendingGeneratedGopherSampleLine() {
@@ -321,11 +321,11 @@ function completeGeneratedGopherSampleLine(
   endorsementBoundaryOutcome = "official endorsement boundary approved",
   articleMetaphorOutcome = "article-metaphor quality approved",
 ) {
-  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-gopher / examples/images, ian-xiaohei-illustrations/assets/examples / release notes / ${attributionOutcome} / ${licenseOutcome} / ${visualOutcome} / ${routeIsolationOutcome} / ${logoBoundaryOutcome} / ${endorsementBoundaryOutcome} / ${articleMetaphorOutcome}.`;
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-gopher / examples/images, skills/visual-ip-illustrations/assets/examples / release notes / ${attributionOutcome} / ${licenseOutcome} / ${visualOutcome} / ${routeIsolationOutcome} / ${logoBoundaryOutcome} / ${endorsementBoundaryOutcome} / ${articleMetaphorOutcome}.`;
 }
 
 function currentGeneratedGopherSampleLine() {
-  return "- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-gopher / examples/images, ian-xiaohei-illustrations/assets/examples / GitHub README / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved.";
+  return "- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-gopher / examples/images, skills/visual-ip-illustrations/assets/examples / GitHub README / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved.";
 }
 
 test("validator command prints deterministic harness smoke logs", () => {
@@ -399,8 +399,8 @@ test("validator reports Task 2 contract checks in stable order", () => {
 
 test("validator collects failures and exits nonzero after Task 1 checks run", () => {
   const fixtureRoot = path.join(tmpdir(), `xiaohei-validator-${process.pid}-${Date.now()}`);
-  mkdirSync(path.join(fixtureRoot, "ian-xiaohei-illustrations", "agents"), { recursive: true });
-  mkdirSync(path.join(fixtureRoot, "ian-xiaohei-illustrations", "references"), { recursive: true });
+  mkdirSync(path.join(fixtureRoot, "skills", "visual-ip-illustrations", "agents"), { recursive: true });
+  mkdirSync(path.join(fixtureRoot, "skills", "visual-ip-illustrations", "references"), { recursive: true });
   mkdirSync(path.join(fixtureRoot, "scripts"), { recursive: true });
 
   writeFileSync(
@@ -409,17 +409,17 @@ test("validator collects failures and exits nonzero after Task 1 checks run", ()
     "utf8",
   );
   writeFileSync(
-    path.join(fixtureRoot, "ian-xiaohei-illustrations", "SKILL.md"),
+    path.join(fixtureRoot, "skills", "visual-ip-illustrations", "SKILL.md"),
     "---\nname: wrong\n---\n\n# Broken\n",
     "utf8",
   );
   writeFileSync(
-    path.join(fixtureRoot, "ian-xiaohei-illustrations", "agents", "openai.yaml"),
+    path.join(fixtureRoot, "skills", "visual-ip-illustrations", "agents", "openai.yaml"),
     "interface:\n  display_name: Test\npolicy:\n  allow_implicit_invocation: false\n",
     "utf8",
   );
   writeFileSync(
-    path.join(fixtureRoot, "ian-xiaohei-illustrations", "references", "routing.md"),
+    path.join(fixtureRoot, "skills", "visual-ip-illustrations", "references", "routing.md"),
     "",
     "utf8",
   );
@@ -437,7 +437,7 @@ test("validator collects failures and exits nonzero after Task 1 checks run", ()
   assert.match(result.stdout, /\[FAIL\] SKILL-FM-001 /);
   assert.match(result.stdout, /\[FAIL\] AGENT-SHAPE-001 /);
   assert.match(result.stdout, /\[FAIL\] ROUTE-TABLE-001 /);
-  assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+  assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
   assert.match(result.stdout, /Summary: total=\d+ passed=\d+ failed=\d+ skipped=0/);
 });
 
@@ -453,7 +453,8 @@ test("validator failure messages include actionable Task 2 check IDs and paths",
 
   const promptTemplatePath = path.join(
     fixtureRoot,
-    "ian-xiaohei-illustrations",
+    "skills",
+    "visual-ip-illustrations",
     "references",
     "ips",
     "littlebox",
@@ -477,7 +478,7 @@ test("validator failure messages include actionable Task 2 check IDs and paths",
 
   assert.equal(result.status, 1);
   assert.match(result.stdout, /\[FAIL\] PROMPT-LB-001 /);
-  assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/littlebox\/prompt-template\.md/);
+  assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/littlebox\/prompt-template\.md/);
   assert.match(result.stdout, /\[FAIL\] NOTICE-LB-001 /);
   assert.match(result.stdout, /NOTICE\.md/);
   assert.match(result.stdout, /observed missing marker/);
@@ -495,7 +496,8 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
 
   const rightsPath = path.join(
     fixtureRoot,
-    "ian-xiaohei-illustrations",
+    "skills",
+    "visual-ip-illustrations",
     "references",
     "ips",
     "tom",
@@ -516,7 +518,7 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
 
   assert.equal(result.status, 1);
   assert.match(result.stdout, /\[FAIL\] RIGHTS-TOM-001 /);
-  assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/tom\/rights\.md/);
+  assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/tom\/rights\.md/);
   assert.match(result.stdout, /observed missing marker/);
 });
 
@@ -709,13 +711,13 @@ test("validator fixture rejects broad language allowlist entries", () => {
 test("validator fixture rejects missing canonical runtime identity", () => {
   const fixtureRoot = copyFixture("rebrand-runtime-canonical");
   try {
-    replaceAllInFixture(fixtureRoot, path.join("ian-xiaohei-illustrations", "SKILL.md"), "$visual-ip-illustrations", "$legacy-only");
+    replaceAllInFixture(fixtureRoot, path.join("skills", "visual-ip-illustrations", "SKILL.md"), "$visual-ip-illustrations", "$legacy-only");
 
     const result = runFixtureValidator(fixtureRoot);
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/SKILL\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/SKILL\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): \$visual-ip-illustrations/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -757,14 +759,14 @@ test("validator fixture rejects missing release rebrand markers", () => {
 test("validator fixture rejects missing compatibility runtime alias", () => {
   const fixtureRoot = copyFixture("rebrand-runtime-compat");
   try {
-    replaceAllInFixture(fixtureRoot, path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"), "$ian-xiaohei-illustrations", "$visual-ip-legacy");
+    replaceAllInFixture(fixtureRoot, path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"), "$ian-xiaohei-illustrations", "$visual-ip-legacy");
 
     const result = runFixtureValidator(fixtureRoot);
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-001 /);
     assert.match(result.stdout, /\[FAIL\] REBRAND-COMPAT-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/agents\/openai\.yaml/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/agents\/openai\.yaml/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -820,7 +822,7 @@ test("validator fixture rejects missing Phase 28 public English-default marker",
 
 test("validator fixture rejects missing route-local scan target content", () => {
   const fixtureRoot = copyFixture("val-route-local-language");
-  const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "style-dna.md");
+  const relativePath = path.join("skills", "visual-ip-illustrations", "references", "ips", "xiaohei", "style-dna.md");
   try {
     writeFileSync(path.join(fixtureRoot, relativePath), "# \n\n", "utf8");
 
@@ -828,7 +830,7 @@ test("validator fixture rejects missing route-local scan target content", () => 
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] VAL-ENGLISH-002 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/xiaohei\/style-dna\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/xiaohei\/style-dna\.md/);
     assert.match(result.stdout, /English content markers/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -840,7 +842,7 @@ test("validator fixture locks rebrand route stability", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "routing.md"),
       "| `false` | `seal` |",
       "| `false` | `cloud` |",
     );
@@ -850,7 +852,7 @@ test("validator fixture locks rebrand route stability", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REBRAND-CANON-004 /);
     assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /expected seal output_suffix=seal; observed cloud/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -861,8 +863,8 @@ test("validator fixture locks rebrand output path stability", () => {
   const fixtureRoot = copyFixture("rebrand-path-stability");
   try {
     for (const relativePath of [
-      path.join("ian-xiaohei-illustrations", "SKILL.md"),
-      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      path.join("skills", "visual-ip-illustrations", "SKILL.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "routing.md"),
     ]) {
       replaceAllInFixture(
         fixtureRoot,
@@ -878,7 +880,7 @@ test("validator fixture locks rebrand output path stability", () => {
     assert.match(result.stdout, /\[FAIL\] ROUTE-PATHS-001 /);
     assert.match(result.stdout, /\[FAIL\] REBRAND-PATH-001 /);
     assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): assets\/&lt;article-slug&gt;-seal\//);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -892,8 +894,8 @@ test("validator fixture locks canonical invocation compatibility through Phase 2
       "README.md",
       "examples/prompts.md",
       "LANGUAGE_POLICY.md",
-      path.join("ian-xiaohei-illustrations", "SKILL.md"),
-      path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+      path.join("skills", "visual-ip-illustrations", "SKILL.md"),
+      path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
     ]) {
       replaceAllInFixture(fixtureRoot, relativePath, "$visual-ip-illustrations", "$visual-ip-renamed");
     }
@@ -916,8 +918,8 @@ test("validator fixture locks legacy invocation compatibility through Phase 28",
       "README.md",
       "examples/prompts.md",
       "LANGUAGE_POLICY.md",
-      path.join("ian-xiaohei-illustrations", "SKILL.md"),
-      path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+      path.join("skills", "visual-ip-illustrations", "SKILL.md"),
+      path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
     ]) {
       replaceAllInFixture(fixtureRoot, relativePath, "$ian-xiaohei-illustrations", "$visual-ip-legacy");
     }
@@ -927,7 +929,7 @@ test("validator fixture locks legacy invocation compatibility through Phase 28",
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REBRAND-COMPAT-002 /);
     assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/SKILL\.md|README\.md|examples\/prompts\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/SKILL\.md|README\.md|examples\/prompts\.md/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -938,7 +940,7 @@ test("validator fixture locks Chinese route aliases through Phase 28", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "routing.md"),
       "`Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`",
       "`Tom`, `Tom Cat`, `Tom and Jerry`",
     );
@@ -958,8 +960,8 @@ test("validator fixture locks raw output path stability through Phase 28", () =>
   const fixtureRoot = copyFixture("val-raw-output-path");
   try {
     for (const relativePath of [
-      path.join("ian-xiaohei-illustrations", "SKILL.md"),
-      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      path.join("skills", "visual-ip-illustrations", "SKILL.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "routing.md"),
     ]) {
       replaceAllInFixture(fixtureRoot, relativePath, "assets/<article-slug>-seal/", "assets/<article-slug>-cloud/");
     }
@@ -1047,8 +1049,8 @@ test("validator fixture rejects stale examples old-name-only framing", () => {
 
 test("parser helpers expose current package contract primitives", async () => {
   const validators = await import(`${scriptPath}?test=${Date.now()}`);
-  const skillText = readFileSync(path.join(repoRoot, "ian-xiaohei-illustrations", "SKILL.md"), "utf8");
-  const routingText = readFileSync(path.join(repoRoot, "ian-xiaohei-illustrations", "references", "routing.md"), "utf8");
+  const skillText = readFileSync(path.join(repoRoot, "skills", "visual-ip-illustrations", "SKILL.md"), "utf8");
+  const routingText = readFileSync(path.join(repoRoot, "skills", "visual-ip-illustrations", "references", "routing.md"), "utf8");
   const readmeText = readFileSync(path.join(repoRoot, "README.md"), "utf8");
 
   const frontmatter = validators.parseFrontmatter(skillText);
@@ -1199,7 +1201,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(currentTomApproval.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
 
   const pendingText = releaseChecklistText.replace(currentTomPublicApprovalLine(), pendingPublicApprovalLine("Tom"));
@@ -1219,7 +1221,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(approved.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
 
   for (const placeholderDate of ["TBD", "pending", "", "   "]) {
@@ -1242,7 +1244,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(currentFerrisApproval.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
 
   const pendingFerrisText = releaseChecklistText.replace(
@@ -1265,7 +1267,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(approvedFerris.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
   assert.equal(approvedFerris.trademarkOutcomePresent, true);
 
@@ -1306,7 +1308,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(currentSealosApproval.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
 
   const pendingSealosText = releaseChecklistText.replace(
@@ -1330,7 +1332,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(approvedSealos.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
   assert.equal(approvedSealos.identityOutcomePresent, true);
   assert.equal(approvedSealos.noLogoOutcomePresent, true);
@@ -1354,7 +1356,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(currentOpenClawApproval.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
 
   const pendingOpenClawText = releaseChecklistText.replace(
@@ -1380,7 +1382,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(approvedOpenClaw.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
   assert.equal(approvedOpenClaw.uploadedLogoIdentityOutcomePresent, true);
   assert.equal(approvedOpenClaw.sourceLicenseOutcomePresent, true);
@@ -1427,7 +1429,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(currentGopherApproval.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
 
   const pendingGopherText = releaseChecklistText.replace(
@@ -1458,7 +1460,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(approvedGopher.allowedDirectories, [
     "examples/images",
     "examples/images-en",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
   assert.equal(approvedGopher.sourceOutcomePresent, true);
   assert.equal(approvedGopher.attributionOutcomePresent, true);
@@ -1505,7 +1507,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(completeGeneratedApproval.internalReviewDirectories, ["assets/<article-slug>-ferris"]);
   assert.deepEqual(completeGeneratedApproval.publicDirectories, [
     "examples/images",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
 
   for (const placeholderDate of ["TBD", "pending", "", "   "]) {
@@ -1529,7 +1531,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(completeGeneratedSealosApproval.internalReviewDirectories, ["assets/<article-slug>-seal"]);
   assert.deepEqual(completeGeneratedSealosApproval.publicDirectories, [
     "examples/images",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
 
   const completeGeneratedOpenClawText = releaseChecklistText.replace(
@@ -1542,7 +1544,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(completeGeneratedOpenClawApproval.internalReviewDirectories, ["assets/<article-slug>-openclaw"]);
   assert.deepEqual(completeGeneratedOpenClawApproval.publicDirectories, [
     "examples/images",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
   assert.equal(completeGeneratedOpenClawApproval.uploadedLogoIdentityOutcomePresent, true);
   assert.equal(completeGeneratedOpenClawApproval.sourceLicenseOutcomePresent, true);
@@ -1559,7 +1561,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.deepEqual(completeGeneratedGopherApproval.internalReviewDirectories, ["assets/<article-slug>-gopher"]);
   assert.deepEqual(completeGeneratedGopherApproval.publicDirectories, [
     "examples/images",
-    "ian-xiaohei-illustrations/assets/examples",
+    "skills/visual-ip-illustrations/assets/examples",
   ]);
   assert.equal(completeGeneratedGopherApproval.attributionOutcomePresent, true);
   assert.equal(completeGeneratedGopherApproval.licenseOutcomePresent, true);
@@ -1575,7 +1577,7 @@ test("validator fixture rejects Tom route metadata drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "routing.md"),
       "`Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, `汤姆猫`",
       "`Tom`, `Tom and Jerry`, `汤姆`, `汤姆猫`",
     );
@@ -1584,7 +1586,7 @@ test("validator fixture rejects Tom route metadata drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] ROUTE-TOM-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Tom Cat/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -1596,7 +1598,7 @@ test("validator fixture rejects Ferris route metadata drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "routing.md"),
       "`Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`",
       "`Ferris`, `Rust mascot`, `Rustacean`, `Rust 吉祥物`, `Rust 螃蟹`",
     );
@@ -1605,7 +1607,7 @@ test("validator fixture rejects Ferris route metadata drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] ROUTE-FERRIS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Rust crab/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -1614,7 +1616,7 @@ test("validator fixture rejects Ferris route metadata drift", () => {
 
 test("validator fixture requires Tom canonical pack files", () => {
   const fixtureRoot = copyFixture("tom-pack");
-  const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "qa-checklist.md");
+  const relativePath = path.join("skills", "visual-ip-illustrations", "references", "ips", "tom", "qa-checklist.md");
   try {
     writeFileSync(path.join(fixtureRoot, relativePath), "", "utf8");
 
@@ -1622,10 +1624,10 @@ test("validator fixture requires Tom canonical pack files", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REFS-TOM-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/tom/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/tom/);
     assert.match(
       result.stdout,
-      /observed empty file\(s\): ian-xiaohei-illustrations\/references\/ips\/tom\/qa-checklist\.md/,
+      /observed empty file\(s\): skills\/visual-ip-illustrations\/references\/ips\/tom\/qa-checklist\.md/,
     );
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -1637,7 +1639,7 @@ test("validator fixture reports Tom prompt marker drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "prompt-template.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "tom", "prompt-template.md"),
       "Rights-status note: Tom is a `gated-authorized` protected-character route; check `rights.md` for authorization scope and distribution boundary.",
       "Rights boundary note: Tom is a gated authorized protected-character route.",
     );
@@ -1646,7 +1648,7 @@ test("validator fixture reports Tom prompt marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] PROMPT-TOM-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/tom\/prompt-template\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/tom\/prompt-template\.md/);
     assert.match(
       result.stdout,
       /observed missing marker\(s\): Rights-status note: Tom is a `gated-authorized` protected-character route/,
@@ -1661,7 +1663,7 @@ test("validator fixture reports Ferris source marker drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "source.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "source.md"),
       "Rust Foundation trademark policy context",
       "Rust trademark review context",
     );
@@ -1670,7 +1672,7 @@ test("validator fixture reports Ferris source marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] SOURCE-FERRIS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris\/source\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/ferris\/source\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Rust Foundation trademark policy context/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -1682,7 +1684,7 @@ test("validator fixture reports Seal source marker drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "source.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "source.md"),
       "# Seal Source Record",
       "# Seal Source Review",
     );
@@ -1691,7 +1693,7 @@ test("validator fixture reports Seal source marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] SOURCE-SEAL-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/seal\/source\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/seal\/source\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): # Seal Source Record/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -1703,13 +1705,13 @@ test("validator fixture reports OpenClaw source marker drift", () => {
   try {
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "source.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw", "source.md"),
       "MIT License",
       "permissive license",
     );
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "source.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw", "source.md"),
       "red round body",
       "round body",
     );
@@ -1718,7 +1720,7 @@ test("validator fixture reports OpenClaw source marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] SOURCE-OPENCLAW-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/openclaw\/source\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/openclaw\/source\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): MIT License/);
     assert.match(result.stdout, /red round body/);
   } finally {
@@ -1729,7 +1731,7 @@ test("validator fixture reports OpenClaw source marker drift", () => {
 test("validator fixture rejects Seal route metadata drift", () => {
   const fixtureRoot = copyFixture("seal-route");
   try {
-    const routingPath = path.join("ian-xiaohei-illustrations", "references", "routing.md");
+    const routingPath = path.join("skills", "visual-ip-illustrations", "references", "routing.md");
     replaceAllInFixture(fixtureRoot, routingPath, "| `seal` | Seal |", "| `sealos` | Seal |");
     replaceAllInFixture(fixtureRoot, routingPath, "| `false` | `seal` |", "| `false` | `sealos` |");
     replaceAllInFixture(fixtureRoot, routingPath, "assets/&lt;article-slug&gt;-seal/", "assets/&lt;article-slug&gt;-sealos/");
@@ -1740,7 +1742,7 @@ test("validator fixture rejects Seal route metadata drift", () => {
     assert.match(result.stdout, /\[FAIL\] ROUTE-TABLE-001 /);
     assert.match(result.stdout, /\[FAIL\] ROUTE-SEAL-001 /);
     assert.match(result.stdout, /\[FAIL\] ROUTE-PATHS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw, gopher; observed xiaohei, littlebox, tom, ferris, sealos, openclaw, gopher/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -1751,25 +1753,25 @@ test("validator fixture reports Seal pack, prompt, and QA marker drift", () => {
   for (const [name, relativePath, searchValue, expectedId] of [
     [
       "pack",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "index.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "index.md"),
       "Public-sample boundary",
       "REFS-SEAL-001",
     ],
     [
       "prompt",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "prompt-template.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "prompt-template.md"),
       "Seal planning fields gate",
       "PROMPT-SEAL-001",
     ],
     [
       "qa",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "qa-checklist.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "qa-checklist.md"),
       "Seal QA route leakage failure",
       "QA-SEAL-001",
     ],
     [
       "identity",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "seal-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "seal-ip.md"),
       "Seal must perform the central cognitive action",
       "IP-SEAL-001",
     ],
@@ -1783,7 +1785,7 @@ test("validator fixture reports Seal pack, prompt, and QA marker drift", () => {
       assert.equal(result.status, 1);
       assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
       const expectedPath = expectedId === "IP-SEAL-001" || expectedId === "REFS-SEAL-001"
-        ? path.join("ian-xiaohei-illustrations", "references", "ips", "seal")
+        ? path.join("skills", "visual-ip-illustrations", "references", "ips", "seal")
         : relativePath;
       assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
       assert.match(result.stdout, /observed missing marker\(s\)/);
@@ -1797,25 +1799,25 @@ test("validator fixture reports OpenClaw pack, prompt, and QA marker drift", () 
   for (const [name, relativePath, searchValue, expectedId] of [
     [
       "pack",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "index.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw", "index.md"),
       "Public-sample boundary",
       "REFS-OPENCLAW-001",
     ],
     [
       "prompt",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "prompt-template.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw", "prompt-template.md"),
       "OpenClaw planning fields gate",
       "PROMPT-OPENCLAW-001",
     ],
     [
       "qa",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "qa-checklist.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw", "qa-checklist.md"),
       "OpenClaw QA route leakage failure",
       "QA-OPENCLAW-001",
     ],
     [
       "identity",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "openclaw-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw", "openclaw-ip.md"),
       "OpenClaw must perform the central cognitive action",
       "IP-OPENCLAW-001",
     ],
@@ -1829,7 +1831,7 @@ test("validator fixture reports OpenClaw pack, prompt, and QA marker drift", () 
       assert.equal(result.status, 1);
       assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
       const expectedPath = expectedId === "IP-OPENCLAW-001" || expectedId === "REFS-OPENCLAW-001"
-        ? path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw")
+        ? path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw")
         : relativePath;
       assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
       assert.match(result.stdout, /observed missing marker\(s\)/);
@@ -1843,16 +1845,16 @@ test("validator fixture reports Seal docs, metadata, NOTICE, release, and smoke 
   for (const [name, relativePath, searchValue, expectedId] of [
     [
       "agent",
-      path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+      path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
       "explicit Seal active product-neutral hoodie seal route",
       "AGENT-SEAL-001",
     ],
-    ["routing", path.join("ian-xiaohei-illustrations", "references", "routing.md"), "source-history", "DOC-SEAL-001"],
+    ["routing", path.join("skills", "visual-ip-illustrations", "references", "routing.md"), "source-history", "DOC-SEAL-001"],
     ["examples", "examples/prompts.md", "## Route Smoke: Explicit Seal", "SMOKE-SEAL-001"],
     [
       "mixed",
       "examples/prompts.md",
-      "Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`",
+      "Seal canonical pack is at `skills/visual-ip-illustrations/references/ips/seal/`",
       "SMOKE-MIXED-SEAL-001",
     ],
     ["notice", "NOTICE.md", "Seal Source-History Boundary", "NOTICE-SEAL-001"],
@@ -1914,7 +1916,7 @@ function assertOpenClawSurfaceDrift(name, relativePath, searchValue, expectedId)
 test("validator fixture reports OpenClaw metadata drift", () => {
   assertOpenClawSurfaceDrift(
     "agent",
-    path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+    path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
     "explicit OpenClaw logo-mascot route (source-reviewed)",
     "AGENT-OPENCLAW-001",
   );
@@ -1924,7 +1926,7 @@ test("validator fixture reports OpenClaw docs drift", () => {
   assertOpenClawSurfaceDrift(
     "docs",
     "README.md",
-    "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+    "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
     "DOC-OPENCLAW-001",
   );
 });
@@ -1986,7 +1988,7 @@ test("validator fixture rejects Go Gopher route metadata drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "routing.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "routing.md"),
       "`Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, `Go 吉祥物`, `Gopher 吉祥物`",
       "`Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`",
     );
@@ -1995,7 +1997,7 @@ test("validator fixture rejects Go Gopher route metadata drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] ROUTE-GOPHER-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Go 吉祥物, Gopher 吉祥物/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2005,7 +2007,7 @@ test("validator fixture rejects Go Gopher route metadata drift", () => {
 test("validator fixture rejects stale six-route assumptions", () => {
   const fixtureRoot = copyFixture("gopher-route-count");
   try {
-    const routingPath = path.join("ian-xiaohei-illustrations", "references", "routing.md");
+    const routingPath = path.join("skills", "visual-ip-illustrations", "references", "routing.md");
     replaceAllInFixture(fixtureRoot, routingPath, "| `gopher` | Go Gopher |", "| `go-gopher` | Go Gopher |");
 
     const result = runFixtureValidator(fixtureRoot);
@@ -2024,13 +2026,13 @@ test("validator fixture reports Go Gopher source marker drift", () => {
   try {
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "source.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "gopher", "source.md"),
       "Renee French",
       "source artist",
     );
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "source.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "gopher", "source.md"),
       "Creative Commons Attribution 4.0",
       "CC BY",
     );
@@ -2039,7 +2041,7 @@ test("validator fixture reports Go Gopher source marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] SOURCE-GOPHER-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/gopher\/source\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/gopher\/source\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Renee French/);
     assert.match(result.stdout, /Creative Commons Attribution 4\.0/);
   } finally {
@@ -2051,25 +2053,25 @@ test("validator fixture reports Go Gopher pack, prompt, and QA marker drift", ()
   for (const [name, relativePath, searchValue, expectedId] of [
     [
       "pack",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "index.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "gopher", "index.md"),
       "Public-sample boundary",
       "REFS-GOPHER-001",
     ],
     [
       "prompt",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "prompt-template.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "gopher", "prompt-template.md"),
       "Go Gopher planning fields gate",
       "PROMPT-GOPHER-001",
     ],
     [
       "qa",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "qa-checklist.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "gopher", "qa-checklist.md"),
       "Go Gopher QA route leakage failure",
       "QA-GOPHER-001",
     ],
     [
       "identity",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "gopher", "gopher-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "gopher", "gopher-ip.md"),
       "Go Gopher must perform the central cognitive article action",
       "IP-GOPHER-001",
     ],
@@ -2083,7 +2085,7 @@ test("validator fixture reports Go Gopher pack, prompt, and QA marker drift", ()
       assert.equal(result.status, 1);
       assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
       const expectedPath = expectedId === "IP-GOPHER-001" || expectedId === "REFS-GOPHER-001"
-        ? path.join("ian-xiaohei-illustrations", "references", "ips", "gopher")
+        ? path.join("skills", "visual-ip-illustrations", "references", "ips", "gopher")
         : relativePath;
       assert.match(result.stdout, new RegExp(expectedPath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
       assert.match(result.stdout, /observed missing marker\(s\)/);
@@ -2096,7 +2098,7 @@ test("validator fixture reports Go Gopher pack, prompt, and QA marker drift", ()
 test("validator fixture reports Go Gopher metadata drift", () => {
   assertGopherSurfaceDrift(
     "agent",
-    path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+    path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
     "explicit Go Gopher article-mascot route (source-reviewed)",
     "AGENT-GOPHER-001",
   );
@@ -2106,7 +2108,7 @@ test("validator fixture reports Go Gopher docs drift", () => {
   assertGopherSurfaceDrift(
     "docs",
     "README.md",
-    "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+    "skills/visual-ip-illustrations/references/ips/gopher/source.md",
     "DOC-GOPHER-001",
   );
 });
@@ -2211,25 +2213,25 @@ test("validator fixture rejects Seal no-logo drift", () => {
   try {
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "source.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "source.md"),
       "plain navy cap",
       "navy cap with a small Sealos logo",
     );
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "source.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "source.md"),
       "Logo-Free Identity Markers",
       "Logo-Bearing Identity Markers",
     );
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "prompt-template.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "prompt-template.md"),
       "logo-free note",
       "logo-bearing note",
     );
     replaceAllInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "qa-checklist.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "qa-checklist.md"),
       "Seal QA logo-free failure",
       "Seal QA logo allowed failure",
     );
@@ -2244,7 +2246,7 @@ test("validator fixture rejects Seal no-logo drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] LOGO-SEAL-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/seal/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/seal/);
     assert.match(result.stdout, /observed missing marker\(s\): plain navy cap/);
     assert.match(result.stdout, /Logo-Free Identity Markers/);
   } finally {
@@ -2254,7 +2256,7 @@ test("validator fixture rejects Seal no-logo drift", () => {
 
 test("validator fixture requires Ferris canonical pack files", () => {
   const fixtureRoot = copyFixture("ferris-pack");
-  const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "qa-checklist.md");
+  const relativePath = path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "qa-checklist.md");
   try {
     writeFileSync(path.join(fixtureRoot, relativePath), "", "utf8");
 
@@ -2262,10 +2264,10 @@ test("validator fixture requires Ferris canonical pack files", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] REFS-FERRIS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/ferris/);
     assert.match(
       result.stdout,
-      /observed empty file\(s\): ian-xiaohei-illustrations\/references\/ips\/ferris\/qa-checklist\.md/,
+      /observed empty file\(s\): skills\/visual-ip-illustrations\/references\/ips\/ferris\/qa-checklist\.md/,
     );
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2277,7 +2279,7 @@ test("validator fixture reports Ferris prompt marker drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "prompt-template.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "prompt-template.md"),
       "Ferris planning fields gate",
       "Ferris planning format",
     );
@@ -2286,7 +2288,7 @@ test("validator fixture reports Ferris prompt marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] PROMPT-FERRIS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris\/prompt-template\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/ferris\/prompt-template\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Ferris planning fields gate/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2298,13 +2300,13 @@ test("validator fixture reports Ferris identity and trademark marker drift", () 
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
       "Ferris must perform the central cognitive action",
       "Ferris performs the route action",
     );
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "composition-patterns.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "composition-patterns.md"),
       "Rust trademark-boundary gate",
       "Rust trademark review gate",
     );
@@ -2313,7 +2315,7 @@ test("validator fixture reports Ferris identity and trademark marker drift", () 
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] IP-FERRIS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/ferris/);
     assert.match(result.stdout, /observed missing marker\(s\): Ferris must perform the central cognitive action/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2325,13 +2327,13 @@ test("validator fixture reports Ferris QA marker drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "qa-checklist.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "qa-checklist.md"),
       "Ferris QA source-reviewed gate",
       "Ferris QA route gate",
     );
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "qa-checklist.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "qa-checklist.md"),
       "Ferris QA route leakage failure",
       "Ferris QA cross-route failure",
     );
@@ -2340,7 +2342,7 @@ test("validator fixture reports Ferris QA marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] QA-FERRIS-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/ferris\/qa-checklist\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/ferris\/qa-checklist\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): Ferris QA source-reviewed gate/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2373,7 +2375,7 @@ test("validator fixture reports Tom identity and QA marker drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "qa-checklist.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "tom", "qa-checklist.md"),
       "off-model Tom identity",
       "off-model identity",
     );
@@ -2382,7 +2384,7 @@ test("validator fixture reports Tom identity and QA marker drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] QA-TOM-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/tom\/qa-checklist\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/tom\/qa-checklist\.md/);
     assert.match(result.stdout, /observed missing marker\(s\): off-model Tom identity/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2394,7 +2396,7 @@ test("validator fixture reports Tom docs and agent metadata drift", () => {
   try {
     replaceInFixture(
       fixtureRoot,
-      path.join("ian-xiaohei-illustrations", "agents", "openai.yaml"),
+      path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
       "explicit Tom protected-character route (gated-authorized)",
       "explicit protected-character route",
     );
@@ -2409,7 +2411,7 @@ test("validator fixture reports Tom docs and agent metadata drift", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] AGENT-TOM-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/agents\/openai\.yaml/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/agents\/openai\.yaml/);
     assert.match(result.stdout, /observed missing marker\(s\): explicit Tom protected-character route/);
     assert.match(result.stdout, /\[FAIL\] SMOKE-TOM-001 /);
     assert.match(result.stdout, /examples\/prompts\.md/);
@@ -2486,7 +2488,7 @@ test("validator fixture reports Ferris generated sample release gate drift", () 
 
 test("validator fixture reports Tom leakage in non-Tom packs", () => {
   const fixtureRoot = copyFixture("tom-leak");
-  const relativePath = path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md");
+  const relativePath = path.join("skills", "visual-ip-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md");
   try {
     writeFileSync(
       path.join(fixtureRoot, relativePath),
@@ -2498,7 +2500,7 @@ test("validator fixture reports Tom leakage in non-Tom packs", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] BOUNDARY-TOM-LEAK-001 /);
-    assert.match(result.stdout, /ian-xiaohei-illustrations\/references\/ips\/xiaohei\/xiaohei-ip\.md/);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/xiaohei\/xiaohei-ip\.md/);
     assert.match(result.stdout, /observed forbidden marker\(s\): Tom Cat/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2507,13 +2509,13 @@ test("validator fixture reports Tom leakage in non-Tom packs", () => {
 
 test("validator fixture reports Ferris leakage in non-Ferris packs", () => {
   for (const [name, relativePath, marker] of [
-    ["xiaohei", path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"), "Ferris"],
+    ["xiaohei", path.join("skills", "visual-ip-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"), "Ferris"],
     [
       "littlebox",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
       "Rustacean",
     ],
-    ["tom", path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "tom-ip.md"), "Rust trademark boundary"],
+    ["tom", path.join("skills", "visual-ip-illustrations", "references", "ips", "tom", "tom-ip.md"), "Rust trademark boundary"],
   ]) {
     const fixtureRoot = copyFixture(`ferris-leak-${name}`);
     try {
@@ -2539,18 +2541,18 @@ test("validator fixture reports Sealos leakage in non-Sealos packs", () => {
   for (const [name, relativePath, marker] of [
     [
       "xiaohei",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
       "Sealos Seal",
     ],
     [
       "littlebox",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
       "uploaded-image-canonical",
     ],
-    ["tom", path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "tom-ip.md"), "brand-owned"],
+    ["tom", path.join("skills", "visual-ip-illustrations", "references", "ips", "tom", "tom-ip.md"), "brand-owned"],
     [
       "ferris",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
       "references/ips/sealos/source.md",
     ],
   ]) {
@@ -2578,21 +2580,21 @@ test("validator fixture reports OpenClaw leakage in non-OpenClaw packs", () => {
   for (const [name, relativePath, marker] of [
     [
       "xiaohei",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
       "OpenClaw logo",
     ],
     [
       "littlebox",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
       "uploaded-logo authority",
     ],
-    ["tom", path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "tom-ip.md"), "OpenClaw mascot"],
+    ["tom", path.join("skills", "visual-ip-illustrations", "references", "ips", "tom", "tom-ip.md"), "OpenClaw mascot"],
     [
       "ferris",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
       "references/ips/openclaw",
     ],
-    ["seal", path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "seal-ip.md"), "OpenClaw 吉祥物"],
+    ["seal", path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "seal-ip.md"), "OpenClaw 吉祥物"],
   ]) {
     const fixtureRoot = copyFixture(`openclaw-leak-${name}`);
     try {
@@ -2618,24 +2620,24 @@ test("validator fixture reports Go Gopher leakage in non-Go-Gopher packs", () =>
   for (const [name, relativePath, marker] of [
     [
       "xiaohei",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
       "Go Gopher",
     ],
     [
       "littlebox",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
       "gopher.png",
     ],
-    ["tom", path.join("ian-xiaohei-illustrations", "references", "ips", "tom", "tom-ip.md"), "Renee French"],
+    ["tom", path.join("skills", "visual-ip-illustrations", "references", "ips", "tom", "tom-ip.md"), "Renee French"],
     [
       "ferris",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
       "Creative Commons Attribution 4.0",
     ],
-    ["seal", path.join("ian-xiaohei-illustrations", "references", "ips", "seal", "seal-ip.md"), "Go logo boundary"],
+    ["seal", path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "seal-ip.md"), "Go logo boundary"],
     [
       "openclaw",
-      path.join("ian-xiaohei-illustrations", "references", "ips", "openclaw", "openclaw-ip.md"),
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw", "openclaw-ip.md"),
       "references/ips/gopher",
     ],
   ]) {
@@ -2675,7 +2677,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
 
     assert.equal(pendingResult.status, 1);
     assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and skills\/visual-ip-illustrations\/assets\/examples/);
     assert.match(pendingResult.stdout, /examples\/images\/99-tom-test\.png/);
     assert.match(pendingResult.stdout, /approval status=PENDING/);
     assert.match(pendingResult.stdout, /reviewer=missing/);
@@ -2754,7 +2756,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
 
     assert.equal(pendingResult.status, 1);
     assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and skills\/visual-ip-illustrations\/assets\/examples/);
     assert.match(pendingResult.stdout, /examples\/images\/99-ferris-test\.png/);
     assert.match(pendingResult.stdout, /approval status=PENDING/);
     assert.match(pendingResult.stdout, /reviewer=missing/);
@@ -2776,7 +2778,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     assert.deepEqual(approval.allowedDirectories, [
       "examples/images",
       "examples/images-en",
-      "ian-xiaohei-illustrations/assets/examples",
+      "skills/visual-ip-illustrations/assets/examples",
     ]);
 
     const approvedResult = runFixtureValidator(fixtureRoot);
@@ -2804,7 +2806,7 @@ test("validator fixture enforces public Seal sample approval parsing", async () 
 
     assert.equal(pendingResult.status, 1);
     assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-SEAL-IMG-001 /);
-    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and skills\/visual-ip-illustrations\/assets\/examples/);
     assert.match(pendingResult.stdout, /examples\/images\/99-seal-test\.png/);
     assert.match(pendingResult.stdout, /approval status=PENDING/);
     assert.match(pendingResult.stdout, /reviewer=missing/);
@@ -2852,7 +2854,7 @@ test("validator fixture enforces public OpenClaw sample approval parsing", async
 
     assert.equal(pendingResult.status, 1);
     assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-OPENCLAW-IMG-001 /);
-    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and skills\/visual-ip-illustrations\/assets\/examples/);
     assert.match(pendingResult.stdout, /examples\/images\/99-openclaw-test\.png/);
     assert.match(pendingResult.stdout, /approval status=PENDING/);
     assert.match(pendingResult.stdout, /reviewer=missing/);
@@ -2904,7 +2906,7 @@ test("validator fixture enforces public Go Gopher sample approval parsing", asyn
 
     assert.equal(pendingResult.status, 1);
     assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-GOPHER-IMG-001 /);
-    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and ian-xiaohei-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and skills\/visual-ip-illustrations\/assets\/examples/);
     assert.match(pendingResult.stdout, /examples\/images\/99-gopher-test\.png/);
     assert.match(pendingResult.stdout, /approval status=PENDING/);
     assert.match(pendingResult.stdout, /reviewer=missing/);

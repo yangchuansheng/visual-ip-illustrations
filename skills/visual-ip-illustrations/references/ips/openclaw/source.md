@@ -35,7 +35,7 @@ Preserve these uploaded OpenClaw logo markers together:
 ## Sample Policy
 
 - Public rendered OpenClaw samples require release review before publication.
-- Public rendered OpenClaw samples require release review before appearing in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- Public rendered OpenClaw samples require release review before appearing in `examples/images/` or `skills/visual-ip-illustrations/assets/examples/`.
 - Internal review samples are allowed under `assets/<article-slug>-openclaw/` when this source record and uploaded-logo authority stay attached.
 - Sample approval records should include reviewer, date, approval status, allowed directories, release channels, uploaded-logo identity outcome, source/license outcome, route-isolation outcome, and article-metaphor quality outcome.
 - Sample copy should present OpenClaw as a source-reviewed article-illustration route.

@@ -42,7 +42,7 @@ Preserve these root `gopher.png` visual markers together:
 ## Sample Policy
 
 - Public generated Go Gopher samples require release review before publication.
-- Public generated Go Gopher samples require release review before appearing in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- Public generated Go Gopher samples require release review before appearing in `examples/images/` or `skills/visual-ip-illustrations/assets/examples/`.
 - Internal review samples are allowed under `assets/<article-slug>-gopher/` when this source record and root `gopher.png` local visual authority stay attached.
 - Sample approval records should include reviewer, date, approval status, allowed directories, release channels, Go blog source outcome, Renee French attribution outcome, Creative Commons Attribution 4.0 outcome, local visual marker outcome, route-isolation outcome, Go logo boundary outcome, official affiliation/approval/sponsorship/endorsement outcome, and article-metaphor quality outcome.
 - Sample copy should present Go Gopher as a source-reviewed article-illustration mascot route.

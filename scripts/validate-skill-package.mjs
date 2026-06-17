@@ -3,7 +3,7 @@ import path from "node:path";
 import process from "node:process";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
-const PACKAGE_DIR = "ian-xiaohei-illustrations";
+const PACKAGE_DIR = "skills/visual-ip-illustrations";
 const REFERENCES_DIR = path.join(PACKAGE_DIR, "references");
 const PUBLIC_DOCS = ["README.md", "examples/prompts.md", "NOTICE.md", "LICENSE"];
 const SKILL_FILE = path.join(PACKAGE_DIR, "SKILL.md");
@@ -831,7 +831,7 @@ function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
     .find((line) =>
       line.includes(`Public rendered ${routeName} samples approved for`) &&
       line.includes("examples/images") &&
-      line.includes("ian-xiaohei-illustrations/assets/examples"),
+      line.includes("skills/visual-ip-illustrations/assets/examples"),
     );
 
   if (!approvalLine) {
@@ -869,7 +869,7 @@ function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
     .map((directory) => directory.trim())
     .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
     .filter(Boolean);
-  const requiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
+  const requiredDirectories = ["examples/images", "examples/images-en", "skills/visual-ip-illustrations/assets/examples"];
   const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
   const datePresent = isValidReviewDate(reviewDate);
   const approvalStatusPresent =
@@ -1063,9 +1063,9 @@ function parseSealApprovalLine(approvalLine, kind) {
   const releaseChannels = kind === "public" ? secondDirectoryOrChannels : releaseChannelsOrIdentity;
   const identityOutcome = kind === "public" ? releaseChannelsOrIdentity : identityOrNoLogo;
   const noLogoOutcome = kind === "public" ? identityOrNoLogo : noLogoOutcomeText;
-  const publicRequiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "skills/visual-ip-illustrations/assets/examples"];
   const generatedRequiredInternalDirectories = ["assets/<article-slug>-seal"];
-  const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const generatedRequiredPublicDirectories = ["examples/images", "skills/visual-ip-illustrations/assets/examples"];
   const legacyAllowedDirectories = firstDirectoryText
     .split(/,|;|\band\b/)
     .map((directory) => directory.trim())
@@ -1160,9 +1160,9 @@ function parseOpenClawApprovalLine(approvalLine, kind) {
       .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
       .filter(Boolean);
 
-  const publicRequiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "skills/visual-ip-illustrations/assets/examples"];
   const generatedRequiredInternalDirectories = ["assets/<article-slug>-openclaw"];
-  const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const generatedRequiredPublicDirectories = ["examples/images", "skills/visual-ip-illustrations/assets/examples"];
   const allowedDirectories = kind === "public" ? parseDirectories(firstDirectoryText) : [];
   const internalReviewDirectories = kind === "generated" ? parseDirectories(firstDirectoryText) : [];
   const publicDirectories = kind === "generated" ? parseDirectories(secondDirectoryOrChannels) : [];
@@ -1276,9 +1276,9 @@ function parseGopherApprovalLine(approvalLine, kind) {
       .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
       .filter(Boolean);
 
-  const publicRequiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "skills/visual-ip-illustrations/assets/examples"];
   const generatedRequiredInternalDirectories = ["assets/<article-slug>-gopher"];
-  const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const generatedRequiredPublicDirectories = ["examples/images", "skills/visual-ip-illustrations/assets/examples"];
   const allowedDirectories = kind === "public" ? parseDirectories(firstDirectoryText) : [];
   const internalReviewDirectories = kind === "generated" ? parseDirectories(firstDirectoryText) : [];
   const publicDirectories = kind === "generated" ? parseDirectories(secondDirectoryOrChannels) : [];
@@ -1420,9 +1420,9 @@ function parseFerrisApprovalLine(approvalLine, kind) {
       .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
       .filter(Boolean);
 
-  const publicRequiredDirectories = ["examples/images", "examples/images-en", "ian-xiaohei-illustrations/assets/examples"];
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "skills/visual-ip-illustrations/assets/examples"];
   const generatedRequiredInternalDirectories = ["assets/<article-slug>-ferris"];
-  const generatedRequiredPublicDirectories = ["examples/images", "ian-xiaohei-illustrations/assets/examples"];
+  const generatedRequiredPublicDirectories = ["examples/images", "skills/visual-ip-illustrations/assets/examples"];
   const allowedDirectories = kind === "public" ? parseDirectories(firstDirectoryText) : [];
   const internalReviewDirectories = kind === "generated" ? parseDirectories(firstDirectoryText) : [];
   const publicDirectories = kind === "generated" ? parseDirectories(secondDirectoryOrChannels) : [];
@@ -2396,7 +2396,7 @@ function assertSealDocsConsistencyScan() {
     "Seal",
     "active",
     "source-history authority",
-    "ian-xiaohei-illustrations/references/ips/seal/source.md",
+    "skills/visual-ip-illustrations/references/ips/seal/source.md",
     "assets/<article-slug>-seal/",
     "assets/&lt;article-slug&gt;-seal/",
   ];
@@ -2415,7 +2415,7 @@ function assertSealDocsConsistencyScan() {
   assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
     "Seal Source-History Boundary",
     "Route status: `active`",
-    "Source-history authority: `ian-xiaohei-illustrations/references/ips/seal/source.md`",
+    "Source-history authority: `skills/visual-ip-illustrations/references/ips/seal/source.md`",
     "Logo-free route behavior",
   ], "Seal NOTICE consistency markers");
   assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
@@ -3929,16 +3929,16 @@ const checks = [
   defineCheck("DOC-ROUTES-001", "public docs expose route metadata and canonical pack paths", () => {
     const text = combinedText(["README.md", "examples/prompts.md"]);
     assertIncludes(text, "README.md + examples/prompts.md", [
-      "ian-xiaohei-illustrations/references/routing.md",
-      "ian-xiaohei-illustrations/references/ips/xiaohei/",
-      "ian-xiaohei-illustrations/references/ips/littlebox/",
-      "ian-xiaohei-illustrations/references/ips/tom/",
-      "ian-xiaohei-illustrations/references/ips/ferris/",
-      "ian-xiaohei-illustrations/references/ips/seal/",
-      "ian-xiaohei-illustrations/references/ips/openclaw/",
-      "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
-      "ian-xiaohei-illustrations/references/ips/gopher/",
-      "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+      "skills/visual-ip-illustrations/references/routing.md",
+      "skills/visual-ip-illustrations/references/ips/xiaohei/",
+      "skills/visual-ip-illustrations/references/ips/littlebox/",
+      "skills/visual-ip-illustrations/references/ips/tom/",
+      "skills/visual-ip-illustrations/references/ips/ferris/",
+      "skills/visual-ip-illustrations/references/ips/seal/",
+      "skills/visual-ip-illustrations/references/ips/openclaw/",
+      "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
+      "skills/visual-ip-illustrations/references/ips/gopher/",
+      "skills/visual-ip-illustrations/references/ips/gopher/source.md",
       "Xiaohei",
       "Littlebox",
       "OpenClaw",
@@ -3954,7 +3954,7 @@ const checks = [
       "Tom and Jerry",
       "汤姆",
       "汤姆猫",
-      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
+      "skills/visual-ip-illustrations/references/ips/tom/rights.md",
       "assets/<article-slug>-tom/",
       "assets/&lt;article-slug&gt;-tom/",
     ], "Tom status, aliases, rights path, and raw plus escaped output path tokens");
@@ -3974,7 +3974,7 @@ const checks = [
       "Rustacean",
       "Rust 吉祥物",
       "Rust 螃蟹",
-      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
+      "skills/visual-ip-illustrations/references/ips/ferris/source.md",
       "assets/<article-slug>-ferris/",
       "assets/&lt;article-slug&gt;-ferris/",
     ], "Ferris aliases, source record path, and raw plus escaped output path tokens");
@@ -4008,8 +4008,8 @@ const checks = [
       combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE]),
       "README.md + examples/prompts.md + NOTICE.md + RELEASE_CHECKLIST.md + routing.md",
       [
-        "ian-xiaohei-illustrations/references/ips/seal/source.md",
-        "ian-xiaohei-illustrations/references/ips/seal/",
+        "skills/visual-ip-illustrations/references/ips/seal/source.md",
+        "skills/visual-ip-illustrations/references/ips/seal/",
         "source-history authority",
         "hoodie seal identity note",
         "logo-free note",
@@ -4028,7 +4028,7 @@ const checks = [
       assertIncludes(requireFile(relativePath), relativePath, [
         "OpenClaw",
         "source-reviewed",
-        "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+        "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
         "assets/<article-slug>-openclaw/",
         "assets/&lt;article-slug&gt;-openclaw/",
       ], "OpenClaw README variant route status, source/license authority, and path markers");
@@ -4042,7 +4042,7 @@ const checks = [
       assertIncludes(requireFile(relativePath), relativePath, [
         "OpenClaw",
         "source-reviewed",
-        "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+        "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
         "assets/<article-slug>-openclaw/",
         "assets/&lt;article-slug&gt;-openclaw/",
       ], "OpenClaw route status, source/license authority, and path markers");
@@ -4052,7 +4052,7 @@ const checks = [
       "https://github.com/openclaw/openclaw",
       "MIT License",
       "Copyright (c) 2026 OpenClaw Foundation",
-      "Source/license authority: `ian-xiaohei-illustrations/references/ips/openclaw/source.md`",
+      "Source/license authority: `skills/visual-ip-illustrations/references/ips/openclaw/source.md`",
       "Uploaded-logo authority",
     ], "OpenClaw NOTICE source/license and uploaded-logo authority wording");
     assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
@@ -4064,8 +4064,8 @@ const checks = [
       combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE, OPENAI_AGENT_FILE]),
       "README.md + examples/prompts.md + NOTICE.md + RELEASE_CHECKLIST.md + routing.md + openai.yaml",
       [
-        "ian-xiaohei-illustrations/references/ips/openclaw/",
-        "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+        "skills/visual-ip-illustrations/references/ips/openclaw/",
+        "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
         "OpenClaw Source and License Review",
         "OpenClaw Public Asset Policy",
         "OpenClaw Generated Sample Policy",
@@ -4083,7 +4083,7 @@ const checks = [
       assertIncludes(requireFile(relativePath), relativePath, [
         "Go Gopher",
         "source-reviewed",
-        "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+        "skills/visual-ip-illustrations/references/ips/gopher/source.md",
         "assets/<article-slug>-gopher/",
         "assets/&lt;article-slug&gt;-gopher/",
       ], "Go Gopher README variant route status, source/license authority, and path markers");
@@ -4097,7 +4097,7 @@ const checks = [
       assertIncludes(requireFile(relativePath), relativePath, [
         "Go Gopher",
         "source-reviewed",
-        "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+        "skills/visual-ip-illustrations/references/ips/gopher/source.md",
         "assets/<article-slug>-gopher/",
         "assets/&lt;article-slug&gt;-gopher/",
       ], "Go Gopher route status, source/license authority, and path markers");
@@ -4107,7 +4107,7 @@ const checks = [
       "https://go.dev/blog/gopher",
       "Renee French",
       "Creative Commons Attribution 4.0",
-      "Source/license authority: `ian-xiaohei-illustrations/references/ips/gopher/source.md`",
+      "Source/license authority: `skills/visual-ip-illustrations/references/ips/gopher/source.md`",
       "Local visual authority: root `gopher.png`",
     ], "Go Gopher NOTICE source/license and local visual authority wording");
     assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
@@ -4119,8 +4119,8 @@ const checks = [
       combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE, OPENAI_AGENT_FILE]),
       "README.md + examples/prompts.md + NOTICE.md + RELEASE_CHECKLIST.md + routing.md + openai.yaml",
       [
-        "ian-xiaohei-illustrations/references/ips/gopher/",
-        "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+        "skills/visual-ip-illustrations/references/ips/gopher/",
+        "skills/visual-ip-illustrations/references/ips/gopher/source.md",
         "Go Gopher Source and License Review",
         "Go Gopher Public Asset Policy",
         "Go Gopher Generated Sample Policy",
@@ -4162,7 +4162,7 @@ const checks = [
       "Tom from Tom and Jerry",
       "Tom and Jerry / Tom",
       "gated-authorized",
-      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
+      "skills/visual-ip-illustrations/references/ips/tom/rights.md",
       "Attribution records Tom source identity",
       "Permission is authorization-scope specific",
       "release checklist approval",
@@ -4176,7 +4176,7 @@ const checks = [
       "rustacean.net",
       "Karen Rustad Tolva",
       "source-reviewed",
-      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
+      "skills/visual-ip-illustrations/references/ips/ferris/source.md",
       "Ferris attribution records source context",
       "Rust and Cargo marks",
       "official-affiliation claims",
@@ -4190,7 +4190,7 @@ const checks = [
       "Seal Source-History Boundary",
       "product-neutral hoodie seal route",
       "Route status: `active`",
-      "Source-history authority: `ian-xiaohei-illustrations/references/ips/seal/source.md`",
+      "Source-history authority: `skills/visual-ip-illustrations/references/ips/seal/source.md`",
       "Hoodie seal identity",
       "Logo-free route behavior",
       "active product-neutral hoodie seal article character",
@@ -4209,7 +4209,7 @@ const checks = [
       "Official repository: <https://github.com/openclaw/openclaw>",
       "License: `MIT License`",
       "Source copyright: `Copyright (c) 2026 OpenClaw Foundation`",
-      "Source/license authority: `ian-xiaohei-illustrations/references/ips/openclaw/source.md`",
+      "Source/license authority: `skills/visual-ip-illustrations/references/ips/openclaw/source.md`",
       "Uploaded-logo authority",
       "Attribution context: OpenClaw source, license, copyright, uploaded-logo authority, route metadata, documentation, and release review",
       "Public rendered OpenClaw samples remain gated",
@@ -4226,7 +4226,7 @@ const checks = [
       "Official Go blog source: <https://go.dev/blog/gopher>",
       "Attribution: Renee French",
       "License boundary: Creative Commons Attribution 4.0",
-      "Source/license authority: `ian-xiaohei-illustrations/references/ips/gopher/source.md`",
+      "Source/license authority: `skills/visual-ip-illustrations/references/ips/gopher/source.md`",
       "Local visual authority: root `gopher.png`",
       "Attribution context: Go Gopher source, Renee French attribution, Creative Commons Attribution 4.0 boundary, local `gopher.png` visual authority, route metadata, documentation, and release review",
       "Public rendered Go Gopher samples remain gated",
@@ -4273,8 +4273,8 @@ const checks = [
       "Tom, Tom Cat, Tom and Jerry, 汤姆, and 汤姆猫",
       "Tom is an explicit protected-character route",
       "route status `gated-authorized`",
-      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
-      "Use route-local reference directory: `ian-xiaohei-illustrations/references/ips/tom/`",
+      "skills/visual-ip-illustrations/references/ips/tom/rights.md",
+      "Use route-local reference directory: `skills/visual-ip-illustrations/references/ips/tom/`",
       "assets/<article-slug>-tom/",
       "assets/&lt;article-slug&gt;-tom/",
       "Rights-status note",
@@ -4290,8 +4290,8 @@ const checks = [
       "Ferris, Rust mascot, Rust crab, Rustacean, Rust 吉祥物, and Rust 螃蟹",
       "Ferris is an explicit Rust-community mascot route with status source-reviewed",
       "route status is `source-reviewed`",
-      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
-      "Use route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`",
+      "skills/visual-ip-illustrations/references/ips/ferris/source.md",
+      "Use route-local reference directory: `skills/visual-ip-illustrations/references/ips/ferris/`",
       "required references include `index.md`, `source.md`, `style-dna.md`, `ferris-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`",
       "assets/<article-slug>-ferris/",
       "assets/&lt;article-slug&gt;-ferris/",
@@ -4306,8 +4306,8 @@ const checks = [
       "Seal / hoodie seal / white seal / blue hoodie seal / 海豹 / 连帽衫海豹 / 白色海豹 / 蓝色连帽衫海豹",
       "selected IP is Seal",
       "route status is `active`",
-      "source-history authority is `ian-xiaohei-illustrations/references/ips/seal/source.md`",
-      "route-local reference directory is `ian-xiaohei-illustrations/references/ips/seal/`",
+      "source-history authority is `skills/visual-ip-illustrations/references/ips/seal/source.md`",
+      "route-local reference directory is `skills/visual-ip-illustrations/references/ips/seal/`",
       "required references include `index.md`, `source.md`, `style-dna.md`, `seal-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`",
       "planning fields include Placement, Core idea, Structure type, Seal state, Seal action, Supporting objects, Visible labels, Output path, Source-history note",
       "assets/<article-slug>-seal/",
@@ -4324,8 +4324,8 @@ const checks = [
       "Explicit OpenClaw aliases include OpenClaw, openclaw, OpenClaw logo, OpenClaw mascot",
       "Use $ian-xiaohei-illustrations with the OpenClaw route",
       "route status `source-reviewed`",
-      "source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`",
-      "route-local reference directory `ian-xiaohei-illustrations/references/ips/openclaw/`",
+      "source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`",
+      "route-local reference directory `skills/visual-ip-illustrations/references/ips/openclaw/`",
       "required references include `index.md`, `source.md`, `style-dna.md`, `openclaw-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`",
       "planning fields include Placement, Core idea, Structure type, OpenClaw state, OpenClaw action, Supporting objects, Visible labels, Output path, Source/license note",
       "assets/<article-slug>-openclaw/",
@@ -4342,8 +4342,8 @@ const checks = [
       "### Smoke: Go Gopher source-reviewed route status",
       "Text-only maintainer route audit. Use the Go Gopher route",
       "route status `source-reviewed`",
-      "source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`",
-      "route-local reference directory is `ian-xiaohei-illustrations/references/ips/gopher/`",
+      "source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`",
+      "route-local reference directory is `skills/visual-ip-illustrations/references/ips/gopher/`",
       "planning fields include Placement, Core idea, Structure type, Gopher state, Gopher action, Supporting objects, Visible labels, Output path, Source/license note",
       "assets/<article-slug>-gopher/",
       "assets/&lt;article-slug&gt;-gopher/",
@@ -4374,8 +4374,8 @@ const checks = [
       "Ferris variant group",
       "Seal variant group",
       "each group loads its own references",
-      "Seal canonical pack is at `ian-xiaohei-illustrations/references/ips/seal/`",
-      "Seal source-history authority is at `ian-xiaohei-illustrations/references/ips/seal/source.md`",
+      "Seal canonical pack is at `skills/visual-ip-illustrations/references/ips/seal/`",
+      "Seal source-history authority is at `skills/visual-ip-illustrations/references/ips/seal/source.md`",
       "Seal group uses `assets/<article-slug>-seal/`",
       "Hoodie seal identity note",
     ], "mixed prompt separation, Seal route-local pack, source authority, output path, and source-history note");
@@ -4389,14 +4389,14 @@ const checks = [
       "Ferris variant group",
       "Seal variant group",
       "OpenClaw variant group",
-      "OpenClaw canonical pack is at `ian-xiaohei-illustrations/references/ips/openclaw/`",
-      "OpenClaw source/license authority is at `ian-xiaohei-illustrations/references/ips/openclaw/source.md`",
-      "OpenClaw variant group uses `ian-xiaohei-illustrations/references/ips/openclaw/`",
+      "OpenClaw canonical pack is at `skills/visual-ip-illustrations/references/ips/openclaw/`",
+      "OpenClaw source/license authority is at `skills/visual-ip-illustrations/references/ips/openclaw/source.md`",
+      "OpenClaw variant group uses `skills/visual-ip-illustrations/references/ips/openclaw/`",
       "Output to `assets/<article-slug>-openclaw/`",
       "Docs validation token is `assets/&lt;article-slug&gt;-openclaw/`",
       "uploaded-logo identity markers",
       "Public rendered OpenClaw samples are controlled by the RELEASE_CHECKLIST.md public-sample and final evidence gates",
-      "Expected: OpenClaw variant group uses `ian-xiaohei-illustrations/references/ips/openclaw/`",
+      "Expected: OpenClaw variant group uses `skills/visual-ip-illustrations/references/ips/openclaw/`",
       "OpenClaw variant group each use their own route-local references",
     ], "six-route mixed prompt separation, OpenClaw route-local pack, source/license authority, output path, uploaded-logo identity, and public-sample gate");
   }),
@@ -4410,21 +4410,21 @@ const checks = [
       "Seal variant group",
       "OpenClaw variant group",
       "Go Gopher variant group",
-      "Go Gopher canonical pack is at `ian-xiaohei-illustrations/references/ips/gopher/`",
-      "Go Gopher source/license authority is at `ian-xiaohei-illustrations/references/ips/gopher/source.md`",
-      "Go Gopher variant group uses `ian-xiaohei-illustrations/references/ips/gopher/`",
+      "Go Gopher canonical pack is at `skills/visual-ip-illustrations/references/ips/gopher/`",
+      "Go Gopher source/license authority is at `skills/visual-ip-illustrations/references/ips/gopher/source.md`",
+      "Go Gopher variant group uses `skills/visual-ip-illustrations/references/ips/gopher/`",
       "outputs to `assets/<article-slug>-gopher/`",
       "keeps docs validation token `assets/&lt;article-slug&gt;-gopher/`",
       "root `gopher.png` local visual authority",
       "public sample gate",
-      "Expected: Go Gopher variant group uses `ian-xiaohei-illustrations/references/ips/gopher/`",
+      "Expected: Go Gopher variant group uses `skills/visual-ip-illustrations/references/ips/gopher/`",
       "Go Gopher variant group each use their own route-local references",
     ], "seven-route mixed prompt separation, Go Gopher route-local pack, source/license authority, output path, root visual identity, and public-sample gate");
   }),
   defineCheck("RELEASE-TOM-001", "release checklist keeps Tom rights and public sample gate markers", () => {
     assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
       "## Tom Rights and Public Sample Gate",
-      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
+      "skills/visual-ip-illustrations/references/ips/tom/rights.md",
       "gated-authorized",
       "default=false",
       "assets/<article-slug>-tom/",
@@ -4437,7 +4437,7 @@ const checks = [
     assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
       "## Ferris Source, Trademark, and Public Sample Gate",
       "Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.",
-      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
+      "skills/visual-ip-illustrations/references/ips/ferris/source.md",
       "source-reviewed",
       "Rust-logo-forward",
       "bundled Rust marks",
@@ -4464,7 +4464,7 @@ const checks = [
       "Seal Public Asset Policy",
       "Seal Generated Sample Policy",
       "Final Seal Release Review",
-      "ian-xiaohei-illustrations/references/ips/seal/source.md",
+      "skills/visual-ip-illustrations/references/ips/seal/source.md",
       "active",
       "source-history authority",
       "hoodie seal identity",
@@ -4523,7 +4523,7 @@ const checks = [
       "OpenClaw Public Asset Policy",
       "OpenClaw Generated Sample Policy",
       "Final OpenClaw Release Review",
-      "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
+      "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
       "source-reviewed",
       "https://github.com/openclaw/openclaw",
       "c14793d35a10936ddea833e7808083fe57930616",
@@ -4549,7 +4549,7 @@ const checks = [
       "Go Gopher Public Asset Policy",
       "Go Gopher Generated Sample Policy",
       "Final Go Gopher Release Review",
-      "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+      "skills/visual-ip-illustrations/references/ips/gopher/source.md",
       "source-reviewed",
       "https://go.dev/blog/gopher",
       "Renee French",
@@ -4661,16 +4661,18 @@ const checks = [
   }),
   defineCheck("REBRAND-MIGRATE-001", "install guidance preserves rebrand migration contract", () => {
     assertIncludes(combinedText(["README.md", SKILL_FILE, "RELEASE_CHECKLIST.md"]), "README.md + SKILL.md + RELEASE_CHECKLIST.md", [
-      "https://github.com/yangchuansheng/ian-xiaohei-illustrations.git",
+      "https://github.com/yangchuansheng/visual-ip-illustrations.git",
       "visual-ip-illustrations",
-      "ian-xiaohei-illustrations/",
+      "skills/visual-ip-illustrations/",
       "$visual-ip-illustrations",
       "$ian-xiaohei-illustrations",
     ], "live remote, canonical checkout slug, package directory, canonical invocation, and compatibility alias");
     assertIncludes(requireFile("README.md"), "README.md", [
-      "git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations",
+      "[![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)]",
+      "npx skills add yangchuansheng/visual-ip-illustrations --skill visual-ip-illustrations",
+      "git clone https://github.com/yangchuansheng/visual-ip-illustrations.git visual-ip-illustrations",
       "cd visual-ip-illustrations",
-      "cp -R ./ian-xiaohei-illustrations",
+      "cp -R ./skills/visual-ip-illustrations",
     ], "README install migration commands");
   }),
   defineCheck("REBRAND-ROUTE-001", "routing table preserves rebrand route contract", () => {
@@ -4720,16 +4722,16 @@ const checks = [
       "$visual-ip-illustrations",
       "$ian-xiaohei-illustrations",
       "visual-ip-illustrations",
-      "ian-xiaohei-illustrations/",
+      "skills/visual-ip-illustrations/",
       "active",
       "gated-authorized",
       "source-reviewed",
       "active",
-      "ian-xiaohei-illustrations/references/ips/tom/rights.md",
-      "ian-xiaohei-illustrations/references/ips/ferris/source.md",
-      "ian-xiaohei-illustrations/references/ips/seal/source.md",
-      "ian-xiaohei-illustrations/references/ips/openclaw/source.md",
-      "ian-xiaohei-illustrations/references/ips/gopher/source.md",
+      "skills/visual-ip-illustrations/references/ips/tom/rights.md",
+      "skills/visual-ip-illustrations/references/ips/ferris/source.md",
+      "skills/visual-ip-illustrations/references/ips/seal/source.md",
+      "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
+      "skills/visual-ip-illustrations/references/ips/gopher/source.md",
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
       "assets/<article-slug>-tom/",

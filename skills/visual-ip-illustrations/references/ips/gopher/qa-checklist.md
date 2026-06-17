@@ -117,6 +117,6 @@ Remove Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go logo identity, offici
 
 Accepted Go Gopher images keep Go Gopher as the action subject, preserve root `gopher.png` identity markers, preserve source/license boundary, preserve route isolation, explain one article idea through an original article metaphor, use sparse labels copied exactly in the user's requested language, point source/license-sensitive use to `source.md`, report `source-reviewed` status, report public sample review boundary when relevant, and report the saved output path under `assets/<article-slug>-gopher/`.
 
-Public sample review boundary: public generated Go Gopher samples require release review before appearing in `examples/images/`, `ian-xiaohei-illustrations/assets/examples/`, README previews, release galleries, agent metadata previews, or public release surfaces.
+Public sample review boundary: public generated Go Gopher samples require release review before appearing in `examples/images/`, `skills/visual-ip-illustrations/assets/examples/`, README previews, release galleries, agent metadata previews, or public release surfaces.
 
 Go Gopher route block: generic blue mascot drift, realistic animal drift, missing ears, missing large simple eyes, missing buck teeth, missing beige muzzle/paws, missing black outline, missing white sticker-like border, Go logo confusion, official endorsement claims, passive placement, route leakage, excessive text, and copied composition all fail the route.

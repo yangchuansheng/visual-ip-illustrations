@@ -6,11 +6,11 @@
 
 **Runner:**
 - Not detected. No `package.json`, `jest.config.*`, `vitest.config.*`, `playwright.config.*`, or test runner configuration exists at the repository root.
-- Current validation is manual and checklist-driven through `ian-xiaohei-illustrations/references/qa-checklist.md`.
+- Current validation is manual and checklist-driven through `skills/visual-ip-illustrations/references/qa-checklist.md`.
 
 **Assertion Library:**
 - Not detected. No automated assertion library is configured.
-- Human assertions are encoded as required visual criteria in `ian-xiaohei-illustrations/references/qa-checklist.md` and usage examples in `examples/prompts.md`.
+- Human assertions are encoded as required visual criteria in `skills/visual-ip-illustrations/references/qa-checklist.md` and usage examples in `examples/prompts.md`.
 
 **Run Commands:**
 ```bash
@@ -23,7 +23,7 @@
 
 **Location:**
 - No `*.test.*`, `*.spec.*`, `tests/`, or `__tests__/` files are present.
-- Manual QA guidance lives in `ian-xiaohei-illustrations/references/qa-checklist.md`.
+- Manual QA guidance lives in `skills/visual-ip-illustrations/references/qa-checklist.md`.
 - Prompt smoke examples live in `examples/prompts.md`.
 - Visual calibration assets live in `examples/images/`.
 
@@ -34,7 +34,7 @@
 
 **Structure:**
 ```text
-ian-xiaohei-illustrations/
+skills/visual-ip-illustrations/
 ├── SKILL.md                         # Workflow and delivery contract
 └── references/
     ├── qa-checklist.md              # Manual acceptance and iteration checks
@@ -71,7 +71,7 @@ examples/
 ```
 
 **Patterns:**
-- Treat `ian-xiaohei-illustrations/references/qa-checklist.md` as the acceptance test suite for every generated image.
+- Treat `skills/visual-ip-illustrations/references/qa-checklist.md` as the acceptance test suite for every generated image.
 - Validate generated images against required conditions first: 16:9 horizontal format, clean white background, Xiaohei present, Xiaohei performing the core action, fresh metaphor, sparse labels, controlled color usage, and one core structure per image.
 - Validate failure signals second: top-left type titles, PPT/course/flowchart look, overfull nodes/arrows, long explanatory text, non-white backgrounds, UI screenshots, unreadable Chinese, rigid composition, or repeated example compositions.
 - Use iteration guidance as corrective actions: centralize Xiaohei, reduce nodes and labels, remove diagram furniture, swap the main metaphor, or perform local text edits.
@@ -95,8 +95,8 @@ Use $ian-xiaohei-illustrations 为这个观点生成一张 16:9 正文配图：
 - For manual prompt validation, use focused sample inputs from `examples/prompts.md` to exercise planning, article generation, long-form strategy, single concept generation, workflow generation, title removal, Xiaohei participation improvement, and sample set generation.
 
 **What NOT to Mock:**
-- Do not treat `examples/images/` as reusable composition templates. `ian-xiaohei-illustrations/references/composition-patterns.md` limits examples to style calibration and lists prior compositions that should be avoided during normal generation.
-- Do not validate only prompt text. Validate the generated visual output against `ian-xiaohei-illustrations/references/qa-checklist.md`.
+- Do not treat `examples/images/` as reusable composition templates. `skills/visual-ip-illustrations/references/composition-patterns.md` limits examples to style calibration and lists prior compositions that should be avoided during normal generation.
+- Do not validate only prompt text. Validate the generated visual output against `skills/visual-ip-illustrations/references/qa-checklist.md`.
 
 ## Fixtures and Factories
 
@@ -112,7 +112,7 @@ Use $ian-xiaohei-illustrations 给这篇长文做配图策略。
 **Location:**
 - Manual prompt fixtures are in `examples/prompts.md`.
 - Visual fixtures/calibration examples are in `examples/images/`.
-- Skill behavior references are in `ian-xiaohei-illustrations/references/`.
+- Skill behavior references are in `skills/visual-ip-illustrations/references/`.
 
 ## Coverage
 
@@ -124,10 +124,10 @@ Use $ian-xiaohei-illustrations 给这篇长文做配图策略。
 ```
 
 **Manual Coverage Targets:**
-- Planning flow: validate shot list output using `ian-xiaohei-illustrations/SKILL.md` and `examples/prompts.md`.
-- Single-image generation flow: validate the prompt template and output image using `ian-xiaohei-illustrations/references/prompt-template.md` and `ian-xiaohei-illustrations/references/qa-checklist.md`.
-- Edit flow: validate title-removal and Xiaohei-participation edits using `examples/prompts.md` and `ian-xiaohei-illustrations/references/prompt-template.md`.
-- Anti-repeat flow: compare against restricted old compositions in `ian-xiaohei-illustrations/references/composition-patterns.md` and calibration assets in `examples/images/`.
+- Planning flow: validate shot list output using `skills/visual-ip-illustrations/SKILL.md` and `examples/prompts.md`.
+- Single-image generation flow: validate the prompt template and output image using `skills/visual-ip-illustrations/references/prompt-template.md` and `skills/visual-ip-illustrations/references/qa-checklist.md`.
+- Edit flow: validate title-removal and Xiaohei-participation edits using `examples/prompts.md` and `skills/visual-ip-illustrations/references/prompt-template.md`.
+- Anti-repeat flow: compare against restricted old compositions in `skills/visual-ip-illustrations/references/composition-patterns.md` and calibration assets in `examples/images/`.
 
 ## Test Types
 
@@ -135,38 +135,38 @@ Use $ian-xiaohei-illustrations 给这篇长文做配图策略。
 - Not used. No executable units are present.
 
 **Integration Tests:**
-- Manual skill smoke tests are the effective integration tests. Use `examples/prompts.md` in Codex with the installed `ian-xiaohei-illustrations/` skill directory and inspect the generated response or image.
-- For planning tasks, verify that the response selects cognitive anchors, produces 4-8 images for normal articles, and includes placement, theme, core idea, structure type, Xiaohei action, suggested elements, and Chinese labels per `ian-xiaohei-illustrations/SKILL.md`.
-- For generation tasks, verify that each image is generated separately, uses the visual DNA in `ian-xiaohei-illustrations/references/style-dna.md`, and passes `ian-xiaohei-illustrations/references/qa-checklist.md`.
+- Manual skill smoke tests are the effective integration tests. Use `examples/prompts.md` in Codex with the installed `skills/visual-ip-illustrations/` skill directory and inspect the generated response or image.
+- For planning tasks, verify that the response selects cognitive anchors, produces 4-8 images for normal articles, and includes placement, theme, core idea, structure type, Xiaohei action, suggested elements, and Chinese labels per `skills/visual-ip-illustrations/SKILL.md`.
+- For generation tasks, verify that each image is generated separately, uses the visual DNA in `skills/visual-ip-illustrations/references/style-dna.md`, and passes `skills/visual-ip-illustrations/references/qa-checklist.md`.
 
 **E2E Tests:**
 - No automated E2E framework is configured.
 - Manual end-to-end validation path:
 ```text
-1. Install `ian-xiaohei-illustrations/` into `${CODEX_HOME:-$HOME/.codex}/skills/` using the commands in `README.md`.
+1. Install `skills/visual-ip-illustrations/` into `${CODEX_HOME:-$HOME/.codex}/skills/` using the commands in `README.md`.
 2. Run a planning prompt from `examples/prompts.md`.
 3. Run a generation prompt from `examples/prompts.md`.
-4. Inspect each generated image against `ian-xiaohei-illustrations/references/qa-checklist.md`.
-5. Save accepted images under `assets/<article-slug>-illustrations/` with ordered names, following `ian-xiaohei-illustrations/SKILL.md`.
+4. Inspect each generated image against `skills/visual-ip-illustrations/references/qa-checklist.md`.
+5. Save accepted images under `assets/<article-slug>-illustrations/` with ordered names, following `skills/visual-ip-illustrations/SKILL.md`.
 ```
 
 ## Common Patterns
 
 **Async Testing:**
 ```text
-For image generation, wait for each image result, inspect it individually, then regenerate or edit only the failing image according to `ian-xiaohei-illustrations/references/qa-checklist.md`.
+For image generation, wait for each image result, inspect it individually, then regenerate or edit only the failing image according to `skills/visual-ip-illustrations/references/qa-checklist.md`.
 ```
 
 **Error Testing:**
 ```text
 Trigger: generated image has a top-left "Workflow / 流程图" title.
-Expected corrective action: use the title-removal edit prompt in `ian-xiaohei-illustrations/references/prompt-template.md` and preserve the rest of the image.
+Expected corrective action: use the title-removal edit prompt in `skills/visual-ip-illustrations/references/prompt-template.md` and preserve the rest of the image.
 
 Trigger: Xiaohei is decorative.
-Expected corrective action: use the Xiaohei-participation regeneration prompt in `ian-xiaohei-illustrations/references/prompt-template.md`.
+Expected corrective action: use the Xiaohei-participation regeneration prompt in `skills/visual-ip-illustrations/references/prompt-template.md`.
 
 Trigger: output repeats an old example composition.
-Expected corrective action: use `ian-xiaohei-illustrations/references/composition-patterns.md` to replace the main object and Xiaohei action while preserving the core meaning.
+Expected corrective action: use `skills/visual-ip-illustrations/references/composition-patterns.md` to replace the main object and Xiaohei action while preserving the core meaning.
 ```
 
 ---

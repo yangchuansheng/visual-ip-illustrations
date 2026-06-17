@@ -63,7 +63,7 @@ The language migration preserves these compatibility surfaces:
 - canonical invocation `$visual-ip-illustrations`
 - legacy invocation `$ian-xiaohei-illustrations`
 - route ids: `xiaohei`, `littlebox`, `tom`, `ferris`, and `sealos`
-- route aliases, including Chinese aliases listed in `ian-xiaohei-illustrations/references/routing.md`
+- route aliases, including Chinese aliases listed in `skills/visual-ip-illustrations/references/routing.md`
 - default flags, with Xiaohei as the omitted-IP default
 - output suffixes: `illustrations`, `littlebox`, `tom`, `ferris`, and `sealos`
 - output paths: `assets/<article-slug>-illustrations/`, `assets/<article-slug>-littlebox/`, `assets/<article-slug>-tom/`, `assets/<article-slug>-ferris/`, and `assets/<article-slug>-sealos/`
@@ -77,9 +77,9 @@ Xiaohei remains the omitted-IP default. Littlebox, Tom, Ferris, and Sealos Seal 
 
 Route-local authority remains isolated:
 
-- Tom rights stay in `ian-xiaohei-illustrations/references/ips/tom/rights.md`
-- Ferris source/trademark authority stays in `ian-xiaohei-illustrations/references/ips/ferris/source.md`
-- Sealos Seal brand/canonical-image authority stays in `ian-xiaohei-illustrations/references/ips/sealos/source.md`
+- Tom rights stay in `skills/visual-ip-illustrations/references/ips/tom/rights.md`
+- Ferris source/trademark authority stays in `skills/visual-ip-illustrations/references/ips/ferris/source.md`
+- Sealos Seal brand/canonical-image authority stays in `skills/visual-ip-illustrations/references/ips/sealos/source.md`
 
 ## Migration Handoff
 

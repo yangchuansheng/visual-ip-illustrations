@@ -46,7 +46,7 @@ Preserve these hoodie Seal markers together:
 
 ## Sample Policy
 
-- Public rendered Seal samples require release review before appearing in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- Public rendered Seal samples require release review before appearing in `examples/images/` or `skills/visual-ip-illustrations/assets/examples/`.
 - Internal review samples are allowed under `assets/<article-slug>-seal/` when this source-history authority and hoodie seal identity note stay attached.
 - Sample approval records should include reviewer, date, approval status, allowed directories, release channels, hoodie seal identity outcome, logo-free outcome, route isolation outcome, and article-metaphor quality outcome.
 - Sample copy should present Seal as a product-neutral hoodie seal character route.

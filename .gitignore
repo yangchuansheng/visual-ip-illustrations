@@ -10,5 +10,9 @@ dist/
 .idea/
 .vscode/
 
+# Local agent installs
+.agents/
+skills-lock.json
+
 # Logs
 *.log

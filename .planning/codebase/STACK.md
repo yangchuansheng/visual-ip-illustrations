@@ -5,8 +5,8 @@
 ## Languages
 
 **Primary:**
-- Markdown - Skill instructions, repository documentation, prompt templates, QA rules, and examples live in `ian-xiaohei-illustrations/SKILL.md`, `README.md`, `examples/prompts.md`, and `ian-xiaohei-illustrations/references/*.md`.
-- YAML - Codex agent interface metadata lives in `ian-xiaohei-illustrations/agents/openai.yaml`.
+- Markdown - Skill instructions, repository documentation, prompt templates, QA rules, and examples live in `skills/visual-ip-illustrations/SKILL.md`, `README.md`, `examples/prompts.md`, and `skills/visual-ip-illustrations/references/*.md`.
+- YAML - Codex agent interface metadata lives in `skills/visual-ip-illustrations/agents/openai.yaml`.
 
 **Secondary:**
 - Image assets - PNG and JPG examples support visual calibration in `examples/images/*.png` and `assets/ian-wechat-qr.jpg`.
@@ -15,7 +15,7 @@
 
 **Environment:**
 - Codex Skills runtime - The install target is `${CODEX_HOME:-$HOME/.codex}/skills`, documented in `README.md`.
-- Host-provided image generation runtime - The skill instructs the agent to call the built-in `image_gen` capability from `ian-xiaohei-illustrations/SKILL.md`.
+- Host-provided image generation runtime - The skill instructs the agent to call the built-in `image_gen` capability from `skills/visual-ip-illustrations/SKILL.md`.
 - No standalone application runtime detected - No `package.json`, `pyproject.toml`, `requirements.txt`, `Cargo.toml`, or `go.mod` is present.
 
 **Package Manager:**
@@ -25,11 +25,11 @@
 ## Frameworks
 
 **Core:**
-- Codex Skill format - `ian-xiaohei-illustrations/SKILL.md` defines the skill name, description, routing triggers, workflow, reference files, output contract, and save-path convention.
-- Codex agent metadata - `ian-xiaohei-illustrations/agents/openai.yaml` defines display metadata and `policy.allow_implicit_invocation`.
+- Codex Skill format - `skills/visual-ip-illustrations/SKILL.md` defines the skill name, description, routing triggers, workflow, reference files, output contract, and save-path convention.
+- Codex agent metadata - `skills/visual-ip-illustrations/agents/openai.yaml` defines display metadata and `policy.allow_implicit_invocation`.
 
 **Testing:**
-- Manual QA checklist - `ian-xiaohei-illustrations/references/qa-checklist.md` defines acceptance criteria for generated images.
+- Manual QA checklist - `skills/visual-ip-illustrations/references/qa-checklist.md` defines acceptance criteria for generated images.
 - No automated test framework detected - The repo contains no test runner config or test files.
 
 **Build/Dev:**
@@ -39,9 +39,9 @@
 ## Key Dependencies
 
 **Critical:**
-- Codex Skills loader - Required to discover and execute `ian-xiaohei-illustrations/SKILL.md` after copying the `ian-xiaohei-illustrations/` directory into `${CODEX_HOME:-$HOME/.codex}/skills`.
-- Built-in `image_gen` capability - Required for direct image generation and editing workflows described in `ian-xiaohei-illustrations/SKILL.md` and `ian-xiaohei-illustrations/references/prompt-template.md`.
-- Workspace filesystem access - Required to save final images under `assets/<article-slug>-illustrations/`, as specified in `ian-xiaohei-illustrations/SKILL.md`.
+- Codex Skills loader - Required to discover and execute `skills/visual-ip-illustrations/SKILL.md` after copying the `skills/visual-ip-illustrations/` directory into `${CODEX_HOME:-$HOME/.codex}/skills`.
+- Built-in `image_gen` capability - Required for direct image generation and editing workflows described in `skills/visual-ip-illustrations/SKILL.md` and `skills/visual-ip-illustrations/references/prompt-template.md`.
+- Workspace filesystem access - Required to save final images under `assets/<article-slug>-illustrations/`, as specified in `skills/visual-ip-illustrations/SKILL.md`.
 
 **Infrastructure:**
 - Git - Used for cloning and distributing the repository, documented in `README.md`.
@@ -51,8 +51,8 @@
 
 **Environment:**
 - Install path is configured by `CODEX_HOME`; fallback is `$HOME/.codex`, documented in `README.md`.
-- Runtime behavior is configured by frontmatter in `ian-xiaohei-illustrations/SKILL.md` and metadata in `ian-xiaohei-illustrations/agents/openai.yaml`.
-- Style, prompt, and QA behavior is configured by reference files in `ian-xiaohei-illustrations/references/`.
+- Runtime behavior is configured by frontmatter in `skills/visual-ip-illustrations/SKILL.md` and metadata in `skills/visual-ip-illustrations/agents/openai.yaml`.
+- Style, prompt, and QA behavior is configured by reference files in `skills/visual-ip-illustrations/references/`.
 - No `.env` files detected in the repository root or first-level subdirectories.
 
 **Build:**

@@ -28,7 +28,7 @@
 
 ## Restricted Use
 
-- Generated public Tom sample assets require explicit public-sample approval before appearing in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- Generated public Tom sample assets require explicit public-sample approval before appearing in `examples/images/` or `skills/visual-ip-illustrations/assets/examples/`.
 - Broad Tom availability claims require release checklist approval and authorization-scope confirmation.
 - Tom identity, style, prompt, composition, and QA rules stay route-local in the Tom canonical pack.
 - Broader Tom and Jerry cast, logos, title cards, source-frame recreation, and unrelated franchise scenes require separate authorization scope.

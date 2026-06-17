@@ -1,5 +1,7 @@
 # Visual IP Illustrations
 
+[![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
+
 > Visual IP Illustrations is a multi-visual-IP Codex Skill for article body illustrations. Xiaohei is the implicit default route; Littlebox is explicit and active; Tom is an explicit protected-character route with status `gated-authorized`; Ferris is an explicit Rust-community mascot route with status `source-reviewed`; Seal is an explicit product-neutral hoodie seal route with status `active`; OpenClaw is an explicit logo-mascot route with status `source-reviewed`. Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.
 >
 > 16:9 horizontal | multi visual IP | article body illustrations | Canonical invocation: `$visual-ip-illustrations`
@@ -25,12 +27,12 @@ Current route inventory:
 - **Tom**: explicit protected-character route. Requests that name `Tom`, `Tom Cat`, `Tom and Jerry`, `汤姆`, or `汤姆猫` use the Tom route.
 - **Ferris**: explicit Rust-community mascot route. Requests that name `Ferris`, `Rust mascot`, `Rust crab`, `Rustacean`, `Rust 吉祥物`, or `Rust 螃蟹` use the Ferris route.
 - **Seal**: explicit product-neutral hoodie seal route. Requests that name `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, or `蓝色连帽衫海豹` use the Seal route.
-- **OpenClaw**: explicit logo-mascot route. Requests that name `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, or the OpenClaw aliases listed in `ian-xiaohei-illustrations/references/routing.md` use the OpenClaw route.
-- **Go Gopher**: explicit source-reviewed article-illustration mascot route. Requests that name `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, or Go Gopher aliases listed in `ian-xiaohei-illustrations/references/routing.md` use the Go Gopher route.
+- **OpenClaw**: explicit logo-mascot route. Requests that name `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, or the OpenClaw aliases listed in `skills/visual-ip-illustrations/references/routing.md` use the OpenClaw route.
+- **Go Gopher**: explicit source-reviewed article-illustration mascot route. Requests that name `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, or Go Gopher aliases listed in `skills/visual-ip-illustrations/references/routing.md` use the Go Gopher route.
 
 Core value: users can choose a visual IP and receive article illustration assets whose character, style rules, prompts, QA gates, saved outputs, attribution, source context, and brand boundary stay consistent with that IP.
 
-Release 1.4 public identity uses `Visual IP Illustrations`, canonical local checkout slug `visual-ip-illustrations`, and canonical invocation `$visual-ip-illustrations`. Compatibility surfaces remain stable: installable package directory `ian-xiaohei-illustrations/`, Legacy compatibility alias `$ian-xiaohei-illustrations`, existing `ian-xiaohei-illustrations/` source paths, route behavior, output directories, and validator markers.
+Release 1.4 public identity uses `Visual IP Illustrations`, canonical local checkout slug `visual-ip-illustrations`, and canonical invocation `$visual-ip-illustrations`. Compatibility surfaces remain stable: installable package directory `skills/visual-ip-illustrations/`, Legacy compatibility alias `$ian-xiaohei-illustrations`, existing `skills/visual-ip-illustrations/` source paths, route behavior, output directories, and validator markers.
 
 ---
 
@@ -95,37 +97,37 @@ Aliases: `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连
 
 OpenClaw is an explicit logo-mascot route: the official red round OpenClaw logo character performs one article concept through friendly inspecting, holding, bridging, sorting, lifting, or signaling actions. It works well for workflow clarity, compatibility checks, model/tool coordination, review gates, and source-reviewed project metaphors.
 
-Aliases: `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, plus the OpenClaw aliases listed in `ian-xiaohei-illustrations/references/routing.md`.
+Aliases: `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, plus the OpenClaw aliases listed in `skills/visual-ip-illustrations/references/routing.md`.
 
 ### Go Gopher
 
 Go Gopher is an explicit source-reviewed article-illustration mascot route: the Go language mascot from root `gopher.png` carries one article concept through sparse, hand-drawn cognitive actions while preserving the Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, Go logo boundary, official endorsement boundary, and public sample gate.
 
-Aliases: `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, plus Go Gopher aliases listed in `ian-xiaohei-illustrations/references/routing.md`.
+Aliases: `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, plus Go Gopher aliases listed in `skills/visual-ip-illustrations/references/routing.md`.
 
 ### Route Reference
 
-Maintainers can inspect route metadata fields in `ian-xiaohei-illustrations/references/routing.md`: `id`, `display_name`, `aliases`, `default`, `output_suffix`, `required_references`, `attribution_context`, and `status`.
+Maintainers can inspect route metadata fields in `skills/visual-ip-illustrations/references/routing.md`: `id`, `display_name`, `aliases`, `default`, `output_suffix`, `required_references`, `attribution_context`, and `status`.
 
 Canonical packs:
 
-- Xiaohei: `ian-xiaohei-illustrations/references/ips/xiaohei/`
-- Littlebox: `ian-xiaohei-illustrations/references/ips/littlebox/`
-- Tom: `ian-xiaohei-illustrations/references/ips/tom/`, core entry `index.md`, rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`
-- Ferris: `ian-xiaohei-illustrations/references/ips/ferris/`, source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`
-- Seal: `ian-xiaohei-illustrations/references/ips/seal/`, source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`
-- OpenClaw: `ian-xiaohei-illustrations/references/ips/openclaw/`, source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`
-- Go Gopher: `ian-xiaohei-illustrations/references/ips/gopher/`, source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`
+- Xiaohei: `skills/visual-ip-illustrations/references/ips/xiaohei/`
+- Littlebox: `skills/visual-ip-illustrations/references/ips/littlebox/`
+- Tom: `skills/visual-ip-illustrations/references/ips/tom/`, core entry `index.md`, rights boundary `skills/visual-ip-illustrations/references/ips/tom/rights.md`
+- Ferris: `skills/visual-ip-illustrations/references/ips/ferris/`, source/trademark authority `skills/visual-ip-illustrations/references/ips/ferris/source.md`
+- Seal: `skills/visual-ip-illustrations/references/ips/seal/`, source-history authority `skills/visual-ip-illustrations/references/ips/seal/source.md`
+- OpenClaw: `skills/visual-ip-illustrations/references/ips/openclaw/`, source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`
+- Go Gopher: `skills/visual-ip-illustrations/references/ips/gopher/`, source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`
 
 When one request asks for multiple visual IPs, deliver by separate variant group and write each group into its own output directory. Xiaohei is the implicit default route; Littlebox is an explicit active route; Tom is an explicit protected-character route with status `gated-authorized`; Ferris is an explicit Rust-community mascot route with status `source-reviewed`; Seal is an explicit product-neutral hoodie seal route with status `active`; OpenClaw is an explicit logo-mascot route with status `source-reviewed`.
 
 Operational route facts:
 
-- Tom: status `gated-authorized`; rights boundary `ian-xiaohei-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
-- Ferris: status `source-reviewed`; source/trademark authority `ian-xiaohei-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
-- Seal: route id `seal`; default=false; status `active`; source-history authority `ian-xiaohei-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
-- OpenClaw: route id `openclaw`; default=false; status `source-reviewed`; source/license authority `ian-xiaohei-illustrations/references/ips/openclaw/source.md`; output path `assets/<article-slug>-openclaw/`; docs validation token `assets/&lt;article-slug&gt;-openclaw/`; output suffix `openclaw`; uploaded-logo identity uses a red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and final OpenClaw release evidence.
-- Go Gopher: route id `gopher`; default=false; status `source-reviewed`; source/license authority `ian-xiaohei-illustrations/references/ips/gopher/source.md`; output path `assets/<article-slug>-gopher/`; docs validation token `assets/&lt;article-slug&gt;-gopher/`; output suffix `gopher`; local visual authority root `gopher.png`; attribution Renee French; license boundary Creative Commons Attribution 4.0; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Phase 42 Go Gopher release evidence; Go logo boundary and official endorsement boundary stay attached.
+- Tom: status `gated-authorized`; rights boundary `skills/visual-ip-illustrations/references/ips/tom/rights.md`; output path `assets/<article-slug>-tom/`; docs validation token `assets/&lt;article-slug&gt;-tom/`; output suffix `tom`; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Tom rights record approval.
+- Ferris: status `source-reviewed`; source/trademark authority `skills/visual-ip-illustrations/references/ips/ferris/source.md`; output path `assets/<article-slug>-ferris/`; docs validation token `assets/&lt;article-slug&gt;-ferris/`; output suffix `ferris`; public rendered samples require the `RELEASE_CHECKLIST.md` Rust trademark and endorsement-safe wording gate. Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
+- Seal: route id `seal`; default=false; status `active`; source-history authority `skills/visual-ip-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
+- OpenClaw: route id `openclaw`; default=false; status `source-reviewed`; source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`; output path `assets/<article-slug>-openclaw/`; docs validation token `assets/&lt;article-slug&gt;-openclaw/`; output suffix `openclaw`; uploaded-logo identity uses a red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and final OpenClaw release evidence.
+- Go Gopher: route id `gopher`; default=false; status `source-reviewed`; source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`; output path `assets/<article-slug>-gopher/`; docs validation token `assets/&lt;article-slug&gt;-gopher/`; output suffix `gopher`; local visual authority root `gopher.png`; attribution Renee French; license boundary Creative Commons Attribution 4.0; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Phase 42 Go Gopher release evidence; Go logo boundary and official endorsement boundary stay attached.
 
 ---
 
@@ -185,11 +187,19 @@ These images are approved public English calibration examples for the current vi
 
 ## Installation
 
+Install with the skills CLI:
+
 ```bash
-git clone https://github.com/yangchuansheng/ian-xiaohei-illustrations.git visual-ip-illustrations
+npx skills add yangchuansheng/visual-ip-illustrations --skill visual-ip-illustrations
+```
+
+Manual Codex install:
+
+```bash
+git clone https://github.com/yangchuansheng/visual-ip-illustrations.git visual-ip-illustrations
 cd visual-ip-illustrations
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R ./skills/visual-ip-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
 After installation, prefer `$visual-ip-illustrations` in Codex.
@@ -198,8 +208,8 @@ Release 1.4 compatibility:
 
 - Canonical public invocation: `$visual-ip-illustrations`
 - Legacy compatibility alias: `$ian-xiaohei-illustrations`
-- Installable skill package directory: `ian-xiaohei-illustrations/`
-- Current live repository remote: `https://github.com/yangchuansheng/ian-xiaohei-illustrations.git`
+- Installable skill package directory: `skills/visual-ip-illustrations/`
+- Current live repository remote: `https://github.com/yangchuansheng/visual-ip-illustrations.git`
 - Local checkout target directory: `visual-ip-illustrations`
 - Route behavior and output directories remain stable across both invocation surfaces.
 
@@ -261,7 +271,7 @@ More copyable examples are in [examples/prompts.md](examples/prompts.md).
 4. Produce a shot list first; each image receives one cognitive anchor.
 5. Choose one structure type for each image: Workflow, system local view, before/after, character state, concept metaphor, method layers, map route, or comic panels.
 6. Load the selected IP's canonical pack, assemble prompts, and generate images one by one. Mixed-IP requests create separate route groups and separate output directories, with Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher each keeping route-local references.
-7. Check character identity, composition, background, labels, and output path against the selected IP's QA checklist. Tom keeps `gated-authorized` and `ian-xiaohei-illustrations/references/ips/tom/rights.md`; Ferris keeps `source-reviewed`, source/trademark note, and `ian-xiaohei-illustrations/references/ips/ferris/source.md`; Seal keeps `active`, source-history authority, hoodie seal identity note, logo-free note, and `ian-xiaohei-illustrations/references/ips/seal/source.md`; OpenClaw keeps `source-reviewed`, source/license authority, uploaded-logo identity, public-sample gate, and `ian-xiaohei-illustrations/references/ips/openclaw/source.md`. Go Gopher keeps `source-reviewed`, source/license authority, root `gopher.png`, public-sample gate, and `references/ips/gopher/source.md` in the delivery notes.
+7. Check character identity, composition, background, labels, and output path against the selected IP's QA checklist. Tom keeps `gated-authorized` and `skills/visual-ip-illustrations/references/ips/tom/rights.md`; Ferris keeps `source-reviewed`, source/trademark note, and `skills/visual-ip-illustrations/references/ips/ferris/source.md`; Seal keeps `active`, source-history authority, hoodie seal identity note, logo-free note, and `skills/visual-ip-illustrations/references/ips/seal/source.md`; OpenClaw keeps `source-reviewed`, source/license authority, uploaded-logo identity, public-sample gate, and `skills/visual-ip-illustrations/references/ips/openclaw/source.md`. Go Gopher keeps `source-reviewed`, source/license authority, root `gopher.png`, public-sample gate, and `references/ips/gopher/source.md` in the delivery notes.
 8. Save final PNGs and report purpose plus path.
 
 ---
@@ -295,14 +305,15 @@ More copyable examples are in [examples/prompts.md](examples/prompts.md).
 │   │   ├── 02-sort-by-purpose.png
 │   │   └── ...
 │   └── prompts.md
-└── ian-xiaohei-illustrations/
-    ├── SKILL.md
-    ├── agents/
-    │   └── openai.yaml
-    ├── assets/
-    │   └── examples/
-    └── references/
-        ├── routing.md
+└── skills/
+    └── visual-ip-illustrations/
+        ├── SKILL.md
+        ├── agents/
+        │   └── openai.yaml
+        ├── assets/
+        │   └── examples/
+        └── references/
+            ├── routing.md
         ├── style-dna.md
         ├── xiaohei-ip.md
         ├── composition-patterns.md
@@ -369,7 +380,7 @@ More copyable examples are in [examples/prompts.md](examples/prompts.md).
 The Codex install target is this subdirectory:
 
 ```text
-ian-xiaohei-illustrations/
+skills/visual-ip-illustrations/
 ```
 
 Root README, LICENSE, NOTICE, and examples are GitHub distribution docs.

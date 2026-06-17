@@ -5,7 +5,7 @@
 ## Directory Layout
 
 ```text
-ian-xiaohei-illustrations/
+skills/visual-ip-illustrations/
 ├── README.md                         # Public overview, installation, workflow, examples, and repo map
 ├── LICENSE                           # License text
 ├── NOTICE.md                         # Notice and attribution/legal metadata
@@ -14,7 +14,7 @@ ian-xiaohei-illustrations/
 ├── examples/                         # Human-facing usage examples and README-linked preview images
 │   ├── prompts.md                    # Copyable invocation prompts
 │   └── images/                       # Public preview images referenced by README.md
-├── ian-xiaohei-illustrations/         # Installable Codex Skill package
+├── skills/visual-ip-illustrations/         # Installable Codex Skill package
 │   ├── SKILL.md                      # Skill entrypoint and workflow contract
 │   ├── agents/                       # Agent integration metadata
 │   │   └── openai.yaml               # OpenAI/Codex display and invocation metadata
@@ -36,28 +36,28 @@ ian-xiaohei-illustrations/
 
 **Repository root:**
 - Purpose: Package the installable skill, public docs, examples, and planning metadata.
-- Contains: `README.md`, `LICENSE`, `NOTICE.md`, `.gitignore`, `assets/`, `examples/`, `ian-xiaohei-illustrations/`, `.planning/`.
+- Contains: `README.md`, `LICENSE`, `NOTICE.md`, `.gitignore`, `assets/`, `examples/`, `skills/visual-ip-illustrations/`, `.planning/`.
 - Key files: `README.md`, `LICENSE`, `NOTICE.md`, `.gitignore`.
 
-**`ian-xiaohei-illustrations/`:**
+**`skills/visual-ip-illustrations/`:**
 - Purpose: Installable Codex Skill directory copied into `${CODEX_HOME:-$HOME/.codex}/skills/`.
 - Contains: Skill entrypoint, agent metadata, modular references, and skill-local calibration examples.
-- Key files: `ian-xiaohei-illustrations/SKILL.md`, `ian-xiaohei-illustrations/agents/openai.yaml`.
+- Key files: `skills/visual-ip-illustrations/SKILL.md`, `skills/visual-ip-illustrations/agents/openai.yaml`.
 
-**`ian-xiaohei-illustrations/references/`:**
+**`skills/visual-ip-illustrations/references/`:**
 - Purpose: Hold detailed task instructions that the skill loads progressively.
 - Contains: Markdown references for style, Xiaohei IP, composition patterns, prompt templates, and QA.
-- Key files: `ian-xiaohei-illustrations/references/style-dna.md`, `ian-xiaohei-illustrations/references/xiaohei-ip.md`, `ian-xiaohei-illustrations/references/composition-patterns.md`, `ian-xiaohei-illustrations/references/prompt-template.md`, `ian-xiaohei-illustrations/references/qa-checklist.md`.
+- Key files: `skills/visual-ip-illustrations/references/style-dna.md`, `skills/visual-ip-illustrations/references/xiaohei-ip.md`, `skills/visual-ip-illustrations/references/composition-patterns.md`, `skills/visual-ip-illustrations/references/prompt-template.md`, `skills/visual-ip-illustrations/references/qa-checklist.md`.
 
-**`ian-xiaohei-illustrations/assets/examples/`:**
+**`skills/visual-ip-illustrations/assets/examples/`:**
 - Purpose: Provide installed-skill visual calibration images.
-- Contains: Numbered PNG examples such as `ian-xiaohei-illustrations/assets/examples/01-two-breakpoints.png`, `ian-xiaohei-illustrations/assets/examples/02-minimum-loop.png`, `ian-xiaohei-illustrations/assets/examples/14-trust-bridge.png`.
-- Key files: `ian-xiaohei-illustrations/assets/examples/01-two-breakpoints.png`, `ian-xiaohei-illustrations/assets/examples/14-trust-bridge.png`.
+- Contains: Numbered PNG examples such as `skills/visual-ip-illustrations/assets/examples/01-two-breakpoints.png`, `skills/visual-ip-illustrations/assets/examples/02-minimum-loop.png`, `skills/visual-ip-illustrations/assets/examples/14-trust-bridge.png`.
+- Key files: `skills/visual-ip-illustrations/assets/examples/01-two-breakpoints.png`, `skills/visual-ip-illustrations/assets/examples/14-trust-bridge.png`.
 
-**`ian-xiaohei-illustrations/agents/`:**
+**`skills/visual-ip-illustrations/agents/`:**
 - Purpose: Store agent-specific metadata for the skill package.
 - Contains: YAML metadata files.
-- Key files: `ian-xiaohei-illustrations/agents/openai.yaml`.
+- Key files: `skills/visual-ip-illustrations/agents/openai.yaml`.
 
 **`examples/`:**
 - Purpose: Provide public usage examples outside the installable skill directory.
@@ -82,28 +82,28 @@ ian-xiaohei-illustrations/
 ## Key File Locations
 
 **Entry Points:**
-- `ian-xiaohei-illustrations/SKILL.md`: Main Codex Skill entrypoint, trigger description, workflow, reference routing, generation rules, QA flow, and save contract.
-- `ian-xiaohei-illustrations/agents/openai.yaml`: Agent integration metadata with display name, short description, default prompt, and implicit invocation setting.
+- `skills/visual-ip-illustrations/SKILL.md`: Main Codex Skill entrypoint, trigger description, workflow, reference routing, generation rules, QA flow, and save contract.
+- `skills/visual-ip-illustrations/agents/openai.yaml`: Agent integration metadata with display name, short description, default prompt, and implicit invocation setting.
 - `README.md`: Public install and usage entrypoint.
 - `examples/prompts.md`: Human-facing prompt examples for invoking the skill.
 
 **Configuration:**
-- `ian-xiaohei-illustrations/SKILL.md`: YAML front matter defines `name` and `description`.
-- `ian-xiaohei-illustrations/agents/openai.yaml`: OpenAI/Codex metadata configuration.
+- `skills/visual-ip-illustrations/SKILL.md`: YAML front matter defines `name` and `description`.
+- `skills/visual-ip-illustrations/agents/openai.yaml`: OpenAI/Codex metadata configuration.
 - `.gitignore`: Repository ignore rules.
 
 **Core Logic:**
-- `ian-xiaohei-illustrations/SKILL.md`: Orchestrates content digestion, shot-list planning, per-image generation, QA, and delivery.
-- `ian-xiaohei-illustrations/references/style-dna.md`: Defines visual DNA and image-level style constraints.
-- `ian-xiaohei-illustrations/references/xiaohei-ip.md`: Defines the Xiaohei character abstraction.
-- `ian-xiaohei-illustrations/references/composition-patterns.md`: Defines structure types and original-metaphor rules.
-- `ian-xiaohei-illustrations/references/prompt-template.md`: Defines generation and edit prompt templates.
-- `ian-xiaohei-illustrations/references/qa-checklist.md`: Defines validation and iteration rules.
+- `skills/visual-ip-illustrations/SKILL.md`: Orchestrates content digestion, shot-list planning, per-image generation, QA, and delivery.
+- `skills/visual-ip-illustrations/references/style-dna.md`: Defines visual DNA and image-level style constraints.
+- `skills/visual-ip-illustrations/references/xiaohei-ip.md`: Defines the Xiaohei character abstraction.
+- `skills/visual-ip-illustrations/references/composition-patterns.md`: Defines structure types and original-metaphor rules.
+- `skills/visual-ip-illustrations/references/prompt-template.md`: Defines generation and edit prompt templates.
+- `skills/visual-ip-illustrations/references/qa-checklist.md`: Defines validation and iteration rules.
 
 **Testing:**
 - Not detected. The repository contains no automated test suite, test runner config, or test files.
-- Manual QA lives in `ian-xiaohei-illustrations/references/qa-checklist.md`.
-- Visual calibration examples live in `ian-xiaohei-illustrations/assets/examples/` and `examples/images/`.
+- Manual QA lives in `skills/visual-ip-illustrations/references/qa-checklist.md`.
+- Visual calibration examples live in `skills/visual-ip-illustrations/assets/examples/` and `examples/images/`.
 
 **Documentation:**
 - `README.md`: Product-level overview, install instructions, usage examples, workflow, and directory map.
@@ -114,57 +114,57 @@ ian-xiaohei-illustrations/
 ## Naming Conventions
 
 **Files:**
-- Skill entrypoint uses uppercase fixed name: `ian-xiaohei-illustrations/SKILL.md`.
-- Reference documents use lowercase kebab-case Markdown names: `ian-xiaohei-illustrations/references/style-dna.md`, `ian-xiaohei-illustrations/references/xiaohei-ip.md`, `ian-xiaohei-illustrations/references/composition-patterns.md`, `ian-xiaohei-illustrations/references/prompt-template.md`, `ian-xiaohei-illustrations/references/qa-checklist.md`.
-- Agent metadata uses lowercase provider name with YAML extension: `ian-xiaohei-illustrations/agents/openai.yaml`.
-- Example images use two-digit numeric prefixes plus kebab-case descriptors: `examples/images/01-two-breakpoints.png`, `ian-xiaohei-illustrations/assets/examples/14-trust-bridge.png`.
+- Skill entrypoint uses uppercase fixed name: `skills/visual-ip-illustrations/SKILL.md`.
+- Reference documents use lowercase kebab-case Markdown names: `skills/visual-ip-illustrations/references/style-dna.md`, `skills/visual-ip-illustrations/references/xiaohei-ip.md`, `skills/visual-ip-illustrations/references/composition-patterns.md`, `skills/visual-ip-illustrations/references/prompt-template.md`, `skills/visual-ip-illustrations/references/qa-checklist.md`.
+- Agent metadata uses lowercase provider name with YAML extension: `skills/visual-ip-illustrations/agents/openai.yaml`.
+- Example images use two-digit numeric prefixes plus kebab-case descriptors: `examples/images/01-two-breakpoints.png`, `skills/visual-ip-illustrations/assets/examples/14-trust-bridge.png`.
 - Generated illustration outputs should use two-digit numeric prefixes plus kebab-case topic names: `assets/<article-slug>-illustrations/01-topic-name.png`.
 - Planning documents use uppercase Markdown names: `.planning/codebase/ARCHITECTURE.md`, `.planning/codebase/STRUCTURE.md`.
 
 **Directories:**
-- The installable skill directory uses the skill name in kebab-case: `ian-xiaohei-illustrations/`.
+- The installable skill directory uses the skill name in kebab-case: `skills/visual-ip-illustrations/`.
 - Support directories use lowercase plural nouns: `agents/`, `assets/`, `examples/`, `references/`, `.planning/codebase/`.
 - Generated illustration directories should use `<article-slug>-illustrations` under `assets/`.
 
 **Markdown Headings:**
-- Skill and reference files use Chinese headings because the skill is Chinese-first: `ian-xiaohei-illustrations/SKILL.md`, `ian-xiaohei-illustrations/references/style-dna.md`.
-- Prompt template content may use English prompt text for image-model reliability: `ian-xiaohei-illustrations/references/prompt-template.md`.
+- Skill and reference files use Chinese headings because the skill is Chinese-first: `skills/visual-ip-illustrations/SKILL.md`, `skills/visual-ip-illustrations/references/style-dna.md`.
+- Prompt template content may use English prompt text for image-model reliability: `skills/visual-ip-illustrations/references/prompt-template.md`.
 
 ## Where to Add New Code
 
 **New Skill Behavior:**
-- Primary code/instructions: `ian-xiaohei-illustrations/SKILL.md`
-- Add detailed supporting policy to: `ian-xiaohei-illustrations/references/`
+- Primary code/instructions: `skills/visual-ip-illustrations/SKILL.md`
+- Add detailed supporting policy to: `skills/visual-ip-illustrations/references/`
 - Update public docs when behavior changes: `README.md`
 
 **New Reference Module:**
-- Implementation: `ian-xiaohei-illustrations/references/<topic>.md`
-- Registration: Add the file to the reference list in `ian-xiaohei-illustrations/SKILL.md`.
+- Implementation: `skills/visual-ip-illustrations/references/<topic>.md`
+- Registration: Add the file to the reference list in `skills/visual-ip-illustrations/SKILL.md`.
 - Documentation: Mention user-visible behavior in `README.md` when the new reference changes normal usage.
 
 **New Prompt Template:**
-- Implementation: `ian-xiaohei-illustrations/references/prompt-template.md`
+- Implementation: `skills/visual-ip-illustrations/references/prompt-template.md`
 - Example usage: `examples/prompts.md`
-- Keep image-generation prompt variables explicit and keep output-path expectations in `ian-xiaohei-illustrations/SKILL.md`.
+- Keep image-generation prompt variables explicit and keep output-path expectations in `skills/visual-ip-illustrations/SKILL.md`.
 
 **New Composition or Style Rule:**
-- Composition structures and metaphor rules: `ian-xiaohei-illustrations/references/composition-patterns.md`
-- Visual DNA, colors, whitespace, and veto patterns: `ian-xiaohei-illustrations/references/style-dna.md`
-- Character role and action constraints: `ian-xiaohei-illustrations/references/xiaohei-ip.md`
-- QA pass/fail conditions: `ian-xiaohei-illustrations/references/qa-checklist.md`
+- Composition structures and metaphor rules: `skills/visual-ip-illustrations/references/composition-patterns.md`
+- Visual DNA, colors, whitespace, and veto patterns: `skills/visual-ip-illustrations/references/style-dna.md`
+- Character role and action constraints: `skills/visual-ip-illustrations/references/xiaohei-ip.md`
+- QA pass/fail conditions: `skills/visual-ip-illustrations/references/qa-checklist.md`
 
 **New Agent Integration:**
-- Implementation: `ian-xiaohei-illustrations/agents/<provider>.yaml`
-- Keep provider-specific metadata under `ian-xiaohei-illustrations/agents/`.
-- Keep workflow-independent display copy in the metadata file and behavior rules in `ian-xiaohei-illustrations/SKILL.md`.
+- Implementation: `skills/visual-ip-illustrations/agents/<provider>.yaml`
+- Keep provider-specific metadata under `skills/visual-ip-illustrations/agents/`.
+- Keep workflow-independent display copy in the metadata file and behavior rules in `skills/visual-ip-illustrations/SKILL.md`.
 
 **New Public Usage Example:**
 - Prompt examples: `examples/prompts.md`
 - README references: `README.md`
-- Keep examples copyable and aligned with the workflow in `ian-xiaohei-illustrations/SKILL.md`.
+- Keep examples copyable and aligned with the workflow in `skills/visual-ip-illustrations/SKILL.md`.
 
 **New Calibration Image:**
-- Skill-local calibration asset: `ian-xiaohei-illustrations/assets/examples/<NN>-<short-topic>.png`
+- Skill-local calibration asset: `skills/visual-ip-illustrations/assets/examples/<NN>-<short-topic>.png`
 - Public README preview image: `examples/images/<NN>-<short-topic>.png`
 - Add README references only for images meant to appear in public docs.
 - Use numbered filenames to preserve visual ordering.
@@ -180,17 +180,17 @@ ian-xiaohei-illustrations/
 
 ## Special Directories
 
-**`ian-xiaohei-illustrations/`:**
+**`skills/visual-ip-illustrations/`:**
 - Purpose: Installable Codex Skill package.
 - Generated: No.
 - Committed: Yes.
 
-**`ian-xiaohei-illustrations/references/`:**
+**`skills/visual-ip-illustrations/references/`:**
 - Purpose: Modular instruction references loaded by the skill.
 - Generated: No.
 - Committed: Yes.
 
-**`ian-xiaohei-illustrations/assets/examples/`:**
+**`skills/visual-ip-illustrations/assets/examples/`:**
 - Purpose: Skill-local calibration images available after installation.
 - Generated: No.
 - Committed: Yes.

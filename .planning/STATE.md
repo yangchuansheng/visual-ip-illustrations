@@ -5,7 +5,7 @@ milestone_name: Go Gopher Visual IP Integration
 status: executing
 stopped_at: Completed 42-01-PLAN.md
 last_updated: "2026-06-16T21:55:14.964Z"
-last_activity: 2026-06-17 — Phase 42 planned
+last_activity: 2026-06-17 — Completed quick task 260617-jxr: Move skill package to skills/visual-ip-illustrations and add skills.sh install entry
 progress:
   total_phases: 5
   completed_phases: 0
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-06-16)
 Phase: 42 (Go Gopher Validation and Release Evidence)
 Plan: 42-01 complete
 Status: Phase 42 complete
-Last activity: 2026-06-17 - Completed quick task 260617-h41: Regenerate OpenClaw and Go Gopher README example images with visual-ip-illustrations
+Last activity: 2026-06-17 - Completed quick task 260617-jxr: Move skill package to skills/visual-ip-illustrations and add skills.sh install entry
 
 ## Performance Metrics
 
@@ -140,7 +140,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
 - [Phase 6]: Tom rights boundary and route status lead the milestone before runtime route integration.
-- [Phase 7]: Tom canonical rules stay isolated under `ian-xiaohei-illustrations/references/ips/tom/`.
+- [Phase 7]: Tom canonical rules stay isolated under `skills/visual-ip-illustrations/references/ips/tom/`.
 - [Phase 8]: Xiaohei remains the only implicit default; Littlebox and Tom stay explicit selectable routes.
 - [Phase 10]: Validation stays dependency-free Node and covers protected-IP route, leakage, docs, path, and public-sample gates.
 - [Phase 06]: Tom route status remains `gated-authorized` until maintainer release review changes it. — Plan 06-01 created the Tom rights record and route/NOTICE contract.
@@ -151,7 +151,7 @@ Recent decisions affecting current work:
 - [Phase 06]: Phase 6 Tom validation checks future Tom pack reference markers while requiring only `rights.md` to exist. — Plan 06-03 added bounded Tom route reference validation.
 - [Phase 06]: Public rendered Tom samples remain blocked while the release checklist records `PENDING / reviewer / date`. — Plan 06-03 added `BOUNDARY-TOM-IMG-001`.
 - [Phase 06]: The validator matrix now has 40 checks covering the Phase 6 Tom contract. — Plan 06-03 updated the validator and Node tests.
-- [Phase 07]: Tom canonical foundation files stay route-local under ian-xiaohei-illustrations/references/ips/tom/. — Plan 07-01 creates only index.md, style-dna.md, and tom-ip.md inside the Tom pack.
+- [Phase 07]: Tom canonical foundation files stay route-local under skills/visual-ip-illustrations/references/ips/tom/. — Plan 07-01 creates only index.md, style-dna.md, and tom-ip.md inside the Tom pack.
 - [Phase 07]: Tom route status remains gated-authorized, with rights.md as the operational rights authority. — All three Tom foundation files repeat the route status and rights-status note.
 - [Phase 07]: Phase 7 Plan 01 defines solo Tom article-illustration identity and leaves controller, public docs, examples, metadata, and validator hardening to later phases. — The plan scope fences D-27 through D-29 were preserved.
 - [Phase 08]: Xiaohei remains the only omitted-IP default while Tom stays explicit with default=false.
@@ -166,7 +166,7 @@ Recent decisions affecting current work:
 - [Phase 09]: Tom metadata remains explicit, gated-authorized, and protected-character while allow_implicit_invocation stays true at skill level. — Plan 09-03 preserves policy semantics while updating display wording.
 - [Phase 09]: Tom remains gated-authorized and default=false while Xiaohei remains the only implicit default route. — Plan 09-04 release gates require route status and default-route review.
 - [Phase 09]: Public rendered Tom samples and generated Tom samples require reviewer/date/status/channel records before release. — Plan 09-04 added public asset and generated sample policy gates.
-- [Phase 09]: Release checklist keeps Tom release decisions tied to ian-xiaohei-illustrations/references/ips/tom/rights.md. — Plan 09-04 added final Tom maintainer release gates.
+- [Phase 09]: Release checklist keeps Tom release decisions tied to skills/visual-ip-illustrations/references/ips/tom/rights.md. — Plan 09-04 added final Tom maintainer release gates.
 - [Phase 10]: Plan 10-01 keeps Tom validator hardening dependency-free and local-only with 47 ordered checks.
 - [Phase 10]: Node regression tests lock the 47-check validator matrix and 15 passing tests. — Plan 10-02 adds targeted Tom fixture coverage for route, pack, docs, metadata, leakage, public assets, and approval parsing.
 - [Phase 10]: Public rendered Tom sample approval parsing preserves path slashes inside allowed directory fields. — Plan 10-02 fixed the parser while adding approved-record fixture coverage.
@@ -176,7 +176,7 @@ Recent decisions affecting current work:
 - [Phase 11]: Ferris public wording stays limited to route status, aliases, source record, output path tokens, and release sample gate in Plan 11-02.
 - [Phase 11]: Public rendered Ferris samples require release review for Rust trademark and endorsement-safe wording before publication.
 - [Phase 11]: The validator matrix now has 53 checks covering the Phase 11 Ferris source, route, NOTICE, docs, release, and public sample contract.
-- [Phase 12]: Ferris canonical foundations stay route-local under `ian-xiaohei-illustrations/references/ips/ferris/` and repeat exact source-reviewed markers for downstream composition, prompt, QA, controller, docs, and validator work.
+- [Phase 12]: Ferris canonical foundations stay route-local under `skills/visual-ip-illustrations/references/ips/ferris/` and repeat exact source-reviewed markers for downstream composition, prompt, QA, controller, docs, and validator work.
 - [Phase 12]: Ferris identity and style gates require active cognitive-action participation with compact orange/rust-red crab cues, source-asset tracing rejection, trademark-boundary repair, and stable failure category names.
 - [Phase 12]: Ferris composition and prompt templates use eight article-illustration families, Rust-themed low-tech object metaphors, source/trademark boundary fields, and six named edit gates.
 - [Phase 12]: Ferris QA checklist is the route-local QA authority and all six Ferris operational files repeat exact source-reviewed markers plus eight stable failure category names.
@@ -282,6 +282,7 @@ Recent decisions affecting current work:
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
+| 260617-jxr | Move skill package to skills/visual-ip-illustrations and add skills.sh install entry | 2026-06-17 | this commit | [260617-jxr-add-skills-sh-install-command-and-badge-](./quick/260617-jxr-add-skills-sh-install-command-and-badge-/) |
 | 260617-h41 | Regenerate OpenClaw and Go Gopher README example images with visual-ip-illustrations | 2026-06-17 | 57db681 | [260617-h41-regenerate-openclaw-and-go-gopher-readme](./quick/260617-h41-regenerate-openclaw-and-go-gopher-readme/) |
 | 260617-ewb | Complete IP example image coverage across README variants | 2026-06-17 | this commit | [260617-ewb-complete-ip-example-image-coverage-acros](./quick/260617-ewb-complete-ip-example-image-coverage-acros/) |
 | 260617-efv | Complete Go Gopher README coverage across every README variant | 2026-06-17 | this commit | [260617-efv-readme-gopher-readme-gopher](./quick/260617-efv-readme-gopher-readme-gopher/) |

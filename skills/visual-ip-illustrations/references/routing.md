@@ -16,17 +16,17 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 - Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher create separate route groups. Compatibility marker: 每个 route group 只加载自己的 `required_references`; each group writes to its own output directory.
 - Routes store only selection, references, output suffixes, and attribution context. Style, character identity, prompt wording, and QA rules live in the selected IP's reference files.
 - Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
-- Ferris route-local reference directory: `ian-xiaohei-illustrations/references/ips/ferris/`.
-- Ferris source/trademark authority: `ian-xiaohei-illustrations/references/ips/ferris/source.md`.
+- Ferris route-local reference directory: `skills/visual-ip-illustrations/references/ips/ferris/`.
+- Ferris source/trademark authority: `skills/visual-ip-illustrations/references/ips/ferris/source.md`.
 - Seal is an explicit hoodie seal route with status active; generated public Seal samples require release review for hoodie seal identity and no-logo mascot identity.
-- Seal route-local reference directory: `ian-xiaohei-illustrations/references/ips/seal/`.
-- Seal source-history authority: `ian-xiaohei-illustrations/references/ips/seal/source.md`.
+- Seal route-local reference directory: `skills/visual-ip-illustrations/references/ips/seal/`.
+- Seal source-history authority: `skills/visual-ip-illustrations/references/ips/seal/source.md`.
 - OpenClaw is an explicit source-reviewed logo-mascot route; generated public OpenClaw samples require release review for uploaded-logo identity and source/license authority.
-- OpenClaw route-local reference directory: `ian-xiaohei-illustrations/references/ips/openclaw/`.
-- OpenClaw source and uploaded-logo authority: `ian-xiaohei-illustrations/references/ips/openclaw/source.md`.
+- OpenClaw route-local reference directory: `skills/visual-ip-illustrations/references/ips/openclaw/`.
+- OpenClaw source and uploaded-logo authority: `skills/visual-ip-illustrations/references/ips/openclaw/source.md`.
 - Go Gopher is an explicit source-reviewed article-illustration mascot route; generated public Go Gopher samples require release review for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 license boundary, root `gopher.png` local visual authority, Go logo boundary, and official Go project affiliation, approval, sponsorship, and endorsement claim boundaries.
-- Go Gopher route-local reference directory: `ian-xiaohei-illustrations/references/ips/gopher/`.
-- Go Gopher source and local visual authority: `ian-xiaohei-illustrations/references/ips/gopher/source.md`.
+- Go Gopher route-local reference directory: `skills/visual-ip-illustrations/references/ips/gopher/`.
+- Go Gopher source and local visual authority: `skills/visual-ip-illustrations/references/ips/gopher/source.md`.
 
 ## IP Routes
 

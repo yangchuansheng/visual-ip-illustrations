@@ -41,7 +41,7 @@
 
 ## Restricted Use
 
-- Generated public Ferris sample assets require explicit release review before appearing in `examples/images/` or `ian-xiaohei-illustrations/assets/examples/`.
+- Generated public Ferris sample assets require explicit release review before appearing in `examples/images/` or `skills/visual-ip-illustrations/assets/examples/`.
 - Rust-logo-forward compositions, bundled Rust marks, official-affiliation cues, and endorsement wording require release approval.
 - Ferris identity, style, prompt, composition, and QA rules belong to the later Ferris canonical pack phase.
 - Broad public route availability claims require release checklist approval and current source/trademark review.
