@@ -1934,7 +1934,7 @@ test("validator fixture reports OpenClaw docs drift", () => {
 test("validator fixture reports localized OpenClaw README drift", () => {
   assertOpenClawSurfaceDrift(
     "localized-readme",
-    "README.zh.md",
+    path.join("readmes", "README.zh.md"),
     "assets/&lt;article-slug&gt;-openclaw/",
     "DOC-OPENCLAW-001",
   );
@@ -2116,7 +2116,7 @@ test("validator fixture reports Go Gopher docs drift", () => {
 test("validator fixture reports localized Go Gopher README drift", () => {
   assertGopherSurfaceDrift(
     "localized-readme",
-    "README.zh.md",
+    path.join("readmes", "README.zh.md"),
     "assets/&lt;article-slug&gt;-gopher/",
     "DOC-GOPHER-001",
   );

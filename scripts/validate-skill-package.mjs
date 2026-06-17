@@ -10,7 +10,8 @@ const SKILL_FILE = path.join(PACKAGE_DIR, "SKILL.md");
 const OPENAI_AGENT_FILE = path.join(PACKAGE_DIR, "agents", "openai.yaml");
 const ROUTING_FILE = path.join(REFERENCES_DIR, "routing.md");
 const README_FILE = "README.md";
-const README_ZH_FILE = "README.zh.md";
+const LOCALIZED_READMES_DIR = "readmes";
+const README_ZH_FILE = path.join(LOCALIZED_READMES_DIR, "README.zh.md");
 const LANGUAGE_POLICY_FILE = "LANGUAGE_POLICY.md";
 const HAN_CHARACTER_PATTERN = /\p{Script=Han}/u;
 const CHINESE_GALLERY_SLUGS = [
@@ -1387,10 +1388,13 @@ function parseGopherApprovalLine(approvalLine, kind) {
 }
 
 function readmeVariantFiles() {
-  return fs
-    .readdirSync(REPO_ROOT)
-    .filter((fileName) => /^README(?:\.[^.]+)?\.md$/u.test(fileName))
-    .sort();
+  const rootReadmes = fs.readdirSync(REPO_ROOT).filter((fileName) => fileName === README_FILE);
+  const localizedReadmes = fs
+    .readdirSync(repoPath(LOCALIZED_READMES_DIR))
+    .filter((fileName) => /^README\.[^.]+(?:-[^.]+)?\.md$/u.test(fileName))
+    .map((fileName) => path.join(LOCALIZED_READMES_DIR, fileName));
+
+  return [...rootReadmes, ...localizedReadmes].sort((a, b) => a.localeCompare(b, "en"));
 }
 
 function parseFerrisApprovalLine(approvalLine, kind) {
@@ -1804,6 +1808,12 @@ function localMarkdownLinks(relativePaths) {
     }
   }
   return links;
+}
+
+function repoRelativeMarkdownTarget(source, target) {
+  const cleanTarget = target.split("#")[0];
+  if (!cleanTarget) return "";
+  return toPosixPath(path.normalize(path.join(path.dirname(source), cleanTarget)));
 }
 
 function docsTexts() {
@@ -2229,8 +2239,10 @@ function chineseGalleryImagePaths() {
 
 function assertChineseReadmeGallery() {
   const text = requireFile(README_ZH_FILE);
-  const links = parseMarkdownLinks(text).filter((link) => !link.external && link.target.startsWith("examples/images/"));
-  const imageTargets = links.map((link) => link.target.split("#")[0]);
+  const imageTargets = parseMarkdownLinks(text)
+    .filter((link) => !link.external)
+    .map((link) => repoRelativeMarkdownTarget(README_ZH_FILE, link.target))
+    .filter((target) => target.startsWith("examples/images/"));
   const expected = chineseGalleryImagePaths();
   const missing = expected.filter((target) => !imageTargets.includes(target));
   const unexpected = imageTargets.filter(
@@ -3895,19 +3907,18 @@ const checks = [
     ], "Seal public no-logo markers");
   }),
   defineCheck("DOC-LINKS-001", "README and examples local Markdown links point to existing files", () => {
-    const links = localMarkdownLinks(["README.md", "examples/prompts.md"]);
+    const links = localMarkdownLinks([...readmeVariantFiles(), "examples/prompts.md"]);
     if (links.length === 0) {
-      throw new Error("README.md and examples/prompts.md expected local Markdown links; observed none");
+      throw new Error("README variants and examples/prompts.md expected local Markdown links; observed none");
     }
     for (const link of links) {
-      const target = link.target.split("#")[0];
+      const target = repoRelativeMarkdownTarget(link.source, link.target);
       if (!target) continue;
-      const resolved = path.normalize(path.join(path.dirname(link.source), target));
-      if (resolved.startsWith("..") || path.isAbsolute(resolved)) {
+      if (target.startsWith("..") || path.isAbsolute(target)) {
         throw new Error(`${link.source} expected local link ${link.target} to stay inside repo; observed escape`);
       }
-      if (!fileExists(resolved)) {
-        throw new Error(`${link.source} expected local link ${link.target} to exist; observed missing ${resolved}`);
+      if (!fileExists(target)) {
+        throw new Error(`${link.source} expected local link ${link.target} to exist; observed missing ${target}`);
       }
     }
   }),
