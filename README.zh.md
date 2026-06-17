@@ -131,55 +131,55 @@ Go Gopher 是显式 source-reviewed 文章插图吉祥物路线：根目录 `gop
 
 ## 示例图库
 
-These images are approved public English calibration examples for the current visual IP routes: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher. Each row keeps the same concept and shows how each IP translates the action through its route-local style, character rules, source boundaries, and QA gates.
+这些图片是中文多视觉 IP 校准示例。每个概念保留同一个核心动作，同时展示 Xiaohei、Littlebox、Tom、Ferris、Seal、OpenClaw 和 Go Gopher 如何用各自路线的角色、构图、source boundaries 和 QA gates 表达它。
 
-### Two Breakpoints
-
-| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
-|---------|-----------|-----|--------|------|----------|-----------|
-| ![Two Breakpoints - Xiaohei](examples/images-en/01-two-breakpoints.png) | ![Two Breakpoints - Littlebox](examples/images-en/littlebox/01-two-breakpoints.png) | ![Two Breakpoints - Tom](examples/images-en/tom/01-two-breakpoints.png) | ![Two Breakpoints - Ferris](examples/images-en/ferris/01-two-breakpoints.png) | ![Two Breakpoints - Seal](examples/images-en/seal/01-two-breakpoints.png) | ![Two Breakpoints - OpenClaw](examples/images-en/openclaw/01-two-breakpoints.png) | ![Two Breakpoints - Go Gopher](examples/images-en/gopher/01-two-breakpoints.png) |
-
-### Sort by Purpose
+### 两个断点
 
 | Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
 |---------|-----------|-----|--------|------|----------|-----------|
-| ![Sort by Purpose - Xiaohei](examples/images-en/02-sort-by-purpose.png) | ![Sort by Purpose - Littlebox](examples/images-en/littlebox/02-sort-by-purpose.png) | ![Sort by Purpose - Tom](examples/images-en/tom/02-sort-by-purpose.png) | ![Sort by Purpose - Ferris](examples/images-en/ferris/02-sort-by-purpose.png) | ![Sort by Purpose - Seal](examples/images-en/seal/02-sort-by-purpose.png) | ![Sort by Purpose - OpenClaw](examples/images-en/openclaw/02-sort-by-purpose.png) | ![Sort by Purpose - Go Gopher](examples/images-en/gopher/02-sort-by-purpose.png) |
+| ![两个断点 - Xiaohei](examples/images/01-two-breakpoints.png) | ![两个断点 - Littlebox](examples/images/littlebox/01-two-breakpoints.png) | ![两个断点 - Tom](examples/images/tom/01-two-breakpoints.png) | ![两个断点 - Ferris](examples/images/ferris/01-two-breakpoints.png) | ![两个断点 - Seal](examples/images/seal/01-two-breakpoints.png) | ![两个断点 - OpenClaw](examples/images-en/openclaw/01-two-breakpoints.png) | ![两个断点 - Go Gopher](examples/images-en/gopher/01-two-breakpoints.png) |
 
-### One Fish, Many Uses
-
-| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
-|---------|-----------|-----|--------|------|----------|-----------|
-| ![One Fish, Many Uses - Xiaohei](examples/images-en/03-one-fish-many-uses.png) | ![One Fish, Many Uses - Littlebox](examples/images-en/littlebox/03-one-fish-many-uses.png) | ![One Fish, Many Uses - Tom](examples/images-en/tom/03-one-fish-many-uses.png) | ![One Fish, Many Uses - Ferris](examples/images-en/ferris/03-one-fish-many-uses.png) | ![One Fish, Many Uses - Seal](examples/images-en/seal/03-one-fish-many-uses.png) | ![One Fish, Many Uses - OpenClaw](examples/images-en/openclaw/03-one-fish-many-uses.png) | ![One Fish, Many Uses - Go Gopher](examples/images-en/gopher/03-one-fish-many-uses.png) |
-
-### Handoff Path
+### 按目的分类
 
 | Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
 |---------|-----------|-----|--------|------|----------|-----------|
-| ![Handoff Path - Xiaohei](examples/images-en/04-handoff-path.png) | ![Handoff Path - Littlebox](examples/images-en/littlebox/04-handoff-path.png) | ![Handoff Path - Tom](examples/images-en/tom/04-handoff-path.png) | ![Handoff Path - Ferris](examples/images-en/ferris/04-handoff-path.png) | ![Handoff Path - Seal](examples/images-en/seal/04-handoff-path.png) | ![Handoff Path - OpenClaw](examples/images-en/openclaw/04-handoff-path.png) | ![Handoff Path - Go Gopher](examples/images-en/gopher/04-handoff-path.png) |
+| ![按目的分类 - Xiaohei](examples/images/02-sort-by-purpose.png) | ![按目的分类 - Littlebox](examples/images/littlebox/02-sort-by-purpose.png) | ![按目的分类 - Tom](examples/images/tom/02-sort-by-purpose.png) | ![按目的分类 - Ferris](examples/images/ferris/02-sort-by-purpose.png) | ![按目的分类 - Seal](examples/images/seal/02-sort-by-purpose.png) | ![按目的分类 - OpenClaw](examples/images-en/openclaw/02-sort-by-purpose.png) | ![按目的分类 - Go Gopher](examples/images-en/gopher/02-sort-by-purpose.png) |
 
-### Information Well
-
-| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
-|---------|-----------|-----|--------|------|----------|-----------|
-| ![Information Well - Xiaohei](examples/images-en/05-information-well.png) | ![Information Well - Littlebox](examples/images-en/littlebox/05-information-well.png) | ![Information Well - Tom](examples/images-en/tom/05-information-well.png) | ![Information Well - Ferris](examples/images-en/ferris/05-information-well.png) | ![Information Well - Seal](examples/images-en/seal/05-information-well.png) | ![Information Well - OpenClaw](examples/images-en/openclaw/05-information-well.png) | ![Information Well - Go Gopher](examples/images-en/gopher/05-information-well.png) |
-
-### Idea Press
+### 一鱼多吃
 
 | Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
 |---------|-----------|-----|--------|------|----------|-----------|
-| ![Idea Press - Xiaohei](examples/images-en/06-idea-press.png) | ![Idea Press - Littlebox](examples/images-en/littlebox/06-idea-press.png) | ![Idea Press - Tom](examples/images-en/tom/06-idea-press.png) | ![Idea Press - Ferris](examples/images-en/ferris/06-idea-press.png) | ![Idea Press - Seal](examples/images-en/seal/06-idea-press.png) | ![Idea Press - OpenClaw](examples/images-en/openclaw/06-idea-press.png) | ![Idea Press - Go Gopher](examples/images-en/gopher/06-idea-press.png) |
+| ![一鱼多吃 - Xiaohei](examples/images/03-one-fish-many-uses.png) | ![一鱼多吃 - Littlebox](examples/images/littlebox/03-one-fish-many-uses.png) | ![一鱼多吃 - Tom](examples/images/tom/03-one-fish-many-uses.png) | ![一鱼多吃 - Ferris](examples/images/ferris/03-one-fish-many-uses.png) | ![一鱼多吃 - Seal](examples/images/seal/03-one-fish-many-uses.png) | ![一鱼多吃 - OpenClaw](examples/images-en/openclaw/03-one-fish-many-uses.png) | ![一鱼多吃 - Go Gopher](examples/images-en/gopher/03-one-fish-many-uses.png) |
 
-### Content Fermentation
-
-| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
-|---------|-----------|-----|--------|------|----------|-----------|
-| ![Content Fermentation - Xiaohei](examples/images-en/07-content-fermentation.png) | ![Content Fermentation - Littlebox](examples/images-en/littlebox/07-content-fermentation.png) | ![Content Fermentation - Tom](examples/images-en/tom/07-content-fermentation.png) | ![Content Fermentation - Ferris](examples/images-en/ferris/07-content-fermentation.png) | ![Content Fermentation - Seal](examples/images-en/seal/07-content-fermentation.png) | ![Content Fermentation - OpenClaw](examples/images-en/openclaw/07-content-fermentation.png) | ![Content Fermentation - Go Gopher](examples/images-en/gopher/07-content-fermentation.png) |
-
-### Trust Bridge
+### 交接路径
 
 | Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
 |---------|-----------|-----|--------|------|----------|-----------|
-| ![Trust Bridge - Xiaohei](examples/images-en/08-trust-bridge.png) | ![Trust Bridge - Littlebox](examples/images-en/littlebox/08-trust-bridge.png) | ![Trust Bridge - Tom](examples/images-en/tom/08-trust-bridge.png) | ![Trust Bridge - Ferris](examples/images-en/ferris/08-trust-bridge.png) | ![Trust Bridge - Seal](examples/images-en/seal/08-trust-bridge.png) | ![Trust Bridge - OpenClaw](examples/images-en/openclaw/08-trust-bridge.png) | ![Trust Bridge - Go Gopher](examples/images-en/gopher/08-trust-bridge.png) |
+| ![交接路径 - Xiaohei](examples/images/04-handoff-path.png) | ![交接路径 - Littlebox](examples/images/littlebox/04-handoff-path.png) | ![交接路径 - Tom](examples/images/tom/04-handoff-path.png) | ![交接路径 - Ferris](examples/images/ferris/04-handoff-path.png) | ![交接路径 - Seal](examples/images/seal/04-handoff-path.png) | ![交接路径 - OpenClaw](examples/images-en/openclaw/04-handoff-path.png) | ![交接路径 - Go Gopher](examples/images-en/gopher/04-handoff-path.png) |
+
+### 信息井
+
+| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
+|---------|-----------|-----|--------|------|----------|-----------|
+| ![信息井 - Xiaohei](examples/images/05-information-well.png) | ![信息井 - Littlebox](examples/images/littlebox/05-information-well.png) | ![信息井 - Tom](examples/images/tom/05-information-well.png) | ![信息井 - Ferris](examples/images/ferris/05-information-well.png) | ![信息井 - Seal](examples/images/seal/05-information-well.png) | ![信息井 - OpenClaw](examples/images-en/openclaw/05-information-well.png) | ![信息井 - Go Gopher](examples/images-en/gopher/05-information-well.png) |
+
+### 想法压机
+
+| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
+|---------|-----------|-----|--------|------|----------|-----------|
+| ![想法压机 - Xiaohei](examples/images/06-idea-press.png) | ![想法压机 - Littlebox](examples/images/littlebox/06-idea-press.png) | ![想法压机 - Tom](examples/images/tom/06-idea-press.png) | ![想法压机 - Ferris](examples/images/ferris/06-idea-press.png) | ![想法压机 - Seal](examples/images/seal/06-idea-press.png) | ![想法压机 - OpenClaw](examples/images-en/openclaw/06-idea-press.png) | ![想法压机 - Go Gopher](examples/images-en/gopher/06-idea-press.png) |
+
+### 内容发酵
+
+| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
+|---------|-----------|-----|--------|------|----------|-----------|
+| ![内容发酵 - Xiaohei](examples/images/07-content-fermentation.png) | ![内容发酵 - Littlebox](examples/images/littlebox/07-content-fermentation.png) | ![内容发酵 - Tom](examples/images/tom/07-content-fermentation.png) | ![内容发酵 - Ferris](examples/images/ferris/07-content-fermentation.png) | ![内容发酵 - Seal](examples/images/seal/07-content-fermentation.png) | ![内容发酵 - OpenClaw](examples/images-en/openclaw/07-content-fermentation.png) | ![内容发酵 - Go Gopher](examples/images-en/gopher/07-content-fermentation.png) |
+
+### 信任桥
+
+| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
+|---------|-----------|-----|--------|------|----------|-----------|
+| ![信任桥 - Xiaohei](examples/images/08-trust-bridge.png) | ![信任桥 - Littlebox](examples/images/littlebox/08-trust-bridge.png) | ![信任桥 - Tom](examples/images/tom/08-trust-bridge.png) | ![信任桥 - Ferris](examples/images/ferris/08-trust-bridge.png) | ![信任桥 - Seal](examples/images/seal/08-trust-bridge.png) | ![信任桥 - OpenClaw](examples/images-en/openclaw/08-trust-bridge.png) | ![信任桥 - Go Gopher](examples/images-en/gopher/08-trust-bridge.png) |
 
 ---
 

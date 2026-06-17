@@ -10,7 +10,7 @@
 
 ## Verification
 
-- `node scripts/validate-skill-package.mjs`: `Summary: total=128 passed=128 failed=0 skipped=0`
+- `node scripts/validate-skill-package.mjs`: `Summary: total=129 passed=129 failed=0 skipped=0`
 - `node --test scripts/validate-skill-package.test.mjs`: `tests 96`, `pass 96`, `fail 0`
 - `git diff --check`: pass
 - README coverage scan: 13 README files, each with 8 OpenClaw links and 8 Go Gopher links.

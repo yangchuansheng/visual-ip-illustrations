@@ -256,7 +256,7 @@ Recent decisions affecting current work:
 - [Phase 41]: Phase 41 kept Go Gopher as an explicit source-reviewed route while preserving Xiaohei as the omitted-IP default.
 - [Phase 42]: Phase 42 keeps Go Gopher validation in the dependency-free Node validator and records public sample approval through release evidence.
 - [Quick 260617-efv]: Root README variants now integrate Go Gopher in Outputs, escaped path markers, Visual IP Routes, Route Reference, operational route facts, Quick Examples, Workflow, Directory Structure, and Maintainer Validation. The trailing Go Gopher route-surface addendum was removed. Validator coverage reports 128/128 and Node tests report 96/96.
-- [Quick 260617-ewb]: Root README Example Gallery tables now cover Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher across all 13 README variants, backed by public OpenClaw and Go Gopher sample assets plus release approvals. Validator coverage reports 128/128 and Node tests report 96/96.
+- [Quick 260617-ewb]: Root README Example Gallery tables now cover Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher across all 13 README variants, backed by public OpenClaw and Go Gopher sample assets plus release approvals. Validator coverage reports 129/129 and Node tests report 96/96 after merging the Chinese gallery check.
 
 ### Pending Todos
 
