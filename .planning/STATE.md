@@ -2,9 +2,9 @@
 gsd_state_version: 1.0
 milestone: v1.9
 milestone_name: Language-Neutral Skill Cleanup
-status: complete
-last_updated: "2026-06-17T12:42:00.000Z"
-last_activity: 2026-06-17 — Completed v1.9 language-neutral skill cleanup with validator 131/131 and Node tests 98/98
+status: shipped
+last_updated: "2026-06-17T15:18:57.000Z"
+last_activity: 2026-06-17 — Shipped v1.9 Language-Neutral Skill Cleanup in PR #2
 progress:
   total_phases: 2
   completed_phases: 2
@@ -20,14 +20,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-17)
 
 **Core value:** Users can choose a visual IP and receive article illustrations whose character, style rules, prompts, QA gates, and saved outputs stay consistent with that IP.
-**Current focus:** v1.9 complete — Language-Neutral Skill Cleanup
+**Current focus:** v1.9 shipped — Language-Neutral Skill Cleanup PR #2
 
 ## Current Position
 
 Phase: 44 (Language Policy and Validation Hardening)
 Plan: 44-01 complete
-Status: v1.9 complete
-Last activity: 2026-06-17 - Completed language-neutral skill cleanup with validator 131/131, enforce validator 131/131, Node tests 98/98, and git diff --check clean
+Status: v1.9 shipped — PR #2
+Last activity: 2026-06-17 - Shipped language-neutral skill cleanup to GitHub PR #2 after validator 131/131, enforce validator 131/131, Node tests 98/98, and git diff --check clean
 
 ## Performance Metrics
 
