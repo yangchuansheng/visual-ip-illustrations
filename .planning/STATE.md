@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-06-16)
 Phase: 42 (Go Gopher Validation and Release Evidence)
 Plan: 42-01 complete
 Status: Phase 42 complete
-Last activity: 2026-06-17 — Phase 42 completed
+Last activity: 2026-06-17 - Completed quick task 260617-h41: Regenerate OpenClaw and Go Gopher README example images with visual-ip-illustrations
 
 ## Performance Metrics
 
@@ -282,6 +282,7 @@ Recent decisions affecting current work:
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
+| 260617-h41 | Regenerate OpenClaw and Go Gopher README example images with visual-ip-illustrations | 2026-06-17 | 57db681 | [260617-h41-regenerate-openclaw-and-go-gopher-readme](./quick/260617-h41-regenerate-openclaw-and-go-gopher-readme/) |
 | 260617-ewb | Complete IP example image coverage across README variants | 2026-06-17 | this commit | [260617-ewb-complete-ip-example-image-coverage-acros](./quick/260617-ewb-complete-ip-example-image-coverage-acros/) |
 | 260617-efv | Complete Go Gopher README coverage across every README variant | 2026-06-17 | this commit | [260617-efv-readme-gopher-readme-gopher](./quick/260617-efv-readme-gopher-readme-gopher/) |
 | 260616-t6d | Sync OpenClaw v1.7 details across every README translation | 2026-06-16 | 8476c48 | [260616-t6d-sync-openclaw-v1-7-details-across-every-](./quick/260616-t6d-sync-openclaw-v1-7-details-across-every-/) |
