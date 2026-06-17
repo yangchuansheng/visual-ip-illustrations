@@ -2,7 +2,7 @@
 
 # Visual IP Illustrations
 
-![Visual IP Illustrations character lineup](../assets/readme-hero/01-visual-ip-lineup.png)
+![Visual IP Illustrations character lineup](../assets/readme-hero/01-visual-ip-lineup-animated-small.gif)
 
 [![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
 

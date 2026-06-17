@@ -1,0 +1,11 @@
+{
+  "name": "lineup-animation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.6.109 preview",
+    "check": "npx --yes hyperframes@0.6.109 lint && npx --yes hyperframes@0.6.109 validate && npx --yes hyperframes@0.6.109 inspect",
+    "render": "npx --yes hyperframes@0.6.109 render",
+    "publish": "npx --yes hyperframes@0.6.109 publish"
+  }
+}
