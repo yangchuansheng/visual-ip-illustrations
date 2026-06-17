@@ -7,8 +7,8 @@ Display name: Go Gopher.
 Route status: `source-reviewed`.
 Output path: `assets/<article-slug>-gopher/`.
 Source/license authority: `source.md`.
-Local visual authority: root `gopher.png`.
-Go Gopher identity note: preserve the source-reviewed mascot from root `gopher.png` with blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
+Local visual authority: route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`.
+Go Gopher identity note: preserve the source-reviewed mascot from route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` with blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
 Source/license note: Go Gopher source context is recorded in `source.md` with Renee French attribution and Creative Commons Attribution 4.0 boundary.
 Public sample review boundary: public generated Go Gopher samples require release review before appearing in public examples or release surfaces.
 Go Gopher route block: generic blue mascot drift, realistic animal drift, missing ears, missing large simple eyes, missing buck teeth, missing beige muzzle/paws, missing black outline, missing white sticker-like border, Go logo confusion, official endorsement claims, passive placement, route leakage, excessive text, and copied composition all fail the route.
@@ -31,7 +31,7 @@ Go Gopher QA public sample review boundary gate.
 - The scene is an original article metaphor created for the current article.
 - Supporting objects are article metaphors such as maps, bridges, knots, compasses, stepping stones, hooks, levers, shelves, signposts, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, or small hand-built machines.
 - Visible labels are sparse, readable, short, and copied exactly in the user's requested language.
-- Source/license boundary is preserved through `source.md`, `source-reviewed`, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, and public sample review boundary.
+- Source/license boundary is preserved through `source.md`, `source-reviewed`, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, and public sample review boundary.
 - Route isolation is preserved for Go Gopher, and Xiaohei, Littlebox, Tom, Ferris, Seal, and OpenClaw identities stay outside the Go Gopher route.
 - Delivery path uses `assets/<article-slug>-gopher/`.
 
@@ -105,17 +105,17 @@ Regenerate or edit when:
 - Go logo confusion repair: remove Go logo identity and logo-forward layout while preserving Go Gopher character identity, article metaphor, visible labels, and source/license note.
 - Public sample boundary repair: remove public sample approval or gallery claims and keep the output framed as internal review until release review approves public use.
 
-Go Gopher QA unaffected-content preservation gate: edit only the named failure and preserve successful Go Gopher action, root `gopher.png` identity cues, existing composition, correct labels, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality.
+Go Gopher QA unaffected-content preservation gate: edit only the named failure and preserve successful Go Gopher action, route-local `gopher.png` identity cues, existing composition, correct labels, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality.
 
 ## Route Leakage Repair
 
-Route leakage repair restores Go Gopher as the only selected visual IP for the current image. Keep `source-reviewed`, `source.md`, root `gopher.png`, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample review boundary, and `assets/<article-slug>-gopher/` attached to the Go Gopher route.
+Route leakage repair restores Go Gopher as the only selected visual IP for the current image. Keep `source-reviewed`, `source.md`, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample review boundary, and `assets/<article-slug>-gopher/` attached to the Go Gopher route.
 
 Remove Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go logo identity, official Go endorsement cues, public approval claims, public sample approval claims, and cross-route vocabulary. Preserve successful Go Gopher content, successful article metaphor, correct labels, line style, aspect ratio, and unaffected supporting objects.
 
 ## Delivery Judgment
 
-Accepted Go Gopher images keep Go Gopher as the action subject, preserve root `gopher.png` identity markers, preserve source/license boundary, preserve route isolation, explain one article idea through an original article metaphor, use sparse labels copied exactly in the user's requested language, point source/license-sensitive use to `source.md`, report `source-reviewed` status, report public sample review boundary when relevant, and report the saved output path under `assets/<article-slug>-gopher/`.
+Accepted Go Gopher images keep Go Gopher as the action subject, preserve route-local `gopher.png` identity markers, preserve source/license boundary, preserve route isolation, explain one article idea through an original article metaphor, use sparse labels copied exactly in the user's requested language, point source/license-sensitive use to `source.md`, report `source-reviewed` status, report public sample review boundary when relevant, and report the saved output path under `assets/<article-slug>-gopher/`.
 
 Public sample review boundary: public generated Go Gopher samples require release review before appearing in `examples/images/`, `skills/visual-ip-illustrations/assets/examples/`, README previews, release galleries, agent metadata previews, or public release surfaces.
 

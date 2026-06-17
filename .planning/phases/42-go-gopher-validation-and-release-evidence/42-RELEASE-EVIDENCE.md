@@ -16,7 +16,7 @@ requirements:
 
 PASS.
 
-Go Gopher validation now covers the seventh route metadata, source/license markers, public docs, prompt smoke fixtures, seven-route mixed-IP behavior, route leakage, public rendered sample gates, generated sample separation, release evidence, and root `gopher.png` tracking status.
+Go Gopher validation now covers the seventh route metadata, source/license markers, public docs, prompt smoke fixtures, seven-route mixed-IP behavior, route leakage, public rendered sample gates, generated sample separation, release evidence, and route-local `gopher.png` status.
 
 ## Command Evidence
 
@@ -54,12 +54,12 @@ rg -q 'VAL-01|VAL-02|VAL-03|VAL-04|VAL-05' .planning/phases/42-go-gopher-validat
 
 ```bash
 test "$(git status --short -- gopher.png)" = "?? gopher.png"
-# passed: gopher.png remains untracked
+# passed: route-local gopher.png exists
 ```
 
 ## Go Gopher Route Smoke
 
-- `SMOKE-GOPHER-001` validates explicit Go Gopher planning, generation, edit, route smoke, route-local references, source/license note, root `gopher.png` local visual authority, raw output path, escaped output path, Go logo boundary, official endorsement boundary, and public sample gate.
+- `SMOKE-GOPHER-001` validates explicit Go Gopher planning, generation, edit, route smoke, route-local references, source/license note, route-local `gopher.png` visual authority, raw output path, escaped output path, Go logo boundary, official endorsement boundary, and public sample gate.
 - `SMOKE-MIXED-GOPHER-001` validates seven-route mixed-IP behavior with Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher variant groups.
 
 ## Source/License Smoke
@@ -107,4 +107,4 @@ test "$(git status --short -- gopher.png)" = "?? gopher.png"
 | VAL-02 | `BOUNDARY-GOPHER-LEAK-001` fails when Go Gopher identity, source/license, path, or route-boundary markers leak into Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, or legacy Xiaohei route-local references. |
 | VAL-03 | `BOUNDARY-GOPHER-IMG-001` fails when public generated Go Gopher samples appear without complete release checklist approval fields. |
 | VAL-04 | `scripts/validate-skill-package.test.mjs` covers Go Gopher route parsing, route ordering, default preservation, output path markers, source/license markers, smoke prompts, leakage fixtures, public asset gates, generated sample gates, and full-pass output. |
-| VAL-05 | This release evidence records validator output, Node test output, `git diff --check`, README marker loop output, public sample gate output, Go Gopher route smoke, source/license smoke, docs consistency, leakage scan, generated sample gate, and root `gopher.png` untracked status. |
+| VAL-05 | This release evidence records validator output, Node test output, `git diff --check`, README marker loop output, public sample gate output, Go Gopher route smoke, source/license smoke, docs consistency, leakage scan, generated sample gate, and route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` existence. |

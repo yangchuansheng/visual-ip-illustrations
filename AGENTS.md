@@ -30,7 +30,7 @@ The product is for writers, product thinkers, AI workflow authors, and Codex use
 
 - Markdown - Skill instructions, repository documentation, prompt templates, QA rules, and examples live in `skills/visual-ip-illustrations/SKILL.md`, `README.md`, `examples/prompts.md`, and `skills/visual-ip-illustrations/references/*.md`.
 - YAML - Codex agent interface metadata lives in `skills/visual-ip-illustrations/agents/openai.yaml`.
-- Image assets - PNG and JPG examples support visual calibration in `examples/images/*.png` and `assets/ian-wechat-qr.jpg`.
+- Image assets - PNG and GIF examples support visual calibration and README rendering in `examples/images/*.png`, `examples/images-en/*.png`, and `assets/readme-hero/20260617-181124.gif`.
 
 ## Runtime
 
@@ -55,7 +55,7 @@ The product is for writers, product thinkers, AI workflow authors, and Codex use
 - Built-in `image_gen` capability - Required for direct image generation and editing workflows described in `skills/visual-ip-illustrations/SKILL.md` and `skills/visual-ip-illustrations/references/prompt-template.md`.
 - Workspace filesystem access - Required to save final images under `assets/<article-slug>-illustrations/`, as specified in `skills/visual-ip-illustrations/SKILL.md`.
 - Git - Used for cloning and distributing the repository, documented in `README.md`.
-- Static image assets - `examples/images/*.png` are style calibration examples; `assets/ian-wechat-qr.jpg` is an author contact asset referenced by `README.md`.
+- Static image assets - `examples/images/*.png` are style calibration examples; `assets/readme-hero/20260617-181124.gif` is an README hero GIF referenced by every README variant.
 
 ## Configuration
 

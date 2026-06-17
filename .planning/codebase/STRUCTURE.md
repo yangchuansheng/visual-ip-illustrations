@@ -10,7 +10,8 @@ skills/visual-ip-illustrations/
 ├── LICENSE                           # License text
 ├── NOTICE.md                         # Notice and attribution/legal metadata
 ├── assets/                           # Repository-level public/static assets
-│   └── ian-wechat-qr.jpg             # README/contact QR image
+│   └── readme-hero/
+│       └── 20260617-181124.gif       # README hero GIF
 ├── examples/                         # Human-facing usage examples and README-linked preview images
 │   ├── prompts.md                    # Copyable invocation prompts
 │   └── images/                       # Public preview images referenced by README.md
@@ -71,8 +72,8 @@ skills/visual-ip-illustrations/
 
 **`assets/`:**
 - Purpose: Store repository-level static assets and default generated-output parent directory.
-- Contains: `assets/ian-wechat-qr.jpg`; generated illustration folders may be created as `assets/<article-slug>-illustrations/`.
-- Key files: `assets/ian-wechat-qr.jpg`.
+- Contains: `assets/readme-hero/20260617-181124.gif`; generated illustration folders may be created as `assets/<article-slug>-illustrations/`.
+- Key files: `assets/readme-hero/20260617-181124.gif`.
 
 **`.planning/codebase/`:**
 - Purpose: Store generated codebase maps consumed by GSD planning and execution workflows.
@@ -202,7 +203,7 @@ skills/visual-ip-illustrations/
 
 **`assets/`:**
 - Purpose: Repository-level static assets and default parent for generated deliverable folders.
-- Generated: Mixed. `assets/ian-wechat-qr.jpg` is committed static content; `assets/<article-slug>-illustrations/` is generated during skill usage.
+- Generated: Mixed. `assets/readme-hero/20260617-181124.gif` is committed static content; `assets/<article-slug>-illustrations/` is generated during skill usage.
 - Committed: Static assets are committed; generated article-specific folders should be committed only when they are intended deliverables for the repository.
 
 **`.planning/codebase/`:**

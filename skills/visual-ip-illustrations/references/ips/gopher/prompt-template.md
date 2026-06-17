@@ -7,8 +7,8 @@ Display name: Go Gopher.
 Route status: `source-reviewed`.
 Output path: `assets/<article-slug>-gopher/`.
 Source/license authority: `source.md`.
-Local visual authority: root `gopher.png`.
-Go Gopher identity note: preserve the source-reviewed mascot from root `gopher.png` with blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
+Local visual authority: route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`.
+Go Gopher identity note: preserve the source-reviewed mascot from route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` with blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
 Source/license note: Go Gopher source context is recorded in `source.md` with Renee French attribution and Creative Commons Attribution 4.0 boundary.
 Public sample review boundary: public generated Go Gopher samples require release review before appearing in public examples or release surfaces.
 Go Gopher route block: generic blue mascot drift, realistic animal drift, missing ears, missing large simple eyes, missing buck teeth, missing beige muzzle/paws, missing black outline, missing white sticker-like border, Go logo confusion, official endorsement claims, passive placement, route leakage, excessive text, and copied composition all fail the route.
@@ -41,7 +41,7 @@ Use this format for Go Gopher shot lists:
    Supporting objects: [3-6 sparse article metaphor objects]
    Visible labels: ["short label 1", "short label 2", "short label 3" copied exactly in the user's requested language]
    Output path: assets/<article-slug>-gopher/
-   Source/license note: Go Gopher is `source-reviewed`; check `source.md` for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, and public sample review boundary.
+   Source/license note: Go Gopher is `source-reviewed`; check `source.md` for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, and public sample review boundary.
 ```
 
 Planning rule: Go Gopher must perform the cognitive action. Choose supporting objects from the physical article metaphor, then make Go Gopher inspect, point, carry, sort, bridge, repair, guide, stamp, mark, tune, shield, weigh, connect, untangle, map, compare, lift, assemble, or route the decisive idea.
@@ -55,15 +55,15 @@ Replace bracketed fields. Keep the prompt specific and compact.
 ```text
 Generate one standalone 16:9 horizontal article illustration.
 
-Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as the source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, public-sample policy, reviewer fields, and status changes. Keep the scene original, article-explanatory, and route-local.
+Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as the source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, public-sample policy, reviewer fields, and status changes. Keep the scene original, article-explanatory, and route-local.
 
-Local visual authority note: root `gopher.png` is the Go Gopher visual authority. Preserve the locked markers: blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
+Local visual authority note: `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` is the Go Gopher visual authority. Preserve the locked markers: blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
 
 Scene: [core idea in one sentence].
 
 Visual language: sparse hand-drawn article illustration on a white or very light background. Rough black hand-drawn outlines with visible human looseness, generous whitespace, one enlarged action subject, and a few low-tech supporting objects. Use black for main strokes, objects, Go Gopher outline, and labels. Use Go Gopher blue for the body and beige for muzzle and paws. Use restrained red, orange, or blue accents only for motion, stamps, warning marks, source tags, or decisive emphasis. No gradients, no shadows, no paper texture, no polished vector style, no dense infographic, no PPT slide, no UI screenshot, no poster composition.
 
-Recurring IP: Go Gopher as the selected route's simplified mascot character from root `gopher.png`. Preserve blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border. Keep Go Gopher sparse and explanatory while remaining recognizable as the Go Gopher route.
+Recurring IP: Go Gopher as the selected route's simplified mascot character from route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`. Preserve blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border. Keep Go Gopher sparse and explanatory while remaining recognizable as the Go Gopher route.
 
 Structure type: [Workflow / System Local View / Before/After / Character State / Concept Metaphor / Method Layers / Map Route / Mini Comic].
 
@@ -97,9 +97,9 @@ Stronger Go Gopher Participation repair gate.
 ```text
 Regenerate the image with the same core idea, same article-illustration style, same visible labels, same 16:9 aspect ratio, and the same unaffected supporting objects, but make Go Gopher perform the central cognitive article action.
 
-Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, public-sample policy, reviewer fields, and status changes.
+Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, public-sample policy, reviewer fields, and status changes.
 
-Go Gopher should physically inspect, point, carry, sort, bridge, repair, guide, stamp, mark, tune, shield, weigh, connect, untangle, map, compare, lift, assemble, or route the concept through the scene. The metaphor should depend on Go Gopher's action. Preserve the root `gopher.png` identity note: blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
+Go Gopher should physically inspect, point, carry, sort, bridge, repair, guide, stamp, mark, tune, shield, weigh, connect, untangle, map, compare, lift, assemble, or route the concept through the scene. The metaphor should depend on Go Gopher's action. Preserve the route-local `gopher.png` identity note: blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
 ```
 
 ### gopher.png Identity Repair
@@ -107,9 +107,9 @@ Go Gopher should physically inspect, point, carry, sort, bridge, repair, guide, 
 `gopher.png` Identity Repair gate.
 
 ```text
-Edit the image to keep the same composition, labels, style, 16:9 aspect ratio, and unaffected objects, but repair the character so it follows root `gopher.png` as the Go Gopher local visual authority.
+Edit the image to keep the same composition, labels, style, 16:9 aspect ratio, and unaffected objects, but repair the character so it follows route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` as the Go Gopher local visual authority.
 
-Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, public-sample policy, reviewer fields, and status changes.
+Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, public-sample policy, reviewer fields, and status changes.
 
 Restore the locked Go Gopher markers: blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border. Remove generic blue mascot drift, realistic animal drift, missing ears, missing large simple eyes, missing buck teeth, missing beige muzzle/paws, missing black outline, missing white sticker-like border, generic animal mascot drift, and polished mascot-poster rendering.
 ```
@@ -121,7 +121,7 @@ Title Removal edit gate.
 ```text
 Edit the provided image. Remove only the title text, title card, top-left heading, or underline: [text to remove].
 
-Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, public-sample policy, reviewer fields, and status changes.
+Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, public-sample policy, reviewer fields, and status changes.
 
 Fill the removed area with the same white or very light background and preserve everything else: Go Gopher identity, Go Gopher action, existing composition, visible labels that remain correct, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality. Add no new text, title cards, UI screenshots, poster layout, clean digital labels, Go logo identity, or official endorsement cues.
 ```
@@ -133,7 +133,7 @@ Text Reduction edit gate.
 ```text
 Edit or regenerate the image with the same core idea, same Go Gopher action, same style, same 16:9 aspect ratio, and the same unaffected supporting objects, but reduce visible text.
 
-Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, public-sample policy, reviewer fields, and status changes.
+Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, public-sample policy, reviewer fields, and status changes.
 
 Keep only these short visible labels, copied exactly in the user's requested language: [quoted labels]. Remove full sentences, dense annotations, bilingual text, clean digital typography, top-left titles, labels that crowd Go Gopher's ears, large eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, black outline, or sticker border, and text that creates excessive text. Preserve Go Gopher identity, Go Gopher action, supporting objects, labels that remain correct, line style, color accents, aspect ratio, image quality, and source/license boundary.
 ```
@@ -145,9 +145,9 @@ Route Leakage Repair gate.
 ```text
 Edit or regenerate the image prompt with the same core idea, same successful Go Gopher action, same style, same 16:9 aspect ratio, same visible labels, and the same unaffected supporting objects, but remove route leakage.
 
-Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, public-sample policy, reviewer fields, and status changes.
+Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, public-sample policy, reviewer fields, and status changes.
 
-Remove Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go logo identity, official Go endorsement cues, and cross-route vocabulary. Keep Go Gopher as the blue rounded upright article character from root `gopher.png`. Use article metaphor objects such as maps, bridges, knots, compasses, shelves, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, hooks, stepping stones, signposts, levers, or small hand-built machines. Preserve successful Go Gopher content that already works.
+Remove Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go logo identity, official Go endorsement cues, and cross-route vocabulary. Keep Go Gopher as the blue rounded upright article character from route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`. Use article metaphor objects such as maps, bridges, knots, compasses, shelves, lamps, shields, stamps, keys, trails, gates, scales, buckets, envelopes, threads, lenses, hooks, stepping stones, signposts, levers, or small hand-built machines. Preserve successful Go Gopher content that already works.
 ```
 
 ### Unaffected-Content Preservation
@@ -155,9 +155,9 @@ Remove Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go logo identity, offici
 Unaffected-Content Preservation gate.
 
 ```text
-Edit only the named failure: [participation / gopher.png identity / title / text density / label typo / route leakage / Go logo confusion / official endorsement claims]. First name the exact failure being repaired. Preserve all successful content outside that failure: successful Go Gopher action, root `gopher.png` identity cues, existing composition, visible labels that are already correct, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality.
+Edit only the named failure: [participation / gopher.png identity / title / text density / label typo / route leakage / Go logo confusion / official endorsement claims]. First name the exact failure being repaired. Preserve all successful content outside that failure: successful Go Gopher action, route-local `gopher.png` identity cues, existing composition, visible labels that are already correct, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality.
 
-Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, root `gopher.png` local visual authority, public-sample policy, reviewer fields, and status changes.
+Route status note: Go Gopher is a `source-reviewed` article-illustration mascot route. Use `source.md` as source/license authority for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, public-sample policy, reviewer fields, and status changes.
 
 Keep the scene an original article metaphor. Add no generic blue mascot drift, realistic animal drift, missing ears, missing large simple eyes, missing buck teeth, missing beige muzzle/paws, missing black outline, missing white sticker-like border, Go logo confusion, official endorsement claims, passive placement, excessive text, route leakage, formal diagrams, UI screenshots, title cards, dense PPT-like infographics, or copied prior route compositions.
 
@@ -166,4 +166,4 @@ Go Gopher route block: generic blue mascot drift, realistic animal drift, missin
 
 ## Output Reminder
 
-Accepted Go Gopher images are saved under `assets/<article-slug>-gopher/`. The delivery report states selected visual IP, image count, purpose per image, saved path, source/license note, root `gopher.png` identity status, route isolation status, public sample review boundary when relevant, and stability notes.
+Accepted Go Gopher images are saved under `assets/<article-slug>-gopher/`. The delivery report states selected visual IP, image count, purpose per image, saved path, source/license note, route-local `gopher.png` identity status, route isolation status, public sample review boundary when relevant, and stability notes.

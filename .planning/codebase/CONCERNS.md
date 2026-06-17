@@ -50,11 +50,11 @@
 - Current mitigation: `skills/visual-ip-illustrations/SKILL.md` instructs agents to preserve original generated files and avoid overwriting existing assets unless explicitly requested.
 - Recommendations: Require unique run directories such as `assets/<article-slug>-illustrations/YYYYMMDD-HHMM/` or add a naming rule that appends an incrementing suffix when files already exist.
 
-**Public personal QR asset in repository:**
-- Risk: A WeChat QR code image is committed and distributed with the repository, creating a contact surface that may be copied outside intended contexts.
-- Files: `assets/ian-wechat-qr.jpg`
-- Current mitigation: The file is isolated under root `assets/` and is not part of the installable skill directory.
-- Recommendations: Keep this asset out of installable packages and document its intended public-use status in `NOTICE.md` or `README.md`.
+**Repository static hero asset:**
+- Risk: The README hero GIF is committed and distributed with the repository as a public visual entry point.
+- Files: `assets/readme-hero/20260617-181124.gif`
+- Current mitigation: The file is isolated under `assets/readme-hero/` and is not part of the installable skill directory.
+- Recommendations: Keep this asset out of installable packages and preserve README link validation.
 
 **Implicit invocation is broad:**
 - Risk: `allow_implicit_invocation: true` plus a broad Chinese description can trigger the skill for adjacent illustration requests where the user expects a different visual style.

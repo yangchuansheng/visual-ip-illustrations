@@ -5,8 +5,8 @@ Display name: Go Gopher.
 Route status: `source-reviewed`.
 Output path: `assets/<article-slug>-gopher/`.
 Source/license authority: `source.md`.
-Local visual authority: root `gopher.png`.
-Go Gopher identity note: preserve the source-reviewed mascot from root `gopher.png` with blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
+Local visual authority: route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`.
+Go Gopher identity note: preserve the source-reviewed mascot from route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` with blue rounded upright body, rounded head/body silhouette, small rounded ears, large simple eyes, black nose, buck teeth, beige muzzle and paws, compact limbs, friendly standing posture, black outline, and white sticker-like border.
 Source/license note: Go Gopher source context is recorded in `source.md` with Renee French attribution and Creative Commons Attribution 4.0 boundary.
 Public sample review boundary: public generated Go Gopher samples require release review before appearing in public examples or release surfaces.
 Go Gopher route block: generic blue mascot drift, realistic animal drift, missing ears, missing large simple eyes, missing buck teeth, missing beige muzzle/paws, missing black outline, missing white sticker-like border, Go logo confusion, official endorsement claims, passive placement, route leakage, excessive text, and copied composition all fail the route.

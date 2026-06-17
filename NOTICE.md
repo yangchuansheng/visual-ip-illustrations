@@ -90,8 +90,8 @@ Go Gopher source context records the source-reviewed article-mascot route for th
 - Attribution: Renee French
 - License boundary: Creative Commons Attribution 4.0
 - Source/license authority: `skills/visual-ip-illustrations/references/ips/gopher/source.md`
-- Local visual authority: root `gopher.png`
-- Attribution context: Go Gopher source, Renee French attribution, Creative Commons Attribution 4.0 boundary, local `gopher.png` visual authority, route metadata, documentation, and release review
+- Local visual authority: route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`
+- Attribution context: Go Gopher source, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `gopher.png` visual authority, route metadata, documentation, and release review
 
 Public rendered Go Gopher samples remain gated until reviewer, date, approval status, allowed directories, release channels, Go blog source outcome, Renee French attribution outcome, Creative Commons Attribution 4.0 outcome, local visual marker outcome, route-isolation outcome, Go logo boundary outcome, official endorsement boundary outcome, article-metaphor quality outcome, and public-sample decision are recorded for `examples/images/`, `skills/visual-ip-illustrations/assets/examples/`, or release materials.
 

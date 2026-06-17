@@ -38,7 +38,7 @@
 **File Storage:**
 - Local workspace filesystem.
   - Generated image output path: `assets/<article-slug>-illustrations/`, defined in `skills/visual-ip-illustrations/SKILL.md`.
-  - Static repository assets: `examples/images/*.png`, `assets/ian-wechat-qr.jpg`, and `skills/visual-ip-illustrations/assets/examples/`.
+  - Static repository assets: `examples/images/*.png`, `examples/images-en/*.png`, and `assets/readme-hero/20260617-181124.gif`.
 
 **Caching:**
 - None detected.
