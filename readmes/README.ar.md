@@ -2,7 +2,7 @@
 
 # Visual IP Illustrations
 
-![Visual IP Illustrations character lineup with Cai Xukun holding a basketball](../assets/readme-hero/20260618-visual-ip-lineup-basketball.png)
+![Visual IP Illustrations animated character lineup with Cai Xukun holding a basketball](../assets/readme-hero/20260618-visual-ip-lineup-basketball-animated.gif)
 
 [![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
 
