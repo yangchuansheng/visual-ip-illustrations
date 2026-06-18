@@ -97,6 +97,24 @@ Public rendered Go Gopher samples remain gated until reviewer, date, approval st
 
 Go Gopher route documentation does not claim official Go project affiliation, approval, sponsorship, or endorsement.
 
+## Cai Xukun Source Boundary and Public Sample Gate
+
+Cai Xukun source context records the explicit `gated-public-figure` stylized mascot-only route for the `caixukun` route.
+
+- Route: Cai Xukun
+- Display name: `Cai Xukun`
+- Aliases: `Cai Xukun`, `蔡徐坤`, `caixukun`, `cxk`
+- Route id: `caixukun`
+- Route status: `gated-public-figure`
+- Source authority: `skills/visual-ip-illustrations/references/ips/caixukun/source.md`
+- Output path: `assets/<article-slug>-caixukun/`
+- Docs validation token: `assets/&lt;article-slug&gt;-caixukun/`
+- Uploaded-image authority: the route-local uploaded visual references recorded in `skills/visual-ip-illustrations/references/ips/caixukun/source.md` are the identity authority for this route.
+- Boundary context: public-figure likeness boundary, source-image context boundary, route isolation, and stylized mascot-only output.
+- Release-review terms: endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims require maintainer review and neutral article-concept wording.
+
+Public generated Cai Xukun samples remain pending behind the public sample review gate. No public generated Cai Xukun sample assets are approved for `examples/images/`, `examples/images-en/`, `skills/visual-ip-illustrations/assets/examples/`, public README galleries, or release materials until reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, public-figure likeness boundary outcome, source-image context boundary outcome, route-isolation outcome, stylized mascot-only output outcome, article-metaphor quality outcome, and public-sample decision are recorded.
+
 Author links:
 
 - GitHub: <https://github.com/helloianneo>

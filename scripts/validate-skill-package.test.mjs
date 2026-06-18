@@ -22,6 +22,7 @@ const requiredCheckIds = [
   "AGENT-SEAL-001",
   "AGENT-OPENCLAW-001",
   "AGENT-GOPHER-001",
+  "AGENT-CAIXUKUN-001",
   "ROUTE-TABLE-001",
   "ROUTE-XH-001",
   "ROUTE-LB-001",
@@ -30,6 +31,7 @@ const requiredCheckIds = [
   "ROUTE-SEAL-001",
   "ROUTE-SEAL-002",
   "ROUTE-GOPHER-001",
+  "ROUTE-CAIXUKUN-001",
   "ROUTE-DEFAULT-001",
   "ROUTE-REFS-001",
   "ROUTE-PATHS-001",
@@ -41,6 +43,7 @@ const requiredCheckIds = [
   "REFS-SEAL-001",
   "REFS-OPENCLAW-001",
   "REFS-GOPHER-001",
+  "REFS-CAIXUKUN-001",
   "LEGACY-XH-001",
   "LEGACY-XH-002",
   "PROMPT-XH-001",
@@ -51,6 +54,7 @@ const requiredCheckIds = [
   "PROMPT-SEAL-001",
   "PROMPT-OPENCLAW-001",
   "PROMPT-GOPHER-001",
+  "PROMPT-CAIXUKUN-001",
   "IP-XH-001",
   "IP-LB-001",
   "IP-TOM-001",
@@ -58,16 +62,19 @@ const requiredCheckIds = [
   "IP-SEAL-001",
   "IP-OPENCLAW-001",
   "IP-GOPHER-001",
+  "IP-CAIXUKUN-001",
   "QA-TOM-001",
   "QA-FERRIS-001",
   "QA-SEAL-001",
   "QA-OPENCLAW-001",
   "QA-GOPHER-001",
+  "QA-CAIXUKUN-001",
   "RIGHTS-TOM-001",
   "SOURCE-FERRIS-001",
   "SOURCE-SEAL-001",
   "SOURCE-OPENCLAW-001",
   "SOURCE-GOPHER-001",
+  "SOURCE-CAIXUKUN-001",
   "LOGO-SEAL-001",
   "DOC-LINKS-001",
   "DOC-ZH-GALLERY-001",
@@ -78,6 +85,7 @@ const requiredCheckIds = [
   "DOC-SEAL-001",
   "DOC-OPENCLAW-001",
   "DOC-GOPHER-001",
+  "DOC-CAIXUKUN-001",
   "NOTICE-IAN-001",
   "NOTICE-LB-001",
   "NOTICE-TOM-001",
@@ -85,6 +93,7 @@ const requiredCheckIds = [
   "NOTICE-SEAL-001",
   "NOTICE-OPENCLAW-001",
   "NOTICE-GOPHER-001",
+  "NOTICE-CAIXUKUN-001",
   "SMOKE-DEFAULT-001",
   "SMOKE-XH-001",
   "SMOKE-LB-001",
@@ -93,15 +102,18 @@ const requiredCheckIds = [
   "SMOKE-SEAL-001",
   "SMOKE-OPENCLAW-001",
   "SMOKE-GOPHER-001",
+  "SMOKE-CAIXUKUN-001",
   "SMOKE-MIXED-001",
   "SMOKE-MIXED-SEAL-001",
   "SMOKE-MIXED-OPENCLAW-001",
   "SMOKE-MIXED-GOPHER-001",
+  "SMOKE-MIXED-CAIXUKUN-001",
   "RELEASE-TOM-001",
   "RELEASE-FERRIS-001",
   "RELEASE-SEAL-001",
   "RELEASE-OPENCLAW-001",
   "RELEASE-GOPHER-001",
+  "RELEASE-CAIXUKUN-001",
   "REBRAND-CANON-001",
   "REBRAND-CANON-002",
   "REBRAND-CANON-003",
@@ -124,21 +136,25 @@ const requiredCheckIds = [
   "VAL-RELEASE-001",
   "VAL-OPENCLAW-EVIDENCE-001",
   "VAL-GOPHER-EVIDENCE-001",
+  "VAL-CAIXUKUN-EVIDENCE-001",
   "BOUNDARY-IMG-001",
   "BOUNDARY-TOM-LEAK-001",
   "BOUNDARY-FERRIS-LEAK-001",
   "BOUNDARY-SEAL-LEAK-001",
   "BOUNDARY-OPENCLAW-LEAK-001",
   "BOUNDARY-GOPHER-LEAK-001",
+  "BOUNDARY-CAIXUKUN-LEAK-001",
   "BOUNDARY-TOM-IMG-001",
   "BOUNDARY-FERRIS-IMG-001",
   "BOUNDARY-SEAL-IMG-001",
   "BOUNDARY-OPENCLAW-IMG-001",
   "BOUNDARY-GOPHER-IMG-001",
+  "BOUNDARY-CAIXUKUN-IMG-001",
   "BOUNDARY-FERRIS-GEN-001",
   "BOUNDARY-SEAL-GEN-001",
   "BOUNDARY-OPENCLAW-GEN-001",
   "BOUNDARY-GOPHER-GEN-001",
+  "BOUNDARY-CAIXUKUN-GEN-001",
   "BOUNDARY-P5-001",
 ];
 
@@ -331,6 +347,40 @@ function currentGeneratedGopherSampleLine() {
   return "- [x] Record generated sample review: APPROVED / maintainer request / 2026-06-17 / approved / assets/<article-slug>-gopher / examples/images, skills/visual-ip-illustrations/assets/examples / GitHub README / Renee French attribution approved / Creative Commons Attribution 4.0 approved / local visual marker approved / route-isolation approved / Go logo boundary approved / official endorsement boundary approved / article-metaphor quality approved.";
 }
 
+function pendingCaiXukunPublicAssetApprovalLine() {
+  return "- [ ] Cai Xukun public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / public-figure likeness boundary outcome / source-image context boundary outcome / route-isolation outcome / stylized mascot-only output outcome / article-metaphor quality outcome / public-sample decision.";
+}
+
+function completeCaiXukunPublicAssetApprovalLine(
+  reviewDate = "2026-06-13",
+  uploadedImageIdentityOutcome = "uploaded-image identity approved",
+  publicFigureLikenessBoundaryOutcome = "public-figure likeness boundary approved",
+  sourceImageContextBoundaryOutcome = "source-image context boundary approved",
+  routeIsolationOutcome = "route-isolation approved",
+  stylizedMascotOnlyOutputOutcome = "stylized mascot-only output approved",
+  articleMetaphorOutcome = "article-metaphor quality approved",
+  publicSampleOutcome = "public-sample decision approved",
+) {
+  return `- [x] Cai Xukun public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`skills/visual-ip-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / release notes / ${uploadedImageIdentityOutcome} / ${publicFigureLikenessBoundaryOutcome} / ${sourceImageContextBoundaryOutcome} / ${routeIsolationOutcome} / ${stylizedMascotOnlyOutputOutcome} / ${articleMetaphorOutcome} / ${publicSampleOutcome}.`;
+}
+
+function pendingGeneratedCaiXukunSampleLine() {
+  return "- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / public-figure likeness boundary outcome / source-image context boundary outcome / route-isolation outcome / stylized mascot-only output outcome / endorsement, affiliation, impersonation, campaign, advertising, fandom-promotion review outcome / article-metaphor quality outcome.";
+}
+
+function completeGeneratedCaiXukunSampleLine(
+  reviewDate = "2026-06-13",
+  uploadedImageIdentityOutcome = "uploaded-image identity approved",
+  publicFigureLikenessBoundaryOutcome = "public-figure likeness boundary approved",
+  sourceImageContextBoundaryOutcome = "source-image context boundary approved",
+  routeIsolationOutcome = "route-isolation approved",
+  stylizedMascotOnlyOutputOutcome = "stylized mascot-only output approved",
+  claimReviewOutcome = "endorsement affiliation impersonation campaign advertising fandom-promotion review approved",
+  articleMetaphorOutcome = "article-metaphor quality approved",
+) {
+  return `- [x] Record generated sample review: APPROVED / Jane Reviewer / ${reviewDate} / approved / assets/<article-slug>-caixukun / examples/images, skills/visual-ip-illustrations/assets/examples / release notes / ${uploadedImageIdentityOutcome} / ${publicFigureLikenessBoundaryOutcome} / ${sourceImageContextBoundaryOutcome} / ${routeIsolationOutcome} / ${stylizedMascotOnlyOutputOutcome} / ${claimReviewOutcome} / ${articleMetaphorOutcome}.`;
+}
+
 test("validator command prints deterministic harness smoke logs", () => {
   const result = runValidator();
 
@@ -343,7 +393,7 @@ test("validator command prints deterministic harness smoke logs", () => {
   assert.match(result.stdout, /\[PASS\] ROUTE-TABLE-001 /);
   assert.match(result.stdout, /\[PASS\] ROUTE-FERRIS-001 /);
   assert.match(result.stdout, /\[PASS\] SMOKE-FERRIS-001 /);
-  assert.match(result.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -594,7 +644,7 @@ test("validator failure messages include actionable Tom check IDs and paths", ()
   assert.match(result.stdout, /observed missing marker/);
 });
 
-test("validator emits the full Phase 42 matrix with zero failures", () => {
+test("validator emits the full Phase 47 matrix with zero failures", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -605,7 +655,7 @@ test("validator emits the full Phase 42 matrix with zero failures", () => {
     resultLines.map((line) => line.match(/^\[PASS\] ([A-Z0-9-]+) /)?.[1]),
     requiredCheckIds,
   );
-  assert.match(result.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
   assert.equal(result.stderr, "");
 });
 
@@ -636,7 +686,7 @@ test("validator reports Phase 24 rebrand checks in stable order", () => {
   }
 });
 
-test("validator reports Phase 42 validation checks in stable order", () => {
+test("validator reports Phase 47 validation checks in stable order", () => {
   const result = runValidator();
 
   assert.equal(result.status, 0);
@@ -647,13 +697,15 @@ test("validator reports Phase 42 validation checks in stable order", () => {
     "VAL-COMPAT-001",
     "VAL-RELEASE-001",
     "VAL-OPENCLAW-EVIDENCE-001",
+    "VAL-GOPHER-EVIDENCE-001",
+    "VAL-CAIXUKUN-EVIDENCE-001",
   ];
 
   let lastIndex = result.stdout.indexOf("[PASS] LANG-SCAN-002 ");
-  assert.ok(lastIndex >= 0, "Phase 42 validation checks should follow language scan checks");
+  assert.ok(lastIndex >= 0, "Phase 47 validation checks should follow language scan checks");
   for (const id of expectedIds) {
     const index = result.stdout.indexOf(`[PASS] ${id} `);
-    assert.ok(index > lastIndex, `${id} should appear after the previous Phase 28 validation check`);
+    assert.ok(index > lastIndex, `${id} should appear after the previous validation check`);
     lastIndex = index;
   }
   const boundaryIndex = result.stdout.indexOf("[PASS] BOUNDARY-IMG-001 ");
@@ -704,7 +756,7 @@ test("validator fixture reports approved multilingual tokens in enforce mode", (
 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] LANG-SCAN-001 /);
-    assert.match(result.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
+  assert.match(result.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1022,7 +1074,7 @@ test("validator fixture locks Chinese route aliases through Phase 28", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] ROUTE-TOM-001 /);
     assert.match(result.stdout, /\[FAIL\] VAL-COMPAT-001 /);
-    assert.match(result.stdout, /observed missing item\(s\): 汤姆, 汤姆猫/);
+    assert.match(result.stdout, /observed missing marker\(s\): 汤姆, 汤姆猫/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -1131,7 +1183,7 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(!frontmatter.data.description.includes("Chinese articles"));
 
   const routes = validators.parseMarkdownTable(routingText, "IP Routes");
-  assert.equal(routes.length, 7);
+  assert.equal(routes.length, 8);
   assert.deepEqual(routes.map((route) => route.id), [
     "xiaohei",
     "littlebox",
@@ -1140,6 +1192,7 @@ test("parser helpers expose current package contract primitives", async () => {
     "seal",
     "openclaw",
     "gopher",
+    "caixukun",
   ]);
   assert.equal(routes[0].output_suffix, "illustrations");
   assert.equal(routes[0].default, "true");
@@ -1189,6 +1242,15 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.equal(routes[6].output_suffix, "gopher");
   assert.equal(routes[6].default, "false");
   assert.equal(routes[6].status, "source-reviewed");
+  assert.deepEqual(validators.splitRouteAliases(routes[7].aliases), [
+    "蔡徐坤",
+    "Cai Xukun",
+    "caixukun",
+    "cxk",
+  ]);
+  assert.equal(routes[7].output_suffix, "caixukun");
+  assert.equal(routes[7].default, "false");
+  assert.equal(routes[7].status, "gated-public-figure");
   assert.equal(routes[4].output_suffix, "seal");
   assert.equal(routes[4].default, "false");
   assert.equal(routes[4].status, "active");
@@ -1240,6 +1302,15 @@ test("parser helpers expose current package contract primitives", async () => {
     "references/ips/gopher/prompt-template.md",
     "references/ips/gopher/qa-checklist.md",
   ]);
+  assert.deepEqual(validators.splitRouteCell(routes[7].required_references), [
+    "references/ips/caixukun/index.md",
+    "references/ips/caixukun/source.md",
+    "references/ips/caixukun/style-dna.md",
+    "references/ips/caixukun/caixukun-ip.md",
+    "references/ips/caixukun/composition-patterns.md",
+    "references/ips/caixukun/prompt-template.md",
+    "references/ips/caixukun/qa-checklist.md",
+  ]);
   assert.deepEqual(validators.splitRouteCell("`one`; `two`; three"), ["one", "two", "three"]);
 
   const links = validators.parseMarkdownLinks(readmeText);
@@ -1253,12 +1324,14 @@ test("parser helpers expose current package contract primitives", async () => {
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-seal/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-openclaw/"));
   assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-gopher/"));
+  assert.ok(validators.outputPathTokens().raw.includes("assets/<article-slug>-caixukun/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-littlebox/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-tom/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-ferris/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-seal/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-openclaw/"));
   assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-gopher/"));
+  assert.ok(validators.outputPathTokens().escaped.includes("assets/&lt;article-slug&gt;-caixukun/"));
 });
 
 test("approval parser helpers expose current release primitives", async () => {
@@ -1571,6 +1644,45 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingGeneratedGopherApproval.internalReviewDirectoriesPresent, false);
   assert.equal(pendingGeneratedGopherApproval.publicDirectoriesPresent, false);
 
+  const pendingCaiXukunApproval = validators.parsePublicCaiXukunSampleApproval(releaseChecklistText);
+  assert.equal(pendingCaiXukunApproval.found, true);
+  assert.equal(pendingCaiXukunApproval.checked, false);
+  assert.equal(pendingCaiXukunApproval.complete, false);
+  assert.equal(pendingCaiXukunApproval.allowedDirectoriesPresent, false);
+  assert.equal(pendingCaiXukunApproval.uploadedImageIdentityOutcomePresent, false);
+  assert.equal(pendingCaiXukunApproval.publicFigureLikenessBoundaryOutcomePresent, false);
+  assert.equal(pendingCaiXukunApproval.sourceImageContextBoundaryOutcomePresent, false);
+  assert.equal(pendingCaiXukunApproval.routeIsolationOutcomePresent, false);
+  assert.equal(pendingCaiXukunApproval.stylizedMascotOnlyOutputOutcomePresent, false);
+  assert.equal(pendingCaiXukunApproval.articleMetaphorOutcomePresent, false);
+  assert.equal(pendingCaiXukunApproval.publicSampleOutcomePresent, false);
+
+  const approvedCaiXukunText = releaseChecklistText.replace(
+    pendingCaiXukunPublicAssetApprovalLine(),
+    completeCaiXukunPublicAssetApprovalLine(),
+  );
+  const approvedCaiXukun = validators.parsePublicCaiXukunSampleApproval(approvedCaiXukunText);
+  assert.equal(approvedCaiXukun.complete, true);
+  assert.deepEqual(approvedCaiXukun.allowedDirectories, [
+    "examples/images",
+    "examples/images-en",
+    "skills/visual-ip-illustrations/assets/examples",
+  ]);
+  assert.equal(approvedCaiXukun.uploadedImageIdentityOutcomePresent, true);
+  assert.equal(approvedCaiXukun.publicFigureLikenessBoundaryOutcomePresent, true);
+  assert.equal(approvedCaiXukun.sourceImageContextBoundaryOutcomePresent, true);
+  assert.equal(approvedCaiXukun.routeIsolationOutcomePresent, true);
+  assert.equal(approvedCaiXukun.stylizedMascotOnlyOutputOutcomePresent, true);
+  assert.equal(approvedCaiXukun.articleMetaphorOutcomePresent, true);
+  assert.equal(approvedCaiXukun.publicSampleOutcomePresent, true);
+
+  const pendingGeneratedCaiXukunApproval = validators.parseGeneratedCaiXukunSampleApproval(releaseChecklistText);
+  assert.equal(pendingGeneratedCaiXukunApproval.found, true);
+  assert.equal(pendingGeneratedCaiXukunApproval.checked, false);
+  assert.equal(pendingGeneratedCaiXukunApproval.complete, false);
+  assert.equal(pendingGeneratedCaiXukunApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingGeneratedCaiXukunApproval.publicDirectoriesPresent, false);
+
   const completeGeneratedText = releaseChecklistText.replace(
     pendingGeneratedFerrisSampleLine(),
     completeGeneratedFerrisSampleLine(),
@@ -1643,6 +1755,26 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(completeGeneratedGopherApproval.logoBoundaryOutcomePresent, true);
   assert.equal(completeGeneratedGopherApproval.endorsementBoundaryOutcomePresent, true);
   assert.equal(completeGeneratedGopherApproval.articleMetaphorOutcomePresent, true);
+
+  const completeGeneratedCaiXukunText = releaseChecklistText.replace(
+    pendingGeneratedCaiXukunSampleLine(),
+    completeGeneratedCaiXukunSampleLine(),
+  );
+  const completeGeneratedCaiXukunApproval =
+    validators.parseGeneratedCaiXukunSampleApproval(completeGeneratedCaiXukunText);
+  assert.equal(completeGeneratedCaiXukunApproval.complete, true);
+  assert.deepEqual(completeGeneratedCaiXukunApproval.internalReviewDirectories, ["assets/<article-slug>-caixukun"]);
+  assert.deepEqual(completeGeneratedCaiXukunApproval.publicDirectories, [
+    "examples/images",
+    "skills/visual-ip-illustrations/assets/examples",
+  ]);
+  assert.equal(completeGeneratedCaiXukunApproval.uploadedImageIdentityOutcomePresent, true);
+  assert.equal(completeGeneratedCaiXukunApproval.publicFigureLikenessBoundaryOutcomePresent, true);
+  assert.equal(completeGeneratedCaiXukunApproval.sourceImageContextBoundaryOutcomePresent, true);
+  assert.equal(completeGeneratedCaiXukunApproval.routeIsolationOutcomePresent, true);
+  assert.equal(completeGeneratedCaiXukunApproval.stylizedMascotOnlyOutputOutcomePresent, true);
+  assert.equal(completeGeneratedCaiXukunApproval.claimReviewOutcomePresent, true);
+  assert.equal(completeGeneratedCaiXukunApproval.articleMetaphorOutcomePresent, true);
 });
 
 test("validator fixture rejects Tom route metadata drift", () => {
@@ -1816,7 +1948,7 @@ test("validator fixture rejects Seal route metadata drift", () => {
     assert.match(result.stdout, /\[FAIL\] ROUTE-SEAL-001 /);
     assert.match(result.stdout, /\[FAIL\] ROUTE-PATHS-001 /);
     assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
-    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw, gopher; observed xiaohei, littlebox, tom, ferris, sealos, openclaw, gopher/);
+    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw, gopher, caixukun; observed xiaohei, littlebox, tom, ferris, sealos, openclaw, gopher, caixukun/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2077,7 +2209,7 @@ test("validator fixture rejects Go Gopher route metadata drift", () => {
   }
 });
 
-test("validator fixture rejects stale six-route assumptions", () => {
+test("validator fixture rejects stale seven-route assumptions", () => {
   const fixtureRoot = copyFixture("gopher-route-count");
   try {
     const routingPath = path.join("skills", "visual-ip-illustrations", "references", "routing.md");
@@ -2088,7 +2220,7 @@ test("validator fixture rejects stale six-route assumptions", () => {
     assert.equal(result.status, 1);
     assert.match(result.stdout, /\[FAIL\] ROUTE-TABLE-001 /);
     assert.match(result.stdout, /\[FAIL\] REBRAND-ROUTE-001 /);
-    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw, gopher/);
+    assert.match(result.stdout, /expected rebrand route ids xiaohei, littlebox, tom, ferris, seal, openclaw, gopher, caixukun/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2217,7 +2349,7 @@ test("validator fixture reports Go Gopher mixed-IP drift", () => {
   assertGopherSurfaceDrift(
     "mixed",
     "examples/prompts.md",
-    "seven separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher",
+    "Expected: Go Gopher variant group uses `skills/visual-ip-illustrations/references/ips/gopher/`",
     "SMOKE-MIXED-GOPHER-001",
   );
 });
@@ -2250,6 +2382,168 @@ test("validator fixture reports Go Gopher release evidence drift", () => {
     assert.match(
       result.stdout,
       /\.planning\/phases\/42-go-gopher-validation-and-release-evidence\/42-RELEASE-EVIDENCE\.md/,
+    );
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+function assertCaiXukunSurfaceDrift(name, relativePath, searchValue, expectedId) {
+  const fixtureRoot = copyFixture(`caixukun-${name}-parity-drift`);
+  try {
+    replaceAllInFixture(fixtureRoot, relativePath, searchValue, `removed ${name} marker`);
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
+    assert.match(result.stdout, new RegExp(relativePath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+    assert.match(result.stdout, /observed missing marker\(s\)|expected no rendered Cai Xukun assets|forbidden marker/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+}
+
+test("validator fixture rejects Cai Xukun route metadata drift", () => {
+  const fixtureRoot = copyFixture("caixukun-route");
+  try {
+    replaceInFixture(
+      fixtureRoot,
+      path.join("skills", "visual-ip-illustrations", "references", "routing.md"),
+      "`蔡徐坤`, `Cai Xukun`, `caixukun`, `cxk`",
+      "`Cai Xukun`, `caixukun`",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] ROUTE-CAIXUKUN-001 /);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/routing\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): 蔡徐坤, cxk/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Cai Xukun source marker drift", () => {
+  const fixtureRoot = copyFixture("caixukun-source");
+  try {
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "caixukun", "source.md"),
+      "uploaded reference image A",
+      "uploaded reference image",
+    );
+    replaceAllInFixture(
+      fixtureRoot,
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "caixukun", "source.md"),
+      "green reference background is source-image context",
+      "green reference background is calibration context",
+    );
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] SOURCE-CAIXUKUN-001 /);
+    assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/caixukun\/source\.md/);
+    assert.match(result.stdout, /observed missing marker\(s\): uploaded reference image A/);
+    assert.match(result.stdout, /green reference background is source-image context/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture reports Cai Xukun pack, prompt, QA, and identity drift", () => {
+  for (const [name, relativePath, searchValue, expectedId] of [
+    [
+      "pack",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "caixukun", "index.md"),
+      "Public generated Cai Xukun samples require release review",
+      "REFS-CAIXUKUN-001",
+    ],
+    [
+      "prompt",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "caixukun", "prompt-template.md"),
+      "Cai Xukun planning fields gate",
+      "PROMPT-CAIXUKUN-001",
+    ],
+    [
+      "qa",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "caixukun", "qa-checklist.md"),
+      "Cai Xukun QA route leakage failure",
+      "QA-CAIXUKUN-001",
+    ],
+    [
+      "identity",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "caixukun", "caixukun-ip.md"),
+      "Cai Xukun must perform the central cognitive article action",
+      "IP-CAIXUKUN-001",
+    ],
+  ]) {
+    const fixtureRoot = copyFixture(`caixukun-${name}-drift`);
+    try {
+      replaceAllInFixture(fixtureRoot, relativePath, searchValue, `removed ${name} marker`);
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, new RegExp(`\\[FAIL\\] ${expectedId} `));
+      assert.match(result.stdout, /skills\/visual-ip-illustrations\/references\/ips\/caixukun/);
+      assert.match(result.stdout, /observed missing marker\(s\)/);
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
+test("validator fixture reports Cai Xukun release surface drift", () => {
+  for (const [name, relativePath, searchValue, expectedId] of [
+    [
+      "agent",
+      path.join("skills", "visual-ip-illustrations", "agents", "openai.yaml"),
+      "explicit Cai Xukun / 蔡徐坤 / caixukun / cxk stylized mascot-only route",
+      "AGENT-CAIXUKUN-001",
+    ],
+    ["docs", "README.md", "skills/visual-ip-illustrations/references/ips/caixukun/source.md", "DOC-CAIXUKUN-001"],
+    [
+      "localized-readme",
+      path.join("readmes", "README.zh.md"),
+      "assets/&lt;article-slug&gt;-caixukun/",
+      "DOC-CAIXUKUN-001",
+    ],
+    ["notice", "NOTICE.md", "Cai Xukun Source Boundary and Public Sample Gate", "NOTICE-CAIXUKUN-001"],
+    ["smoke", "examples/prompts.md", "### Smoke: Cai Xukun gated-public-figure route status", "SMOKE-CAIXUKUN-001"],
+    [
+      "mixed",
+      "examples/prompts.md",
+      "eight separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun",
+      "SMOKE-MIXED-CAIXUKUN-001",
+    ],
+    ["release", "RELEASE_CHECKLIST.md", "Cai Xukun Source Review", "RELEASE-CAIXUKUN-001"],
+  ]) {
+    assertCaiXukunSurfaceDrift(name, relativePath, searchValue, expectedId);
+  }
+});
+
+test("validator fixture reports Cai Xukun release evidence drift", () => {
+  const fixtureRoot = copyFixture("caixukun-release-evidence");
+  const evidencePath = path.join(
+    fixtureRoot,
+    ".planning",
+    "phases",
+    "47-cai-xukun-validation-and-release-evidence",
+    "47-RELEASE-EVIDENCE.md",
+  );
+  try {
+    rmSync(evidencePath, { force: true });
+
+    const result = runFixtureValidator(fixtureRoot);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stdout, /\[FAIL\] VAL-CAIXUKUN-EVIDENCE-001 /);
+    assert.match(
+      result.stdout,
+      /\.planning\/phases\/47-cai-xukun-validation-and-release-evidence\/47-RELEASE-EVIDENCE\.md/,
     );
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -2734,6 +3028,60 @@ test("validator fixture reports Go Gopher leakage in non-Go-Gopher packs", () =>
   }
 });
 
+test("validator fixture reports Cai Xukun leakage in non-Cai-Xukun packs", () => {
+  for (const [name, relativePath, marker] of [
+    [
+      "xiaohei",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "xiaohei", "xiaohei-ip.md"),
+      "Cai Xukun",
+    ],
+    [
+      "littlebox",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "littlebox", "littlebox-ip.md"),
+      "references/ips/caixukun",
+    ],
+    ["tom", path.join("skills", "visual-ip-illustrations", "references", "ips", "tom", "tom-ip.md"), "蔡徐坤"],
+    [
+      "ferris",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "ferris", "ferris-ip.md"),
+      "public-figure likeness boundary",
+    ],
+    [
+      "seal",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "seal", "seal-ip.md"),
+      "uploaded reference image A",
+    ],
+    [
+      "openclaw",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "openclaw", "openclaw-ip.md"),
+      "assets/<article-slug>-caixukun/",
+    ],
+    [
+      "gopher",
+      path.join("skills", "visual-ip-illustrations", "references", "ips", "gopher", "gopher-ip.md"),
+      "stylized mascot-only output",
+    ],
+  ]) {
+    const fixtureRoot = copyFixture(`caixukun-leak-${name}`);
+    try {
+      writeFileSync(
+        path.join(fixtureRoot, relativePath),
+        `${readFileSync(path.join(fixtureRoot, relativePath), "utf8")}\n\nLeaked route marker: ${marker}\n`,
+        "utf8",
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-CAIXUKUN-LEAK-001 /);
+      assert.match(result.stdout, new RegExp(relativePath.split(path.sep).join("\\/").replace(/\./g, "\\.")));
+      assert.match(result.stdout, new RegExp(`observed forbidden marker\\(s\\): .*${marker}`));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
 test("validator fixture enforces public Tom asset approval parsing", async () => {
   const validators = await import(`${scriptPath}?approval=${Date.now()}`);
   const fixtureRoot = copyFixture("tom-public-asset");
@@ -2772,7 +3120,7 @@ test("validator fixture enforces public Tom asset approval parsing", async () =>
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-TOM-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
+  assert.match(approvedResult.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2857,7 +3205,7 @@ test("validator fixture enforces public Ferris sample approval parsing", async (
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-FERRIS-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
+  assert.match(approvedResult.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2905,7 +3253,7 @@ test("validator fixture enforces public Seal sample approval parsing", async () 
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-SEAL-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
+  assert.match(approvedResult.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -2957,7 +3305,7 @@ test("validator fixture enforces public OpenClaw sample approval parsing", async
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-OPENCLAW-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
+  assert.match(approvedResult.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -3019,7 +3367,7 @@ test("validator fixture enforces public Go Gopher sample approval parsing", asyn
     const approvedResult = runFixtureValidator(fixtureRoot);
     assert.equal(approvedResult.status, 0);
     assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-GOPHER-IMG-001 /);
-    assert.match(approvedResult.stdout, /Summary: total=132 passed=132 failed=0 skipped=0/);
+  assert.match(approvedResult.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }
@@ -3317,6 +3665,168 @@ test("validator fixture rejects Go Gopher public sample placeholder approvals", 
       assert.equal(result.status, 1);
       assert.match(result.stdout, /\[FAIL\] BOUNDARY-GOPHER-IMG-001 /);
       assert.match(result.stdout, /examples\/images\/99-gopher-test\.png/);
+      assert.match(result.stdout, new RegExp(expectedField));
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  }
+});
+
+test("validator fixture enforces public Cai Xukun sample approval parsing", async () => {
+  const validators = await import(`${scriptPath}?caiXukunApproval=${Date.now()}`);
+  const fixtureRoot = copyFixture("caixukun-public-asset");
+  try {
+    writeFileSync(path.join(fixtureRoot, "examples", "images", "99-caixukun-test.png"), "fixture", "utf8");
+
+    const pendingResult = runFixtureValidator(fixtureRoot);
+
+    assert.equal(pendingResult.status, 1);
+    assert.match(pendingResult.stdout, /\[FAIL\] BOUNDARY-CAIXUKUN-IMG-001 /);
+    assert.match(pendingResult.stdout, /examples\/images, examples\/images-en, and skills\/visual-ip-illustrations\/assets\/examples/);
+    assert.match(pendingResult.stdout, /examples\/images\/99-caixukun-test\.png/);
+    assert.match(pendingResult.stdout, /approval status=PENDING/);
+    assert.match(pendingResult.stdout, /reviewer=missing/);
+    assert.match(pendingResult.stdout, /allowed directories=missing/);
+    assert.match(pendingResult.stdout, /uploaded-image identity outcome=missing/);
+    assert.match(pendingResult.stdout, /public-figure likeness boundary outcome=missing/);
+    assert.match(pendingResult.stdout, /source-image context boundary outcome=missing/);
+    assert.match(pendingResult.stdout, /route-isolation outcome=missing/);
+    assert.match(pendingResult.stdout, /stylized mascot-only output outcome=missing/);
+    assert.match(pendingResult.stdout, /article-metaphor quality outcome=missing/);
+    assert.match(pendingResult.stdout, /public-sample decision=missing/);
+
+    const releaseChecklistPath = path.join(fixtureRoot, "RELEASE_CHECKLIST.md");
+    const approvedText = readFileSync(releaseChecklistPath, "utf8").replace(
+      pendingCaiXukunPublicAssetApprovalLine(),
+      completeCaiXukunPublicAssetApprovalLine(),
+    );
+    writeFileSync(releaseChecklistPath, approvedText, "utf8");
+
+    const approval = validators.parsePublicCaiXukunSampleApproval(approvedText);
+    assert.equal(approval.complete, true);
+    assert.equal(approval.reviewerPresent, true);
+    assert.equal(approval.datePresent, true);
+    assert.equal(approval.allowedDirectoriesPresent, true);
+    assert.equal(approval.uploadedImageIdentityOutcomePresent, true);
+    assert.equal(approval.publicFigureLikenessBoundaryOutcomePresent, true);
+    assert.equal(approval.sourceImageContextBoundaryOutcomePresent, true);
+    assert.equal(approval.routeIsolationOutcomePresent, true);
+    assert.equal(approval.stylizedMascotOnlyOutputOutcomePresent, true);
+    assert.equal(approval.articleMetaphorOutcomePresent, true);
+    assert.equal(approval.publicSampleOutcomePresent, true);
+
+    const approvedResult = runFixtureValidator(fixtureRoot);
+    assert.equal(approvedResult.status, 0);
+    assert.match(approvedResult.stdout, /\[PASS\] BOUNDARY-CAIXUKUN-IMG-001 /);
+    assert.match(approvedResult.stdout, /Summary: total=148 passed=148 failed=0 skipped=0/);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture rejects Cai Xukun public sample placeholder approvals", async () => {
+  const validators = await import(`${scriptPath}?caiXukunPlaceholderApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  for (const [name, approvalLine, expectedField] of [
+    ["date", completeCaiXukunPublicAssetApprovalLine("TBD"), "date=missing"],
+    [
+      "uploaded-image",
+      completeCaiXukunPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-image identity outcome",
+      ),
+      "uploaded-image identity outcome=missing",
+    ],
+    [
+      "likeness",
+      completeCaiXukunPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary outcome",
+      ),
+      "public-figure likeness boundary outcome=missing",
+    ],
+    [
+      "source-image",
+      completeCaiXukunPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary outcome",
+      ),
+      "source-image context boundary outcome=missing",
+    ],
+    [
+      "route-isolation",
+      completeCaiXukunPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary approved",
+        "route-isolation outcome",
+      ),
+      "route-isolation outcome=missing",
+    ],
+    [
+      "mascot-output",
+      completeCaiXukunPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary approved",
+        "route-isolation approved",
+        "stylized mascot-only output outcome",
+      ),
+      "stylized mascot-only output outcome=missing",
+    ],
+    [
+      "article-metaphor",
+      completeCaiXukunPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary approved",
+        "route-isolation approved",
+        "stylized mascot-only output approved",
+        "article-metaphor quality outcome",
+      ),
+      "article-metaphor quality outcome=missing",
+    ],
+    [
+      "public-sample",
+      completeCaiXukunPublicAssetApprovalLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary approved",
+        "route-isolation approved",
+        "stylized mascot-only output approved",
+        "article-metaphor quality approved",
+        "public-sample decision",
+      ),
+      "public-sample decision=missing",
+    ],
+  ]) {
+    const approvalText = releaseChecklistText.replace(pendingCaiXukunPublicAssetApprovalLine(), approvalLine);
+    const approval = validators.parsePublicCaiXukunSampleApproval(approvalText);
+    assert.equal(approval.complete, false);
+
+    const fixtureRoot = copyFixture(`caixukun-placeholder-${name}`);
+    try {
+      writeFileSync(path.join(fixtureRoot, "examples", "images", "99-caixukun-test.png"), "fixture", "utf8");
+      replaceInFixture(
+        fixtureRoot,
+        "RELEASE_CHECKLIST.md",
+        pendingCaiXukunPublicAssetApprovalLine(),
+        approvalLine,
+      );
+
+      const result = runFixtureValidator(fixtureRoot);
+
+      assert.equal(result.status, 1);
+      assert.match(result.stdout, /\[FAIL\] BOUNDARY-CAIXUKUN-IMG-001 /);
+      assert.match(result.stdout, /examples\/images\/99-caixukun-test\.png/);
       assert.match(result.stdout, new RegExp(expectedField));
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true });
@@ -3708,6 +4218,135 @@ test("validator fixture distinguishes Generated Sample Go Gopher review outputs 
     assert.equal(result.status, 0);
     assert.match(result.stdout, /\[PASS\] BOUNDARY-GOPHER-GEN-001 /);
     assert.match(result.stdout, /\[PASS\] BOUNDARY-GOPHER-IMG-001 /);
+  } finally {
+    rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("validator fixture distinguishes Generated Sample Cai Xukun review outputs from public samples", async () => {
+  const validators = await import(`${scriptPath}?generatedCaiXukunApproval=${Date.now()}`);
+  const releaseChecklistText = readFileSync(path.join(repoRoot, "RELEASE_CHECKLIST.md"), "utf8");
+
+  const pendingApproval = validators.parseGeneratedCaiXukunSampleApproval(releaseChecklistText);
+  assert.equal(pendingApproval.found, true);
+  assert.equal(pendingApproval.checked, false);
+  assert.equal(pendingApproval.complete, false);
+  assert.equal(pendingApproval.internalReviewDirectoriesPresent, false);
+  assert.equal(pendingApproval.publicDirectoriesPresent, false);
+
+  const completeText = releaseChecklistText.replace(
+    pendingGeneratedCaiXukunSampleLine(),
+    completeGeneratedCaiXukunSampleLine(),
+  );
+  const completeApproval = validators.parseGeneratedCaiXukunSampleApproval(completeText);
+  assert.equal(completeApproval.complete, true);
+  assert.equal(completeApproval.internalReviewDirectoriesPresent, true);
+  assert.equal(completeApproval.publicDirectoriesPresent, true);
+  assert.equal(completeApproval.uploadedImageIdentityOutcomePresent, true);
+  assert.equal(completeApproval.publicFigureLikenessBoundaryOutcomePresent, true);
+  assert.equal(completeApproval.sourceImageContextBoundaryOutcomePresent, true);
+  assert.equal(completeApproval.routeIsolationOutcomePresent, true);
+  assert.equal(completeApproval.stylizedMascotOnlyOutputOutcomePresent, true);
+  assert.equal(completeApproval.claimReviewOutcomePresent, true);
+  assert.equal(completeApproval.articleMetaphorOutcomePresent, true);
+
+  for (const [name, approvalLine, expectedFlag] of [
+    ["date", completeGeneratedCaiXukunSampleLine("TBD"), "datePresent"],
+    [
+      "uploaded-image",
+      completeGeneratedCaiXukunSampleLine(
+        "2026-06-13",
+        "uploaded-image identity outcome",
+      ),
+      "uploadedImageIdentityOutcomePresent",
+    ],
+    [
+      "likeness",
+      completeGeneratedCaiXukunSampleLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary outcome",
+      ),
+      "publicFigureLikenessBoundaryOutcomePresent",
+    ],
+    [
+      "source-image",
+      completeGeneratedCaiXukunSampleLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary outcome",
+      ),
+      "sourceImageContextBoundaryOutcomePresent",
+    ],
+    [
+      "route-isolation",
+      completeGeneratedCaiXukunSampleLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary approved",
+        "route-isolation outcome",
+      ),
+      "routeIsolationOutcomePresent",
+    ],
+    [
+      "mascot-output",
+      completeGeneratedCaiXukunSampleLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary approved",
+        "route-isolation approved",
+        "stylized mascot-only output outcome",
+      ),
+      "stylizedMascotOnlyOutputOutcomePresent",
+    ],
+    [
+      "claims",
+      completeGeneratedCaiXukunSampleLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary approved",
+        "route-isolation approved",
+        "stylized mascot-only output approved",
+        "endorsement, affiliation, impersonation, campaign, advertising, fandom-promotion review outcome",
+      ),
+      "claimReviewOutcomePresent",
+    ],
+    [
+      "article-metaphor",
+      completeGeneratedCaiXukunSampleLine(
+        "2026-06-13",
+        "uploaded-image identity approved",
+        "public-figure likeness boundary approved",
+        "source-image context boundary approved",
+        "route-isolation approved",
+        "stylized mascot-only output approved",
+        "endorsement affiliation impersonation campaign advertising fandom-promotion review approved",
+        "article-metaphor quality outcome",
+      ),
+      "articleMetaphorOutcomePresent",
+    ],
+  ]) {
+    const placeholderText = releaseChecklistText.replace(pendingGeneratedCaiXukunSampleLine(), approvalLine);
+    const placeholderApproval = validators.parseGeneratedCaiXukunSampleApproval(placeholderText);
+    assert.equal(placeholderApproval.checked, true);
+    assert.equal(placeholderApproval.complete, false);
+    assert.equal(placeholderApproval[expectedFlag], false, name);
+  }
+
+  const fixtureRoot = copyFixture("caixukun-generated-sample");
+  try {
+    const workspaceOutputDir = path.join(fixtureRoot, "assets", "article-caixukun");
+    mkdirSync(workspaceOutputDir, { recursive: true });
+    writeFileSync(path.join(workspaceOutputDir, "99-caixukun-test.png"), "fixture", "utf8");
+
+    const result = runFixtureValidator(fixtureRoot);
+    assert.equal(result.status, 0);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-CAIXUKUN-GEN-001 /);
+    assert.match(result.stdout, /\[PASS\] BOUNDARY-CAIXUKUN-IMG-001 /);
   } finally {
     rmSync(fixtureRoot, { recursive: true, force: true });
   }

@@ -4,7 +4,7 @@
 
 [![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
 
-> Visual IP Illustrations — это multi-visual-IP Codex Skill для иллюстраций внутри статей. Xiaohei — неявный маршрут по умолчанию; Littlebox — явный и active; Tom — явный protected-character маршрут со статусом `gated-authorized`; Ferris — явный Rust-community mascot маршрут со статусом `source-reviewed`; Seal — явный product-neutral hoodie seal маршрут со статусом `active`; OpenClaw — явный logo-mascot маршрут со статусом `source-reviewed`. Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`.
+> Visual IP Illustrations — это multi-visual-IP Codex Skill для иллюстраций внутри статей. Xiaohei — неявный маршрут по умолчанию; Littlebox — явный и active; Tom — явный protected-character маршрут со статусом `gated-authorized`; Ferris — явный Rust-community mascot маршрут со статусом `source-reviewed`; Seal — явный product-neutral hoodie seal маршрут со статусом `active`; OpenClaw — явный logo-mascot маршрут со статусом `source-reviewed`. Go Gopher is an explicit source-reviewed article-illustration mascot route with output path `assets/<article-slug>-gopher/`. Cai Xukun is an explicit `gated-public-figure` stylized mascot-only route with aliases `蔡徐坤`, `caixukun`, and `cxk`, source pointer `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, output path `assets/<article-slug>-caixukun/`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and safety review for endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims.
 >
 > 16:9 горизонтально | несколько визуальных IP | иллюстрации для статей | Канонический вызов: `$visual-ip-illustrations`
 
@@ -31,6 +31,7 @@ Skill читает когнитивный якорь исходного текс
 - **Seal**: explicit product-neutral hoodie seal route. Запросы с `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹` или `蓝色连帽衫海豹` используют route Seal.
 - **OpenClaw**: explicit logo-mascot route with status `source-reviewed`. Requests that name `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, or the OpenClaw aliases listed in `skills/visual-ip-illustrations/references/routing.md` use the OpenClaw route.
 - **Go Gopher**: explicit source-reviewed article-illustration mascot route. Requests that name `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, `Go 吉祥物`, `Gopher 吉祥物`, or Go Gopher aliases listed in `skills/visual-ip-illustrations/references/routing.md` use the Go Gopher route.
+- **Cai Xukun**: explicit `gated-public-figure` stylized mascot-only route. Requests that name `Cai Xukun`, `蔡徐坤`, `caixukun`, or `cxk` use the Cai Xukun route with uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, source pointer `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, output path `assets/<article-slug>-caixukun/`, and safety review for endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims.
 
 Ключевая ценность: пользователи могут выбрать визуальный IP и получить иллюстрационные assets, где персонаж, правила стиля, prompts, QA gates, сохраненные outputs, attribution, source context и brand boundary остаются согласованными с этим IP.
 
@@ -57,9 +58,11 @@ Skill читает когнитивный якорь исходного текс
 - Seal outputs сохраняются в workspace path `assets/<article-slug>-seal/`.
 - OpenClaw записывает output в workspace path `assets/<article-slug>-openclaw/`.
 - Go Gopher outputs to workspace path `assets/<article-slug>-gopher/`.
+- Cai Xukun outputs to workspace path `assets/<article-slug>-caixukun/`.
 
 Docs validation также сохраняет HTML-escaped route markers: `assets/&lt;article-slug&gt;-illustrations/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/&lt;article-slug&gt;-tom/`, `assets/&lt;article-slug&gt;-ferris/`, `assets/&lt;article-slug&gt;-seal/` и `assets/&lt;article-slug&gt;-openclaw/`.
 Docs validation also keeps Go Gopher escaped marker: `assets/&lt;article-slug&gt;-gopher/`.
+Docs validation also keeps Cai Xukun escaped marker: `assets/&lt;article-slug&gt;-caixukun/`.
 
 ---
 
@@ -107,6 +110,14 @@ Go Gopher is an explicit source-reviewed article-illustration mascot route: the 
 
 Aliases: `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, plus Go Gopher aliases listed in `skills/visual-ip-illustrations/references/routing.md`.
 
+### Cai Xukun
+
+Cai Xukun is an explicit `gated-public-figure` stylized mascot-only route. The uploaded reference images are the uploaded-image authority for a sparse article-illustration mascot, with public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and stylized mascot-only output. Public docs use source pointer `skills/visual-ip-illustrations/references/ips/caixukun/source.md` and output path `assets/<article-slug>-caixukun/`.
+
+Aliases: `Cai Xukun`, `蔡徐坤`, `caixukun`, `cxk`.
+
+Safety boundary: generated text and release copy must keep endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims inside maintainer review and rewrite them as neutral article-concept labels.
+
 ### Справочник маршрутов
 
 Maintainers могут проверить route metadata fields в `skills/visual-ip-illustrations/references/routing.md`: `id`, `display_name`, `aliases`, `default`, `output_suffix`, `required_references`, `attribution_context` и `status`.
@@ -120,6 +131,7 @@ Maintainers могут проверить route metadata fields в `skills/visua
 - Seal: `skills/visual-ip-illustrations/references/ips/seal/`, source-history authority `skills/visual-ip-illustrations/references/ips/seal/source.md`
 - OpenClaw: `skills/visual-ip-illustrations/references/ips/openclaw/`, source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`
 - Go Gopher: `skills/visual-ip-illustrations/references/ips/gopher/`, source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`
+- Cai Xukun: `skills/visual-ip-illustrations/references/ips/caixukun/`, source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`
 
 Когда запрос просит несколько visual IPs, доставляйте отдельные variant groups и записывайте каждую группу в свой output directory.
 
@@ -130,12 +142,13 @@ Maintainers могут проверить route metadata fields в `skills/visua
 - Seal: route id `seal`; default=false; status `active`; source-history authority `skills/visual-ip-illustrations/references/ips/seal/source.md`; output path `assets/<article-slug>-seal/`; docs validation token `assets/&lt;article-slug&gt;-seal/`; output suffix `seal`; hoodie seal identity uses a white rounded seal body, plain navy cap, plain deep-blue hoodie, glossy dark eyes, black nose, whisker dots, small smile, short rounded flippers, compact legs, and side-rear white tail; logo-free boundary keeps cap, hoodie chest, mascot body, props, and scene plain and mark-free; product-neutral route isolation keeps Seal separate from product-brand routes; source-history attachment stays required; public rendered samples require release gates for hoodie seal identity, logo-free output, product-neutral route isolation, source-history attachment, and article-metaphor quality.
 - OpenClaw: route id `openclaw`; default=false; status `source-reviewed`; source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`; output path `assets/<article-slug>-openclaw/`; docs validation token `assets/&lt;article-slug&gt;-openclaw/`; output suffix `openclaw`; uploaded-logo identity uses a red round body, side claw-like arms, two antennae, black eyes, cyan pupils, and short legs; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and final OpenClaw release evidence.
 - Go Gopher: route id `gopher`; default=false; status `source-reviewed`; source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`; output path `assets/<article-slug>-gopher/`; docs validation token `assets/&lt;article-slug&gt;-gopher/`; output suffix `gopher`; local visual authority route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`; attribution Renee French; license boundary Creative Commons Attribution 4.0; public rendered samples require the `RELEASE_CHECKLIST.md` public-sample gate and Phase 42 Go Gopher release evidence; Go logo boundary and official endorsement boundary stay attached.
+- Cai Xukun: route id `caixukun`; default=false; status `gated-public-figure`; source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`; output path `assets/<article-slug>-caixukun/`; docs validation token `assets/&lt;article-slug&gt;-caixukun/`; output suffix `caixukun`; aliases `Cai Xukun`, `蔡徐坤`, `caixukun`, and `cxk`; uploaded-image authority and source-image context boundary stay attached; public-figure likeness boundary keeps the route in stylized mascot-only output; route isolation keeps Cai Xukun separate from Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher; public generated sample assets remain pending behind the public sample review gate; endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims require maintainer review and neutral article-concept wording.
 
 ---
 
 ## Галерея примеров
 
-These images are approved public English calibration examples for the current visual IP routes: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher. Each row keeps the same concept and shows how each IP translates the action through its route-local style, character rules, source boundaries, and QA gates.
+These images are approved public English calibration examples for the current visual IP routes with approved public sample assets: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher. Cai Xukun is documented as a `gated-public-figure` stylized mascot-only route, and public generated Cai Xukun sample assets remain pending behind the public sample review gate. Each row keeps the same concept and shows how each approved public-sample IP translates the action through its route-local style, character rules, source boundaries, and QA gates.
 
 ### Two Breakpoints
 
@@ -253,7 +266,7 @@ Requirements: hand-drawn, spacious, sparse visible labels in the user's language
 
 ```text
 Use $visual-ip-illustrations. Do not generate images yet.
-Create separate Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher shot-list groups from the same idea.
+Create separate Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun shot-list groups from the same idea.
 Each group must keep its own IP, character action, visible labels, and output path.
 
 Idea: trust is built by placing one piece of evidence after another.
@@ -268,12 +281,12 @@ Idea: trust is built by placing one piece of evidence after another.
 ## Рабочий процесс
 
 1. Прочитайте article, Markdown, Notion content, screenshot или тему, предоставленную пользователем.
-2. Выберите visual IP: пропущенная IP выбирает Xiaohei; явный Littlebox выбирает Littlebox; aliases Tom выбирают Tom protected-character route; aliases Ferris выбирают Ferris source-reviewed pack; aliases Seal выбирают active Seal pack; aliases OpenClaw выбирают OpenClaw source-reviewed pack. Explicit Go Gopher aliases select the Go Gopher source-reviewed pack.
+2. Выберите visual IP: пропущенная IP выбирает Xiaohei; явный Littlebox выбирает Littlebox; aliases Tom выбирают Tom protected-character route; aliases Ferris выбирают Ferris source-reviewed pack; aliases Seal выбирают active Seal pack; aliases OpenClaw выбирают OpenClaw source-reviewed pack. Explicit Go Gopher aliases select the Go Gopher source-reviewed pack. Explicit Cai Xukun aliases select the Cai Xukun gated-public-figure pack.
 3. Извлеките core claims, cognitive turns, workflow structures и visualizable paragraphs.
 4. Сначала создайте shot list; каждое изображение получает один cognitive anchor.
 5. Выберите один structure type для каждого изображения: Workflow, system local view, before/after, character state, concept metaphor, method layers, map route или comic panels.
 6. Загрузите canonical pack выбранной IP, соберите prompts и генерируйте изображения по одному. Mixed-IP requests создают отдельные route groups и output directories, а Xiaohei, Littlebox, Tom, Ferris и Seal сохраняют свои route-local references; OpenClaw также сохраняет route-local references. Go Gopher plans keep the Go language mascot action-centered and route-local.
-7. Проверьте character identity, composition, background, labels и output path по QA checklist выбранной IP. Tom сохраняет `gated-authorized` и `skills/visual-ip-illustrations/references/ips/tom/rights.md`; Ferris сохраняет `source-reviewed`, source/trademark note и `skills/visual-ip-illustrations/references/ips/ferris/source.md`; Seal сохраняет `active`, source-history authority, hoodie seal identity note, logo-free note и `skills/visual-ip-illustrations/references/ips/seal/source.md`; OpenClaw сохраняет `source-reviewed`, source/license authority, uploaded-logo identity, public-sample gate и `skills/visual-ip-illustrations/references/ips/openclaw/source.md`. Go Gopher keeps `source-reviewed`, source/license authority, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`, public-sample gate, and `references/ips/gopher/source.md` in the delivery notes.
+7. Проверьте character identity, composition, background, labels и output path по QA checklist выбранной IP. Tom сохраняет `gated-authorized` и `skills/visual-ip-illustrations/references/ips/tom/rights.md`; Ferris сохраняет `source-reviewed`, source/trademark note и `skills/visual-ip-illustrations/references/ips/ferris/source.md`; Seal сохраняет `active`, source-history authority, hoodie seal identity note, logo-free note и `skills/visual-ip-illustrations/references/ips/seal/source.md`; OpenClaw сохраняет `source-reviewed`, source/license authority, uploaded-logo identity, public-sample gate и `skills/visual-ip-illustrations/references/ips/openclaw/source.md`. Go Gopher keeps `source-reviewed`, source/license authority, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`, public-sample gate, and `references/ips/gopher/source.md` in the delivery notes. Cai Xukun keeps `gated-public-figure`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, stylized mascot-only output, `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, and `assets/<article-slug>-caixukun/` in the delivery notes.
 8. Сохраните финальные PNG и сообщите purpose plus path.
 
 ---
@@ -306,74 +319,82 @@ Idea: trust is built by placing one piece of evidence after another.
 │   └── prompts.md
 └── skills/
     └── visual-ip-illustrations/
-    ├── SKILL.md
-    ├── agents/
-    │   └── openai.yaml
-    ├── assets/
-    │   └── examples/
-    └── references/
-        ├── routing.md
-        ├── style-dna.md
-        ├── xiaohei-ip.md
-        ├── composition-patterns.md
-        ├── prompt-template.md
-        ├── qa-checklist.md
-        └── ips/
-            ├── xiaohei/
-            │   ├── index.md
-            │   ├── style-dna.md
-            │   ├── xiaohei-ip.md
-            │   ├── composition-patterns.md
-            │   ├── prompt-template.md
-            │   └── qa-checklist.md
-            ├── littlebox/
-            │   ├── index.md
-            │   ├── style-dna.md
-            │   ├── littlebox-ip.md
-            │   ├── composition-patterns.md
-            │   ├── language-and-labels.md
-            │   ├── prompt-template.md
-            │   └── qa-checklist.md
-            ├── tom/
-            │   ├── index.md
-            │   ├── rights.md
-            │   ├── style-dna.md
-            │   ├── tom-ip.md
-            │   ├── composition-patterns.md
-            │   ├── prompt-template.md
-            │   └── qa-checklist.md
-            ├── ferris/
-            │   ├── index.md
-            │   ├── source.md
-            │   ├── style-dna.md
-            │   ├── ferris-ip.md
-            │   ├── composition-patterns.md
-            │   ├── prompt-template.md
-            │   └── qa-checklist.md
-            ├── seal/
-            │   ├── index.md
-            │   ├── source.md
-            │   ├── style-dna.md
-            │   ├── seal-ip.md
-            │   ├── composition-patterns.md
-            │   ├── prompt-template.md
-            │   └── qa-checklist.md
-            ├── openclaw/
-            │   ├── index.md
-            │   ├── source.md
-            │   ├── style-dna.md
-            │   ├── openclaw-ip.md
-            │   ├── composition-patterns.md
-            │   ├── prompt-template.md
-            │   └── qa-checklist.md
-            └── gopher/
-                ├── index.md
-                ├── source.md
-                ├── style-dna.md
-                ├── gopher-ip.md
-                ├── composition-patterns.md
-                ├── prompt-template.md
-                └── qa-checklist.md
+        ├── SKILL.md
+        ├── agents/
+        │   └── openai.yaml
+        ├── assets/
+        │   └── examples/
+        └── references/
+            ├── routing.md
+            ├── style-dna.md
+            ├── xiaohei-ip.md
+            ├── composition-patterns.md
+            ├── prompt-template.md
+            ├── qa-checklist.md
+            └── ips/
+                ├── xiaohei/
+                │   ├── index.md
+                │   ├── style-dna.md
+                │   ├── xiaohei-ip.md
+                │   ├── composition-patterns.md
+                │   ├── prompt-template.md
+                │   └── qa-checklist.md
+                ├── littlebox/
+                │   ├── index.md
+                │   ├── style-dna.md
+                │   ├── littlebox-ip.md
+                │   ├── composition-patterns.md
+                │   ├── language-and-labels.md
+                │   ├── prompt-template.md
+                │   └── qa-checklist.md
+                ├── tom/
+                │   ├── index.md
+                │   ├── rights.md
+                │   ├── style-dna.md
+                │   ├── tom-ip.md
+                │   ├── composition-patterns.md
+                │   ├── prompt-template.md
+                │   └── qa-checklist.md
+                ├── ferris/
+                │   ├── index.md
+                │   ├── source.md
+                │   ├── style-dna.md
+                │   ├── ferris-ip.md
+                │   ├── composition-patterns.md
+                │   ├── prompt-template.md
+                │   └── qa-checklist.md
+                ├── seal/
+                │   ├── index.md
+                │   ├── source.md
+                │   ├── style-dna.md
+                │   ├── seal-ip.md
+                │   ├── composition-patterns.md
+                │   ├── prompt-template.md
+                │   └── qa-checklist.md
+                ├── openclaw/
+                │   ├── index.md
+                │   ├── source.md
+                │   ├── style-dna.md
+                │   ├── openclaw-ip.md
+                │   ├── composition-patterns.md
+                │   ├── prompt-template.md
+                │   └── qa-checklist.md
+                ├── gopher/
+                │   ├── index.md
+                │   ├── source.md
+                │   ├── style-dna.md
+                │   ├── gopher-ip.md
+                │   ├── composition-patterns.md
+                │   ├── prompt-template.md
+                │   └── qa-checklist.md
+                └── caixukun/
+                    ├── index.md
+                    ├── source.md
+                    ├── style-dna.md
+                    ├── caixukun-ip.md
+                    ├── composition-patterns.md
+                    ├── prompt-template.md
+                    └── qa-checklist.md
 ```
 
 Цель установки Codex — этот подкаталог:
@@ -395,7 +416,7 @@ node scripts/validate-skill-package.mjs
 Validation покрывает skill package shape, route table, canonical packs Xiaohei, Littlebox, Tom, Ferris и Seal, legacy Xiaohei paths, public docs links, output path markers, NOTICE attribution, Tom `gated-authorized` route markers, Ferris `source-reviewed` route markers, Seal `active` route markers, source-history authority, hoodie seal identity note, logo-free note и Phase 32 full validator restoration evidence.
 
 Validation также покрывает OpenClaw canonical pack markers, OpenClaw `source-reviewed` route markers, source/license authority, uploaded-logo identity note и Phase 37 final release evidence.
-Validation also covers Go Gopher canonical pack markers, Go Gopher `source-reviewed` route markers, source/license authority, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`, public sample gate, Phase 42 final release evidence, and Go Gopher validator checks.
+Validation also covers Go Gopher canonical pack markers, Go Gopher `source-reviewed` route markers, source/license authority, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png`, public sample gate, Phase 42 final release evidence, and Go Gopher validator checks. Phase 46 public docs cover Cai Xukun canonical pack markers, Cai Xukun `gated-public-figure` route markers, source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, stylized mascot-only output, `assets/<article-slug>-caixukun/`, `assets/&lt;article-slug&gt;-caixukun/`, and endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion review terms; Phase 47 owns validator hardening and final release evidence.
 
 Текущие validation commands для maintainers:
 
