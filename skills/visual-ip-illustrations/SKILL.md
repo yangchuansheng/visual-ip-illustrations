@@ -164,7 +164,7 @@ Prioritize cognitive anchors such as a core judgment, two breakpoints, an input-
 
 When the user asks for planning, analysis, or placement recommendations, return a shot list. For each image, include:
 
-- placement after the paragraph
+- placement after the paragraph, using a concrete paragraph anchor when article content is available
 - topic
 - core idea
 - structure type
@@ -630,6 +630,15 @@ Use ordered English slug filenames:
 02-topic-name.png
 ```
 
+When article content is available, also save review artifacts in the same route output directory:
+
+```text
+placement-map.md
+article-preview.html
+```
+
+`placement-map.md` maps each image to its intended paragraph anchor and core idea. `article-preview.html` shows the article flow with generated images inserted after their planned paragraphs, figure captions, image file paths, and a placement map table. If the source article is external or copyrighted, use short anchors, section summaries, and placement notes instead of copying the full article body.
+
 Seal accepted outputs use ordered English slug filenames such as `01-topic-name.png`. OpenClaw accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Go Gopher accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Cai Xukun accepted outputs use ordered English slug filenames such as `01-topic-name.png`. Mixed-IP requests write each separate route group to its own output directory: Xiaohei to `assets/<article-slug>-illustrations/`, Littlebox to `assets/<article-slug>-littlebox/`, Tom to `assets/<article-slug>-tom/`, Ferris to `assets/<article-slug>-ferris/`, Seal to `assets/<article-slug>-seal/`, OpenClaw to `assets/<article-slug>-openclaw/`, Go Gopher variants to `assets/<article-slug>-gopher/`, and Cai Xukun variants to `assets/<article-slug>-caixukun/`. Each variant group keeps its own file sequence and purpose notes.
 
 Compatibility marker: preserve original generated files. Preserve original generated files and choose new filenames for new accepted outputs.
@@ -642,6 +651,8 @@ Pre-generation strategy output should be short and precise. Post-generation deli
 - image count
 - purpose per image
 - saved path
+- placement anchors when article content is available
+- links to `placement-map.md` and `article-preview.html` when generated
 - stability notes
 
 When the selected visual IP is `Cai Xukun`, post-generation delivery must include selected IP `Cai Xukun`, image count, purpose per image, save path `assets/<article-slug>-caixukun/`, route status `gated-public-figure`, source pointer `references/ips/caixukun/source.md`, uploaded-image identity status, public-figure likeness boundary status, source-image context status, route isolation status, public sample review boundary when relevant, route stability notes, and confirmation that prompt/report text uses the source pointer rather than maintainer-local source-image paths.
