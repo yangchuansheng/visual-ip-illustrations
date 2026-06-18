@@ -564,7 +564,7 @@ Expected: public sample gate is controlled by RELEASE_CHECKLIST.md; public rende
 
 ## Route Smoke: Explicit Cai Xukun
 
-Cai Xukun is an explicit `gated-public-figure` stylized mascot-only route. The route-local pack and SKILL.md controller integration are complete; public generated Cai Xukun samples remain pending behind the public sample review gate.
+Cai Xukun is an explicit `gated-public-figure` stylized mascot-only route. The route-local pack and SKILL.md controller integration are complete; the Trust Bridge public README sample is approved through the public sample review gate.
 
 Explicit Cai Xukun aliases include Cai Xukun, 蔡徐坤, caixukun, and cxk. Source authority is `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
 

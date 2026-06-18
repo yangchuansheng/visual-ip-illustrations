@@ -1,6 +1,6 @@
 # Visual IP Illustrations
 
-![Visual IP Illustrations character lineup](../assets/readme-hero/20260617-181124.gif)
+![Visual IP Illustrations animated character lineup with Cai Xukun holding a basketball](../assets/readme-hero/20260618-visual-ip-lineup-basketball-animated.gif)
 
 [![skills.sh](https://skills.sh/b/yangchuansheng/visual-ip-illustrations)](https://skills.sh/yangchuansheng/visual-ip-illustrations)
 
@@ -183,9 +183,9 @@ Go Gopher 是显式 source-reviewed 文章插图吉祥物路线：`skills/visual
 
 ### 信任桥
 
-| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher |
-|---------|-----------|-----|--------|------|----------|-----------|
-| ![信任桥 - Xiaohei](../examples/images/08-trust-bridge.png) | ![信任桥 - Littlebox](../examples/images/littlebox/08-trust-bridge.png) | ![信任桥 - Tom](../examples/images/tom/08-trust-bridge.png) | ![信任桥 - Ferris](../examples/images/ferris/08-trust-bridge.png) | ![信任桥 - Seal](../examples/images/seal/08-trust-bridge.png) | ![信任桥 - OpenClaw](../examples/images-en/openclaw/08-trust-bridge.png) | ![信任桥 - Go Gopher](../examples/images-en/gopher/08-trust-bridge.png) |
+| Xiaohei | Littlebox | Tom | Ferris | Seal | OpenClaw | Go Gopher | Cai Xukun |
+|---------|-----------|-----|--------|------|----------|-----------|-----------|
+| ![信任桥 - Xiaohei](../examples/images/08-trust-bridge.png) | ![信任桥 - Littlebox](../examples/images/littlebox/08-trust-bridge.png) | ![信任桥 - Tom](../examples/images/tom/08-trust-bridge.png) | ![信任桥 - Ferris](../examples/images/ferris/08-trust-bridge.png) | ![信任桥 - Seal](../examples/images/seal/08-trust-bridge.png) | ![信任桥 - OpenClaw](../examples/images-en/openclaw/08-trust-bridge.png) | ![信任桥 - Go Gopher](../examples/images-en/gopher/08-trust-bridge.png) | ![信任桥 - Cai Xukun](../examples/images/caixukun/08-trust-bridge.png) |
 
 ---
 

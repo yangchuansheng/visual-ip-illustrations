@@ -113,7 +113,7 @@ Cai Xukun source context records the explicit `gated-public-figure` stylized mas
 - Boundary context: public-figure likeness boundary, source-image context boundary, route isolation, and stylized mascot-only output.
 - Release-review terms: endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims require maintainer review and neutral article-concept wording.
 
-Public generated Cai Xukun samples remain pending behind the public sample review gate. No public generated Cai Xukun sample assets are approved for `examples/images/`, `examples/images-en/`, `skills/visual-ip-illustrations/assets/examples/`, public README galleries, or release materials until reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, public-figure likeness boundary outcome, source-image context boundary outcome, route-isolation outcome, stylized mascot-only output outcome, article-metaphor quality outcome, and public-sample decision are recorded.
+Public generated Cai Xukun sample assets are approved for the Trust Bridge public README gallery through the public sample review gate. The approved assets are `examples/images/caixukun/08-trust-bridge.png`, `examples/images-en/caixukun/08-trust-bridge.png`, and `skills/visual-ip-illustrations/assets/examples/15-cai-xukun-trust-bridge.png`, with reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, public-figure likeness boundary outcome, source-image context boundary outcome, route-isolation outcome, stylized mascot-only output outcome, article-metaphor quality outcome, and public-sample decision recorded in `RELEASE_CHECKLIST.md`.
 
 Author links:
 

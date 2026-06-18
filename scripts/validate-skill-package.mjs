@@ -31,6 +31,19 @@ const CHINESE_GALLERY_ROUTES = [
   { id: "ferris", pathPrefix: "examples/images/ferris" },
   { id: "seal", pathPrefix: "examples/images/seal" },
 ];
+const CHINESE_GALLERY_TRUST_BRIDGE_ROUTES = [
+  { id: "caixukun", pathPrefix: "examples/images/caixukun", slug: "08-trust-bridge.png" },
+];
+const CHINESE_GALLERY_COLUMN_NAMES = [
+  "Xiaohei",
+  "Littlebox",
+  "Tom",
+  "Ferris",
+  "Seal",
+  "OpenClaw",
+  "Go Gopher",
+  "Cai Xukun",
+];
 const LANGUAGE_DEFAULT_SURFACES = [
   "repository docs",
   "skill instructions",
@@ -2411,9 +2424,12 @@ function legacyImageAssetPaths() {
 }
 
 function chineseGalleryImagePaths() {
-  return CHINESE_GALLERY_SLUGS.flatMap((slug) =>
-    CHINESE_GALLERY_ROUTES.map((route) => `${route.pathPrefix}/${slug}`),
-  );
+  return [
+    ...CHINESE_GALLERY_SLUGS.flatMap((slug) =>
+      CHINESE_GALLERY_ROUTES.map((route) => `${route.pathPrefix}/${slug}`),
+    ),
+    ...CHINESE_GALLERY_TRUST_BRIDGE_ROUTES.map((route) => `${route.pathPrefix}/${route.slug}`),
+  ];
 }
 
 function assertChineseReadmeGallery() {
@@ -2449,10 +2465,13 @@ function assertChineseReadmeGallery() {
     }
   }
 
-  for (const route of CHINESE_GALLERY_ROUTES) {
+  assertIncludes(text, README_ZH_FILE, [
+    `| ${CHINESE_GALLERY_COLUMN_NAMES.join(" | ")} |`,
+  ], "Chinese gallery Trust Bridge route columns");
+  for (const route of CHINESE_GALLERY_TRUST_BRIDGE_ROUTES) {
     assertIncludes(text, README_ZH_FILE, [
-      `| ${route.id === "xiaohei" ? "Xiaohei" : route.id === "littlebox" ? "Littlebox" : route.id === "tom" ? "Tom" : route.id === "ferris" ? "Ferris" : "Seal"}`,
-    ], `${route.id} Chinese gallery column`);
+      `![信任桥 - Cai Xukun](../${route.pathPrefix}/${route.slug})`,
+    ], `${route.id} Chinese gallery Trust Bridge image`);
   }
 }
 
@@ -4731,6 +4750,11 @@ const checks = [
         "public-figure likeness boundary",
         "source-image context boundary",
         "public generated Cai Xukun samples",
+        "Public generated Cai Xukun sample assets approved for the Trust Bridge public README gallery",
+        "Trust Bridge public README gallery",
+        "examples/images-en/caixukun/08-trust-bridge.png",
+        "examples/images/caixukun/08-trust-bridge.png",
+        "skills/visual-ip-illustrations/assets/examples/15-cai-xukun-trust-bridge.png",
         "endorsement",
         "affiliation",
         "impersonation",
@@ -5290,6 +5314,10 @@ const checks = [
       "stylized mascot-only output outcome",
       "article-metaphor quality outcome",
       "public-sample decision",
+      "Trust Bridge public README gallery",
+      "examples/images-en/caixukun/08-trust-bridge.png",
+      "examples/images/caixukun/08-trust-bridge.png",
+      "skills/visual-ip-illustrations/assets/examples/15-cai-xukun-trust-bridge.png",
       "assets/<article-slug>-caixukun/",
       "assets/&lt;article-slug&gt;-caixukun/",
       "endorsement",
@@ -5609,7 +5637,8 @@ const checks = [
       "BOUNDARY-CAIXUKUN-LEAK-001",
       "BOUNDARY-CAIXUKUN-IMG-001",
       "BOUNDARY-CAIXUKUN-GEN-001",
-      "public generated Cai Xukun samples remain pending",
+      "public generated Cai Xukun sample assets are approved for the Trust Bridge public README gallery",
+      "examples/images-en/caixukun/08-trust-bridge.png",
       "generated-sample internal review distinction",
       "dirty-worktree scope",
       "VAL-01",
