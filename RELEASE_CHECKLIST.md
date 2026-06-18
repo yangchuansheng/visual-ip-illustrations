@@ -319,8 +319,8 @@ This section is the Cai Xukun maintainer release gate for source review, uploade
 
 ### Cai Xukun Public Asset Policy
 
-- [ ] Cai Xukun public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / public-figure likeness boundary outcome / source-image context boundary outcome / route-isolation outcome / stylized mascot-only output outcome / article-metaphor quality outcome / public-sample decision.
-- [ ] Public generated Cai Xukun sample assets remain pending and are not approved for publication in `examples/images/`, `examples/images-en/`, `skills/visual-ip-illustrations/assets/examples/`, README galleries, or release materials.
+- [x] Cai Xukun public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-18 / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / GitHub README Trust Bridge gallery / uploaded-image identity approved / public-figure likeness boundary approved / source-image context boundary approved / route-isolation approved / stylized mascot-only output approved / article-metaphor quality approved / public-sample decision approved.
+- [x] Public generated Cai Xukun sample assets approved for the Trust Bridge public README gallery in `examples/images/caixukun/08-trust-bridge.png`, `examples/images-en/caixukun/08-trust-bridge.png`, and `skills/visual-ip-illustrations/assets/examples/15-cai-xukun-trust-bridge.png`.
 - [ ] Public generated Cai Xukun sample approval must cover uploaded-image authority, public-figure likeness boundary, source-image context boundary, route isolation, stylized mascot-only output, allowed directories, release channels, endorsement, affiliation, impersonation, campaign, advertising, fandom-promotion review, and public-sample decision.
 
 ### Cai Xukun Generated Sample Policy

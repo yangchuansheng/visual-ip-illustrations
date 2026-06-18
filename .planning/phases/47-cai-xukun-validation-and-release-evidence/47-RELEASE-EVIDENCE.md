@@ -113,9 +113,9 @@ test -z "$unexpected"
 ## Public Sample Gate
 
 - `BOUNDARY-CAIXUKUN-IMG-001` checks `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/` for rendered Cai Xukun asset filenames.
-- Current status: public generated Cai Xukun samples remain pending.
-- Current approval status: pending approval record remains incomplete by design.
-- Current asset result: no public generated Cai Xukun sample assets are present.
+- Current status: public generated Cai Xukun sample assets are approved for the Trust Bridge public README gallery through quick task 260618-emo.
+- Current approval status: `RELEASE_CHECKLIST.md` records reviewer, date, approval status, allowed directories, release channels, uploaded-image identity outcome, public-figure likeness boundary outcome, source-image context boundary outcome, route-isolation outcome, stylized mascot-only output outcome, article-metaphor quality outcome, and public-sample decision.
+- Current asset result: approved public generated Cai Xukun sample assets are present at `examples/images/caixukun/08-trust-bridge.png`, `examples/images-en/caixukun/08-trust-bridge.png`, and `skills/visual-ip-illustrations/assets/examples/15-cai-xukun-trust-bridge.png`.
 
 ## Generated Sample Gate
 

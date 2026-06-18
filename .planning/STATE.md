@@ -4,7 +4,7 @@ milestone: v1.9
 milestone_name: Language-Neutral Skill Cleanup
 status: shipped
 last_updated: "2026-06-17T16:42:30.000Z"
-last_activity: 2026-06-18 — Completed quick task 260618-0ti: Convert residual Chinese runtime QA examples in SKILL.md to English
+last_activity: 2026-06-18 — Completed quick task 260618-emo: Add Cai Xukun to README example images
 progress:
   total_phases: 2
   completed_phases: 2
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-06-17)
 Phase: 44 (Language Policy and Validation Hardening)
 Plan: 44-01 complete
 Status: v1.9 shipped — PR #2
-Last activity: 2026-06-18 - Completed quick task 260618-0ti: converted residual Chinese runtime QA examples in SKILL.md to English, added SKILL-LANG-002, and verified validator 132/132 plus Node tests 99/99
+Last activity: 2026-06-18 - Completed quick task 260618-emo: added Cai Xukun Trust Bridge README gallery assets, approved the public sample gate, and verified validator 148/148 plus Node tests 108/108
 
 ## Performance Metrics
 
@@ -285,6 +285,7 @@ Recent decisions affecting current work:
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
+| 260618-emo | Add Cai Xukun to README example images | 2026-06-18 | this commit | [260618-emo-readme](./quick/260618-emo-readme/) |
 | 260618-0ti | Convert residual Chinese runtime QA examples in SKILL.md to English | 2026-06-18 | this commit | [260618-0ti-convert-residual-chinese-runtime-qa-exam](./quick/260618-0ti-convert-residual-chinese-runtime-qa-exam/) |
 | 260617-pk4 | Remove root gopher image and unused assets | 2026-06-17 | this commit | [260617-pk4-remove-root-gopher-image-and-unused-asse](./quick/260617-pk4-remove-root-gopher-image-and-unused-asse/) |
 | 260617-pbq | Replace the lead image in every README with Downloads/20260617-181124.gif | 2026-06-17 | this commit | [260617-pbq-replace-the-lead-image-in-every-readme-w](./quick/260617-pbq-replace-the-lead-image-in-every-readme-w/) |

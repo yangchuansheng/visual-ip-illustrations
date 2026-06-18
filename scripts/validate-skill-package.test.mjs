@@ -364,6 +364,10 @@ function completeCaiXukunPublicAssetApprovalLine(
   return `- [x] Cai Xukun public asset policy for \`examples/images/\`, \`examples/images-en/\`, and \`skills/visual-ip-illustrations/assets/examples/\`: APPROVED / Jane Reviewer / ${reviewDate} / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / release notes / ${uploadedImageIdentityOutcome} / ${publicFigureLikenessBoundaryOutcome} / ${sourceImageContextBoundaryOutcome} / ${routeIsolationOutcome} / ${stylizedMascotOnlyOutputOutcome} / ${articleMetaphorOutcome} / ${publicSampleOutcome}.`;
 }
 
+function currentCaiXukunPublicAssetApprovalLine() {
+  return "- [x] Cai Xukun public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: APPROVED / maintainer request / 2026-06-18 / approved / examples/images, examples/images-en, skills/visual-ip-illustrations/assets/examples / GitHub README Trust Bridge gallery / uploaded-image identity approved / public-figure likeness boundary approved / source-image context boundary approved / route-isolation approved / stylized mascot-only output approved / article-metaphor quality approved / public-sample decision approved.";
+}
+
 function pendingGeneratedCaiXukunSampleLine() {
   return "- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / public-figure likeness boundary outcome / source-image context boundary outcome / route-isolation outcome / stylized mascot-only output outcome / endorsement, affiliation, impersonation, campaign, advertising, fandom-promotion review outcome / article-metaphor quality outcome.";
 }
@@ -1644,7 +1648,29 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingGeneratedGopherApproval.internalReviewDirectoriesPresent, false);
   assert.equal(pendingGeneratedGopherApproval.publicDirectoriesPresent, false);
 
-  const pendingCaiXukunApproval = validators.parsePublicCaiXukunSampleApproval(releaseChecklistText);
+  const currentCaiXukunApproval = validators.parsePublicCaiXukunSampleApproval(releaseChecklistText);
+  assert.equal(currentCaiXukunApproval.found, true);
+  assert.equal(currentCaiXukunApproval.checked, true);
+  assert.equal(currentCaiXukunApproval.complete, true);
+  assert.equal(currentCaiXukunApproval.allowedDirectoriesPresent, true);
+  assert.equal(currentCaiXukunApproval.uploadedImageIdentityOutcomePresent, true);
+  assert.equal(currentCaiXukunApproval.publicFigureLikenessBoundaryOutcomePresent, true);
+  assert.equal(currentCaiXukunApproval.sourceImageContextBoundaryOutcomePresent, true);
+  assert.equal(currentCaiXukunApproval.routeIsolationOutcomePresent, true);
+  assert.equal(currentCaiXukunApproval.stylizedMascotOnlyOutputOutcomePresent, true);
+  assert.equal(currentCaiXukunApproval.articleMetaphorOutcomePresent, true);
+  assert.equal(currentCaiXukunApproval.publicSampleOutcomePresent, true);
+  assert.deepEqual(currentCaiXukunApproval.allowedDirectories, [
+    "examples/images",
+    "examples/images-en",
+    "skills/visual-ip-illustrations/assets/examples",
+  ]);
+
+  const pendingCaiXukunText = releaseChecklistText.replace(
+    currentCaiXukunPublicAssetApprovalLine(),
+    pendingCaiXukunPublicAssetApprovalLine(),
+  );
+  const pendingCaiXukunApproval = validators.parsePublicCaiXukunSampleApproval(pendingCaiXukunText);
   assert.equal(pendingCaiXukunApproval.found, true);
   assert.equal(pendingCaiXukunApproval.checked, false);
   assert.equal(pendingCaiXukunApproval.complete, false);
@@ -1658,7 +1684,7 @@ test("approval parser helpers expose current release primitives", async () => {
   assert.equal(pendingCaiXukunApproval.publicSampleOutcomePresent, false);
 
   const approvedCaiXukunText = releaseChecklistText.replace(
-    pendingCaiXukunPublicAssetApprovalLine(),
+    currentCaiXukunPublicAssetApprovalLine(),
     completeCaiXukunPublicAssetApprovalLine(),
   );
   const approvedCaiXukun = validators.parsePublicCaiXukunSampleApproval(approvedCaiXukunText);
@@ -3676,6 +3702,12 @@ test("validator fixture enforces public Cai Xukun sample approval parsing", asyn
   const validators = await import(`${scriptPath}?caiXukunApproval=${Date.now()}`);
   const fixtureRoot = copyFixture("caixukun-public-asset");
   try {
+    replaceInFixture(
+      fixtureRoot,
+      "RELEASE_CHECKLIST.md",
+      currentCaiXukunPublicAssetApprovalLine(),
+      pendingCaiXukunPublicAssetApprovalLine(),
+    );
     writeFileSync(path.join(fixtureRoot, "examples", "images", "99-caixukun-test.png"), "fixture", "utf8");
 
     const pendingResult = runFixtureValidator(fixtureRoot);
@@ -3808,7 +3840,7 @@ test("validator fixture rejects Cai Xukun public sample placeholder approvals", 
       "public-sample decision=missing",
     ],
   ]) {
-    const approvalText = releaseChecklistText.replace(pendingCaiXukunPublicAssetApprovalLine(), approvalLine);
+    const approvalText = releaseChecklistText.replace(currentCaiXukunPublicAssetApprovalLine(), approvalLine);
     const approval = validators.parsePublicCaiXukunSampleApproval(approvalText);
     assert.equal(approval.complete, false);
 
@@ -3818,7 +3850,7 @@ test("validator fixture rejects Cai Xukun public sample placeholder approvals", 
       replaceInFixture(
         fixtureRoot,
         "RELEASE_CHECKLIST.md",
-        pendingCaiXukunPublicAssetApprovalLine(),
+        currentCaiXukunPublicAssetApprovalLine(),
         approvalLine,
       );
 
