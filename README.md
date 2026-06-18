@@ -51,6 +51,7 @@ Release 1.4 public identity uses `Visual IP Illustrations`, canonical local chec
 - A 4-8 image shot list for an article.
 - For each image: placement, theme, core idea, structure type, character action, and suggested visible labels.
 - Final PNG images.
+- When article content is available, `placement-map.md` and `article-preview.html` can be saved next to the generated images so users can review image placement in reading order.
 - Xiaohei outputs to workspace path `assets/<article-slug>-illustrations/`.
 - Littlebox outputs to workspace path `assets/<article-slug>-littlebox/`.
 - Tom outputs to workspace path `assets/<article-slug>-tom/`.
