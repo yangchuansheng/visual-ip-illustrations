@@ -4,7 +4,7 @@ milestone: v1.9
 milestone_name: Language-Neutral Skill Cleanup
 status: shipped
 last_updated: "2026-06-17T16:42:30.000Z"
-last_activity: 2026-06-18 — Completed quick task 260618-emo: Add Cai Xukun to README example images
+last_activity: 2026-06-18 — Completed quick task 260618-eyo: Generate README hero image with all visual IP characters
 progress:
   total_phases: 2
   completed_phases: 2
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-06-17)
 Phase: 44 (Language Policy and Validation Hardening)
 Plan: 44-01 complete
 Status: v1.9 shipped — PR #2
-Last activity: 2026-06-18 - Completed quick task 260618-emo: added Cai Xukun Trust Bridge README gallery assets, approved the public sample gate, and verified validator 148/148 plus Node tests 108/108
+Last activity: 2026-06-18 - Completed quick task 260618-eyo: generated a README hero image with all visual IP characters, centered Cai Xukun on a lower row holding a basketball, updated all README hero references, and verified validator 148/148 plus Node tests 108/108
 
 ## Performance Metrics
 
@@ -285,6 +285,7 @@ Recent decisions affecting current work:
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
+| 260618-eyo | Generate README hero image with all visual IP characters | 2026-06-18 | this commit | [260618-eyo-generate-a-readme-hero-image-with-all-vi](./quick/260618-eyo-generate-a-readme-hero-image-with-all-vi/) |
 | 260618-emo | Add Cai Xukun to README example images | 2026-06-18 | this commit | [260618-emo-readme](./quick/260618-emo-readme/) |
 | 260618-0ti | Convert residual Chinese runtime QA examples in SKILL.md to English | 2026-06-18 | this commit | [260618-0ti-convert-residual-chinese-runtime-qa-exam](./quick/260618-0ti-convert-residual-chinese-runtime-qa-exam/) |
 | 260617-pk4 | Remove root gopher image and unused assets | 2026-06-17 | this commit | [260617-pk4-remove-root-gopher-image-and-unused-asse](./quick/260617-pk4-remove-root-gopher-image-and-unused-asse/) |
