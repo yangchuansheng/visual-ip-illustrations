@@ -137,11 +137,41 @@ Save outputs under `assets/<article-slug>-gopher/`; docs validation token: `asse
 <paste article>
 ```
 
+### Cai Xukun: canonical planning
+
+```text
+Use $visual-ip-illustrations with the Cai Xukun route. Do not generate images yet.
+Create a 4-image Cai Xukun route shot list for the article below.
+Aliases include Cai Xukun, 蔡徐坤, caixukun, and cxk.
+Use route-local references from `skills/visual-ip-illustrations/references/ips/caixukun/` and source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
+Keep route status `gated-public-figure`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and stylized mascot-only output.
+For each image, include Placement, Core idea, Structure type, Cai Xukun mascot state, Cai Xukun mascot action, Supporting objects, Visible labels, Output path, Likeness boundary note, and Source-image context note.
+Rewrite endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims as neutral article-concept labels.
+Save outputs under `assets/<article-slug>-caixukun/`; docs validation token: `assets/&lt;article-slug&gt;-caixukun/`.
+
+<paste article>
+```
+
+### Cai Xukun: canonical generation
+
+```text
+Use $visual-ip-illustrations with the Cai Xukun / 蔡徐坤 / caixukun / cxk route to generate 2 article body illustrations for the article below.
+Generate each image separately and use `skills/visual-ip-illustrations/references/ips/caixukun/` route-local references.
+Keep route status `gated-public-figure` and source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
+Cai Xukun is a gated public-figure stylized mascot-only article-illustration route. Preserve uploaded-image authority markers: yellow duck-like rounded mascot body, silver layered idol hair, oversized white eyes, red cheek circles, orange beak, black high-collar top, white straps, white lower outfit, and compact black or gray boots.
+Keep the green reference background as source-image context boundary while generating sparse 16:9 white-background article illustrations.
+Keep public-figure likeness boundary, public sample review gate, route isolation, and stylized mascot-only output attached to the delivery report.
+Use neutral article-concept labels after removing endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims.
+Save outputs under `assets/<article-slug>-caixukun/`; docs validation token: `assets/&lt;article-slug&gt;-caixukun/`.
+
+<paste article>
+```
+
 ### Multi-IP: canonical planning
 
 ```text
 Use $visual-ip-illustrations. Do not generate images yet.
-Use one shared core idea to produce seven separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher.
+Use one shared core idea to produce eight separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun.
 Each group must use route-local references, route-local prompt template, route-local QA, and an independent output path.
 Xiaohei group uses `skills/visual-ip-illustrations/references/ips/xiaohei/` and `assets/<article-slug>-illustrations/`.
 Littlebox group uses `skills/visual-ip-illustrations/references/ips/littlebox/` and `assets/<article-slug>-littlebox/`.
@@ -150,6 +180,7 @@ Ferris group uses `skills/visual-ip-illustrations/references/ips/ferris/`, route
 Seal group uses `skills/visual-ip-illustrations/references/ips/seal/`, route status `active`, source-history authority `skills/visual-ip-illustrations/references/ips/seal/source.md`, hoodie seal identity note, logo-free note, product-neutral article metaphors, and `assets/<article-slug>-seal/`.
 OpenClaw group uses `skills/visual-ip-illustrations/references/ips/openclaw/`, route status `source-reviewed`, source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`, uploaded-logo identity markers, public-sample gate, and `assets/<article-slug>-openclaw/`.
 Go Gopher group uses `skills/visual-ip-illustrations/references/ips/gopher/`, route status `source-reviewed`, source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample gate, and `assets/<article-slug>-gopher/`.
+Cai Xukun group uses `skills/visual-ip-illustrations/references/ips/caixukun/`, route status `gated-public-figure`, source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, stylized mascot-only output, and `assets/<article-slug>-caixukun/`.
 
 Core idea: trust is built by placing one piece of evidence after another.
 ```
@@ -499,6 +530,18 @@ Preserve successful Go Gopher action, route-local `gopher.png` identity cues, ex
 Save outputs under `assets/<article-slug>-gopher/`; docs validation token: `assets/&lt;article-slug&gt;-gopher/`.
 ```
 
+### Explicit Cai Xukun: edit existing image
+
+```text
+Use $visual-ip-illustrations with the Cai Xukun route to edit this image.
+Preserve the selected Cai Xukun route, route status `gated-public-figure`, source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, output path, aspect ratio, article meaning, and preservation of unaffected content.
+Keep uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and stylized mascot-only output attached to the delivery report.
+Edit only the named issue: [participation / uploaded-image identity / title / text density / label typo / route leakage / green-background carryover / public-figure likeness boundary].
+Preserve successful Cai Xukun mascot action, uploaded-image identity cues, existing composition, visible labels that remain correct, supporting objects, paths, line style, color accents, 16:9 aspect ratio, and image quality.
+Rewrite endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims as neutral article-concept labels.
+Save outputs under `assets/<article-slug>-caixukun/`; docs validation token: `assets/&lt;article-slug&gt;-caixukun/`.
+```
+
 ### Explicit OpenClaw: route smoke check
 
 ```text
@@ -519,17 +562,87 @@ Expected: OpenClaw action vocabulary includes inspect, hold, bridge, sort, lift,
 Expected: public sample gate is controlled by RELEASE_CHECKLIST.md; public rendered OpenClaw samples require release review.
 ```
 
+## Route Smoke: Explicit Cai Xukun
+
+Cai Xukun is an explicit `gated-public-figure` stylized mascot-only route. The route-local pack and SKILL.md controller integration are complete; public generated Cai Xukun samples remain pending behind the public sample review gate.
+
+Explicit Cai Xukun aliases include Cai Xukun, 蔡徐坤, caixukun, and cxk. Source authority is `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
+
+### Explicit Cai Xukun: planning only
+
+```text
+Use $ian-xiaohei-illustrations with the Cai Xukun / 蔡徐坤 / caixukun / cxk route. Do not generate images yet.
+Create a 3-image Cai Xukun route shot list for the article below.
+For each image, include:
+- Placement
+- Core idea
+- Structure type
+- Cai Xukun mascot state
+- Cai Xukun mascot action
+- Supporting objects
+- Visible labels
+- Output path
+- Likeness boundary note
+- Source-image context note
+Keep route status `gated-public-figure`.
+Keep route-local reference directory `skills/visual-ip-illustrations/references/ips/caixukun/`.
+Keep source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
+Keep uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and stylized mascot-only output.
+Save outputs under `assets/<article-slug>-caixukun/`; docs validation token: `assets/&lt;article-slug&gt;-caixukun/`.
+Rewrite endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims as neutral article-concept labels.
+
+<paste article>
+```
+
+### Explicit Cai Xukun: direct generation
+
+```text
+Use $ian-xiaohei-illustrations with the Cai Xukun route to generate 2 article body illustrations for the article below.
+Cai Xukun aliases include Cai Xukun, 蔡徐坤, caixukun, and cxk.
+Generate each image separately and use `skills/visual-ip-illustrations/references/ips/caixukun/` route-local references.
+Cai Xukun must carry the core idea's cognitive action as a stylized mascot-only article character.
+Keep route status `gated-public-figure`.
+Keep source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
+Preserve uploaded-image authority markers and source-image context boundary; generate sparse 16:9 white-background article illustrations.
+Keep public-figure likeness boundary, public sample review gate, route isolation, and stylized mascot-only output.
+Save outputs under `assets/<article-slug>-caixukun/`; docs validation token: `assets/&lt;article-slug&gt;-caixukun/`.
+Delivery report keeps uploaded-image authority, source-image context boundary, public-figure likeness boundary, and states that public generated Cai Xukun samples are governed by RELEASE_CHECKLIST.md public sample review gate.
+Rewrite endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims as neutral article-concept labels.
+
+<paste article>
+```
+
+### Explicit Cai Xukun: route smoke check
+
+```text
+Use $ian-xiaohei-illustrations. Do not generate images yet.
+Text-only maintainer route audit. Use the Cai Xukun / 蔡徐坤 / caixukun / cxk route to create 1 route smoke shot list for this idea:
+Idea: separate a public claim from a neutral article concept before publication.
+Expected: selected IP is Cai Xukun.
+Expected: aliases include Cai Xukun, 蔡徐坤, caixukun, and cxk.
+Expected: route status is `gated-public-figure`.
+Expected: source authority is `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
+Expected: route-local reference directory is `skills/visual-ip-illustrations/references/ips/caixukun/`.
+Expected: required references include `index.md`, `source.md`, `style-dna.md`, `caixukun-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`.
+Expected: planning fields include Placement, Core idea, Structure type, Cai Xukun mascot state, Cai Xukun mascot action, Supporting objects, Visible labels, Output path, Likeness boundary note, Source-image context note.
+Expected: output path is `assets/<article-slug>-caixukun/`.
+Expected: docs validation token is `assets/&lt;article-slug&gt;-caixukun/`.
+Expected: uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and stylized mascot-only output remain attached.
+Expected: endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims are rewritten as neutral article-concept labels.
+Expected: public sample review gate is controlled by RELEASE_CHECKLIST.md; public generated Cai Xukun samples require release review.
+```
+
 ## Route Notes: Mixed-IP Requests
 
-The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, Seal group uses `assets/<article-slug>-seal/`, OpenClaw group uses `assets/<article-slug>-openclaw/`, and Go Gopher group uses `assets/<article-slug>-gopher/`; each group loads its own references, prompt template, QA, and output path.
+The same core idea can create separate variant groups by IP. Xiaohei group uses `assets/<article-slug>-illustrations/`, Littlebox group uses `assets/<article-slug>-littlebox/`, Tom group uses `assets/<article-slug>-tom/`, Ferris group uses `assets/<article-slug>-ferris/`, Seal group uses `assets/<article-slug>-seal/`, OpenClaw group uses `assets/<article-slug>-openclaw/`, Go Gopher group uses `assets/<article-slug>-gopher/`, and Cai Xukun group uses `assets/<article-slug>-caixukun/`; each group loads its own references, prompt template, QA, and output path.
 
-Maintainer reference: Xiaohei canonical pack is at `skills/visual-ip-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `skills/visual-ip-illustrations/references/ips/littlebox/`, Tom canonical pack is at `skills/visual-ip-illustrations/references/ips/tom/`, Tom rights record is at `skills/visual-ip-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `skills/visual-ip-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `skills/visual-ip-illustrations/references/ips/ferris/source.md`, Seal canonical pack is at `skills/visual-ip-illustrations/references/ips/seal/`, Seal source-history authority is at `skills/visual-ip-illustrations/references/ips/seal/source.md`, OpenClaw canonical pack is at `skills/visual-ip-illustrations/references/ips/openclaw/`, OpenClaw source/license authority is at `skills/visual-ip-illustrations/references/ips/openclaw/source.md`, Go Gopher canonical pack is at `skills/visual-ip-illustrations/references/ips/gopher/`, Go Gopher source/license authority is at `skills/visual-ip-illustrations/references/ips/gopher/source.md`, `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` is local visual authority, and route metadata is at `skills/visual-ip-illustrations/references/routing.md`.
+Maintainer reference: Xiaohei canonical pack is at `skills/visual-ip-illustrations/references/ips/xiaohei/`, Littlebox canonical pack is at `skills/visual-ip-illustrations/references/ips/littlebox/`, Tom canonical pack is at `skills/visual-ip-illustrations/references/ips/tom/`, Tom rights record is at `skills/visual-ip-illustrations/references/ips/tom/rights.md`, Ferris canonical pack is at `skills/visual-ip-illustrations/references/ips/ferris/`, Ferris source/trademark authority is at `skills/visual-ip-illustrations/references/ips/ferris/source.md`, Seal canonical pack is at `skills/visual-ip-illustrations/references/ips/seal/`, Seal source-history authority is at `skills/visual-ip-illustrations/references/ips/seal/source.md`, OpenClaw canonical pack is at `skills/visual-ip-illustrations/references/ips/openclaw/`, OpenClaw source/license authority is at `skills/visual-ip-illustrations/references/ips/openclaw/source.md`, Go Gopher canonical pack is at `skills/visual-ip-illustrations/references/ips/gopher/`, Go Gopher source/license authority is at `skills/visual-ip-illustrations/references/ips/gopher/source.md`, `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` is local visual authority, Cai Xukun canonical pack is at `skills/visual-ip-illustrations/references/ips/caixukun/`, Cai Xukun source authority is at `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, and route metadata is at `skills/visual-ip-illustrations/references/routing.md`.
 
 ### Mixed IP: variant planning only
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Use one core idea to produce seven separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher.
+Use one core idea to produce eight separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun.
 Each group must use its own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
 
 Xiaohei variant group:
@@ -586,13 +699,33 @@ OpenClaw variant group:
 - OpenClaw actions should inspect, hold, bridge, sort, lift, connect, and signal the core idea
 - Public rendered OpenClaw samples are controlled by the RELEASE_CHECKLIST.md public-sample and final evidence gates
 
+Go Gopher variant group:
+- Use `skills/visual-ip-illustrations/references/ips/gopher/`
+- Keep source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`
+- Keep route status `source-reviewed`
+- Include Gopher state, Gopher action, Supporting objects, Visible labels, Output path, Source/license note
+- Output to `assets/<article-slug>-gopher/`
+- Docs validation token is `assets/&lt;article-slug&gt;-gopher/`
+- Public sample gate and official endorsement boundary stay attached
+
+Cai Xukun variant group:
+- Use `skills/visual-ip-illustrations/references/ips/caixukun/`
+- Keep source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`
+- Keep route status `gated-public-figure`
+- Aliases include Cai Xukun, 蔡徐坤, caixukun, and cxk
+- Include Cai Xukun mascot state, Cai Xukun mascot action, Supporting objects, Visible labels, Output path, Likeness boundary note, Source-image context note
+- Output to `assets/<article-slug>-caixukun/`
+- Docs validation token is `assets/&lt;article-slug&gt;-caixukun/`
+- Uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and stylized mascot-only output stay attached
+- Endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims are rewritten as neutral article-concept labels
+
 <paste article or single idea>
 ```
 
-### Mixed IP: generate seven groups from one idea
+### Mixed IP: generate eight groups from one idea
 
 ```text
-Use $ian-xiaohei-illustrations to generate seven separate variant groups: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, and Go Gopher variant group from the same core idea.
+Use $ian-xiaohei-illustrations to generate eight separate variant groups: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, Go Gopher variant group, and Cai Xukun variant group from the same core idea.
 
 Core idea: trust is built by placing one piece of evidence after another.
 
@@ -665,9 +798,36 @@ OpenClaw variant group:
 - Output to `assets/<article-slug>-openclaw/`
 - Docs validation token is `assets/&lt;article-slug&gt;-openclaw/`
 - Public rendered OpenClaw samples are controlled by the RELEASE_CHECKLIST.md public-sample and final evidence gates
+
+Go Gopher variant group:
+- Generate 2 images
+- Use `skills/visual-ip-illustrations/references/ips/gopher/`
+- Keep source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`
+- Keep route status `source-reviewed`
+- Go Gopher must carry the same core idea's cognitive action
+- Include Gopher state, Gopher action, Supporting objects, Visible labels, Output path, Source/license note
+- Output to `assets/<article-slug>-gopher/`
+- Docs validation token is `assets/&lt;article-slug&gt;-gopher/`
+- Public sample gate and official endorsement boundary stay attached
+
+Cai Xukun variant group:
+- Generate 2 images
+- Use `skills/visual-ip-illustrations/references/ips/caixukun/`
+- Keep source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`
+- Cai Xukun aliases include Cai Xukun, 蔡徐坤, caixukun, and cxk
+- Keep route status `gated-public-figure`
+- Cai Xukun must carry the same core idea's cognitive action as stylized mascot-only output
+- Preserve uploaded-image authority markers and source-image context boundary
+- Include Cai Xukun mascot state, Cai Xukun mascot action, Supporting objects, Visible labels, Output path, Likeness boundary note, Source-image context note
+- Output to `assets/<article-slug>-caixukun/`
+- Docs validation token is `assets/&lt;article-slug&gt;-caixukun/`
+- Public generated Cai Xukun samples are controlled by the RELEASE_CHECKLIST.md public sample review gate
+- Endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims are rewritten as neutral article-concept labels
 ```
 
 ## Maintainer Validation Smoke Prompts
+
+Phase 46 owns Cai Xukun public documentation and release-surface parity. Phase 47 owns Cai Xukun validator hardening, Node tests, final release evidence, leakage scan, and public sample gate automation.
 
 Phase 42 owns Go Gopher validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation.
 
@@ -739,11 +899,25 @@ Expected: output path is `assets/<article-slug>-gopher/`; docs validation token 
 Expected: planning fields include Placement, Core idea, Structure type, Gopher state, Gopher action, Supporting objects, Visible labels, Output path, Source/license note.
 ```
 
+### Smoke: Cai Xukun gated-public-figure route status
+
+```text
+Use $visual-ip-illustrations. Do not generate images yet.
+Text-only maintainer route audit. Use the Cai Xukun / 蔡徐坤 / caixukun / cxk route to create 1 route-status shot list for this idea:
+Idea: turn a public-facing claim into neutral article guidance.
+Expected: selected IP is Cai Xukun, route status is `gated-public-figure`, source authority is `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
+Expected: route-local reference directory is `skills/visual-ip-illustrations/references/ips/caixukun/`.
+Expected: uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and stylized mascot-only output are attached.
+Expected: output path is `assets/<article-slug>-caixukun/`; docs validation token is `assets/&lt;article-slug&gt;-caixukun/`.
+Expected: endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims are rewritten as neutral article-concept labels.
+Expected: planning fields include Placement, Core idea, Structure type, Cai Xukun mascot state, Cai Xukun mascot action, Supporting objects, Visible labels, Output path, Likeness boundary note, Source-image context note.
+```
+
 ### Smoke: mixed-IP variant groups
 
 ```text
 Use $ian-xiaohei-illustrations. Do not generate images yet.
-Use one core idea to create seven separate variant groups: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, and Go Gopher variant group:
+Use one core idea to create eight separate variant groups: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, Go Gopher variant group, and Cai Xukun variant group:
 Idea: a good workflow places the next action directly in someone's hand.
 Expected: Xiaohei variant group uses `skills/visual-ip-illustrations/references/ips/xiaohei/` and outputs to `assets/<article-slug>-illustrations/`.
 Expected: Littlebox variant group uses `skills/visual-ip-illustrations/references/ips/littlebox/` and outputs to `assets/<article-slug>-littlebox/`.
@@ -752,7 +926,8 @@ Expected: Ferris variant group uses `skills/visual-ip-illustrations/references/i
 Expected: Seal variant group uses `skills/visual-ip-illustrations/references/ips/seal/`, outputs to `assets/<article-slug>-seal/`, and keeps route status `active`, source-history authority `skills/visual-ip-illustrations/references/ips/seal/source.md`, hoodie seal identity note, logo-free note, and product-neutral article metaphors.
 Expected: OpenClaw variant group uses `skills/visual-ip-illustrations/references/ips/openclaw/`, outputs to `assets/<article-slug>-openclaw/`, and keeps route status `source-reviewed`, source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`, uploaded-logo identity markers, and public-sample gate.
 Expected: Go Gopher variant group uses `skills/visual-ip-illustrations/references/ips/gopher/`, outputs to `assets/<article-slug>-gopher/`, keeps docs validation token `assets/&lt;article-slug&gt;-gopher/`, route status `source-reviewed`, source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, Renee French attribution, Creative Commons Attribution 4.0 boundary, public sample gate, and Source/license note.
-Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, and Go Gopher variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history note, and output directory.
+Expected: Cai Xukun variant group uses `skills/visual-ip-illustrations/references/ips/caixukun/`, outputs to `assets/<article-slug>-caixukun/`, keeps docs validation token `assets/&lt;article-slug&gt;-caixukun/`, route status `gated-public-figure`, source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, stylized mascot-only output, and neutral article-concept label review for endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims.
+Expected: Xiaohei variant group, Littlebox variant group, Tom variant group, Ferris variant group, Seal variant group, OpenClaw variant group, Go Gopher variant group, and Cai Xukun variant group each use their own route-local references, planning fields, QA gates, route-specific status, source/rights/source-history/source-image note, and output directory.
 ```
 
 Legacy six-route OpenClaw smoke fixture marker for validator compatibility:

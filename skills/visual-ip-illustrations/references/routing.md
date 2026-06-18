@@ -13,7 +13,9 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 - `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, `OpenClaw 助手`, and `OpenClaw 吉祥物` select the same `openclaw` route and keep route status `source-reviewed`.
 - `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, `Go 吉祥物`, and `Gopher 吉祥物` select the same `gopher` route and keep route status `source-reviewed`.
 - Go Gopher route matching requires Go Gopher, Gopher, golang gopher, or a Go Gopher-qualified route phrase; generic aliases such as `go`, `blue mascot`, `animal`, and `logo` remain outside the Go Gopher alias set.
-- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher create separate route groups. Compatibility marker: 每个 route group 只加载自己的 `required_references`; each group writes to its own output directory.
+- `蔡徐坤`, `Cai Xukun`, `caixukun`, and `cxk` select the same `caixukun` route and keep route status `gated-public-figure`.
+- Cai Xukun route matching requires `蔡徐坤`, `Cai Xukun`, `caixukun`, or `cxk`; broad celebrity, idol, duck, yellow mascot, and fandom words remain outside the Cai Xukun alias set.
+- Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun create separate route groups. Compatibility marker: 每个 route group 只加载自己的 `required_references`; each group writes to its own output directory.
 - Routes store only selection, references, output suffixes, and attribution context. Style, character identity, prompt wording, and QA rules live in the selected IP's reference files.
 - Ferris is an explicit Rust-community mascot route with status source-reviewed; generated public Ferris samples require release review for Rust trademark and endorsement-safe wording.
 - Ferris route-local reference directory: `skills/visual-ip-illustrations/references/ips/ferris/`.
@@ -27,6 +29,9 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 - Go Gopher is an explicit source-reviewed article-illustration mascot route; generated public Go Gopher samples require release review for Go blog source context, Renee French attribution, Creative Commons Attribution 4.0 license boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, Go logo boundary, and official Go project affiliation, approval, sponsorship, and endorsement claim boundaries.
 - Go Gopher route-local reference directory: `skills/visual-ip-illustrations/references/ips/gopher/`.
 - Go Gopher source and local visual authority: `skills/visual-ip-illustrations/references/ips/gopher/source.md`.
+- Cai Xukun is an explicit gated-public-figure stylized mascot article-illustration route; generated public Cai Xukun samples require release review for route-local uploaded visual authority recorded in `references/ips/caixukun/source.md` as uploaded reference image A and uploaded reference image B, public-figure likeness boundary, stylized mascot route framing, and realistic-person portrait output, official endorsement, affiliation, impersonation, campaign, celebrity advertising, and fandom promotion claim boundaries.
+- Cai Xukun route-local reference directory: `skills/visual-ip-illustrations/references/ips/caixukun/`.
+- Cai Xukun source and uploaded-image authority: `skills/visual-ip-illustrations/references/ips/caixukun/source.md`.
 
 ## IP Routes
 
@@ -39,6 +44,7 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 | `seal` | Seal | `Seal`, `hoodie seal`, `white seal`, `blue hoodie seal`, `海豹`, `连帽衫海豹`, `白色海豹`, `蓝色连帽衫海豹` | `false` | `seal` | `references/ips/seal/index.md`; `references/ips/seal/source.md`; `references/ips/seal/style-dna.md`; `references/ips/seal/seal-ip.md`; `references/ips/seal/composition-patterns.md`; `references/ips/seal/prompt-template.md`; `references/ips/seal/qa-checklist.md` | Historical Sealos uploaded mascot image source context; attribution records hoodie seal identity, no-logo mascot identity, and source-history boundary through `references/ips/seal/source.md` | `active` |
 | `openclaw` | OpenClaw | `OpenClaw`, `openclaw`, `OpenClaw logo`, `OpenClaw mascot`, `OpenClaw 助手`, `OpenClaw 吉祥物` | `false` | `openclaw` | `references/ips/openclaw/index.md`; `references/ips/openclaw/source.md`; `references/ips/openclaw/style-dna.md`; `references/ips/openclaw/openclaw-ip.md`; `references/ips/openclaw/composition-patterns.md`; `references/ips/openclaw/prompt-template.md`; `references/ips/openclaw/qa-checklist.md` | Official OpenClaw repository https://github.com/openclaw/openclaw; MIT License; Copyright (c) 2026 OpenClaw Foundation; uploaded red OpenClaw logo visual authority; source-reviewed route status through `references/ips/openclaw/source.md` | `source-reviewed` |
 | `gopher` | Go Gopher | `Go Gopher`, `Gopher`, `golang gopher`, `Go mascot`, `Go 吉祥物`, `Gopher 吉祥物` | `false` | `gopher` | `references/ips/gopher/index.md`; `references/ips/gopher/source.md`; `references/ips/gopher/style-dna.md`; `references/ips/gopher/gopher-ip.md`; `references/ips/gopher/composition-patterns.md`; `references/ips/gopher/prompt-template.md`; `references/ips/gopher/qa-checklist.md` | Official Go blog source https://go.dev/blog/gopher; Go Gopher created by Renee French; Creative Commons Attribution 4.0 license context; route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority; public generated Go Gopher samples require release review; Go logo identity and official Go project affiliation, approval, sponsorship, and endorsement claims stay outside positive route identity | `source-reviewed` |
+| `caixukun` | Cai Xukun | `蔡徐坤`, `Cai Xukun`, `caixukun`, `cxk` | `false` | `caixukun` | `references/ips/caixukun/index.md`; `references/ips/caixukun/source.md`; `references/ips/caixukun/style-dna.md`; `references/ips/caixukun/caixukun-ip.md`; `references/ips/caixukun/composition-patterns.md`; `references/ips/caixukun/prompt-template.md`; `references/ips/caixukun/qa-checklist.md` | Route-local uploaded visual authority recorded in `references/ips/caixukun/source.md` as uploaded reference image A and uploaded reference image B; gated public-figure stylized mascot route; public generated Cai Xukun samples require release review; realistic-person portrait output, official endorsement, affiliation, impersonation, campaign, celebrity advertising, and fandom promotion claims stay outside route identity | `gated-public-figure` |
 
 ## OpenClaw Metadata
 
@@ -60,6 +66,19 @@ This file defines visual-IP selection rules and verifiable route metadata for th
 - Source record: `references/ips/gopher/source.md`.
 - Route framing: Go Gopher is an article-illustration mascot route with attribution/license context and public generated sample release review.
 - Identity boundary: Go logo identity and official Go project affiliation, approval, sponsorship, and endorsement claims stay outside positive route identity.
+
+## Cai Xukun Metadata
+
+- Route id: `caixukun`.
+- Display name: Cai Xukun.
+- Default marker: `default=false`.
+- Uploaded image authority: route-local uploaded visual authority recorded in `references/ips/caixukun/source.md` as uploaded reference image A and uploaded reference image B.
+- Route status: `gated-public-figure`.
+- Output path: `assets/<article-slug>-caixukun/`; escaped marker `assets/&lt;article-slug&gt;-caixukun/`.
+- Source record: `references/ips/caixukun/source.md`.
+- Route framing: Cai Xukun is a gated public-figure stylized mascot article-illustration route with uploaded-image authority and public generated sample release review.
+- Source-image context: green reference background is source-image context; generated article illustrations keep the skill's sparse 16:9 white-background style.
+- Likeness boundary: realistic-person portrait output, official endorsement, affiliation, impersonation, campaign, celebrity advertising, and fandom promotion claims stay outside route identity.
 
 ## Seal Metadata
 
@@ -96,7 +115,9 @@ Root Xiaohei reference paths remain available during migration and point to cano
 - `openclaw` filenames use ordered English slugs such as `01-topic-name.png`.
 - `gopher` output directory is `assets/<article-slug>-gopher/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-gopher/`.
 - `gopher` filenames use ordered English slugs such as `01-topic-name.png`.
-- Mixed-IP requests split by IP into separate route groups: `xiaohei` 写入 `assets/<article-slug>-illustrations/`, `littlebox` 写入 `assets/<article-slug>-littlebox/`, `tom` 写入 `assets/<article-slug>-tom/`, `ferris` 写入 `assets/<article-slug>-ferris/`, `seal` writes to `assets/<article-slug>-seal/`, `openclaw` writes to `assets/<article-slug>-openclaw/`, and `gopher` writes to `assets/<article-slug>-gopher/`.
+- `caixukun` output directory is `assets/<article-slug>-caixukun/`; validation also keeps escaped marker `assets/&lt;article-slug&gt;-caixukun/`.
+- `caixukun` filenames use ordered English slugs such as `01-topic-name.png`.
+- Mixed-IP requests split by IP into separate route groups: `xiaohei` 写入 `assets/<article-slug>-illustrations/`, `littlebox` 写入 `assets/<article-slug>-littlebox/`, `tom` 写入 `assets/<article-slug>-tom/`, `ferris` 写入 `assets/<article-slug>-ferris/`, `seal` writes to `assets/<article-slug>-seal/`, `openclaw` writes to `assets/<article-slug>-openclaw/`, `gopher` writes to `assets/<article-slug>-gopher/`, and `caixukun` writes to `assets/<article-slug>-caixukun/`.
 - Before output, inspect the target directory and choose a new filename to preserve historical results.
 
 ## Delivery Report Fields

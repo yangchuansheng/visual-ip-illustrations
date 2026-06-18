@@ -167,6 +167,21 @@ const LANGUAGE_ALLOWLIST = [
     remediation: "Keep the exact Go Gopher route alias in route-compatible public surfaces.",
   })),
   {
+    category: "route aliases",
+    paths: [
+      ROUTING_FILE,
+      SKILL_FILE,
+      OPENAI_AGENT_FILE,
+      "README.md",
+      "examples/prompts.md",
+      "NOTICE.md",
+      "RELEASE_CHECKLIST.md",
+    ],
+    token: "蔡徐坤",
+    rationale: "Cai Xukun Chinese route alias compatibility.",
+    remediation: "Keep the exact Cai Xukun route alias in route-compatible public surfaces.",
+  },
+  {
     category: "prompt placeholders",
     paths: [
       LANGUAGE_POLICY_FILE,
@@ -617,6 +632,7 @@ export function outputPathTokens() {
       "assets/<article-slug>-seal/",
       "assets/<article-slug>-openclaw/",
       "assets/<article-slug>-gopher/",
+      "assets/<article-slug>-caixukun/",
     ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
@@ -626,11 +642,11 @@ export function outputPathTokens() {
       "assets/&lt;article-slug&gt;-seal/",
       "assets/&lt;article-slug&gt;-openclaw/",
       "assets/&lt;article-slug&gt;-gopher/",
+      "assets/&lt;article-slug&gt;-caixukun/",
     ],
   };
 }
 
-// Public docs currently expose only published public route output examples.
 function publicDocsOutputPathTokens() {
   return {
     raw: [
@@ -641,6 +657,7 @@ function publicDocsOutputPathTokens() {
       "assets/<article-slug>-seal/",
       "assets/<article-slug>-openclaw/",
       "assets/<article-slug>-gopher/",
+      "assets/<article-slug>-caixukun/",
     ],
     escaped: [
       "assets/&lt;article-slug&gt;-illustrations/",
@@ -650,6 +667,7 @@ function publicDocsOutputPathTokens() {
       "assets/&lt;article-slug&gt;-seal/",
       "assets/&lt;article-slug&gt;-openclaw/",
       "assets/&lt;article-slug&gt;-gopher/",
+      "assets/&lt;article-slug&gt;-caixukun/",
     ],
   };
 }
@@ -692,6 +710,15 @@ export function parsePublicGopherSampleApproval(releaseChecklistText) {
     .find((line) => line.includes("Go Gopher public asset policy for"));
 
   return parseGopherApprovalLine(approvalLine, "public");
+}
+
+export function parsePublicCaiXukunSampleApproval(releaseChecklistText) {
+  const approvalLine = releaseChecklistText
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("Cai Xukun public asset policy for"));
+
+  return parseCaiXukunApprovalLine(approvalLine, "public");
 }
 
 export function parseGeneratedFerrisSampleApproval(releaseChecklistText) {
@@ -739,6 +766,18 @@ export function parseGeneratedGopherSampleApproval(releaseChecklistText) {
     .find((line) => line.includes("Record generated sample review:"));
 
   return parseGopherApprovalLine(approvalLine, "generated");
+}
+
+export function parseGeneratedCaiXukunSampleApproval(releaseChecklistText) {
+  const caiXukunSection = releaseChecklistText
+    .split("## Cai Xukun Source Boundary and Public Sample Gate")[1]
+    ?.split("## Installable Package Boundary")[0] ?? "";
+  const approvalLine = caiXukunSection
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.includes("Record generated sample review:"));
+
+  return parseCaiXukunApprovalLine(approvalLine, "generated");
 }
 
 function parsePublicRouteSampleApproval(releaseChecklistText, routeName) {
@@ -942,6 +981,45 @@ function emptyGopherApproval() {
     routeIsolationOutcomePresent: false,
     logoBoundaryOutcomePresent: false,
     endorsementBoundaryOutcomePresent: false,
+    articleMetaphorOutcomePresent: false,
+    publicSampleOutcomePresent: false,
+    complete: false,
+  };
+}
+
+function emptyCaiXukunApproval() {
+  return {
+    found: false,
+    checked: false,
+    status: "",
+    reviewer: "",
+    reviewDate: "",
+    approvalStatus: "",
+    allowedDirectories: [],
+    internalReviewDirectories: [],
+    publicDirectories: [],
+    releaseChannels: "",
+    uploadedImageIdentityOutcome: "",
+    publicFigureLikenessBoundaryOutcome: "",
+    sourceImageContextBoundaryOutcome: "",
+    routeIsolationOutcome: "",
+    stylizedMascotOnlyOutputOutcome: "",
+    claimReviewOutcome: "",
+    articleMetaphorOutcome: "",
+    publicSampleOutcome: "",
+    reviewerPresent: false,
+    datePresent: false,
+    approvalStatusPresent: false,
+    allowedDirectoriesPresent: false,
+    internalReviewDirectoriesPresent: false,
+    publicDirectoriesPresent: false,
+    releaseChannelsPresent: false,
+    uploadedImageIdentityOutcomePresent: false,
+    publicFigureLikenessBoundaryOutcomePresent: false,
+    sourceImageContextBoundaryOutcomePresent: false,
+    routeIsolationOutcomePresent: false,
+    stylizedMascotOnlyOutputOutcomePresent: false,
+    claimReviewOutcomePresent: false,
     articleMetaphorOutcomePresent: false,
     publicSampleOutcomePresent: false,
     complete: false,
@@ -1303,6 +1381,152 @@ function parseGopherApprovalLine(approvalLine, kind) {
   };
 }
 
+function parseCaiXukunApprovalLine(approvalLine, kind) {
+  if (!approvalLine) {
+    return emptyCaiXukunApproval();
+  }
+
+  const checked = /^\-\s+\[[xX]\]/.test(approvalLine);
+  const recordMatch = approvalLine.match(/:\s*(.+?)(?:\.)?$/);
+  const approvalRecord = recordMatch?.[1] ?? "";
+  const fields = approvalRecord.split(/\s+\/(?=\s)/).map((field) => field.trim().replace(/\.$/, ""));
+  const [
+    status = "",
+    reviewer = "",
+    reviewDate = "",
+    approvalStatus = "",
+    firstDirectoryText = "",
+    secondDirectoryOrChannels = "",
+    releaseChannelsOrUploadedImage = "",
+    uploadedImageOrPublicFigure = "",
+    publicFigureOrSourceImage = "",
+    sourceImageOrRouteIsolation = "",
+    routeIsolationOrMascot = "",
+    mascotOrClaim = "",
+    claimOrArticle = "",
+    articleOrPublicSample = "",
+    publicSampleOutcomeText = "",
+  ] = fields;
+
+  const parseDirectories = (value) =>
+    value
+      .split(/,|;|\band\b/)
+      .map((directory) => directory.trim())
+      .map((directory) => directory.replace(/^`+|`+$/g, "").replace(/[./]+$/g, ""))
+      .filter(Boolean);
+
+  const publicRequiredDirectories = ["examples/images", "examples/images-en", "skills/visual-ip-illustrations/assets/examples"];
+  const generatedRequiredInternalDirectories = ["assets/<article-slug>-caixukun"];
+  const generatedRequiredPublicDirectories = ["examples/images", "skills/visual-ip-illustrations/assets/examples"];
+  const allowedDirectories = kind === "public" ? parseDirectories(firstDirectoryText) : [];
+  const internalReviewDirectories = kind === "generated" ? parseDirectories(firstDirectoryText) : [];
+  const publicDirectories = kind === "generated" ? parseDirectories(secondDirectoryOrChannels) : [];
+  const releaseChannels = kind === "public" ? secondDirectoryOrChannels : releaseChannelsOrUploadedImage;
+  const uploadedImageIdentityOutcome = kind === "public" ? releaseChannelsOrUploadedImage : uploadedImageOrPublicFigure;
+  const publicFigureLikenessBoundaryOutcome = kind === "public" ? uploadedImageOrPublicFigure : publicFigureOrSourceImage;
+  const sourceImageContextBoundaryOutcome = kind === "public" ? publicFigureOrSourceImage : sourceImageOrRouteIsolation;
+  const routeIsolationOutcome = kind === "public" ? sourceImageOrRouteIsolation : routeIsolationOrMascot;
+  const stylizedMascotOnlyOutputOutcome = kind === "public" ? routeIsolationOrMascot : mascotOrClaim;
+  const claimReviewOutcome = kind === "public" ? "public asset claim review uses release policy" : claimOrArticle;
+  const articleMetaphorOutcome = kind === "public" ? mascotOrClaim : articleOrPublicSample;
+  const publicSampleOutcome = kind === "public" ? claimOrArticle || publicSampleOutcomeText : "generated sample gated";
+  const reviewerPresent = Boolean(reviewer) && !/^reviewer$/i.test(reviewer);
+  const datePresent = isValidReviewDate(reviewDate);
+  const approvalStatusPresent =
+    Boolean(approvalStatus) &&
+    !/^approval status$/i.test(approvalStatus) &&
+    /(approved|complete|granted)/i.test(approvalStatus);
+  const allowedDirectoriesPresent =
+    kind === "public" && publicRequiredDirectories.every((directory) => allowedDirectories.includes(directory));
+  const internalReviewDirectoriesPresent =
+    kind === "generated" &&
+    generatedRequiredInternalDirectories.every((directory) => internalReviewDirectories.includes(directory));
+  const publicDirectoriesPresent =
+    kind === "generated" &&
+    generatedRequiredPublicDirectories.every((directory) => publicDirectories.includes(directory));
+  const releaseChannelsPresent = Boolean(releaseChannels) && !/^release channels\.?$/i.test(releaseChannels);
+  const uploadedImageIdentityOutcomePresent =
+    Boolean(uploadedImageIdentityOutcome) && !/^uploaded-image identity outcome\.?$/i.test(uploadedImageIdentityOutcome);
+  const publicFigureLikenessBoundaryOutcomePresent =
+    Boolean(publicFigureLikenessBoundaryOutcome) &&
+    !/^public-figure likeness boundary outcome\.?$/i.test(publicFigureLikenessBoundaryOutcome);
+  const sourceImageContextBoundaryOutcomePresent =
+    Boolean(sourceImageContextBoundaryOutcome) &&
+    !/^source-image context boundary outcome\.?$/i.test(sourceImageContextBoundaryOutcome);
+  const routeIsolationOutcomePresent =
+    Boolean(routeIsolationOutcome) && !/^route-isolation outcome\.?$/i.test(routeIsolationOutcome);
+  const stylizedMascotOnlyOutputOutcomePresent =
+    Boolean(stylizedMascotOnlyOutputOutcome) &&
+    !/^stylized mascot-only output outcome\.?$/i.test(stylizedMascotOnlyOutputOutcome);
+  const claimReviewOutcomePresent =
+    Boolean(claimReviewOutcome) &&
+    !/^endorsement, affiliation, impersonation, campaign, advertising, fandom-promotion review outcome\.?$/i.test(
+      claimReviewOutcome,
+    );
+  const articleMetaphorOutcomePresent =
+    Boolean(articleMetaphorOutcome) && !/^article-metaphor quality outcome\.?$/i.test(articleMetaphorOutcome);
+  const publicSampleOutcomePresent =
+    Boolean(publicSampleOutcome) && !/^public-sample decision\.?$/i.test(publicSampleOutcome);
+  const directoryFieldsPresent =
+    kind === "public" ? allowedDirectoriesPresent : internalReviewDirectoriesPresent && publicDirectoriesPresent;
+  const sharedOutcomesPresent =
+    uploadedImageIdentityOutcomePresent &&
+    publicFigureLikenessBoundaryOutcomePresent &&
+    sourceImageContextBoundaryOutcomePresent &&
+    routeIsolationOutcomePresent &&
+    stylizedMascotOnlyOutputOutcomePresent &&
+    articleMetaphorOutcomePresent;
+  const complete =
+    checked &&
+    /(approved|complete|granted)/i.test(status) &&
+    !/pending/i.test(status) &&
+    reviewerPresent &&
+    datePresent &&
+    approvalStatusPresent &&
+    !/pending/i.test(approvalStatus) &&
+    directoryFieldsPresent &&
+    releaseChannelsPresent &&
+    sharedOutcomesPresent &&
+    (kind === "public" ? publicSampleOutcomePresent : claimReviewOutcomePresent);
+
+  return {
+    found: true,
+    checked,
+    status,
+    reviewer,
+    reviewDate,
+    approvalStatus,
+    allowedDirectories,
+    internalReviewDirectories,
+    publicDirectories,
+    releaseChannels,
+    uploadedImageIdentityOutcome,
+    publicFigureLikenessBoundaryOutcome,
+    sourceImageContextBoundaryOutcome,
+    routeIsolationOutcome,
+    stylizedMascotOnlyOutputOutcome,
+    claimReviewOutcome,
+    articleMetaphorOutcome,
+    publicSampleOutcome,
+    reviewerPresent,
+    datePresent,
+    approvalStatusPresent,
+    allowedDirectoriesPresent,
+    internalReviewDirectoriesPresent,
+    publicDirectoriesPresent,
+    releaseChannelsPresent,
+    uploadedImageIdentityOutcomePresent,
+    publicFigureLikenessBoundaryOutcomePresent,
+    sourceImageContextBoundaryOutcomePresent,
+    routeIsolationOutcomePresent,
+    stylizedMascotOnlyOutputOutcomePresent,
+    claimReviewOutcomePresent,
+    articleMetaphorOutcomePresent,
+    publicSampleOutcomePresent,
+    complete,
+  };
+}
+
 function readmeVariantFiles() {
   const rootReadmes = fs.readdirSync(REPO_ROOT).filter((fileName) => fileName === README_FILE);
   const localizedReadmes = fs
@@ -1656,6 +1880,7 @@ function requiredPackageFiles() {
     ...sealOperationalRefs(),
     ...openclawOperationalRefs(),
     ...gopherOperationalRefs(),
+    ...caixukunOperationalRefs(),
     ...legacyXiaoheiRefs().map((item) => item.root),
     "README.md",
     "examples/prompts.md",
@@ -1898,6 +2123,11 @@ function assertPhase28CompatibilitySurface() {
     "Go mascot",
     "Go 吉祥物",
     "Gopher 吉祥物",
+    "Cai Xukun",
+    "蔡徐坤",
+    "caixukun",
+    "cxk",
+    "gated-public-figure",
   ], "canonical and legacy invocations, Chinese aliases, and visible-label behavior");
 
   const routingText = requireFile(ROUTING_FILE);
@@ -2013,6 +2243,22 @@ function gopherOperationalRefs() {
   return gopherPlannedReferences().map((item) => path.join(PACKAGE_DIR, item));
 }
 
+function caixukunPlannedReferences() {
+  return [
+    "references/ips/caixukun/index.md",
+    "references/ips/caixukun/source.md",
+    "references/ips/caixukun/style-dna.md",
+    "references/ips/caixukun/caixukun-ip.md",
+    "references/ips/caixukun/composition-patterns.md",
+    "references/ips/caixukun/prompt-template.md",
+    "references/ips/caixukun/qa-checklist.md",
+  ];
+}
+
+function caixukunOperationalRefs() {
+  return caixukunPlannedReferences().map((item) => path.join(PACKAGE_DIR, item));
+}
+
 function sealDriftMarkers() {
   return [
     "generic seals",
@@ -2096,6 +2342,14 @@ function rebrandRouteExpectations() {
       default: "false",
       status: "source-reviewed",
       outputSuffix: "gopher",
+      referenceCount: 7,
+    },
+    {
+      id: "caixukun",
+      aliases: ["蔡徐坤", "Cai Xukun", "caixukun", "cxk"],
+      default: "false",
+      status: "gated-public-figure",
+      outputSuffix: "caixukun",
       referenceCount: 7,
     },
   ];
@@ -2555,6 +2809,36 @@ const checks = [
       "allow_implicit_invocation: true",
     ], "Go Gopher discovery metadata, source-reviewed route status, and default Xiaohei preservation");
   }),
+  defineCheck("AGENT-CAIXUKUN-001", "openai.yaml exposes Cai Xukun gated-public-figure route metadata markers", () => {
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "Visual IP Illustrations",
+      "$visual-ip-illustrations",
+      "$ian-xiaohei-illustrations",
+      "default Xiaohei",
+      "Cai Xukun",
+      "蔡徐坤",
+      "caixukun",
+      "cxk",
+      "explicit Cai Xukun",
+      "gated-public-figure",
+      "stylized mascot-only route",
+      "uploaded-image authority",
+      "public-figure likeness boundary",
+      "source-image context boundary",
+      "public sample review gate",
+      "route isolation",
+      "skills/visual-ip-illustrations/references/ips/caixukun/source.md",
+      "assets/<article-slug>-caixukun/",
+      "assets/&lt;article-slug&gt;-caixukun/",
+      "endorsement",
+      "affiliation",
+      "impersonation",
+      "campaign",
+      "advertising",
+      "fandom-promotion",
+      "allow_implicit_invocation: true",
+    ], "Cai Xukun discovery metadata, gated-public-figure route status, public-figure boundaries, and default Xiaohei preservation");
+  }),
   defineCheck("ROUTE-TABLE-001", "routing.md exposes the required route metadata columns and rows", () => {
     const text = requireFile(ROUTING_FILE);
     const columns = markdownTableHeader(text, "IP Routes");
@@ -2576,6 +2860,7 @@ const checks = [
       "seal",
       "openclaw",
       "gopher",
+      "caixukun",
     ], ROUTING_FILE, "route ids");
   }),
   defineCheck("ROUTE-XH-001", "routing.md preserves the Xiaohei active route contract", () => {
@@ -2783,6 +3068,45 @@ const checks = [
     }
     assertExistingFiles(gopherPlannedReferences().map((reference) => path.join(PACKAGE_DIR, reference)), ROUTING_FILE, "Phase 42 Go Gopher seven-file pack existence");
   }),
+  defineCheck("ROUTE-CAIXUKUN-001", "routing.md preserves the Cai Xukun gated-public-figure route contract", () => {
+    const row = routeById("caixukun");
+    const references = routeReferencePaths(row);
+    assertIncludes(Object.values(row).join(" "), ROUTING_FILE, [
+      "Cai Xukun",
+      "蔡徐坤",
+      "caixukun",
+      "cxk",
+      "gated-public-figure",
+      "uploaded reference image A",
+      "uploaded reference image B",
+      "public-figure",
+      "stylized mascot route",
+      "realistic-person portrait output",
+      "official endorsement",
+      "affiliation",
+      "impersonation",
+      "campaign",
+      "celebrity advertising",
+      "fandom promotion",
+      "references/ips/caixukun/source.md",
+    ], "Cai Xukun display name, aliases, suffix, uploaded-image authority, public-figure boundary, source record, and status");
+    if (row.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected caixukun default=false; observed ${row.default || "missing"}`);
+    }
+    if (row.output_suffix !== "caixukun") {
+      throw new Error(`${ROUTING_FILE} expected caixukun output_suffix=caixukun; observed ${row.output_suffix || "missing"}`);
+    }
+    if (references.join("\n") !== caixukunPlannedReferences().join("\n")) {
+      throw new Error(
+        `${ROUTING_FILE} expected caixukun required_references=${caixukunPlannedReferences().join(", ")}; observed ${references.join(", ") || "none"}`,
+      );
+    }
+    assertExistingFiles(
+      caixukunPlannedReferences().map((reference) => path.join(PACKAGE_DIR, reference)),
+      ROUTING_FILE,
+      "Phase 47 Cai Xukun seven-file pack existence",
+    );
+  }),
   defineCheck("ROUTE-DEFAULT-001", "routing.md keeps Xiaohei as the only default active route", () => {
     const rows = routeRows();
     const defaults = rows.filter((row) => row.default === "true").map((row) => row.id);
@@ -2813,11 +3137,15 @@ const checks = [
     if (gopher.default !== "false") {
       throw new Error(`${ROUTING_FILE} expected gopher default=false; observed ${gopher.default || "missing"}`);
     }
+    const caixukun = routeById("caixukun");
+    if (caixukun.default !== "false") {
+      throw new Error(`${ROUTING_FILE} expected caixukun default=false; observed ${caixukun.default || "missing"}`);
+    }
   }),
   defineCheck("ROUTE-REFS-001", "routing.md required_references resolve inside the package", () => {
     for (const row of routeRows()) {
       const references = routeReferencePaths(row);
-      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7, openclaw: 7, gopher: 7 };
+      const expectedCounts = { xiaohei: 5, littlebox: 6, tom: 7, ferris: 7, seal: 7, openclaw: 7, gopher: 7, caixukun: 7 };
       const expectedCount = expectedCounts[row.id];
       if (references.length !== expectedCount) {
         throw new Error(
@@ -2864,6 +3192,14 @@ const checks = [
             throw new Error(`${ROUTING_FILE} expected gopher reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/gopher/`);
           }
         }
+        if (row.id === "caixukun") {
+          if (!reference.startsWith("references/ips/caixukun/")) {
+            throw new Error(`${ROUTING_FILE} expected caixukun reference ${reference} under references/ips/caixukun/`);
+          }
+          if (!displayPath(resolved).startsWith(`${PACKAGE_DIR}/references/ips/caixukun/`)) {
+            throw new Error(`${ROUTING_FILE} expected caixukun reference ${reference} to resolve under ${PACKAGE_DIR}/references/ips/caixukun/`);
+          }
+        }
         if (!fileExists(relative)) {
           throw new Error(`${ROUTING_FILE} expected ${row.id} reference ${reference} to exist; observed missing ${relative}`);
         }
@@ -2878,6 +3214,7 @@ const checks = [
     const seal = routeById("seal");
     const openclaw = routeById("openclaw");
     const gopher = routeById("gopher");
+    const caixukun = routeById("caixukun");
     if (xiaohei.output_suffix !== "illustrations") {
       throw new Error(`${ROUTING_FILE} expected xiaohei output_suffix=illustrations; observed ${xiaohei.output_suffix}`);
     }
@@ -2899,6 +3236,9 @@ const checks = [
     if (gopher.output_suffix !== "gopher") {
       throw new Error(`${ROUTING_FILE} expected gopher output_suffix=gopher; observed ${gopher.output_suffix}`);
     }
+    if (caixukun.output_suffix !== "caixukun") {
+      throw new Error(`${ROUTING_FILE} expected caixukun output_suffix=caixukun; observed ${caixukun.output_suffix}`);
+    }
     assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
@@ -2912,6 +3252,8 @@ const checks = [
       "assets/&lt;article-slug&gt;-openclaw/",
       "assets/<article-slug>-gopher/",
       "assets/&lt;article-slug&gt;-gopher/",
+      "assets/<article-slug>-caixukun/",
+      "assets/&lt;article-slug&gt;-caixukun/",
     ], "output suffix to output directory mapping");
   }),
   defineCheck("ROUTE-MIXED-001", "routing.md preserves mixed-IP separate route group wording", () => {
@@ -2925,6 +3267,7 @@ const checks = [
       "`seal` writes to `assets/<article-slug>-seal/`",
       "`openclaw` writes to `assets/<article-slug>-openclaw/`",
       "`gopher` writes to `assets/<article-slug>-gopher/`",
+      "`caixukun` writes to `assets/<article-slug>-caixukun/`",
     ], "mixed-IP isolated reference and output-directory wording");
   }),
   defineCheck("REFS-XH-001", "Xiaohei canonical operational references and index exist", () => {
@@ -3085,6 +3428,46 @@ const checks = [
       "route leakage",
       "copied composition",
     ], "Go Gopher route-local sample gate, route block, and drift markers");
+  }),
+  defineCheck("REFS-CAIXUKUN-001", "Cai Xukun canonical route references and shared markers exist", () => {
+    const caiXukunFiles = caixukunOperationalRefs();
+    assertReadableFiles(caiXukunFiles, path.join(REFERENCES_DIR, "ips", "caixukun"), "Cai Xukun seven-file pack");
+    for (const relativePath of caiXukunFiles) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "caixukun",
+        "Cai Xukun",
+        "gated-public-figure",
+        "source.md",
+        "assets/<article-slug>-caixukun/",
+        "uploaded reference image A",
+        "uploaded reference image B",
+        "public-figure likeness boundary",
+        "source-image context",
+        "Public generated Cai Xukun samples require release review",
+      ], "Cai Xukun route-local shared operational markers");
+    }
+    assertIncludes(combinedText([
+      path.join(REFERENCES_DIR, "ips", "caixukun", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "caixukun", "prompt-template.md"),
+      path.join(REFERENCES_DIR, "ips", "caixukun", "qa-checklist.md"),
+    ]), path.join(REFERENCES_DIR, "ips", "caixukun"), [
+      "Cai Xukun route block",
+      "Public-sample boundary",
+      "realistic-person output",
+      "realistic-person portrait output",
+      "generic yellow duck drift",
+      "missing idol-hair",
+      "missing outfit markers",
+      "celebrity endorsement claims",
+      "green-background carryover",
+      "official endorsement",
+      "affiliation",
+      "impersonation",
+      "campaign",
+      "celebrity advertising",
+      "fandom promotion",
+      "route leakage",
+    ], "Cai Xukun route-local sample gate, route block, public-figure boundary, and drift markers");
   }),
   defineCheck("LEGACY-XH-001", "root Xiaohei compatibility files expose the current contract heading", () => {
     for (const item of legacyXiaoheiRefs()) {
@@ -3274,6 +3657,38 @@ const checks = [
       "Unaffected-Content Preservation",
       "Go Gopher route block",
     ], "Go Gopher planning fields, generation prompt, source/license note, save reminder, and edit prompt families");
+  }),
+  defineCheck("PROMPT-CAIXUKUN-001", "Cai Xukun prompt template preserves planning, generation, edit, and public-figure markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "caixukun", "prompt-template.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Cai Xukun planning fields gate",
+      "Placement",
+      "Core idea",
+      "Structure type",
+      "Cai Xukun mascot state",
+      "Cai Xukun mascot action",
+      "Supporting objects",
+      "Visible labels",
+      "Output path: assets/<article-slug>-caixukun/",
+      "Likeness boundary note",
+      "Source-image context note",
+      "Cai Xukun one-image generation gate",
+      "Draw Cai Xukun as the uploaded-image stylized mascot described in references/ips/caixukun/source.md",
+      "Preserve the uploaded Cai Xukun visual markers together",
+      "Cai Xukun must perform the central cognitive article action",
+      "uploaded reference image A",
+      "uploaded reference image B",
+      "public-figure likeness boundary",
+      "source-image context",
+      "Save accepted output under `assets/<article-slug>-caixukun/`",
+      "Stronger Cai Xukun Participation",
+      "Uploaded-Image Identity Repair",
+      "Public-Figure Likeness Boundary Repair",
+      "Green-Background Carryover Repair",
+      "Route Leakage Repair",
+      "Unaffected-Content Preservation",
+      "Cai Xukun route block",
+    ], "Cai Xukun planning fields, generation prompt, uploaded-image authority, public-figure repair, save reminder, and edit prompt families");
   }),
   defineCheck("IP-XH-001", "Xiaohei canonical pack preserves objective IP markers", () => {
     const text = combinedText([
@@ -3475,6 +3890,51 @@ const checks = [
       "copied composition",
     ], "Go Gopher source authority, local visual identity cues, cognitive action gates, article metaphors, drift markers, and output path");
   }),
+  defineCheck("IP-CAIXUKUN-001", "Cai Xukun canonical pack preserves uploaded-image identity and action gates", () => {
+    const text = combinedText([
+      path.join(REFERENCES_DIR, "ips", "caixukun", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "caixukun", "source.md"),
+      path.join(REFERENCES_DIR, "ips", "caixukun", "style-dna.md"),
+      path.join(REFERENCES_DIR, "ips", "caixukun", "caixukun-ip.md"),
+      path.join(REFERENCES_DIR, "ips", "caixukun", "composition-patterns.md"),
+    ]);
+    assertIncludes(text, path.join(REFERENCES_DIR, "ips", "caixukun"), [
+      "gated-public-figure",
+      "uploaded visual authority",
+      "uploaded reference image A",
+      "uploaded reference image B",
+      "public-figure likeness boundary",
+      "source-image context",
+      "Cai Xukun cognitive-action participation gate",
+      "Cai Xukun must perform the central cognitive article action",
+      "article metaphors",
+      "source.md",
+      "yellow duck-like rounded mascot body",
+      "silver layered idol hair",
+      "oversized white eyes",
+      "red cheek circles",
+      "orange beak",
+      "black high-collar top",
+      "white straps",
+      "white lower outfit",
+      "compact black or gray boots",
+      "realistic-person output",
+      "realistic-person portrait output",
+      "generic yellow duck drift",
+      "missing idol-hair",
+      "missing outfit markers",
+      "celebrity endorsement claims",
+      "green-background carryover",
+      "official endorsement",
+      "affiliation",
+      "impersonation",
+      "campaign",
+      "celebrity advertising",
+      "fandom promotion",
+      "route leakage",
+      "copied composition",
+    ], "Cai Xukun source authority, uploaded-image identity cues, cognitive action gates, article metaphors, public-figure boundaries, drift markers, and output path");
+  }),
   defineCheck("QA-TOM-001", "Tom QA checklist preserves protected-route pass, fail, repair, and delivery markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "qa-checklist.md");
     assertIncludes(requireFile(relativePath), relativePath, [
@@ -3640,6 +4100,50 @@ const checks = [
       "Accepted Go Gopher images keep Go Gopher as the action subject",
     ], "Go Gopher QA pass criteria, source/license failures, route leakage failure, repair gates, and delivery judgment");
   }),
+  defineCheck("QA-CAIXUKUN-001", "Cai Xukun QA checklist preserves public-figure pass, fail, repair, and delivery markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "caixukun", "qa-checklist.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "Cai Xukun QA gated-public-figure gate.",
+      "Cai Xukun QA uploaded-image identity gate.",
+      "Cai Xukun QA source authority note gate.",
+      "Cai Xukun QA public-figure likeness boundary gate.",
+      "Cai Xukun QA article-metaphor gate.",
+      "Cai Xukun QA route isolation gate.",
+      "Cai Xukun QA public sample review boundary gate.",
+      "Cai Xukun performs active cognitive participation.",
+      "Source authority is preserved through `references/ips/caixukun/source.md`",
+      "Public-figure likeness boundary is preserved",
+      "Green reference background is source-image context",
+      "Delivery path uses `assets/<article-slug>-caixukun/`.",
+      "realistic-person output",
+      "realistic-person portrait output",
+      "generic yellow duck drift",
+      "missing idol-hair",
+      "missing outfit markers",
+      "celebrity endorsement claims",
+      "official endorsement",
+      "affiliation",
+      "impersonation",
+      "campaign",
+      "celebrity advertising",
+      "fandom promotion",
+      "green-background carryover",
+      "Cai Xukun QA realistic-person output failure",
+      "Cai Xukun QA generic yellow duck drift failure",
+      "Cai Xukun QA passive placement failure",
+      "Cai Xukun QA route leakage failure",
+      "Cai Xukun QA green-background carryover failure",
+      "Cai Xukun QA public-figure likeness failure",
+      "Stronger Cai Xukun Participation",
+      "Uploaded-Image Identity Repair",
+      "Public-Figure Likeness Boundary Repair",
+      "Green-Background Carryover Repair",
+      "Route Leakage Repair",
+      "Unaffected-Content Preservation",
+      "Cai Xukun QA unaffected-content preservation gate",
+      "Accepted Cai Xukun images keep Cai Xukun as the action subject",
+    ], "Cai Xukun QA pass criteria, public-figure failures, route leakage failure, repair gates, and delivery judgment");
+  }),
   defineCheck("RIGHTS-TOM-001", "Tom rights record preserves required Phase 6 rights markers", () => {
     const relativePath = path.join(REFERENCES_DIR, "ips", "tom", "rights.md");
     assertIncludes(requireFile(relativePath), relativePath, [
@@ -3782,6 +4286,53 @@ const checks = [
       "article-metaphor quality outcome",
     ], "Go Gopher source headings, Go blog source, attribution, license, root visual authority, route status, output path, and sample gate");
   }),
+  defineCheck("SOURCE-CAIXUKUN-001", "Cai Xukun source record preserves uploaded-image, public-figure, and sample gate markers", () => {
+    const relativePath = path.join(REFERENCES_DIR, "ips", "caixukun", "source.md");
+    assertIncludes(requireFile(relativePath), relativePath, [
+      "# Cai Xukun Source Record",
+      "## Source",
+      "## Uploaded Image Authority",
+      "## Public-Figure Likeness Boundary",
+      "## Uploaded Cai Xukun Visual Markers",
+      "## Source-Image Context",
+      "## Sample Policy",
+      "## Route Status",
+      "## Allowed Use",
+      "## Restricted Use",
+      "## Distribution Boundary",
+      "## Review Owner",
+      "gated-public-figure",
+      "uploaded reference image A",
+      "uploaded reference image B",
+      "yellow duck-like rounded mascot body",
+      "silver layered idol hair",
+      "oversized white eyes",
+      "red cheek circles",
+      "orange beak",
+      "black high-collar top",
+      "white straps",
+      "white lower outfit",
+      "compact black or gray boots",
+      "green reference background is source-image context",
+      "generated article illustrations keep the skill's sparse 16:9 white-background style",
+      "assets/<article-slug>-caixukun/",
+      "references/ips/caixukun/source.md",
+      "Public generated Cai Xukun samples require release review",
+      "uploaded-image identity outcome",
+      "public-figure likeness boundary outcome",
+      "source-image context outcome",
+      "route-isolation outcome",
+      "article-metaphor quality outcome",
+      "public-sample decision",
+      "realistic-person portrait output",
+      "official endorsement",
+      "affiliation",
+      "impersonation",
+      "campaign",
+      "celebrity advertising",
+      "fandom promotion",
+    ], "Cai Xukun source headings, uploaded-image authority, public-figure boundary, source-image context, route status, output path, and sample gate");
+  }),
   defineCheck("LOGO-SEAL-001", "Seal route keeps mascot logo-free", () => {
     const routeLocalFiles = [
       path.join(REFERENCES_DIR, "ips", "seal", "index.md"),
@@ -3914,10 +4465,13 @@ const checks = [
       "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
       "skills/visual-ip-illustrations/references/ips/gopher/",
       "skills/visual-ip-illustrations/references/ips/gopher/source.md",
+      "skills/visual-ip-illustrations/references/ips/caixukun/",
+      "skills/visual-ip-illustrations/references/ips/caixukun/source.md",
       "Xiaohei",
       "Littlebox",
       "OpenClaw",
       "Go Gopher",
+      "Cai Xukun",
     ], "public route docs, canonical pack paths, and route names");
   }),
   defineCheck("DOC-TOM-001", "public docs expose Tom gated route markers", () => {
@@ -4109,6 +4663,85 @@ const checks = [
       "Go Gopher docs, metadata, source/license authority, path-token consistency, public sample policy, and validator ownership markers",
     );
   }),
+  defineCheck("DOC-CAIXUKUN-001", "public docs expose Cai Xukun gated-public-figure route and public-figure markers", () => {
+    for (const relativePath of readmeVariantFiles()) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "Cai Xukun",
+        "gated-public-figure",
+        "skills/visual-ip-illustrations/references/ips/caixukun/source.md",
+        "assets/<article-slug>-caixukun/",
+        "assets/&lt;article-slug&gt;-caixukun/",
+      ], "Cai Xukun README variant route status, source authority, and path markers");
+    }
+    for (const relativePath of [
+      "README.md",
+      "examples/prompts.md",
+      "RELEASE_CHECKLIST.md",
+      ROUTING_FILE,
+    ]) {
+      assertIncludes(requireFile(relativePath), relativePath, [
+        "Cai Xukun",
+        "蔡徐坤",
+        "caixukun",
+        "cxk",
+        "gated-public-figure",
+        "skills/visual-ip-illustrations/references/ips/caixukun/source.md",
+        "assets/<article-slug>-caixukun/",
+        "assets/&lt;article-slug&gt;-caixukun/",
+        "uploaded-image authority",
+        "public-figure likeness boundary",
+      ], "Cai Xukun route status, aliases, source authority, public-figure boundary, and path markers");
+    }
+    assertIncludes(requireFile(ROUTING_FILE), ROUTING_FILE, [
+      "Cai Xukun Metadata",
+      "Source-image context:",
+      "public generated sample release review",
+      "Mixed requests across Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun create separate route groups",
+      "stylized mascot article-illustration route",
+    ], "Cai Xukun routing metadata keeps equivalent source-image, review, route separation, and stylized mascot markers");
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Cai Xukun Source Boundary and Public Sample Gate",
+      "Route: Cai Xukun",
+      "Aliases: `Cai Xukun`, `蔡徐坤`, `caixukun`, `cxk`",
+      "Route status: `gated-public-figure`",
+      "Source authority: `skills/visual-ip-illustrations/references/ips/caixukun/source.md`",
+      "Uploaded-image authority",
+      "public-figure likeness boundary",
+      "source-image context boundary",
+      "stylized mascot-only output",
+    ], "Cai Xukun NOTICE source boundary and public sample gate wording");
+    assertIncludes(requireFile(OPENAI_AGENT_FILE), OPENAI_AGENT_FILE, [
+      "Cai Xukun",
+      "蔡徐坤",
+      "gated-public-figure",
+      "stylized mascot-only route",
+      "public-figure likeness boundary",
+    ], "Cai Xukun agent metadata route status wording");
+    assertIncludes(
+      combinedText(["README.md", "examples/prompts.md", "NOTICE.md", "RELEASE_CHECKLIST.md", ROUTING_FILE, OPENAI_AGENT_FILE]),
+      "README.md + examples/prompts.md + NOTICE.md + RELEASE_CHECKLIST.md + routing.md + openai.yaml",
+      [
+        "skills/visual-ip-illustrations/references/ips/caixukun/",
+        "skills/visual-ip-illustrations/references/ips/caixukun/source.md",
+        "Cai Xukun Source Review",
+        "Cai Xukun Public-Figure Boundary Review",
+        "Cai Xukun Public Asset Policy",
+        "Cai Xukun Generated Sample Policy",
+        "uploaded-image authority",
+        "public-figure likeness boundary",
+        "source-image context boundary",
+        "public generated Cai Xukun samples",
+        "endorsement",
+        "affiliation",
+        "impersonation",
+        "campaign",
+        "advertising",
+        "fandom-promotion",
+        "Phase 47",
+      ],
+      "Cai Xukun docs, metadata, source authority, path-token consistency, public sample policy, and validator ownership markers",
+    );
+  }),
   defineCheck("NOTICE-IAN-001", "NOTICE keeps Ian Xiaohei attribution markers", () => {
     assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
       "Ian Xiaohei Illustrations",
@@ -4209,6 +4842,36 @@ const checks = [
       "Go logo boundary outcome",
       "official endorsement boundary outcome",
     ], "Go Gopher NOTICE source/license, local visual authority, attribution context, and public sample gate");
+  }),
+  defineCheck("NOTICE-CAIXUKUN-001", "NOTICE keeps Cai Xukun source boundary and public sample gate markers", () => {
+    assertIncludes(requireFile("NOTICE.md"), "NOTICE.md", [
+      "Cai Xukun Source Boundary and Public Sample Gate",
+      "gated-public-figure",
+      "Route: Cai Xukun",
+      "Route id: `caixukun`",
+      "Aliases: `Cai Xukun`, `蔡徐坤`, `caixukun`, `cxk`",
+      "Source authority: `skills/visual-ip-illustrations/references/ips/caixukun/source.md`",
+      "Output path: `assets/<article-slug>-caixukun/`",
+      "Docs validation token: `assets/&lt;article-slug&gt;-caixukun/`",
+      "Uploaded-image authority",
+      "public-figure likeness boundary",
+      "source-image context boundary",
+      "route isolation",
+      "stylized mascot-only output",
+      "endorsement",
+      "affiliation",
+      "impersonation",
+      "campaign",
+      "advertising",
+      "fandom-promotion",
+      "uploaded-image identity outcome",
+      "public-figure likeness boundary outcome",
+      "source-image context boundary outcome",
+      "route-isolation outcome",
+      "stylized mascot-only output outcome",
+      "article-metaphor quality outcome",
+      "public-sample decision",
+    ], "Cai Xukun NOTICE source boundary, public-figure boundary, review outcomes, and public sample gate");
   }),
   defineCheck("SMOKE-DEFAULT-001", "examples prompts cover omitted-IP default Xiaohei smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
@@ -4331,6 +4994,30 @@ const checks = [
       "### Smoke: Go Gopher source-reviewed route status",
     ], "text-only explicit Go Gopher route smoke, planning, generation, edit, path, source/license, identity, and public-sample gate prompts");
   }),
+  defineCheck("SMOKE-CAIXUKUN-001", "examples prompts cover explicit Cai Xukun route smoke path", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "## Route Smoke: Explicit Cai Xukun",
+      "Cai Xukun is an explicit `gated-public-figure` stylized mascot-only route",
+      "Explicit Cai Xukun aliases include Cai Xukun, 蔡徐坤, caixukun, and cxk",
+      "Use $ian-xiaohei-illustrations with the Cai Xukun / 蔡徐坤 / caixukun / cxk route",
+      "route status `gated-public-figure`",
+      "source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`",
+      "route-local reference directory `skills/visual-ip-illustrations/references/ips/caixukun/`",
+      "required references include `index.md`, `source.md`, `style-dna.md`, `caixukun-ip.md`, `composition-patterns.md`, `prompt-template.md`, `qa-checklist.md`",
+      "planning fields include Placement, Core idea, Structure type, Cai Xukun mascot state, Cai Xukun mascot action, Supporting objects, Visible labels, Output path, Likeness boundary note, Source-image context note",
+      "assets/<article-slug>-caixukun/",
+      "assets/&lt;article-slug&gt;-caixukun/",
+      "uploaded-image authority",
+      "public-figure likeness boundary",
+      "source-image context boundary",
+      "public sample review gate",
+      "route isolation",
+      "stylized mascot-only output",
+      "endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims",
+      "### Explicit Cai Xukun: edit existing image",
+      "### Smoke: Cai Xukun gated-public-figure route status",
+    ], "text-only explicit Cai Xukun route smoke, planning, generation, edit, path, source authority, public-figure boundaries, and public-sample gate prompts");
+  }),
   defineCheck("SMOKE-MIXED-001", "examples prompts cover mixed-IP variant smoke path", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
       "## Route Notes: Mixed-IP Requests",
@@ -4375,9 +5062,9 @@ const checks = [
       "OpenClaw variant group each use their own route-local references",
     ], "six-route mixed prompt separation, OpenClaw route-local pack, source/license authority, output path, uploaded-logo identity, and public-sample gate");
   }),
-  defineCheck("SMOKE-MIXED-GOPHER-001", "examples prompts cover seven-route mixed-IP Go Gopher variant behavior", () => {
+  defineCheck("SMOKE-MIXED-GOPHER-001", "examples prompts cover Go Gopher mixed-IP variant behavior", () => {
     assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
-      "seven separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher",
+      "Go Gopher variant group",
       "Xiaohei variant group",
       "Littlebox variant group",
       "Tom variant group",
@@ -4387,14 +5074,40 @@ const checks = [
       "Go Gopher variant group",
       "Go Gopher canonical pack is at `skills/visual-ip-illustrations/references/ips/gopher/`",
       "Go Gopher source/license authority is at `skills/visual-ip-illustrations/references/ips/gopher/source.md`",
-      "Go Gopher variant group uses `skills/visual-ip-illustrations/references/ips/gopher/`",
+      "Expected: Go Gopher variant group uses `skills/visual-ip-illustrations/references/ips/gopher/`",
       "outputs to `assets/<article-slug>-gopher/`",
       "keeps docs validation token `assets/&lt;article-slug&gt;-gopher/`",
       "route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority",
       "public sample gate",
-      "Expected: Go Gopher variant group uses `skills/visual-ip-illustrations/references/ips/gopher/`",
-      "Go Gopher variant group each use their own route-local references",
-    ], "seven-route mixed prompt separation, Go Gopher route-local pack, source/license authority, output path, root visual identity, and public-sample gate");
+      "Go Gopher variant group, and Cai Xukun variant group each use their own route-local references",
+    ], "Go Gopher mixed prompt separation, route-local pack, source/license authority, output path, local visual identity, and public-sample gate");
+  }),
+  defineCheck("SMOKE-MIXED-CAIXUKUN-001", "examples prompts cover eight-route mixed-IP Cai Xukun variant behavior", () => {
+    assertIncludes(requireFile("examples/prompts.md"), "examples/prompts.md", [
+      "eight separate variant groups: Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun",
+      "Xiaohei variant group",
+      "Littlebox variant group",
+      "Tom variant group",
+      "Ferris variant group",
+      "Seal variant group",
+      "OpenClaw variant group",
+      "Go Gopher variant group",
+      "Cai Xukun variant group",
+      "Cai Xukun canonical pack is at `skills/visual-ip-illustrations/references/ips/caixukun/`",
+      "Cai Xukun source authority is at `skills/visual-ip-illustrations/references/ips/caixukun/source.md`",
+      "Expected: Cai Xukun variant group uses `skills/visual-ip-illustrations/references/ips/caixukun/`",
+      "outputs to `assets/<article-slug>-caixukun/`",
+      "keeps docs validation token `assets/&lt;article-slug&gt;-caixukun/`",
+      "route status `gated-public-figure`",
+      "uploaded-image authority",
+      "public-figure likeness boundary",
+      "source-image context boundary",
+      "public sample review gate",
+      "route isolation",
+      "stylized mascot-only output",
+      "endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims",
+      "Cai Xukun variant group each use their own route-local references",
+    ], "eight-route mixed prompt separation, Cai Xukun route-local pack, source authority, output path, uploaded-image authority, public-figure boundary, and public-sample gate");
   }),
   defineCheck("RELEASE-TOM-001", "release checklist keeps Tom rights and public sample gate markers", () => {
     assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
@@ -4547,6 +5260,50 @@ const checks = [
       "git diff --check",
     ], "Go Gopher release checklist source/license, local visual identity, leakage, public asset, generated sample, validator, and final review markers");
   }),
+  defineCheck("RELEASE-CAIXUKUN-001", "release checklist keeps Cai Xukun source boundary and public sample gates", () => {
+    assertIncludes(requireFile("RELEASE_CHECKLIST.md"), "RELEASE_CHECKLIST.md", [
+      "## Cai Xukun Source Boundary and Public Sample Gate",
+      "Cai Xukun Source Review",
+      "Cai Xukun Public-Figure Boundary Review",
+      "Cai Xukun Prompt Leakage Scan",
+      "Cai Xukun Public Asset Policy",
+      "Cai Xukun Generated Sample Policy",
+      "Final Cai Xukun Release Review",
+      "skills/visual-ip-illustrations/references/ips/caixukun/source.md",
+      "gated-public-figure",
+      "Cai Xukun",
+      "蔡徐坤",
+      "caixukun",
+      "cxk",
+      "uploaded-image authority",
+      "public-figure likeness boundary",
+      "source-image context boundary",
+      "route isolation",
+      "stylized mascot-only output",
+      "Cai Xukun public asset policy for",
+      "Record generated sample review",
+      "allowed directories / release channels",
+      "uploaded-image identity outcome",
+      "public-figure likeness boundary outcome",
+      "source-image context boundary outcome",
+      "route-isolation outcome",
+      "stylized mascot-only output outcome",
+      "article-metaphor quality outcome",
+      "public-sample decision",
+      "assets/<article-slug>-caixukun/",
+      "assets/&lt;article-slug&gt;-caixukun/",
+      "endorsement",
+      "affiliation",
+      "impersonation",
+      "campaign",
+      "advertising",
+      "fandom-promotion",
+      "Phase 47 validator parity",
+      "node scripts/validate-skill-package.mjs",
+      "node --test scripts/validate-skill-package.test.mjs",
+      "git diff --check",
+    ], "Cai Xukun release checklist source boundary, public-figure boundary, leakage, public asset, generated sample, validator, and final review markers");
+  }),
   defineCheck("REBRAND-CANON-001", "runtime metadata preserves Visual IP Illustrations canonical identity", () => {
     assertIncludes(requireFile(SKILL_FILE), SKILL_FILE, [
       "Visual IP Illustrations",
@@ -4605,6 +5362,8 @@ const checks = [
       "seal",
       "openclaw",
       "gopher",
+      "Cai Xukun",
+      "caixukun",
     ], "stable route display names and output suffix markers");
   }),
   defineCheck("REBRAND-COMPAT-001", "runtime metadata preserves legacy alias compatibility", () => {
@@ -4709,6 +5468,7 @@ const checks = [
       "skills/visual-ip-illustrations/references/ips/seal/source.md",
       "skills/visual-ip-illustrations/references/ips/openclaw/source.md",
       "skills/visual-ip-illustrations/references/ips/gopher/source.md",
+      "skills/visual-ip-illustrations/references/ips/caixukun/source.md",
       "assets/<article-slug>-illustrations/",
       "assets/<article-slug>-littlebox/",
       "assets/<article-slug>-tom/",
@@ -4716,6 +5476,7 @@ const checks = [
       "assets/<article-slug>-seal/",
       "assets/<article-slug>-openclaw/",
       "assets/<article-slug>-gopher/",
+      "assets/<article-slug>-caixukun/",
     ], "canonical name, invocation aliases, install markers, route statuses, authority paths, and output paths");
   }),
   defineCheck("LANG-POLICY-001", "language policy names every English-default surface", () => {
@@ -4827,6 +5588,36 @@ const checks = [
       "VAL-05",
       "route-local gopher.png exists",
     ], "Phase 42 exact command summaries, smoke coverage, docs consistency, leakage, sample gates, and requirement traceability");
+  }),
+  defineCheck("VAL-CAIXUKUN-EVIDENCE-001", "Phase 47 records Cai Xukun validation and release evidence", () => {
+    const evidencePath = path.join(
+      ".planning",
+      "phases",
+      "47-cai-xukun-validation-and-release-evidence",
+      "47-RELEASE-EVIDENCE.md",
+    );
+    assertIncludes(requireFile(evidencePath), evidencePath, [
+      "# Phase 47 Release Evidence: Cai Xukun Validation",
+      "node scripts/validate-skill-package.mjs",
+      "node --test scripts/validate-skill-package.test.mjs",
+      "git diff --check",
+      "Cai Xukun route smoke",
+      "uploaded-image smoke",
+      "public-figure likeness-boundary smoke",
+      "source-image context smoke",
+      "docs consistency",
+      "BOUNDARY-CAIXUKUN-LEAK-001",
+      "BOUNDARY-CAIXUKUN-IMG-001",
+      "BOUNDARY-CAIXUKUN-GEN-001",
+      "public generated Cai Xukun samples remain pending",
+      "generated-sample internal review distinction",
+      "dirty-worktree scope",
+      "VAL-01",
+      "VAL-02",
+      "VAL-03",
+      "VAL-04",
+      "VAL-05",
+    ], "Phase 47 exact command summaries, route smoke, uploaded-image smoke, docs consistency, leakage, sample gates, scope evidence, and requirement traceability");
   }),
   defineCheck("BOUNDARY-IMG-001", "example asset directories do not import rendered Littlebox images", () => {
     const matches = legacyImageAssetPaths().filter((relativePath) => /littlebox|小盒|carton/i.test(relativePath));
@@ -4982,6 +5773,46 @@ const checks = [
       assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no Go Gopher route text leakage");
     }
   }),
+  defineCheck("BOUNDARY-CAIXUKUN-LEAK-001", "non-Cai-Xukun route references keep Cai Xukun public-figure markers isolated", () => {
+    const leakMarkers = [
+      "Cai Xukun",
+      "蔡徐坤",
+      "caixukun",
+      "cxk",
+      "gated-public-figure",
+      "references/ips/caixukun",
+      "assets/<article-slug>-caixukun/",
+      "assets/&lt;article-slug&gt;-caixukun/",
+      "uploaded reference image A",
+      "uploaded reference image B",
+      "public-figure likeness boundary",
+      "source-image context boundary",
+      "stylized mascot-only output",
+      "realistic-person portrait output",
+      "celebrity endorsement claims",
+      "celebrity advertising",
+      "fandom-promotion",
+      "fandom promotion",
+    ];
+    const scannedPaths = [
+      path.join(REFERENCES_DIR, "ips", "xiaohei", "index.md"),
+      ...xiaoheiOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "littlebox", "index.md"),
+      ...littleboxOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "tom", "index.md"),
+      ...tomOperationalRefs(),
+      path.join(REFERENCES_DIR, "ips", "ferris", "index.md"),
+      path.join(REFERENCES_DIR, "ips", "ferris", "source.md"),
+      ...ferrisOperationalRefs(),
+      ...sealOperationalRefs(),
+      ...openclawOperationalRefs(),
+      ...gopherOperationalRefs(),
+      ...legacyXiaoheiRefs().map((item) => item.root),
+    ];
+    for (const relativePath of scannedPaths) {
+      assertNoMarkers(requireFile(relativePath), relativePath, leakMarkers, "no Cai Xukun route text leakage");
+    }
+  }),
   defineCheck("BOUNDARY-TOM-IMG-001", "example asset directories keep Tom rendered assets behind release approval", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parsePublicTomSampleApproval(releaseChecklist);
@@ -5049,6 +5880,21 @@ const checks = [
       );
     }
   }),
+  defineCheck("BOUNDARY-CAIXUKUN-IMG-001", "example asset directories keep Cai Xukun rendered assets behind release approval", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parsePublicCaiXukunSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected Cai Xukun public asset policy approval record; observed missing line");
+    }
+    const matches = imageAssetPaths().filter((relativePath) =>
+      /caixukun|cai[-_]?xukun|cxk|蔡徐坤/i.test(relativePath),
+    );
+    if (!approval.complete && matches.length > 0) {
+      throw new Error(
+        `examples/images, examples/images-en, and ${PACKAGE_DIR}/assets/examples expected no rendered Cai Xukun assets until public-sample approval is complete; observed ${matches.join(", ")}; approval status=${approval.status || "missing"}, reviewer=${approval.reviewerPresent ? "present" : "missing"}, date=${approval.datePresent ? "present" : "missing"}, allowed directories=${approval.allowedDirectoriesPresent ? "present" : "missing"}, release channels=${approval.releaseChannelsPresent ? "present" : "missing"}, uploaded-image identity outcome=${approval.uploadedImageIdentityOutcomePresent ? "present" : "missing"}, public-figure likeness boundary outcome=${approval.publicFigureLikenessBoundaryOutcomePresent ? "present" : "missing"}, source-image context boundary outcome=${approval.sourceImageContextBoundaryOutcomePresent ? "present" : "missing"}, route-isolation outcome=${approval.routeIsolationOutcomePresent ? "present" : "missing"}, stylized mascot-only output outcome=${approval.stylizedMascotOnlyOutputOutcomePresent ? "present" : "missing"}, article-metaphor quality outcome=${approval.articleMetaphorOutcomePresent ? "present" : "missing"}, public-sample decision=${approval.publicSampleOutcomePresent ? "present" : "missing"}`,
+      );
+    }
+  }),
   defineCheck("BOUNDARY-FERRIS-GEN-001", "Ferris generated samples stay distinct from public rendered sample release gates", () => {
     const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
     const approval = parseGeneratedFerrisSampleApproval(releaseChecklist);
@@ -5096,6 +5942,20 @@ const checks = [
       "Public rendered samples from `assets/<article-slug>-gopher/` require Go Gopher Public Asset Policy approval",
       "Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / Renee French attribution outcome / Creative Commons Attribution 4.0 outcome / local visual marker outcome / route-isolation outcome / Go logo boundary outcome / official endorsement boundary outcome / article-metaphor quality outcome",
     ], "Go Gopher generated sample workspace and public release distinction");
+  }),
+  defineCheck("BOUNDARY-CAIXUKUN-GEN-001", "Cai Xukun generated samples stay distinct from public rendered sample release gates", () => {
+    const releaseChecklist = requireFile("RELEASE_CHECKLIST.md");
+    const approval = parseGeneratedCaiXukunSampleApproval(releaseChecklist);
+    if (!approval.found) {
+      throw new Error("RELEASE_CHECKLIST.md expected Cai Xukun generated sample review record; observed missing line");
+    }
+    assertIncludes(releaseChecklist, "RELEASE_CHECKLIST.md", [
+      "Internal review samples under `assets/<article-slug>-caixukun/` may be used",
+      "Public generated samples from `assets/<article-slug>-caixukun/` require Cai Xukun Public Asset Policy approval",
+      "Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / public-figure likeness boundary outcome / source-image context boundary outcome / route-isolation outcome / stylized mascot-only output outcome",
+      "endorsement, affiliation, impersonation, campaign, advertising, fandom-promotion review outcome",
+      "article-metaphor quality outcome",
+    ], "Cai Xukun generated sample workspace and public release distinction");
   }),
   defineCheck("BOUNDARY-P5-001", "validator enforces live package and workspace output boundaries", () => {
     for (const row of routeRows()) {

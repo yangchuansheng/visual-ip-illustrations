@@ -32,6 +32,8 @@ Phase 37 owns OpenClaw validator parity, final release evidence, public docs/pat
 
 Phase 42 owns Go Gopher validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation before Go Gopher public release evidence.
 
+Phase 47 owns Cai Xukun validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation before Cai Xukun public release evidence.
+
 ## Release 1.5 English-Default Review
 
 - [ ] Confirm English-default coverage across README, examples, `LANGUAGE_POLICY.md`, `SKILL.md`, `openai.yaml`, routing, route-local references, NOTICE, and this release checklist.
@@ -52,6 +54,7 @@ Phase 42 owns Go Gopher validator parity, Node tests, final release evidence, do
 - [ ] Confirm the installable package directory is `skills/visual-ip-illustrations/`.
 - [ ] Scan README, examples, NOTICE, and release materials for stale old-name-only first-view public surfaces.
 - [ ] Confirm route behavior, route statuses, authority paths, raw output path tokens, and escaped output path tokens remain stable for Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher.
+- [ ] Confirm Cai Xukun remains an explicit `gated-public-figure` stylized mascot-only route with aliases `Cai Xukun`, `蔡徐坤`, `caixukun`, and `cxk`, source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, raw output path `assets/<article-slug>-caixukun/`, escaped output path `assets/&lt;article-slug&gt;-caixukun/`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and release review terms for endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims.
 
 ## Route Smoke Prompts
 
@@ -63,7 +66,8 @@ Phase 42 owns Go Gopher validator parity, Node tests, final release evidence, do
 - [ ] Explicit Seal smoke: request `Seal`, `hoodie seal`, `连帽衫海豹`, `海豹`, `white seal`, or `blue hoodie seal` and confirm route status `active`, source authority `skills/visual-ip-illustrations/references/ips/seal/source.md`, route-local directory `skills/visual-ip-illustrations/references/ips/seal/`, output path `assets/<article-slug>-seal/`, and Source-history note.
 - [ ] Explicit OpenClaw smoke: request `OpenClaw` or `openclaw` and confirm route status `source-reviewed`, source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`, route-local directory `skills/visual-ip-illustrations/references/ips/openclaw/`, output path `assets/<article-slug>-openclaw/`, uploaded-logo authority, and public sample gate.
 - [ ] Explicit Go Gopher smoke: request `Go Gopher`, `Gopher`, `Go mascot`, or a Go Gopher alias listed in `skills/visual-ip-illustrations/references/routing.md` and confirm route status `source-reviewed`, source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`, route-local directory `skills/visual-ip-illustrations/references/ips/gopher/`, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, output path `assets/<article-slug>-gopher/`, docs validation token `assets/&lt;article-slug&gt;-gopher/`, Source/license note, public sample gate, Go logo boundary, and official endorsement boundary.
-- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher variant groups and confirm each group loads its own references and output path.
+- [ ] Explicit Cai Xukun smoke: request `Cai Xukun`, `蔡徐坤`, `caixukun`, or `cxk` and confirm route status `gated-public-figure`, source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, route-local directory `skills/visual-ip-illustrations/references/ips/caixukun/`, output path `assets/<article-slug>-caixukun/`, docs validation token `assets/&lt;article-slug&gt;-caixukun/`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, stylized mascot-only output, and neutral article-concept rewrites for endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims.
+- [ ] Mixed-IP smoke: request the same core idea as Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun variant groups and confirm each group loads its own references and output path.
 
 Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 
@@ -74,6 +78,7 @@ Use the smoke prompt inventory in `examples/prompts.md` as the copy source.
 - [ ] Review `NOTICE.md` for Seal source-history boundary: product-neutral hoodie seal route, route id `seal`, route status `active`, source-history authority `skills/visual-ip-illustrations/references/ips/seal/source.md`, hoodie identity note, logo-free route behavior, historical provenance note, and public sample review fields.
 - [ ] Review `NOTICE.md` for OpenClaw source/license attribution: official repository `https://github.com/openclaw/openclaw`, `MIT License`, `Copyright (c) 2026 OpenClaw Foundation`, route id `openclaw`, route status `source-reviewed`, source/license authority `skills/visual-ip-illustrations/references/ips/openclaw/source.md`, uploaded-logo authority, and public sample review fields.
 - [ ] Review `NOTICE.md` for Go Gopher source/license attribution: official Go blog source `https://go.dev/blog/gopher`, Renee French, Creative Commons Attribution 4.0, route id `gopher`, route status `source-reviewed`, source/license authority `skills/visual-ip-illustrations/references/ips/gopher/source.md`, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, public rendered Go Gopher samples gate, Go logo boundary, and official endorsement boundary.
+- [ ] Review `NOTICE.md` for Cai Xukun source boundary: route id `caixukun`, route status `gated-public-figure`, aliases `Cai Xukun`, `蔡徐坤`, `caixukun`, `cxk`, source authority `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, output path `assets/<article-slug>-caixukun/`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, stylized mascot-only output, and release review terms for endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims.
 - [ ] Confirm public docs and release notes keep attribution language aligned with `NOTICE.md`.
 
 ## Tom Rights and Public Sample Gate
@@ -289,27 +294,71 @@ This section is the Go Gopher maintainer release gate for source/license review,
 - [ ] Final Go Gopher release review confirms route status `source-reviewed`, NOTICE consistency, README/examples/metadata parity, routing parity, public asset approvals, generated sample approvals, and Phase 42 validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation before public rendered sample release.
 - [ ] Final Go Gopher release review requires green evidence from `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`.
 
+## Cai Xukun Source Boundary and Public Sample Gate
+
+This section is the Cai Xukun maintainer release gate for source review, uploaded-image authority, public-figure likeness boundary, source-image context boundary, route leakage, public assets, generated samples, validator evidence, release channels, and final Cai Xukun release review.
+
+### Cai Xukun Source Review
+
+- [ ] Review `skills/visual-ip-illustrations/references/ips/caixukun/source.md` for uploaded-image authority, public-figure likeness boundary, source-image context boundary, route status, allowed use, restricted use, distribution boundary, sample policy, and review owner.
+- [ ] Confirm route status remains `gated-public-figure`, aliases remain `Cai Xukun`, `蔡徐坤`, `caixukun`, and `cxk`, source authority remains `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, and route-local directory remains `skills/visual-ip-illustrations/references/ips/caixukun/`.
+- [ ] Confirm public docs keep raw output path `assets/<article-slug>-caixukun/`, docs validation token `assets/&lt;article-slug&gt;-caixukun/`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, and stylized mascot-only output.
+- [ ] Record source review: PENDING / reviewer / date / approval status / source record / release channels / uploaded-image identity outcome / public-figure likeness boundary outcome / source-image context boundary outcome / route-isolation outcome / stylized mascot-only output outcome.
+
+### Cai Xukun Public-Figure Boundary Review
+
+- [ ] Confirm Cai Xukun output remains stylized mascot-only output and avoids realistic-person portrait output.
+- [ ] Confirm source-image context boundary keeps the green reference background as source context while generated article illustrations use sparse 16:9 white-background article style.
+- [ ] Confirm endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion claims are rewritten as neutral article-concept labels in prompts, examples, delivery notes, generated sample copy, and release materials.
+
+### Cai Xukun Prompt Leakage Scan
+
+- [ ] Scan Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher route-local references for Cai Xukun, 蔡徐坤, caixukun, cxk, `gated-public-figure`, Cai Xukun source authority, `references/ips/caixukun`, `assets/<article-slug>-caixukun/`, and `assets/&lt;article-slug&gt;-caixukun/`.
+- [ ] Confirm Cai Xukun wording stays route-local so uploaded-image authority, public-figure likeness boundary, source-image context boundary, and fandom-promotion review terms stay isolated from Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher route contracts.
+- [ ] Confirm generated public Cai Xukun samples require release review for uploaded-image identity, public-figure likeness boundary, source-image context boundary, route isolation, stylized mascot-only output, and article-metaphor quality before release channels list them.
+
+### Cai Xukun Public Asset Policy
+
+- [ ] Cai Xukun public asset policy for `examples/images/`, `examples/images-en/`, and `skills/visual-ip-illustrations/assets/examples/`: PENDING / reviewer / date / approval status / allowed directories / release channels / uploaded-image identity outcome / public-figure likeness boundary outcome / source-image context boundary outcome / route-isolation outcome / stylized mascot-only output outcome / article-metaphor quality outcome / public-sample decision.
+- [ ] Public generated Cai Xukun sample assets remain pending and are not approved for publication in `examples/images/`, `examples/images-en/`, `skills/visual-ip-illustrations/assets/examples/`, README galleries, or release materials.
+- [ ] Public generated Cai Xukun sample approval must cover uploaded-image authority, public-figure likeness boundary, source-image context boundary, route isolation, stylized mascot-only output, allowed directories, release channels, endorsement, affiliation, impersonation, campaign, advertising, fandom-promotion review, and public-sample decision.
+
+### Cai Xukun Generated Sample Policy
+
+- [ ] Internal review samples under `assets/<article-slug>-caixukun/` may be used when the source record, uploaded-image authority, public-figure likeness boundary, and source-image context boundary stay attached.
+- [ ] Public generated samples from `assets/<article-slug>-caixukun/` require Cai Xukun Public Asset Policy approval before release channels list or copy them into public sample directories.
+- [ ] Record generated sample review: PENDING / reviewer / date / approval status / internal review directories / public directories / release channels / uploaded-image identity outcome / public-figure likeness boundary outcome / source-image context boundary outcome / route-isolation outcome / stylized mascot-only output outcome / endorsement, affiliation, impersonation, campaign, advertising, fandom-promotion review outcome / article-metaphor quality outcome.
+
+### Final Cai Xukun Release Review
+
+- [ ] Final Cai Xukun release review confirms `skills/visual-ip-illustrations/references/ips/caixukun/source.md` is the authority for uploaded-image authority, public-figure likeness boundary, source-image context boundary, distribution boundary, sample policy, and review owner.
+- [ ] Final Cai Xukun release review confirms route status `gated-public-figure`, NOTICE consistency, README/examples/metadata parity, routing parity, public asset approvals, generated sample approvals, and Phase 47 validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation before public generated sample release.
+- [ ] Final Cai Xukun release review requires green evidence from `node scripts/validate-skill-package.mjs`, `node --test scripts/validate-skill-package.test.mjs`, and `git diff --check`.
+
 ## Installable Package Boundary
 
 - [ ] Confirm the installable Codex Skill package is `skills/visual-ip-illustrations/`.
-- [ ] Confirm `skills/visual-ip-illustrations/` contains `SKILL.md`, `agents/openai.yaml`, `references/routing.md`, Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher canonical IP packs, legacy Xiaohei reference entry points, and skill-local assets.
+- [ ] Confirm `skills/visual-ip-illustrations/` contains `SKILL.md`, `agents/openai.yaml`, `references/routing.md`, Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun canonical IP packs, legacy Xiaohei reference entry points, and skill-local assets.
 - [ ] Confirm root `README.md`, `examples/`, `NOTICE.md`, `LICENSE`, and `RELEASE_CHECKLIST.md` remain public distribution and maintainer docs.
 - [ ] Confirm generated article assets continue to save under route-specific workspace paths instead of inside the skill package.
 - [ ] Confirm Phase 32 owns Seal migration validator check-id cleanup, stale Sealos leakage fixtures, Node test restoration, full validator evidence, full Node evidence, and UAT.
 - [ ] Confirm Phase 37 owns OpenClaw validator parity, final release evidence, public docs/path marker confirmation, and public rendered sample review.
 - [ ] Confirm Phase 42 owns Go Gopher validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation.
+- [ ] Confirm Phase 47 owns Cai Xukun validator parity, Node tests, final release evidence, docs consistency, leakage scan, and public sample gate automation.
 
 ## Public Docs and Path Markers
 
-- [ ] README documents Xiaohei as the default visual IP, Littlebox as an explicit active route, Tom as an explicit `gated-authorized` protected-character route, Ferris as an explicit `source-reviewed` Rust-community mascot route, Seal as an explicit `active` product-neutral hoodie seal route, OpenClaw as an explicit `source-reviewed` logo-mascot route, and Go Gopher as an explicit `source-reviewed` article-mascot route.
+- [ ] README documents Xiaohei as the default visual IP, Littlebox as an explicit active route, Tom as an explicit `gated-authorized` protected-character route, Ferris as an explicit `source-reviewed` Rust-community mascot route, Seal as an explicit `active` product-neutral hoodie seal route, OpenClaw as an explicit `source-reviewed` logo-mascot route, Go Gopher as an explicit `source-reviewed` article-mascot route, and Cai Xukun as an explicit `gated-public-figure` stylized mascot-only route.
 - [ ] README, `examples/prompts.md`, `skills/visual-ip-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `skills/visual-ip-illustrations/references/routing.md` keep public Ferris source/trademark wording aligned.
 - [ ] README, `examples/prompts.md`, `skills/visual-ip-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `skills/visual-ip-illustrations/references/routing.md` keep public Seal source-history wording aligned.
 - [ ] README, `examples/prompts.md`, `skills/visual-ip-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `skills/visual-ip-illustrations/references/routing.md` keep public OpenClaw source/license wording aligned.
 - [ ] README, `examples/prompts.md`, `skills/visual-ip-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `skills/visual-ip-illustrations/references/routing.md` keep public Go Gopher source/license wording aligned.
-- [ ] README and `examples/prompts.md` keep raw and escaped output markers for Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, and Go Gopher: `assets/<article-slug>-illustrations/`, `assets/&lt;article-slug&gt;-illustrations/`, `assets/<article-slug>-littlebox/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/<article-slug>-tom/`, `assets/&lt;article-slug&gt;-tom/`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, `assets/<article-slug>-seal/`, `assets/&lt;article-slug&gt;-seal/`, `assets/<article-slug>-openclaw/`, `assets/&lt;article-slug&gt;-openclaw/`, `assets/<article-slug>-gopher/`, and `assets/&lt;article-slug&gt;-gopher/`.
+- [ ] README, `examples/prompts.md`, `skills/visual-ip-illustrations/agents/openai.yaml`, `NOTICE.md`, `RELEASE_CHECKLIST.md`, and `skills/visual-ip-illustrations/references/routing.md` keep public Cai Xukun source-boundary wording aligned.
+- [ ] README and `examples/prompts.md` keep raw and escaped output markers for Xiaohei, Littlebox, Tom, Ferris, Seal, OpenClaw, Go Gopher, and Cai Xukun: `assets/<article-slug>-illustrations/`, `assets/&lt;article-slug&gt;-illustrations/`, `assets/<article-slug>-littlebox/`, `assets/&lt;article-slug&gt;-littlebox/`, `assets/<article-slug>-tom/`, `assets/&lt;article-slug&gt;-tom/`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, `assets/<article-slug>-seal/`, `assets/&lt;article-slug&gt;-seal/`, `assets/<article-slug>-openclaw/`, `assets/&lt;article-slug&gt;-openclaw/`, `assets/<article-slug>-gopher/`, `assets/&lt;article-slug&gt;-gopher/`, `assets/<article-slug>-caixukun/`, and `assets/&lt;article-slug&gt;-caixukun/`.
 - [ ] README keeps route metadata link `skills/visual-ip-illustrations/references/routing.md`.
-- [ ] README, prompt docs, and release docs keep canonical pack paths for `skills/visual-ip-illustrations/references/ips/xiaohei/`, `skills/visual-ip-illustrations/references/ips/littlebox/`, `skills/visual-ip-illustrations/references/ips/tom/`, `skills/visual-ip-illustrations/references/ips/ferris/`, `skills/visual-ip-illustrations/references/ips/seal/`, `skills/visual-ip-illustrations/references/ips/openclaw/`, and `skills/visual-ip-illustrations/references/ips/gopher/`.
+- [ ] README, prompt docs, and release docs keep canonical pack paths for `skills/visual-ip-illustrations/references/ips/xiaohei/`, `skills/visual-ip-illustrations/references/ips/littlebox/`, `skills/visual-ip-illustrations/references/ips/tom/`, `skills/visual-ip-illustrations/references/ips/ferris/`, `skills/visual-ip-illustrations/references/ips/seal/`, `skills/visual-ip-illustrations/references/ips/openclaw/`, `skills/visual-ip-illustrations/references/ips/gopher/`, and `skills/visual-ip-illustrations/references/ips/caixukun/`.
 - [ ] Ferris public docs keep `skills/visual-ip-illustrations/references/ips/ferris/source.md`, `source-reviewed`, `assets/<article-slug>-ferris/`, `assets/&lt;article-slug&gt;-ferris/`, public Ferris sample release-review wording, and the Phase 15 validator/test boundary visible before v1.2 release.
 - [ ] Seal public docs keep `skills/visual-ip-illustrations/references/ips/seal/source.md`, `active`, source-history authority, hoodie seal identity note, logo-free note, `assets/<article-slug>-seal/`, `assets/&lt;article-slug&gt;-seal/`, public rendered Seal sample release-review wording, and the Phase 32 validator/test boundary visible before v1.6 release.
 - [ ] OpenClaw public docs keep `skills/visual-ip-illustrations/references/ips/openclaw/source.md`, `source-reviewed`, official repository `https://github.com/openclaw/openclaw`, `MIT License`, `Copyright (c) 2026 OpenClaw Foundation`, uploaded-logo authority, `assets/<article-slug>-openclaw/`, `assets/&lt;article-slug&gt;-openclaw/`, public rendered OpenClaw sample release-review wording, and the Phase 37 validator/test boundary visible before public sample release.
 - [ ] Go Gopher public docs keep `skills/visual-ip-illustrations/references/ips/gopher/source.md`, `source-reviewed`, official Go blog source `https://go.dev/blog/gopher`, Renee French attribution, Creative Commons Attribution 4.0 boundary, route-local `skills/visual-ip-illustrations/references/ips/gopher/gopher.png` visual authority, `assets/<article-slug>-gopher/`, `assets/&lt;article-slug&gt;-gopher/`, public rendered Go Gopher sample release-review wording, and the Phase 42 validator/test boundary visible before public sample release.
+- [ ] Cai Xukun public docs keep `skills/visual-ip-illustrations/references/ips/caixukun/source.md`, `gated-public-figure`, aliases `Cai Xukun`, `蔡徐坤`, `caixukun`, and `cxk`, uploaded-image authority, public-figure likeness boundary, source-image context boundary, public sample review gate, route isolation, stylized mascot-only output, `assets/<article-slug>-caixukun/`, `assets/&lt;article-slug&gt;-caixukun/`, endorsement, affiliation, impersonation, campaign, advertising, and fandom-promotion review wording, and the Phase 47 validator/test boundary visible before public generated sample release.
